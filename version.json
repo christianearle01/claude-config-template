@@ -1,0 +1,55 @@
+{
+  "version": "2.1.0",
+  "release_date": "2025-12-05",
+  "release_name": "Persona Routing + Progressive Wizard",
+  "breaking_changes": false,
+  "update_priority": "recommended",
+  "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
+  "repository_url": "https://github.com/christianearle01/claude-config-template",
+  "minimum_claude_version": "2.0.0",
+  "features": [
+    "persona-based-routing",
+    "visual-guides",
+    "progressive-wizard",
+    "validation-checkpoints",
+    "celebratory-milestones"
+  ],
+  "personas_supported": [
+    "first-time",
+    "quick-setup",
+    "advanced",
+    "team-lead",
+    "returning"
+  ],
+  "components": {
+    "documentation": {
+      "START_HERE.md": "2.1.0",
+      "VISUAL_GUIDES.md": "2.1.0",
+      "README.md": "2.1.0"
+    },
+    "templates": {
+      "CLAUDE.md.template": "2.0.0",
+      "coding-standards.md.template": "2.0.0"
+    },
+    "scripts": {
+      "claude-wizard.sh": "2.1.0",
+      "wizard-first-time.sh": "2.1.0",
+      "wizard-quick-setup.sh": "2.1.0",
+      "wizard-advanced.sh": "2.1.0",
+      "wizard-team-lead.sh": "2.1.0",
+      "wizard-returning.sh": "2.1.0",
+      "wizard-helpers.sh": "2.1.0"
+    },
+    "examples": {
+      "hooks": "2.0.0",
+      "mcp-servers": "2.0.0"
+    }
+  },
+  "metadata": {
+    "total_files": 45,
+    "total_lines": 13649,
+    "completion_rate_target": 0.95,
+    "setup_time_target_minutes": 28,
+    "token_savings_target": 0.85
+  }
+}

@@ -41,6 +41,27 @@ A comprehensive, battle-tested template for optimizing your Claude Code setup ac
 - ✅ **Reusable custom agents** for repeated tasks
 - ✅ **Best practices** built into templates
 - ✅ **Version controlled** configs for team collaboration
+- ✅ **Smart update system** with 3-way merge and rollback (NEW!)
+- ✅ **Opt-in analytics** to improve template based on usage (NEW!)
+
+### 🆕 Phase 3: Continuous Improvement (NEW!)
+- ✅ **Versioning System** - Semantic versioning with component tracking
+- ✅ **Update Mechanism** - Check/apply updates with `./scripts/claude-update.sh`
+- ✅ **Persona-Specific Notifications** - Customized "What's New" by user profile
+- ✅ **Opt-In Analytics** - Privacy-first usage tracking (local only, never shared)
+- ✅ **Automatic Backups** - Rollback to any previous state
+- ✅ **CHANGELOG** - Complete version history
+
+**Quick Update:**
+```bash
+# Check for updates
+./scripts/claude-update.sh --check
+
+# Apply updates
+./scripts/claude-update.sh --apply
+```
+
+**→ Full Phase 3 guide:** [PHASE3_UPDATES.md](PHASE3_UPDATES.md)
 
 ---
 
