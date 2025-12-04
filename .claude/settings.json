@@ -1,0 +1,12 @@
+{
+  "model": "sonnet",
+  "alwaysThinkingEnabled": true,
+  "outputStyle": "concise",
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": ["git", "docker", "npm", "python", "pytest", "pip"]
+  },
+  "permissions": {
+    "defaultMode": "plan"
+  }
+}

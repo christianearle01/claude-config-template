@@ -1,0 +1,20 @@
+# Claude Code - Never commit these files
+.claude.json           # Contains API keys and tokens
+.claude/memory.json    # Project-specific context
+.claude/plans/         # Planning artifacts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local

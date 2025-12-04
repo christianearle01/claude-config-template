@@ -1,0 +1,70 @@
+{
+  "description": "Example security-hardened Claude Code settings",
+  "settings": {
+    "model": "sonnet",
+    "alwaysThinkingEnabled": true,
+    "outputStyle": "concise",
+
+    "sandbox": {
+      "enabled": true,
+      "excludedCommands": [
+        "git",
+        "docker",
+        "npm",
+        "python",
+        "pytest",
+        "pip"
+      ]
+    },
+
+    "permissions": {
+      "defaultMode": "plan",
+      "neverAutoApprove": [
+        "Bash(rm*)",
+        "Bash(curl*)",
+        "Bash(wget*)",
+        "Write(**/.*)",
+        "Write(**/.env*)",
+        "Edit(**/.env*)",
+        "Edit(**/.*)"
+      ]
+    },
+
+    "hooks": {
+      "PreToolUse": {
+        "command": "node",
+        "args": [".claude/hooks/detect-prompt-injection.js"],
+        "matchers": [
+          "WebFetch(*)",
+          "WebSearch(*)",
+          "mcp__brave-search__search(*)",
+          "mcp__fetch__fetch(*)",
+          "mcp__context7__get-library-docs(*)"
+        ],
+        "timeout": 2000
+      }
+    }
+  },
+
+  "notes": {
+    "security_level": "Balanced - suitable for most projects",
+    "prompt_injection_protection": "Enabled via PreToolUse hook",
+    "sandbox_mode": "Enabled - prevents unauthorized file system access",
+    "sensitive_commands": "Require manual approval",
+    "hook_timeout": "2 seconds - adjust if needed"
+  },
+
+  "installation": {
+    "step1": "Copy this configuration to your project's .claude/settings.json",
+    "step2": "Copy detect-prompt-injection.js to .claude/hooks/",
+    "step3": "Make hook executable: chmod +x .claude/hooks/detect-prompt-injection.js",
+    "step4": "Test: Restart Claude Code and run /doctor to verify"
+  },
+
+  "customization": {
+    "paranoid_mode": "Set defaultMode to 'ask' for maximum security",
+    "development_mode": "Remove neverAutoApprove for faster iteration",
+    "adjust_patterns": "Edit MALICIOUS_PATTERNS in detect-prompt-injection.js",
+    "disable_hook": "Remove the PreToolUse hook entry temporarily"
+  }
+}

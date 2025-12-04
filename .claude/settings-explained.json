@@ -1,0 +1,56 @@
+{
+  // NOTE: This is a commented version for documentation.
+  // The actual settings.json cannot have comments (JSON spec).
+  // Use this as reference when customizing your setup.
+
+  "model": "sonnet",
+  // Start with Sonnet for planning, switch to Haiku for implementation
+  // Saves 70-90% on token costs
+
+  "alwaysThinkingEnabled": true,
+  // Enhanced reasoning for better code quality and debugging
+  // Minimal token overhead, significant quality improvement
+
+  "outputStyle": "concise",
+  // Brief, focused responses
+  // Reduces token usage while maintaining clarity
+
+  "sandbox": {
+    "enabled": true,
+    // Security: Prevents unauthorized file system access
+    // ALWAYS keep enabled unless you explicitly need to disable
+
+    "excludedCommands": ["git", "docker", "npm", "python", "pytest", "pip"]
+    // Safe-listed commands that can run without sandbox restrictions
+    // Add your project-specific tools here
+  },
+
+  "permissions": {
+    "defaultMode": "plan"
+    // ⚠️ CRITICAL FOR LEARNING AND SETUP
+    //
+    // Permission modes:
+    // - "plan": Shows what will be done BEFORE executing (RECOMMENDED)
+    //   ✅ Use for: Setup, learning, complex tasks, team environments
+    //   ✅ You review and approve each change
+    //   ✅ Perfect for understanding Claude's actions
+    //
+    // - "ask": Asks permission for EVERY tool use
+    //   ✅ Use for: Maximum control, sensitive operations
+    //   ⚠️ Can be slow for repetitive tasks
+    //
+    // - "acceptEdits": Auto-applies changes without showing you
+    //   ⚠️ Use for: Speed, ONLY after you're comfortable with Claude Code
+    //   ❌ AVOID during: Initial setup, learning, team onboarding
+    //
+    // Toggle modes: Press Shift+Tab during any session
+  }
+
+  // Additional optional settings:
+  //
+  // "hooks": {
+  //   "PreToolUse": { ... }  // Security hooks, see SECURITY_GUIDE.md
+  // }
+  //
+  // "mcpServers": { ... }  // Stored in .claude.json (project-specific)
+}

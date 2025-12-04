@@ -1,0 +1,283 @@
+# Project Memory - [PROJECT NAME]
+
+<!--
+ONBOARDING GUIDE:
+This file helps Claude Code understand your project without re-reading files every session.
+
+**First-Time Setup (Joining Existing Project):**
+1. Read [TEMPLATE_PATH]/ONBOARDING_EXISTING_PROJECT.md for detailed setup guide
+2. Ask Claude Code: "Help me document what this application does in CLAUDE.md"
+3. Focus on BUSINESS PURPOSE (what problem it solves), not technical implementation
+4. Document WHY external APIs are used (business purpose), not just THAT they're used
+5. Reference package.json/requirements.txt for tech stack (Claude Code reads it automatically)
+
+**What to Document:**
+✅ What problem does this application solve?
+✅ Key business features (from user perspective)
+✅ Primary user workflows
+✅ WHY external APIs are chosen (business purpose)
+✅ Project-specific conventions and patterns
+❌ DON'T duplicate package.json/requirements.txt dependencies
+❌ DON'T document implementation details (Claude reads code)
+-->
+
+> **Global Standards**: This project follows the coding standards in `~/.claude/coding-standards.md`
+> - 4 spaces indentation (not tabs)
+> - Big O notation thinking
+> - Algorithmic efficiency (target O(n) or better)
+> - Clear naming conventions
+> - Edge case handling
+
+---
+
+## What Does This Application Do?
+
+<!--
+IMPORTANT: This is the most valuable section for Claude Code.
+Describe WHAT the app does (business value), not HOW it works (technical details).
+
+Ask yourself:
+- What problem does this solve for users?
+- Who are the target users?
+- What are the key features from their perspective?
+- What workflows do users follow?
+-->
+
+**[PROJECT NAME]** is a [type of application] that helps [target users] to:
+- [Primary purpose 1 - from user perspective]
+- [Primary purpose 2 - from user perspective]
+- [Primary purpose 3 - from user perspective]
+
+**Core Features:**
+1. **[Feature 1 Name]** - [Business purpose, NOT technical implementation]
+2. **[Feature 2 Name]** - [Business purpose, NOT technical implementation]
+3. **[Feature 3 Name]** - [Business purpose, NOT technical implementation]
+
+**Primary User Workflows:**
+- [Workflow 1: User does X to achieve Y]
+- [Workflow 2: User does A to achieve B]
+- [Workflow 3: System automatically does C when D happens]
+
+**Examples:**
+<!--
+Good: "Real-time collaboration allows multiple users to edit documents simultaneously"
+Bad: "Uses WebSockets to sync state across clients"
+
+Good: "Automated email campaigns increase customer review collection by 40%"
+Bad: "Cron job runs every 12 hours to send emails via SendGrid API"
+-->
+
+---
+
+## Tech Stack
+
+<!--
+NOTE: Claude Code automatically reads package.json / requirements.txt / go.mod / Cargo.toml
+      for full dependency lists. DON'T duplicate that information here.
+
+Only document:
+- High-level tech choices (language, framework, database)
+- WHY you chose each technology
+- Key architectural decisions
+-->
+
+> **Note:** Claude Code automatically reads `package.json` / `requirements.txt` / `go.mod` for dependencies.
+> Only document high-level tech choices and WHY they were chosen.
+
+**Core Technologies:**
+- **Language:** [Python 3.11 / JavaScript / TypeScript / Go / etc.] - Why chosen: [Reason]
+- **Framework:** [Django 4.2 / Express / Flask / React / etc.] - Why chosen: [Reason]
+- **Database:** [PostgreSQL / MongoDB / MySQL / etc.] - Why chosen: [Reason]
+
+**Why These Choices:**
+- [Technology 1]: [Business or technical reason for choosing it]
+- [Technology 2]: [Business or technical reason for choosing it]
+
+**External Integrations:**
+See "External Services & APIs" section below for detailed purposes.
+
+---
+
+## External Services & APIs
+
+<!--
+Document WHY each service is used, not just THAT it's used.
+This helps Claude Code understand the business context of each integration.
+
+For each service, explain:
+- Purpose: What business feature does it enable?
+- Used By: Which parts of the codebase depend on it?
+- Key Operations: What do we do with this API?
+- Configuration: Where are credentials stored?
+-->
+
+### [Service Name 1] (e.g., Stripe)
+- **Purpose:** [What business feature does this enable?]
+- **Used By:** [Which features/modules depend on this?]
+- **Key Operations:** [What we do with this API - create orders, send emails, etc.]
+- **Configuration:** [Where credentials are stored - .env, config/secrets.yml, etc.]
+
+### [Service Name 2] (e.g., SendGrid)
+- **Purpose:** [What business feature does this enable?]
+- **Used By:** [Which features/modules depend on this?]
+- **Key Operations:** [What we do with this API]
+- **Configuration:** [Where credentials are stored]
+
+**Example:**
+<!--
+### Twilio (SMS Messaging)
+- **Purpose:** Send automated review request SMS campaigns to customers
+- **Used By:** Review campaign feature, reminder cron job
+- **Key Operations:** Send SMS, verify phone numbers, receive delivery webhooks
+- **Configuration:** API keys in .env (TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+-->
+
+---
+
+## Code Style & Conventions
+
+- **Indentation**: [4 spaces / 2 spaces / tabs] - [enforced by Prettier / ESLint / Black]
+- **Naming**: [camelCase / snake_case / PascalCase] - [Functions: verb-noun, Classes: noun]
+- **Algorithm Design**: Apply Big O notation thinking, target O(n) or better
+- **Data Structures**: Use HashMap/Set for O(1) lookups, avoid nested loops on same dataset
+- **Code Quality**: Analyze as veteran software engineer, consider edge cases
+- **Line Length**: [80 / 100 / 120 characters]
+- **Import Ordering**: [Example order below]
+
+**Import Order Example:**
+```
+[Language-specific example]
+1. Standard library imports
+2. Third-party imports
+3. Internal project imports
+4. Type imports (if applicable)
+```
+
+**Documentation:** Self-documenting code, comments only where logic is non-obvious
+
+---
+
+## Testing Requirements
+
+- **Test framework:** [pytest / jest / unittest / go test / etc.]
+- **Coverage minimum:** [80% / 90%]
+- **Run tests:** `[command]` (e.g., `npm test`, `pytest`, `go test ./...`)
+- **Run tests before commits:** [Yes/No]
+- **Test file naming:** [test_*.py / *.test.js / *_test.go]
+- **Test organization:** [Co-located with source / Separate tests/ directory]
+
+---
+
+## Development Workflow
+
+- **Main branch:** [main / master / develop]
+- **Feature branches:** [feature/name / feat/name / other pattern]
+- **Commit message style:** [Conventional Commits / custom format]
+- **PR requirements:** [Tests pass, coverage maintained, reviewed, etc.]
+
+---
+
+## Important Files & Locations
+
+- **Main entry point:** [path/to/main.file] (e.g., `src/server.ts`, `main.py`, `cmd/main.go`)
+- **Configuration:** [path/to/config files]
+- **Tests:** [path/to/tests]
+- **Documentation:** [path/to/docs]
+- **Build output:** [dist/, build/, bin/, etc.]
+- **Dependencies:** [node_modules/, vendor/, venv/, etc.]
+
+---
+
+## Project Structure (For Agent Coordination)
+
+<!--
+Help Claude Code understand where to find things without exploring
+-->
+
+- **Main application:** [path to main app code]
+- **API endpoints:** [path to API routes/controllers]
+- **Business logic:** [path to services/handlers]
+- **Database layer:** [path to models/repositories]
+- **Tests:** [path to test files]
+- **Configuration:** [path to config files]
+- **Utilities/Helpers:** [path to utils]
+
+---
+
+## Security & Privacy
+
+- **Environment variables location:** [.env / config/secrets.yml / etc.]
+- **Sensitive data patterns to avoid:** [API keys, passwords, tokens, PII]
+- **Files to never commit:** [.env, credentials.json, *.key, secrets/, etc.]
+- **Security requirements:** [Input validation, SQL injection prevention, XSS protection, etc.]
+
+**SQL Safety (if applicable):**
+- Use parameterized queries ONLY (never string concatenation)
+- [Library-specific guidance: e.g., "Use ? placeholders with mysql2"]
+
+---
+
+## Common Commands
+
+- **Start development:** `[command]` (e.g., `npm run dev`, `python manage.py runserver`)
+- **Run tests:** `[command]` (e.g., `npm test`, `pytest`, `go test ./...`)
+- **Build for production:** `[command]` (e.g., `npm run build`, `make build`)
+- **Database migrations:** `[command]` (e.g., `npm run migrate`, `alembic upgrade head`)
+- **Linting:** `[command]` (e.g., `npm run lint`, `flake8`)
+- **Format code:** `[command]` (e.g., `npm run format`, `black .`)
+
+---
+
+## Onboarding Checklist
+
+**For New Developers (First-Time Setup):**
+- [ ] Clone repository and install dependencies: `[command]`
+- [ ] Set up local database: `[commands or reference]`
+- [ ] Run migrations (if applicable): `[command]`
+- [ ] Copy `.env.example` to `.env` and fill in credentials
+- [ ] Run tests to verify setup: `[command]`
+- [ ] Start dev server: `[command]`
+- [ ] Read this CLAUDE.md file completely
+- [ ] Review [path to additional docs, if any]
+
+**For Claude Code (First-Time Project Analysis):**
+- [ ] Read this CLAUDE.md for project context
+- [ ] Review package.json/requirements.txt for tech stack
+- [ ] Identify main entry point: [path/to/main.file]
+- [ ] Review [coding guidelines document path, if exists]
+- [ ] Understand project structure (see above)
+- [ ] Note external API purposes (see "External Services & APIs")
+
+---
+
+## Agent Optimization Notes
+
+<!--
+Help Claude Code work more efficiently by:
+1. Listing large directories to avoid
+2. Referencing existing patterns instead of re-analyzing
+3. Noting what's already complete
+-->
+
+**Skip These (Don't Read Unless Explicitly Asked):**
+- [node_modules/ / vendor/ / venv/ - dependencies]
+- [dist/ / build/ / bin/ - build output]
+- [coverage/ / .coverage/ - test reports]
+- [.git/ - version control]
+- [migrations/ - database migrations (unless working on them)]
+
+**Reference Instead of Re-reading:**
+- "Follow [ExampleController] pattern for new controllers"
+- "See [example_service.ts] for service structure"
+- "Use [ExampleModel] as template for new models"
+- [Add project-specific reference patterns]
+
+**Architecture Summary (Quick Reference):**
+- Pattern: [MVC / Microservices / Monolith / Clean Architecture / Hexagonal / etc.]
+- Request flow: [e.g., "Request → Controller → Service → Model → Database"]
+- [Any other high-level architectural notes]
+
+---
+
+**Last Updated:** [Date]
+**Maintained By:** [Team/Person name]
