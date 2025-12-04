@@ -2,7 +2,11 @@
 
 **Welcome!** This template helps you set up Claude Code efficiently based on YOUR needs.
 
-👉 **[Choose Your Profile in 30 Seconds](START_HERE.md)** 👈
+## 🚀 New User? Start Here!
+
+👉 **[GETTING STARTED - Quick 5-Minute Setup](GETTING_STARTED.md)** 👈
+
+Already familiar? **[Choose Your Profile](START_HERE.md)**
 
 ---
 
