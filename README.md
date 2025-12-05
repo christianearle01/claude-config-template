@@ -16,6 +16,7 @@ Not sure where to start? Select your profile:
 
 | Profile | Time | What You'll Get | Jump To |
 |---------|------|----------------|---------|
+| 🎯 **Planning New Project** | 25-30 min | Tech stack recommendations, project plan, CLAUDE.md draft | [Planning Guide](03_pre-project-planning/must-have/01_planning-guide.md) |
 | 🆕 **First-Time Learner** | 60-90 min | Complete understanding + working setup | [Installation Guide](01_global-setup/must-have/01_installation.md) |
 | ⚡ **Quick Setup** | 15-30 min | Configured project, ready to code | [Project Setup](02_project-onboarding/must-have/01_onboarding-guide.md) |
 | 🚀 **Advanced** | 20-40 min | Security hooks, custom agents, MCP servers | [Security Guide](01_global-setup/nice-to-have/01_security-guide.md) |
@@ -100,7 +101,7 @@ This template is fully compatible with **both** official Claude Code interfaces:
 - **Model Switching** - Sonnet/Haiku/Opus ([Model Switching](01_global-setup/good-to-have/01_model-switching.md))
 - **MCP Servers** - Memory, Filesystem, Context7, etc. ([MCP Setup](01_global-setup/good-to-have/02_mcp-setup.md))
 - **Security Hooks** - Prompt injection detection ([Security Guide](01_global-setup/nice-to-have/01_security-guide.md))
-- **Custom Agents** - Prompt Polisher, specialized workflows ([Agent Coordination](01_global-setup/nice-to-have/03_agent-coordination.md))
+- **Custom Agents** - Prompt Polisher, Project Planner, specialized workflows ([Agent Coordination](01_global-setup/nice-to-have/03_agent-coordination.md))
 
 **VS Code Extension Features:**
 - **Secondary Sidebar** - Display in right sidebar (VS Code 1.97+) ([Installation Guide](01_global-setup/must-have/01_installation.md#option-2-claude-code-vs-code-extension))
@@ -111,6 +112,7 @@ This template is fully compatible with **both** official Claude Code interfaces:
 - **Persona-Based Routing** - 5 user profiles ([START_HERE.md](START_HERE.md))
 - **Visual Guides** - 5 Mermaid diagrams ([VISUAL_GUIDES.md](VISUAL_GUIDES.md))
 - **Update System** - Check/apply updates ([PHASE3_UPDATES.md](PHASE3_UPDATES.md))
+- **Project Planning Agent** (NEW!) - Plan new projects before code exists ([project-planner](.claude/agents/project-planner.md))
 - **CLAUDE.md Template** - Project memory system ([templates/](templates/))
 
 **Search by Use Case:**
@@ -119,6 +121,7 @@ This template is fully compatible with **both** official Claude Code interfaces:
 - **Learning** → Educational Modes, Visual Guides, Toggle Thinking
 - **Productivity** → Background Tasks, Keyboard Shortcuts, Custom Agents
 - **Team Collaboration** → CLAUDE.md, Team Onboarding, Version Control
+- **New Projects** → Project Planner Agent (plan architecture before coding)
 
 ---
 
@@ -178,7 +181,7 @@ git checkout v2.1.0
 ---
 
 ### 02_project-onboarding/
-**Per-project setup (repeat for each project)**
+**Per-project setup (for EXISTING codebases)**
 
 #### must-have/ ⚠️ **Read these first** (required)
 - [`01_onboarding-guide.md`](02_project-onboarding/must-have/01_onboarding-guide.md) - Set up Claude Code for existing project
@@ -194,10 +197,36 @@ git checkout v2.1.0
 
 ---
 
+### 03_pre-project-planning/ 🆕 **NEW!**
+**Plan NEW projects BEFORE writing code**
+
+#### must-have/ ⚠️ **Start here**
+- [`01_planning-guide.md`](03_pre-project-planning/must-have/01_planning-guide.md) - Complete guide to using project-planner agent
+- [`README.md`](03_pre-project-planning/README.md) - Overview and quick start
+
+**Quick Start:**
+```bash
+# In Claude Code, invoke the agent:
+@project-planner I want to build [your project idea]
+```
+
+**What You Get:**
+- Project planning summary (problem, users, features)
+- Tech stack recommendations with rationale
+- CLAUDE.md template draft
+- Next steps checklist
+- Learning resources
+- Migration paths (escape hatches)
+
+**Example Output:** See [`project-plan-template.md`](templates/project-plan-template.md)
+
+---
+
 ### templates/
 Pre-built templates to copy into your projects:
 - [`CLAUDE.md.template`](templates/CLAUDE.md.template) - Project memory template
 - [`coding-standards.md.template`](templates/coding-standards.md.template) - Global coding standards
+- [`project-plan-template.md`](templates/project-plan-template.md) - Example project plan output 🆕
 
 ---
 

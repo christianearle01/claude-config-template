@@ -171,6 +171,59 @@ Remember key commands, model switching strategy, and any new template features.
 
 ---
 
+## 🎯 Planning a New Project
+
+**You are:** Have a project idea but NO code yet, need planning help
+**Time commitment:** 25-30 minutes
+**What you'll get:** Complete project plan, tech stack recommendations, CLAUDE.md draft
+
+### Your Personalized Path
+
+**→ Jump to:** [Pre-Project Planning Guide](03_pre-project-planning/must-have/01_planning-guide.md)
+
+**Quick Start:**
+```bash
+# In Claude Code, invoke the project-planner agent:
+@project-planner I want to build [describe your project idea]
+
+# Example:
+@project-planner I want to build a task management SaaS for small teams
+```
+
+### Planning Conversation Flow
+
+The project-planner agent will guide you through 4 phases:
+
+1. **Discovery** (5 min) - Understand your idea and constraints
+2. **Exploration** (10-15 min) - Discuss architectural approaches
+3. **Recommendation** (5 min) - Receive tech stack recommendations
+4. **Documentation** (5 min) - Get CLAUDE.md draft and next steps
+
+### What You'll Receive
+
+- [ ] Project Planning Summary (problem, users, features)
+- [ ] Tech stack recommendations with WHY for each choice
+- [ ] CLAUDE.md template draft (ready to use)
+- [ ] Next steps checklist (concrete action items)
+- [ ] Learning resources (tailored to your skill level)
+- [ ] Migration paths (how to change decisions later)
+- [ ] ✅ **Ready to start coding!**
+
+### Success Criteria
+
+You can articulate your project vision, understand recommended tech choices, and have a concrete plan to start building.
+
+### After Planning
+
+Once you've completed planning:
+1. Create your project repository
+2. Copy `.claude/` configuration: `cp -r ~/Developer/claude-config-template/.claude .`
+3. Use your generated CLAUDE.md draft
+4. Initialize your tech stack (framework, database, etc.)
+5. **Then use:** [Project Onboarding](02_project-onboarding/) for ongoing development
+
+---
+
 ## Quick Reference Card
 
 ### Essential Commands
@@ -307,19 +360,23 @@ Claude: [Analyzes changes, creates semantic commit message]
 
 ### Decision Tree
 
-**Question 1: Have you used Claude Code before?**
+**Question 1: Do you have an existing project or starting from scratch?**
+- **New project, no code yet** → 🎯 **Planning a New Project**
+- **Existing project** → Continue to Question 2
+
+**Question 2: Have you used Claude Code before?**
 - **No** → 🆕 **First-Time Learner**
 - **Yes, but it's been months** → 🔄 **Returning User**
-- **Yes, I use it regularly** → Continue to Question 2
+- **Yes, I use it regularly** → Continue to Question 3
 
-**Question 2: What's your goal today?**
+**Question 3: What's your goal today?**
 - **Set up one project** → ⚡ **Quick Setup User**
 - **Add advanced features** → 🚀 **Advanced Optimizer**
 - **Set up for my team** → 👥 **Team Lead**
 
-**Question 3: How much time do you have?**
+**Question 4: How much time do you have?**
 - **10-20 minutes** → 🔄 Returning User or ⚡ Quick Setup
-- **15-30 minutes** → ⚡ Quick Setup User
+- **15-30 minutes** → ⚡ Quick Setup User or 🎯 Planning a New Project
 - **30-60 minutes** → 🚀 Advanced Optimizer
 - **60-90 minutes** → 🆕 First-Time Learner
 - **90-120 minutes** → 👥 Team Lead
@@ -344,7 +401,7 @@ claude-config-template/
 │   └── nice-to-have/            ← Advanced topics
 │       └── 01_security-guide.md
 │
-├── 02_project-onboarding/       ← Per-project setup
+├── 02_project-onboarding/       ← Per-project setup (existing code)
 │   ├── must-have/               ← Start here (required)
 │   │   ├── 01_onboarding-guide.md
 │   │   └── 02_setup-checklist.md
@@ -353,12 +410,19 @@ claude-config-template/
 │       ├── 02_optimization-guide.md
 │       └── 03_team-onboarding.md
 │
+├── 03_pre-project-planning/     ← NEW! Plan new projects (no code yet)
+│   ├── must-have/               ← Start here
+│   │   └── 01_planning-guide.md
+│   └── README.md                ← Overview
+│
 ├── templates/                    ← Copy these to your project
 │   ├── CLAUDE.md.template
+│   ├── project-plan-template.md ← NEW! Example output
 │   └── .gitignore.template
 │
 └── .claude/                      ← Configuration files
     ├── agents/                   ← Custom agents
+    │   └── project-planner.md   ← NEW! Planning agent
     ├── commands/                 ← Slash commands
     ├── hooks/                    ← Security hooks
     └── settings.json             ← Template settings
@@ -396,6 +460,16 @@ claude-config-template/
 ---
 
 ## 🚀 Ready to Start?
+
+### Planning a New Project → Start Here
+```bash
+# In Claude Code, invoke the project-planner agent:
+@project-planner I want to build [your project idea]
+
+# Or read the guide:
+cd 03_pre-project-planning/must-have
+# Read 01_planning-guide.md
+```
 
 ### First-Time Learner → Start Here
 ```bash

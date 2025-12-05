@@ -90,6 +90,89 @@ Quality improvement: Specific location, clear requirements, reference pattern
 - How to break down vague requests into clear requirements
 - How to estimate and reduce token costs
 
+---
+
+### 🎯 project-planner
+
+**Purpose:** Collaborative project planning assistant that helps you architect new projects before any code exists. Uses 6-perspective analysis (Psychological, Educator, Software Engineering, Product/UX, DevOps, Security) to guide systematic planning.
+
+**When to use:**
+- Starting a brand new project (before writing code)
+- Need architecture guidance and tech stack recommendations
+- Want to validate your project idea with technical feedback
+- Planning but want to avoid analysis paralysis
+
+**How to use:**
+
+```bash
+# In Claude Code, invoke with @-mention:
+@project-planner I want to build a task management app
+
+# The agent will:
+1. Ask clarifying questions about your project
+2. Understand your skill level and constraints
+3. Recommend appropriate tech stack with rationale
+4. Generate a project plan with next steps
+5. Create a CLAUDE.md template draft for your project
+```
+
+**Example session:**
+
+```
+You: @project-planner I want to build a SaaS for freelancers to track time and invoice clients
+
+Agent:
+I'd love to help you plan this! Let me ask a few questions:
+
+1. What's your experience level with web development?
+2. Are you building solo or with a team?
+3. Roughly how many users do you expect initially? (10? 100? 1000?)
+4. What tech are you comfortable with?
+
+[After your responses...]
+
+Based on our conversation, here's what I recommend:
+
+**Tech Stack:**
+- Language: TypeScript (type safety helps as codebase grows)
+- Framework: Next.js (full-stack, easy deployment)
+- Database: PostgreSQL (relational data: clients, projects, invoices)
+- Hosting: Vercel + Railway (fast setup, free tiers)
+
+**Why these choices:**
+[Detailed rationale...]
+
+**Next Steps:**
+1. Set up Next.js project
+2. Design database schema (clients, projects, time_entries, invoices)
+3. Build authentication first
+4. Start with time tracking feature
+
+**Migration paths:**
+- Can add mobile app later with React Native
+- Can self-host if you outgrow Vercel
+- Database can scale to millions of records
+
+Would you like me to generate a full project plan document?
+```
+
+**What you learn:**
+- How to think systematically about project planning
+- Key questions to ask when starting any project
+- Trade-offs between different architectural approaches
+- How to choose tech stack based on requirements, not hype
+
+**Output:**
+- Comprehensive project planning summary
+- Tech stack recommendations with rationale
+- Project structure outline
+- CLAUDE.md template draft
+- Next steps checklist
+- Learning resources
+- Migration paths (if you need to change decisions later)
+
+---
+
 ## Creating Your Own Agents
 
 Custom agents live in `.claude/agents/` and use markdown frontmatter:
@@ -133,6 +216,8 @@ Consider creating agents for:
 - **test-generator**: Creates tests following project patterns
 - **doc-writer**: Documents code in your preferred style
 - **security-checker**: Checks for common security issues
+- **refactoring-guide**: Suggests refactoring patterns for cleaner code
+- **performance-optimizer**: Identifies performance bottlenecks
 
 ## Sharing Agents with Team
 

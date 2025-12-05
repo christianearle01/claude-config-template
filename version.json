@@ -1,7 +1,7 @@
 {
-  "version": "2.2.1",
-  "release_date": "2025-12-07",
-  "release_name": "Claude Code 2.0 Features + Educational Modes Refinement",
+  "version": "2.3.0",
+  "release_date": "2025-12-05",
+  "release_name": "Claude Code 2.0 Features + Project Planning Agent",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -17,7 +17,8 @@
     "background-tasks",
     "educational-output-styles",
     "keyboard-shortcuts",
-    "vscode-extension-features"
+    "vscode-extension-features",
+    "pre-project-planning-agent"
   ],
   "personas_supported": [
     "first-time",
@@ -28,15 +29,21 @@
   ],
   "components": {
     "documentation": {
-      "START_HERE.md": "2.1.0",
+      "START_HERE.md": "2.3.0",
       "VISUAL_GUIDES.md": "2.1.0",
-      "README.md": "2.2.0",
+      "README.md": "2.3.0",
       "01_global-setup/must-have/01_installation.md": "2.2.0",
-      "01_global-setup/must-have/02_quick-start.md": "2.2.1"
+      "01_global-setup/must-have/02_quick-start.md": "2.2.1",
+      "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
+      "03_pre-project-planning/README.md": "2.3.0"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",
-      "coding-standards.md.template": "2.0.0"
+      "coding-standards.md.template": "2.0.0",
+      "project-plan-template.md": "2.3.0"
+    },
+    "agents": {
+      "project-planner.md": "2.3.0"
     },
     "scripts": {
       "claude-wizard.sh": "2.1.0",
@@ -53,10 +60,11 @@
     }
   },
   "metadata": {
-    "total_files": 45,
-    "total_lines": 13649,
+    "total_files": 50,
+    "total_lines": 21500,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
-    "token_savings_target": 0.85
+    "token_savings_target": 0.85,
+    "planning_time_target_minutes": 30
   }
 }
