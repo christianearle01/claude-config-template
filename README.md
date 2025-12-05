@@ -134,6 +134,21 @@ This template follows [semantic versioning](https://semver.org/). Historical ver
 - **Version Branches:** `release/v2.0.0`, `release/v2.1.0`, `release/v2.2.0`, `release/v2.2.1`
 - **Git Tags:** `v2.0.0`, `v2.1.0`, `v2.2.0`, `v2.2.1`
 - **Phase Branches:** `phase-1-persona-routing`, `phase-2-wizard`, `phase-3-updates` (development)
+- **Historical Versions:** `historical/v1.0-original` - See [HISTORICAL_VERSIONS.md](HISTORICAL_VERSIONS.md)
+
+### Historical Versions
+
+This template has evolved significantly. Previous versions are preserved in historical branches:
+
+- **[Version 1.0](../../tree/historical/v1.0-original)** - Original template (pre-v2.0)
+  - Flat structure, simple setup focus, prompt optimization guides
+  - 10 core files vs 50+ in v2.x
+  - See [HISTORICAL_VERSIONS.md](HISTORICAL_VERSIONS.md) for details
+
+**Compare versions:**
+```bash
+git diff main historical/v1.0-original --stat
+```
 
 ### Checkout a Specific Version
 
