@@ -14,6 +14,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.1] - 2025-12-07
+
+### Changed - Educational Modes Clarity
+- **Refined Educational Modes guidance** - Shifted from skill-level framing to novelty-based approach
+  - Updated "Best for" lists in Explanatory and Learning modes to include all skill levels based on familiarity
+  - Added "When to Use Educational Modes (By Familiarity)" section with persona-specific guidance (🆕📚🚀)
+  - Enhanced comparison table with "Situation/Novelty" column and persona emojis
+  - Added ROI insight highlighting intermediate developers as highest-benefit group
+  - Key change: Educational modes benefit based on NOVELTY (Zone of Proximal Development), not absolute skill level
+
+### Improved
+- **Documentation accuracy** - Educational modes now correctly positioned as tools for learning NEW concepts at any skill level
+- **User targeting** - Intermediate developers now understand they're the highest-ROI group (40-60% usage expected)
+- **Decision-making** - Users can now choose modes based on familiarity ("Is this new to ME?"), not just skill level
+
+### Documentation Stats
+- **Refined documentation:** ~60 lines modified/added in 02_quick-start.md
+- **New guidance sections:** 1 ("When to Use Educational Modes (By Familiarity)")
+- **Enhanced tables:** 1 (added Situation/Novelty column with legend)
+- **New callouts:** 1 (ROI Insight for intermediate developers)
+
+---
+
 ## [2.2.0] - 2025-12-06
 
 ### Added - Claude Code 2.0 Features

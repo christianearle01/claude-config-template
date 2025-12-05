@@ -579,10 +579,10 @@ Enable special output modes when learning new concepts or onboarding to complex 
 Detailed explanations with context for every change.
 
 **Best for:**
-- Understanding complex algorithms
-- Learning new frameworks
-- Onboarding to unfamiliar codebases
-- Team training sessions
+- 🆕 **First-Time Learners** - Building foundational understanding of all concepts
+- 📚 **Intermediate Learners** - Connecting dots between concepts, filling knowledge gaps
+- 🚀 **Advanced Learners** - Understanding complex algorithms or architectural decisions in new domains
+- **When:** Any code/pattern you haven't seen before, regardless of skill level
 
 **Example output:**
 ```
@@ -599,10 +599,10 @@ You get: "Added error handling using try-catch blocks because:
 Step-by-step breakdown with educational notes.
 
 **Best for:**
-- First-time learners
-- Junior developers
-- Understanding new patterns
-- Teaching moments
+- 🆕 **First-Time Learners** - Step-by-step guidance through every concept
+- 📚 **Intermediate Learners** - Breaking down unfamiliar patterns into digestible steps
+- 🚀 **Advanced Learners** - Learning new frameworks, languages, or paradigms
+- **When:** You need explicit step-by-step breakdown due to unfamiliarity (not skill)
 
 **Example output:**
 ```
@@ -636,13 +636,52 @@ You: "Use explanatory mode for this task"
 You: "Use learning mode to help me understand"
 ```
 
+### When to Use Educational Modes (By Familiarity)
+
+Educational modes benefit you most when you're in the **"learning zone"** - concepts that are new/unfamiliar but learnable. Use this guide:
+
+**🆕 First-Time Learners:**
+- **Always in learning zone** for this codebase → Use educational modes consistently
+- Start with Learning Mode, graduate to Explanatory as you gain confidence
+- Expected usage: 80-90% of interactions
+
+**📚 Intermediate Developers:**
+- **Often in learning zone** as you expand skills → Use educational modes frequently
+- Toggle modes based on task familiarity (new patterns = educational, familiar patterns = normal)
+- Expected usage: 40-60% of interactions
+- **Highest ROI group** - you're actively bridging knowledge gaps
+
+**🚀 Advanced Developers:**
+- **Sometimes in learning zone** when exploring new domains → Use educational modes selectively
+- Enable when: New framework, unfamiliar language, novel architecture pattern
+- Disable when: Working in expert territory (use normal mode for speed)
+- Expected usage: 10-20% of interactions
+
+**Key Insight:** These modes help with NOVELTY, not skill level. Even experts benefit when learning new technologies.
+
 **When to use each mode:**
 
-| Mode | Best For | Avoid When |
-|------|----------|-----------|
-| **Explanatory** | Complex logic, architectural decisions | Simple changes, bulk operations |
-| **Learning** | New patterns, onboarding | Time-critical tasks, production |
-| **Normal** | Daily development, speed | Learning opportunities |
+| Mode | Best For | Situation/Novelty | Avoid When |
+|------|----------|-------------------|-----------|
+| **Explanatory** | Complex logic, architectural decisions | 🆕 Completely new concepts<br>📚 Connecting familiar pieces in new ways<br>🚀 Expert in new domain | Simple changes, bulk operations, time pressure |
+| **Learning** | Step-by-step breakdowns | 🆕 First exposure to patterns<br>📚 Unfamiliar syntax/paradigms<br>🚀 New language/framework | Familiar tasks, production fixes, routine work |
+| **Normal** | Daily development, speed | ✅ Working in expert territory<br>✅ Familiar patterns<br>✅ Time-critical tasks | Learning opportunities, unfamiliar concepts |
+
+**Legend:**
+- 🆕 = First-Time Learner (always in learning zone)
+- 📚 = Intermediate Developer (often in learning zone)
+- 🚀 = Advanced Developer (sometimes in learning zone)
+- ✅ = Any skill level when working with familiar concepts
+
+**💡 ROI Insight:**
+
+Intermediate developers get the **highest return on investment** from educational modes because:
+1. You're actively expanding your skill set (not learning basics)
+2. You can recognize patterns faster than beginners
+3. You're building expertise in your focus areas
+4. Educational explanations accelerate your "aha moments"
+
+If you're between beginner and expert - educational modes are your superpower! 🚀
 
 ### Try It Now: Background Tasks
 

@@ -1,7 +1,7 @@
 {
-  "version": "2.2.0",
-  "release_date": "2025-12-06",
-  "release_name": "Claude Code 2.0 Features",
+  "version": "2.2.1",
+  "release_date": "2025-12-07",
+  "release_name": "Claude Code 2.0 Features + Educational Modes Refinement",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -32,7 +32,7 @@
       "VISUAL_GUIDES.md": "2.1.0",
       "README.md": "2.2.0",
       "01_global-setup/must-have/01_installation.md": "2.2.0",
-      "01_global-setup/must-have/02_quick-start.md": "2.2.0"
+      "01_global-setup/must-have/02_quick-start.md": "2.2.1"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",
