@@ -4,91 +4,130 @@
 
 ### 🎨 prompt-polisher
 
-**Purpose:** Transforms vague, inefficient prompts into optimized, specific requests that save 50-80% on token costs.
+**Purpose:** Transforms vague, inefficient prompts into optimized, context-rich requests using 12+ techniques. Teaches prompt engineering while polishing. Saves 50-80% tokens.
 
 **When to use:**
-- Before making a complex request to Claude
+- Before making any request to Claude (simple or complex)
 - When you want to learn better prompting techniques
 - To see how your prompt could be improved
+- When you want to understand WHY improvements help
+
+**The 3-Tier System:**
+
+- **🎯 Tier 1: Core Rules** (always applied) - Be Specific, Provide Context, Reference Files, Tell What to Skip, Break into Steps
+- **⚡ Tier 2: Power Techniques** (task-dependent) - @-mentions, CLAUDE.md references, Plan Mode, XML tags, Chain of Thought
+- **🚀 Tier 3: Expert Techniques** (situational) - Few-shot examples, Output formats, Role/persona, Success criteria
 
 **How to use:**
 
 ```bash
 # In Claude Code, invoke with @-mention:
-@prompt-polisher Here's my prompt: "Fix the API integration"
+@prompt-polisher Fix the login bug
 
 # The agent will:
-1. Analyze what's wrong with your prompt
-2. Apply the 5 golden rules of optimization
-3. Return a polished version
-4. Explain what was improved and why
-5. Show expected token savings
+1. Analyze your prompt (task type, complexity, current quality)
+2. Select appropriate techniques intelligently
+3. Return immediately usable polished version
+4. Explain WHY each improvement helps
+5. Teach you techniques for next time
+6. Show expected token savings
 ```
 
 **Example session:**
 
 ```
-You: @prompt-polisher I need to add error handling to the lead posting
+You: @prompt-polisher Fix the login bug
 
 Agent:
 ## 📝 Original Prompt Analysis
-Your prompt is vague - which lead posting? What kind of errors? Where?
 
-Issues identified:
-- ❌ No specific file or method mentioned
-- ❌ No context about current error handling
-- ❌ Unclear what errors to handle
-- ❌ No reference to existing patterns
+**What you did well:** ✅
+- Identified it's a bug fix task
 
-Estimated cost: 8,000 tokens
+**Opportunities for improvement:** 📈
+- ❌ No file specified → Needs Specificity (#1)
+- ❌ No description of bug → Needs Context (#2)
+- ❌ No scope defined → Needs Skip Instructions (#4)
+
+**Task type detected:** Debugging
+**Complexity level:** Unknown (need details)
+**Estimated cost:** 8,000 tokens
 
 ---
 
 ## ✨ Polished Prompt
 
-Add error handling to LeadProsper lead posting in app/leadprosper_client.py
+Fix the login authentication bug in `app/auth/LoginController.ts`
 
-Location: post_lead() method (line 127)
+**Issue:** Users with valid credentials get "Invalid password" error
+**Occurs when:** Password contains special characters (!@#$%)
+**Current behavior:** Line 67 compares plain text without encoding
+**Expected behavior:** Passwords should be compared after UTF-8 encoding
 
-Current behavior: Direct API call with no retry logic
-Errors to handle:
-- ConnectionError: Retry 3 times with exponential backoff
-- Timeout: Log and return error response
-- HTTPError 401: Refresh token and retry once
-- HTTPError 4xx/5xx: Log and return error dict
+**Context:**
+- Using bcrypt for password hashing
+- Special character encoding added in User model (line 34)
+- LoginController not updated to match
 
-Pattern reference: app/quotewizard_client.py:145-167 has similar error handling
+**Fix needed:**
+- Encode password input before bcrypt comparison
+- Follow pattern from UserService.updatePassword() (line 120)
 
-Error response format:
-{
-  "success": false,
-  "error": "error message",
-  "vendor": "leadprosper"
-}
+**Test with:** User email test@example.com, password "Pass!@#2024"
 
-Skip: Other vendor clients (will add separately)
+**Skip:** Other auth files (registration, password reset) - they work correctly
+
+---
+
+## 🔍 Improvements Made
+
+**Tier 1 - Core Rules Applied:**
+1. **Be Specific (#1)**: Added file path, line number, exact error, test case
+2. **Provide Context (#2)**: Explained bcrypt usage, related model changes
+3. **Reference Files (#3)**: Pointed to UserService pattern
+4. **Tell What to Skip (#4)**: Excluded working auth files
 
 ---
 
 ## 📊 Expected Impact
 
-Estimated cost: 1,500 tokens
-Savings: ~81% (6,500 tokens saved)
-Quality improvement: Specific location, clear requirements, reference pattern
+**Original estimated cost:** 8,000 tokens
+**Optimized estimated cost:** 1,200 tokens
+**Savings:** 85% (6,800 tokens saved)
+
+**Quality improvements:**
+- Claude won't need to explore entire auth system
+- Clear context prevents wrong solution approaches
+- Reference pattern ensures consistency
 
 ---
 
-## 💡 Pro Tips for This Task
-1. Check if app/validators.py has retry utilities to reuse
-2. Make timeout configurable via .env (LEADPROSPER_TIMEOUT)
-3. Add error metrics for monitoring vendor reliability
+## 💡 Technique Guide for Next Time
+
+**What you learned today:**
+- **Specificity (#1)**: File path + line number = Claude goes straight there
+- **Context (#2)**: Explaining "why" prevents wrong solutions
+
+**Try this next time:**
+Add exact error message from logs if you have it!
+
+**Level up opportunity:** 🚀
+For debugging, try adding **Chain of Thought (#10)** - ask Claude to think step by step!
 ```
 
 **What you learn:**
-- How to be specific with file paths and line numbers
-- How to provide context and reference existing code
-- How to break down vague requests into clear requirements
-- How to estimate and reduce token costs
+- 14 prompt optimization techniques across 3 tiers
+- When to apply which techniques (intelligent selection)
+- WHY each technique improves results
+- How to write better prompts independently
+- Progressive learning path (basic → power → expert)
+
+**Key Features:**
+- ✅ Works on ANY project (reads your CLAUDE.md if available)
+- ✅ Intelligent technique selection (doesn't dump all 12 at once)
+- ✅ Educational focus (teaches while polishing)
+- ✅ Encourages growth (suggests next-level techniques)
+- ✅ 5 diverse examples (debugging, features, reviews, refactoring, docs)
 
 ---
 

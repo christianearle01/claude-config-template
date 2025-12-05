@@ -1,7 +1,7 @@
 {
-  "version": "2.3.0",
+  "version": "2.4.0",
   "release_date": "2025-12-05",
-  "release_name": "Claude Code 2.0 Features + Project Planning Agent",
+  "release_name": "Enhanced Prompt Polisher - 14 Techniques with Intelligent Selection",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -18,7 +18,10 @@
     "educational-output-styles",
     "keyboard-shortcuts",
     "vscode-extension-features",
-    "pre-project-planning-agent"
+    "pre-project-planning-agent",
+    "enhanced-prompt-polisher-3-tier",
+    "intelligent-technique-selection",
+    "dynamic-claude-md-context"
   ],
   "personas_supported": [
     "first-time",
@@ -43,7 +46,8 @@
       "project-plan-template.md": "2.3.0"
     },
     "agents": {
-      "project-planner.md": "2.3.0"
+      "project-planner.md": "2.3.0",
+      "prompt-polisher.md": "2.4.0"
     },
     "scripts": {
       "claude-wizard.sh": "2.1.0",
@@ -61,10 +65,11 @@
   },
   "metadata": {
     "total_files": 50,
-    "total_lines": 21500,
+    "total_lines": 22400,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
     "token_savings_target": 0.85,
-    "planning_time_target_minutes": 30
+    "planning_time_target_minutes": 30,
+    "prompt_optimization_techniques": 14
   }
 }
