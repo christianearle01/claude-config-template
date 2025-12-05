@@ -122,6 +122,39 @@ This template is fully compatible with **both** official Claude Code interfaces:
 
 ---
 
+## 📦 Version History & Branches
+
+This template follows [semantic versioning](https://semver.org/). Historical versions are preserved for easy access:
+
+### Available Versions
+
+- **Version Branches:** `release/v2.0.0`, `release/v2.1.0`, `release/v2.2.0`, `release/v2.2.1`
+- **Git Tags:** `v2.0.0`, `v2.1.0`, `v2.2.0`, `v2.2.1`
+- **Phase Branches:** `phase-1-persona-routing`, `phase-2-wizard`, `phase-3-updates` (development)
+
+### Checkout a Specific Version
+
+```bash
+# Option 1: Checkout version branch
+git checkout release/v2.1.0
+
+# Option 2: Checkout version tag
+git checkout v2.1.0
+```
+
+### Version Timeline
+
+| Version | Release Date | Release Name | Key Features |
+|---------|--------------|--------------|--------------|
+| v2.2.1 | 2025-12-07 | Educational Modes Refinement | Novelty-based learning approach |
+| v2.2.0 | 2025-12-06 | Claude Code 2.0 Features | Checkpointing, Background tasks, Educational modes |
+| v2.1.0 | 2025-12-05 | Persona Routing + Progressive Wizard | 5 personas, visual guides, interactive wizard |
+| v2.0.0 | 2025-12-05 | Initial Release | Core template, CLAUDE.md, MCP setup |
+
+**→ Full version history:** See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
+
+---
+
 ## 📚 Directory Guide
 
 ### 01_global-setup/
