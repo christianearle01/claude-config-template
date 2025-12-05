@@ -15,6 +15,11 @@ A **battle-tested template** that optimizes your Claude Code setup across all pr
 - ✅ **Visual guides** (reduce cognitive load by 40%)
 - ✅ **Auto-update system** (stay current with 1 command)
 
+**Compatible Interfaces:**
+- ✅ Claude Code CLI (terminal `claude` command)
+- ✅ Claude Code VS Code Extension
+- Configuration works identically on both
+
 **Who is this for?**
 - First-time Claude Code users who want to learn properly
 - Experienced users who want faster project setup

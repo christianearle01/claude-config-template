@@ -4,6 +4,8 @@
 
 **⏱️ Take 30 seconds** to select the profile that matches your situation, then follow your personalized path.
 
+💡 **Cross-Platform:** Works with both Claude Code CLI (`claude` command) and VS Code Extension.
+
 ---
 
 ## 🆕 First-Time Learner

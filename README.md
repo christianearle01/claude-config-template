@@ -69,6 +69,23 @@ A comprehensive, battle-tested template for optimizing your Claude Code setup ac
 
 ---
 
+## 🖥️ Works With Both Claude Code Interfaces
+
+This template is fully compatible with **both** official Claude Code interfaces:
+
+- **✅ Claude Code CLI** - Command-line interface (`claude` command)
+- **✅ Claude Code VS Code Extension** - Built-in VS Code extension
+
+**Same Configuration, Different Workflows:**
+- CLAUDE.md files work identically on both
+- .claude/ folder configuration is cross-compatible
+- All custom commands and MCP servers work on both
+- Choose based on your preference: terminal workflows (CLI) or IDE workflows (Extension)
+
+→ **Need to know which to install?** See [GETTING_STARTED.md](GETTING_STARTED.md) for both options.
+
+---
+
 ## 📚 Directory Guide
 
 ### 01_global-setup/

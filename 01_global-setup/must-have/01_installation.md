@@ -26,9 +26,13 @@
 
 ### Download and Install
 
-Visit: https://code.claude.com
+Claude Code is available in **two interfaces** with identical functionality:
 
-**Or install via command line:**
+#### Option 1: Claude Code CLI (Command-Line Interface)
+
+Best for terminal-centric workflows.
+
+**Installation:**
 ```bash
 # macOS/Linux
 curl -fsSL https://code.claude.com/install.sh | sh
@@ -36,6 +40,29 @@ curl -fsSL https://code.claude.com/install.sh | sh
 # Verify installation
 claude --version
 ```
+
+**Usage:**
+```bash
+cd /path/to/your/project
+claude  # Starts Claude Code in terminal
+```
+
+#### Option 2: Claude Code VS Code Extension
+
+Best for IDE-integrated workflows.
+
+**Installation:**
+1. Open VS Code
+2. Go to Extensions (Cmd+Shift+X / Ctrl+Shift+X)
+3. Search for "Claude Code"
+4. Click Install
+
+**Usage:**
+- Open any project in VS Code
+- Claude Code panel appears automatically
+- Same commands, same CLAUDE.md, same .claude/ configuration
+
+**💡 Choose based on preference** - Both interfaces use the same configuration files (CLAUDE.md and .claude/). You can switch between them anytime without reconfiguration.
 
 ### Initial Configuration
 
