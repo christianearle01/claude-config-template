@@ -1,0 +1,6 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": ["git", "docker", "npm", "python", "pytest", "make", "yarn", "pip"]
+  }
+}
