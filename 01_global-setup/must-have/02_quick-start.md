@@ -44,6 +44,31 @@ By the end of this guide, you'll have:
 
 ---
 
+## ⚡ Quick Start: Top 3 Shortcuts
+
+**Learn these first** - they'll save you time and prevent mistakes:
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  ESSENTIAL KEYBOARD SHORTCUTS (Claude Code 2.0+)         │
+├──────────────────────────────────────────────────────────┤
+│  Esc Esc (twice)     → Undo last changes (Rewind)       │
+│  Ctrl-b              → Run command in background         │
+│  Tab                 → Show/hide thinking process        │
+├──────────────────────────────────────────────────────────┤
+│  💡 These work in BOTH CLI and VS Code Extension        │
+└──────────────────────────────────────────────────────────┘
+```
+
+**Why these matter:**
+1. **Esc Esc** - Safety net for experiments (undo without git)
+2. **Ctrl-b** - Keep working while tests/builds run
+3. **Tab** - Learn Claude's reasoning process
+
+**More shortcuts available** in the [Keyboard Shortcuts & Productivity](#keyboard-shortcuts--productivity) section below.
+
+---
+
 ## Part 1: First-Time Setup (One Time Only)
 
 ### Step 1: Verify Claude Code Installation
@@ -329,6 +354,377 @@ Press **Shift+Tab** to enable Plan Mode:
 - Perfect for exploration and planning
 - Prevents accidental changes
 - Switch back with **Shift+Tab** when ready to implement
+
+---
+
+## Part 4.5: Checkpointing & Rewind System
+
+> **Available in:** Claude Code v2.0+
+> **Interfaces:** CLI and VS Code Extension
+
+### What is Checkpointing?
+
+Claude Code automatically saves your code state before making changes, creating checkpoints that allow you to safely experiment and undo mistakes instantly.
+
+**Think of it as:**
+- ⏪ **Undo button for AI changes** - Press `Esc` twice to revert
+- 🛡️ **Safety net for experiments** - Try risky refactors without fear
+- ⚡ **Instant rollback** - No git commands needed for session-level undo
+
+### How to Use
+
+**Undo Changes (Rewind):**
+
+```bash
+# Method 1: Keyboard shortcut (fastest)
+Press Esc twice → Reverts to last checkpoint
+
+# Method 2: Command
+/rewind → Same effect, uses command interface
+```
+
+**When Checkpoints are Automatically Created:**
+- ✅ Before each file edit
+- ✅ Before running potentially destructive commands
+- ✅ Before major refactoring operations
+- ✅ When Claude uses the Write or Edit tools
+
+### Checkpoints vs Git Commits
+
+**Important:** Checkpoints are NOT a replacement for git. Here's when to use each:
+
+| Feature | Checkpoints | Git Commits |
+|---------|-------------|-------------|
+| **Purpose** | Session-level undo | Long-term version control |
+| **Scope** | Current Claude session only | Permanent project history |
+| **Speed** | Instant (Esc Esc) | Requires commit message |
+| **Persistence** | Lost when session ends | Permanent |
+| **Best for** | Experiments, quick undo | Milestones, team collaboration |
+| **Team sharing** | ❌ Local only | ✅ Push to share |
+
+**⚠️ Best Practice:** Use checkpoints for quick undo during a session, but always commit important changes to git for long-term safety and team collaboration.
+
+### Best Practices
+
+1. **Experiment freely** - Checkpoints make it safe to try new approaches without fear
+   - "Try refactoring this function 3 different ways"
+   - "What if we used a different architecture?"
+
+2. **Review before accepting** - Use plan mode to preview changes first, then checkpoint auto-saves
+   - Press `Shift+Tab` to enter plan mode
+   - Review the proposed changes
+   - Accept → checkpoint created automatically
+
+3. **Combine with git** - Checkpoints for exploration, git for milestones
+   - Checkpoint: Quick undo during experimentation
+   - Git commit: When you've achieved something worth saving permanently
+
+4. **Don't rely on checkpoints for team work** - Always commit to git for team visibility
+   - Checkpoints = your personal undo buffer
+   - Git commits = shared team history
+
+### Example Workflow
+
+**Scenario: Refactoring a complex function**
+
+```bash
+# 1. Ask Claude to refactor
+You: "Refactor the calculateTotal function to use reduce"
+
+# 2. Claude makes changes automatically
+#    ✅ Checkpoint created before changes
+
+# 3. You review the changes and don't like them
+#    Press: Esc Esc
+
+#    Result: Changes reverted instantly!
+
+# 4. Try a different approach
+You: "Actually, refactor it using a for loop instead"
+
+# 5. This time it looks good!
+#    Commit to git for permanent history
+git add src/utils/calculator.ts
+git commit -m "Refactor calculateTotal to use for loop"
+```
+
+### Try It Now: Practice Box
+
+**Safe practice exercise** (won't harm your project):
+
+1. Create a test file: `echo "function test() { return 'original'; }" > test-checkpoint.js`
+2. Ask Claude: "Change the return value to 'modified'"
+3. Verify the change: `cat test-checkpoint.js`
+4. Undo it: Press `Esc` twice
+5. Verify the revert: `cat test-checkpoint.js` (should show "original")
+6. Clean up: `rm test-checkpoint.js`
+
+**What you learned:**
+- ✅ Checkpoints happen automatically
+- ✅ `Esc Esc` instantly reverts changes
+- ✅ No git commands needed for quick undo
+
+### Troubleshooting
+
+**Issue: Esc twice doesn't work**
+
+Possible causes:
+1. **Not in a Claude Code session** - Checkpoints only work during active Claude sessions
+2. **No changes made yet** - Need at least one tool use to create a checkpoint
+3. **Session restarted** - Checkpoints don't persist across sessions
+
+**Fix:** Make a change first (any file edit), then try `Esc Esc` or `/rewind`
+
+**Issue: Want to undo multiple changes**
+
+Unfortunately, checkpoints only save the most recent state. For multi-level undo:
+- Use git commits between major changes
+- Create manual git checkpoints: `git add . && git commit -m "WIP checkpoint"`
+
+### Knowledge Check
+
+Test your understanding:
+
+- [ ] **Can explain:** What's the difference between checkpoints and git commits?
+- [ ] **Can demonstrate:** Press `Esc` twice to undo a change
+- [ ] **Can describe:** When are checkpoints automatically created?
+- [ ] **Know when to use:** Checkpoints for quick undo, git for permanent history
+
+---
+
+## Part 4.6: Keyboard Shortcuts & Productivity
+
+> **Available in:** Claude Code v2.0+
+> **Interfaces:** CLI and VS Code Extension
+
+Master these shortcuts to work faster and smarter with Claude Code.
+
+### Background Tasks (Ctrl-b)
+
+Run long-running Bash commands without blocking Claude's work.
+
+**How it works:**
+```bash
+# Instead of:
+npm run test  # Blocks Claude until tests finish
+
+# Use:
+Ctrl-b npm run test  # Runs in background, Claude keeps working
+```
+
+**When to use background tasks:**
+- 🧪 **Test suites** - Run tests while implementing new features
+- 🏗️ **Build processes** - Start builds while continuing conversation
+- 🚀 **Dev servers** - Launch server, keep coding
+- 📊 **Log monitoring** - Tail logs without blocking Claude
+
+**Practical examples:**
+
+```bash
+# Start dev server in background
+Ctrl-b npm run dev
+
+# Continue working immediately
+You: "Now let's add the authentication feature"
+Claude: [Works on auth while server runs in background]
+
+# Run full test suite in background
+Ctrl-b npm test
+
+# Keep implementing while tests run
+You: "Add error handling to the login function"
+Claude: [Adds error handling, tests still running]
+```
+
+**How to check background task status:**
+- Background tasks run in separate shell
+- Check terminal output in separate window
+- Or ask Claude: "What's the status of my background tasks?"
+
+**How to stop a background task:**
+- Find the process: `ps aux | grep [process-name]`
+- Kill it: `kill [PID]`
+- Or use Claude: "Stop the background dev server"
+
+### Toggle Thinking (Tab)
+
+Press `Tab` to show/hide Claude's reasoning process.
+
+**When to show thinking:**
+- 📚 **Learning complex concepts** - See how Claude approaches problems
+- 🐛 **Debugging issues** - Understand the investigation process
+- 🏗️ **Architectural decisions** - See the reasoning behind choices
+- 🎓 **First-time users** - Educational value, learn best practices
+
+**When to hide thinking:**
+- ⚡ **Speed is priority** - Less visual clutter
+- ✅ **Simple tasks** - You already know what Claude will do
+- 📝 **Documentation focus** - Cleaner output for copy-paste
+
+**How it works:**
+```
+Press Tab once  → Show thinking
+Press Tab again → Hide thinking
+
+Current state visible at bottom of window
+```
+
+### Educational Output Styles
+
+Enable special output modes when learning new concepts or onboarding to complex codebases.
+
+**Two modes available:**
+
+#### 1. Explanatory Mode
+Detailed explanations with context for every change.
+
+**Best for:**
+- Understanding complex algorithms
+- Learning new frameworks
+- Onboarding to unfamiliar codebases
+- Team training sessions
+
+**Example output:**
+```
+Instead of: "Added error handling"
+
+You get: "Added error handling using try-catch blocks because:
+- The API call can fail due to network issues
+- We need to show user-friendly messages
+- The application should gracefully degrade
+- This follows the project's error handling pattern in auth.ts"
+```
+
+#### 2. Learning Mode
+Step-by-step breakdown with educational notes.
+
+**Best for:**
+- First-time learners
+- Junior developers
+- Understanding new patterns
+- Teaching moments
+
+**Example output:**
+```
+Instead of: "Refactored to use async/await"
+
+You get: "Let's refactor step by step:
+
+Step 1: Convert .then() to async/await
+Why: Async/await is more readable and handles errors better
+
+Step 2: Add try-catch for error handling
+Why: Async functions can throw, we need to catch them
+
+Step 3: Update return type
+Why: Async functions always return Promises
+
+Learning note: Async/await is syntactic sugar for Promises.
+It makes asynchronous code look synchronous and easier to reason about."
+```
+
+**How to enable:**
+```bash
+# Request explanatory mode
+You: "Explain this refactoring in detail"
+
+# Request learning mode
+You: "Teach me how this works step by step"
+
+# Or just ask for either mode by name
+You: "Use explanatory mode for this task"
+You: "Use learning mode to help me understand"
+```
+
+**When to use each mode:**
+
+| Mode | Best For | Avoid When |
+|------|----------|-----------|
+| **Explanatory** | Complex logic, architectural decisions | Simple changes, bulk operations |
+| **Learning** | New patterns, onboarding | Time-critical tasks, production |
+| **Normal** | Daily development, speed | Learning opportunities |
+
+### Try It Now: Background Tasks
+
+**Safe practice exercise:**
+
+```bash
+# 1. Start a long-running process in background
+Ctrl-b sleep 10
+
+# 2. Immediately ask Claude a question (without waiting)
+You: "What's the difference between let and const?"
+
+# 3. Notice: Claude answers immediately while sleep runs!
+
+Result: You've successfully used background tasks
+```
+
+### Try It Now: Toggle Thinking
+
+**Practice exercise:**
+
+```bash
+# 1. Press Tab to show thinking
+# 2. Ask: "What's the best way to handle errors in async functions?"
+# 3. Observe Claude's thinking process (visible)
+# 4. Press Tab again to hide thinking
+# 5. Ask same question again
+# 6. Notice: Cleaner output without thinking
+
+Result: You control how much detail you see
+```
+
+### Advanced Tips
+
+**Combine shortcuts for power workflows:**
+
+```bash
+# 1. Show thinking to understand approach
+Press Tab (thinking visible)
+
+# 2. Ask complex question
+You: "Refactor this module for better testability"
+
+# 3. Review Claude's reasoning
+
+# 4. Start tests in background
+Ctrl-b npm test
+
+# 5. Continue with implementation
+You: "Now add the unit tests"
+
+# 6. Hide thinking for cleaner output
+Press Tab (thinking hidden)
+
+# 7. Check test results later
+You: "Did the background tests pass?"
+```
+
+### Troubleshooting
+
+**Issue: Ctrl-b doesn't work**
+
+- **In VS Code Extension:** Use the built-in terminal, not Claude's output panel
+- **In CLI:** Should work by default
+- **Alternative:** Ask Claude to run the command: "Run npm test in the background"
+
+**Issue: Tab doesn't toggle thinking**
+
+- **Check:** You're in an active Claude session
+- **Try:** Type `/thinking` command instead
+- **Check settings:** Ensure thinking is enabled in `.claude/settings.json`
+
+### Knowledge Check
+
+Test your understanding:
+
+- [ ] **Can use:** Ctrl-b to run a command in background
+- [ ] **Can toggle:** Tab to show/hide thinking
+- [ ] **Can explain:** When to use Explanatory vs Learning mode
+- [ ] **Can demonstrate:** Run tests in background while coding
+
+**All checked?** You've mastered Claude Code productivity shortcuts!
 
 ---
 

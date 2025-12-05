@@ -14,6 +14,87 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.0] - 2025-12-06
+
+### Added - Claude Code 2.0 Features
+- **Checkpointing & Rewind System** - Document /rewind command and Esc twice shortcut for undoing changes
+  - Comprehensive guide in `02_quick-start.md` with:
+    - What is checkpointing (automatic session-level undo)
+    - How to use (Esc Esc or /rewind command)
+    - When checkpoints are automatically created
+    - Checkpoints vs Git Commits comparison table
+    - Best practices for combining checkpoints with git
+    - Example workflow scenarios
+    - Try It Now practice box
+    - Troubleshooting guide
+    - Knowledge check questions
+- **Background Tasks** (Ctrl-b) - Document Ctrl-b for running long commands without blocking Claude
+  - How to run commands in background
+  - When to use (test suites, builds, dev servers, log monitoring)
+  - Practical examples with real workflows
+  - How to check background task status
+  - Try It Now practice box
+- **Educational Output Styles** - Document Explanatory and Learning modes for first-time learners
+  - Two modes: Explanatory (detailed context) and Learning (step-by-step)
+  - When to use each mode
+  - Example output comparisons
+  - Best for: First-time learners, complex algorithms, unfamiliar codebases
+- **Toggle Thinking** (Tab) - Document Tab shortcut to show/hide Claude's reasoning
+  - When to show thinking (learning, debugging, architecture)
+  - When to hide thinking (speed, simple tasks)
+  - Try It Now practice box
+- **Keyboard Shortcuts Reference** - Comprehensive shortcuts guide in quick-start
+  - Quick Start: Top 3 Shortcuts box (Esc Esc, Ctrl-b, Tab)
+  - Advanced tips for combining shortcuts
+  - Power workflow examples
+- **VS Code Extension Features** - Secondary sidebar, preferred location, quality-of-life features
+  - Layout Customization (secondary sidebar support for VS Code 1.97+)
+  - Preferred Location (sidebar vs panel comparison)
+  - Keyboard Shortcuts (Cmd+N/Ctrl+N, Tab, Esc Esc)
+  - Quality of Life features (auto-submit questions, terminal progress bar, real-time diffs)
+- **Feature Index** in README.md - Searchable index of all features
+  - Claude Code 2.0+ features with direct links
+  - VS Code Extension features
+  - Template features
+  - Search by use case (Safety/Undo, Cost Savings, Learning, Productivity, Team Collaboration)
+- **Multi-Perspective Enhancements** - Psychologically sound, educationally effective, technically solid
+  - Practice boxes ("Try It Now" exercises for hands-on learning)
+  - Knowledge check checklists (test your understanding)
+  - Troubleshooting subsections (for each feature)
+  - Version availability notes ("Available in Claude Code v2.0+")
+
+### Changed
+- Expanded `01_installation.md` with VS Code Extension advanced features
+  - Added Layout Customization subsection
+  - Added Keyboard Shortcuts subsection
+  - Added Quality of Life Features subsection
+- Expanded `02_quick-start.md` with productivity shortcuts
+  - Added Part 4.5: Checkpointing & Rewind System (comprehensive guide)
+  - Added Part 4.6: Keyboard Shortcuts & Productivity
+  - Added Quick Start: Top 3 Shortcuts box at top
+- Updated README.md benefits list with new Claude Code 2.0 features
+  - Added Checkpointing safety benefit
+  - Added Background tasks benefit
+  - Added Educational modes benefit
+  - Added comprehensive Feature Index for search optimization
+
+### Improved
+- **User confidence** - Safety features (checkpointing) reduce anxiety about mistakes
+- **Learning outcomes** - Educational modes + practice boxes + knowledge checks
+- **Productivity** - Background tasks + keyboard shortcuts save time
+- **Discoverability** - Feature index makes all features searchable
+- **Documentation quality** - Multi-perspective review (psychological, educational, technical)
+
+### Documentation Stats
+- **New documentation:** ~800 lines added
+- **Files modified:** 5 (02_quick-start.md, 01_installation.md, README.md, version.json, CHANGELOG.md)
+- **Practice exercises:** 3 "Try It Now" boxes
+- **Knowledge checks:** 2 comprehensive checklists
+- **Comparison tables:** 1 (Checkpoints vs Git)
+- **Troubleshooting guides:** 2 (Checkpointing, Keyboard Shortcuts)
+
+---
+
 ## [2.1.0] - 2025-12-05
 
 ### Added - Phase 2: Progressive Wizard

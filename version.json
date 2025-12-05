@@ -1,7 +1,7 @@
 {
-  "version": "2.1.0",
-  "release_date": "2025-12-05",
-  "release_name": "Persona Routing + Progressive Wizard",
+  "version": "2.2.0",
+  "release_date": "2025-12-06",
+  "release_name": "Claude Code 2.0 Features",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -12,7 +12,12 @@
     "visual-guides",
     "progressive-wizard",
     "validation-checkpoints",
-    "celebratory-milestones"
+    "celebratory-milestones",
+    "checkpointing-rewind",
+    "background-tasks",
+    "educational-output-styles",
+    "keyboard-shortcuts",
+    "vscode-extension-features"
   ],
   "personas_supported": [
     "first-time",
@@ -25,7 +30,9 @@
     "documentation": {
       "START_HERE.md": "2.1.0",
       "VISUAL_GUIDES.md": "2.1.0",
-      "README.md": "2.1.0"
+      "README.md": "2.2.0",
+      "01_global-setup/must-have/01_installation.md": "2.2.0",
+      "01_global-setup/must-have/02_quick-start.md": "2.2.0"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",

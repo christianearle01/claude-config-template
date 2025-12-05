@@ -62,6 +62,29 @@ Best for IDE-integrated workflows.
 - Claude Code panel appears automatically
 - Same commands, same CLAUDE.md, same .claude/ configuration
 
+---
+
+**VS Code Extension Advanced Features** (v2.0+):
+
+**Layout Customization:**
+- **Secondary Sidebar** (VS Code 1.97+): Display Claude in right sidebar while keeping file explorer on left
+  - Set "sidebar" as Preferred Location in settings
+- **Preferred Location**: Choose where Claude opens by default
+  - `sidebar` = Vertical panel (better for long conversations, file mentions)
+  - `panel` = Bottom panel (better for quick questions, terminal-centric workflows)
+
+**Keyboard Shortcuts:**
+- `Cmd+N` / `Ctrl+N` → Start new conversation
+- `Tab` → Toggle thinking display
+- `Esc Esc` (twice) → Rewind changes
+
+**Quality of Life:**
+- Auto-submit single-select questions (no extra review screen)
+- Terminal progress bar toggle (OSC 9;4 support)
+- Real-time diffs (see changes before accepting)
+
+---
+
 **💡 Choose based on preference** - Both interfaces use the same configuration files (CLAUDE.md and .claude/). You can switch between them anytime without reconfiguration.
 
 ### Initial Configuration

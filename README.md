@@ -38,6 +38,9 @@ A comprehensive, battle-tested template for optimizing your Claude Code setup ac
 - ✅ **Persona-based routing** (no more "where do I start?")
 - ✅ **Visual learning guides** (reduce cognitive load 40%)
 - ✅ **Clear learning path** (must-have → good-to-have → nice-to-have)
+- ✅ **Checkpointing safety** (NEW!) - Rewind changes with Esc twice or /rewind
+- ✅ **Background tasks** (NEW!) - Run long commands without blocking (Ctrl-b)
+- ✅ **Educational modes** (NEW!) - Explanatory/Learning output styles for learners
 
 ### Long-Term Value
 - ✅ **Consistent configuration** across all projects
@@ -83,6 +86,39 @@ This template is fully compatible with **both** official Claude Code interfaces:
 - Choose based on your preference: terminal workflows (CLI) or IDE workflows (Extension)
 
 → **Need to know which to install?** See [GETTING_STARTED.md](GETTING_STARTED.md) for both options.
+
+---
+
+## 🔍 Feature Index
+
+**Claude Code 2.0+ Features:**
+- **Checkpointing/Rewind** - `Esc Esc` to undo changes, `/rewind` command ([Quick Start Guide](01_global-setup/must-have/02_quick-start.md#part-45-checkpointing--rewind-system))
+- **Background Tasks** - `Ctrl-b` to run commands without blocking ([Quick Start Guide](01_global-setup/must-have/02_quick-start.md#background-tasks-ctrl-b))
+- **Toggle Thinking** - `Tab` to show/hide reasoning ([Quick Start Guide](01_global-setup/must-have/02_quick-start.md#toggle-thinking-tab))
+- **Educational Modes** - Explanatory/Learning output styles ([Quick Start Guide](01_global-setup/must-have/02_quick-start.md#educational-output-styles))
+- **Permission Modes** - Plan/Ask/AcceptEdits ([Permission Modes](01_global-setup/must-have/03_permission-modes.md))
+- **Model Switching** - Sonnet/Haiku/Opus ([Model Switching](01_global-setup/good-to-have/01_model-switching.md))
+- **MCP Servers** - Memory, Filesystem, Context7, etc. ([MCP Setup](01_global-setup/good-to-have/02_mcp-setup.md))
+- **Security Hooks** - Prompt injection detection ([Security Guide](01_global-setup/nice-to-have/01_security-guide.md))
+- **Custom Agents** - Prompt Polisher, specialized workflows ([Agent Coordination](01_global-setup/nice-to-have/03_agent-coordination.md))
+
+**VS Code Extension Features:**
+- **Secondary Sidebar** - Display in right sidebar (VS Code 1.97+) ([Installation Guide](01_global-setup/must-have/01_installation.md#option-2-claude-code-vs-code-extension))
+- **Keyboard Shortcuts** - `Cmd+N`/`Ctrl+N`, Tab, Esc Esc ([Installation Guide](01_global-setup/must-have/01_installation.md#option-2-claude-code-vs-code-extension))
+- **Auto-submit Questions** - Streamlined question flow ([Installation Guide](01_global-setup/must-have/01_installation.md#option-2-claude-code-vs-code-extension))
+
+**Template Features:**
+- **Persona-Based Routing** - 5 user profiles ([START_HERE.md](START_HERE.md))
+- **Visual Guides** - 5 Mermaid diagrams ([VISUAL_GUIDES.md](VISUAL_GUIDES.md))
+- **Update System** - Check/apply updates ([PHASE3_UPDATES.md](PHASE3_UPDATES.md))
+- **CLAUDE.md Template** - Project memory system ([templates/](templates/))
+
+**Search by Use Case:**
+- **Safety/Undo** → Checkpointing, Rewind, Plan Mode
+- **Cost Savings** → Model Switching (Sonnet→Haiku), Token Optimization
+- **Learning** → Educational Modes, Visual Guides, Toggle Thinking
+- **Productivity** → Background Tasks, Keyboard Shortcuts, Custom Agents
+- **Team Collaboration** → CLAUDE.md, Team Onboarding, Version Control
 
 ---
 
