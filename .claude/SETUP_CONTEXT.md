@@ -19,6 +19,8 @@
 
 **Current Version:** v2.6.0
 
+**Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
+
 ---
 
 ## Directory Structure (What's Where)
