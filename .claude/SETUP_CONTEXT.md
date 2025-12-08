@@ -17,7 +17,7 @@
 4. Visual guides → 40% cognitive load reduction
 5. Interactive wizards → Validated setup with knowledge checks
 
-**Current Version:** v2.5.0
+**Current Version:** v2.6.0
 
 ---
 
@@ -381,7 +381,7 @@ cat .claude/settings.json | python -m json.tool
 
 ## Version Information
 
-**Current:** v2.5.0 (UX optimization release)
+**Current:** v2.6.0 (Browser workflow release)
 
 **Recent Changes:**
 - Added docs/5_MINUTE_SUCCESS.md (ultra-fast demo)

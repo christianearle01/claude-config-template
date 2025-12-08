@@ -474,6 +474,6 @@ We'd love to hear how this template helped you:
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*
 
 *Stories compiled from user reports, analytics, and surveys (2025-12-08)*

@@ -259,5 +259,5 @@ A: No. This is specifically for claude.ai web interface. For Claude Code, use [C
 
 ---
 
-*Part of the Claude Code Configuration Template - v2.5.0*
+*Part of the Claude Code Configuration Template - v2.6.0*
 *Browser Workflow for claude.ai Users | Last updated: 2025-12-08*

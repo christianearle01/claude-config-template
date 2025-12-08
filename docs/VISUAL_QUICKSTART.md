@@ -240,7 +240,7 @@ Still not sure? Use this quick selector:
 **What you'll get:**
 - Quick refresher on essential commands
 - Model switching strategy recap
-- What's new in v2.5.0
+- What's new in v2.6.0
 - Quick reference card for daily use
 
 **Your path:**
@@ -399,4 +399,4 @@ This visual guide helps you orient quickly. Bookmark it for future reference.
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*

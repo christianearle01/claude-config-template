@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-08
-**Version:** v2.5.0
+**Version:** v2.6.0
 
 ---
 
@@ -63,7 +63,7 @@ This is an **educational documentation project** that provides a battle-tested c
 
 ```
 claude-config-template/
-├── docs/                    # NEW v2.5.0: UX-optimized guides
+├── docs/                    # v2.5.0: UX-optimized guides
 │   ├── 5_MINUTE_SUCCESS.md
 │   ├── VISUAL_QUICKSTART.md
 │   ├── DIRECTORY_GUIDE.md
@@ -205,8 +205,8 @@ Use consistently for visual hierarchy:
    - CLAUDE.md (line 2)
    - All footer timestamps
 2. Update CHANGELOG.md
-3. Create git tag: `git tag v2.5.0`
-4. Create release branch: `git branch release/v2.5.0`
+3. Create git tag: `git tag v2.6.0`
+4. Create release branch: `git branch release/v2.6.0`
 
 ---
 
@@ -252,11 +252,11 @@ git checkout -b feature/new-guide
 git log --follow -- path/to/file.md
 
 # Compare versions
-git diff v2.4.0..v2.5.0 --stat
+git diff v2.5.0..v2.6.0 --stat
 
 # Tag a release
-git tag -a v2.5.0 -m "UX Optimization Release"
-git push origin v2.5.0
+git tag -a v2.6.0 -m "Browser Workflow Release"
+git push origin v2.6.0
 ```
 
 ---
@@ -265,8 +265,8 @@ git push origin v2.5.0
 
 ### Entry Points (What users see first)
 - `README.md` - Landing page, 408 lines (reduced from 539)
-- `docs/5_MINUTE_SUCCESS.md` - Ultra-fast demo (NEW v2.5.0)
-- `docs/VISUAL_QUICKSTART.md` - Decision flowchart (NEW v2.5.0)
+- `docs/5_MINUTE_SUCCESS.md` - Ultra-fast demo (v2.5.0)
+- `docs/VISUAL_QUICKSTART.md` - Decision flowchart (v2.5.0)
 - `START_HERE.md` - Detailed persona guide
 
 ### Critical Templates (What users copy)
@@ -277,13 +277,13 @@ git push origin v2.5.0
 ### Core Configuration
 - `.claude/settings.json` - Project settings
 - `.claude/settings-explained.json` - Educational reference
-- `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (NEW v2.5.0)
+- `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (v2.5.0)
 
 ### Reference Documentation
-- `QUICK_REFERENCE.md` - Searchable feature reference (NEW v2.5.0)
+- `QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0)
 - `VISUAL_GUIDES.md` - 5 Mermaid diagrams
-- `docs/DIRECTORY_GUIDE.md` - Project navigation (NEW v2.5.0)
-- `docs/PROJECTED_IMPACT.md` - Theoretical examples (NEW v2.5.0, not real user data)
+- `docs/DIRECTORY_GUIDE.md` - Project navigation (v2.5.0)
+- `docs/PROJECTED_IMPACT.md` - Theoretical examples (v2.5.0, not real user data)
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history
@@ -461,6 +461,7 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 
 ## Version History (This File)
 
+- **v2.6.0 (2025-12-08):** Added Browser Workflow - 9 role-based Custom Instructions guides for claude.ai users
 - **v2.5.0 (2025-12-08):** Created CLAUDE.md for template project (meta-example)
 - Initial creation with comprehensive project documentation
 

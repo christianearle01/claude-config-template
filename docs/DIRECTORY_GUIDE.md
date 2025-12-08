@@ -25,7 +25,7 @@ Complete guide to navigating the Claude Code Configuration Template.
 
 ## 📚 Documentation Directories
 
-### docs/ (NEW in v2.5.0)
+### docs/ (Added in v2.5.0)
 UX-optimized guides for better onboarding
 
 **Files:**
@@ -205,7 +205,7 @@ Placeholder for advanced project-specific topics
 
 ## 🌐 Browser Workflow (04_browser-workflow/)
 
-**Status:** COMING SOON (v2.5.0)
+**Status:** Available (v2.6.0)
 
 **Purpose:** Role-based Claude browser configurations
 
@@ -384,7 +384,7 @@ Every setting documented with WHY
 - Understand rationale behind each choice
 - Customize confidently
 
-### SETUP_CONTEXT.md (NEW in v2.5.0!)
+### SETUP_CONTEXT.md (Added in v2.5.0)
 Token-optimized guide for Claude to scan first
 
 **Purpose:**
@@ -442,7 +442,7 @@ Slash commands for common tasks
 **Note:** You don't need to directly interact with this directory
 
 **Branches:**
-- `main` - Current stable version (v2.5.0)
+- `main` - Current stable version (v2.6.0)
 - `release/vX.X.X` - Version-specific branches
 - `historical/v1.0-original` - Original template (pre-v2.0)
 - `phase-1-persona-routing` - Development branch
@@ -512,7 +512,7 @@ The template uses a 3-tier system:
 
 ## 📈 How Content Grows
 
-**v2.5.0 structure:**
+**v2.6.0 structure:**
 ```
 docs/ (4 files) → NEW!
 01_global-setup/ (9 files)
@@ -542,4 +542,4 @@ Total: 50+ files, 22,400+ lines of documentation
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*
