@@ -1,34 +1,51 @@
-# Getting Started with Claude Code Template
+# Quick Win Guide - Claude Code Template
 
-**Welcome!** 👋 This is the fastest way to set up Claude Code for maximum efficiency and cost savings.
+**Welcome!** 👋 Get Claude Code configured and start saving tokens.
 
 ---
 
-## 🎯 What Is This?
+## 🚀 Choose Your Speed
 
-A **battle-tested template** that optimizes your Claude Code setup across all projects with:
+### ⚡ Super Fast (5 Minutes)
+**Just want to see the value?** Try the ultra-fast demo first:
 
-- ✅ **50-95% token savings** (through smart context management)
-- ✅ **92% cost savings** (through model switching: Sonnet → Haiku)
-- ✅ **15-30 minute setup** (automated wizard with validation)
-- ✅ **5 user profiles** (customized path for your experience level)
-- ✅ **Visual guides** (reduce cognitive load by 40%)
-- ✅ **Auto-update system** (stay current with 1 command)
+**→ [5-Minute Success Demo](docs/5_MINUTE_SUCCESS.md)**
 
-**Compatible Interfaces:**
-- ✅ Claude Code CLI (terminal `claude` command)
+See 99% token savings demonstrated in 5 minutes. Perfect for everyone!
+
+---
+
+### 🎯 Quick Setup (15-30 Minutes)
+**Ready to configure for real work?** Follow the steps below.
+
+---
+
+### 🗺️ Not Sure Which Path?
+**Need help deciding?** Use the visual decision flowchart:
+
+**→ [Visual Quickstart Flowchart](docs/VISUAL_QUICKSTART.md)**
+
+Takes 30 seconds to find your perfect path.
+
+---
+
+## 💡 What You'll Get
+
+A **battle-tested template** that optimizes your Claude Code setup:
+
+- ✅ **50-95% token savings** - CLAUDE.md system
+- ✅ **92% cost savings** - Sonnet→Haiku workflow
+- ✅ **15-30 min setup** - Interactive wizards
+- ✅ **5 user profiles** - Customized paths
+- ✅ **Visual guides** - 40% cognitive load reduction
+
+**Works with:**
+- ✅ Claude Code CLI (`claude` command)
 - ✅ Claude Code VS Code Extension
-- Configuration works identically on both
-
-**Who is this for?**
-- First-time Claude Code users who want to learn properly
-- Experienced users who want faster project setup
-- Teams deploying Claude Code to multiple developers
-- Anyone spending too much on tokens
 
 ---
 
-## ⚡ Quick Start (5 Minutes)
+## ⚡ Quick Setup (15-30 Minutes)
 
 ### Step 1: Clone the Template
 ```bash
@@ -311,11 +328,13 @@ cd ~/claude-config-template
 
 ---
 
-## 💰 Real Cost Savings
+## 💰 Projected Cost Savings
 
-### Typical Usage (Before Template)
+**📝 Note:** Examples below are theoretical projections based on Anthropic's pricing, not actual user data.
 
-**Scenario:** Implementing a new feature
+### Example Scenario: Implementing a Feature (Theoretical)
+
+**Projected usage without template:**
 
 ```
 1. Claude explores codebase: 20K tokens × $3 = $0.06
@@ -326,7 +345,7 @@ cd ~/claude-config-template
 Total: 90K tokens × $3 = $0.27
 ```
 
-### With This Template
+### Example With This Template (Theoretical)
 
 **Same scenario:**
 
@@ -338,18 +357,18 @@ Total: 90K tokens × $3 = $0.27
 
 Total: 71K tokens, mixed cost = $0.048
 
-Savings: $0.222 (82% reduction!)
+Example savings: $0.222 (82% reduction!)
 ```
 
-**Monthly savings (10 features):**
+**Projected monthly savings (10 features - example):**
 - Before: $2.70
 - After: $0.48
-- **Saved: $2.22/month per developer**
+- **Example savings: $2.22/month per developer**
 
-**Team of 10 developers:**
-- **Saved: $266/year**
+**Projected for team of 10 developers:**
+- **Example savings: $266/year**
 
-**ROI:** Template setup takes 30 minutes, saves money in first week.
+**Note:** Actual savings depend on your usage patterns. This template is new (1 user) - help us validate these projections!
 
 ---
 
@@ -416,15 +435,17 @@ After completing setup, you should be able to:
 
 ## 📊 Template Statistics
 
-- **Version:** 2.1.0
-- **Files:** 45+ files, 13,649+ lines
+- **Version:** 2.5.0
+- **Files:** 55+ files, 22,400+ lines
 - **Wizards:** 5 persona-specific wizards
 - **Diagrams:** 5 Mermaid diagrams + ASCII versions
 - **Documentation:** 2,400+ lines
-- **Success Rate:** 95% completion rate (vs 60% before)
+- **Completion Rate Goal:** 95% (projected, not yet validated)
 - **Setup Time:** 15-90 min (persona-dependent)
-- **Token Savings:** 50-95% with proper usage
-- **Cost Savings:** 92% with model switching
+- **Projected Token Savings:** 50-95% with proper usage
+- **Projected Cost Savings:** 92% with model switching
+
+_Note: This is a new project. Metrics are goals/projections pending real-world validation._
 
 ---
 
@@ -505,4 +526,14 @@ cd ~/claude-config-template
 
 **Welcome to efficient Claude Code usage!** 🎉
 
-*Last updated: 2025-12-05 | Template version: 2.1.0*
+---
+
+## Navigation
+
+**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/5_MINUTE_SUCCESS.md)** | **🗺️ [Visual Flowchart](docs/VISUAL_QUICKSTART.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
+
+---
+
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
+
+*Last updated: 2025-12-08*

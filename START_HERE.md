@@ -1,5 +1,12 @@
 # Claude Code Setup - Choose Your Profile
 
+<!-- Breadcrumb Navigation -->
+**📍 You are here:** [Home](README.md) > Choose Your Profile
+
+**⬅️ Back:** [README](README.md) | **⚡ Quick Demo:** [5-Minute Success](docs/5_MINUTE_SUCCESS.md) | **🗺️ Visual Guide:** [Flowchart](docs/VISUAL_QUICKSTART.md)
+
+---
+
 **Welcome!** This template helps you set up Claude Code efficiently based on YOUR needs.
 
 **⏱️ Take 30 seconds** to select the profile that matches your situation, then follow your personalized path.
@@ -510,6 +517,13 @@ Scroll up to [Quick Reference Card](#quick-reference-card) ↑
 
 ---
 
-**Last Updated:** 2025-12-05
-**Template Version:** 2.1
+## Navigation
+
+**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/5_MINUTE_SUCCESS.md)** | **🗺️ [Visual Flowchart](docs/VISUAL_QUICKSTART.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
+
+---
+
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
+
+**Last Updated:** 2025-12-08
 **Persona-Based Routing:** ✅ Active
