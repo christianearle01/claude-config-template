@@ -1,340 +1,230 @@
-# Browser Workflow Configurations
+# Claude.ai Workflow Optimization by Role
 
-**Purpose:** Role-based Claude browser configurations optimized for different job functions.
-
-**Status:** 🚧 Coming in v2.6.0
-
----
-
-## 🎯 What Is This?
-
-Customized Claude browser workflows for different professional roles, optimizing prompts, agents, and commands for specific job functions.
-
-**Key Benefits:**
-- ✅ **Role-optimized prompts** - Tailored for your job function
-- ✅ **Custom agents** - Specialized workflows for your domain
-- ✅ **Relevant commands** - Commands that match your workflow
-- ✅ **Context templates** - Role-specific CLAUDE.md sections
+**For:** Users of https://claude.ai/ (web interface)
+**Not for:** Claude Code CLI or VS Code Extension users
 
 ---
 
-## 👥 Available Roles
+## 🎯 Choose Your Professional Role
 
-### 🛠️ Software Engineer
-**Focus:** Code development, debugging, testing, refactoring
+Select your role to get optimized Custom Instructions and workflow patterns:
 
-**Optimizations:**
-- Code review workflows
-- Test generation patterns
-- Debugging assistance
-- Refactoring helpers
-- Performance optimization
-
-**→ [Software Engineer Guide](must-have/01_software-engineer.md)** *(Coming Soon)*
+### 🛠️ [Software Engineer](must-have/01_software-engineer.md)
+**Best for:** Code development, debugging, testing, refactoring
+**You'll get:** Custom Instructions for code quality, prompt patterns for common tasks
 
 ---
 
-### 🧪 Quality Assurance Engineer
-**Focus:** Test planning, test automation, bug reporting, quality metrics
-
-**Optimizations:**
-- Test case generation
-- Bug report formatting
-- Test automation scripts
-- Coverage analysis
-- Quality metrics tracking
-
-**→ [QA Engineer Guide](must-have/02_qa-engineer.md)** *(Coming Soon)*
+### 🧪 [Quality Assurance Engineer](must-have/02_qa-engineer.md)
+**Best for:** Test planning, automation, bug reporting, quality metrics
+**You'll get:** Custom Instructions for testing workflows, QA-specific patterns
 
 ---
 
-### ⚙️ DevOps Engineer
-**Focus:** Infrastructure, CI/CD, deployment, monitoring, automation
-
-**Optimizations:**
-- Infrastructure as Code generation
-- CI/CD pipeline creation
-- Deployment scripts
-- Monitoring setup
-- Automation workflows
-
-**→ [DevOps Engineer Guide](must-have/03_devops-engineer.md)** *(Coming Soon)*
+### 🎨 [Your Role Not Listed? Create Your Own](must-have/04_custom-role.md)
+**Best for:** Any role not in the priority list (Product Manager, DevOps, Data Scientist, etc.)
+**You'll get:** Template generator and guide to create role-specific Custom Instructions
 
 ---
 
-### 📊 Data Scientist
-**Focus:** Data analysis, ML modeling, visualization, experimentation
-
-**Optimizations:**
-- Data exploration workflows
-- Model development patterns
-- Visualization generation
-- Experiment tracking
-- Statistical analysis
-
-**→ [Data Scientist Guide](must-have/04_data-scientist.md)** *(Coming Soon)*
+### 📋 [Coming Soon: Additional Roles](must-have/03_coming-soon.md)
+- Product Manager
+- Data Scientist
+- DevOps Engineer
+- Technical Writer
 
 ---
 
-### 📋 Product Manager
-**Focus:** Requirements, user stories, feature planning, stakeholder communication
+## 📖 How This Works
 
-**Optimizations:**
-- User story generation
-- Feature specification
-- Stakeholder communication
-- Roadmap planning
-- Metrics definition
-
-**→ [Product Manager Guide](must-have/05_product-manager.md)** *(Coming Soon)*
+1. **Choose your role** above (or create custom if not listed)
+2. **Copy the Custom Instructions** template
+3. **Paste into claude.ai settings** (Settings → Custom Instructions)
+4. **Use the prompt patterns** for your daily tasks
+5. **Optimize as you go** based on your specific needs
 
 ---
 
-### ✍️ Technical Writer
-**Focus:** Documentation, API docs, tutorials, user guides
+## 💡 What Are Custom Instructions?
 
-**Optimizations:**
-- Documentation generation
-- API reference creation
-- Tutorial structuring
-- Style guide enforcement
-- Content organization
+Custom Instructions on claude.ai let you set persistent context that applies to ALL conversations:
+- **Global context** - No need to repeat yourself in every chat
+- **Role-specific optimization** - Tailored responses for your job function
+- **Token efficiency** - Reduces repetitive context setting
 
-**→ [Technical Writer Guide](must-have/06_technical-writer.md)** *(Coming Soon)*
+**Location:** claude.ai → Settings → Custom Instructions
 
----
+### Two Sections:
 
-## 🚀 How to Use
+**Section 1: "What would you like Claude to know about you?"**
+- Your role and responsibilities
+- Tools and technologies you use
+- Your preferences and values
+- What you use Claude for
 
-### Step 1: Choose Your Role
-Select the guide that matches your primary job function.
-
-### Step 2: Apply Role Configuration
-Each guide includes:
-- Custom agents for your role
-- Slash commands for common tasks
-- CLAUDE.md template sections
-- Prompt patterns for your work
-- Workflow examples
-
-### Step 3: Customize Further
-Adapt the role configuration to your specific team or project needs.
+**Section 2: "How would you like Claude to respond?"**
+- Response style (concise, detailed, code-first, etc.)
+- What to focus on (security, performance, best practices)
+- What to avoid or skip
+- Output format preferences
 
 ---
 
-## 📋 What Each Guide Includes
+## 🔄 Difference from Claude Code Template
 
-### 1. Role Overview
-- Key responsibilities
-- Common tasks
-- Pain points addressed
+This directory is specifically for **claude.ai web interface users**.
 
-### 2. Custom Agents
-**Example for Software Engineer:**
-```markdown
-# code-reviewer.md
-Reviews code for quality, security, and best practices.
+If you use Claude Code (CLI or VS Code Extension), see:
+- [Claude Code Template](../README.md) - Full setup guide
+- [CLAUDE.md System](../templates/CLAUDE.md.template) - Project memory
 
-# test-generator.md
-Generates comprehensive unit tests for code.
+**Key difference:**
+- **Claude Code:** Project-specific CLAUDE.md files (different file per codebase)
+- **claude.ai:** Global Custom Instructions for your role (applies to ALL chats)
 
-# refactoring-assistant.md
-Suggests refactoring improvements.
+---
+
+## ⚡ Quick Start Example
+
+Here's what Custom Instructions look like (Software Engineer example):
+
+**Section 1:**
+```
+I'm a software engineer who uses Claude for:
+- Code review and debugging
+- Writing tests
+- Technical documentation
+
+Primary languages: JavaScript, Python
+Frameworks: React, FastAPI
+I value: Clean code, security, performance
 ```
 
-### 3. Slash Commands
-**Example for Software Engineer:**
-```markdown
-/review-code      # Code review with suggestions
-/generate-tests   # Generate unit tests
-/refactor         # Suggest refactorings
-/debug           # Debug assistance
-/performance     # Performance optimization
+**Section 2:**
 ```
+When helping with code:
+- Explain WHY, not just WHAT
+- Point out security/performance issues
+- Include error handling
+- Use modern syntax
 
-### 4. CLAUDE.md Template Sections
-**Example for Software Engineer:**
-```markdown
-## Code Architecture
-[Document high-level architecture patterns]
-
-## Testing Strategy
-[Document testing approach and patterns]
-
-## Performance Considerations
-[Document performance-critical areas]
-```
-
-### 5. Prompt Patterns
-**Example for Software Engineer:**
-```
-"Review this code for [specific concern]:
-- Security vulnerabilities
-- Performance issues
-- Best practice violations
-- Code smell
-
-Focus on: [area]
-Skip: [files/patterns]"
-```
-
-### 6. Workflow Examples
-Step-by-step examples of common workflows for your role.
-
----
-
-## 🎓 Learning by Example
-
-Each role guide includes:
-- ✅ Real-world scenarios
-- ✅ Before/after examples
-- ✅ Token optimization tips
-- ✅ Role-specific best practices
-- ✅ Common mistakes to avoid
-
----
-
-## 🔧 Installation
-
-**Once available (v2.6.0):**
-
-```bash
-# 1. Choose your role guide
-cd 04_browser-workflow/must-have/
-
-# 2. Copy role-specific agents
-cp 01_software-engineer/agents/* .claude/agents/
-
-# 3. Copy role-specific commands
-cp 01_software-engineer/commands/* .claude/commands/
-
-# 4. Update your CLAUDE.md with role sections
-cat 01_software-engineer/CLAUDE-sections.md >> CLAUDE.md
+Keep responses: Concise, code-first, production-ready
 ```
 
 ---
 
-## 🚧 Development Status
+## 🌟 Benefits of Role-Based Custom Instructions
 
-**Current Version (v2.5.0):**
-- Directory structure created
-- Planning complete
-- Coming in v2.6.0
+### 1. Token Efficiency
+**Without Custom Instructions:**
+```
+You: "Review this JavaScript code"
+Claude: [Asks about: language, framework, preferences, focus areas...]
+Tokens: ~5,000
+```
 
-**Planned Release (v2.6.0):**
-- [ ] Software Engineer guide
-- [ ] QA Engineer guide
-- [ ] DevOps Engineer guide
-- [ ] Data Scientist guide
-- [ ] Product Manager guide
-- [ ] Technical Writer guide
+**With Custom Instructions:**
+```
+You: "Review this code"
+Claude: [Already knows: JavaScript, React, your preferences]
+Tokens: ~1,500
+```
 
-**Each guide will include:**
-- [ ] Custom agents (3-5 per role)
-- [ ] Slash commands (5-8 per role)
-- [ ] CLAUDE.md template sections
-- [ ] Prompt pattern library
-- [ ] Workflow examples (5+ scenarios)
+**Savings:** 70% token reduction (projected)
 
----
+### 2. Consistent Quality
+- Claude remembers your preferences across ALL conversations
+- No need to repeat context in every chat
+- Responses tailored to your specific role
 
-## 💡 Why Role-Based Configurations?
-
-### 1. Optimization for Your Work
-Different roles have different needs:
-- **Engineer:** Code quality, testing, debugging
-- **QA:** Test coverage, bug reporting, quality metrics
-- **DevOps:** Infrastructure, automation, deployment
-- **Data Scientist:** Analysis, modeling, visualization
-
-### 2. Faster Onboarding
-Role-specific configurations mean:
-- Less customization needed
-- Familiar workflows out-of-the-box
-- Role-appropriate defaults
-
-### 3. Token Efficiency
-Role-optimized prompts:
-- More specific = fewer tokens wasted
-- Relevant context only
-- Optimized for common tasks
-
-### 4. Team Consistency
-When everyone in a role uses the same configuration:
-- Consistent outputs
-- Easier collaboration
-- Shared best practices
+### 3. Faster Workflow
+- Skip the context-setting phase
+- Get straight to work
+- Claude adapts to YOUR workflow, not generic advice
 
 ---
 
-## 📊 Estimated Impact
+## 📊 Efficiency Metrics (Projected)
 
-**Based on user testing (projected):**
+_Note: These are theoretical projections. Help us validate with your real usage!_
 
-| Metric | Without Role Config | With Role Config | Improvement |
-|--------|-------------------|-----------------|-------------|
-| Setup time | 30-45 min | 15-20 min | 40-50% faster |
-| Relevant results | 70% | 90% | +20% relevance |
-| Token efficiency | 50% savings | 70% savings | +20% savings |
-| User satisfaction | 7/10 | 9/10 | +29% satisfaction |
-
----
-
-## 🤝 Contributing
-
-**Want to help develop role guides?**
-
-1. **Share your workflows** - What do you do daily?
-2. **Suggest agents** - What repetitive tasks could be automated?
-3. **Provide examples** - Real-world scenarios from your role
-4. **Test configurations** - Try beta versions and provide feedback
-
-**Contact:** Open an issue on GitHub with tag `role-config`
+| Metric | Without Custom Instructions | With Custom Instructions | Improvement |
+|--------|---------------------------|-------------------------|-------------|
+| Tokens per query | ~5,000 | ~1,500 | 70% reduction |
+| Time to useful answer | 2-3 exchanges | 1 exchange | 66% faster |
+| Response relevance | 70% | 90% | +28% |
+| User satisfaction | 7/10 | 9/10 | +29% |
 
 ---
 
-## 🔮 Future Enhancements
+## 🎓 Best Practices
 
-**Beyond v2.6.0:**
-- Hybrid roles (e.g., Full-Stack Engineer)
-- Industry-specific variants (e.g., Finance, Healthcare)
-- Seniority levels (Junior, Senior, Lead)
-- Multi-role support (wear multiple hats)
-- Role-switching commands (`/switch-role qa`)
+### DO:
+- ✅ Be specific about your role and tools
+- ✅ Include your preferences and values
+- ✅ Update Custom Instructions as your work evolves
+- ✅ Use Projects for codebase-specific context
+- ✅ Provide examples in your instructions
+
+### DON'T:
+- ❌ Put sensitive information in Custom Instructions
+- ❌ Make instructions too long (keep under 2000 chars per section)
+- ❌ Use vague descriptions ("I'm a developer" → "I'm a Python backend developer")
+- ❌ Forget to test and iterate
+
+---
+
+## 🔍 When to Use Projects vs Custom Instructions
+
+**Custom Instructions** (Global, applies to ALL chats):
+- Your professional role
+- Tools and technologies you always use
+- General preferences and response style
+- Skills and expertise level
+
+**Projects** (Specific to one topic/codebase):
+- Specific codebase or application
+- Project-specific requirements
+- Architecture docs and README files
+- API specs and schemas
+
+**Best combo:** Custom Instructions set your role → Projects add specific context
 
 ---
 
 ## ❓ FAQ
 
-### Q: Can I use multiple role configurations?
-**A:** Yes! In v2.6.0, you'll be able to combine agents and commands from multiple roles.
+**Q: Can I change my Custom Instructions?**
+A: Yes! Settings → Custom Instructions → Edit anytime. Changes apply to new conversations.
 
-### Q: What if my role isn't listed?
-**A:** Start with the closest match and customize. Consider contributing your role configuration back to the project!
+**Q: Can I have multiple sets for different roles?**
+A: No, claude.ai allows only ONE set globally. Use Projects for context variations.
 
-### Q: Will this work with existing setups?
-**A:** Yes! Role configurations are additive. They enhance your existing setup.
+**Q: What if my role changes?**
+A: Update your Custom Instructions to reflect your new role or responsibilities.
 
-### Q: How often will roles be updated?
-**A:** Role guides will be updated with each minor version (v2.6, v2.7, etc.) based on user feedback.
+**Q: How long should my Custom Instructions be?**
+A: Aim for 1000-1500 characters per section. claude.ai limits to ~2000 chars per section.
+
+**Q: Will this work with Claude Code?**
+A: No. This is specifically for claude.ai web interface. For Claude Code, use [CLAUDE.md](../templates/CLAUDE.md.template).
 
 ---
 
-## 📖 Related Documentation
+## 🚀 Get Started
 
-- [Custom Agents Guide](../01_global-setup/nice-to-have/03_agent-coordination.md)
-- [Slash Commands Setup](../02_project-onboarding/must-have/03_claude-agent-setup.md)
-- [Prompt Optimization](../02_project-onboarding/good-to-have/01_prompt-optimization.md)
-- [CLAUDE.md Template](../templates/CLAUDE.md.template)
+1. Click your role above
+2. Follow the guide to copy your Custom Instructions template
+3. Start using optimized prompts in claude.ai
+4. Share your experience to help validate our projections!
 
 ---
 
 ## Navigation
 
-**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Path](../START_HERE.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
+**🏠 [Back to Main Template](../README.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.5.0*
-
-*Status: Coming in v2.6.0 | Last updated: 2025-12-08*
+*Part of the Claude Code Configuration Template - v2.5.0*
+*Browser Workflow for claude.ai Users | Last updated: 2025-12-08*
