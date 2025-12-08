@@ -319,8 +319,8 @@ A: Choose your primary role or create a hybrid. Custom Instructions are global (
 
 **Q: Can I see examples from other roles?**
 A: Yes! Check:
-- [Software Engineer Guide](01_software-engineer.md)
-- [QA Engineer Guide](02_qa-engineer.md)
+- [Software Engineer Guide](02_software-engineer.md)
+- [QA Engineer Guide](03_qa-engineer.md)
 
 ---
 
@@ -349,7 +349,7 @@ Created a great Custom Instructions template for your role? Help others:
 
 ## Navigation
 
-**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **✨ [See Examples](01_software-engineer.md)**
+**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **✨ [See Examples](02_software-engineer.md)**
 
 ---
 

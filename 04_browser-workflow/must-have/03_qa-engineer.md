@@ -303,7 +303,7 @@ A: Yes! The risk-based approach in Custom Instructions guides Claude to suggest 
 
 ## Navigation
 
-**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](04_custom-role.md)**
+**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](01_custom-role.md)**
 
 ---
 

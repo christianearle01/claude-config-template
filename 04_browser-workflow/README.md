@@ -9,25 +9,25 @@
 
 Select your role to get optimized Custom Instructions and workflow patterns:
 
-### 🛠️ [Software Engineer](must-have/01_software-engineer.md)
-**Best for:** Code development, debugging, testing, refactoring
-**You'll get:** Custom Instructions for code quality, prompt patterns for common tasks
-
----
-
-### 🧪 [Quality Assurance Engineer](must-have/02_qa-engineer.md)
-**Best for:** Test planning, automation, bug reporting, quality metrics
-**You'll get:** Custom Instructions for testing workflows, QA-specific patterns
-
----
-
-### 🎨 [Your Role Not Listed? Create Your Own](must-have/04_custom-role.md)
+### 🎨 [Your Role Not Listed? Create Your Own](must-have/01_custom-role.md)
 **Best for:** Any role not in the priority list (Product Manager, DevOps, Data Scientist, etc.)
 **You'll get:** Template generator and guide to create role-specific Custom Instructions
 
 ---
 
-### 📋 [Coming Soon: Additional Roles](must-have/03_coming-soon.md)
+### 🛠️ [Software Engineer](must-have/02_software-engineer.md)
+**Best for:** Code development, debugging, testing, refactoring
+**You'll get:** Custom Instructions for code quality, prompt patterns for common tasks
+
+---
+
+### 🧪 [Quality Assurance Engineer](must-have/03_qa-engineer.md)
+**Best for:** Test planning, automation, bug reporting, quality metrics
+**You'll get:** Custom Instructions for testing workflows, QA-specific patterns
+
+---
+
+### 📋 [Coming Soon: Additional Roles](must-have/10_coming-soon.md)
 - Product Manager
 - Data Scientist
 - DevOps Engineer

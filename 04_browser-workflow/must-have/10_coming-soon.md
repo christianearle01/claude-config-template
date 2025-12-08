@@ -112,11 +112,11 @@ Help us create templates for these roles (or suggest new ones):
 ## 📖 Available Now
 
 Ready to use today:
-- [Software Engineer Guide](01_software-engineer.md) - Code development, debugging, testing
-- [QA Engineer Guide](02_qa-engineer.md) - Test planning, automation, quality metrics
+- [Software Engineer Guide](02_software-engineer.md) - Code development, debugging, testing
+- [QA Engineer Guide](03_qa-engineer.md) - Test planning, automation, quality metrics
 
 **Don't see your role?**
-- [Create Your Own Custom Instructions](04_custom-role.md) - Template generator for any role
+- [Create Your Own Custom Instructions](01_custom-role.md) - Template generator for any role
 
 ---
 
@@ -146,7 +146,7 @@ Which role should we prioritize? Let us know:
 
 ## Navigation
 
-**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](04_custom-role.md)**
+**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](01_custom-role.md)**
 
 ---
 

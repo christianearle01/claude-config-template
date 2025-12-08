@@ -300,7 +300,7 @@ A: No! Custom Instructions are part of the system prompt, loaded efficiently.
 
 ## Navigation
 
-**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](04_custom-role.md)**
+**🏠 [Back to Browser Workflow](../README.md)** | **📖 [All Roles](../README.md#choose-your-professional-role)** | **🎨 [Create Custom Role](01_custom-role.md)**
 
 ---
 
