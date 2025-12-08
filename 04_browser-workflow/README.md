@@ -27,11 +27,44 @@ Select your role to get optimized Custom Instructions and workflow patterns:
 
 ---
 
-### 📋 [Coming Soon: Additional Roles](must-have/10_coming-soon.md)
-- Product Manager
-- Data Scientist
-- DevOps Engineer
-- Technical Writer
+### 📊 [Data Scientist](must-have/04_data-scientist.md)
+**Best for:** Data analysis, ML modeling, visualization, statistical analysis
+**You'll get:** Custom Instructions for data science, prompt patterns for analysis
+
+---
+
+### ⚙️ [DevOps Engineer](must-have/05_devops-engineer.md)
+**Best for:** Infrastructure, CI/CD, deployment, monitoring, automation
+**You'll get:** Custom Instructions for DevOps, prompt patterns for infrastructure
+
+---
+
+### 📋 [Product Manager](must-have/06_product-manager.md)
+**Best for:** Requirements, user stories, feature planning, stakeholder communication
+**You'll get:** Custom Instructions for PM work, prompt patterns for product decisions
+
+---
+
+### ✍️ [Technical Writer](must-have/07_technical-writer.md)
+**Best for:** Documentation, API docs, tutorials, user guides
+**You'll get:** Custom Instructions for technical writing, prompt patterns for documentation
+
+---
+
+### 🎨 [Frontend Developer](must-have/08_frontend-developer.md)
+**Best for:** UI/UX implementation, component development, responsive design
+**You'll get:** Custom Instructions for frontend work, prompt patterns for components
+
+---
+
+### 🔒 [Security Engineer](must-have/09_security-engineer.md)
+**Best for:** Security analysis, vulnerability assessment, compliance
+**You'll get:** Custom Instructions for security work, prompt patterns for security reviews
+
+---
+
+### 📚 [See All Roles in One Place](must-have/10_coming-soon.md)
+Complete library of all 9 available roles with quick selection guide
 
 ---
 

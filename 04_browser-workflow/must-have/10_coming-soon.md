@@ -1,146 +1,121 @@
-# Additional Roles - Coming Soon
+# All Available Roles - Complete Library
 
-We're developing Custom Instructions templates and workflow guides for additional professional roles.
-
----
-
-## 🔜 Planned Roles
-
-### 📊 Data Scientist
-**Focus:** Data analysis, ML modeling, visualization, experimentation
-
-**Optimizations:**
-- Data exploration workflows
-- Model development patterns
-- Visualization generation
-- Statistical analysis
-- Experiment tracking
-
-**Status:** v2.7.0 (Q1 2026)
+**All planned roles are now available!** Choose from 9 professional roles, each with optimized Custom Instructions templates and workflow patterns.
 
 ---
 
-### ⚙️ DevOps Engineer
-**Focus:** Infrastructure, CI/CD, deployment, monitoring, automation
+## 📖 Complete Role Library
 
-**Optimizations:**
-- Infrastructure as Code generation
-- CI/CD pipeline creation
-- Deployment automation
-- Monitoring and alerting setup
-- Cloud resource management
-
-**Status:** v2.7.0 (Q1 2026)
+### 🎨 [Custom Role Generator](01_custom-role.md)
+**For:** ANY role not specifically listed below
+**You get:** Template generator to create your own role-specific Custom Instructions
+**Token savings:** 60-75%
 
 ---
 
-### 📋 Product Manager
-**Focus:** Requirements, user stories, feature planning, stakeholder communication
-
-**Optimizations:**
-- User story generation
-- Feature specification
-- Stakeholder communication templates
-- Roadmap planning
-- Metrics and KPI definition
-
-**Status:** v2.8.0 (Q2 2026)
+### 🛠️ [Software Engineer](02_software-engineer.md)
+**For:** Code development, debugging, testing, refactoring
+**You get:** Custom Instructions for code quality, 5+ prompt patterns
+**Token savings:** 70%
 
 ---
 
-### ✍️ Technical Writer
-**Focus:** Documentation, API docs, tutorials, user guides
-
-**Optimizations:**
-- Documentation generation
-- API reference creation
-- Tutorial structuring
-- Style guide enforcement
-- Content organization
-
-**Status:** v2.8.0 (Q2 2026)
+### 🧪 [QA Engineer](03_qa-engineer.md)
+**For:** Test planning, automation, bug reporting, quality metrics
+**You get:** Custom Instructions for testing workflows, 5+ QA patterns
+**Token savings:** 70%
 
 ---
 
-### 🎨 Frontend Developer
-**Focus:** UI/UX implementation, component development, responsive design
-
-**Optimizations:**
-- Component generation patterns
-- CSS/styling assistance
-- Accessibility checks
-- Performance optimization
-- Cross-browser compatibility
-
-**Status:** v2.9.0 (Q3 2026)
+### 📊 [Data Scientist](04_data-scientist.md)
+**For:** Data analysis, ML modeling, visualization, statistical analysis
+**You get:** Custom Instructions for data science, 5+ analysis patterns
+**Token savings:** 69%
 
 ---
 
-### 🔒 Security Engineer
-**Focus:** Security analysis, vulnerability assessment, compliance
-
-**Optimizations:**
-- Security audit patterns
-- Vulnerability scanning guidance
-- Compliance checklist generation
-- Threat modeling
-- Security documentation
-
-**Status:** v2.9.0 (Q3 2026)
+### ⚙️ [DevOps Engineer](05_devops-engineer.md)
+**For:** Infrastructure, CI/CD, deployment, monitoring, automation
+**You get:** Custom Instructions for DevOps, 5+ infrastructure patterns
+**Token savings:** 69%
 
 ---
 
-## 🤝 Want to Contribute?
+### 📋 [Product Manager](06_product-manager.md)
+**For:** Requirements, user stories, feature planning, stakeholder communication
+**You get:** Custom Instructions for PM work, 5+ product patterns
+**Token savings:** 69%
 
-Help us create templates for these roles (or suggest new ones):
+---
 
-**Share Your Expertise:**
-1. Daily workflows and common tasks
-2. Example prompts you use regularly
-3. Tools and technologies specific to your role
-4. Pain points in your current AI workflow
+### ✍️ [Technical Writer](07_technical-writer.md)
+**For:** Documentation, API docs, tutorials, user guides
+**You get:** Custom Instructions for technical writing, 5+ documentation patterns
+**Token savings:** 69%
 
-**Testing:**
-- Try beta templates when available
-- Provide feedback on token efficiency
-- Share real-world usage metrics
+---
+
+### 🎨 [Frontend Developer](08_frontend-developer.md)
+**For:** UI/UX implementation, component development, responsive design
+**You get:** Custom Instructions for frontend work, 5+ component patterns
+**Token savings:** 69%
+
+---
+
+### 🔒 [Security Engineer](09_security-engineer.md)
+**For:** Security analysis, vulnerability assessment, compliance
+**You get:** Custom Instructions for security work, 5+ security patterns
+**Token savings:** 70%
+
+---
+
+## 🤝 Improve Existing Roles
+
+Have suggestions for improving these role guides?
+
+**Share Your Feedback:**
+1. Real-world usage metrics and token savings
+2. Additional prompt patterns you've found helpful
+3. Workflow optimizations for your specific use case
+4. Examples of successful implementations
+
+**Testing & Validation:**
+- Test Custom Instructions templates with claude.ai
+- Provide feedback on prompt pattern effectiveness
+- Share productivity improvements you've measured
 
 **Contact:** Open an issue on GitHub with tag `browser-workflow`
 
 ---
 
-## 📖 Available Now
+## 💡 Using Multiple Roles
 
-Ready to use today:
-- [Software Engineer Guide](02_software-engineer.md) - Code development, debugging, testing
-- [QA Engineer Guide](03_qa-engineer.md) - Test planning, automation, quality metrics
+**Q: What if I wear multiple hats (e.g., Full-Stack Developer)?**
 
-**Don't see your role?**
-- [Create Your Own Custom Instructions](01_custom-role.md) - Template generator for any role
+Use the [Custom Role Generator](01_custom-role.md) to create hybrid Custom Instructions:
+- Combine elements from multiple role templates
+- Prioritize your primary responsibilities
+- Keep it focused (under 1500 chars per section)
 
----
-
-## 💡 Why Custom Role Support?
-
-We can't cover every professional role, but you can create your own! The Custom Role guide provides:
-- Template generator with fill-in-the-blank sections
-- Examples from existing roles to inspire you
-- Best practices for structuring Custom Instructions
-- Token optimization tips
+Example: Full-Stack Developer might combine:
+- Frontend Developer (component building, CSS)
+- Software Engineer (backend APIs, testing)
+- DevOps Engineer (deployment, monitoring)
 
 ---
 
-## 🎯 Vote for the Next Role
+## 🎯 Quick Selection Guide
 
-Which role should we prioritize? Let us know:
-1. Open an issue: "Vote: [Role Name] Guide"
-2. Star issues for roles you want
-3. Most voted roles get built first!
+**Choose your role based on your primary daily activities:**
 
-**Current vote leaders:**
-- Data Scientist: 0 votes
-- DevOps Engineer: 0 votes
-- Product Manager: 0 votes
+**Write code?** → Software Engineer, Frontend Developer
+**Test software?** → QA Engineer
+**Analyze data/build models?** → Data Scientist
+**Manage infrastructure?** → DevOps Engineer
+**Define products?** → Product Manager
+**Write documentation?** → Technical Writer
+**Security focus?** → Security Engineer
+**None of the above?** → Custom Role Generator
 
 ---
 
@@ -150,5 +125,5 @@ Which role should we prioritize? Let us know:
 
 ---
 
-*Part of the Claude.ai Workflow Optimization Guide*
+*Part of the Claude.ai Workflow Optimization Guide - Complete Role Library*
 *Last updated: 2025-12-08*
