@@ -13,6 +13,10 @@
 
 💡 **Cross-Platform:** Works with both Claude Code CLI (`claude` command) and VS Code Extension.
 
+💡 **Setup Options:**
+- **AI-Assisted:** Ask Claude Code for interactive guidance ([see how](UPDATE_GUIDE.md#-interactive-update-with-claude))
+- **Manual:** Follow the step-by-step paths below
+
 ---
 
 ## 🆕 First-Time Learner

@@ -38,6 +38,11 @@ Perfect for: Setting up for real work
 </tr>
 </table>
 
+💡 **AI-Assisted Alternative:** Instead of running commands manually, you can ask Claude Code in your terminal:
+> "Help me set up Claude Code configuration following the 5-minute success path"
+
+Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](UPDATE_GUIDE.md#-interactive-update-with-claude)
+
 **Or run the interactive wizard:**
 ```bash
 cd ~/claude-config-template

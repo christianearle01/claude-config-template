@@ -16,6 +16,13 @@ Get one quick success to see the value, then decide your path.
 
 ## ⏱️ Timed Steps (5 Minutes Total)
 
+💡 **AI-Assisted Alternative:** Instead of running these commands manually, you can ask Claude Code in your terminal:
+> "Help me complete the 5-minute success demo for Claude Code configuration"
+
+Claude will guide you through each step interactively. [See full workflow →](../UPDATE_GUIDE.md#-interactive-update-with-claude)
+
+**Or follow the manual steps below:**
+
 ### Step 1: Clone Template (1 minute)
 
 ```bash
