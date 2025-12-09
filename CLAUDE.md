@@ -472,4 +472,3 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 2. **Educational:** Shows users a real-world example of a well-structured CLAUDE.md
 
 Users can reference this file to see how to document a large documentation project!
-- CLAUDE.md
