@@ -8,7 +8,7 @@
 
 ## Template Overview (30-Second Scan)
 
-**What is this?** Battle-tested Claude Code configuration template with 50-95% token savings.
+**What is this?** Claude Code configuration template with 50-95% projected token savings.
 
 **Core Value Propositions:**
 1. CLAUDE.md system → 95% context token reduction

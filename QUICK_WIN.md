@@ -31,7 +31,7 @@ Takes 30 seconds to find your perfect path.
 
 ## 💡 What You'll Get
 
-A **battle-tested template** that optimizes your Claude Code setup:
+A **comprehensive template** that optimizes your Claude Code setup:
 
 - ✅ **50-95% token savings** - CLAUDE.md system
 - ✅ **92% cost savings** - Sonnet→Haiku workflow

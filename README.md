@@ -1,6 +1,6 @@
 # Claude Code Configuration Template
 
-**Battle-tested template for optimizing Claude Code across all your projects.**
+**Comprehensive template for optimizing Claude Code across all your projects.**
 
 Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo developers and teams.
 

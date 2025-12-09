@@ -55,7 +55,7 @@ When debugging:
 - Verify configuration and permissions
 
 Keep responses:
-- Production-ready and battle-tested
+- Production-ready with best practices
 - Security-focused with compliance considerations
 - Scalable and maintainable
 ```
