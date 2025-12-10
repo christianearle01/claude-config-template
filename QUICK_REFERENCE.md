@@ -717,6 +717,89 @@ You: "Implement the authentication plan"
 
 ---
 
+## Package Security (OPTIONAL)
+
+**What:** Protection against npm/Python malware attacks in your Claude Code projects
+
+**Note:** OPTIONAL - Only implement if your projects use package managers (npm, pip, etc.)
+
+**This template has zero dependencies** - Package security is preventative documentation for YOUR projects.
+
+### Quick Start
+
+**JavaScript/NPM:**
+```bash
+# 1. Copy .npmrc to block install scripts
+cp /path/to/claude-config-template/.npmrc .
+
+# 2. Weekly audit
+npm audit
+
+# 3. Commit lockfile
+git add package-lock.json
+```
+
+**Python/pip:**
+```bash
+# 1. Copy pip.conf to prefer wheels
+cp /path/to/claude-config-template/pip.conf .
+
+# 2. Weekly audit
+pip install pip-audit && pip-audit
+
+# 3. Pin versions
+pip freeze > requirements.txt
+```
+
+### Universal Principles (ALL Languages)
+
+Works with npm, pip, gem, cargo, go, Maven, NuGet, etc.
+
+1. ✅ Verify before install (check downloads, maintainers)
+2. ✅ Block auto-execution (disable install scripts)
+3. ✅ Lock dependencies (commit lockfiles)
+4. ✅ Regular audits (weekly scans)
+5. ✅ Minimal dependencies (reduce attack surface)
+6. ✅ Inspect critical code (review source)
+
+### Available Resources
+
+**Universal Guide:**
+- [Package Security Principles](01_global-setup/nice-to-have/02_package-security-principles.md) - Works with ALL languages
+
+**NPM/JavaScript:**
+- [NPM Security Checklist](01_global-setup/nice-to-have/03_npm-security-checklist.md) - 2-minute scan
+- [NPM Security Guide](01_global-setup/nice-to-have/04_npm-security-guide.md) - Comprehensive (653 lines)
+- Automation scripts: `examples/npm-security/` (5 scripts)
+
+**Python/pip:**
+- [Python Security Checklist](01_global-setup/nice-to-have/03_python-security-checklist.md) - 2-minute scan
+- [Python Security Guide](01_global-setup/nice-to-have/05_python-security-guide.md) - Comprehensive (557 lines)
+- Automation scripts: `examples/python-security/` (5 scripts)
+
+### When to Use
+
+**Implement if:**
+- ✅ Your Claude Code projects install npm packages
+- ✅ Your projects use pip/Python packages
+- ✅ You work in teams with package managers
+- ✅ You deploy projects to production
+
+**Skip if:**
+- ❌ Documentation-only projects (like this template)
+- ❌ No third-party packages installed
+- ❌ Languages without package managers
+
+### Real Threats (Factual)
+
+- **event-stream (NPM, 2018):** 2M weekly downloads compromised
+- **ctx/php (Python PyPI, 2022):** AWS credentials exfiltrated
+- **rest-client (Ruby, 2019):** Backdoor from compromised account
+
+**Keywords:** npm, pip, malware, supply chain, typosquatting, lockfile, audit, poetry, dependencies, security
+
+---
+
 ## Setup Paths
 
 **Quick decision:** What should I do first?

@@ -199,6 +199,20 @@ Guided setup with validation, knowledge checks, and progress tracking.
 
 **→ [Security Guide](01_global-setup/nice-to-have/01_security-guide.md)**
 
+### Package Security (Optional)
+Protect your projects from npm/Python malware attacks.
+
+**Note:** OPTIONAL - Only needed if your Claude Code projects use package managers.
+
+- Universal principles for ALL languages (npm, pip, gem, cargo, go, etc.)
+- NPM security: Block install scripts, automated audits, lockfile verification
+- Python security: Prefer wheels, pip-audit integration, Poetry support
+- 10 automation scripts for weekly security checks
+
+**→ [Package Security Guide](01_global-setup/nice-to-have/02_package-security-principles.md)**
+**→ [NPM Checklist](01_global-setup/nice-to-have/03_npm-security-checklist.md)**
+**→ [Python Checklist](01_global-setup/nice-to-have/03_python-security-checklist.md)**
+
 ---
 
 ## 📖 Quick Reference

@@ -489,6 +489,124 @@ cat .claude/security.log | grep "WARNING"
 
 ---
 
+## 📦 Package Security (OPTIONAL)
+
+**Note:** This section covers npm/Python package malware protection. **This is OPTIONAL** - implement only if your Claude Code projects use package managers.
+
+**This template has zero dependencies** - package security is preventative documentation for your own projects.
+
+### Why Package Security Matters
+
+Package managers (npm, pip, etc.) are common attack vectors for supply chain attacks:
+- **event-stream (NPM, 2018):** 2M weekly downloads compromised, Bitcoin wallet credentials stolen
+- **ctx/php (Python PyPI, 2022):** Typosquatting attack, AWS credentials exfiltrated
+- **rest-client (Ruby, 2019):** Compromised maintainer account, backdoor inserted
+
+### Quick Protection (Choose Your Language)
+
+#### JavaScript/NPM Projects (Optional)
+
+**5-minute setup:**
+
+1. **Block install scripts** (prevents 80%+ of attacks):
+   ```bash
+   # Copy .npmrc from template
+   cp /path/to/claude-config-template/.npmrc .
+   ```
+
+2. **Weekly audits**:
+   ```bash
+   npm audit
+   ```
+
+3. **Commit lockfile**:
+   ```bash
+   git add package-lock.json
+   git commit -m "Add lockfile for security"
+   ```
+
+**Full documentation (if needed):**
+- Quick Checklist: [NPM Security Checklist](./03_npm-security-checklist.md)
+- Comprehensive Guide: [NPM Security Guide](./04_npm-security-guide.md)
+- Automation Scripts: `examples/npm-security/`
+
+#### Python/pip Projects (Optional)
+
+**5-minute setup:**
+
+1. **Prefer wheels over source** (prevents 80%+ of attacks):
+   ```bash
+   # Copy pip.conf from template
+   cp /path/to/claude-config-template/pip.conf .
+   ```
+
+2. **Weekly audits**:
+   ```bash
+   pip install pip-audit
+   pip-audit
+   ```
+
+3. **Use exact versions**:
+   ```bash
+   pip freeze > requirements.txt
+   git add requirements.txt
+   git commit -m "Pin dependency versions"
+   ```
+
+**Or use Poetry (more secure by default):**
+   ```bash
+   poetry init
+   poetry add package-name==1.2.3
+   git add poetry.lock pyproject.toml
+   git commit -m "Add Poetry lockfile"
+   ```
+
+**Full documentation (if needed):**
+- Quick Checklist: [Python Security Checklist](./03_python-security-checklist.md)
+- Comprehensive Guide: [Python Security Guide](./05_python-security-guide.md)
+- Automation Scripts: `examples/python-security/`
+
+### Universal Package Security Principles
+
+**Applies to ANY package manager** (npm, pip, gem, cargo, go, etc.):
+
+1. ✅ **Verify before install** - Check downloads, GitHub, maintainers
+2. ✅ **Block auto-execution** - Disable install scripts by default
+3. ✅ **Lock dependencies** - Commit lockfiles (package-lock.json, poetry.lock, etc.)
+4. ✅ **Regular audits** - Weekly security scans
+5. ✅ **Minimal dependencies** - Fewer packages = smaller attack surface
+6. ✅ **Inspect critical code** - Review source for important packages
+
+**Full universal guide:**
+- [Package Security Principles](./02_package-security-principles.md) - Works with ALL languages
+
+### When to Implement Package Security
+
+**Implement if you:**
+- ✅ Use npm/Node.js in your Claude Code projects
+- ✅ Use pip/Python packages in your projects
+- ✅ Work in teams that use package managers
+- ✅ Deploy Claude Code projects to production
+
+**Skip if you:**
+- ❌ Only use Claude Code for documentation/config (like this template)
+- ❌ Don't install third-party packages
+- ❌ Use languages without package managers
+
+### Quick Decision: Do I Need This?
+
+```
+Do your Claude Code projects install packages?
+│
+├─ YES → Implement package security (choose your language above)
+│
+└─ NO  → Skip this section (not needed for documentation-only projects)
+```
+
+**Remember:** This claude-config-template has zero dependencies. Package security is **optional** documentation to help YOU protect YOUR projects that DO use packages.
+
+---
+
 ## 💡 Best Practices Summary
 
 1. ✅ **Always validate external content** before processing

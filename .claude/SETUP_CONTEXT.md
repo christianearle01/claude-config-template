@@ -16,6 +16,7 @@
 3. Persona-based setup → 5 user profiles (60s to 120min paths)
 4. Visual guides → 40% cognitive load reduction
 5. Interactive wizards → Validated setup with knowledge checks
+6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
 **Current Version:** v2.6.0
 
@@ -55,7 +56,9 @@ claude-config-template/
 │   ├── wizard-helpers.sh          # Validation functions
 │   └── wizard-[persona].sh        # 5 persona-specific wizards
 │
-├── examples/                      # Example configs (hooks, MCP)
+├── examples/                      # Example configs (hooks, MCP, security)
+│   ├── npm-security/              # NPM malware protection (5 scripts) - OPTIONAL
+│   └── python-security/           # Python malware protection (5 scripts) - OPTIONAL
 ├── .claude/                       # Claude Code configuration
 │   ├── settings.json              # Optimized settings
 │   ├── agents/                    # Custom agents (2 sophisticated ones)
@@ -249,6 +252,54 @@ cd ~/claude-config-template
 - Convinced → Run wizard
 - Want more info → START_HERE.md
 - Just need commands → QUICK_REFERENCE.md (coming soon)
+
+### Task 8: "How do I protect against package malware?" (OPTIONAL)
+
+**Quick Answer:** OPTIONAL feature - only needed if your Claude Code projects install npm/Python packages.
+
+**This template has zero dependencies** - package security is preventative docs for YOUR projects.
+
+**Quick Setup (NPM):**
+```bash
+# 1. Copy .npmrc to block install scripts
+cp ~/claude-config-template/.npmrc .
+
+# 2. Weekly audit
+npm audit
+
+# 3. Commit lockfile
+git add package-lock.json
+```
+
+**Quick Setup (Python):**
+```bash
+# 1. Copy pip.conf to prefer wheels
+cp ~/claude-config-template/pip.conf .
+
+# 2. Weekly audit
+pip install pip-audit && pip-audit
+
+# 3. Pin versions
+pip freeze > requirements.txt
+```
+
+**When to implement:**
+- ✅ Projects that install npm packages
+- ✅ Projects that use pip/Python packages
+- ✅ Team projects with package managers
+- ❌ Documentation-only projects (like this template)
+
+**Resources:**
+- Universal guide: 01_global-setup/nice-to-have/02_package-security-principles.md
+- NPM checklist: 01_global-setup/nice-to-have/03_npm-security-checklist.md
+- Python checklist: 01_global-setup/nice-to-have/03_python-security-checklist.md
+- NPM scripts: examples/npm-security/ (5 automation scripts)
+- Python scripts: examples/python-security/ (5 automation scripts)
+
+**Real threats (factual):**
+- event-stream (NPM, 2018): 2M weekly downloads compromised
+- ctx/php (Python PyPI, 2022): AWS credentials exfiltrated
+- rest-client (Ruby, 2019): Backdoor from compromised account
 
 ---
 
