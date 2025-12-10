@@ -283,7 +283,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v2.6.0
+**Current version:** v2.7.0
 
 **→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**
@@ -316,15 +316,22 @@ chmod +x scripts/*.sh
 
 ## 📊 Version Information
 
-**Current:** v2.6.0 (Browser Workflow Release - 2025-12-08)
+**Current:** v2.7.0 (Package Security - OPTIONAL Feature - 2025-12-10)
 
-**Recent changes:**
+**Recent changes (v2.7.0):**
+- 🔒 Added OPTIONAL package security (npm/Python malware prevention)
+- 📚 Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
+- 📦 NPM security: 3 guides + 5 automation scripts
+- 🐍 Python security: 3 guides + 5 automation scripts
+- ✅ 20 files, ~4,200 lines of security content
+- 💡 Clearly marked OPTIONAL (template has zero dependencies)
+
+**Previous version (v2.6.0) - Browser Workflow:**
+- ✨ Added 9 role-based Custom Instructions for claude.ai
 - ✨ Added 5-minute success demo
 - ✨ Added visual quickstart flowchart
 - ✨ Added searchable quick reference
 - ✨ Added setup context file (96% token savings during setup)
-- ✨ Created directory guide
-- ✨ Compiled success stories
 
 **Previous versions:**
 - v2.4.0 - Enhanced Prompt Polisher (14 techniques)
@@ -434,8 +441,8 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v2.6.0
-**Last Updated:** 2025-12-08
+**Template Version:** v2.7.0
+**Last Updated:** 2025-12-10
 
 ---
 
