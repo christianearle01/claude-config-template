@@ -1,9 +1,9 @@
 {
-  "version": "2.4.0",
-  "release_date": "2025-12-05",
-  "release_name": "Enhanced Prompt Polisher - 14 Techniques with Intelligent Selection",
+  "version": "2.7.0",
+  "release_date": "2025-12-10",
+  "release_name": "Package Security - OPTIONAL Feature",
   "breaking_changes": false,
-  "update_priority": "recommended",
+  "update_priority": "optional",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
   "repository_url": "https://github.com/christianearle01/claude-config-template",
   "minimum_claude_version": "2.0.0",
@@ -21,7 +21,10 @@
     "pre-project-planning-agent",
     "enhanced-prompt-polisher-3-tier",
     "intelligent-technique-selection",
-    "dynamic-claude-md-context"
+    "dynamic-claude-md-context",
+    "package-security-npm",
+    "package-security-python",
+    "universal-package-principles"
   ],
   "personas_supported": [
     "first-time",
@@ -34,16 +37,26 @@
     "documentation": {
       "START_HERE.md": "2.3.0",
       "VISUAL_GUIDES.md": "2.1.0",
-      "README.md": "2.3.0",
+      "README.md": "2.7.0",
       "01_global-setup/must-have/01_installation.md": "2.2.0",
       "01_global-setup/must-have/02_quick-start.md": "2.2.1",
+      "01_global-setup/nice-to-have/02_package-security-principles.md": "2.7.0",
+      "01_global-setup/nice-to-have/03_npm-security-checklist.md": "2.7.0",
+      "01_global-setup/nice-to-have/03_python-security-checklist.md": "2.7.0",
+      "01_global-setup/nice-to-have/04_npm-security-guide.md": "2.7.0",
+      "01_global-setup/nice-to-have/05_python-security-guide.md": "2.7.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",
       "coding-standards.md.template": "2.0.0",
-      "project-plan-template.md": "2.3.0"
+      "project-plan-template.md": "2.3.0",
+      ".npmrc": "2.7.0",
+      "pip.conf": "2.7.0",
+      "package.json.template": "2.7.0",
+      "requirements.txt.template": "2.7.0",
+      "pyproject.toml.template": "2.7.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
@@ -60,12 +73,14 @@
     },
     "examples": {
       "hooks": "2.0.0",
-      "mcp-servers": "2.0.0"
+      "mcp-servers": "2.0.0",
+      "npm-security": "2.7.0",
+      "python-security": "2.7.0"
     }
   },
   "metadata": {
-    "total_files": 50,
-    "total_lines": 22400,
+    "total_files": 70,
+    "total_lines": 26600,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
     "token_savings_target": 0.85,
