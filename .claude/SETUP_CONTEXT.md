@@ -18,7 +18,7 @@
 5. Interactive wizards → Validated setup with knowledge checks
 6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v2.6.0
+**Current Version:** v2.7.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
 
@@ -434,17 +434,21 @@ cat .claude/settings.json | python -m json.tool
 
 ## Version Information
 
-**Current:** v2.6.0 (Browser workflow release)
+**Current:** v2.7.0 (Package Security - OPTIONAL feature)
 
-**Recent Changes:**
+**Recent Changes (v2.7.0):**
+- Added OPTIONAL package security protection (npm/Python malware prevention)
+- Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
+- NPM security: 3 guides + 5 automation scripts
+- Python security: 3 guides + 5 automation scripts
+- 20 files, ~4,200 lines of security content
+- Clearly marked as OPTIONAL throughout (template has zero dependencies)
+
+**Previous Version:** v2.6.0 (Browser Workflow)
+- Added 04_browser-workflow/ (9 role-based Custom Instructions)
 - Added docs/5_MINUTE_SUCCESS.md (ultra-fast demo)
 - Added docs/VISUAL_QUICKSTART.md (decision flowchart)
-- Added .claude/SETUP_CONTEXT.md (this file!)
-- Planning: README restructure (540 → 250 lines)
-- Planning: QUICK_REFERENCE.md (searchable)
-- Planning: 04_browser-workflow/ (role-based configs)
-
-**Previous Version:** v2.4.0
+- Added .claude/SETUP_CONTEXT.md (token-optimized setup guide)
 - Enhanced Prompt Polisher (14 techniques)
 - Intelligent technique selection
 - Educational output modes refinement
