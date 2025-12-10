@@ -1,0 +1,89 @@
+# Python Requirements Template - Secure Configuration
+#
+# This file demonstrates secure dependency management for Python projects.
+# Follow these practices to prevent malware and supply chain attacks.
+#
+# Last Updated: 2025-12-09
+# Based on: Package Security Principles (01_global-setup/nice-to-have/02_package-security-principles.md)
+
+# ===== SECURITY BEST PRACTICES =====
+#
+# 1. Pin exact versions (no ~= or >= operators)
+#    Example: requests==2.31.0 (not requests>=2.0.0)
+#
+# 2. Use hashes to verify integrity (generate with pip-compile --generate-hashes)
+#    Example: requests==2.31.0 \
+#             --hash=sha256:abc123...
+#
+# 3. Audit dependencies before adding:
+#    pip install pip-audit
+#    pip-audit -r requirements.txt
+#
+# 4. Check package reputation:
+#    pip show package-name
+#    Visit PyPI page: https://pypi.org/project/package-name/
+#
+# 5. Review changelogs before updates
+#
+# 6. Use only-binary in pip.conf to prevent source builds
+
+# ===== EXAMPLE DEPENDENCIES (COMMENTED OUT) =====
+#
+# Replace with your actual dependencies, pinned to exact versions:
+#
+# # Web framework
+# flask==3.0.0
+#
+# # HTTP library
+# requests==2.31.0
+#
+# # Data processing
+# pandas==2.1.4
+#
+# # Testing
+# pytest==7.4.3
+# pytest-cov==4.1.0
+
+# ===== DEVELOPMENT DEPENDENCIES =====
+#
+# Security tools (recommended):
+#
+# pip-audit==2.6.1          # Vulnerability scanner
+# safety==2.3.5             # Dependency security checker
+# bandit==1.7.5             # Python code security linter
+
+# ===== GENERATING HASHED REQUIREMENTS =====
+#
+# For production environments, generate hashed requirements:
+#
+# 1. Install pip-tools:
+#    pip install pip-tools
+#
+# 2. Create requirements.in (without hashes):
+#    flask==3.0.0
+#    requests==2.31.0
+#
+# 3. Generate requirements.txt with hashes:
+#    pip-compile --generate-hashes requirements.in
+#
+# 4. Install with hash verification:
+#    pip install -r requirements.txt --require-hashes
+
+# ===== UPDATING DEPENDENCIES =====
+#
+# 1. Check for outdated packages:
+#    pip list --outdated
+#
+# 2. Review changelogs for security fixes
+#
+# 3. Test updates in development first
+#
+# 4. Audit after updating:
+#    pip-audit
+
+# ===== RELATED DOCUMENTATION =====
+#
+# - Universal Security Principles: 01_global-setup/nice-to-have/02_package-security-principles.md
+# - Python Security Checklist: 01_global-setup/nice-to-have/03_python-security-checklist.md (Phase 2)
+# - Python Security Guide: 01_global-setup/nice-to-have/05_python-security-guide.md (Phase 3)
+# - Pip Configuration: pip.conf (project root)

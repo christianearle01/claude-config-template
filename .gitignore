@@ -45,6 +45,89 @@ node_modules/
 vendor/
 venv/
 
+# ===== NPM/Node.js Security =====
+# Package directories
+node_modules/
+jspm_packages/
+
+# NPM cache and logs
+.npm
+.pnpm-debug.log*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# IMPORTANT: COMMIT these lockfiles for security integrity verification
+# DO NOT ignore: package-lock.json, yarn.lock, pnpm-lock.yaml
+# Lockfiles ensure reproducible builds and prevent tampering
+
+# NPM audit reports (optional - can be gitignored if generated in CI)
+security-audit.json
+
+# ===== Python Security =====
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+.env.python
+
+# Python package directories
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Poetry
+# Note: poetry.lock SHOULD be committed for security
+.venv/
+poetry.toml
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IMPORTANT: COMMIT these lockfiles for security integrity verification
+# DO NOT ignore: poetry.lock, Pipfile.lock, requirements.txt (with hashes)
+# Lockfiles ensure reproducible builds and prevent tampering
+
 # Backup files
 *.bak
 *.backup

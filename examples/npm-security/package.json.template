@@ -1,0 +1,35 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "Secure npm configuration template",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "preinstall": "echo '⚠️  Running security checks before install...'",
+    "audit": "npm audit --audit-level=moderate",
+    "audit:fix": "npm audit fix",
+    "audit:report": "npm audit --json > security-audit.json",
+    "outdated": "npm outdated",
+    "verify": "npm run audit && npm run outdated",
+    "check:security": "npm run audit && npm run outdated && echo '✅ Security checks complete'"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "keywords": [
+    "security",
+    "npm",
+    "template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/your-repo/issues"
+  },
+  "homepage": "https://github.com/yourusername/your-repo#readme"
+}

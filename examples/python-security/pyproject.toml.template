@@ -1,0 +1,127 @@
+# Python Poetry Configuration Template - Secure Setup
+#
+# This file demonstrates secure dependency management using Poetry.
+# Poetry provides better security than pip by default (automatic lockfiles, no install hooks).
+#
+# Last Updated: 2025-12-09
+# Based on: Package Security Principles (01_global-setup/nice-to-have/02_package-security-principles.md)
+
+[tool.poetry]
+name = "your-project-name"
+version = "0.1.0"
+description = "Secure Python project template using Poetry"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/yourusername/your-repo"
+keywords = ["security", "python", "template"]
+
+# Minimum Python version
+# Pinning helps prevent compatibility issues and security vulnerabilities
+python = "^3.9"
+
+[tool.poetry.dependencies]
+# Production dependencies
+# Use caret (^) for patch/minor updates or exact versions for critical packages
+python = "^3.9"
+
+# Example dependencies (commented out):
+# flask = "^3.0.0"           # Web framework
+# requests = "^2.31.0"       # HTTP library
+# pydantic = "^2.5.0"        # Data validation
+
+[tool.poetry.group.dev.dependencies]
+# Development dependencies
+# Security and testing tools
+
+# Testing
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+
+# Security tools (recommended)
+# bandit = "^1.7.5"          # Python security linter
+# safety = "^2.3.5"          # Dependency vulnerability checker
+
+# Code quality
+# black = "^23.12.0"         # Code formatter
+# ruff = "^0.1.8"            # Fast Python linter
+# mypy = "^1.7.0"            # Static type checker
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# ===== SECURITY BEST PRACTICES WITH POETRY =====
+#
+# 1. Always commit poetry.lock to version control
+#    This ensures reproducible installs and integrity verification
+#
+# 2. Use exact versions for critical dependencies:
+#    package = "==1.2.3"  (instead of ^1.2.3)
+#
+# 3. Audit dependencies before adding:
+#    poetry add package-name --dry-run
+#    poetry show package-name  # Check package info
+#
+# 4. Regular security checks:
+#    poetry show --outdated    # Check for updates
+#    poetry update --dry-run   # Preview updates
+#    poetry export -f requirements.txt | pip-audit -r /dev/stdin
+#
+# 5. Use dependency groups to separate dev/prod:
+#    poetry install --only main  # Production only
+#    poetry install              # Include dev dependencies
+
+# ===== POETRY SECURITY ADVANTAGES =====
+#
+# Poetry is more secure than pip by default:
+#
+# ✅ Automatic lockfile (poetry.lock) with hashes
+# ✅ No install hooks (setup.py scripts don't auto-run)
+# ✅ Dependency resolution prevents conflicts
+# ✅ Virtual environment isolation
+# ✅ Cryptographic hash verification
+# ✅ Reproducible builds
+
+# ===== COMMON COMMANDS =====
+#
+# Install dependencies:
+# poetry install
+#
+# Add new dependency (checks for conflicts first):
+# poetry add package-name
+#
+# Add dev dependency:
+# poetry add --group dev package-name
+#
+# Update dependencies:
+# poetry update              # Update all
+# poetry update package-name # Update specific package
+#
+# Check for outdated packages:
+# poetry show --outdated
+#
+# Export to requirements.txt (for CI/CD):
+# poetry export -f requirements.txt --output requirements.txt
+#
+# Run security audit:
+# poetry export -f requirements.txt | pip-audit -r /dev/stdin
+
+# ===== CONFIGURATION OPTIONS =====
+#
+# Create poetry.toml in project root for additional settings:
+#
+# [virtualenvs]
+# create = true
+# in-project = true  # Create .venv in project directory
+#
+# [repositories]
+# # Use only official PyPI (security)
+# pypi = {url = "https://pypi.org/simple/"}
+
+# ===== RELATED DOCUMENTATION =====
+#
+# - Universal Security Principles: 01_global-setup/nice-to-have/02_package-security-principles.md
+# - Python Security Checklist: 01_global-setup/nice-to-have/03_python-security-checklist.md (Phase 2)
+# - Python Security Guide: 01_global-setup/nice-to-have/05_python-security-guide.md (Phase 3)
+# - Poetry Official Docs: https://python-poetry.org/docs/
