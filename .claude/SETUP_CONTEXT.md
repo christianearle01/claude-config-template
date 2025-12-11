@@ -18,7 +18,7 @@
 5. Interactive wizards → Validated setup with knowledge checks
 6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v2.7.0
+**Current Version:** v2.7.1
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
 
@@ -434,15 +434,21 @@ cat .claude/settings.json | python -m json.tool
 
 ## Version Information
 
-**Current:** v2.7.0 (Package Security - OPTIONAL feature)
+**Current:** v2.7.1 (Quick Wins + Honesty Policy)
 
-**Recent Changes (v2.7.0):**
+**Recent Changes (v2.7.1):**
+- CRITICAL: Fixed 20+ honesty policy violations in README.md
+- Removed false "Proven Track Record" section (claimed 50+ users, unverified results)
+- Added "Projected" prefix to all percentage claims
+- Added "First 3 Commands" section for 30-second quick start
+- Created QUICK_START.md (5-minute fast track for impatient users)
+- Added validation status to version.json (transparent about 1-user testing)
+
+**Previous Version:** v2.7.0 (Package Security)
 - Added OPTIONAL package security protection (npm/Python malware prevention)
 - Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
 - NPM security: 3 guides + 5 automation scripts
 - Python security: 3 guides + 5 automation scripts
-- 20 files, ~4,200 lines of security content
-- Clearly marked as OPTIONAL throughout (template has zero dependencies)
 
 **Previous Version:** v2.6.0 (Browser Workflow)
 - Added 04_browser-workflow/ (9 role-based Custom Instructions)

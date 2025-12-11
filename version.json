@@ -1,7 +1,7 @@
 {
-  "version": "2.7.0",
+  "version": "2.7.1",
   "release_date": "2025-12-10",
-  "release_name": "Package Security - OPTIONAL Feature",
+  "release_name": "Quick Wins + Honesty Policy Compliance",
   "breaking_changes": false,
   "update_priority": "optional",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
