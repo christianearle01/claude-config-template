@@ -457,7 +457,151 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 
 ---
 
+## Git Workflow & Commit Approval
+
+### User Approval Required for Commits
+
+**CRITICAL: Always get user approval before committing.**
+
+#### Commit Workflow (Token-Optimized):
+
+**1. Draft Phase:**
+   - Draft a commit message from context/file names
+   - **Optional:** Run `git status` only if user asks or you need to verify files
+   - **Optional:** Run `git diff --stat` only if you need to see change summary
+   - **Note:** Users see changes in their IDE, so avoid redundant git commands
+
+**2. Review Phase - MANDATORY:**
+   - Present the drafted commit message to the user
+   - List which files will be committed (from context or git status if run)
+   - Use conversational language: "Here's the commit message I've drafted. Should I proceed?"
+   - Wait for explicit approval (user says "yes", "go ahead", "commit it", etc.)
+
+**3. Execute Phase:**
+   - Only after user approval, run: `git add [files] && git commit -m "message"`
+   - Confirm success briefly
+
+**NEVER auto-commit** even if the user says "commit when done" - always show the message first.
+
+#### Token Efficiency Tips:
+
+**Minimal workflow (recommended):**
+```
+User: "Commit the login changes"
+Claude: Drafts message → Shows message → Waits for approval
+Tokens: ~300-500 per commit
+```
+
+**When to run git commands:**
+- `git status`: Only if user asks "what files changed?" or you're unsure
+- `git diff --stat`: Only if you need change context for message quality
+- `git diff`: Avoid (users see full diff in IDE, wastes 500-2,000 tokens)
+
+**Cost comparison:**
+- With git status + git diff: ~2,000 tokens/commit
+- With git diff --stat: ~800 tokens/commit
+- Without git commands: ~400 tokens/commit (75% savings!)
+
+**User sees changes in their IDE already** - don't duplicate information unless requested.
+
+### Helping Users Configure Git Workflow
+
+**When users ask about setting up git commit approval globally:**
+
+1. **Understand their needs first.** Ask these questions:
+   - "Are you working solo or in a team?"
+   - "Do you prefer seeing every change, or do you trust fast automation?"
+   - "What git operations worry you most? (commits, pushes, merges, rebases)"
+   - "Are you learning Claude Code, or are you already experienced with it?"
+
+2. **Recommend based on their answers:**
+
+   **Recommend Full Protection if:**
+   - Working in a team
+   - Learning Claude Code
+   - Safety-critical work
+   - Wants to see everything before it happens
+
+   **Recommend Commit-Only Protection if:**
+   - Working solo
+   - Experienced developer who wants speed
+   - Trusts Claude with file edits
+   - Only wants commit message control
+
+   **Recommend Minimal Protection if:**
+   - Very experienced with Claude Code
+   - Needs maximum speed
+   - Only worried about accidents (destructive operations)
+   - Comfortable with automation
+
+3. **Guide the setup:**
+   - Explain your recommendation clearly with reasoning
+   - Offer to help: "I can help you set this up. Would you like me to show you the command to run?"
+   - Show: `./scripts/setup-git-workflow.sh`
+   - After they run it, mention they should choose option [1/2/3] based on your recommendation
+   - Reassure: "You can always change this later by running the wizard again"
+
+4. **Example conversation:**
+   ```
+   User: "I want to set up git approval globally"
+
+   Claude: "I'll help you choose the best configuration! Let me ask a few questions:
+
+   1. Are you working solo or in a team?
+   2. How comfortable are you with Claude Code? (new/experienced)
+   3. Do you prefer seeing plans before actions, or fast automation?"
+
+   User: "Solo, pretty experienced, I like speed but want to review commits"
+
+   Claude: "Perfect! Based on that, I recommend **Commit-Only Protection**:
+
+   ✅ You get speed (acceptEdits mode for file changes)
+   ✅ You review every commit message before it's committed
+   ✅ Git push commands are displayed (not executed due to auth)
+
+   To set this up, run this wizard:
+     ./scripts/setup-git-workflow.sh
+
+   When prompted, choose option 2 (Commit-Only Protection).
+
+   This will update your ~/.claude/settings.json globally. Sound good?"
+   ```
+
+### Git Push - Display Only
+
+**IMPORTANT: Due to git authentication requirements, Claude cannot execute git push directly.**
+
+Instead of executing git push:
+1. Show the user the exact command to run:
+   ```bash
+   git push origin <branch-name>
+   ```
+2. Explain: "Please run this command in your terminal to push the changes."
+3. If the user asks why, explain: "Git authentication requires interactive credential input that Claude Code's sandbox cannot handle."
+
+**Example:**
+```
+✅ Commit successful!
+
+To push these changes to GitHub, please run:
+  git push origin main
+
+This requires your git credentials which need to be entered interactively.
+```
+
+---
+
 ## Special Instructions for Claude
+
+**⚠️ CRITICAL - Read First:**
+
+**0. FOLLOW THE DOCUMENTATION HONESTY POLICY (see top of this file)**
+   - NEVER present projections as proven results
+   - ALWAYS label: "Projected", "Theoretical", "Example scenario"
+   - This is a NEW project by ONE user (the author)
+   - Token math is factual, but savings are projections
+   - Invite users to validate claims
+   - **Integrity over marketing** - Users trust honest documentation
 
 **When helping maintain/improve this project:**
 
@@ -468,6 +612,7 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 5. **Update all indexes** when adding content (README, QUICK_REFERENCE, DIRECTORY_GUIDE)
 6. **Test links** before committing
 7. **Version correctly** (MAJOR.MINOR.PATCH)
+8. **Honesty check ALL documentation** before committing
 
 **Common maintenance tasks:**
 - Adding new documentation → See "Development Workflow" above

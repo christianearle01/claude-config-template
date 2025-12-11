@@ -1,0 +1,24 @@
+{
+  "model": "sonnet",
+  "alwaysThinkingEnabled": true,
+  "outputStyle": "concise",
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": ["git", "docker", "npm", "python", "pytest", "pip"]
+  },
+  "permissions": {
+    "defaultMode": "plan",
+    "neverAutoApprove": [
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(git merge*)",
+      "Bash(git rebase*)",
+      "Bash(git reset --hard*)",
+      "Bash(git checkout -b*)",
+      "Bash(rm -rf*)",
+      "Write(**/.env*)",
+      "Edit(**/.env*)"
+    ]
+  },
+  "hooks": {}
+}

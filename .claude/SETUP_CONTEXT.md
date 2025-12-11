@@ -430,6 +430,41 @@ cat .claude/settings.json | python -m json.tool
 - Verify API key in .claude.json (NOT committed to git)
 - Context7 falls back to WebSearch automatically
 
+### Issue: "Why doesn't Claude execute git push?"
+**Answer:** Git authentication requires interactive credential input that the sandbox cannot handle securely.
+
+**Solution:** Claude will display the command for you to run:
+```bash
+git push origin branch-name
+```
+
+**Why this is better:**
+- ✅ Secure: No credential workarounds needed
+- ✅ Safe: You review branch name before pushing
+- ✅ Control: You decide when to push
+
+**See:** `01_global-setup/good-to-have/05_git-push-workaround.md`
+
+### Issue: "How do I set up git commit approval?"
+**Solution:** Run the interactive wizard:
+```bash
+./scripts/setup-git-workflow.sh
+```
+
+Or ask Claude: "Help me set up git commit approval"
+
+Claude will:
+1. Ask about your workflow
+2. Recommend the best configuration
+3. Guide you through setup
+
+**Options:**
+- **Full Protection:** Approval for all git operations (teams/learning)
+- **Commit-Only:** Approval only for commits (solo/speed)
+- **Minimal:** Approval for commits + destructive ops (experienced)
+
+**See:** `01_global-setup/good-to-have/04_git-approval-workflow.md`
+
 ---
 
 ## Version Information

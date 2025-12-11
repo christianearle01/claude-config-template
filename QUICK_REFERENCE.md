@@ -19,6 +19,7 @@ Jump to any section:
 - [Custom Agents](#custom-agents)
 - [Educational Modes](#educational-modes)
 - [File Locations](#file-locations)
+- [Git Workflow & Commit Approval](#git-workflow--commit-approval)
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [MCP Servers](#mcp-servers)
 - [Model Switching](#model-switching)
@@ -635,6 +636,69 @@ You: "Implement the authentication plan"
 **Docs:** [Permission Modes Guide](01_global-setup/must-have/03_permission-modes.md)
 
 **Keywords:** permissions, plan, ask, accept, modes, safety, control, shift-tab
+
+---
+
+## Git Workflow & Commit Approval
+
+**What:** Configure Claude to always show commit messages for approval before committing
+
+**Quick Start:**
+```bash
+./scripts/setup-git-workflow.sh
+```
+
+**Or Ask Claude:** "Help me set up git commit approval"
+
+**The 3 Options:**
+
+### 1️⃣  Full Protection (Recommended)
+- Approval required for all git operations
+- Permission mode: plan
+- Best for: Teams, learning, safety-critical work
+
+### 2️⃣  Commit-Only Protection
+- Approval required only for commits
+- Permission mode: acceptEdits (fast for file changes)
+- Best for: Solo developers who want speed with safety
+
+### 3️⃣  Minimal Protection
+- Approval only for commits and destructive operations
+- Permission mode: acceptEdits
+- Best for: Experienced users who want maximum speed
+
+**How It Works:**
+1. You: "Commit these changes"
+2. Claude: Shows drafted commit message and files
+3. Claude: "Should I proceed with this commit?"
+4. You: "Yes" or "No, change it to..."
+5. Claude: Only commits after approval
+
+**Git Push:**
+- **Note:** Git push commands are displayed, not executed
+- **Why:** Authentication requires interactive credential input
+- **Solution:** Copy and run the command Claude shows you
+
+**Manual Configuration:**
+```json
+// ~/.claude/settings.json (global)
+{
+  "permissions": {
+    "defaultMode": "plan",  // or "acceptEdits"
+    "neverAutoApprove": [
+      "Bash(git commit*)",
+      "Bash(git push*)"
+    ]
+  }
+}
+```
+
+**Docs:**
+- [Git Approval Workflow](01_global-setup/good-to-have/04_git-approval-workflow.md)
+- [Git Push Workaround](01_global-setup/good-to-have/05_git-push-workaround.md)
+- [Wizard Script](scripts/setup-git-workflow.sh)
+
+**Keywords:** git, commit, approval, workflow, push, authentication, wizard, global
 
 ---
 
