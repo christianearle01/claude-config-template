@@ -50,11 +50,11 @@ update_version_in_file() {
 
     # Use sed to replace version on specific line
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS
-        sed -i '' "${line_num}s/v[0-9]\+\.[0-9]\+\.[0-9]\+/v${VERSION}/" "$file"
+        # macOS - use -E for extended regex
+        sed -i '' -E "${line_num}s/v[0-9]+\.[0-9]+\.[0-9]+/v${VERSION}/" "$file"
     else
-        # Linux
-        sed -i "${line_num}s/v[0-9]\+\.[0-9]\+\.[0-9]\+/v${VERSION}/" "$file"
+        # Linux - use -E for extended regex
+        sed -i -E "${line_num}s/v[0-9]+\.[0-9]+\.[0-9]+/v${VERSION}/" "$file"
     fi
 
     echo -e "${GREEN}✓ Updated $file:$line_num${NC}"

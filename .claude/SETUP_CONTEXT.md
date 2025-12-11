@@ -18,7 +18,7 @@
 5. Interactive wizards → Validated setup with knowledge checks
 6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v2.7.1
+**Current Version:** v2.8.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
 
@@ -434,7 +434,7 @@ cat .claude/settings.json | python -m json.tool
 
 ## Version Information
 
-**Current:** v2.7.1 (Quick Wins + Honesty Policy)
+**Current:** v2.8.0 (Quick Wins + Honesty Policy)
 
 **Recent Changes (v2.7.1):**
 - CRITICAL: Fixed 20+ honesty policy violations in README.md

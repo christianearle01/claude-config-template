@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git commit:*)",
+      "mcp__filesystem__directory_tree",
+      "Bash(grep:*)",
+      "Bash(git checkout:*)",
+      "Bash(git tag:*)"
     ],
     "deny": [],
     "ask": []
