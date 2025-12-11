@@ -1095,7 +1095,7 @@ chmod +x scripts/*.sh
 
 **Current version:** v2.6.0
 
-**Docs:** [PHASE3_UPDATES.md](PHASE3_UPDATES.md)
+**Docs:** [CHANGELOG.md](CHANGELOG.md)
 
 **Keywords:** update, upgrade, version, latest, new, changes, changelog
 

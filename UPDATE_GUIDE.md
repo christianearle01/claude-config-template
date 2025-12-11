@@ -426,7 +426,6 @@ chmod 644 .claude/agents/*.md
 
 ## 📚 Related Documentation
 
-- **Full Update System**: See `PHASE3_UPDATES.md` for comprehensive guide
 - **Version History**: See `CHANGELOG.md` for what changed
 - **Setup Reference**: See `.claude/SETUP_CONTEXT.md` for quick setup help
 

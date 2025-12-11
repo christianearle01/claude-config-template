@@ -305,7 +305,6 @@ Shift-Tab        # Cycle permission modes
 
 **Current version:** v2.9.0
 
-**→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**
 
 ---

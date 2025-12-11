@@ -18,7 +18,6 @@ Complete guide to navigating the Claude Code Configuration Template.
 - **HISTORICAL_VERSIONS.md** - Documentation of template evolution
 
 ### Configuration Files
-- **PHASE3_UPDATES.md** - Update system documentation
 - **.gitignore** - Git exclusions (includes .claude.json for API keys)
 
 ---

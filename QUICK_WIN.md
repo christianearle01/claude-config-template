@@ -250,13 +250,10 @@ We provide **5 Mermaid diagrams** to help you understand:
 - All features explained
 
 **→ Updates:** [CHANGELOG.md](CHANGELOG.md)
-- Version history
-- Upgrade guides
-
-**→ Phase 3 guide:** [PHASE3_UPDATES.md](PHASE3_UPDATES.md)
-- Update mechanism
-- Analytics (opt-in)
-- Backup system
+- Version history: [CHANGELOG.md](CHANGELOG.md)
+- Upgrade guides: [UPDATE_GUIDE.md](UPDATE_GUIDE.md)
+- Update mechanism with 3-way merge
+- Automatic backups before updates
 
 ---
 

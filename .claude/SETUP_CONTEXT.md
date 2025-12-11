@@ -259,47 +259,12 @@ cd ~/claude-config-template
 
 **This template has zero dependencies** - package security is preventative docs for YOUR projects.
 
-**Quick Setup (NPM):**
-```bash
-# 1. Copy .npmrc to block install scripts
-cp ~/claude-config-template/.npmrc .
-
-# 2. Weekly audit
-npm audit
-
-# 3. Commit lockfile
-git add package-lock.json
-```
-
-**Quick Setup (Python):**
-```bash
-# 1. Copy pip.conf to prefer wheels
-cp ~/claude-config-template/pip.conf .
-
-# 2. Weekly audit
-pip install pip-audit && pip-audit
-
-# 3. Pin versions
-pip freeze > requirements.txt
-```
-
-**When to implement:**
-- ✅ Projects that install npm packages
-- ✅ Projects that use pip/Python packages
-- ✅ Team projects with package managers
-- ❌ Documentation-only projects (like this template)
-
-**Resources:**
-- Universal guide: 01_global-setup/nice-to-have/02_package-security-principles.md
-- NPM checklist: 01_global-setup/nice-to-have/03_npm-security-checklist.md
-- Python checklist: 01_global-setup/nice-to-have/03_python-security-checklist.md
-- NPM scripts: examples/npm-security/ (5 automation scripts)
-- Python scripts: examples/python-security/ (5 automation scripts)
-
-**Real threats (factual):**
-- event-stream (NPM, 2018): 2M weekly downloads compromised
-- ctx/php (Python PyPI, 2022): AWS credentials exfiltrated
-- rest-client (Ruby, 2019): Backdoor from compromised account
+See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
+- NPM security quick setup
+- Python security quick setup
+- When to implement (and when NOT to worry)
+- Real threat examples (factual incidents)
+- Complete resource links
 
 ---
 
