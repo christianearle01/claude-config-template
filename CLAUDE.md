@@ -195,18 +195,38 @@ Use consistently for visual hierarchy:
 
 **Semantic versioning:** MAJOR.MINOR.PATCH
 
-- **PATCH (2.5.x):** Bug fixes, typos, small improvements
+- **PATCH (2.7.x):** Bug fixes, typos, small improvements
 - **MINOR (2.x.0):** New features, new documentation, backwards-compatible
 - **MAJOR (x.0.0):** Breaking changes, major restructuring
 
 **Process:**
-1. Update version in:
-   - README.md (line 250, 402)
-   - CLAUDE.md (line 2)
-   - All footer timestamps
-2. Update CHANGELOG.md
-3. Create git tag: `git tag v2.6.0`
-4. Create release branch: `git branch release/v2.6.0`
+1. Edit `version.json`:
+   - Update `version` field (e.g., "2.7.1" → "2.8.0")
+   - Update `release_date`
+   - Update `release_name`
+2. Run version sync script:
+   ```bash
+   ./scripts/sync-version.sh
+   ```
+3. Review changes:
+   ```bash
+   git diff
+   ```
+4. Update CHANGELOG.md with release notes
+5. Commit and tag:
+   ```bash
+   git commit -am "Bump version to v2.8.0"
+   git tag v2.8.0
+   ```
+6. Push:
+   ```bash
+   git push origin main v2.8.0
+   ```
+
+**Files automatically updated by sync-version.sh:**
+- CLAUDE.md (line 4)
+- README.md (lines 306, 339, 463)
+- .claude/SETUP_CONTEXT.md (lines 21, 437)
 
 ---
 

@@ -308,6 +308,13 @@ Shift-Tab        # Cycle permission modes
 **→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**
 
+**Update version:**
+```bash
+# 1. Edit version.json (update "version", "release_date", "release_name")
+# 2. Sync to all files
+./scripts/sync-version.sh
+```
+
 ---
 
 ## 🆘 Need Help?
