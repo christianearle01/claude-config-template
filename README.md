@@ -303,7 +303,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v2.8.0
+**Current version:** v2.9.0
 
 **→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**

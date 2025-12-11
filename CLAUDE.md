@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-10
-**Version:** v2.8.0
+**Version:** v2.9.0
 
 ---
 
@@ -576,17 +576,26 @@ Instead of executing git push:
    ```bash
    git push origin <branch-name>
    ```
-2. Explain: "Please run this command in your terminal to push the changes."
-3. If the user asks why, explain: "Git authentication requires interactive credential input that Claude Code's sandbox cannot handle."
+2. **First time in conversation:** Briefly explain why: "This requires your git credentials."
+3. **Subsequent times:** Just show the command without explanation (user already knows)
+4. **If user asks why:** Explain: "Git authentication requires interactive credential input that Claude Code's sandbox cannot handle."
 
-**Example:**
+**Example (first push):**
 ```
 ✅ Commit successful!
 
 To push these changes to GitHub, please run:
   git push origin main
 
-This requires your git credentials which need to be entered interactively.
+This requires your git credentials.
+```
+
+**Example (subsequent pushes in same conversation):**
+```
+✅ Commit successful!
+
+To push:
+  git push origin main
 ```
 
 ---

@@ -18,7 +18,7 @@
 5. Interactive wizards → Validated setup with knowledge checks
 6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v2.8.0
+**Current Version:** v2.9.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
 
