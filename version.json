@@ -7,6 +7,18 @@
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
   "repository_url": "https://github.com/christianearle01/claude-config-template",
   "minimum_claude_version": "2.0.0",
+  "quick_start_url": "https://github.com/christianearle01/claude-config-template/blob/main/QUICK_START.md",
+  "validation_status": {
+    "tested_users": 1,
+    "status": "seeking_validation",
+    "feedback_url": "https://github.com/christianearle01/claude-config-template/issues",
+    "validation_needed": [
+      "Token savings verification",
+      "Setup time measurements",
+      "Multi-user testing",
+      "03_pre-project-planning effectiveness"
+    ]
+  },
   "features": [
     "persona-based-routing",
     "visual-guides",

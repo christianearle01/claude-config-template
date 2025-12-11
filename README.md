@@ -2,7 +2,7 @@
 
 **Comprehensive template for optimizing Claude Code across all your projects.**
 
-Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo developers and teams.
+Projected: Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo developers and teams.
 
 ---
 
@@ -15,7 +15,7 @@ Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo developers and tea
 ### ⚡ 5-Minute Win
 **See the value immediately**
 
-Try the ultra-fast demo to see 99% token savings in action.
+Try the ultra-fast demo to see projected 99% token savings.
 
 **→ [5-Minute Success Guide](docs/5_MINUTE_SUCCESS.md)**
 
@@ -51,6 +51,26 @@ cd ~/claude-config-template
 
 ---
 
+## ⚡ First 3 Commands (30 seconds)
+
+**New to this template? Just run these:**
+
+```bash
+# 1. Clone the template
+git clone https://github.com/christianearle01/claude-config-template.git
+cd claude-config-template
+
+# 2. Ask Claude to help you
+# In your terminal with Claude Code, just say:
+"Help me set up Claude Code configuration using the 5-minute path"
+
+# 3. Done! Claude guides you through everything.
+```
+
+**That's it.** Claude does the rest.
+
+---
+
 ## 📋 Project Status
 
 **🆕 New Project** - Created December 2025 by one developer
@@ -67,15 +87,15 @@ _Metrics and examples throughout this documentation are theoretical projections,
 ## ✨ What You Get
 
 ### Immediate Benefits
-- ✅ **50-95% token reduction** - CLAUDE.md system saves massive tokens on context
-- ✅ **92% cost savings** - Sonnet→Haiku workflow for implementation
+- ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
+- ✅ **Projected 92% cost savings** - Sonnet→Haiku workflow for implementation
 - ✅ **15-30 min setup** - Interactive wizards with validation
 - ✅ **5 user profiles** - Customized paths (5 min to 120 min options)
-- ✅ **Visual guides** - 40% cognitive load reduction with diagrams
+- ✅ **Visual guides** - Projected 40% cognitive load reduction with diagrams
 
 ### Long-Term Value
 - ✅ **Consistent configuration** across all projects
-- ✅ **Team onboarding** in 15-30 minutes (vs 2 days)
+- ✅ **Projected team onboarding:** 15-30 minutes (vs estimated 2 days)
 - ✅ **Reusable agents** for repeated workflows
 - ✅ **Best practices** built into templates
 - ✅ **Version controlled** configs for team collaboration
@@ -89,7 +109,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 - Searchable quick reference
 
 **🤖 Custom Agents** (2 sophisticated)
-- Prompt Polisher - 50-80% token savings
+- Prompt Polisher - Projected 50-80% token savings
 - Project Planner - Plan before coding
 
 **⚙️ Configuration**
@@ -166,28 +186,28 @@ Same configuration, same CLAUDE.md, same benefits on both platforms.
 ### CLAUDE.md Project Memory
 Write your project context once, Claude reads it every session.
 
-**Savings:** 95% reduction on context queries (20K → 200 tokens)
+**Projected savings:** 95% reduction on context queries (20K → 200 tokens)
 
 **→ [CLAUDE.md Template](templates/CLAUDE.md.template)**
 
 ### Model Switching (Sonnet→Haiku)
 Plan with Sonnet (smarter), implement with Haiku (92% cheaper).
 
-**Savings:** 92% on implementation costs
+**Projected savings:** 92% on implementation costs
 
 **→ [Model Switching Guide](01_global-setup/good-to-have/01_model-switching.md)**
 
 ### Interactive Wizards
 Guided setup with validation, knowledge checks, and progress tracking.
 
-**Benefit:** 95% completion rate (vs 60% without)
+**Projected benefit:** 95% completion rate (vs estimated 60% without)
 
 ```bash
 ./scripts/claude-wizard.sh
 ```
 
 ### Custom Agents
-- **@prompt-polisher** - Transform vague prompts (50-80% token savings)
+- **@prompt-polisher** - Transform vague prompts (projected 50-80% token savings)
 - **@project-planner** - Plan projects before coding (25-30 min sessions)
 
 **→ [Agent Documentation](.claude/agents/)**
@@ -219,7 +239,7 @@ Protect your projects from npm/Python malware attacks.
 
 **Essential commands:**
 ```bash
-/model haiku      # Switch to cheapest model (92% savings)
+/model haiku      # Switch to cheapest model (projected 92% savings)
 /model sonnet     # Switch to balanced model
 /standards        # View project coding standards
 /onboarding       # Generate project onboarding guide
@@ -255,8 +275,8 @@ Shift-Tab        # Cycle permission modes
 - [Directory Guide](docs/DIRECTORY_GUIDE.md) - What's where
 
 ### For Advanced Users
-- [Model Switching](01_global-setup/good-to-have/01_model-switching.md) - 92% cost savings
-- [Prompt Optimization](02_project-onboarding/good-to-have/01_prompt-optimization.md) - 50-80% token reduction
+- [Model Switching](01_global-setup/good-to-have/01_model-switching.md) - Projected 92% cost savings
+- [Prompt Optimization](02_project-onboarding/good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
 - [Security Guide](01_global-setup/nice-to-have/01_security-guide.md) - Hooks & validation
 - [Agent Coordination](01_global-setup/nice-to-have/03_agent-coordination.md) - Custom workflows
 
@@ -331,7 +351,7 @@ chmod +x scripts/*.sh
 - ✨ Added 5-minute success demo
 - ✨ Added visual quickstart flowchart
 - ✨ Added searchable quick reference
-- ✨ Added setup context file (96% token savings during setup)
+- ✨ Added setup context file (projected 96% token savings during setup)
 
 **Previous versions:**
 - v2.4.0 - Enhanced Prompt Polisher (14 techniques)
@@ -372,7 +392,7 @@ nice-to-have/ (💡)
 ## 🌟 Why This Template Works
 
 ### 1. Token Optimization Focus
-Real, measurable savings:
+Projected savings (theoretical):
 - **CLAUDE.md:** 95% context reduction
 - **Model switching:** 92% implementation savings
 - **Prompt optimization:** 50-80% query reduction
@@ -391,19 +411,11 @@ Different users need different paths:
 
 ### 3. Validation & Education
 - Interactive wizards with knowledge checks
-- 95% completion rate (vs 60% without)
+- Projected 95% completion rate (vs estimated 60% baseline)
 - Step-by-step validation
 - Educational output modes
 
 **→ [Wizard Documentation](docs/DIRECTORY_GUIDE.md#-scripts-scripts)**
-
-### 4. Proven Track Record
-- 50+ user reports
-- 46% setup time reduction
-- 58% completion rate improvement
-- $240-$12,000 annual savings per user/team
-
-**→ [Projected Results](docs/PROJECTED_IMPACT.md#-projected-aggregate-results)**
 
 ---
 
