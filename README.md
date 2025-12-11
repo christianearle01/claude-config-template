@@ -303,7 +303,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v2.7.0
+**Current version:** v2.7.1
 
 **→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**
@@ -336,15 +336,22 @@ chmod +x scripts/*.sh
 
 ## 📊 Version Information
 
-**Current:** v2.7.0 (Package Security - OPTIONAL Feature - 2025-12-10)
+**Current:** v2.7.1 (Quick Wins + Honesty Policy - 2025-12-10)
 
-**Recent changes (v2.7.0):**
+**Recent changes (v2.7.1):**
+- 🔴 CRITICAL: Fixed honesty policy violations (20+ misleading claims)
+- 🗑️ Removed false "Proven Track Record" section (claimed 50+ users)
+- ✅ Added "Projected" prefix to all percentage claims
+- ⚡ Added "First 3 Commands" section (30-second quick start)
+- 📄 Created QUICK_START.md (5-minute fast track)
+- 🔍 Added validation status to version.json (transparent about 1-user testing)
+
+**Previous version (v2.7.0) - Package Security:**
 - 🔒 Added OPTIONAL package security (npm/Python malware prevention)
 - 📚 Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
 - 📦 NPM security: 3 guides + 5 automation scripts
 - 🐍 Python security: 3 guides + 5 automation scripts
 - ✅ 20 files, ~4,200 lines of security content
-- 💡 Clearly marked OPTIONAL (template has zero dependencies)
 
 **Previous version (v2.6.0) - Browser Workflow:**
 - ✨ Added 9 role-based Custom Instructions for claude.ai
@@ -453,7 +460,7 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v2.7.0
+**Template Version:** v2.7.1
 **Last Updated:** 2025-12-10
 
 ---
