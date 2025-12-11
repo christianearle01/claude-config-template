@@ -308,13 +308,6 @@ Shift-Tab        # Cycle permission modes
 **→ [Update System Documentation](PHASE3_UPDATES.md)**
 **→ [Changelog](CHANGELOG.md)**
 
-**Update version:**
-```bash
-# 1. Edit version.json (update "version", "release_date", "release_name")
-# 2. Sync to all files
-./scripts/sync-version.sh
-```
-
 ---
 
 ## 🆘 Need Help?
@@ -338,44 +331,6 @@ chmod +x scripts/*.sh
 **More issues?**
 - Run `/doctor` in Claude Code
 - Check [Quick Reference § Troubleshooting](QUICK_REFERENCE.md#troubleshooting)
-
----
-
-## 📊 Version Information
-
-**Current:** v2.7.1 (Quick Wins + Honesty Policy - 2025-12-10)
-
-**Recent changes (v2.7.1):**
-- 🔴 CRITICAL: Fixed honesty policy violations (20+ misleading claims)
-- 🗑️ Removed false "Proven Track Record" section (claimed 50+ users)
-- ✅ Added "Projected" prefix to all percentage claims
-- ⚡ Added "First 3 Commands" section (30-second quick start)
-- 📄 Created QUICK_START.md (5-minute fast track)
-- 🔍 Added validation status to version.json (transparent about 1-user testing)
-
-**Previous version (v2.7.0) - Package Security:**
-- 🔒 Added OPTIONAL package security (npm/Python malware prevention)
-- 📚 Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
-- 📦 NPM security: 3 guides + 5 automation scripts
-- 🐍 Python security: 3 guides + 5 automation scripts
-- ✅ 20 files, ~4,200 lines of security content
-
-**Previous version (v2.6.0) - Browser Workflow:**
-- ✨ Added 9 role-based Custom Instructions for claude.ai
-- ✨ Added 5-minute success demo
-- ✨ Added visual quickstart flowchart
-- ✨ Added searchable quick reference
-- ✨ Added setup context file (projected 96% token savings during setup)
-
-**Previous versions:**
-- v2.4.0 - Enhanced Prompt Polisher (14 techniques)
-- v2.3.0 - Pre-Project Planning Agent
-- v2.2.1 - Educational Modes Refinement
-- v2.2.0 - Claude Code 2.0 Features
-- v2.1.0 - Persona Routing + Wizards
-
-**→ [Complete Changelog](CHANGELOG.md)**
-**→ [Historical Versions](HISTORICAL_VERSIONS.md)**
 
 ---
 

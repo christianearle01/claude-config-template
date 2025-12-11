@@ -434,30 +434,10 @@ cat .claude/settings.json | python -m json.tool
 
 ## Version Information
 
-**Current:** v2.8.0 (Quick Wins + Honesty Policy)
+**Current:** v2.8.0 (Centralized Version Management)
 
-**Recent Changes (v2.7.1):**
-- CRITICAL: Fixed 20+ honesty policy violations in README.md
-- Removed false "Proven Track Record" section (claimed 50+ users, unverified results)
-- Added "Projected" prefix to all percentage claims
-- Added "First 3 Commands" section for 30-second quick start
-- Created QUICK_START.md (5-minute fast track for impatient users)
-- Added validation status to version.json (transparent about 1-user testing)
-
-**Previous Version:** v2.7.0 (Package Security)
-- Added OPTIONAL package security protection (npm/Python malware prevention)
-- Universal principles for ALL package managers (npm, pip, gem, cargo, go, etc.)
-- NPM security: 3 guides + 5 automation scripts
-- Python security: 3 guides + 5 automation scripts
-
-**Previous Version:** v2.6.0 (Browser Workflow)
-- Added 04_browser-workflow/ (9 role-based Custom Instructions)
-- Added docs/5_MINUTE_SUCCESS.md (ultra-fast demo)
-- Added docs/VISUAL_QUICKSTART.md (decision flowchart)
-- Added .claude/SETUP_CONTEXT.md (token-optimized setup guide)
-- Enhanced Prompt Polisher (14 techniques)
-- Intelligent technique selection
-- Educational output modes refinement
+**For complete version history and release notes:**
+→ See [CHANGELOG.md](../CHANGELOG.md)
 
 ---
 
