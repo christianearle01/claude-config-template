@@ -5,12 +5,139 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+---
 
-### Planned
-- Phase 3: Update mechanism with claude-update CLI
-- Phase 3: Persona-specific update notifications
-- Phase 3: Opt-in anonymized analytics
+## [2.8.0] - 2025-12-11
+
+### Added - Centralized Version Management 🔄
+
+**Single source of truth for version management** - Eliminates manual updates across multiple files.
+
+#### New Script: sync-version.sh
+- **Centralized version control** - Edit version.json only, script updates all files automatically
+- **6 locations auto-synced** - CLAUDE.md, README.md (3 places), SETUP_CONTEXT.md (2 places)
+- **Cross-platform support** - Works on macOS and Linux with proper regex handling
+- **User-friendly output** - Colored terminal output with clear success messages
+
+#### Documentation Improvements:
+- **Updated CLAUDE.md** - New "Version Bumping" workflow (lines 194-230)
+- **Updated README.md** - Added version sync command section
+- **Streamlined process** - 6-step version bump workflow (vs previous 4 steps)
+
+### Changed
+- **Version management workflow** - From manual updates to automated sync
+- **Time savings** - Version bumps now take ~2 minutes (vs ~10 minutes manual)
+- **Error prevention** - No more inconsistent versions across files
+
+### Fixed
+- **Regex compatibility** - Fixed sed regex pattern for macOS (added -E flag for extended regex)
+
+### Removed
+- **Version maintenance section** from README.md - Internal tool, not user-facing
+- **Redundant version history** from README.md and SETUP_CONTEXT.md (69 lines removed)
+- **Duplicate version information** - CHANGELOG.md is now single source of truth
+
+**Benefits:**
+- Single edit in version.json propagates to all 6 locations
+- Consistent version numbers across entire project
+- CHANGELOG.md is authoritative source for version history
+- Cleaner, user-focused documentation
+
+---
+
+## [2.7.1] - 2025-12-10
+
+### Fixed - Documentation Honesty Policy Compliance 🔴
+
+**Critical fixes for misleading claims** - Full compliance with documentation honesty policy.
+
+#### Honesty Violations Fixed (20+ changes):
+- **REMOVED** false "Proven Track Record" section (claimed 50+ users, only 1 exists)
+- **CHANGED** "Real, measurable savings" → "Projected savings (theoretical)"
+- **ADDED** "Projected" prefix to 17+ percentage claims throughout README.md
+- **ALL** savings claims now clearly marked as theoretical projections
+
+#### Quick Win Features Added:
+- **"First 3 Commands" section** in README.md - 30-second quick start for new users
+- **QUICK_START.md** - 5-minute fast track guide for impatient users
+- **Validation status** in version.json - Transparent about 1-user testing status
+
+#### Validation Transparency:
+```json
+"validation_status": {
+  "tested_users": 1,
+  "status": "seeking_validation",
+  "feedback_url": "https://github.com/.../issues",
+  "validation_needed": [
+    "Token savings verification",
+    "Setup time measurements",
+    "Multi-user testing",
+    "03_pre-project-planning effectiveness"
+  ]
+}
+```
+
+**Impact:**
+- Full transparency about project status (new project, 1 developer, seeking validation)
+- All metrics clearly labeled as projections, not verified results
+- Invitation for early adopters to validate claims
+- Maintained integrity while still communicating value proposition
+
+---
+
+## [2.7.0] - 2025-12-09
+
+### Added - Package Security Protection 🔒
+
+**OPTIONAL malware prevention system** for npm and Python projects using Claude Code.
+
+#### Universal Package Security Principles:
+- **Cross-language framework** - Applies to npm, pip, gem, cargo, go, etc.
+- **5 core security layers** - Install script blocking, hash verification, audit integration, trusted registries, lockfile enforcement
+- **Educational approach** - Explains WHY each measure matters, not just HOW
+
+#### NPM Security Implementation:
+- **3 comprehensive guides:**
+  - `02_package-security-principles.md` - Universal concepts (all languages)
+  - `03_npm-security-checklist.md` - Quick reference checklist
+  - `04_npm-security-guide.md` - Detailed implementation guide
+- **5 automation scripts:**
+  - `setup-npm-security.sh` - One-command setup
+  - `weekly-npm-check.sh` - Automated weekly audits
+  - `pre-commit-npm-check.sh` - Git hook for dependency changes
+  - `npm-audit-report.sh` - Detailed security reports
+  - `npm-lock-verify.sh` - Lockfile integrity verification
+
+#### Python Security Implementation:
+- **3 comprehensive guides:**
+  - `02_package-security-principles.md` - Shared universal concepts
+  - `03_python-security-checklist.md` - Quick reference checklist
+  - `05_python-security-guide.md` - Detailed implementation guide
+- **5 automation scripts:**
+  - `setup-python-security.sh` - One-command setup (Poetry or pip)
+  - `weekly-py-check.sh` - Automated weekly audits
+  - `pre-commit-py-check.sh` - Git hook for dependency changes
+  - `py-audit-report.sh` - Detailed security reports
+  - `py-lock-verify.sh` - Lockfile integrity verification
+
+#### Configuration Templates:
+- `.npmrc` - Secure npm configuration (blocks install scripts)
+- `pip.conf` - Secure pip configuration (prefers wheels)
+- `package.json.template` - Security-focused npm config
+- `requirements.txt.template` - Pinned Python dependencies with hashes
+- `pyproject.toml.template` - Poetry configuration with security settings
+
+#### Example Implementations:
+- `examples/npm-security/` - Complete npm setup examples
+- `examples/python-security/` - Complete Python setup examples
+- Real-world pre-commit hooks for both ecosystems
+
+**Total Content:**
+- 20 new files
+- ~4,200 lines of security documentation and automation
+- Universal principles + 2 language-specific implementations
+
+**Note:** This is an OPTIONAL feature. Only implement if your Claude Code projects use package managers. Not required for the core template functionality.
 
 ---
 
