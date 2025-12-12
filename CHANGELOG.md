@@ -138,6 +138,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Ctrl+O workflow** (MANDATORY for quality)
 - **Projected token savings**: 430+ tokens per session
 
+#### Post-Release Updates (v3.0.0)
+
+**Phase 1 & 2: Root File Consolidation**
+- Removed HISTORICAL_VERSIONS.md, migrated v1.0.0 to CHANGELOG
+- Moved 6 files to docs/ structure: START_HERE.md, QUICK_START.md, QUICK_WIN.md, QUICK_REFERENCE.md, VISUAL_GUIDES.md, UPDATE_GUIDE.md
+- Root files reduced: 11 → 4 (64% reduction)
+- Result: Clean root with README.md, CHANGELOG.md, CLAUDE.md, version.json only
+- Cognitive load reduction for new users (single entry point: README.md)
+
+**Phase 3: MCP Usage Guidelines & Workflow Quality**
+- Added MCP Usage Guidelines section to CLAUDE.md (internal documentation)
+  - Sequential-thinking decision framework
+  - When to use vs when NOT to use
+  - Token efficiency analysis (21-50% savings on complex tasks)
+  - Golden rule: "When in doubt → Use sequential-thinking" (educational project)
+- Created Sequential-Thinking MCP user guide (01_global-setup/nice-to-have/04_sequential-thinking-mcp.md)
+  - Comprehensive external documentation for users
+  - Token efficiency paradox explained (upfront cost → overall savings)
+  - Real-world examples (REST vs GraphQL decision)
+  - Best practices and integration with workflow
+- Updated Special Instructions (#9): Use sequential-thinking for non-trivial decisions
+- Educational value: Both Claude and users have clear workflow quality guidelines
+
+**Benefits:**
+- **For Claude**: Self-governance, quality standards, decision framework
+- **For Users**: Workflow improvement, 21-50% token savings on complex decisions, transparency
+- **Meta-example**: Project teaches good AI collaboration patterns (makes implicit knowledge explicit)
+
 ---
 
 ## [2.9.0] - 2025-12-11

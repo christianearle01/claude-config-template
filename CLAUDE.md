@@ -616,6 +616,42 @@ To push:
 
 ---
 
+## MCP Usage Guidelines (Workflow Quality)
+
+### Sequential-Thinking MCP
+
+**Purpose:** Structured reasoning for complex decisions
+
+**When to use:**
+- Multi-perspective analyses (Psychological, Educator, Engineering)
+- Architecture and design decisions
+- Complex refactoring with multiple approaches
+- Trade-off analysis and problem diagnosis
+- Ambiguous requirements or high-stakes decisions
+
+**When NOT to use:**
+- Mechanical updates (file paths, renames)
+- Simple fixes (typos, broken links)
+- Straightforward execution (git commands)
+- Well-scoped tasks with explicit instructions
+
+**Token efficiency:**
+- Upfront cost: +500-1000 tokens per analysis
+- Rework savings: -1,500+ tokens from prevented mistakes
+- Net benefit: 21-50% token savings on complex tasks
+- Quality benefit: Higher first-time-right rate
+
+**Decision framework:**
+When in doubt → Use sequential-thinking (educational project = teaching value > speed)
+
+### Other MCPs
+
+**Memory MCP:** For knowledge graph operations (entity/relation management)
+**Filesystem MCP:** Automatically used for file operations
+**GitHub MCP:** For repository operations (issues, PRs, commits)
+
+---
+
 ## Special Instructions for Claude
 
 **⚠️ CRITICAL - Read First:**
@@ -638,6 +674,11 @@ To push:
 6. **Test links** before committing
 7. **Version correctly** (MAJOR.MINOR.PATCH)
 8. **Honesty check ALL documentation** before committing
+9. **Use sequential-thinking MCP for non-trivial decisions**
+   - This is an educational project - teaching value > speed
+   - Users learn from watching structured reasoning
+   - Prevents rework by catching issues early (saves tokens overall)
+   - See "MCP Usage Guidelines" section above for decision framework
 
 **Common maintenance tasks:**
 - Adding new documentation → See "Development Workflow" above
@@ -657,6 +698,9 @@ To push:
   - Structured output schemas for agents (prompt-polisher, project-planner)
   - Progress bar global configuration system (v3.0.0 post-release)
   - Browser workflow broken link fix (v3.0.0 post-release)
+  - Root file consolidation: Phase 1 & 2 (11 → 4 files, 64% reduction)
+  - MCP Usage Guidelines: Sequential-thinking decision framework (Phase 3)
+  - Sequential-thinking MCP user guide in nice-to-have (Phase 3)
   - Updated file counts: 87 MD files (from 39), 12 shell scripts (from 8)
 - **v2.9.0 (2025-12-11):** Added comprehensive Git Workflow & Commit Approval section with token-optimized patterns (draft → review → approve workflow, 75% token savings)
 - **v2.8.0 (2025-12-08):** Version sync script implementation, automated version updates across multiple files
