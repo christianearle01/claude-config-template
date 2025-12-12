@@ -20,7 +20,7 @@
 
 **Current Version:** v3.0.0
 
-**Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../UPDATE_GUIDE.md) for quick commands
+**Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/UPDATE_GUIDE.md) for quick commands
 
 ---
 
@@ -70,9 +70,10 @@ claude-config-template/
 │
 └── [Entry Points]
     ├── README.md                  # Landing page (will be 250 lines)
-    ├── GETTING_STARTED.md         # Quick win path (will rename to QUICK_WIN.md)
-    ├── START_HERE.md              # Detailed persona router
-    └── VISUAL_GUIDES.md           # 5 Mermaid diagrams
+    ├── docs/00-start-here/        # Entry points and navigation
+    │   ├── QUICK_WIN.md           # Quick win path
+    │   ├── docs/00-start-here/START_HERE.md          # Detailed persona router
+    │   └── docs/00-start-here/VISUAL_GUIDES.md       # 5 Mermaid diagrams
 ```
 
 ---
@@ -85,7 +86,7 @@ claude-config-template/
 - **docs/00-start-here/VISUAL_QUICKSTART.md** - Visual flowchart for path selection
 - **docs/README.md** - Master learning journey map (v3.0.0)
 - **README.md** - Project overview and value props
-- **START_HERE.md** - Persona selector with detailed paths
+- **docs/00-start-here/START_HERE.md** - Persona selector with detailed paths
 
 ### Templates (What Users Copy)
 - **templates/CLAUDE.md.template** (284 lines)
@@ -125,13 +126,13 @@ claude-config-template/
 1. Ask persona: "Are you new to Claude Code or experienced?"
 2. Route to appropriate path:
    - New → docs/00-start-here/5_MINUTE_SUCCESS.md first, then wizard
-   - Experienced → START_HERE.md#quick-setup-user
-   - Team → START_HERE.md#team-lead
+   - Experienced → docs/00-start-here/START_HERE.md#quick-setup-user
+   - Team → docs/00-start-here/START_HERE.md#team-lead
 3. Recommend wizard: `./scripts/claude-wizard.sh`
 
 **Files to Reference:**
 - docs/00-start-here/VISUAL_QUICKSTART.md (decision tree)
-- START_HERE.md (detailed paths)
+- docs/00-start-here/START_HERE.md (detailed paths)
 
 ### Task 2: "Copy template to my project"
 
@@ -195,7 +196,7 @@ cd ~/claude-config-template
 **If Wizard Fails:**
 - Check permissions: `chmod +x scripts/*.sh`
 - Check dependencies: bash, python (for JSON validation)
-- Manual setup: START_HERE.md → persona section
+- Manual setup: docs/00-start-here/START_HERE.md → persona section
 
 ### Task 5: "Explain model switching"
 
@@ -225,23 +226,23 @@ cd ~/claude-config-template
 1. **🆕 First-Time Learner** (60-90 min)
    - New to Claude Code
    - Complete learning path
-   - File: START_HERE.md#first-time-learner
+   - File: docs/00-start-here/START_HERE.md#first-time-learner
 
 2. **⚡ Quick Setup** (15-30 min)
    - Experienced, fast project setup
-   - File: START_HERE.md#quick-setup-user
+   - File: docs/00-start-here/START_HERE.md#quick-setup-user
 
 3. **🚀 Advanced Optimizer** (20-40 min)
    - Security hooks, custom agents, MCP
-   - File: START_HERE.md#advanced-optimizer
+   - File: docs/00-start-here/START_HERE.md#advanced-optimizer
 
 4. **👥 Team Lead** (90-120 min)
    - Team deployment
-   - File: START_HERE.md#team-lead
+   - File: docs/00-start-here/START_HERE.md#team-lead
 
 5. **🔄 Returning User** (10-20 min)
    - Quick refresher
-   - File: START_HERE.md#returning-user
+   - File: docs/00-start-here/START_HERE.md#returning-user
 
 ### Task 7: "What's the fastest way to see value?"
 
@@ -255,7 +256,7 @@ cd ~/claude-config-template
 
 **Next Step After 5-Min Win:**
 - Convinced → Run wizard
-- Want more info → START_HERE.md
+- Want more info → docs/00-start-here/START_HERE.md
 - Just need commands → QUICK_REFERENCE.md (coming soon)
 
 ### Task 8: "How do I protect against package malware?" (OPTIONAL)
@@ -285,7 +286,7 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 | Slash commands | .claude/commands/*.md |
 | Custom agents | .claude/agents/*.md |
 | Setup wizards | scripts/wizard-*.sh |
-| Visual guides | VISUAL_GUIDES.md |
+| Visual guides | docs/00-start-here/VISUAL_GUIDES.md |
 | 5-min demo | docs/00-start-here/5_MINUTE_SUCCESS.md |
 | Decision flowchart | docs/00-start-here/VISUAL_QUICKSTART.md |
 | Installation guide | 01_global-setup/must-have/01_installation.md |
@@ -349,7 +350,7 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
    - Saves ~20K tokens (don't need to explore 50+ files)
 
 2. **Reference files by path** instead of reading them
-   - Example: "See START_HERE.md#quick-setup-user"
+   - Example: "See docs/00-start-here/START_HERE.md#quick-setup-user"
    - Only read if user needs specific content
 
 3. **Skip these directories:**
@@ -482,10 +483,10 @@ Claude will:
 "I recommend starting with the 5-minute demo to see the value: docs/00-start-here/5_MINUTE_SUCCESS.md. Then we can discuss the full setup path that fits your needs."
 
 **When user is experienced:**
-"Since you're familiar with Claude Code, the Quick Setup path takes 15-30 minutes: START_HERE.md#quick-setup-user. Or run the wizard: `./scripts/claude-wizard.sh`"
+"Since you're familiar with Claude Code, the Quick Setup path takes 15-30 minutes: docs/00-start-here/START_HERE.md#quick-setup-user. Or run the wizard: `./scripts/claude-wizard.sh`"
 
 **When user wants everything:**
-"The First-Time Learner path covers everything in 60-90 minutes: START_HERE.md#first-time-learner. Or use the visual guide to choose: docs/00-start-here/VISUAL_QUICKSTART.md"
+"The First-Time Learner path covers everything in 60-90 minutes: docs/00-start-here/START_HERE.md#first-time-learner. Or use the visual guide to choose: docs/00-start-here/VISUAL_QUICKSTART.md"
 
 **When user asks about a specific file:**
 "That's located at [path]. [1-sentence description]. Would you like me to read it for details?"
@@ -512,7 +513,7 @@ This file should be your **first resource** when helping users set up this templ
 **Next Steps for User:**
 1. Recommend docs/00-start-here/5_MINUTE_SUCCESS.md (fastest value)
 2. Use docs/00-start-here/VISUAL_QUICKSTART.md (if they need help choosing path)
-3. Route to appropriate persona path in START_HERE.md
+3. Route to appropriate persona path in docs/00-start-here/START_HERE.md
 4. Or run wizard: `./scripts/claude-wizard.sh`
 
 Happy helping! 🚀

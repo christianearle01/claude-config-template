@@ -86,7 +86,7 @@ After user provides the path, verify it exists:
 Bash: ls -la [TEMPLATE_PATH]/
 
 # Should see:
-# - START_HERE.md
+# - docs/00-start-here/START_HERE.md
 # - README.md
 # - .claude/ directory
 # - templates/ directory
@@ -403,7 +403,7 @@ Tell user:
 > "You're set up! Here are the key resources:"
 
 **Essential (read first):**
-- [START_HERE.md](../../../START_HERE.md) - 5-minute quick start (80/20 rule)
+- [docs/00-start-here/START_HERE.md](../../../docs/00-start-here/START_HERE.md) - 5-minute quick start (80/20 rule)
 
 **When needed:**
 - [03_permission-modes.md](../../../01_global-setup/must-have/03_permission-modes.md) - Print-friendly mode guide
@@ -551,7 +551,7 @@ Key commands:
 - Shift+Tab (toggle to plan mode)
 - /usage (check plan limits)
 
-Read START_HERE.md for the full quick guide!"
+Read docs/00-start-here/START_HERE.md for the full quick guide!"
 ```
 
 ### Tip 5: Reference Documentation
@@ -561,7 +561,7 @@ Read START_HERE.md for the full quick guide!"
 
 "For model switching details, see: MODEL_SWITCHING_GUIDE.md"
 "For security info, see: SECURITY_GUIDE.md"
-"For daily usage, see: START_HERE.md"
+"For daily usage, see: docs/00-start-here/START_HERE.md"
 ```
 
 ---
@@ -595,7 +595,7 @@ Read START_HERE.md for the full quick guide!"
 - ✅ Security hook is installed
 
 **User is productive when:**
-- ✅ They reference START_HERE.md
+- ✅ They reference docs/00-start-here/START_HERE.md
 - ✅ They use Plan Mode during setup
 - ✅ They switch to Haiku for implementation
 - ✅ They check `/usage` periodically
@@ -664,7 +664,7 @@ Before claiming setup is complete:
 - [ ] User knows essential commands
 - [ ] User knows Sonnet→Haiku workflow
 - [ ] /doctor shows no errors
-- [ ] User pointed to START_HERE.md
+- [ ] User pointed to docs/00-start-here/START_HERE.md
 - [ ] User knows where to find more info
 
 **If all checked:** Tell user they're ready to code! 🚀

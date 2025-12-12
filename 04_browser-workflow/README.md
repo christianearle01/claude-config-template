@@ -250,7 +250,7 @@ A: No. This is specifically for claude.ai web interface. For Claude Code, use [C
 
 ## Navigation
 
-**🏠 [Back to Main Template](../README.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
+**🏠 [Back to Main Template](../README.md)** | **📖 [Quick Reference](../docs/00-start-here/QUICK_REFERENCE.md)**
 
 ---
 

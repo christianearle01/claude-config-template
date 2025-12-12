@@ -95,10 +95,9 @@ claude-config-template/
 │   └── commands/           # 5 slash commands
 │
 ├── README.md               # Landing page (408 lines)
-├── START_HERE.md           # Persona selector (150+ lines)
-├── QUICK_REFERENCE.md      # Searchable reference
-├── VISUAL_GUIDES.md        # 5 Mermaid diagrams
-└── CLAUDE.md              # This file!
+├── CLAUDE.md              # This file!
+├── CHANGELOG.md           # Version history
+└── version.json           # Automation metadata
 ```
 
 ---
@@ -297,9 +296,9 @@ git push origin v2.6.0
 ### Entry Points (What users see first)
 - `README.md` - Landing page, 408 lines (reduced from 539)
 - `docs/00-start-here/ENTRY_POINTS.md` - Navigation guide (v3.0.0)
+- `docs/00-start-here/START_HERE.md` - Detailed persona guide (v3.0.0: moved from root)
 - `docs/00-start-here/SKILLS_PARADIGM.md` - Future of Claude Code (v3.0.0)
 - `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide (v3.0.0)
-- `START_HERE.md` - Detailed persona guide
 
 ### Critical Templates (What users copy)
 - `templates/CLAUDE.md.template` - Project memory template (284 lines)
@@ -312,12 +311,15 @@ git push origin v2.6.0
 - `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (v2.5.0)
 
 ### Reference Documentation
-- `QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0)
-- `VISUAL_GUIDES.md` - 5 Mermaid diagrams
+- `docs/00-start-here/QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)
+- `docs/00-start-here/VISUAL_GUIDES.md` - 5 Mermaid diagrams (v3.0.0: moved from root)
+- `docs/00-start-here/QUICK_START.md` - Quick setup guide (v3.0.0: moved from root)
+- `docs/00-start-here/QUICK_WIN.md` - Fast wins path (v3.0.0: moved from root)
 - `docs/README.md` - Documentation hub with learning journey (v3.0.0)
 - `docs/02-optimization/` - Token & workflow optimization guides (v3.0.0)
 - `docs/03-advanced/` - MCP workflows, sub-agents, vision (v3.0.0)
 - `docs/04-ecosystem/PROGRESS_BAR_GUIDE.md` - Progress bar config (v3.0.0)
+- `docs/04-ecosystem/UPDATE_GUIDE.md` - Update instructions (v3.0.0: moved from root)
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history (includes v1.0.0 in historical/v1.0-original branch)

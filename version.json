@@ -65,8 +65,8 @@
   ],
   "components": {
     "documentation": {
-      "START_HERE.md": "2.3.0",
-      "VISUAL_GUIDES.md": "2.1.0",
+      "docs/00-start-here/START_HERE.md": "2.3.0",
+      "docs/00-start-here/VISUAL_GUIDES.md": "2.1.0",
       "README.md": "2.7.0",
       "01_global-setup/must-have/01_installation.md": "2.2.0",
       "01_global-setup/must-have/02_quick-start.md": "2.2.1",

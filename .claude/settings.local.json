@@ -17,7 +17,8 @@
       "Bash(git branch:*)",
       "Bash(git add:*)",
       "Bash(git rm:*)",
-      "mcp__filesystem__list_directory"
+      "mcp__filesystem__list_directory",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []

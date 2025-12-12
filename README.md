@@ -30,7 +30,7 @@ Perfect for: Everyone (try this first!)
 Choose your path based on experience and time available.
 
 **→ [Visual Path Selector](docs/00-start-here/VISUAL_QUICKSTART.md)**
-**→ [Detailed Persona Guide](START_HERE.md)**
+**→ [Detailed Persona Guide](docs/00-start-here/START_HERE.md)**
 
 Perfect for: Setting up for real work
 
@@ -57,8 +57,8 @@ cd ~/claude-config-template
 
 **Your journey path:**
 1. **New user?** → Start with [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) (see value in 5 min)
-2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) or [START_HERE.md](START_HERE.md) (detailed persona paths)
-3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](QUICK_REFERENCE.md) (searchable reference)
+2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) or [START_HERE.md](docs/00-start-here/START_HERE.md) (detailed persona paths)
+3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/QUICK_REFERENCE.md) (searchable reference)
 4. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
 
 **Don't know where to start?** Read the Get Started section above ↑
@@ -176,11 +176,11 @@ _*Goals based on template design analysis, not measured user data_
 
 | You Are... | Time | Path |
 |------------|------|------|
-| 🆕 **New to Claude Code** | 60-90 min | [First-Time Learner](START_HERE.md#first-time-learner) |
-| ⚡ **Need fast project setup** | 15-30 min | [Quick Setup](START_HERE.md#quick-setup-user) |
-| 🚀 **Want advanced features** | 20-40 min | [Advanced Optimizer](START_HERE.md#advanced-optimizer) |
-| 👥 **Setting up for team** | 90-120 min | [Team Lead](START_HERE.md#team-lead) |
-| 🔄 **Returning for refresher** | 10-20 min | [Returning User](START_HERE.md#returning-user) |
+| 🆕 **New to Claude Code** | 60-90 min | [First-Time Learner](docs/00-start-here/START_HERE.md#first-time-learner) |
+| ⚡ **Need fast project setup** | 15-30 min | [Quick Setup](docs/00-start-here/START_HERE.md#quick-setup-user) |
+| 🚀 **Want advanced features** | 20-40 min | [Advanced Optimizer](docs/00-start-here/START_HERE.md#advanced-optimizer) |
+| 👥 **Setting up for team** | 90-120 min | [Team Lead](docs/00-start-here/START_HERE.md#team-lead) |
+| 🔄 **Returning for refresher** | 10-20 min | [Returning User](docs/00-start-here/START_HERE.md#returning-user) |
 
 ---
 
@@ -270,7 +270,7 @@ Tab              # Toggle thinking on/off
 Shift-Tab        # Cycle permission modes
 ```
 
-**→ [Complete Quick Reference](QUICK_REFERENCE.md)**
+**→ [Complete Quick Reference](docs/00-start-here/QUICK_REFERENCE.md)**
 
 ---
 
@@ -283,8 +283,8 @@ Shift-Tab        # Cycle permission modes
 - [Quick Start Guide](01_global-setup/must-have/02_quick-start.md) - Core concepts
 
 ### For Everyone
-- [Quick Reference](QUICK_REFERENCE.md) - Find any feature (Cmd+F search)
-- [Visual Guides](VISUAL_GUIDES.md) - 5 Mermaid diagrams
+- [Quick Reference](docs/00-start-here/QUICK_REFERENCE.md) - Find any feature (Cmd+F search)
+- [Visual Guides](docs/00-start-here/VISUAL_GUIDES.md) - 5 Mermaid diagrams
 - [Projected Impact](docs/04-ecosystem/PROJECTED_IMPACT.md) - Theoretical examples (not real data)
 - [Directory Guide](docs/04-ecosystem/DIRECTORY_GUIDE.md) - What's where
 
@@ -343,7 +343,7 @@ chmod +x scripts/*.sh
 
 **More issues?**
 - Run `/doctor` in Claude Code
-- Check [Quick Reference § Troubleshooting](QUICK_REFERENCE.md#troubleshooting)
+- Check [Quick Reference § Troubleshooting](docs/00-start-here/QUICK_REFERENCE.md#troubleshooting)
 
 ---
 
@@ -413,8 +413,8 @@ git clone https://github.com/your-username/claude-config-template.git
 
 ### 2. Choose Your Path
 - **⚡ 5 minutes:** [Quick demo](docs/00-start-here/5_MINUTE_SUCCESS.md)
-- **🎯 15-30 minutes:** [Quick setup](START_HERE.md#quick-setup-user)
-- **📚 60-90 minutes:** [Complete learning](START_HERE.md#first-time-learner)
+- **🎯 15-30 minutes:** [Quick setup](docs/00-start-here/START_HERE.md#quick-setup-user)
+- **📚 60-90 minutes:** [Complete learning](docs/00-start-here/START_HERE.md#first-time-learner)
 - **🧙 Guided:** Run `./scripts/claude-wizard.sh`
 
 ### 3. Start Saving
