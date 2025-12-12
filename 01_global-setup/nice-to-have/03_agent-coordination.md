@@ -1,5 +1,18 @@
 # Agent Coordination & Token Optimization Guide
 
+**⚠️ NEW: Skills are now the recommended approach for reusable expertise.**
+
+See [docs/SKILLS_PARADIGM.md](../../docs/SKILLS_PARADIGM.md) for:
+- How Skills differ from sub-agents
+- When to use Skills vs. Agents
+- The evolution: Commands → Agents → **Skills**
+
+**This guide remains relevant for:**
+- Sub-agent coordination (Task tool spawning)
+- Token optimization for agent workflows
+
+---
+
 ## Overview
 
 This guide explains how Claude Code handles subagents (spawned via the Task tool) and how to minimize token usage from duplicate file analysis and coordination overhead.
