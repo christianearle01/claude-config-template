@@ -17,15 +17,16 @@ Learn the foundational skills and concepts that separate successful Claude Code 
 - When to use Skills vs. Agents
 - **Quote:** "We stopped building agents and started building skills instead"
 
-### 🔍 Essential Tools (Coming Soon)
+### 🔍 Essential Tools
 
-**VERIFICATION_DEBUGGING.md** (Commit 4)
+**[Verification & Debugging](VERIFICATION_DEBUGGING.md)**
 - Ctrl+O: The trust mechanism (MANDATORY)
 - How to spot fake actions
 - Code review workflow
 - Fundamentals checklist
+- **Quote:** "You have to read everything"
 
-**KEYBOARD_SHORTCUTS.md** (Commit 5)
+**KEYBOARD_SHORTCUTS.md** (Commit 5 - Coming Soon)
 - Ctrl+O as MANDATORY, not optional
 - # hash for quick memory adds
 - Progressive learning path
@@ -51,7 +52,7 @@ These concepts are the foundation of maintainable AI-assisted coding:
 ## Recommended Reading Order
 
 1. **[Skills Paradigm](SKILLS_PARADIGM.md)** - Understand the evolution (15 min)
-2. **Verification & Debugging** - Learn Ctrl+O workflow (10 min) ← Coming soon
+2. **[Verification & Debugging](VERIFICATION_DEBUGGING.md)** - Learn Ctrl+O workflow (15 min)
 3. **Keyboard Shortcuts** - Essential patterns (5 min) ← Coming soon
 
 ---
