@@ -1,7 +1,7 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "release_date": "2025-12-12",
-  "release_name": "Comprehensive Optimization & Learning Journey Overhaul",
+  "release_name": "Workflow Quality & Structure Refinement",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -54,7 +54,11 @@
     "third-party-mcps-documentation",
     "plugins-guide",
     "structured-output-agents",
-    "consolidated-navigation"
+    "consolidated-navigation",
+    "mcp-usage-guidelines",
+    "sequential-thinking-documentation",
+    "root-file-consolidation",
+    "progress-bar-configuration"
   ],
   "personas_supported": [
     "first-time",
@@ -74,8 +78,10 @@
       "01_global-setup/nice-to-have/03_npm-security-checklist.md": "2.7.0",
       "01_global-setup/nice-to-have/03_python-security-checklist.md": "2.7.0",
       "01_global-setup/nice-to-have/04_npm-security-guide.md": "2.7.0",
+      "01_global-setup/nice-to-have/04_sequential-thinking-mcp.md": "3.1.0",
       "01_global-setup/nice-to-have/05_python-security-guide.md": "2.7.0",
       "01_global-setup/good-to-have/04_git-approval-workflow.md": "2.9.0",
+      "docs/04-ecosystem/PROGRESS_BAR_GUIDE.md": "3.1.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"
@@ -101,7 +107,8 @@
       "wizard-advanced.sh": "2.1.0",
       "wizard-team-lead.sh": "2.1.0",
       "wizard-returning.sh": "2.1.0",
-      "wizard-helpers.sh": "2.1.0",
+      "wizard-helpers.sh": "3.1.0",
+      "progress-bar-config.sh": "3.1.0",
       "setup-git-workflow.sh": "2.9.0"
     },
     "examples": {
