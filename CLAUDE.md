@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-12
-**Version:** v3.1.0
+**Version:** v3.2.0
 
 ---
 
@@ -309,6 +309,13 @@ git push origin v2.6.0
 - `.claude/settings.json` - Project settings
 - `.claude/settings-explained.json` - Educational reference
 - `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (v2.5.0)
+
+### User Configuration
+- `~/.claude/projects-registry.json` - Multi-project tracking (v3.2.0)
+  - Centralized registry for managing multiple projects
+  - See: `01_global-setup/nice-to-have/05_projects-registry.md`
+  - CLI: `scripts/claude-projects.sh`
+  - Wizard: `scripts/register-project.sh`
 
 ### Reference Documentation
 - `docs/00-start-here/QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)

@@ -18,7 +18,7 @@
 5. Interactive wizards → Validated setup with knowledge checks
 6. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v3.1.0
+**Current Version:** v3.2.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/UPDATE_GUIDE.md) for quick commands
 

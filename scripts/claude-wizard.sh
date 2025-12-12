@@ -94,13 +94,18 @@ echo "   • You are: Used Claude Code before, need a quick refresher"
 echo "   • Time: 10-20 minutes"
 echo "   • You'll get: Memory refreshed, back to productivity"
 echo ""
-echo -e "${RED}6) ❌ Exit${NC}"
+echo -e "${BLUE}6) 📁 Register Project (Projects Registry)${NC}"
+echo "   • You are: Managing multiple projects, need centralized tracking"
+echo "   • Time: 5 minutes"
+echo "   • You'll get: Project registered in central registry"
+echo ""
+echo -e "${RED}7) ❌ Exit${NC}"
 echo "   • Exit wizard and set up manually"
 echo ""
 
 # Get user choice
 while true; do
-    echo -n -e "${GREEN}Select your profile (1-6): ${NC}"
+    echo -n -e "${GREEN}Select your profile (1-7): ${NC}"
     read -r PROFILE_CHOICE
 
     case $PROFILE_CHOICE in
@@ -141,14 +146,21 @@ while true; do
             ;;
         6)
             echo ""
+            echo -e "${CYAN}Launching project registration wizard...${NC}"
+            echo ""
+            "$SCRIPT_DIR/register-project.sh"
+            exit 0
+            ;;
+        7)
+            echo ""
             echo -e "${YELLOW}Exiting wizard. You can set up manually using:${NC}"
-            echo "  • START_HERE.md - Choose your profile and follow the path"
-            echo "  • VISUAL_GUIDES.md - Visual learning aids"
+            echo "  • docs/00-start-here/START_HERE.md - Choose your profile and follow the path"
+            echo "  • docs/00-start-here/VISUAL_GUIDES.md - Visual learning aids"
             echo ""
             exit 0
             ;;
         *)
-            echo -e "${RED}Invalid choice. Please select 1-6.${NC}"
+            echo -e "${RED}Invalid choice. Please select 1-7.${NC}"
             ;;
     esac
 done

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-projects-registry-1.0.0.json",
+  "version": "1.0",
+  "lastSync": "2025-12-12T10:30:00Z",
+  "projects": [
+    {
+      "id": "example-project-1",
+      "name": "Example Project",
+      "path": "~/Developer/example-project",
+      "templateVersion": "3.2.0",
+      "installedDate": "2025-12-12",
+      "lastUpdated": "2025-12-12",
+      "status": "up-to-date",
+      "tags": ["example", "demo"],
+      "notes": "This is an example project entry. Copy this template to ~/.claude/projects-registry.json to get started."
+    },
+    {
+      "id": "my-app-2",
+      "name": "My App",
+      "path": "~/Developer/my-app",
+      "templateVersion": "3.1.0",
+      "installedDate": "2025-12-01",
+      "lastUpdated": "2025-12-01",
+      "status": "outdated",
+      "tags": ["production", "react"],
+      "notes": "Example of an outdated project that needs updating to v3.2.0"
+    }
+  ]
+}
