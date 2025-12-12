@@ -26,11 +26,12 @@ Learn the foundational skills and concepts that separate successful Claude Code 
 - Fundamentals checklist
 - **Quote:** "You have to read everything"
 
-**KEYBOARD_SHORTCUTS.md** (Commit 5 - Coming Soon)
-- Ctrl+O as MANDATORY, not optional
+**[Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md)**
+- Ctrl+O as MANDATORY (prevents fake actions)
 - # hash for quick memory adds
-- Progressive learning path
+- Progressive learning path (Week 1-2 → Month 3+)
 - AI Augmented vs. Vibe Coding framework
+- **Quote:** "You have to read everything"
 
 ---
 
@@ -53,7 +54,7 @@ These concepts are the foundation of maintainable AI-assisted coding:
 
 1. **[Skills Paradigm](SKILLS_PARADIGM.md)** - Understand the evolution (15 min)
 2. **[Verification & Debugging](VERIFICATION_DEBUGGING.md)** - Learn Ctrl+O workflow (15 min)
-3. **Keyboard Shortcuts** - Essential patterns (5 min) ← Coming soon
+3. **[Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md)** - Essential patterns (10 min)
 
 ---
 
