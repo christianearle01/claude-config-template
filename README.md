@@ -51,6 +51,20 @@ cd ~/claude-config-template
 
 ---
 
+## 🧭 Navigation Guide (How to Use This Template)
+
+**This README is your single entry point.** All other documentation is linked from here.
+
+**Your journey path:**
+1. **New user?** → Start with [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) (see value in 5 min)
+2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) or [START_HERE.md](START_HERE.md) (detailed persona paths)
+3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](QUICK_REFERENCE.md) (searchable reference)
+4. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
+
+**Don't know where to start?** Read the Get Started section above ↑
+
+---
+
 ## ⚡ First 3 Commands (30 seconds)
 
 **New to this template? Just run these:**
