@@ -1,6 +1,6 @@
 # Project Memory - Claude Code Configuration Template
 
-**Last Updated:** 2025-12-10
+**Last Updated:** 2025-12-12
 **Version:** v3.0.0
 
 ---
@@ -45,8 +45,8 @@ This is an **educational documentation project** that provides a comprehensive c
 ## Tech Stack
 
 **Primary Technologies:**
-- **Markdown** - All documentation (39 MD files, 22,400+ lines)
-- **Bash** - Interactive setup wizards (8 shell scripts)
+- **Markdown** - All documentation (87 MD files, 30,000+ lines)
+- **Bash** - Interactive setup wizards (12 shell scripts)
 - **JSON** - Configuration files (.claude/settings.json)
 - **Mermaid** - Visual diagrams (5 flowcharts)
 
@@ -63,11 +63,12 @@ This is an **educational documentation project** that provides a comprehensive c
 
 ```
 claude-config-template/
-├── docs/                    # v2.5.0: UX-optimized guides
-│   ├── 5_MINUTE_SUCCESS.md
-│   ├── VISUAL_QUICKSTART.md
-│   ├── DIRECTORY_GUIDE.md
-│   └── SUCCESS_STORIES.md
+├── docs/                    # v3.0.0: Learning journey structure
+│   ├── 00-start-here/      # Entry points & navigation
+│   ├── 01-fundamentals/    # Core concepts (must-learn)
+│   ├── 02-optimization/    # Token & workflow optimization
+│   ├── 03-advanced/        # Expert techniques (MCP, agents)
+│   └── 04-ecosystem/       # Progress bar, integrations, tools
 │
 ├── 01_global-setup/         # One-time machine setup
 │   ├── must-have/          # Essential (3 files)
@@ -81,14 +82,15 @@ claude-config-template/
 ├── 03_pre-project-planning/ # New project planning
 │   └── must-have/          # Planning guide (2 files)
 │
-├── 04_browser-workflow/     # COMING: Role-based configs
+├── 04_browser-workflow/     # Role-based configs for claude.ai
+│   └── must-have/          # 9 roles + library overview (10 files)
 │
 ├── templates/               # Reusable templates (3 files)
-├── scripts/                 # Wizards & helpers (8 scripts)
+├── scripts/                 # Wizards & helpers (12 scripts)
 ├── examples/                # Example configs (6 files)
 ├── .claude/                 # Claude Code config (8 files)
 │   ├── settings.json
-│   ├── SETUP_CONTEXT.md    # NEW: Token-optimized setup guide
+│   ├── SETUP_CONTEXT.md    # Token-optimized setup guide
 │   ├── agents/             # 2 custom agents
 │   └── commands/           # 5 slash commands
 │
@@ -158,16 +160,19 @@ Use consistently for visual hierarchy:
 ### Adding New Documentation
 
 1. **Determine priority:** must-have / good-to-have / nice-to-have
-2. **Choose directory:** 01_global-setup, 02_project-onboarding, or 03_pre-project-planning
-3. **Number sequentially:** 01_, 02_, 03_ for reading order
+2. **Choose directory:**
+   - Learning content: `docs/00-start-here/` through `docs/04-ecosystem/`
+   - Setup guides: `01_global-setup/`, `02_project-onboarding/`, `03_pre-project-planning/`
+   - Browser workflow: `04_browser-workflow/`
+3. **Number sequentially:** 01_, 02_, 03_ for reading order (if applicable)
 4. **Write content:**
    - Start with purpose/goal
    - Include examples
    - Add navigation footer
 5. **Update indexes:**
-   - Add to README.md documentation hub
+   - Add to `docs/README.md` if learning content
    - Add to QUICK_REFERENCE.md
-   - Add to DIRECTORY_GUIDE.md
+   - Add to main README.md if major feature
 6. **Test all links**
 
 ### Adding New Features
@@ -260,6 +265,12 @@ chmod +x scripts/*.sh
 
 # Validate JSON configuration
 cat .claude/settings.json | python -m json.tool
+
+# Test progress bar with custom settings
+export PROGRESS_BAR_WIDTH=30
+export PROGRESS_BAR_LABEL="Status"
+source scripts/progress-bar-config.sh
+show_progress 3 5 "Testing"
 ```
 
 ### Git Commands
@@ -285,8 +296,9 @@ git push origin v2.6.0
 
 ### Entry Points (What users see first)
 - `README.md` - Landing page, 408 lines (reduced from 539)
-- `docs/5_MINUTE_SUCCESS.md` - Ultra-fast demo (v2.5.0)
-- `docs/VISUAL_QUICKSTART.md` - Decision flowchart (v2.5.0)
+- `docs/00-start-here/ENTRY_POINTS.md` - Navigation guide (v3.0.0)
+- `docs/00-start-here/SKILLS_PARADIGM.md` - Future of Claude Code (v3.0.0)
+- `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide (v3.0.0)
 - `START_HERE.md` - Detailed persona guide
 
 ### Critical Templates (What users copy)
@@ -302,8 +314,10 @@ git push origin v2.6.0
 ### Reference Documentation
 - `QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0)
 - `VISUAL_GUIDES.md` - 5 Mermaid diagrams
-- `docs/DIRECTORY_GUIDE.md` - Project navigation (v2.5.0)
-- `docs/PROJECTED_IMPACT.md` - Theoretical examples (v2.5.0, not real user data)
+- `docs/README.md` - Documentation hub with learning journey (v3.0.0)
+- `docs/02-optimization/` - Token & workflow optimization guides (v3.0.0)
+- `docs/03-advanced/` - MCP workflows, sub-agents, vision (v3.0.0)
+- `docs/04-ecosystem/PROGRESS_BAR_GUIDE.md` - Progress bar config (v3.0.0)
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history
@@ -375,10 +389,13 @@ git push origin v2.6.0
 ### Common User Questions & Quick Answers
 
 **"How do I set this up?"**
-→ Direct to `docs/5_MINUTE_SUCCESS.md` first (builds confidence)
+→ Direct to `docs/00-start-here/ENTRY_POINTS.md` first, then learning journey
 
-**"Which path should I take?"**
-→ Use `docs/VISUAL_QUICKSTART.md` decision flowchart
+**"What should I learn first?"**
+→ Start with `docs/01-fundamentals/ANTI_PATTERNS.md` (#1 priority)
+
+**"What's the Skills Paradigm?"**
+→ See `docs/00-start-here/SKILLS_PARADIGM.md` (the future of Claude Code)
 
 **"Where is feature X?"**
 → Use `QUICK_REFERENCE.md` (alphabetically organized, searchable)
@@ -386,14 +403,19 @@ git push origin v2.6.0
 **"How do I add [agent/command/hook]?"**
 → See "Development Workflow" section above
 
+**"How do I optimize tokens?"**
+→ See `docs/02-optimization/` directory (Prompt Caching, MCP Optimization, etc.)
+
 ### File Location Quick Reference
 
 See `.claude/SETUP_CONTEXT.md` for complete file location table.
 
 **Key locations:**
 - Templates: `templates/`
-- Wizards: `scripts/`
-- Docs: `docs/` (new), `01_global-setup/`, `02_project-onboarding/`
+- Wizards: `scripts/` (12 shell scripts including progress-bar-config.sh)
+- Learning Journey: `docs/00-start-here/` → `docs/03-advanced/`
+- Setup Guides: `01_global-setup/`, `02_project-onboarding/`, `03_pre-project-planning/`
+- Browser Workflow: `04_browser-workflow/` (9 roles for claude.ai)
 - Config: `.claude/`
 
 ---
@@ -413,13 +435,6 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 - User satisfaction target: 9.1/10 (goal, not measured)
 
 **Current reality:** 1 user (the author), metrics are projections pending real-world validation.
-
-### Future Enhancements
-- [ ] 04_browser-workflow/ directory (role-based configs)
-- [ ] More custom agents (language-specific, framework-specific)
-- [ ] Video tutorials for visual learners
-- [ ] Interactive web-based persona selector
-- [ ] Automated link checking in CI/CD
 
 ---
 
@@ -635,9 +650,26 @@ To push:
 
 ## Version History (This File)
 
-- **v2.6.0 (2025-12-08):** Added Browser Workflow - 9 role-based Custom Instructions guides for claude.ai users
-- **v2.5.0 (2025-12-08):** Created CLAUDE.md for template project (meta-example)
-- Initial creation with comprehensive project documentation
+- **v3.0.0 (2025-12-12):**
+  - Major documentation restructure: Learning journey (00-start-here → 01-fundamentals → 02-optimization → 03-advanced → 04-ecosystem)
+  - Added 14 comprehensive guides (6,000+ lines): Anti-Patterns, Skills Paradigm, Ctrl+O Workflow, Prompt Caching, MCP Optimization, Environment Variables, Advanced MCP Workflows, Sub-Agent Best Practices, Vision Optimization, Conversation Branching, Third-Party MCPs, Plugins Guide
+  - Structured output schemas for agents (prompt-polisher, project-planner)
+  - Progress bar global configuration system (v3.0.0 post-release)
+  - Browser workflow broken link fix (v3.0.0 post-release)
+  - Updated file counts: 87 MD files (from 39), 12 shell scripts (from 8)
+- **v2.9.0 (2025-12-11):** Added comprehensive Git Workflow & Commit Approval section with token-optimized patterns (draft → review → approve workflow, 75% token savings)
+- **v2.8.0 (2025-12-08):** Version sync script implementation, automated version updates across multiple files
+- **v2.7.1 (2025-12-08):** Quick wins documentation and honesty policy refinements
+- **v2.7.0 (2025-12-08):** Package security release documentation
+- **v2.6.1 (2025-12-08):** Honesty policy enforcement - removed misleading 'battle-tested' language
+- **v2.6.0 (2025-12-08):** Added Browser Workflow - 9 role-based Custom Instructions guides for claude.ai users (now 10 files including library overview)
+- **v2.5.0 (2025-12-08):** Created CLAUDE.md for template project (meta-example) with comprehensive project documentation
+- **v2.4.0 (2025-12-05):** Enhanced prompt-polisher agent documentation (3-tier technique system, intelligent selection)
+- **v2.3.0 (2025-12-05):** Added project-planner agent documentation (6-perspective coordination)
+- **v2.2.1 (2025-12-07):** Educational modes refinement
+- **v2.2.0 (2025-12-06):** Claude Code 2.0 feature documentation
+- **v2.1.0 (2025-12-05):** Progressive setup wizard documentation
+- **v2.0.0 (2024-XX-XX):** Initial creation with comprehensive project documentation
 
 ---
 
