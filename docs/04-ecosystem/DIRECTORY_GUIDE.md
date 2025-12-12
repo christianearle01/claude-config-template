@@ -14,8 +14,7 @@ Complete guide to navigating the Claude Code Configuration Template.
 - **GETTING_STARTED.md** - Quick win path (being renamed to QUICK_WIN.md)
 - **VISUAL_GUIDES.md** - 5 Mermaid diagrams explaining key concepts
 - **QUICK_REFERENCE.md** - Searchable reference for all features
-- **CHANGELOG.md** - Complete version history with detailed release notes
-- **HISTORICAL_VERSIONS.md** - Documentation of template evolution
+- **CHANGELOG.md** - Complete version history with detailed release notes (includes v1.0.0 historical reference)
 
 ### Configuration Files
 - **.gitignore** - Git exclusions (includes .claude.json for API keys)

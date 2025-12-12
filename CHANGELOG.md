@@ -794,6 +794,41 @@ When users invoke `@prompt-polisher`:
 
 ---
 
+## [1.0.0] - 2024-11-XX
+
+### Initial Version - Original Template
+
+**Original template structure** before v2.0 restructuring with persona-based routing.
+
+#### Features
+- **Flat documentation structure** - 10 core markdown files at root level
+- **Quick setup approach** - Simple, fast configuration
+- **Prompt optimization focus** - Core techniques for better prompts
+- **Agent coordination guide** - Multi-agent workflow patterns
+- **Basic MCP setup** - Initial MCP server configuration
+
+#### Architecture
+- No persona-based routing (added in v2.0)
+- No progressive wizards (added in v2.1)
+- Simpler file organization
+- Root-level documentation files
+
+#### Status
+- **Preserved in branch:** `historical/v1.0-original`
+- **Not maintained** - Historical reference only
+- **Migration:** Users upgraded to v2.0+ for persona routing and wizard-based setup
+
+#### Access Historical Version
+```bash
+# Checkout historical branch
+git checkout historical/v1.0-original
+
+# Compare with current
+git diff main historical/v1.0-original --stat
+```
+
+---
+
 ## [2.0.0] - 2024-XX-XX
 
 ### Added - Initial Release

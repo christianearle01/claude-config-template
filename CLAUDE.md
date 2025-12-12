@@ -320,8 +320,7 @@ git push origin v2.6.0
 - `docs/04-ecosystem/PROGRESS_BAR_GUIDE.md` - Progress bar config (v3.0.0)
 
 ### Version Control
-- `CHANGELOG.md` - Complete version history
-- `HISTORICAL_VERSIONS.md` - Version evolution documentation
+- `CHANGELOG.md` - Complete version history (includes v1.0.0 in historical/v1.0-original branch)
 - `README.md.backup` - Backup of previous README (v2.4.0)
 
 ---
