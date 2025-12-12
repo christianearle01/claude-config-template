@@ -63,11 +63,6 @@ Select your role to get optimized Custom Instructions and workflow patterns:
 
 ---
 
-### 📚 [See All Roles in One Place](must-have/10_coming-soon.md)
-Complete library of all 9 available roles with quick selection guide
-
----
-
 ## 📖 How This Works
 
 1. **Choose your role** above (or create custom if not listed)

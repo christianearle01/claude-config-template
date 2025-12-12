@@ -14,13 +14,22 @@ show_progress() {
     local current=$1
     local total=$2
     local description=$3
-    local percentage=$((current * 100 / total))
-    local filled=$((current * 50 / total))
-    local empty=$((50 - filled))
 
-    echo -n -e "${CYAN}Progress:${NC} ["
-    printf "%${filled}s" | tr ' ' '█'
-    printf "%${empty}s" | tr ' ' '░'
+    # Use environment variables with defaults
+    local bar_width=${PROGRESS_BAR_WIDTH:-50}
+    local label=${PROGRESS_BAR_LABEL:-"Progress"}
+    local char_filled=${PROGRESS_CHAR_FILLED:-'█'}
+    local char_empty=${PROGRESS_CHAR_EMPTY:-'░'}
+    local color_label=${PROGRESS_COLOR_LABEL:-${CYAN:-'\033[0;36m'}}
+    local color_reset=${PROGRESS_COLOR_RESET:-${NC:-'\033[0m'}}
+
+    local percentage=$((current * 100 / total))
+    local filled=$((current * bar_width / total))
+    local empty=$((bar_width - filled))
+
+    echo -n -e "${color_label}${label}:${color_reset} ["
+    printf "%${filled}s" | tr ' ' "$char_filled"
+    printf "%${empty}s" | tr ' ' "$char_empty"
     echo -n -e "] ${percentage}%"
 
     if [ -n "$description" ]; then
