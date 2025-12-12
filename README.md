@@ -17,7 +17,7 @@ Projected: Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo develop
 
 Try the ultra-fast demo to see projected 99% token savings.
 
-**→ [5-Minute Success Guide](docs/5_MINUTE_SUCCESS.md)**
+**→ [5-Minute Success Guide](docs/00-start-here/5_MINUTE_SUCCESS.md)**
 
 Perfect for: Everyone (try this first!)
 
@@ -29,7 +29,7 @@ Perfect for: Everyone (try this first!)
 
 Choose your path based on experience and time available.
 
-**→ [Visual Path Selector](docs/VISUAL_QUICKSTART.md)**
+**→ [Visual Path Selector](docs/00-start-here/VISUAL_QUICKSTART.md)**
 **→ [Detailed Persona Guide](START_HERE.md)**
 
 Perfect for: Setting up for real work
@@ -138,7 +138,7 @@ _Note: These are theoretical projections, not verified results. Help us validate
 | Team of 5 | $100-200 | $1,200-2,400 |
 | Enterprise (20+) | $500-1,000 | $6,000-12,000 |
 
-**→ [See Projected Impact](docs/PROJECTED_IMPACT.md)** _(Theoretical examples, not real user data)_
+**→ [See Projected Impact](docs/04-ecosystem/PROJECTED_IMPACT.md)** _(Theoretical examples, not real user data)_
 
 ### Projected Setup Improvements (Estimated)
 
@@ -263,7 +263,7 @@ Shift-Tab        # Cycle permission modes
 ## 📚 Documentation Hub
 
 ### For Beginners
-- [5-Minute Success](docs/5_MINUTE_SUCCESS.md) - Ultra-fast demo
+- [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) - Ultra-fast demo
 - [Visual Quickstart](docs/VISUAL_QUICKSTART.md) - Decision flowchart
 - [Installation Guide](01_global-setup/must-have/01_installation.md) - Set up Claude Code
 - [Quick Start Guide](01_global-setup/must-have/02_quick-start.md) - Core concepts
@@ -271,8 +271,8 @@ Shift-Tab        # Cycle permission modes
 ### For Everyone
 - [Quick Reference](QUICK_REFERENCE.md) - Find any feature (Cmd+F search)
 - [Visual Guides](VISUAL_GUIDES.md) - 5 Mermaid diagrams
-- [Projected Impact](docs/PROJECTED_IMPACT.md) - Theoretical examples (not real data)
-- [Directory Guide](docs/DIRECTORY_GUIDE.md) - What's where
+- [Projected Impact](docs/04-ecosystem/PROJECTED_IMPACT.md) - Theoretical examples (not real data)
+- [Directory Guide](docs/04-ecosystem/DIRECTORY_GUIDE.md) - What's where
 
 ### For Advanced Users
 - [Model Switching](01_global-setup/good-to-have/01_model-switching.md) - Projected 92% cost savings
@@ -353,7 +353,7 @@ nice-to-have/ (💡)
 - 02_xxx.md → Read second
 - 03_xxx.md → Read third
 
-**→ [Full Directory Structure](docs/DIRECTORY_GUIDE.md)**
+**→ [Full Directory Structure](docs/04-ecosystem/DIRECTORY_GUIDE.md)**
 
 ---
 
@@ -365,7 +365,7 @@ Projected savings (theoretical):
 - **Model switching:** 92% implementation savings
 - **Prompt optimization:** 50-80% query reduction
 
-**→ [Projected Cost Savings](docs/PROJECTED_IMPACT.md#-projected-cost-savings-examples)**
+**→ [Projected Cost Savings](docs/04-ecosystem/PROJECTED_IMPACT.md#-projected-cost-savings-examples)**
 
 ### 2. Persona-Based Routing
 Different users need different paths:
@@ -375,7 +375,7 @@ Different users need different paths:
 - Team: Deployment strategy (90-120 min)
 - Returning: Quick refresher (10-20 min)
 
-**→ [Visual Path Selector](docs/VISUAL_QUICKSTART.md)**
+**→ [Visual Path Selector](docs/00-start-here/VISUAL_QUICKSTART.md)**
 
 ### 3. Validation & Education
 - Interactive wizards with knowledge checks
@@ -383,7 +383,7 @@ Different users need different paths:
 - Step-by-step validation
 - Educational output modes
 
-**→ [Wizard Documentation](docs/DIRECTORY_GUIDE.md#-scripts-scripts)**
+**→ [Wizard Documentation](docs/04-ecosystem/DIRECTORY_GUIDE.md#-scripts-scripts)**
 
 ---
 
@@ -398,7 +398,7 @@ git clone https://github.com/your-username/claude-config-template.git
 ```
 
 ### 2. Choose Your Path
-- **⚡ 5 minutes:** [Quick demo](docs/5_MINUTE_SUCCESS.md)
+- **⚡ 5 minutes:** [Quick demo](docs/00-start-here/5_MINUTE_SUCCESS.md)
 - **🎯 15-30 minutes:** [Quick setup](START_HERE.md#quick-setup-user)
 - **📚 60-90 minutes:** [Complete learning](START_HERE.md#first-time-learner)
 - **🧙 Guided:** Run `./scripts/claude-wizard.sh`
