@@ -8,16 +8,16 @@
 
 Discover the broader Claude Code ecosystem and navigate project documentation.
 
-### 🌐 Third-Party Integration (Coming Soon)
+### 🌐 Third-Party Integration
 
-**THIRD_PARTY_MCPS.md** (Commit 11)
+**[Third-Party MCP Servers](THIRD_PARTY_MCPS.md)**
 - Context7 MCP (latest library documentation)
 - Supabase MCP (database operations)
 - Playwright MCP (browser automation)
 - Stripe MCP (payment integrations)
 - All marked as THIRD-PARTY (not official Anthropic)
 
-**PLUGINS_GUIDE.md** (Commit 11)
+**[Claude Code Plugins](PLUGINS_GUIDE.md)**
 - Official Claude Code plugin system
 - How to bundle workflows for sharing
 - Installing from marketplaces
@@ -70,8 +70,8 @@ Discover the broader Claude Code ecosystem and navigate project documentation.
 ## Recommended Reading Order
 
 1. **[Directory Guide](DIRECTORY_GUIDE.md)** - Navigate the project (5 min)
-2. **Third-Party MCPs** - Discover community tools (10 min) ← Coming soon
-3. **Plugins Guide** - Share workflows (10 min) ← Coming soon
+2. **[Third-Party MCPs](THIRD_PARTY_MCPS.md)** - Discover community tools (10 min)
+3. **[Plugins Guide](PLUGINS_GUIDE.md)** - Share workflows (10 min)
 4. **[Projected Impact](PROJECTED_IMPACT.md)** - Understand ROI estimates (5 min)
 
 ---
