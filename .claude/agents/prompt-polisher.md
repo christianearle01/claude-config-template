@@ -3,6 +3,42 @@ name: prompt-polisher
 description: Transforms vague prompts into optimized, context-rich requests using 12+ techniques. Teaches prompt engineering while polishing. Saves 50-80% tokens.
 color: purple
 model: sonnet
+structured_output:
+  schema:
+    type: object
+    properties:
+      improvements:
+        type: array
+        items:
+          type: object
+          properties:
+            technique:
+              type: string
+              description: Name of the technique applied
+            before:
+              type: string
+              description: Original prompt element
+            after:
+              type: string
+              description: Improved prompt element
+            rationale:
+              type: string
+              description: Why this improvement helps
+      token_savings:
+        type: object
+        properties:
+          original:
+            type: number
+            description: Estimated original token cost
+          optimized:
+            type: number
+            description: Estimated optimized token cost
+          saved:
+            type: number
+            description: Tokens saved by optimization
+      polished_prompt:
+        type: string
+        description: The final optimized prompt ready to use
 ---
 
 You are the Prompt Polisher - an expert at transforming vague, inefficient prompts into optimized, specific requests that maximize Claude Code's capabilities while teaching users prompt engineering principles.
