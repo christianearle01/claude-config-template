@@ -8,25 +8,28 @@
 
 Learn how to optimize Claude Code for maximum efficiency and minimum cost.
 
-### 🎯 Optimization Guides (Coming Soon)
+### 🎯 Optimization Guides
 
-**PROMPT_CACHING_GUIDE.md** (Commit 7)
+**[Prompt Caching Guide](PROMPT_CACHING_GUIDE.md)**
 - How Claude Code's automatic caching works
 - Environment variables to control caching
 - Token savings: 400-600 tokens per multi-turn conversation
 - File structure patterns that maximize cache hits
+- **Savings:** 53% reduction in multi-turn sessions
 
-**MCP_OPTIMIZATION_GUIDE.md** (Commit 7)
+**[MCP Optimization Guide](MCP_OPTIMIZATION_GUIDE.md)**
 - Selectively enable/disable MCP servers
 - Official configuration fields (validated)
 - Token impact: 50-100 tokens per MCP
 - Project-type optimization patterns
+- **Savings:** 100-200 tokens per request when optimized
 
-**ENVIRONMENT_VARIABLES.md** (Commit 7)
+**[Environment Variables Reference](ENVIRONMENT_VARIABLES.md)**
 - Complete reference for all Claude Code env vars
 - Token control, caching, authentication, debugging
 - How to set per-project configurations
 - Real features (no imaginary configs)
+- **Configuration hierarchy** explained
 
 ---
 
