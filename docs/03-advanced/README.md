@@ -8,29 +8,29 @@
 
 Master advanced Claude Code features for autonomous workflows and maximum productivity.
 
-### 🚀 Advanced Workflows (Coming Soon)
+### 🚀 Advanced Workflows
 
-**ADVANCED_MCP_WORKFLOWS.md** (Commit 8)
+**[Advanced MCP Workflows](ADVANCED_MCP_WORKFLOWS.md)**
 - Supabase MCP integration (database operations)
 - Playwright MCP (autonomous UI testing)
 - Skills orchestrating multiple MCPs
 - The "highest tier" workflow pattern
 - **Example:** UI testing chain (Skill + Playwright + Sub-agent)
 
-**SUBAGENT_BEST_PRACTICES.md** (Commit 9)
+**[Sub-Agent Best Practices](SUBAGENT_BEST_PRACTICES.md)**
 - "Tasks not Roles" principle
 - Sub-agent architecture (context, prompts, permissions)
 - Examples: code-reviewer, ui-tester, documentation-generator
 - ❌ BAD: "frontend-developer" (too broad)
 - ✅ GOOD: "react-component-optimizer" (specific task)
 
-**CONVERSATION_BRANCHING.md** (Commit 10)
+**[Conversation Branching](CONVERSATION_BRANCHING.md)**
 - Shift+Click branching feature
 - When to explore alternatives
 - Token impact: prevents context pollution
 - Can save 50K+ tokens over project lifetime
 
-**VISION_OPTIMIZATION.md** (Commit 10)
+**[Vision Optimization](VISION_OPTIMIZATION.md)**
 - When to use images vs. text descriptions
 - Token comparison: 500-word description vs. image upload
 - Examples: architecture diagrams, error screenshots
@@ -68,10 +68,10 @@ Skill (expertise) + MCP (data/tools) + Sub-agent (orchestration)
 
 ## Recommended Reading Order
 
-1. **Advanced MCP Workflows** - Multi-tool orchestration (20 min) ← Coming soon
-2. **Sub-agent Best Practices** - Task-focused agents (10 min) ← Coming soon
-3. **Conversation Branching** - Context management (5 min) ← Coming soon
-4. **Vision Optimization** - Multimodal efficiency (5 min) ← Coming soon
+1. **[Advanced MCP Workflows](ADVANCED_MCP_WORKFLOWS.md)** - Multi-tool orchestration (20 min)
+2. **[Sub-agent Best Practices](SUBAGENT_BEST_PRACTICES.md)** - Task-focused agents (10 min)
+3. **[Conversation Branching](CONVERSATION_BRANCHING.md)** - Context management (5 min)
+4. **[Vision Optimization](VISION_OPTIMIZATION.md)** - Multimodal efficiency (5 min)
 
 ---
 
