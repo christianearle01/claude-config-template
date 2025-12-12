@@ -14,6 +14,161 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.0.0] - 2025-12-12
+
+### Added - Comprehensive Optimization & Learning Journey Overhaul 🚀
+
+**Major documentation restructure** with learning journey architecture, anti-patterns guide, and comprehensive optimization documentation. This release represents a paradigm shift from agent-centric to Skills-centric approach based on real-world power user experience (800+ hours).
+
+#### Documentation Restructure (Learning Journey)
+- **New structure**: docs/00-start-here → 01-fundamentals → 02-optimization → 03-advanced → 04-ecosystem
+- **Progressive disclosure**: Content organized by complexity level
+- **Clear navigation**: Single entry point (README) with explicit routing
+- **Token savings**: ~430 tokens per session from documentation reorganization
+
+#### Critical New Guides (00-start-here)
+- **Anti-Patterns Guide** (ANTI_PATTERNS.md, 448 lines)
+  - Vibe Coding anti-pattern (80-day disaster vs 15-hour success story)
+  - One-shotting problem
+  - Fake actions detection
+  - AI Augmented Coding framework
+  - Real horror story: 12,000-line file with 10,000 lines unused legacy code
+- **Updated**: 5_MINUTE_SUCCESS.md and VISUAL_QUICKSTART.md moved to docs/00-start-here/
+
+#### Fundamentals Guides (01-fundamentals)
+- **Skills Paradigm** (SKILLS_PARADIGM.md, 450+ lines)
+  - Commands → Agents → **Skills** evolution
+  - Folder-based expertise modules
+  - Auto-invocation patterns
+  - Team governance use cases
+  - Git-versioned institutional knowledge
+- **Verification & Debugging** (VERIFICATION_DEBUGGING.md, 505+ lines)
+  - Ctrl+O as MANDATORY (prevents fake actions)
+  - How to spot fake console.log statements
+  - The Review Workflow (AI generates, humans own it)
+  - Fundamentals checklist
+- **Keyboard Shortcuts** (KEYBOARD_SHORTCUTS.md, 549+ lines)
+  - **MANDATORY**: Ctrl+O (verbose output, trust mechanism)
+  - **Daily**: # hash (quick memory adds)
+  - **Useful**: Other shortcuts
+  - AI Augmented vs Vibe Coding framework
+  - Progressive learning path
+
+#### Optimization Guides (02-optimization)
+- **Prompt Caching Guide** (PROMPT_CACHING_GUIDE.md, 300+ lines)
+  - How automatic caching works (400-600 token savings per multi-turn conversation)
+  - Environment variables (DISABLE_PROMPT_CACHING_*)
+  - File structure optimization for cache hits
+- **MCP Optimization Guide** (MCP_OPTIMIZATION_GUIDE.md, 400+ lines)
+  - Selective MCP loading (100-200 tokens saved per request)
+  - Official configuration fields
+  - Project-type optimization patterns
+- **Environment Variables Reference** (ENVIRONMENT_VARIABLES.md, 400+ lines)
+  - Complete reference for all Claude Code env vars
+  - Token control, caching, authentication, debugging
+  - Configuration hierarchy explained
+
+#### Advanced Guides (03-advanced)
+- **Advanced MCP Workflows** (ADVANCED_MCP_WORKFLOWS.md, 546+ lines)
+  - Three-layer architecture: Skill + MCP + Sub-agent
+  - Supabase MCP integration
+  - Playwright MCP for autonomous UI testing
+  - Skills orchestrating multiple MCPs
+- **Sub-Agent Best Practices** (SUBAGENT_BEST_PRACTICES.md, 559+ lines)
+  - "Tasks not Roles" principle (CRITICAL)
+  - Sub-agent architecture (context windows, prompts, permissions)
+  - Real examples: code-reviewer, ui-tester, documentation-generator
+- **Vision Optimization** (VISION_OPTIMIZATION.md, 300+ lines)
+  - When to use images vs text (500-1,000 token savings per image)
+  - Use cases: architecture diagrams, error screenshots, UI mockups
+- **Conversation Branching** (CONVERSATION_BRANCHING.md, 300+ lines)
+  - Shift+Click branching feature
+  - 30K-50K token savings over project lifetime
+  - Best practices: 2 levels deep max, merge insights back
+
+#### Ecosystem Guides (04-ecosystem)
+- **Third-Party MCPs** (THIRD_PARTY_MCPS.md, 600+ lines)
+  - Context7 MCP (latest library docs)
+  - Supabase MCP (database operations)
+  - Playwright MCP (browser automation)
+  - Security considerations
+  - All clearly marked as THIRD-PARTY
+- **Plugins Guide** (PLUGINS_GUIDE.md, 600+ lines)
+  - Official plugin system
+  - Bundle workflows for sharing
+  - Plugin structure (.claude-plugin/)
+  - Creating and sharing plugins
+  - Real-world examples
+
+#### Extract and Optimize
+- **Optional Features**: Package security moved to SETUP_OPTIONAL.md (saves ~50 tokens)
+- **Navigation Guide**: Consolidated entry points in README (saves ~30 tokens per session)
+
+### Changed
+
+#### Agent Improvements
+- **Structured Output**: Added JSON schemas to prompt-polisher and project-planner agents
+  - More reliable output format
+  - Easier parsing
+  - Saves 30-50 tokens per agent invocation
+
+#### Documentation Updates
+- **All docs/** paths updated to new learning journey structure
+- **README**: master learning journey map and 00-04 navigation
+- **Each section**: README with learning outcomes and recommended reading order
+- **Source attribution**: All guides include "Sources & Validation" section
+- **Honesty Policy**: Maintained throughout (official vs community vs projected)
+
+### Technical Improvements
+- **Token Savings**: ~430 tokens per session from documentation reorganization alone
+- **Real Features Only**: All guides validated against official Claude Code documentation
+- **Community Insights**: NotebookLLM analysis from 3 YouTube sources (800+ hours experience)
+- **No Imaginary Features**: Rejected initial plan's invented settings.json fields
+
+### Validation Status
+- **Skills feature**: Validated via claude-code-guide agent ✅
+- **All MCPs**: Checked against official docs and community sources ✅
+- **YouTube insights**: Cross-video analysis via NotebookLLM ✅
+
+### Impact Summary
+- **14 new comprehensive guides** (6,000+ lines of documentation)
+- **Learning journey structure** (progressive disclosure)
+- **Skills paradigm** (the future of Claude Code)
+- **Anti-patterns guide** (#1 priority - prevents 80-day disasters)
+- **Ctrl+O workflow** (MANDATORY for quality)
+- **Projected token savings**: 430+ tokens per session
+
+---
+
+## [2.9.0] - 2025-12-11
+
+### Added - Token-Optimized Git Approval Workflow
+
+**Git commit approval system** with token-efficient workflow patterns.
+
+#### Git Workflow Guide (2,500+ lines)
+- **Token-optimized workflow**: Draft → Review → Approve (minimal git commands)
+- **Cost comparison**: 400 tokens (optimized) vs 2,000 tokens (with full git diff)
+- **User sees changes in IDE**: Avoid redundant git diff output
+- **Explicit approval required**: Never auto-commit
+- **Interactive setup wizard**: setup-git-workflow.sh with 3 protection levels
+
+#### Protection Levels
+- **Full Protection**: Approve all git operations (learning mode)
+- **Commit-Only**: Approve commits only (balanced)
+- **Minimal Protection**: Only prevent destructive operations
+
+#### Documentation
+- **Git Approval Workflow Guide** (01_global-setup/good-to-have/04_git-approval-workflow.md)
+- **Git Push Workaround** (01_global-setup/good-to-have/05_git-push-workaround.md)
+- **Updated CLAUDE.md**: Section 18 with token-optimized commit workflow
+
+### Changed
+- **CLAUDE.md**: Expanded git workflow section with token efficiency tips
+- **Scripts**: Added setup-git-workflow.sh (interactive wizard)
+
+---
+
 ## [2.6.0] - 2025-12-08
 
 ### Added - Browser Workflow Feature 🌐
