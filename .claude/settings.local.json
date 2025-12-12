@@ -16,7 +16,8 @@
       "mcp__sequential-thinking__sequentialthinking",
       "Bash(git branch:*)",
       "Bash(git add:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "mcp__filesystem__list_directory"
     ],
     "deny": [],
     "ask": []
