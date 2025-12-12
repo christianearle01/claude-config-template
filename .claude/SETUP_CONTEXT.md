@@ -28,9 +28,12 @@
 
 ```
 claude-config-template/
-├── docs/                          # NEW! UX-optimized guides
-│   ├── 5_MINUTE_SUCCESS.md       # Ultra-fast win (5 min demo)
-│   └── VISUAL_QUICKSTART.md      # Decision flowchart
+├── docs/                          # Learning journey structure (v3.0.0)
+│   ├── 00-start-here/            # Quick start + anti-patterns
+│   ├── 01-fundamentals/          # Skills, verification, shortcuts
+│   ├── 02-optimization/          # Token saving strategies
+│   ├── 03-advanced/              # Power user techniques
+│   └── 04-ecosystem/             # Third-party tools, reference
 │
 ├── 01_global-setup/               # One-time machine-wide setup
 │   ├── must-have/                 # CRITICAL (installation, quick start, permissions)
@@ -77,9 +80,11 @@ claude-config-template/
 ## Critical Files (Read These for Setup Help)
 
 ### Entry Points (User's First Touch)
-- **docs/5_MINUTE_SUCCESS.md** - 5-min demo (NEW! recommend this first)
-- **docs/VISUAL_QUICKSTART.md** - Visual flowchart for path selection (NEW!)
-- **README.md** - Overview and value props (540 lines → being reduced to 250)
+- **docs/00-start-here/ANTI_PATTERNS.md** - ⚠️ READ FIRST! How projects fail (v3.0.0)
+- **docs/00-start-here/5_MINUTE_SUCCESS.md** - 5-min demo (recommend this)
+- **docs/00-start-here/VISUAL_QUICKSTART.md** - Visual flowchart for path selection
+- **docs/README.md** - Master learning journey map (v3.0.0)
+- **README.md** - Project overview and value props
 - **START_HERE.md** - Persona selector with detailed paths
 
 ### Templates (What Users Copy)
@@ -119,13 +124,13 @@ claude-config-template/
 **Quick Response Pattern:**
 1. Ask persona: "Are you new to Claude Code or experienced?"
 2. Route to appropriate path:
-   - New → docs/5_MINUTE_SUCCESS.md first, then wizard
+   - New → docs/00-start-here/5_MINUTE_SUCCESS.md first, then wizard
    - Experienced → START_HERE.md#quick-setup-user
    - Team → START_HERE.md#team-lead
 3. Recommend wizard: `./scripts/claude-wizard.sh`
 
 **Files to Reference:**
-- docs/VISUAL_QUICKSTART.md (decision tree)
+- docs/00-start-here/VISUAL_QUICKSTART.md (decision tree)
 - START_HERE.md (detailed paths)
 
 ### Task 2: "Copy template to my project"
@@ -240,7 +245,7 @@ cd ~/claude-config-template
 
 ### Task 7: "What's the fastest way to see value?"
 
-**Answer:** docs/5_MINUTE_SUCCESS.md
+**Answer:** docs/00-start-here/5_MINUTE_SUCCESS.md
 
 **Why:**
 - 5 minutes total
@@ -281,8 +286,8 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 | Custom agents | .claude/agents/*.md |
 | Setup wizards | scripts/wizard-*.sh |
 | Visual guides | VISUAL_GUIDES.md |
-| 5-min demo | docs/5_MINUTE_SUCCESS.md |
-| Decision flowchart | docs/VISUAL_QUICKSTART.md |
+| 5-min demo | docs/00-start-here/5_MINUTE_SUCCESS.md |
+| Decision flowchart | docs/00-start-here/VISUAL_QUICKSTART.md |
 | Installation guide | 01_global-setup/must-have/01_installation.md |
 | Quick start | 01_global-setup/must-have/02_quick-start.md |
 | Permission modes | 01_global-setup/must-have/03_permission-modes.md |
@@ -474,19 +479,19 @@ Claude will:
 ## Helpful Phrases for Efficient Responses
 
 **When user asks about setup:**
-"I recommend starting with the 5-minute demo to see the value: docs/5_MINUTE_SUCCESS.md. Then we can discuss the full setup path that fits your needs."
+"I recommend starting with the 5-minute demo to see the value: docs/00-start-here/5_MINUTE_SUCCESS.md. Then we can discuss the full setup path that fits your needs."
 
 **When user is experienced:**
 "Since you're familiar with Claude Code, the Quick Setup path takes 15-30 minutes: START_HERE.md#quick-setup-user. Or run the wizard: `./scripts/claude-wizard.sh`"
 
 **When user wants everything:**
-"The First-Time Learner path covers everything in 60-90 minutes: START_HERE.md#first-time-learner. Or use the visual guide to choose: docs/VISUAL_QUICKSTART.md"
+"The First-Time Learner path covers everything in 60-90 minutes: START_HERE.md#first-time-learner. Or use the visual guide to choose: docs/00-start-here/VISUAL_QUICKSTART.md"
 
 **When user asks about a specific file:**
 "That's located at [path]. [1-sentence description]. Would you like me to read it for details?"
 
 **When user is lost:**
-"Let's use the visual flowchart to find your path: docs/VISUAL_QUICKSTART.md. Or answer this: Are you new to Claude Code, or just new to this template?"
+"Let's use the visual flowchart to find your path: docs/00-start-here/VISUAL_QUICKSTART.md. Or answer this: Are you new to Claude Code, or just new to this template?"
 
 ---
 
@@ -505,8 +510,8 @@ This file should be your **first resource** when helping users set up this templ
 - **Savings: 96% reduction**
 
 **Next Steps for User:**
-1. Recommend docs/5_MINUTE_SUCCESS.md (fastest value)
-2. Use docs/VISUAL_QUICKSTART.md (if they need help choosing path)
+1. Recommend docs/00-start-here/5_MINUTE_SUCCESS.md (fastest value)
+2. Use docs/00-start-here/VISUAL_QUICKSTART.md (if they need help choosing path)
 3. Route to appropriate persona path in START_HERE.md
 4. Or run wizard: `./scripts/claude-wizard.sh`
 
