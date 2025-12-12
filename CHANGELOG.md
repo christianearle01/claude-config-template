@@ -8,9 +8,96 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
+- v3.4.0: Workflow optimization skills (version-management, commit-readiness, documentation-sync)
+- v3.4.0: Setup assistance skills (global-setup-assistant, project-onboarding-assistant)
+- v3.4.0: Learning Stages documentation (explicit progression path)
+- v3.4.0: Commands reduction (5 → 3) with graduation guide
 - Phase 3: Update mechanism with claude-update CLI
 - Phase 3: Persona-specific update notifications
 - Phase 3: Opt-in anonymized analytics
+
+---
+
+## [3.3.0] - 2025-12-13
+
+### Added - Skills Architecture & Intelligence Layer 🧠
+
+**First implementation of Claude Code Skills paradigm** - auto-activating expertise modules that provide natural language intelligence layer over execution tools.
+
+#### Skills Architecture Established
+- **.claude/skills/** directory structure
+- **YAML frontmatter** for skill metadata (name, description, allowed-tools)
+- **Auto-activation** based on conversation context (no explicit invocation)
+- **READ-only intelligence layer** (complements execution scripts)
+- **Token-efficient** structured knowledge vs procedural discovery
+
+#### Skills Implemented (5 total)
+
+**1. projects-registry skill** (Multi-project management intelligence)
+- Auto-activates on: "What projects need updates?", "Show my production projects"
+- Operations: List projects, identify outdated, filter by tags/status, provide context
+- Token savings: 58% per query (600 → 250 tokens, **projected**)
+- Complements: CLI scripts (./scripts/claude-projects.sh)
+- Files: SKILL.md, registry-operations.md, examples/
+
+**2. skill-creation-guide.md** (Interactive skill creation with Claude's help)
+- Guides users through 5-step skill creation process
+- Provides real examples and conversation flows
+- Teaches skill structure, activation triggers, operations design
+- Helps users create custom skills for their workflows
+- Files: .claude/skills/skill-creation-guide.md (600+ lines)
+
+**3. testing-workflow skill** (QA Engineers - Test execution insights)
+- Auto-activates on: "What tests failed?", "Show test coverage", "Which tests are slow?"
+- Operations: List failures, show statistics, filter by module, identify slow tests
+- Supports: Jest, pytest, RSpec (JSON output formats)
+- Token savings: 62% per query (800 → 300 tokens, **projected**)
+- Files: SKILL.md with comprehensive examples
+
+**4. api-debugging skill** (Backend Engineers - API log analysis)
+- Auto-activates on: "Check API logs", "What API errors?", "Trace this request"
+- Operations: Parse logs, identify errors, trace requests, filter by endpoint
+- Supports: Common log formats (JSON, combined, custom)
+- Token savings: 61% per query (900 → 350 tokens, **projected**)
+- Files: SKILL.md with log parsing examples
+
+**5. component-finder skill** (Frontend Engineers - Component discovery)
+- Auto-activates on: "Where is Button component?", "Find all modals", "Show cart logic"
+- Operations: Find components, show dependencies, trace data flow, list props
+- Supports: React, Vue, Angular patterns
+- Token savings: 64% per query (700 → 250 tokens, **projected**)
+- Files: SKILL.md with framework-specific examples
+
+#### Documentation Updates
+- **SKILLS_PARADIGM.md** (docs/00-start-here/) - Complete skills guide
+  - What are skills vs agents vs commands
+  - When to create skills
+  - How skills auto-activate
+  - Skills + Scripts pattern (intelligence + execution layers)
+  - Token efficiency analysis
+  - Future skills roadmap
+- **QUICK_REFERENCE.md** - Added Skills section before Security Hooks
+- **CLAUDE.md** - Documented .claude/skills/ in Important Files section
+- **05_projects-registry.md** - Added "Skill Integration (v3.3.0+)" section
+
+#### Benefits
+- **Token efficiency**: 58-64% savings per query (averaged across skills, **projected**)
+- **Natural language interface**: No syntax to remember, just ask naturally
+- **Auto-activation**: Skills trigger based on context automatically
+- **Complementary design**: Skills (READ) + Scripts (WRITE) = complete solution
+- **Scalable architecture**: Easy to add new skills for any workflow
+- **Progressive learning**: Users discover skills organically through use
+
+#### Pattern Established
+- **Intelligence Layer (Skills)**: Provide insights, filter, search, analyze
+- **Execution Layer (Scripts/CLI)**: Perform modifications, validation, backups
+- **Data Layer**: Registry files, test results, logs, etc.
+
+This architecture separates "knowing what" from "doing how" - skills know context and patterns, scripts execute operations.
+
+⚠️ **Token savings are PROJECTIONS** based on testing (1 user). Seeking multi-user validation.
+
+**Help us validate:** Try the skills and report token impact at [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues).
 
 ---
 

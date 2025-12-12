@@ -323,6 +323,49 @@ cdp "My App"
 
 ## Integration with Claude Code
 
+### Skill Integration (v3.3.0+)
+
+**The projects-registry skill provides automatic, natural language access to your registry.**
+
+**How it works:**
+- Skill activates automatically when you mention projects
+- No CLI commands to remember
+- Natural language queries
+- 58% token savings vs manual CLI
+
+**Example queries:**
+```
+"What projects need updates?"
+"Show my production projects"
+"Where is the ClientA project?"
+"Which React projects are outdated?"
+```
+
+**Behind the scenes:**
+1. Skill detects project-related query
+2. Reads `~/.claude/projects-registry.json`
+3. Filters/processes based on your question
+4. Returns formatted answer with recommendations
+
+**Token comparison:**
+- Without skill: 600 tokens (explain → execute → parse)
+- With skill: 250 tokens (direct answer)
+- Savings: 350 tokens per query (58%)
+
+**For WRITE operations, skill recommends CLI:**
+```
+User: "Add my new project"
+Skill: "To add a project, use:
+        ./scripts/register-project.sh
+
+       Or: ./scripts/claude-projects.sh add ..."
+```
+
+**Documentation:**
+- Skill guide: `.claude/skills/projects-registry/SKILL.md`
+- Sample queries: `.claude/skills/projects-registry/examples/sample-queries.md`
+- Operations: `.claude/skills/projects-registry/registry-operations.md`
+
 ### Quick Project Context
 
 When starting a Claude Code session:
@@ -331,10 +374,11 @@ When starting a Claude Code session:
 Claude, check my projects registry and tell me which projects need updates.
 ```
 
-Claude will:
+The skill will automatically:
 1. Read `~/.claude/projects-registry.json`
 2. Identify projects with `status: "outdated"`
 3. Recommend update priorities
+4. Show next steps (CLI commands)
 
 ### Multi-Project Workflows
 
@@ -342,7 +386,7 @@ Claude will:
 Claude, list all my production projects from the registry.
 ```
 
-Claude can filter by tags, status, or version.
+The skill filters by tags, status, or version automatically.
 
 ### Automation Examples
 

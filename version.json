@@ -1,7 +1,7 @@
 {
-  "version": "3.2.0",
-  "release_date": "2025-12-12",
-  "release_name": "Multi-Project Management System",
+  "version": "3.3.0",
+  "release_date": "2025-12-13",
+  "release_name": "Skills Architecture & Intelligence Layer",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -62,7 +62,13 @@
     "projects-registry",
     "multi-project-tracking",
     "centralized-project-management",
-    "cli-project-tools"
+    "cli-project-tools",
+    "skills-architecture",
+    "projects-registry-skill",
+    "skill-creation-guide",
+    "testing-workflow-skill",
+    "api-debugging-skill",
+    "component-finder-skill"
   ],
   "personas_supported": [
     "first-time",
@@ -125,6 +131,13 @@
       "npm-security": "2.7.0",
       "python-security": "2.7.0",
       "global-settings": "2.9.0"
+    },
+    "skills": {
+      "projects-registry": "3.3.0",
+      "skill-creation-guide": "3.3.0",
+      "testing-workflow": "3.3.0",
+      "api-debugging": "3.3.0",
+      "component-finder": "3.3.0"
     }
   },
   "metadata": {
