@@ -19,7 +19,9 @@
       "Bash(git rm:*)",
       "mcp__filesystem__list_directory",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "mcp__filesystem__read_text_file",
+      "Bash(./scripts/sync-version.sh:*)"
     ],
     "deny": [],
     "ask": []

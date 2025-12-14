@@ -576,14 +576,55 @@ All functions return: `{status: boolean, error: string | null, result?: T}`
 
 ---
 
+## Optimizing Your Workflow (v3.4.0+)
+
+### workflow-analyzer Skill - Improve Quality Through Pattern Recognition
+
+After onboarding your project, the **workflow-analyzer skill** can scan your git workflow to identify optimization opportunities.
+
+**Auto-activates on:**
+- "What patterns do you see in my workflow?"
+- "How can I improve my commit quality?"
+- "Analyze my recent commits"
+- "What operations do I repeat manually?"
+
+**What it does:**
+- Tracks your git commit patterns over time
+- Identifies repeated manual operations
+- Finds queries that skills don't handle well yet
+- Suggests workflow improvements proactively
+- Enables skill evolution based on YOUR patterns
+
+**Example Use:**
+```
+You: "Analyze my workflow for the last 2 weeks"
+
+workflow-analyzer: "I notice you commit documentation updates
+separately from code changes (12 out of 15 commits). This is
+great for clarity! However, you manually check version sync
+across 5 files before each release. Consider using the
+version-management skill to automate this check."
+```
+
+**Benefits:**
+- **Self-awareness** - Understand your workflow habits
+- **Quality improvement** - Catch patterns that slow you down
+- **Skill suggestions** - Get recommendations for new skills
+- **Meta-learning** - Project improves based on YOUR usage
+
+See: `.claude/skills/workflow-analyzer/SKILL.md` for details.
+
+---
+
 ## Next Steps
 
 After completing this onboarding:
 
 1. **Test Claude Code** - Ask it questions about your project
 2. **Refine CLAUDE.md** - Add details as you discover them
-3. **Create Custom Commands** - Add project-specific slash commands
-4. **Share with Team** - Commit .claude/ and CLAUDE.md to version control
+3. **Use workflow-analyzer** - Scan your workflow after 10-15 commits to identify optimization opportunities
+4. **Create Custom Commands** - Add project-specific slash commands (or graduate to natural language!)
+5. **Share with Team** - Commit .claude/ and CLAUDE.md to version control
 
 ---
 

@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-12
-**Version:** v3.3.0
+**Version:** v3.4.0
 
 ---
 
