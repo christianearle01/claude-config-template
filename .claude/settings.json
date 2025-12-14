@@ -8,5 +8,29 @@
   },
   "permissions": {
     "defaultMode": "plan"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write(*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/validate-docs.js",
+            "timeout": 2
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/validate-docs.js",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
   }
 }

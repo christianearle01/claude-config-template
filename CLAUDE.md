@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-12
-**Version:** v3.1.0
+**Version:** v3.4.0
 
 ---
 
@@ -309,6 +309,22 @@ git push origin v2.6.0
 - `.claude/settings.json` - Project settings
 - `.claude/settings-explained.json` - Educational reference
 - `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (v2.5.0)
+
+### User Configuration
+- `~/.claude/projects-registry.json` - Multi-project tracking (v3.2.0)
+  - Centralized registry for managing multiple projects
+  - See: `01_global-setup/nice-to-have/05_projects-registry.md`
+  - CLI: `scripts/claude-projects.sh`
+  - Wizard: `scripts/register-project.sh`
+
+### Skills (v3.3.0+)
+- `.claude/skills/projects-registry/` - Projects Registry Skill
+  - Automatic natural language access to registry
+  - SKILL.md: Core expertise (auto-invoked by context)
+  - registry-operations.md: Detailed operations guide
+  - examples/: Sample queries and schema
+  - 58% token savings vs CLI (600 → 250 tokens per query)
+  - See: `.claude/skills/projects-registry/SKILL.md`
 
 ### Reference Documentation
 - `docs/00-start-here/QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)
@@ -723,3 +739,4 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 2. **Educational:** Shows users a real-world example of a well-structured CLAUDE.md
 
 Users can reference this file to see how to document a large documentation project!
+- CLAUDE.md

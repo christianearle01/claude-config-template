@@ -1,7 +1,7 @@
 {
-  "version": "3.1.0",
-  "release_date": "2025-12-12",
-  "release_name": "Workflow Quality & Structure Refinement",
+  "version": "3.4.0",
+  "release_date": "2025-12-14",
+  "release_name": "Workflow Optimization, Learning Stages & Setup Assistance",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -58,7 +58,27 @@
     "mcp-usage-guidelines",
     "sequential-thinking-documentation",
     "root-file-consolidation",
-    "progress-bar-configuration"
+    "progress-bar-configuration",
+    "projects-registry",
+    "multi-project-tracking",
+    "centralized-project-management",
+    "cli-project-tools",
+    "skills-architecture",
+    "projects-registry-skill",
+    "skill-creation-guide",
+    "testing-workflow-skill",
+    "api-debugging-skill",
+    "component-finder-skill",
+    "version-management-skill",
+    "commit-readiness-skill",
+    "documentation-sync-skill",
+    "workflow-analyzer-skill",
+    "skill-template-generator",
+    "global-setup-assistant-skill",
+    "project-onboarding-assistant-skill",
+    "pre-project-planning-assistant-skill",
+    "learning-stages-documentation",
+    "command-graduation"
   ],
   "personas_supported": [
     "first-time",
@@ -79,6 +99,7 @@
       "01_global-setup/nice-to-have/03_python-security-checklist.md": "2.7.0",
       "01_global-setup/nice-to-have/04_npm-security-guide.md": "2.7.0",
       "01_global-setup/nice-to-have/04_sequential-thinking-mcp.md": "3.1.0",
+      "01_global-setup/nice-to-have/05_projects-registry.md": "3.2.0",
       "01_global-setup/nice-to-have/05_python-security-guide.md": "2.7.0",
       "01_global-setup/good-to-have/04_git-approval-workflow.md": "2.9.0",
       "docs/04-ecosystem/PROGRESS_BAR_GUIDE.md": "3.1.0",
@@ -94,7 +115,8 @@
       "pip.conf": "2.7.0",
       "package.json.template": "2.7.0",
       "requirements.txt.template": "2.7.0",
-      "pyproject.toml.template": "2.7.0"
+      "pyproject.toml.template": "2.7.0",
+      "projects-registry.json.template": "3.2.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
@@ -109,7 +131,10 @@
       "wizard-returning.sh": "2.1.0",
       "wizard-helpers.sh": "3.1.0",
       "progress-bar-config.sh": "3.1.0",
-      "setup-git-workflow.sh": "2.9.0"
+      "register-project.sh": "3.2.0",
+      "claude-projects.sh": "3.2.0",
+      "setup-git-workflow.sh": "2.9.0",
+      "remove-commands.sh": "3.4.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -117,11 +142,33 @@
       "npm-security": "2.7.0",
       "python-security": "2.7.0",
       "global-settings": "2.9.0"
+    },
+    "skills": {
+      "projects-registry": "3.3.0",
+      "skill-creation-guide": "3.3.0",
+      "testing-workflow": "3.3.0",
+      "api-debugging": "3.3.0",
+      "component-finder": "3.3.0",
+      "version-management": "3.4.0",
+      "commit-readiness-checker": "3.4.0",
+      "documentation-sync-checker": "3.4.0",
+      "workflow-analyzer": "3.4.0",
+      "skill-template-generator": "3.4.0",
+      "global-setup-assistant": "3.4.0",
+      "project-onboarding-assistant": "3.4.0",
+      "pre-project-planning-assistant": "3.4.0"
+    },
+    "commands": {
+      "build": "2.0.0",
+      "review": "2.0.0",
+      "test": "2.0.0"
     }
   },
   "metadata": {
-    "total_files": 70,
-    "total_lines": 26600,
+    "total_files": 90,
+    "total_lines": 32500,
+    "skill_count": 13,
+    "command_count": 3,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
     "token_savings_target": 0.85,

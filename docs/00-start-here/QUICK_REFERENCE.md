@@ -744,6 +744,51 @@ You: "Implement the authentication plan"
 
 ---
 
+## Skills (v3.3.0+)
+
+**What:** Organized collections of expertise that Claude can automatically invoke
+
+**How they work:**
+- Activate automatically based on context
+- Provide insights without explicit invocation
+- READ-only (complement CLI tools)
+- 58% token savings vs manual commands
+
+### Projects Registry Skill
+
+**Purpose:** Multi-project management intelligence
+
+**Example queries:**
+```
+"What projects need updates?"
+"Show my production projects"
+"Where is the ClientA project?"
+"Which React projects are outdated?"
+```
+
+**Token savings:** 600 tokens → 250 tokens (58% reduction)
+
+**Location:** `.claude/skills/projects-registry/`
+
+**Complements:** CLI tools (`./scripts/claude-projects.sh`)
+
+### Skills vs Agents vs Commands
+
+| Feature | Skills | Agents | Commands |
+|---------|--------|--------|----------|
+| Invoke | Automatic | `@agent-name` | `/command` |
+| Purpose | Knowledge | Task execution | Workflow |
+| Scope | READ-only | READ+WRITE | READ+WRITE |
+| Best for | Frequent queries | Complex tasks | Repeated ops |
+
+**Docs:**
+- [Skills Paradigm](SKILLS_PARADIGM.md)
+- [Projects Registry Skill](.claude/skills/projects-registry/SKILL.md)
+
+**Keywords:** skills, expertise, automatic, knowledge, intelligence
+
+---
+
 ## Security Hooks
 
 **What:** Automated security checks that run before Claude executes commands

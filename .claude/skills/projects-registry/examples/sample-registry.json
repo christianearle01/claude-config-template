@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json.schemastore.org/claude-projects-registry-1.0.0.json",
+  "$comment": "Sample projects registry demonstrating the schema structure",
+  "version": "1.0",
+  "lastSync": "2025-12-12T14:30:00Z",
+  "projects": [
+    {
+      "id": "client-a-dashboard-1702123456789",
+      "name": "ClientA Dashboard",
+      "path": "~/Developer/client-a-dashboard",
+      "templateVersion": "3.3.0",
+      "installedDate": "2025-12-01",
+      "lastUpdated": "2025-12-07",
+      "status": "up-to-date",
+      "tags": [
+        "production",
+        "react",
+        "typescript",
+        "client"
+      ],
+      "notes": "Main client dashboard with real-time analytics. Critical production app."
+    },
+    {
+      "id": "client-b-api-1702123456790",
+      "name": "ClientB API",
+      "path": "~/Developer/client-b-api",
+      "templateVersion": "3.0.0",
+      "installedDate": "2025-10-15",
+      "lastUpdated": "2025-10-28",
+      "status": "outdated",
+      "tags": [
+        "production",
+        "node",
+        "api",
+        "graphql"
+      ],
+      "notes": "REST + GraphQL API serving ClientB frontend. Needs update to v3.3.0."
+    },
+    {
+      "id": "client-c-portal-1702123456791",
+      "name": "ClientC Portal",
+      "path": "~/Developer/client-c-portal",
+      "templateVersion": "3.3.0",
+      "installedDate": "2025-11-20",
+      "lastUpdated": "2025-12-05",
+      "status": "up-to-date",
+      "tags": [
+        "production",
+        "react",
+        "javascript",
+        "dashboard"
+      ],
+      "notes": "Customer portal with billing and account management features."
+    },
+    {
+      "id": "personal-blog-1702123456792",
+      "name": "Personal Blog",
+      "path": "~/Sites/personal-blog",
+      "templateVersion": "3.3.0",
+      "installedDate": "2025-11-01",
+      "lastUpdated": "2025-12-10",
+      "status": "up-to-date",
+      "tags": [
+        "personal",
+        "react",
+        "nextjs",
+        "markdown",
+        "blog"
+      ],
+      "notes": "Personal website and technical blog. Uses Next.js App Router and MDX."
+    },
+    {
+      "id": "learning-playground-1702123456793",
+      "name": "Learning Playground",
+      "path": "~/Developer/learning-playground",
+      "templateVersion": "2.7.0",
+      "installedDate": "2025-08-01",
+      "lastUpdated": "2025-08-15",
+      "status": "outdated",
+      "tags": [
+        "personal",
+        "experimental",
+        "learning",
+        "vanilla-js"
+      ],
+      "notes": "Experimental project for testing new patterns. Low priority for updates."
+    },
+    {
+      "id": "staging-app-1702123456794",
+      "name": "Staging Environment",
+      "path": "~/Developer/staging-app",
+      "templateVersion": "3.2.0",
+      "installedDate": "2025-11-15",
+      "lastUpdated": "2025-12-02",
+      "status": "outdated",
+      "tags": [
+        "staging",
+        "react",
+        "typescript",
+        "testing"
+      ],
+      "notes": "Staging environment for testing features before production deploy."
+    },
+    {
+      "id": "open-source-lib-1702123456795",
+      "name": "OpenSource Library",
+      "path": "~/Projects/opensource/my-lib",
+      "templateVersion": "3.3.0",
+      "installedDate": "2025-12-01",
+      "lastUpdated": "2025-12-08",
+      "status": "up-to-date",
+      "tags": [
+        "open-source",
+        "typescript",
+        "library",
+        "npm"
+      ],
+      "notes": "Public npm package. Documentation site needs updating next."
+    },
+    {
+      "id": "mobile-app-backend-1702123456796",
+      "name": "Mobile App Backend",
+      "path": "~/Developer/mobile-api",
+      "templateVersion": "3.1.0",
+      "installedDate": "2025-10-01",
+      "lastUpdated": "2025-11-15",
+      "status": "outdated",
+      "tags": [
+        "production",
+        "node",
+        "api",
+        "mobile",
+        "rest"
+      ],
+      "notes": "Backend API for iOS/Android mobile apps. Medium priority update."
+    },
+    {
+      "id": "internal-tools-1702123456797",
+      "name": "Internal Tools Dashboard",
+      "path": "~/Developer/internal-tools",
+      "templateVersion": "3.3.0",
+      "installedDate": "2025-11-25",
+      "lastUpdated": "2025-12-09",
+      "status": "up-to-date",
+      "tags": [
+        "internal",
+        "react",
+        "admin",
+        "tools"
+      ],
+      "notes": "Admin dashboard for internal team tools and analytics."
+    },
+    {
+      "id": "legacy-project-1702123456798",
+      "name": "Legacy Monolith",
+      "path": "~/Archive/legacy-app",
+      "templateVersion": "2.3.0",
+      "installedDate": "2025-06-01",
+      "lastUpdated": "2025-06-01",
+      "status": "outdated",
+      "tags": [
+        "archived",
+        "legacy",
+        "maintenance"
+      ],
+      "notes": "Old project in maintenance mode. No active development. Consider removing from registry."
+    }
+  ],
+  "$comments": {
+    "schema_notes": [
+      "ID Format: Uses project name slug + timestamp for uniqueness",
+      "Path Format: Use ~ for home directory (portable across machines)",
+      "Status Values: 'up-to-date' | 'outdated' | 'unknown'",
+      "Tags: Use lowercase, kebab-case for consistency",
+      "Dates: ISO 8601 format (YYYY-MM-DD or full timestamp)"
+    ],
+    "status_calculation": {
+      "up-to-date": "templateVersion matches current version (3.3.0)",
+      "outdated": "templateVersion is behind current version",
+      "unknown": "templateVersion could not be detected"
+    },
+    "tag_examples": {
+      "environment": ["production", "staging", "development"],
+      "category": ["client", "personal", "open-source", "internal"],
+      "technology": ["react", "node", "typescript", "python"],
+      "purpose": ["api", "dashboard", "blog", "tools", "mobile"]
+    },
+    "usage_patterns": {
+      "by_status": "Filter for outdated projects needing updates",
+      "by_tags": "Group projects by technology stack or client",
+      "by_priority": "Sort by production > staging > personal",
+      "by_age": "Find projects not updated recently"
+    }
+  }
+}

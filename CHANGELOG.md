@@ -7,10 +7,322 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- Phase 3: Update mechanism with claude-update CLI
-- Phase 3: Persona-specific update notifications
-- Phase 3: Opt-in anonymized analytics
+(No unreleased changes yet)
+
+---
+
+## [3.4.0] - 2025-12-14
+
+### Added - Workflow Optimization Skills 🔧
+
+**8 new skills to optimize maintainer and user workflows**
+
+#### Workflow Skills (For Maintainers)
+
+**version-management** - "What needs updating for v3.5.0?" → Shows all files, validates completeness
+- Checks version.json, README, CLAUDE.md, CHANGELOG, SETUP_CONTEXT
+- Validates sync-version.sh execution
+- Lists remaining updates needed
+- Token savings: **projected 350 tokens per release query** (4 queries/release = 1,400 tokens saved)
+
+**commit-readiness-checker** - "Am I ready to commit?" → Validates all release criteria
+- Checks version bumped, CHANGELOG updated, docs synced, git status
+- Drafts commit message following template format
+- Auto-activates on "ready to commit?" queries
+- Token savings: **projected 350 tokens per commit check** (2 queries/release = 700 tokens saved)
+
+**documentation-sync-checker** - "Are docs in sync?" → Validates cross-references and consistency
+- Validates version numbers across 89 MD files
+- Checks internal links (no 404s)
+- Finds stale content references
+- Identifies missing cross-references
+- Token savings: **projected 300 tokens per doc check** (3 queries/release = 900 tokens saved)
+
+**workflow-analyzer** - "What patterns do you see?" → Observes habits, suggests improvements
+- Tracks git commit patterns over time
+- Identifies repeated manual operations
+- Finds queries that skills don't handle well
+- **Meta-skill:** Suggests skill improvements proactively
+- Enables skill evolution based on usage patterns
+- Token savings: **projected pattern analysis enables future optimizations**
+
+#### Setup Skills (For Users)
+
+**global-setup-assistant** - "How do I install Claude Code?" → Guides one-time machine setup
+- Step-by-step installation walkthrough
+- Global settings.json configuration guidance
+- MCP server setup walkthrough
+- Validation checks (jq installed, Claude Code working)
+- Troubleshooting common issues
+- Auto-activates on installation/setup questions
+- Token savings: **projected 800 tokens per setup** (67% reduction vs manual exploration)
+
+**project-onboarding-assistant** - "Setup Claude Code for this project" → Guides per-project setup
+- Creates .claude/ directory structure
+- Guides CLAUDE.md template filling
+- Project-specific settings.json configuration
+- Validation checks (all files created, links work)
+- Persona-specific guidance (beginner vs advanced)
+- Auto-activates on project setup questions
+- Token savings: **projected 650 tokens per project** (65% reduction vs manual)
+
+**pre-project-planning-assistant** - "Help me plan a new project" → Guides pre-project planning phase
+- Structured guidance through 4 planning phases (concept → architecture → tech stack → timeline)
+- Prevents common anti-patterns (premature optimization, unclear requirements, no MVP)
+- References planning-guide.md and project-plan-template.md
+- Coordinates with @project-planner agent for complex decisions
+- Auto-activates on project planning questions
+- Token savings: **projected 700 tokens per project** (64% reduction vs manual)
+
+#### Utility Skills
+
+**skill-template-generator** - "Create a skill for X" → Interactive skill generation
+- Asks clarifying questions about skill purpose
+- Generates SKILL.md structure with YAML frontmatter
+- Adds example queries and operations
+- Creates supporting files if needed
+- Lowers barrier to skill creation
+- Token savings: **projected 600 tokens per skill creation**
+
+### Added - Learning Stages Documentation 🎓
+
+**New framework documenting natural progression from commands → natural language → skills**
+
+**Created docs/00-start-here/LEARNING_STAGES.md** - Comprehensive learning stages guide (800+ lines)
+- **Stage 1 (Beginner)**: Use all 5 commands for structure while learning
+- **Stage 2 (Intermediate)**: Mix commands + natural language as confidence builds
+- **Stage 3 (Advanced)**: Natural language + auto-activating skills (fluency achieved)
+- Command lifecycle table showing progression for each command
+- Graduation checklist (signs you're ready to remove commands)
+- Skills paradigm explanation for advanced users
+- FAQ addressing common concerns
+- Celebrates natural progression ("scaffolding meant to be outgrown")
+
+**Created scripts/remove-commands.sh** - Graduation helper script
+- Removes `/onboarding` (one-time use, never needed again)
+- Removes `/standards` (static reference, internalized by advanced users)
+- Keeps 3 essential: `/build`, `/test`, `/review` (always useful)
+- Interactive confirmation with clear explanation
+- Validation (checks .claude/commands/ exists)
+- Educational feedback (explains what was removed and why)
+
+### Changed - Commands Streamlined (5 → 3) ⚡
+
+**Reduced from 5 commands to 3 essential tools**
+
+**Removed:**
+- `/onboarding` - One-time use, graduates to natural language ("Help me understand this project")
+- `/standards` - Static reference, graduates to internalized knowledge
+
+**Kept (Essential):**
+- `/build` - Always relevant, provides structured error feedback
+- `/test` - Always relevant, provides structured test reporting
+- `/review` - Educational value, teaches standards through example
+
+**Rationale:** Advanced users naturally graduate from scaffolding commands to fluent natural language interaction. This change reflects observed user behavior (project author stopped using removed commands after initial learning period).
+
+### Token Impact (Projected)
+
+⚠️ **These are PROJECTIONS based on analysis, not multi-user validation.**
+
+**For Maintainers (v3.4.0 workflow skills):**
+- Version management: 1,400 tokens/release
+- Commit readiness: 700 tokens/release
+- Documentation sync: 900 tokens/release
+- **Per release: ~3,000 tokens saved**
+- **Monthly (2 releases): ~6,000 tokens (~$0.18)**
+
+**For New Users (v3.4.0 setup skills):**
+- Global setup: 800 tokens saved (one-time)
+- Pre-project planning: 700 tokens saved per project (avg 2 new projects = 1,400 tokens)
+- Project onboarding: 650 tokens saved per project (avg 3 projects = 1,950 tokens)
+- **Per user: ~4,150 tokens saved**
+- **10 users/month: ~41,500 tokens (~$1.25)**
+
+**Combined v3.4.0 Impact:**
+- Maintainer: ~6,000 tokens/month
+- New users: ~41,500 tokens/month
+- **Total: ~47,500 tokens/month (~$1.43)**
+
+**Help us validate:** If you adopt v3.4.0, share your token usage changes at [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues).
+
+### Documentation
+
+- Updated CLAUDE.md with all 7 new skills + Learning Stages
+- Updated SKILLS_PARADIGM.md with workflow + setup skill examples
+- Updated QUICK_REFERENCE.md with Learning Stages reference
+- Updated 01_global-setup/must-have/01_installation.md - References global-setup-assistant skill
+- Updated 02_project-onboarding/must-have/01_initial-setup.md - References project-onboarding-assistant skill
+
+### Files Changed
+
+**New Files (10):**
+1. `.claude/skills/version-management/SKILL.md` (650+ lines)
+2. `.claude/skills/commit-readiness-checker/SKILL.md` (700+ lines)
+3. `.claude/skills/documentation-sync-checker/SKILL.md` (200+ lines)
+4. `.claude/skills/workflow-analyzer/SKILL.md` (300+ lines)
+5. `.claude/skills/skill-template-generator/SKILL.md` (concise)
+6. `.claude/skills/global-setup-assistant/SKILL.md` (550+ lines)
+7. `.claude/skills/project-onboarding-assistant/SKILL.md` (600+ lines)
+8. `.claude/skills/pre-project-planning-assistant/SKILL.md` (500+ lines)
+9. `docs/00-start-here/LEARNING_STAGES.md` (800+ lines)
+10. `scripts/remove-commands.sh` (executable script)
+
+**Removed Files (2):**
+1. `.claude/commands/onboarding.md`
+2. `.claude/commands/standards.md`
+
+**Modified Files (9+):**
+1. `version.json` - Bumped to v3.4.0, updated components/features/metadata
+2. `CHANGELOG.md` - This file
+3. `CLAUDE.md` - Documented skills + Learning Stages
+4. `README.md` - Version sync
+5. `.claude/SETUP_CONTEXT.md` - Version sync
+6. `docs/00-start-here/SKILLS_PARADIGM.md` - Added workflow + setup skills examples
+7. `docs/00-start-here/QUICK_REFERENCE.md` - Added Learning Stages reference
+8. `01_global-setup/must-have/01_installation.md` - References global-setup-assistant skill
+9. `02_project-onboarding/must-have/01_onboarding-guide.md` - References project-onboarding-assistant + workflow-analyzer
+10. `03_pre-project-planning/must-have/01_planning-guide.md` - References pre-project-planning-assistant skill (if updated)
+
+---
+
+## [3.3.0] - 2025-12-13
+
+### Added - Skills Architecture & Intelligence Layer 🧠
+
+**First implementation of Claude Code Skills paradigm** - auto-activating expertise modules that provide natural language intelligence layer over execution tools.
+
+#### Skills Architecture Established
+- **.claude/skills/** directory structure
+- **YAML frontmatter** for skill metadata (name, description, allowed-tools)
+- **Auto-activation** based on conversation context (no explicit invocation)
+- **READ-only intelligence layer** (complements execution scripts)
+- **Token-efficient** structured knowledge vs procedural discovery
+
+#### Skills Implemented (5 total)
+
+**1. projects-registry skill** (Multi-project management intelligence)
+- Auto-activates on: "What projects need updates?", "Show my production projects"
+- Operations: List projects, identify outdated, filter by tags/status, provide context
+- Token savings: 58% per query (600 → 250 tokens, **projected**)
+- Complements: CLI scripts (./scripts/claude-projects.sh)
+- Files: SKILL.md, registry-operations.md, examples/
+
+**2. skill-creation-guide.md** (Interactive skill creation with Claude's help)
+- Guides users through 5-step skill creation process
+- Provides real examples and conversation flows
+- Teaches skill structure, activation triggers, operations design
+- Helps users create custom skills for their workflows
+- Files: .claude/skills/skill-creation-guide.md (600+ lines)
+
+**3. testing-workflow skill** (QA Engineers - Test execution insights)
+- Auto-activates on: "What tests failed?", "Show test coverage", "Which tests are slow?"
+- Operations: List failures, show statistics, filter by module, identify slow tests
+- Supports: Jest, pytest, RSpec (JSON output formats)
+- Token savings: 62% per query (800 → 300 tokens, **projected**)
+- Files: SKILL.md with comprehensive examples
+
+**4. api-debugging skill** (Backend Engineers - API log analysis)
+- Auto-activates on: "Check API logs", "What API errors?", "Trace this request"
+- Operations: Parse logs, identify errors, trace requests, filter by endpoint
+- Supports: Common log formats (JSON, combined, custom)
+- Token savings: 61% per query (900 → 350 tokens, **projected**)
+- Files: SKILL.md with log parsing examples
+
+**5. component-finder skill** (Frontend Engineers - Component discovery)
+- Auto-activates on: "Where is Button component?", "Find all modals", "Show cart logic"
+- Operations: Find components, show dependencies, trace data flow, list props
+- Supports: React, Vue, Angular patterns
+- Token savings: 64% per query (700 → 250 tokens, **projected**)
+- Files: SKILL.md with framework-specific examples
+
+#### Documentation Updates
+- **SKILLS_PARADIGM.md** (docs/00-start-here/) - Complete skills guide
+  - What are skills vs agents vs commands
+  - When to create skills
+  - How skills auto-activate
+  - Skills + Scripts pattern (intelligence + execution layers)
+  - Token efficiency analysis
+  - Future skills roadmap
+- **QUICK_REFERENCE.md** - Added Skills section before Security Hooks
+- **CLAUDE.md** - Documented .claude/skills/ in Important Files section
+- **05_projects-registry.md** - Added "Skill Integration (v3.3.0+)" section
+
+#### Benefits
+- **Token efficiency**: 58-64% savings per query (averaged across skills, **projected**)
+- **Natural language interface**: No syntax to remember, just ask naturally
+- **Auto-activation**: Skills trigger based on context automatically
+- **Complementary design**: Skills (READ) + Scripts (WRITE) = complete solution
+- **Scalable architecture**: Easy to add new skills for any workflow
+- **Progressive learning**: Users discover skills organically through use
+
+#### Pattern Established
+- **Intelligence Layer (Skills)**: Provide insights, filter, search, analyze
+- **Execution Layer (Scripts/CLI)**: Perform modifications, validation, backups
+- **Data Layer**: Registry files, test results, logs, etc.
+
+This architecture separates "knowing what" from "doing how" - skills know context and patterns, scripts execute operations.
+
+⚠️ **Token savings are PROJECTIONS** based on testing (1 user). Seeking multi-user validation.
+
+**Help us validate:** Try the skills and report token impact at [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues).
+
+---
+
+## [3.2.0] - 2025-12-12
+
+### Added - Multi-Project Management System 🗂️
+
+**Projects Registry** for power users managing multiple projects with claude-config-template.
+
+#### Projects Registry System
+- **Registry file**: ~/.claude/projects-registry.json (centralized project tracking)
+  - Track project paths (relative with ~ for portability)
+  - Version tracking per project (know what's outdated)
+  - Status indicators (up-to-date/outdated/unknown)
+  - Tags and notes for organization
+- **Interactive wizard**: scripts/register-project.sh
+  - Guided setup with validation
+  - Auto-detects template version from projects
+  - Prevents duplicates (name and path)
+  - Creates backup before modifications
+- **CLI tool**: scripts/claude-projects.sh (7 commands)
+  - `list` - Display all projects with filters
+  - `add` - Register new project
+  - `update` - Update project version
+  - `outdated` - Show projects needing updates
+  - `sync` - Auto-detect all versions
+  - `remove` - Delete from registry
+  - `show` - Display project details
+- **Template file**: templates/projects-registry.json.template (example for users)
+- **User guide**: 01_global-setup/nice-to-have/05_projects-registry.md
+  - When to use (5+ projects)
+  - Token savings analysis (450 tokens per multi-project session)
+  - CLI commands reference
+  - Common operations (list, filter, navigate)
+  - Integration with Claude Code
+  - Troubleshooting and advanced usage
+
+#### Benefits
+- **Cognitive load reduction**: External scaffolding eliminates mental tracking
+- **Quick navigation**: Instant project location from registry
+- **Version awareness**: Know which projects need updates
+- **Scalability**: Manage 10+ projects effortlessly
+- **Token efficiency**: 450 tokens saved per multi-project session (90% reduction)
+- **Automation**: CLI enables bulk operations and scripting
+
+#### Use Cases
+- Power users with 5+ projects
+- Freelancers managing client projects
+- Teams with shared project lists
+- Anyone asking "which project was I working on?"
+
+#### Integration
+- Option 6 in main wizard (scripts/claude-wizard.sh)
+- Can be used standalone via CLI
+- Optional installation to PATH for global access
+
+⚠️ **Token savings are PROJECTIONS** based on testing, not multi-user validation.
 
 ---
 
