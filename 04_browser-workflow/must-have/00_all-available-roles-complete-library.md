@@ -11,6 +11,8 @@
 **You get:** Template generator to create your own role-specific Custom Instructions
 **Token savings:** 60-75%
 
+**NEW:** 🎓 [Claude Skills Complete Guide](10_claude-skills-complete-guide.md) - Learn how to create reusable, portable workflows that work across all your projects
+
 ---
 
 ### 🛠️ [Software Engineer](02_software-engineer.md)
@@ -66,6 +68,14 @@
 **For:** Security analysis, vulnerability assessment, compliance
 **You get:** Custom Instructions for security work, 5+ security patterns
 **Token savings:** 70%
+
+---
+
+### 🎓 [Claude Skills - Reusable AI Expertise](10_claude-skills-complete-guide.md)
+**For:** Creating portable workflows that reduce repetitive context
+**You get:** Complete guide to account-level skills, when to create them, skill-creator workflow
+**Token savings:** 60-80% for repeated workflows (Projected)
+**Best for:** Users who repeat the same instructions across multiple projects
 
 ---
 
