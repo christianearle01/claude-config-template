@@ -2,15 +2,6 @@
 name: pre-project-planning-assistant
 description: Guides users through pre-project planning phase. Auto-activates when users ask about starting new projects, planning architecture, choosing tech stacks, or creating project plans. Provides structured guidance through concept → architecture → tech decisions → timeline phases.
 allowed-tools: Read, Grep
-auto-activates-on:
-  - "Help me plan a new project"
-  - "What should I consider before starting?"
-  - "Create a project plan"
-  - "I'm starting a new app/website/service"
-  - "How do I plan a project?"
-  - "What tech stack should I use?"
-  - "Help me architect this project"
-version: 3.4.0
 ---
 
 # Pre-Project Planning Assistant Skill
