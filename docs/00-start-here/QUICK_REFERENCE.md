@@ -14,6 +14,7 @@ Jump to any section:
 - [Breadcrumb Navigation](#breadcrumb-navigation)
 - [Checkpointing / Rewind](#checkpointing--rewind)
 - [CLAUDE.md Template](#claudemd-template)
+- [Claude Skills (Account-Level)](#claude-skills-account-level)
 - [Commands (Slash)](#commands-slash)
 - [Cost Savings](#cost-savings)
 - [Custom Agents](#custom-agents)
@@ -164,6 +165,60 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 **Docs:** [Project Onboarding Guide](02_project-onboarding/must-have/01_onboarding-guide.md)
 
 **Keywords:** project memory, context, documentation, business purpose, onboarding
+
+---
+
+## Claude Skills (Account-Level)
+
+**What:** Reusable instruction manuals available across all claude.ai projects, Claude Code, and Claude API
+
+**Location:** `04_browser-workflow/must-have/10_claude-skills-complete-guide.md`
+
+**Purpose:** Package workflows into portable skills that reduce repetitive context setting
+
+**Types:**
+1. **Official/Partner Skills** - Pre-built by Anthropic and partners (e.g., skill-creator, Notion)
+2. **Custom Skills** - Created by you using skill-creator for your specific workflows
+
+**Access:** Settings → Capabilities in claude.ai
+
+**Key Features:**
+- ✅ **Portable:** Works across claude.ai, Claude Code CLI, and Claude API
+- ✅ **Stackable:** Combine multiple skills in one conversation
+- ✅ **Auto-trigger:** Activates based on context (no manual invocation)
+- ✅ **Token efficient:** 60-80% reduction in repetitive context (Projected)
+
+**When to create a custom skill:**
+- You repeat the same instructions 3+ times across different chats
+- The process is complex enough to train a real human
+- Quality or format consistency is critical every time
+
+**How to create:**
+1. Enable "skill-creator" official skill (Settings → Capabilities)
+2. Describe your workflow to skill-creator
+3. Review and refine the generated skill
+4. Enable and start using account-wide
+
+**Comparison:**
+
+| Feature | Account Skills | Custom Instructions | Local Skills |
+|---------|---------------|---------------------|--------------|
+| **Availability** | claude.ai + Code + API | claude.ai only | Claude Code CLI only |
+| **Scope** | Per-task workflows | Global role context | Project-specific |
+| **Portability** | All projects | All chats | Single codebase |
+| **Best For** | Repeated workflows | Professional role | Project knowledge |
+
+**Token Savings Example (Projected):**
+- Without skills: ~3,000 tokens per email (context setting)
+- With skills: ~1,200 tokens (60% savings)
+
+**Docs:** [Claude Skills Complete Guide](../04_browser-workflow/must-have/10_claude-skills-complete-guide.md)
+
+**Related:**
+- [Local Claude Code Skills](SKILLS_PARADIGM.md) - Project-specific skills for CLI
+- [Custom Instructions Guide](../04_browser-workflow/README.md) - Global role preferences
+
+**Keywords:** skills, account-level, reusable, portable, stackable, skill-creator, workflows, automation, token efficiency
 
 ---
 

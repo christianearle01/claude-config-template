@@ -63,13 +63,20 @@ Select your role to get optimized Custom Instructions and workflow patterns:
 
 ---
 
+### 🎓 [Claude Skills - Reusable AI Expertise](must-have/10_claude-skills-complete-guide.md)
+**Best for:** Creating portable workflows, reducing repetitive context, combining multiple processes
+**You'll get:** Complete guide to account-level skills, when to create them, how they work with Custom Instructions
+
+---
+
 ## 📖 How This Works
 
 1. **Choose your role** above (or create custom if not listed)
 2. **Copy the Custom Instructions** template
 3. **Paste into claude.ai settings** (Settings → Custom Instructions)
 4. **Use the prompt patterns** for your daily tasks
-5. **Optimize as you go** based on your specific needs
+5. **[OPTIONAL] Add Custom Skills** for repeated workflows
+6. **Optimize as you go** based on your specific needs
 
 ---
 
