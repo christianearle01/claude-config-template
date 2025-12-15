@@ -1,0 +1,283 @@
+# Feature Learning & Adoption Progress
+
+<!--
+PURPOSE: This file tracks feature completion across sessions to prevent "LLM amnesia"
+
+The Coder Agent reads this file during bootup ritual (Step 2) to understand:
+- What features have been completed
+- What was worked on recently
+- Session notes and lessons learned
+- Current project status
+
+UPDATE FREQUENCY: After completing each feature
+-->
+
+**Project:** E-Commerce Platform
+**Last Updated:** 2025-12-15T10:00:00Z
+**Overall Progress:** 0%
+
+<!--
+Last Updated: Update timestamp after ANY change to this file
+Overall Progress: (completedFeatures / totalFeatures) × 100
+-->
+
+---
+
+## Progress by Category
+
+<!--
+GUIDANCE: Update this section after completing each feature.
+
+Visual indicators:
+- ✅ Completed (all features done in category)
+- 🟡 In Progress (some features done, some remaining)
+- ⭕ Not Started (no features complete yet)
+
+Percentage calculation: (completed features / total features in category) × 100
+
+EXAMPLE:
+- **Authentication** (2/5 features, 40%)
+  - ✅ feat-001: User Login (Completed 2025-12-12)
+  - ✅ feat-002: User Registration (Completed 2025-12-13)
+  - 🟡 feat-003: Password Reset (In Progress, Est. 2025-12-20)
+  - ⭕ feat-004: Email Verification (Planned)
+  - ⭕ feat-005: Two-Factor Auth (Planned)
+-->
+
+### ✅ Completed Categories
+_(None yet - celebrate when you finish your first category!)_
+
+### 🟡 In Progress
+- **Authentication** (0/3 features complete, 0%)
+  - ⭕ feat-001: User Login (Planned)
+  - ⭕ feat-002: User Registration (Planned)
+  - ⭕ feat-003: Real-Time WebSocket Sync (Planned)
+
+### ⭕ Not Started
+_(Add categories here as you define them in features.json)_
+
+---
+
+## Feature Adoption Timeline
+
+<!--
+GUIDANCE: Add a row to this table after completing each feature.
+
+What to include:
+- Date: When feature was completed
+- Feature: feat-XXX ID and name
+- Status: Visual indicator (✅ Completed, 🟡 In Progress if partially done)
+- Notes: Brief summary (tech used, challenges, time taken)
+
+This timeline helps you:
+- See momentum (features completed over time)
+- Remember what you built when
+- Reference implementation notes for similar features
+
+Sort: Newest first (most recent at top)
+-->
+
+| Date | Feature | Status | Notes |
+|------|---------|--------|-------|
+| _2025-12-15_ | _feat-001: User Login_ | ✅ _Completed_ | _JWT auth with localStorage, 6 tests passing, 2.5 hours_ |
+
+<!--
+EXAMPLE ENTRIES (delete these when you start adding real features):
+
+| 2025-12-15 | feat-001: User Login | ✅ Completed | JWT auth with localStorage, 6 tests passing, 2.5 hours |
+| 2025-12-16 | feat-002: User Registration | ✅ Completed | Email validation, password confirmation, 4 tests, 2 hours |
+| 2025-12-17 | feat-007: Shopping Cart | ✅ Completed | Redux state management, 5 files, 6 tests, 5 hours |
+
+Notes column ideas:
+- Tech/libraries used
+- Time taken vs estimated
+- Challenges overcome
+- Number of tests passing
+-->
+
+---
+
+## Next Learning Milestone
+
+<!--
+GUIDANCE: Updated by Coder Agent to help you plan next session.
+
+What to include:
+- Current Focus: What feature you're working on now (or next)
+- Learning Path: Prerequisites and sequence
+- Estimated Completion: When you expect to finish
+- Resources: Links relevant to current feature
+- After Current: What comes next (keeps momentum)
+
+This helps when you return after days/weeks - you immediately know what's next!
+-->
+
+**Current Focus:** feat-001 (User Login)
+
+**Learning Path:** No prerequisites → Start here!
+
+**Estimated Completion:** 2025-12-16 (2-3 hours)
+
+**Resources:**
+- [JWT Introduction](https://jwt.io/introduction)
+- [localStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+**After Current:**
+- feat-002: User Registration (2-3 hours, builds on login patterns)
+- feat-003: Real-Time WebSocket Sync (10-12 hours, advanced)
+
+---
+
+## Session Notes
+
+<!--
+GUIDANCE: Add an entry after each work session.
+
+What to include:
+- What feature(s) you worked on
+- How long it took (actual vs estimated)
+- What went well
+- What was challenging
+- Blockers encountered
+- Next steps
+
+Why this helps:
+- When you return after days/weeks, you'll remember what you were thinking
+- Documents decision-making context
+- Helps identify patterns (always underestimate testing time?)
+- Useful for retrospectives and learning
+
+Format: Free-form, use whatever structure works for you
+-->
+
+### 2025-12-15 Session
+- **Feature:** feat-001 (User Login)
+- **Time:** 2.5 hours (estimated 2-3 hours) ✅ On schedule
+- **Completed:** All 4 test criteria passing, 6 tests total
+- **Approach:** TDD with 6 iterations (form render → submission → API → errors → persistence → logout)
+- **Challenges:** Token refresh pattern took 30 min to figure out (axios interceptors)
+- **Next:** Start feat-002 (User Registration) - similar patterns, should be faster
+
+<!--
+SESSION NOTES EXAMPLES (delete when you start adding real sessions):
+
+### 2025-12-16 Session
+- **Feature:** feat-002 (User Registration)
+- **Time:** 2 hours (estimated 2-3 hours) ✅ Faster than expected
+- **Completed:** Email validation, password confirmation, all 4 tests
+- **Reused:** Login form patterns from feat-001 = faster development
+- **Learned:** Email regex is tricky - used well-tested library instead of custom regex
+- **Next:** Decide between feat-003 (Password Reset) or feat-007 (Shopping Cart)
+
+### 2025-12-17 Session
+- **Feature:** feat-007 (Shopping Cart)
+- **Time:** 5 hours (estimated 4-6 hours) ✅ On schedule
+- **Completed:** Redux setup, add/remove/update cart, persistence, all 6 tests
+- **Challenges:** Redux middleware for localStorage sync was new concept (1 hour research)
+- **Learned:** redux-persist library would've saved time - next time check for existing solutions first!
+- **Next:** feat-008 (Checkout Page) - depends on cart
+-->
+
+---
+
+## Lessons Learned
+
+<!--
+GUIDANCE: Document "aha moments" and mistakes to avoid.
+
+What to include:
+- Feature ID (for reference)
+- Brief description of lesson
+- What you'll do differently next time
+
+This section is GOLD for:
+- Avoiding repeat mistakes
+- Remembering clever solutions
+- Sharing knowledge with team
+- Improving estimates and approach
+
+Reference these lessons when planning similar features!
+-->
+
+1. **feat-001 (Login):** JWT refresh token flow is tricky. Used axios interceptors for auto-refresh. Document in auth.md for future reference.
+
+2. **feat-002 (Registration):** Don't reinvent email validation regex - use well-tested library (validator.js). Custom regex = edge cases.
+
+<!--
+LESSONS LEARNED EXAMPLES (delete when you start adding real lessons):
+
+3. **feat-007 (Shopping Cart):** Check for existing libraries before building complex features. redux-persist would've saved 1 hour vs custom localStorage middleware.
+
+4. **feat-015 (WebSockets):** Conflict resolution is harder than expected. Operational Transform is overkill for cart use case. Used timestamp-based server arbitration instead. Document in architecture.md.
+
+5. **General:** Always underestimate testing time by 25%. If feature estimate is 4 hours, allocate 1 hour for tests.
+
+6. **General:** TDD feels slower initially but saves debugging time. Features with tests written first were completed faster overall.
+-->
+
+---
+
+## Statistics
+
+<!--
+GUIDANCE: Auto-calculated from features.json.
+
+DO NOT update manually - Coder Agent calculates these.
+
+Purpose: Quick visibility into project progress.
+-->
+
+- **Total Features:** 3
+- **Completed:** 0 (0%)
+- **In Progress:** 0
+- **Remaining:** 3 (100%)
+
+**Categories:**
+- **Total Categories:** 1
+- **Completed Categories:** 0
+- **In Progress Categories:** 1 (Authentication)
+
+**Time Tracking:**
+- **Total Estimated:** 14-18 hours
+- **Total Actual:** 0 hours
+- **Average Accuracy:** N/A (complete more features to calculate)
+
+<!--
+Time Tracking Notes:
+- Track actual time in session notes
+- Compare actual vs estimated to improve future estimates
+- Average Accuracy = (sum of actual times) / (sum of estimated times)
+- If < 1.0: underestimating; if > 1.0: overestimating
+-->
+
+---
+
+## Known Issues
+
+<!--
+GUIDANCE: Document technical debt, bugs, or deferred work.
+
+What to include:
+- Issue description
+- When discovered
+- Why deferred (if applicable)
+- Plan to address
+
+This keeps you honest about incomplete work without blocking momentum.
+-->
+
+_(None yet - track issues here as they arise)_
+
+<!--
+KNOWN ISSUES EXAMPLES:
+
+- 5 failing tests in checkout module (pre-existing, documented 2025-12-17)
+  - Will address in separate bug-fix session after completing current category
+
+- feat-003 (Password Reset) marked complete but no tests written (2025-12-14)
+  - Tests added retroactively on 2025-12-17, now fully complete
+
+- Cart persistence doesn't work in Safari private mode (localStorage restriction)
+  - Low priority - affects < 5% users
+  - Workaround: Use sessionStorage as fallback
+-->
