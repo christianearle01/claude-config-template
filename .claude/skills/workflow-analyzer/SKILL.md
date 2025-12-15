@@ -28,9 +28,15 @@ allowed-tools: Read, Bash, Grep
 
 ### Operation 1: Commit Pattern Analysis
 
-**User:** "What patterns do you see?"
+**User Query:**
+> "What patterns do you see?"
 
-**Response:**
+**Confidence:** 🟢 High (0.90)
+- Exact keyword match: "patterns"
+- Git repository available with commit history
+- Clear intent to analyze workflow
+
+**Skill Response:**
 ```
 📊 Workflow Pattern Analysis (last 50 commits)
 
@@ -54,11 +60,25 @@ Continue using version-management skill.
 Consider typo-detection for future.
 ```
 
+**Why This Matters:**
+- 46% of commits are version-related → High-friction workflow that's already automated
+- Typo fixes waste 12% of commit time → Opportunity for new skill
+- Pattern detection reveals ROI: version-management saves ~800 tokens/week
+- **Quick win:** Run `./scripts/claude-skills.sh show version-management` to see usage patterns
+
+**Next Step:** Want to analyze specific operation frequency or explore typo-detection skill creation?
+
 ### Operation 2: Skill Improvement Suggestions
 
-**User:** "How can I improve my skills?"
+**User Query:**
+> "How can I improve my skills?"
 
-**Response:**
+**Confidence:** 🟢 High (0.85)
+- Keyword match: "improve", "skills"
+- Git history available for analysis
+- Established skill ecosystem to analyze
+
+**Skill Response:**
 ```
 🔍 Skill Improvement Opportunities
 
@@ -81,11 +101,25 @@ Update version-management SKILL.md to include:
 This would save additional 200 tokens/release.
 ```
 
+**Why This Matters:**
+- Well-used skills (8+ times) deserve investment → High ROI for enhancements
+- New skills need monitoring → Track adoption to validate value
+- Incremental improvements compound → 200 tokens/release × 12 releases/year = 2,400 tokens saved
+- **Quick win:** Edit `.claude/skills/version-management/SKILL.md` to add suggested operations
+
+**Next Step:** Want detailed implementation guidance for these improvements?
+
 ### Operation 3: New Skill Discovery
 
-**User:** "What skills should I create next?"
+**User Query:**
+> "What skills should I create next?"
 
-**Response:**
+**Confidence:** 🟢 High (0.92)
+- Direct question about skill creation
+- Git history shows repeated patterns
+- Clear data-driven recommendations possible
+
+**Skill Response:**
 ```
 🎯 Skill Recommendations (data-driven)
 
@@ -107,6 +141,14 @@ Medium Value:
 
 Start with typo-fixer (highest ROI).
 ```
+
+**Why This Matters:**
+- Data-driven recommendations ensure high ROI → Build what you actually need
+- Typo-fixer saves 900 tokens/week → 3,600 tokens/month (~$0.11/month)
+- Pattern frequency indicates pain points → 6 typo commits in 2 weeks = clear need
+- **Quick win:** Run `./scripts/skill-template-generator.sh typo-fixer` to scaffold new skill
+
+**Next Step:** Want help creating the typo-fixer skill SKILL.md structure?
 
 ---
 

@@ -26,11 +26,19 @@ allowed-tools: Read, Bash
 
 ---
 
-## Typical Flow
+## Key Operations
 
-**User:** "How do I set up Claude Code?"
+### Operation 1: Installation Walkthrough
 
-**Assistant:**
+**User Query:**
+> "How do I set up Claude Code?"
+
+**Confidence:** 🟢 High (0.93)
+- Clear setup intent
+- Step-by-step process with validation
+- Known installation paths
+
+**Skill Response:**
 ```
 🚀 Global Setup Guide
 
@@ -57,7 +65,56 @@ Current: Step 1 (Installation)
 Next: Verify claude --version
 ```
 
-**Guides users through each step with validation.**
+**Why This Matters:**
+- One-time global setup prevents per-project friction
+- Step-by-step validation catches issues early
+- MCP servers add 3-5x capability (sequential-thinking, memory, etc.)
+- **Quick win:** Run `claude --version` right now to check installation status
+
+**Next Step:** Once installed, ask "How do I configure global settings?"
+
+### Operation 2: Troubleshooting Setup Issues
+
+**User Query:**
+> "Claude setup isn't working"
+
+**Confidence:** 🟡 Medium (0.72)
+- Vague error description (need more context)
+- Multiple possible failure points
+- Requires diagnostic questions
+
+**Skill Response:**
+```
+🔧 Setup Troubleshooting
+
+Common Issues:
+
+1. "Command not found: claude"
+   → Install Claude Code first
+   → Check PATH includes claude binary
+
+2. "Permission denied" errors
+   → Run: chmod +x ~/.claude/*
+   → Check ~/.claude/ ownership
+
+3. "MCP server won't start"
+   → Verify MCP installed: npm list -g
+   → Check MCP config syntax
+
+4. "Settings not loading"
+   → Validate JSON: cat ~/.claude/settings.json | python -m json.tool
+   → Check for typos in JSON
+
+Which issue matches your situation?
+```
+
+**Why This Matters:**
+- Setup failures block all Claude Code usage (high-priority fix)
+- Common issues have known solutions (fast resolution)
+- Diagnostic questions narrow down root cause
+- **Quick win:** Run suggested diagnostic command to identify specific issue
+
+**Next Step:** Share error message for targeted troubleshooting
 
 ---
 

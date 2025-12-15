@@ -60,7 +60,13 @@ allowed-tools: Read, Grep
 
 ### Operation 1: Check Current Version
 
-**User Query:** "What version are we at?"
+**User Query:**
+> "What version are we at?"
+
+**Confidence:** 🟢 High (0.95)
+- Direct version query
+- version.json accessible
+- Clear information request
 
 **Skill Response:**
 ```
@@ -77,11 +83,25 @@ Files checked:
 All files in sync! ✨
 ```
 
+**Why This Matters:**
+- Quick sanity check prevents version confusion during development
+- All files in sync = safe to proceed with new work
+- Current release name helps maintain context ("Skills Architecture")
+- **Quick win:** You're ready to start planning v3.4.0 features
+
+**Next Step:** Want to see what changed in v3.3.0? Ask "Show me CHANGELOG for v3.3.0"
+
 ---
 
 ### Operation 2: Validate Version Consistency
 
-**User Query:** "Is version synced?"
+**User Query:**
+> "Is version synced?"
+
+**Confidence:** 🟢 High (0.93)
+- Clear validation request
+- 6 file locations to check
+- Deterministic check (synced or not synced)
 
 **Skill Response:**
 ```
@@ -113,11 +133,25 @@ Mismatches:
 Run: ./scripts/sync-version.sh
 ```
 
+**Why This Matters:**
+- Version mismatches cause user confusion and broken links
+- 6 file locations must stay in sync (manual tracking is error-prone)
+- Catching mismatches before commit saves embarrassing fixes
+- **Quick win:** Run `./scripts/sync-version.sh` if any mismatches found
+
+**Next Step:** All synced? Move to "What needs updating for v3.4.0?" to see remaining tasks
+
 ---
 
 ### Operation 3: Pre-Release Checklist
 
-**User Query:** "What needs updating for v3.4.0?"
+**User Query:**
+> "What needs updating for v3.4.0?"
+
+**Confidence:** 🟢 High (0.88)
+- Specific release version referenced
+- Checklist has clear completion criteria
+- Can check file states deterministically
 
 **Skill Response:**
 ```
@@ -143,11 +177,25 @@ Release Checklist for v3.4.0:
 Next step: Update CHANGELOG.md, then commit
 ```
 
+**Why This Matters:**
+- Pre-release checklist prevents "oops, forgot CHANGELOG" moments
+- Completing items in order reduces rework (sync files before documenting)
+- Clear remaining tasks = no ambiguity about "done" state
+- **Quick win:** Edit CHANGELOG.md now, then ask "Am I ready to commit?"
+
+**Next Step:** After updating CHANGELOG, ask "Did I commit the version bump?" to validate
+
 ---
 
 ### Operation 4: Detect Uncommitted Version Changes
 
-**User Query:** "Did I commit the version bump?"
+**User Query:**
+> "Did I commit the version bump?"
+
+**Confidence:** 🟢 High (0.91)
+- Git status check is deterministic
+- Version-related files easily identifiable
+- Clear commit state (staged/unstaged/committed)
 
 **Skill Response:**
 ```
@@ -166,11 +214,25 @@ Suggested commit message:
 "🔖 Bump version to v3.4.0 (Workflow Optimization & Learning Stages)"
 ```
 
+**Why This Matters:**
+- Uncommitted version changes create ambiguity (is it official?)
+- Git history shows when version became "live"
+- Suggested commit message follows project conventions (🔖 emoji)
+- **Quick win:** Copy suggested message: `git commit -m "🔖 Bump version to v3.4.0"`
+
+**Next Step:** After committing, run `git tag v3.4.0` to mark the release
+
 ---
 
 ### Operation 5: Version Increment Validation
 
-**User Query:** "Is v3.4.0 the right next version?"
+**User Query:**
+> "Is v3.4.0 the right next version?"
+
+**Confidence:** 🟢 High (0.87)
+- Semantic versioning rules are clear
+- Can assess change type from description
+- Deterministic validation
 
 **Skill Response:**
 ```
@@ -186,6 +248,14 @@ Reason: Adding new features (7 skills + Learning Stages)
 
 v3.4.0 is appropriate for this release.
 ```
+
+**Why This Matters:**
+- Wrong version number confuses users about compatibility
+- MAJOR bump (4.0.0) signals breaking changes → users hesitate to upgrade
+- PATCH bump (3.3.1) undersells new features → low adoption
+- **Quick win:** v3.4.0 correctly signals "new features, backward compatible"
+
+**Next Step:** Proceed with confidence! Update version.json to 3.4.0
 
 ---
 
