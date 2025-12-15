@@ -729,55 +729,81 @@ You can reference this screenshot if you need to share your setup status.
 ### Pattern 9: Personalization Engine
 
 **Jewels Does:** Learns how individual developer works (preferences, ignored warnings, code patterns)
-**Adapt for Template:** User preferences system (v3.6.0)
+**Adapt for Template:** User preferences system (**Implemented in v3.8.0**)
+
+**Implementation:** `.claude/skills/personalization-engine/SKILL.md`
+
+**Key Features:**
+- Central preference hub at `~/.claude/user-preferences.json`
+- Learning from accept/reject/skip decisions
+- Adaptive confidence thresholds
+- Skill usage analytics
+- "Don't show again" persistence
+- Cross-skill pattern detection
 
 **Example:**
 ```json
 ~/.claude/user-preferences.json
 
 {
-  "version": "3.6.0",
+  "version": "3.8.0",
   "lastUpdated": "2025-12-15T10:30:00Z",
+  "profile": {
+    "experienceLevel": "intermediate",
+    "primaryLanguages": ["typescript", "python"],
+    "proactivityLevel": "medium"
+  },
+  "confidenceThresholds": {
+    "autoApply": 95,
+    "suggestProminently": 75,
+    "showAsOptional": 50,
+    "hideBelow": 30
+  },
   "skillUsageFrequency": {
-    "version-management": 45,
-    "commit-readiness": 38,
-    "documentation-sync": 22,
-    "workflow-analyzer": 5,
-    "projects-registry": 12
+    "version-management": { "count": 78, "lastUsed": "2025-12-15" },
+    "commit-readiness-checker": { "count": 56, "lastUsed": "2025-12-15" }
   },
-  "skippedRecommendations": [
-    {
-      "recommendation": "sequential-thinking-mcp",
-      "skippedCount": 3,
-      "lastSkipped": "2025-12-14T08:00:00Z",
-      "reason": "User prefers manual reasoning"
+  "learnedPreferences": {
+    "coding-style": {
+      "early-returns": { "acceptanceRate": 0.23, "sampleSize": 22 },
+      "null-checks": { "acceptanceRate": 0.92, "sampleSize": 25 }
     }
-  ],
-  "confidenceThreshold": {
-    "autoApply": 90,
-    "suggest": 60,
-    "mention": 30
   },
-  "proactivityLevel": "medium",
-  "preferredSetupMethod": "wizard",
-  "learningPatterns": {
-    "prefersTesting": true,
-    "alwaysUpdatesChangelog": true,
-    "commitsFrequently": true,
-    "usesTypeScript": true
+  "skippedRecommendations": {
+    "items": [
+      {
+        "item": "sequential-thinking-mcp",
+        "skipCount": 3,
+        "permanent": true
+      }
+    ]
+  },
+  "dontShowAgain": {
+    "items": ["security-scanner-info-level"]
   }
 }
 ```
 
 **Skills use this:**
 ```
+personalization-engine reads preferences:
+
+"Based on your history:
+- You prefer null checks (92% acceptance)
+- You dislike early returns (23% acceptance)
+- You've permanently skipped sequential-thinking MCP
+
+Filtering suggestions to match your preferences..."
+
 setup-assistant checks preferences:
 
 "I notice you've skipped sequential-thinking MCP 3 times.
 I won't suggest it again unless you ask.
 
-(If you change your mind later, just say 'suggest sequential-thinking again')"
+(Say 'reset sequential-thinking preference' to see it again)"
 ```
+
+**Learn more:** `docs/02-optimization/personalization-guide.md`
 
 ### Pattern 10: Timeliness (Right-Moment Intervention)
 
