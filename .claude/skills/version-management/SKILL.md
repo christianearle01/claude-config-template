@@ -25,6 +25,15 @@ allowed-tools: Read, Grep
 - Lists remaining tasks before commit
 - Suggests next steps in release workflow
 
+**JIT Help Available:**
+For quick reference on version workflow and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+- 5 most common version queries (90% usage)
+- Version sync workflow (6 steps, 2 minutes)
+- 7 file locations reference table
+- Quick decision tree
+- Semantic versioning guide
+- Troubleshooting mismatch errors
+
 ---
 
 ## Version File Locations

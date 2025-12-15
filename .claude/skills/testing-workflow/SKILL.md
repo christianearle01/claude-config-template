@@ -34,6 +34,15 @@ The skill automatically activates when users mention:
 - Works with any test framework (Jest, pytest, RSpec, etc.)
 - Provides intelligence layer, test runner provides execution
 
+**JIT Help Available:**
+For quick reference on test commands and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+- 5 most common test queries (90% usage)
+- Speed commands for Jest/pytest/RSpec
+- Quick decision tree
+- Common scenarios (CI failures, slow tests, refactoring)
+- Pass rate and duration benchmarks
+- Performance optimization guide
+
 ---
 
 ## Core Knowledge

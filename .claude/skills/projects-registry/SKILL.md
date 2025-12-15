@@ -33,6 +33,14 @@ The skill automatically activates when users mention:
 - Scripts remain available for power users who prefer terminal
 - Skill provides intelligence layer, scripts provide execution layer
 
+**JIT Help Available:**
+For quick reference on common queries and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+- 5 most common queries (90% usage)
+- Pro tips and tag strategies
+- Quick decision tree
+- Common scenarios with time savings
+- Troubleshooting guide
+
 ---
 
 ## Registry Format & Schema
@@ -94,6 +102,11 @@ The skill automatically activates when users mention:
 > "Show me all my projects"
 > "List my registered projects"
 
+**Confidence:** 🟢 High (0.94)
+- Registry file accessible at ~/.claude/projects-registry.json
+- Clear list/display intent
+- Structured JSON data easy to parse
+
 **Skill Response:**
 Reads registry and displays formatted list with:
 - Project name
@@ -119,6 +132,14 @@ You have 5 projects registered:
    Tags: personal, nextjs
 ```
 
+**Why This Matters:**
+- Central registry prevents "where's that project?" mental load
+- Status indicators show update priorities at a glance
+- Tags enable quick filtering (production vs personal)
+- **Quick win:** See all 5 projects in one view, no searching
+
+**Next Step:** Ask "Which projects need updates?" to see priorities
+
 ---
 
 ### 2. Identify Outdated Projects
@@ -127,6 +148,11 @@ You have 5 projects registered:
 > "What projects need updates?"
 > "Which projects are outdated?"
 > "Show me projects I should update"
+
+**Confidence:** 🟢 High (0.91)
+- Status field in registry is deterministic
+- Version comparison logic clear
+- Priority ranking based on tags + version gap
 
 **Skill Response:**
 Filters for `status: "outdated"` and recommends update priorities based on:
@@ -151,6 +177,14 @@ To update, run:
   ./scripts/claude-update.sh --apply
 ```
 
+**Why This Matters:**
+- Production projects outdated = risk of missing critical features/fixes
+- Priority ranking prevents "which should I update first?" paralysis
+- Version gap visibility shows update effort (2 versions vs 5 versions)
+- **Quick win:** Update ClientB API now (high priority, production)
+
+**Next Step:** After update, re-check "What projects need updates?" to verify
+
 ---
 
 ### 3. Filter by Tags or Category
@@ -159,6 +193,11 @@ To update, run:
 > "Show my production projects"
 > "Which projects use React?"
 > "List my client projects"
+
+**Confidence:** 🟢 High (0.89)
+- Tags stored in structured array
+- Filtering logic straightforward
+- Multiple tag matching supported
 
 **Skill Response:**
 Filters projects where `tags` array includes the specified tag(s).
@@ -174,6 +213,14 @@ You have 3 production projects:
 Note: ClientB API needs updating (v3.0.0 → v3.2.0)
 ```
 
+**Why This Matters:**
+- Tag-based filtering saves time ("show production" vs manually checking 5 projects)
+- Technology filtering helps when switching contexts ("which React projects?")
+- Quick scoping for batch operations (update all client projects)
+- **Quick win:** Filter "production" to focus on critical projects only
+
+**Next Step:** Combine filters: "Show outdated production projects"
+
 ---
 
 ### 4. Provide Project Context
@@ -182,6 +229,11 @@ Note: ClientB API needs updating (v3.0.0 → v3.2.0)
 > "Where is my React app?"
 > "What's the path to ClientA?"
 > "Find the dashboard project"
+
+**Confidence:** 🟢 High (0.87)
+- Fuzzy search across name/tags/notes
+- Path stored in registry
+- Partial name matching supported
 
 **Skill Response:**
 Searches by name, tags, or notes and returns the path.
@@ -196,6 +248,14 @@ Tags: production, react, client
 To navigate:
   cd ~/Developer/client-a-dashboard
 ```
+
+**Why This Matters:**
+- No more "where's that project?" terminal hunting
+- Fuzzy search works even with partial names ("dash" → "ClientA Dashboard")
+- Immediate navigation command ready to copy
+- **Quick win:** Copy `cd` command, navigate instantly
+
+**Next Step:** After navigating, ask "What version is this project?" to check status
 
 ---
 
