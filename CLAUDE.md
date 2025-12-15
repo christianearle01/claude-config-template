@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
-**Last Updated:** 2025-12-12
-**Version:** v3.6.0
+**Last Updated:** 2025-12-15
+**Version:** v3.7.0
 
 ---
 
@@ -205,7 +205,7 @@ claude-config-template/
 │   └── must-have/          # Planning guide (2 files)
 │
 ├── 04_browser-workflow/     # Role-based configs for claude.ai
-│   └── must-have/          # 9 roles + library overview (10 files)
+│   └── must-have/          # 10 files: 9 roles + skills guide (11 files total)
 │
 ├── templates/               # Reusable templates (3 files)
 ├── scripts/                 # Wizards & helpers (12 scripts)
@@ -458,6 +458,12 @@ git push origin v2.6.0
 - `docs/03-advanced/` - MCP workflows, sub-agents, vision (v3.0.0)
 - `docs/04-ecosystem/PROGRESS_BAR_GUIDE.md` - Progress bar config (v3.0.0)
 - `docs/04-ecosystem/UPDATE_GUIDE.md` - Update instructions (v3.0.0: moved from root)
+
+### Browser Workflow (claude.ai)
+- `04_browser-workflow/README.md` - Entry point for role-based Custom Instructions (v2.6.0)
+- `04_browser-workflow/must-have/00_all-available-roles-complete-library.md` - Role library index (v2.6.0)
+- `04_browser-workflow/must-have/01-09_*.md` - 9 role-specific guides (v2.6.0)
+- `04_browser-workflow/must-have/10_claude-skills-complete-guide.md` - Account-level skills guide (v3.7.0)
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history (includes v1.0.0 in historical/v1.0-original branch)
@@ -830,6 +836,12 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v3.7.0 (2025-12-15):**
+  - Added Claude Skills complete guide for browser workflow (account-level skills)
+  - 10th must-have guide in 04_browser-workflow/ (now 11 files total)
+  - Integration with Custom Instructions and Projects explained
+  - Skills vs Custom Instructions vs Local Skills comparison table
+  - Based on YouTube source: "The REAL POWER of Claude Agent SKILLS"
 - **v3.0.0 (2025-12-12):**
   - Major documentation restructure: Learning journey (00-start-here → 01-fundamentals → 02-optimization → 03-advanced → 04-ecosystem)
   - Added 14 comprehensive guides (6,000+ lines): Anti-Patterns, Skills Paradigm, Ctrl+O Workflow, Prompt Caching, MCP Optimization, Environment Variables, Advanced MCP Workflows, Sub-Agent Best Practices, Vision Optimization, Conversation Branching, Third-Party MCPs, Plugins Guide
