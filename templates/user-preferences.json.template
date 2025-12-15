@@ -1,0 +1,198 @@
+{
+  "$schema": "https://github.com/christianearle01/claude-config-template/blob/main/templates/user-preferences-schema.json",
+  "_comment": "User Preferences for Claude Code - Auto-generated, do not edit manually unless you know what you're doing",
+  "_version": "3.8.0",
+  "_documentation": "https://github.com/christianearle01/claude-config-template/blob/main/docs/02-optimization/personalization-guide.md",
+
+  "version": "3.8.0",
+  "createdAt": "2025-12-15T00:00:00Z",
+  "lastUpdated": "2025-12-15T00:00:00Z",
+
+  "profile": {
+    "_comment": "User profile information - helps skills provide relevant suggestions",
+    "experienceLevel": "intermediate",
+    "_experienceLevelOptions": ["beginner", "intermediate", "advanced", "expert"],
+
+    "primaryLanguages": ["javascript", "typescript"],
+    "_primaryLanguagesHint": "Languages you use most often - helps prioritize relevant suggestions",
+
+    "primaryFrameworks": [],
+    "_primaryFrameworksHint": "Frameworks you use (react, vue, django, express, etc.)",
+
+    "proactivityLevel": "medium",
+    "_proactivityLevelOptions": {
+      "low": "Only show high-confidence suggestions, minimal interruption",
+      "medium": "Balanced approach - show relevant suggestions at appropriate times",
+      "high": "Show all suggestions including optional ones, maximum assistance"
+    },
+
+    "preferredWorkflow": "wizard",
+    "_preferredWorkflowOptions": ["wizard", "manual", "automated"]
+  },
+
+  "confidenceThresholds": {
+    "_comment": "Thresholds that determine when skills show suggestions (0-100)",
+
+    "autoApply": 95,
+    "_autoApplyHint": "Actions with confidence >= this are auto-applied (dangerous, keep high)",
+
+    "suggestProminently": 75,
+    "_suggestProminentlyHint": "Actions with confidence >= this are suggested prominently",
+
+    "showAsOptional": 50,
+    "_showAsOptionalHint": "Actions with confidence >= this are shown as optional",
+
+    "hideBelow": 30,
+    "_hideBelowHint": "Actions with confidence < this are hidden (reduces noise)"
+  },
+
+  "skillUsageFrequency": {
+    "_comment": "Tracks which skills you use most - auto-populated by skills",
+    "_example": {
+      "version-management": {
+        "count": 0,
+        "lastUsed": null,
+        "averageSessionDuration": null
+      }
+    }
+  },
+
+  "learnedPreferences": {
+    "_comment": "Preferences learned from your accept/reject/skip decisions",
+
+    "coding-style": {
+      "_comment": "Code style preferences learned over time",
+      "_example": {
+        "early-returns": {
+          "acceptanceRate": 0.0,
+          "sampleSize": 0,
+          "lastUpdated": null,
+          "trend": "neutral"
+        }
+      }
+    },
+
+    "workflow": {
+      "_comment": "Workflow preferences (commit style, branching, etc.)",
+      "preferred-commit-style": null,
+      "_preferredCommitStyleOptions": ["conventional", "semantic", "simple", "detailed"],
+
+      "auto-stage-changes": null,
+      "preferred-branch-naming": null,
+      "_preferredBranchNamingOptions": ["feature/", "feat/", "fix/", "custom"]
+    },
+
+    "quality": {
+      "_comment": "Quality gate preferences",
+      "security-scan-threshold": "high",
+      "_securityScanThresholdOptions": ["critical-only", "high", "medium", "all"],
+
+      "test-coverage-target": 80,
+      "lint-on-commit": true
+    },
+
+    "documentation": {
+      "_comment": "Documentation preferences",
+      "auto-update-changelog": true,
+      "include-jsdoc": null,
+      "readme-style": null
+    }
+  },
+
+  "skippedRecommendations": {
+    "_comment": "Recommendations you've skipped - won't be suggested again",
+    "_schema": {
+      "item": "string - the recommendation ID",
+      "skipCount": "number - how many times skipped",
+      "firstSkipped": "ISO date - when first skipped",
+      "lastSkipped": "ISO date - when last skipped",
+      "permanent": "boolean - true if user said 'don't ask again'"
+    },
+    "items": []
+  },
+
+  "dontShowAgain": {
+    "_comment": "Specific notifications/warnings you've dismissed permanently",
+    "items": []
+  },
+
+  "skillSpecificPreferences": {
+    "_comment": "Preferences specific to individual skills",
+
+    "security-scanner": {
+      "showInfoLevel": true,
+      "autoFixLowRisk": false,
+      "ignoredPatterns": []
+    },
+
+    "test-generator": {
+      "defaultFramework": null,
+      "coverageReminders": true,
+      "generateMocks": true
+    },
+
+    "standards-enforcer": {
+      "strictMode": false,
+      "autoFormat": true,
+      "customRules": []
+    },
+
+    "commit-readiness-checker": {
+      "requireChangelog": true,
+      "requireTests": false,
+      "conventionalCommits": true
+    },
+
+    "version-management": {
+      "autoSyncFiles": true,
+      "bumpStrategy": "semver"
+    }
+  },
+
+  "learningHistory": {
+    "_comment": "Recent learning events - keeps last 100 per category for analysis",
+    "_maxEventsPerCategory": 100,
+    "_schema": {
+      "timestamp": "ISO date",
+      "skill": "skill name",
+      "category": "preference category",
+      "item": "specific item",
+      "action": "accepted | rejected | skipped | dont-show-again",
+      "context": "optional context string"
+    },
+    "events": []
+  },
+
+  "analytics": {
+    "_comment": "Aggregated analytics about your usage patterns",
+
+    "totalDecisionsTracked": 0,
+    "learningPeriodDays": 0,
+    "firstEventDate": null,
+    "lastEventDate": null,
+
+    "categoryBreakdown": {
+      "_comment": "Decisions by category",
+      "coding-style": { "accepted": 0, "rejected": 0, "skipped": 0 },
+      "workflow": { "accepted": 0, "rejected": 0, "skipped": 0 },
+      "quality": { "accepted": 0, "rejected": 0, "skipped": 0 },
+      "documentation": { "accepted": 0, "rejected": 0, "skipped": 0 }
+    },
+
+    "overallAcceptanceRate": 0.0,
+    "topAcceptedPatterns": [],
+    "topRejectedPatterns": []
+  },
+
+  "backup": {
+    "_comment": "Backup information - skills create backups before major changes",
+    "lastBackup": null,
+    "backupLocation": "~/.claude/user-preferences.json.backup",
+    "autoBackup": true
+  },
+
+  "migrations": {
+    "_comment": "Schema migration history",
+    "applied": []
+  }
+}

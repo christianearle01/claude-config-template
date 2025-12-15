@@ -1,7 +1,7 @@
 {
-  "version": "3.7.0",
+  "version": "3.8.0",
   "release_date": "2025-12-15",
-  "release_name": "Quality Workflows - Breaking the Productivity Glass Ceiling",
+  "release_name": "Personalization Engine - Learning User Preferences",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -110,7 +110,15 @@
     "team-preference-detection",
     "parallel-quality-gates",
     "sdlc-phase-detection",
-    "quality-context-optimization"
+    "quality-context-optimization",
+    "personalization-engine-skill",
+    "user-preferences-schema",
+    "tell-me-once-paradigm",
+    "adaptive-confidence-thresholds",
+    "skill-usage-analytics",
+    "cross-skill-learning",
+    "preference-persistence",
+    "proactivity-levels"
   ],
   "personas_supported": [
     "first-time",
@@ -141,6 +149,8 @@
       "docs/03-advanced/quality-workflows-guide.md": "3.7.0",
       "docs/02-optimization/quality-context-optimization.md": "3.7.0",
       "docs/00-start-here/QUALITY_WORKFLOWS.md": "3.7.0",
+      "docs/02-optimization/personalization-guide.md": "3.8.0",
+      "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.8.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"
@@ -156,7 +166,8 @@
       "pyproject.toml.template": "2.7.0",
       "projects-registry.json.template": "3.2.0",
       "features.json.template": "3.6.0",
-      "progress.md.template": "3.6.0"
+      "progress.md.template": "3.6.0",
+      "user-preferences.json.template": "3.8.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
@@ -205,7 +216,8 @@
       "project-analyzer": "3.6.0",
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
-      "standards-enforcer": "3.7.0"
+      "standards-enforcer": "3.7.0",
+      "personalization-engine": "3.8.0"
     },
     "commands": {
       "build": "2.0.0",
@@ -214,9 +226,9 @@
     }
   },
   "metadata": {
-    "total_files": 102,
-    "total_lines": 44500,
-    "skill_count": 17,
+    "total_files": 105,
+    "total_lines": 46500,
+    "skill_count": 18,
     "command_count": 3,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
