@@ -1,7 +1,7 @@
 {
-  "version": "3.4.0",
-  "release_date": "2025-12-14",
-  "release_name": "Workflow Optimization, Learning Stages & Setup Assistance",
+  "version": "3.5.0",
+  "release_date": "2025-12-15",
+  "release_name": "Attentive Sous Chef - Jewels Proactive Intelligence",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -78,7 +78,14 @@
     "project-onboarding-assistant-skill",
     "pre-project-planning-assistant-skill",
     "learning-stages-documentation",
-    "command-graduation"
+    "command-graduation",
+    "skills-catalog-cli",
+    "health-check-system",
+    "confidence-scoring",
+    "rationale-provision",
+    "jit-cheat-sheets",
+    "proactive-setup-detection",
+    "proactive-troubleshooting-guide"
   ],
   "personas_supported": [
     "first-time",
@@ -103,6 +110,7 @@
       "01_global-setup/nice-to-have/05_python-security-guide.md": "2.7.0",
       "01_global-setup/good-to-have/04_git-approval-workflow.md": "2.9.0",
       "docs/04-ecosystem/PROGRESS_BAR_GUIDE.md": "3.1.0",
+      "docs/04-ecosystem/PROACTIVE_TROUBLESHOOTING.md": "3.5.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"
@@ -134,7 +142,9 @@
       "register-project.sh": "3.2.0",
       "claude-projects.sh": "3.2.0",
       "setup-git-workflow.sh": "2.9.0",
-      "remove-commands.sh": "3.4.0"
+      "remove-commands.sh": "3.4.0",
+      "claude-skills.sh": "3.5.0",
+      "claude-health-check.sh": "3.5.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -144,19 +154,19 @@
       "global-settings": "2.9.0"
     },
     "skills": {
-      "projects-registry": "3.3.0",
+      "projects-registry": "3.5.0",
       "skill-creation-guide": "3.3.0",
-      "testing-workflow": "3.3.0",
+      "testing-workflow": "3.5.0",
       "api-debugging": "3.3.0",
       "component-finder": "3.3.0",
-      "version-management": "3.4.0",
-      "commit-readiness-checker": "3.4.0",
-      "documentation-sync-checker": "3.4.0",
-      "workflow-analyzer": "3.4.0",
-      "skill-template-generator": "3.4.0",
-      "global-setup-assistant": "3.4.0",
-      "project-onboarding-assistant": "3.4.0",
-      "pre-project-planning-assistant": "3.4.0"
+      "version-management": "3.5.0",
+      "commit-readiness-checker": "3.5.0",
+      "documentation-sync-checker": "3.5.0",
+      "workflow-analyzer": "3.5.0",
+      "skill-template-generator": "3.5.0",
+      "global-setup-assistant": "3.5.0",
+      "project-onboarding-assistant": "3.5.0",
+      "pre-project-planning-assistant": "3.5.0"
     },
     "commands": {
       "build": "2.0.0",
