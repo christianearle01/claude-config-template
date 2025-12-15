@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-12
-**Version:** v3.4.0
+**Version:** v3.5.0
 
 ---
 
@@ -39,6 +39,128 @@ This is an **educational documentation project** that provides a comprehensive c
 - Enable teams to adopt Claude Code consistently
 
 **Not a code project:** This is a documentation/configuration template repository, not a software application. The "product" is the knowledge, templates, and scripts that help others configure their Claude Code environments.
+
+---
+
+## Proactive Intelligence Framework (v3.5.0+)
+
+**Future Direction:** Transforming from reactive template → proactive assistant
+
+**Inspiration:** [Jewels Proactive Agent Patterns](https://www.youtube.com/watch?v=v3u8xc0zLec) - A research project demonstrating how AI agents can proactively assist developers by reducing mental load and context switching.
+
+### Four Essential Ingredients
+
+The framework builds on four core principles:
+
+1. **Observation** - Continuously understand project state (code changes, patterns, workflow)
+2. **Personalization** - Learn user preferences and working style over time
+3. **Timeliness** - Intervene at exactly the right moment (not too soon or late)
+4. **Seamlessness** - Work where developers already are (terminal, IDE, repo)
+
+### Three Levels of Proactivity
+
+**Level 1: Attentive Sous Chef (v3.5.0)** - Task-level automation
+- Detect and auto-fix immediate issues while performing other tasks
+- Confidence-scored suggestions (High/Medium/Low reliability)
+- Just-in-time cheat sheets for self-troubleshooting
+- Proactive setup assistant and TODO discovery
+- **Target:** Reduce mental load by 70%, recover 40% productive time lost to context switching
+
+**Level 2: Kitchen Manager (v3.6.0)** - Project-level awareness
+- Contextually aware of entire project, anticipates next need
+- Project analyzer with zero-config environment intelligence
+- Personalization engine learning user preferences
+- Living CLAUDE.md that agents can propose updates to
+- **Target:** Predictive suggestions before user asks
+
+**Level 3: Alignment & Collective Intelligence (v4.0.0+)** - Multi-project orchestration
+- Agents converge context to understand consequence across projects
+- Multi-project pattern recognition and impact analysis
+- Team alignment and collective learning from all projects
+- **Target:** Cross-system improvements and consequence prediction
+
+**Status:** Plan approved, v3.5.0 implementation beginning (3-4 week roadmap)
+
+**Learn more:** `docs/00-start-here/PROACTIVE_PARADIGM.md` (coming in v3.5.0)
+
+---
+
+## Domain Memory Architecture (v3.6.0+)
+
+**Future Direction:** Persistent state management for long-running projects
+
+**Inspiration:**
+- [AI Agents That Actually Work: The Pattern Anthropic Just Revealed](https://www.youtube.com/watch?v=xNcEgqzlPqs) - Two-agent pattern, domain memory, bootup ritual
+- [Why AI-Native Companies Are Deleting Software You're Still Paying For](https://www.youtube.com/watch?v=4Bg0Q1enwS4) - "Code wins" philosophy, $56K lesson
+- [From Vibe Coding To Vibe Engineering – Kitze, Sizzy](https://www.youtube.com/watch?v=JV-wY5pxXLo) - Active steering vs passive acceptance
+
+### Core Problem Solved
+
+- Long-running projects lose context across sessions ("where were we?")
+- Agents are "amnesiacs" without persistent memory
+- Developers carry mental load of tracking progress
+- **40% productive time lost** to context switching and regrounding
+
+### Anthropic's Two-Agent Pattern
+
+**Initializer Agent:**
+- Expands user intent into structured domain memory
+- Creates features.json with task breakdown, dependencies, test criteria
+- Defines bootup ritual checklist
+
+**Coder Agent:**
+- Executes bootup ritual every session (read memory, verify state)
+- Picks ONE feature atomically, builds incrementally
+- Tests until passing, updates state, commits
+- Suggests next task with confidence score
+
+**Artifacts (Code Wins Philosophy):**
+- `features.json` - Structured task list (not GUI, not conversation)
+- `progress.md` - Human-readable session journal
+- `.claude/bootup-checklist.md` - Formalized discipline
+- All state visible, auditable, version-controlled
+
+**Impact:** Token savings 350-700 per session (85% reduction in regrounding), mental load reduced 80%, project completion rate 60% → 90% (projected)
+
+**Learn more:** Implementation planned for v3.6.0 (3-4 weeks after v3.5.0)
+
+---
+
+## Quality Workflows Framework (v3.7.0+)
+
+**Future Direction:** Breaking the AI productivity glass ceiling through automated quality
+
+**Inspiration:** [The State of AI Code Quality: Hype vs Reality — Itamar Friedman, Qodo](https://www.youtube.com/watch?v=rgjF5o2Qjsc)
+
+### Core Problem Solved
+
+- 67% of developers have serious quality concerns about AI-generated code
+- AI code = 97% more PRs, 90% more review time, 3x security incidents
+- "Vibe coding" speed gains lost to fixing quality issues
+- **Productivity glass ceiling**: Fast generation without quality = unsustainable
+
+### Quality-First Architecture
+
+**Automated Quality Gates:**
+- Security scanner (OWASP top 10, CVE checks)
+- Test generator (ensures coverage for features.json)
+- Standards enforcer (learns team preferences)
+- Performance analyzer (catch issues early)
+
+**SDLC Integration:**
+Quality agents at every phase (planning, development, review, testing, deployment), not just at the end.
+
+**Learning Standards:**
+- Track acceptance/rejection of quality suggestions
+- Adapt confidence thresholds based on team behavior
+- Dynamic rules (not static), personalized to team culture
+
+**Context Engine:**
+Quality improves with better context: codebase + organizational standards + PR history + test results + security logs.
+
+**Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected, based on industry research)
+
+**Learn more:** `docs/00-start-here/QUALITY_WORKFLOWS.md` (coming in v3.7.0)
 
 ---
 

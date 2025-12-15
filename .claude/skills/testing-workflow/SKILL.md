@@ -34,6 +34,15 @@ The skill automatically activates when users mention:
 - Works with any test framework (Jest, pytest, RSpec, etc.)
 - Provides intelligence layer, test runner provides execution
 
+**JIT Help Available:**
+For quick reference on test commands and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+- 5 most common test queries (90% usage)
+- Speed commands for Jest/pytest/RSpec
+- Quick decision tree
+- Common scenarios (CI failures, slow tests, refactoring)
+- Pass rate and duration benchmarks
+- Performance optimization guide
+
 ---
 
 ## Core Knowledge
@@ -117,6 +126,11 @@ The skill automatically activates when users mention:
 > "Show me failing tests"
 > "Which tests are broken?"
 
+**Confidence:** 🟢 High (0.92)
+- Exact keyword matches: "failed", "failing", "broken"
+- Test result files accessible (JSON/XML/logs)
+- Clear intent to identify specific failures
+
 **Skill Response:**
 ```
 3 tests failed:
@@ -139,6 +153,14 @@ The skill automatically activates when users mention:
 To fix, check the error messages and file locations above.
 ```
 
+**Why This Matters:**
+- Failed tests block deployment and indicate broken functionality
+- File locations and line numbers speed up debugging (no hunting)
+- Error messages reveal root cause patterns (2 auth tests = likely auth service issue)
+- **Quick win:** Fix auth/login.test.js first (2.3s duration suggests integration issue)
+
+**Next Step:** Want to see test stats to understand overall health? Ask "Give me test stats"
+
 ---
 
 ### 2. Test Statistics Dashboard
@@ -147,6 +169,11 @@ To fix, check the error messages and file locations above.
 > "Give me test stats"
 > "Test summary"
 > "How many tests passed?"
+
+**Confidence:** 🟢 High (0.94)
+- Exact keyword matches: "stats", "summary", "passed"
+- Test result aggregation is deterministic (JSON parsing)
+- Clear intent for high-level overview
 
 **Skill Response:**
 ```
@@ -167,6 +194,14 @@ Total Duration: 42.3s
 Average: 0.29s per test
 ```
 
+**Why This Matters:**
+- 97.9% pass rate = generally healthy codebase (industry standard: >95%)
+- Module breakdown reveals authentication as problem area (3 failures localized)
+- Total duration 42.3s is reasonable for 145 tests (fast feedback loop)
+- **Quick win:** All failures in one module = likely single root cause to fix
+
+**Next Step:** Drill into authentication failures with "Show auth module tests"
+
 ---
 
 ### 3. Filter by Module
@@ -175,6 +210,11 @@ Average: 0.29s per test
 > "Show auth module tests"
 > "What tests failed in payments?"
 > "Authentication test results"
+
+**Confidence:** 🟢 High (0.91)
+- Module name explicitly mentioned ("auth", "payments")
+- Test organization by module is standard practice
+- Clear filtering intent
 
 **Skill Response:**
 ```
@@ -197,6 +237,14 @@ To run only auth tests:
   pytest tests/auth/
 ```
 
+**Why This Matters:**
+- Module filtering isolates failures (93.3% pass rate within auth vs 97.9% overall)
+- Focused view reveals related test failures (3 auth tests = likely 1 root cause)
+- Faster iteration cycle (8.5s to run auth module vs 42.3s for all tests)
+- **Quick win:** Run `npm test -- auth` to verify fixes without waiting for full suite
+
+**Next Step:** After fixing auth tests, ask "What tests are newly passing?" to confirm success
+
 ---
 
 ### 4. Identify Slow Tests
@@ -205,6 +253,11 @@ To run only auth tests:
 > "What tests are slowest?"
 > "Show me slow tests"
 > "Which tests take longest?"
+
+**Confidence:** 🟢 High (0.88)
+- Exact keyword matches: "slowest", "slow", "longest"
+- Duration data available in test results
+- Clear performance optimization intent
 
 **Skill Response:**
 ```
@@ -229,6 +282,14 @@ Average test duration: 0.29s
 Target: <0.5s per test
 ```
 
+**Why This Matters:**
+- Slow tests block fast iteration (3 tests account for 21% of total test time)
+- External API calls are optimization targets (5.2s + 1.8s = 7s wasted on Stripe/API mocks)
+- Developer productivity loss: 42.3s wait → potentially 33s wait (22% faster)
+- **Quick win:** Mock external services in integration/api-e2e.test.js to save 5.2s per run
+
+**Next Step:** After optimization, re-run "What tests are slowest?" to verify improvements
+
 ---
 
 ### 5. Recently Fixed Tests
@@ -237,6 +298,11 @@ Target: <0.5s per test
 > "What tests are newly passing?"
 > "Recently fixed tests"
 > "Tests that were broken but work now"
+
+**Confidence:** 🟢 High (0.89)
+- Exact keyword matches: "newly passing", "recently fixed", "broken but work now"
+- Requires comparing current and previous test results
+- Clear intent to track progress
 
 **Skill Response:**
 ```
@@ -261,6 +327,14 @@ These tests failed last run but pass now:
 
 Great progress! Keep it up!
 ```
+
+**Why This Matters:**
+- Progress tracking motivates continued testing work (positive reinforcement)
+- Recently fixed tests reveal which bug fixes are working (validation of recent code changes)
+- Time stamps show velocity (3 fixes in 2 hours = good debugging pace)
+- **Quick win:** 3 tests fixed means 3 fewer failures to worry about - celebrate this!
+
+**Next Step:** Run full test suite again to confirm no regressions: "Give me test stats"
 
 ---
 

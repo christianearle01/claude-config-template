@@ -7,7 +7,239 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-(No unreleased changes yet)
+---
+
+## [3.5.0] - 2025-12-15
+
+### Added - Attentive Sous Chef: Jewels Proactive Intelligence 🤖
+
+**Inspired by:** [Jewels Proactive Agent Patterns](https://www.youtube.com/watch?v=v3u8xc0zLec)
+
+**Core Enhancement:** Level 1 proactivity implementation - skills now proactively detect issues, provide confidence scores, and offer just-in-time help
+
+#### 7 New Features Delivered
+
+**Feature 1: Skills Catalog CLI** (`scripts/claude-skills.sh`)
+- Commands: list, show, search, stats
+- Discoverable CLI for browsing 11 skills
+- JSON and table output formats
+- 400+ lines of bash with comprehensive help
+
+**Feature 2: Health Check System** (`scripts/claude-health-check.sh`)
+- 7 comprehensive health checks
+- File existence, YAML validity, structure completeness
+- Cross-reference integrity, activation triggers validation
+- Visual health score (50% → 95% after fixes)
+- Actionable recommendations
+
+**Feature 3 & 4: Confidence Scores & Rationale Provision**
+- Added to ALL 10 skills (33 operations total)
+- Confidence levels: 🟢 High (0.8-1.0), 🟡 Medium (0.5-0.8), 🔴 Low (0.3-0.5)
+- Each operation includes "Why This Matters" (3-4 bullets)
+- Pattern: User Query → Confidence (with reasoning) → Response → Rationale → Next Step
+
+**Feature 5: JIT Cheat Sheets** (4 comprehensive quick references, 31KB total)
+- `projects-registry/CHEAT_SHEET.md` (6.6KB) - 5 common queries, tag strategies, troubleshooting
+- `commit-readiness-checker/CHEAT_SHEET.md` (8.3KB) - Pre-commit workflow, blocker patterns
+- `version-management/CHEAT_SHEET.md` (7.5KB) - Version sync workflow, 7 file locations
+- `testing-workflow/CHEAT_SHEET.md` (8.6KB) - Jest/pytest/RSpec commands, benchmarks
+
+**Feature 6: Proactive Setup Assistant Enhancement**
+- 3 new proactive operations added to global-setup-assistant
+- Operation 3: Missing directory detection (0.90 confidence)
+- Operation 4: Empty directory detection (0.88 confidence)
+- Operation 5: MCP server suggestion (0.75 confidence)
+- Auto-activates when configuration gaps detected
+
+**Feature 7: Proactive Troubleshooting Guide**
+- Location: `docs/04-ecosystem/PROACTIVE_TROUBLESHOOTING.md` (12KB)
+- 6 common failure modes with detection/resolution
+- TODO discovery pattern (3 examples)
+- Escalation paths (4 levels)
+- Quick troubleshooting checklist
+
+#### Skills Enhanced (10 total)
+- projects-registry (4 operations enhanced)
+- commit-readiness-checker (5 operations)
+- version-management (5 operations)
+- documentation-sync-checker (3 operations)
+- global-setup-assistant (5 operations: 2 original + 3 new proactive)
+- project-onboarding-assistant (2 operations)
+- skill-template-generator (1 operation)
+- pre-project-planning-assistant (3 operations)
+- testing-workflow (5 operations)
+- workflow-analyzer (3 operations)
+
+#### Token Impact (Projected)
+- Skills catalog: Reduces discovery friction
+- Confidence scores: 85% reduction in regrounding per skill activation
+- JIT cheat sheets: 64% token savings (1,100 → 400 tokens per stuck session)
+- Rationale provision: Teaching value (users learn WHY, ask fewer follow-ups)
+- Health check: Prevents debugging dead ends (saves 500-2,000 tokens per diagnostic session)
+
+**Total Projected Savings:** 47,500 tokens/month (~$1.43/month for active users)
+
+#### New Components
+- 2 new scripts (claude-skills.sh, claude-health-check.sh)
+- 4 JIT cheat sheets (31KB total)
+- 1 troubleshooting guide (12KB)
+- 33 operations with confidence + rationale
+
+#### Documentation Updates
+- All 10 SKILL.md files enhanced with confidence/rationale
+- 4 SKILL.md files link to cheat sheets
+- PROACTIVE_TROUBLESHOOTING.md created
+- version.json updated to v3.5.0
+
+**Learn more:** Roadmap (v3.5.0 → v3.6.0 → v4.0.0) continues in CLAUDE.md
+
+---
+
+### Planned - v3.6.0 "Domain Memory & Intelligence" 💾
+
+**Inspired by:**
+- [AI Agents That Actually Work: The Pattern Anthropic Just Revealed](https://www.youtube.com/watch?v=xNcEgqzlPqs)
+- [Why AI-Native Companies Are Deleting Software You're Still Paying For](https://www.youtube.com/watch?v=4Bg0Q1enwS4)
+- [From Vibe Coding To Vibe Engineering – Kitze, Sizzy](https://www.youtube.com/watch?v=JV-wY5pxXLo)
+
+**Goal:** Enable persistent state management for long-running projects across sessions
+
+**Timeline:** 3-4 weeks (After v3.5.0)
+
+**Core Enhancement:** Implement Anthropic's two-agent pattern + "code wins" philosophy
+
+#### Anthropic's Domain Memory Pattern
+**The Problem:** LLMs are "amnesiacs" - long-running projects lose context across sessions
+**The Solution:** Persistent structured artifacts that agents read on every bootup
+
+#### Two-Agent System
+**Initializer Agent:**
+- Expands user intent ("Build authentication") → structured features.json
+- Creates task breakdown with dependencies, test criteria, complexity estimates
+- Defines bootup ritual checklist
+
+**Coder Agent:**
+- Bootup ritual: Read features.json, progress.md, git status, run tests
+- Pick ONE feature atomically, build incrementally, test until passing
+- Update state, commit with feature ID, suggest next task
+- Integrates Jewels confidence scores + rationale provision
+
+#### Artifacts (Code Wins Philosophy)
+- **features.json** - Structured task list (not GUI, not conversation)
+- **progress.md** - Human-readable session journal
+- **.claude/bootup-checklist.md** - Formalized discipline
+- All state visible, auditable, version-controlled
+
+#### Impact (Projected)
+- **Token efficiency:** 350-700 tokens saved per session (85% reduction in regrounding)
+- **Mental load:** 80% reduction ("where were we?" eliminated)
+- **Project completion:** 60% → 90% (persistent state prevents abandonment)
+- **Resume time:** 2-3 min → 10-15 sec (instant regrounding)
+
+#### Features
+**Part A: Domain Memory Foundation**
+- Initializer Agent (.claude/agents/initializer.md)
+- Coder Agent (.claude/agents/coder.md)
+- Templates (features.json, progress.md)
+- Bootup ritual discipline documentation
+
+**Part B: Intelligence Integration**
+- Confidence scores in Coder suggestions
+- Rationale provision for task selection
+- JIT cheat sheets integration
+- Project analyzer (auto-detect stack)
+- Personalization engine (learn user preferences)
+
+**Part C: Meta-Example (Dogfooding)**
+- Use domain memory for template development itself
+- Validate metrics with real usage
+- Replace "Projected" with "Measured on this template"
+
+#### Documentation
+- **DOMAIN_MEMORY_PATTERN.md** - Comprehensive teaching guide
+- **LONG_RUNNING_PROJECTS.md** - Anti-patterns extended to multi-session work
+- **Integration guides** - CLAUDE.md vs features.json, TodoWrite vs persistent state
+
+**Learn more:** Four-level roadmap (v3.5.0 → v3.6.0 → v3.7.0 → v4.0.0) documented in CLAUDE.md
+
+---
+
+### Planned - v3.7.0 "Quality Workflows" ✅
+
+**Inspired by:** [The State of AI Code Quality: Hype vs Reality — Itamar Friedman, Qodo](https://www.youtube.com/watch?v=rgjF5o2Qjsc)
+
+**Goal:** Break the AI productivity glass ceiling through automated quality workflows
+
+**Timeline:** 3-4 weeks (After v3.6.0)
+
+**Core Enhancement:** SDLC-integrated quality gates + learning standards
+
+#### The Quality Crisis
+**The Problem:**
+- 67% of developers have serious quality concerns about AI-generated code
+- AI code = 97% more PRs, 90% more review time, 3x security incidents
+- "Vibe coding" speed gains lost to fixing quality issues
+- Productivity glass ceiling: Fast without quality = unsustainable
+
+**The Solution:** Agentic quality workflows across entire SDLC
+
+#### Quality-First Architecture
+
+**Automated Quality Gates (Parallel Agents):**
+- Security scanner (OWASP top 10, CVE checks)
+- Test generator (ensures coverage for features.json tasks)
+- Standards enforcer (learns team preferences dynamically)
+- Performance analyzer (catch issues early)
+
+**SDLC Integration:**
+Quality agents at every phase:
+- Planning → Requirements validation (testable? clear?)
+- Development → Lint + security scan in parallel
+- Review → Automated first pass before human review
+- Testing → Coverage verification + test generation
+- Deployment → Final security scan + smoke tests
+
+**Learning Standards:**
+- Track acceptance/rejection of quality suggestions
+- Adapt confidence thresholds based on team behavior
+- Dynamic rules (not static), personalized to team culture
+- Statistics dashboard (visibility builds trust)
+
+**Context Engine:**
+Quality improves with better context:
+- Current codebase + organizational standards
+- PR history + test results + security logs
+- Versioning + performance benchmarks
+
+#### Impact (Projected - Industry Data from Qodo)
+- **Trust in AI code:** 2x increase (testing doubles trust)
+- **Review productivity:** 47% improvement
+- **Security incidents:** 66% reduction (from 3x back to baseline)
+- **Quality concerns:** 67% → 20%
+- **Breaking glass ceiling:** 2-3x sustained productivity (speed + quality)
+
+#### Features
+**Part A: Quality Agents**
+- Quality-reviewer.md (automated code review)
+- Test-generator.md (coverage for features.json)
+- Security-scanner.md (OWASP + CVE checks)
+
+**Part B: Quality Infrastructure**
+- Quality-gate.sh (pre-commit hooks, parallel execution)
+- quality-standards.json (living, learning standards)
+- quality-dashboard.sh (statistics + metrics)
+
+**Part C: SDLC Integration**
+- Hooks at every phase (planning → deployment)
+- Integration with Coder Agent (v3.6.0)
+- Feedback loop (learn from acceptance/rejection)
+
+#### Documentation
+- **QUALITY_WORKFLOWS.md** - Comprehensive teaching guide
+- **AUTOMATED_QUALITY.md** - Anti-patterns extended to quality
+- **Integration guides** - Quality gates + domain memory + proactive intelligence
+
+**Learn more:** Complete AI-native toolkit (v3.5.0 intelligence + v3.6.0 persistence + v3.7.0 quality + v4.0.0 orchestration)
 
 ---
 

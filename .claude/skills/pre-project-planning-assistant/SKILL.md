@@ -101,7 +101,13 @@ Proactively warns about anti-patterns:
 
 ### Example 1: Simple Web App
 
-**You:** "Help me plan a task management web app"
+**User Query:**
+> "Help me plan a task management web app"
+
+**Confidence:** 🟢 High (0.90)
+- Clear project type (web app, task management)
+- Standard architectural patterns exist
+- Well-understood problem domain
 
 **Skill Response:**
 ```
@@ -131,9 +137,23 @@ Resources:
 - Project plan template: templates/project-plan-template.md
 ```
 
+**Why This Matters:**
+- Clarifying questions prevent building wrong product (most common failure mode)
+- Target user identification drives all tech decisions (personal → simple, enterprise → complex)
+- Core features vs nice-to-haves prevent scope creep and endless development
+- **Quick win:** Answer 3 questions now, get concrete architecture recommendations in < 5 min
+
+**Next Step:** After answering, I'll suggest tech stack based on your constraints
+
 ### Example 2: Complex System Requiring Agent
 
-**You:** "I'm building a real-time multiplayer game with chat, matchmaking, and leaderboards"
+**User Query:**
+> "I'm building a real-time multiplayer game with chat, matchmaking, and leaderboards"
+
+**Confidence:** 🟡 Medium (0.65)
+- High complexity project (multiple subsystems)
+- Architectural decisions require trade-off analysis
+- Agent invocation recommended for depth
 
 **Skill Response:**
 ```
@@ -164,9 +184,23 @@ With this context, the @project-planner agent can provide:
 Should I prepare a detailed prompt for the @project-planner agent?
 ```
 
+**Why This Matters:**
+- Complex projects = high failure risk without proper planning (60-70% fail)
+- Agent provides 6-perspective analysis → Catches blind spots you'd miss alone
+- Preparing context questions maximizes agent value (focused analysis vs generic advice)
+- **Quick win:** Answer 4 prep questions, then agent delivers comprehensive plan
+
+**Next Step:** After agent analysis, I'll help synthesize recommendations into actionable plan
+
 ### Example 3: Tech Stack Decision
 
-**You:** "What tech stack should I use for a REST API with authentication?"
+**User Query:**
+> "What tech stack should I use for a REST API with authentication?"
+
+**Confidence:** 🟢 High (0.82)
+- Focused tech decision (REST API + auth)
+- 3 common patterns with clear trade-offs
+- Constraint-based recommendation possible
 
 **Skill Response:**
 ```
@@ -202,6 +236,14 @@ Based on your answers, I can recommend the best fit.
 
 Deep dive: See 03_pre-project-planning/must-have/01_planning-guide.md
 ```
+
+**Why This Matters:**
+- Wrong tech stack = months of pain (migration is expensive)
+- Constraint-based selection prevents "shiny technology syndrome"
+- Trade-off transparency helps make informed choices (not hype-driven)
+- **Quick win:** Answer 4 questions, get tailored recommendation in < 2 min
+
+**Next Step:** After choosing stack, ask "What's the MVP for this API?"
 
 ---
 

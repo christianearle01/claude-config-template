@@ -25,11 +25,19 @@ allowed-tools: Read, Write
 
 ---
 
-## How It Works
+## Key Operations
 
-**User:** "Create a skill for database optimization"
+### Operation 1: Interactive Skill Generation
 
-**Generator:**
+**User Query:**
+> "Create a skill for database optimization"
+
+**Confidence:** 🟢 High (0.86)
+- Clear skill creation intent
+- Template structure known
+- Interactive Q&A guides user
+
+**Skill Response:**
 ```
 I'll help create database-optimization skill!
 
@@ -47,6 +55,14 @@ Generating skill structure...
 
 Ready to use!
 ```
+
+**Why This Matters:**
+- Blank SKILL.md template is intimidating → Interactive Q&A removes paralysis
+- Structured questions ensure complete skill definition (no missing sections)
+- Generated examples provide starting point for customization
+- **Quick win:** Answer 3 questions, get complete SKILL.md in < 5 minutes
+
+**Next Step:** After generation, test skill by asking sample query (validates activation triggers)
 
 ---
 

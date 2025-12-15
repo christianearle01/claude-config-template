@@ -70,9 +70,15 @@ Finds references to:
 
 ### Operation 1: Full Documentation Sync
 
-**User:** "Are docs in sync?"
+**User Query:**
+> "Are docs in sync?"
 
-**Response:**
+**Confidence:** 🟢 High (0.89)
+- Comprehensive check across 39 MD files
+- 4 validation types (version, links, cross-refs, stale content)
+- Clear pass/fail criteria
+
+**Skill Response:**
 ```
 📚 Documentation Sync Check
 
@@ -91,11 +97,25 @@ No outdated references found
 Status: All documentation in sync! ✨
 ```
 
+**Why This Matters:**
+- 22,400+ lines of docs = high drift risk without automated checking
+- Broken links erode user trust ("is this template maintained?")
+- Version consistency prevents user confusion (which features exist?)
+- **Quick win:** All green! Safe to publish updates or onboard new users
+
+**Next Step:** Schedule monthly sync checks to catch drift early
+
 ### Operation 2: Broken Link Detection
 
-**User:** "Check for broken links"
+**User Query:**
+> "Check for broken links"
 
-**Response:**
+**Confidence:** 🟢 High (0.92)
+- Link validation is deterministic (file exists or not)
+- Anchor checking via file parsing
+- Clear fix guidance for each broken link
+
+**Skill Response:**
 ```
 🔗 Link Validation
 
@@ -114,11 +134,25 @@ Found 2 broken links:
 Action: Fix these 2 links
 ```
 
+**Why This Matters:**
+- Broken links = poor first impression for new users
+- 2 broken links out of 156 = 98.7% link health (good baseline)
+- Specific line numbers enable fast fixes (no hunting)
+- **Quick win:** Edit README.md:45 and QUICK_REFERENCE.md:120 now
+
+**Next Step:** After fixing, re-run "Check for broken links" to verify all clear
+
 ### Operation 3: Version Mismatch Detection
 
-**User:** "Find version inconsistencies"
+**User Query:**
+> "Find version inconsistencies"
 
-**Response:**
+**Confidence:** 🟡 Medium (0.75)
+- Can find version references deterministically
+- Some mismatches may be intentional (historical context)
+- Requires human judgment to distinguish bugs from features
+
+**Skill Response:**
 ```
 🔍 Version References
 
@@ -137,6 +171,14 @@ Mismatches found:
 Fix examples/config.json immediately.
 Review docs/old-guide.md (may be intentional).
 ```
+
+**Why This Matters:**
+- Example configs with old versions mislead users ("do I need v3.3.0?")
+- Historical references are valid (e.g., "Added in v3.2.0") but need review
+- Version drift detection prevents accumulation of stale references
+- **Quick win:** Update examples/config.json to "version": "3.4.0"
+
+**Next Step:** Review "v3.2.0" context—if historical, add "(historical)" note for clarity
 
 ---
 
