@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json.schemastore.org/claude-features-1.0.0.json",
+  "version": "1.0",
+  "lastUpdated": "2025-12-15T10:00:00Z",
+
+  // ℹ️ Schema & Version Info
+  // - $schema enables IDE validation and autocomplete
+  // - version: Template version (currently 1.0)
+  // - lastUpdated: Update this when features.json changes (ISO 8601 format)
+
+  "projectInfo": {
+    "name": "E-Commerce Platform",
+    "description": "Online marketplace for selling handmade crafts with user authentication, product catalog, shopping cart, and checkout",
+
+    // ℹ️ Business Description Guidelines:
+    // - Focus on WHAT the app does (user value), not HOW it works (technical implementation)
+    // - Good: "Online marketplace for selling handmade crafts"
+    // - Bad: "React app with Express backend and PostgreSQL database"
+    // - This helps Coder Agent understand business context when building features
+
+    "techStack": {
+      "language": "JavaScript",
+      "framework": "React",
+      "database": "PostgreSQL",
+      "hosting": "Vercel"
+    }
+
+    // ℹ️ Tech Stack Purpose:
+    // - Helps Coder Agent choose appropriate patterns and libraries
+    // - Affects learning path (React hooks vs class components)
+    // - Guides test framework selection (Jest + React Testing Library for React)
+    // - Influences resource recommendations
+  },
+
+  "categories": [
+    {
+      "id": "cat-001",
+      "name": "Authentication",
+      "description": "User identity & access control",
+
+      // ℹ️ ID Conventions:
+      // - Categories: cat-001, cat-002, cat-003 (sequential)
+      // - Features: feat-001, feat-002, feat-003 (global, not per-category)
+      // - Use 3-digit padding for up to 999 features
+
+      "features": [
+        {
+          "id": "feat-001",
+          "name": "User Login",
+          "description": "Allow users to log in with email/password to access protected resources",
+
+          // ℹ️ Feature Description Guidelines:
+          // - USER-FACING value: "Allow users to log in..."
+          // - NOT implementation: "Implement JWT authentication endpoint"
+          // - Focus on business purpose, not technical details
+
+          "complexity": "beginner",
+
+          // ℹ️ Complexity Levels:
+          // - beginner: 1-2 files, standard patterns, well-documented (1-3 hours)
+          // - intermediate: 3-5 files, some complexity, multiple components (3-8 hours)
+          // - advanced: 5+ files, novel architecture, high complexity (8+ hours)
+          // - Affects Coder Agent's confidence score and approach
+
+          "estimatedTime": "2-3 hours",
+
+          // ℹ️ Time Estimates:
+          // - Include learning time for new concepts
+          // - Based on average developer with project tech stack knowledge
+          // - Coder Agent uses this for session planning
+          // - Format: "X-Y hours" or "X hours"
+
+          "learningPath": [],
+
+          // ℹ️ Learning Path (Prerequisites):
+          // - Empty array [] = no prerequisites, can start immediately
+          // - ["feat-002", "feat-003"] = requires those features to be completed first
+          // - Defines dependency graph for feature ordering
+          // - Coder Agent won't suggest this feature until prerequisites complete
+
+          "resources": [
+            "https://jwt.io/introduction",
+            "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+          ],
+
+          // ℹ️ Resources:
+          // - Official documentation links
+          // - Tutorial URLs
+          // - Reference implementations
+          // - Blog posts, videos, etc.
+          // - Coder Agent shows these when starting the feature
+
+          "testCriteria": [
+            "User can log in with valid credentials",
+            "Invalid credentials show error message",
+            "Session persists across page refresh",
+            "User can log out successfully"
+          ],
+
+          // ℹ️ Test Criteria Guidelines:
+          // - USER-OBSERVABLE behaviors, not implementation details
+          // - These become test descriptions directly
+          // - Good: "User can log in with valid credentials"
+          // - Bad: "JWT token is returned with 200 status"
+          // - Coder Agent creates tests for each criterion
+          // - Feature is NOT complete until ALL criteria have passing tests
+
+          "status": "available",
+
+          // ℹ️ Status Values:
+          // - available: Ready to work on (prerequisites met)
+          // - in-progress: Currently being built
+          // - completed: All test criteria passing, committed
+          // - Only ONE feature should be "in-progress" at a time (atomic execution)
+
+          "adoption": {
+            "percentageComplete": 0,
+            "lastUpdated": "2025-12-15T10:00:00Z",
+            "notes": ""
+          }
+
+          // ℹ️ Adoption Tracking:
+          // - percentageComplete: 0-100 (updated as feature progresses)
+          // - lastUpdated: ISO timestamp of last change
+          // - notes: Free-form progress notes
+          // - Coder Agent updates this during incremental development
+          // - Example: "Redux store created, UI in progress (50%)"
+        },
+
+        {
+          "id": "feat-002",
+          "name": "User Registration",
+          "description": "Allow new users to create accounts with email/password",
+          "complexity": "beginner",
+          "estimatedTime": "2-3 hours",
+          "learningPath": ["feat-001"],
+
+          // ℹ️ This feature depends on feat-001 (User Login)
+          // - Coder Agent won't suggest feat-002 until feat-001 is completed
+          // - Dependency reason: Registration shares auth patterns with login
+          // - Learning path creates logical progression
+
+          "resources": [
+            "https://emailregex.com/",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html"
+          ],
+          "testCriteria": [
+            "User can register with email/password",
+            "Password confirmation must match",
+            "Email validation prevents invalid formats",
+            "Successful registration shows confirmation message"
+          ],
+          "status": "available",
+          "adoption": {
+            "percentageComplete": 0,
+            "lastUpdated": "2025-12-15T10:00:00Z",
+            "notes": ""
+          }
+        },
+
+        {
+          "id": "feat-003",
+          "name": "Real-Time WebSocket Sync",
+          "description": "Sync cart updates in real-time when users are on multiple devices",
+          "complexity": "advanced",
+          "estimatedTime": "10-12 hours",
+          "learningPath": ["feat-001", "feat-007"],
+
+          // ℹ️ Advanced Feature Example:
+          // - Multiple prerequisites (auth + cart must exist)
+          // - 10-12 hour estimate (multi-session feature)
+          // - Coder Agent will break into sub-tasks
+          // - High complexity = lower confidence score (0.65-0.75)
+
+          "resources": [
+            "https://socket.io/docs/v4/",
+            "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+            "https://en.wikipedia.org/wiki/Operational_transformation"
+          ],
+          "testCriteria": [
+            "Changes on device A appear on device B within 1 second",
+            "Handles simultaneous edits without data loss",
+            "Reconnects automatically after disconnect",
+            "Shows connection status to user"
+          ],
+          "status": "available",
+
+          // ℹ️ Status Explanation:
+          // - This feature shows "available" but has multiple prerequisites
+          // - Coder Agent's bootup ritual checks learningPath before suggesting
+          // - Will only be suggested after feat-001 AND feat-007 are completed
+
+          "adoption": {
+            "percentageComplete": 0,
+            "lastUpdated": "2025-12-15T10:00:00Z",
+            "notes": ""
+          }
+        }
+      ]
+    }
+  ],
+
+  "bootupRitual": [
+    "Read features.json (current plan)",
+    "Read progress.md (what's done)",
+    "Run git status (uncommitted changes)",
+    "Run tests (system health)",
+    "Identify next atomic feature"
+  ],
+
+  // ℹ️ Bootup Ritual:
+  // - Coder Agent runs this 5-step process at the START of EVERY session
+  // - Defeats "LLM amnesia" by loading context from persistent files
+  // - Each step is critical - don't skip any
+  // - Results in instant project context recovery (10-15 seconds vs 5-10 minutes manual regrounding)
+
+  "metadata": {
+    "createdBy": "initializer-agent",
+    "createdDate": "2025-12-15T10:00:00Z",
+    "totalFeatures": 3,
+    "completedFeatures": 0,
+    "estimatedTotalTime": "14-18 hours"
+  }
+
+  // ℹ️ Metadata:
+  // - createdBy: Which agent generated this (initializer-agent)
+  // - createdDate: When features.json was first created
+  // - totalFeatures: Count of all features across all categories
+  // - completedFeatures: Count of features with status="completed"
+  // - estimatedTotalTime: Sum of all feature estimates
+  // - These fields are AUTO-CALCULATED by agents, don't manually edit
+}

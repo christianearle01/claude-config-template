@@ -1,7 +1,7 @@
 {
-  "version": "3.5.0",
+  "version": "3.6.0",
   "release_date": "2025-12-15",
-  "release_name": "Attentive Sous Chef - Jewels Proactive Intelligence",
+  "release_name": "Domain Memory & Intelligence - Defeating LLM Amnesia",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -85,7 +85,18 @@
     "rationale-provision",
     "jit-cheat-sheets",
     "proactive-setup-detection",
-    "proactive-troubleshooting-guide"
+    "proactive-troubleshooting-guide",
+    "initializer-agent",
+    "coder-agent",
+    "features-json-template",
+    "progress-md-template",
+    "bootup-ritual-guide",
+    "domain-memory-architecture",
+    "project-analyzer-skill",
+    "two-agent-pattern",
+    "persistent-artifacts",
+    "atomic-feature-execution",
+    "session-continuity"
   ],
   "personas_supported": [
     "first-time",
@@ -111,6 +122,8 @@
       "01_global-setup/good-to-have/04_git-approval-workflow.md": "2.9.0",
       "docs/04-ecosystem/PROGRESS_BAR_GUIDE.md": "3.1.0",
       "docs/04-ecosystem/PROACTIVE_TROUBLESHOOTING.md": "3.5.0",
+      "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.5.0",
+      "docs/03-advanced/bootup-ritual-guide.md": "3.6.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"
@@ -124,11 +137,15 @@
       "package.json.template": "2.7.0",
       "requirements.txt.template": "2.7.0",
       "pyproject.toml.template": "2.7.0",
-      "projects-registry.json.template": "3.2.0"
+      "projects-registry.json.template": "3.2.0",
+      "features.json.template": "3.6.0",
+      "progress.md.template": "3.6.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
-      "prompt-polisher.md": "2.4.0"
+      "prompt-polisher.md": "2.4.0",
+      "initializer.md": "3.6.0",
+      "coder.md": "3.6.0"
     },
     "scripts": {
       "claude-wizard.sh": "2.1.0",
@@ -166,7 +183,8 @@
       "skill-template-generator": "3.5.0",
       "global-setup-assistant": "3.5.0",
       "project-onboarding-assistant": "3.5.0",
-      "pre-project-planning-assistant": "3.5.0"
+      "pre-project-planning-assistant": "3.5.0",
+      "project-analyzer": "3.6.0"
     },
     "commands": {
       "build": "2.0.0",
@@ -175,9 +193,9 @@
     }
   },
   "metadata": {
-    "total_files": 90,
-    "total_lines": 32500,
-    "skill_count": 13,
+    "total_files": 95,
+    "total_lines": 38000,
+    "skill_count": 14,
     "command_count": 3,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
