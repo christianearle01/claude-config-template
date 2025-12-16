@@ -61,7 +61,7 @@ graph TD
     O --> P["@coder Agent"]
     P --> Q[TDD: Write Test First]
     Q --> R[Implement Feature]
-    R --> S[/test Command]
+    R --> S["/test Command"]
 
     S --> T{Tests Pass?}
     T -->|No| Q
@@ -115,7 +115,7 @@ graph LR
     J -->|Yes| L[TDD Phase 3: Refactor]
     L --> M[Improve Code Quality]
 
-    M --> N[/test Command - Full Suite]
+    M --> N["/test Command - Full Suite"]
     N --> O{All Tests Pass?}
 
     O -->|No| P[Fix Regressions]
