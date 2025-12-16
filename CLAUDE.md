@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-16
-**Version:** v4.4.0
+**Version:** v4.4.1
 
 ---
 
@@ -880,6 +880,18 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v4.4.0 (2025-12-16):**
+  - Template Validator: JSON schema validation script
+  - Catalog validation with --catalog flag
+  - 3-level validation (Critical/Important/Info)
+  - Script: validate-template.sh (~250 lines)
+  - Validates JSON syntax, required fields, enum values
+- **v4.3.0 (2025-12-16):**
+  - Template Gallery: 5 domain-specific templates
+  - Demonstrates inheritance (v4.1.0) and parameters (v4.2.0)
+  - Templates: gallery-frontend-react, gallery-backend-api, gallery-data-science, gallery-devops, gallery-fullstack
+  - Catalog updated to 9 total templates
+  - Inheritance hierarchy: team-standard/team-security as base templates
 - **v4.2.0 (2025-12-16):**
   - Template Parameters: `${varName}` syntax for dynamic configuration
   - Parameter types: string, number, boolean with defaults

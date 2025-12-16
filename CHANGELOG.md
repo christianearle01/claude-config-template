@@ -9,6 +9,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.4.1] - 2025-12-16
+
+### Added - Documentation Sync
+
+Comprehensive guides for v4.3.0 (Template Gallery) and v4.4.0 (Template Validator) features.
+
+#### New Documentation Files
+
+| File | Purpose | Lines |
+|------|---------|-------|
+| `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md` | How to use validate-template.sh | ~200 |
+| `docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md` | Template gallery overview and usage | ~250 |
+
+#### Documentation Updates
+
+- **QUICK_REFERENCE.md:** Added "Template Gallery" and "Template Validator" entries under "T" section
+- **CLAUDE.md:** Updated version history with v4.3.0 and v4.4.0 entries
+- **version.json:** Updated to 4.4.1, added new documentation files to components
+
+#### Template Validator Guide Contents
+
+- What It Does, When to Use, Installation
+- Usage examples (single file, directory, catalog)
+- 3-level validation system (Critical/Important/Info)
+- Sample output with color-coded results
+- Troubleshooting common validation failures
+- CI/CD integration examples
+
+#### Template Gallery Guide Contents
+
+- Template catalog with 9 templates
+- Inheritance hierarchy diagram (Mermaid)
+- Detailed breakdown of each gallery template
+- Parameter examples (gallery-fullstack)
+- How to use templates (browse, copy, apply)
+- Creating custom gallery templates
+
+**Impact:** Users can now discover and understand v4.3.0 and v4.4.0 features through the docs/ learning journey.
+
+---
+
 ## [4.4.0] - 2025-12-16
 
 ### Added - Template Validator: Quality Tooling
