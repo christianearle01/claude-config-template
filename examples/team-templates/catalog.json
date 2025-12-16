@@ -1,0 +1,51 @@
+{
+  "$schema": "claude-template-catalog-v1",
+  "version": "1.0.0",
+  "name": "Example Team Templates",
+  "description": "Example catalog showing how teams can share preference templates",
+  "maintainer": "your-team",
+  "maintainerUrl": "https://github.com/your-org",
+  "lastUpdated": "2025-12-16T00:00:00Z",
+
+  "compatibility": {
+    "minVersion": "4.0.0"
+  },
+
+  "templates": [
+    {
+      "id": "team-standard",
+      "name": "Team Standard",
+      "description": "Our team's standard Claude Code configuration",
+      "category": "team",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./team-standard.json",
+      "version": "1.0.0",
+      "author": "your-team",
+      "tags": ["team", "standard", "onboarding"],
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "team-security",
+      "name": "Team Security",
+      "description": "Security-focused configuration for sensitive projects",
+      "category": "security",
+      "recommendedFor": ["intermediate", "advanced", "expert"],
+      "sourceUrl": "./team-security.json",
+      "version": "1.0.0",
+      "author": "your-team",
+      "tags": ["team", "security", "compliance"],
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    }
+  ],
+
+  "metadata": {
+    "totalTemplates": 2,
+    "categories": ["team", "security"],
+    "contact": {
+      "github": "https://github.com/your-org"
+    },
+    "license": "MIT"
+  }
+}

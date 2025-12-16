@@ -1,0 +1,80 @@
+{
+  "$schema": "claude-template-catalog-v1",
+  "_comment": "Template Catalog Schema - Lists available templates from a source",
+  "_version": "4.0.0",
+  "_documentation": "https://github.com/christianearle01/claude-config-template/blob/main/docs/02-optimization/personalization-guide.md#remote-template-sources",
+
+  "version": "1.0.0",
+  "name": "Your Catalog Name",
+  "description": "Description of this template catalog",
+  "maintainer": "your-name-or-team",
+  "maintainerUrl": "https://github.com/your-org",
+  "lastUpdated": "2025-12-16T00:00:00Z",
+
+  "compatibility": {
+    "_comment": "Version requirements for using this catalog",
+    "minVersion": "4.0.0",
+    "_minVersionHint": "Minimum claude-config-template version required"
+  },
+
+  "templates": [
+    {
+      "_comment": "Example template entry - copy and modify for each template",
+
+      "id": "template-id",
+      "_idHint": "Unique identifier (lowercase, hyphens)",
+
+      "name": "Human Readable Name",
+      "_nameHint": "Display name shown to users",
+
+      "description": "What this template is for and who should use it",
+      "_descriptionHint": "Keep under 100 characters",
+
+      "category": "general",
+      "_categoryOptions": ["general", "security", "productivity", "educational", "team"],
+
+      "recommendedFor": ["intermediate"],
+      "_recommendedForOptions": ["beginner", "intermediate", "advanced", "expert"],
+
+      "sourceUrl": "https://raw.githubusercontent.com/your-org/templates/main/template-id.json",
+      "_sourceUrlHint": "Direct URL to the template JSON file (must be HTTPS)",
+
+      "version": "1.0.0",
+      "_versionHint": "Semantic version of this template",
+
+      "checksum": "sha256:...",
+      "_checksumHint": "SHA256 hash of template file for integrity verification",
+
+      "author": "template-author",
+      "_authorHint": "Who created this template",
+
+      "tags": ["tag1", "tag2"],
+      "_tagsHint": "Searchable keywords",
+
+      "downloads": 0,
+      "_downloadsHint": "Usage counter (optional, for popularity sorting)",
+
+      "rating": null,
+      "_ratingHint": "Community rating 0-5 (optional)",
+
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    }
+  ],
+
+  "metadata": {
+    "_comment": "Catalog metadata",
+
+    "totalTemplates": 1,
+    "categories": ["general"],
+
+    "contact": {
+      "email": null,
+      "github": null,
+      "website": null
+    },
+
+    "license": "MIT",
+    "_licenseHint": "License for templates in this catalog"
+  }
+}

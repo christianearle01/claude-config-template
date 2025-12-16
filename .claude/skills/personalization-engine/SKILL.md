@@ -2803,7 +2803,374 @@ Custom templates use the same format as built-in templates.
 
 ---
 
+## Operation 11: Remote Template Sources (v4.0.0)
+
+### Purpose
+
+Enable teams to share preference templates via git repositories or URLs without authentication complexity.
+
+### Core Concept: Git-Native Template Sharing
+
+Instead of building authentication, sync, and conflict resolution:
+- Templates are JSON files (already portable)
+- Share via git repos or raw URLs
+- Teams curate template catalogs
+- No server infrastructure needed
+
+### Key Concepts
+
+| Concept | Description |
+|---------|-------------|
+| **Remote Source** | URL pointing to a template catalog JSON file |
+| **Template Catalog** | JSON file listing available templates with metadata |
+| **Team Repository** | Git repo containing team's curated templates |
+
+### Triggers
+
+**Add Source:**
+- "Add template source [URL]"
+- "Add team templates from [URL]"
+- "Configure template source"
+
+**Browse:**
+- "Browse template catalog"
+- "List remote templates"
+- "Show available remote templates"
+- "What templates are available from [source]?"
+
+**Fetch/Import:**
+- "Import template from [URL]"
+- "Fetch [template-name] template"
+- "Download [template-name] from [source]"
+
+**Manage:**
+- "List template sources"
+- "Remove template source [name]"
+- "Refresh template sources"
+- "Check for template updates"
+
+### Algorithm
+
+```
+OPERATION 11: REMOTE TEMPLATE SOURCES
+
+1. ADD TEMPLATE SOURCE
+   Input: catalogUrl (HTTPS URL to catalog.json)
+
+   Steps:
+   a. Validate URL format
+      - Must be HTTPS (unless allowHttpSources = true)
+      - Must end in .json or be a valid URL
+
+   b. Fetch catalog JSON
+      - HTTP GET request to catalogUrl
+      - Parse JSON response
+
+   c. Validate catalog schema
+      - Must have $schema: "claude-template-catalog-v1"
+      - Must have templates array
+      - Check compatibility.minVersion
+
+   d. Store source in user preferences
+      - Add to remoteSources.sources array
+      - Generate unique source ID
+      - Record addedAt timestamp
+
+   e. Cache template metadata
+      - Store template list in remoteSources.cache
+      - Record lastRefreshed timestamp
+
+   Output: Success message with template count
+
+2. BROWSE CATALOG
+   Input: sourceId (optional, browse all if not specified)
+
+   Steps:
+   a. Read configured remote sources
+   b. For each source:
+      - Load cached template metadata
+      - Check if cache is stale (> refreshIntervalDays)
+      - Refresh if needed
+   c. Display templates with:
+      - Name and description
+      - Category and recommended level
+      - Version and status (available/installed)
+      - Source name
+   d. Show compatibility warnings
+
+   Output: Template listing table with actions
+
+3. FETCH REMOTE TEMPLATE
+   Input: templateId, sourceId
+
+   Steps:
+   a. Look up template in source catalog
+   b. Download template JSON from sourceUrl
+   c. Verify checksum (if provided)
+      - Calculate SHA256 of downloaded content
+      - Compare with catalog checksum
+      - Warn if mismatch
+   d. Validate template schema
+      - Must be claude-preferences-export-v1
+      - Check compatibility.minVersion/maxVersion
+   e. Store in ~/.claude/remote-templates/
+   f. Update local cache
+
+   Output: Template ready for import
+
+4. IMPORT REMOTE TEMPLATE
+   Input: templateId (fetched template)
+
+   Steps:
+   a. Load fetched template from cache
+   b. Use Operation 9 import mechanism:
+      - Show preview diff
+      - Create backup
+      - Apply with merge strategy
+   c. Track source URL in import history
+   d. Update template tracking
+
+   Output: Template applied with confirmation
+
+5. REFRESH SOURCES
+   Input: sourceId (optional, refresh all if not specified)
+
+   Steps:
+   a. For each source:
+      - Re-fetch catalog JSON
+      - Compare with cached version
+      - Identify new/updated templates
+   b. Update cache with new metadata
+   c. Check for version updates on installed templates
+   d. Report changes
+
+   Output: Update summary
+```
+
+### Template Catalog Schema
+
+```json
+{
+  "$schema": "claude-template-catalog-v1",
+  "version": "1.0.0",
+  "name": "Catalog Display Name",
+  "description": "What's in this catalog",
+  "maintainer": "team-or-person",
+  "lastUpdated": "ISO-8601 date",
+
+  "compatibility": {
+    "minVersion": "4.0.0"
+  },
+
+  "templates": [
+    {
+      "id": "unique-template-id",
+      "name": "Human Readable Name",
+      "description": "What this template does",
+      "category": "general|security|productivity|educational|team",
+      "recommendedFor": ["beginner", "intermediate", "advanced", "expert"],
+      "sourceUrl": "https://...template.json",
+      "version": "1.0.0",
+      "checksum": "sha256:...",
+      "author": "who-made-it",
+      "tags": ["searchable", "keywords"]
+    }
+  ]
+}
+```
+
+### Response Templates
+
+#### List Remote Sources
+```markdown
+## Configured Template Sources
+
+| Source | Templates | Last Updated | Status |
+|--------|-----------|--------------|--------|
+| **Official** (built-in) | 5 | bundled | Active |
+| **team-templates** | 3 | 2025-12-15 | Active |
+| **community** | 12 | 2025-12-10 | Active |
+
+**Total:** 20 templates available from 3 sources
+
+---
+
+**Actions:**
+- "Add template source [URL]"
+- "Browse template catalog"
+- "Refresh template sources"
+- "Remove template source [name]"
+```
+
+#### Browse Catalog
+```markdown
+## Available Templates
+
+### From: team-templates (github.com/team/templates)
+
+| Template | Category | Version | Status |
+|----------|----------|---------|--------|
+| **team-standard** | team | 1.2.0 | Available |
+| **team-security** | security | 1.0.0 | Available |
+| **frontend-react** | productivity | 1.1.0 | Installed |
+
+### From: Official (built-in)
+
+| Template | Category | Version | Status |
+|----------|----------|---------|--------|
+| **balanced** | general | 1.0.0 | Available |
+| **security-first** | security | 1.0.0 | Installed |
+
+---
+
+**Actions:**
+- "Import team-standard template"
+- "Compare team-standard with current"
+- "View template details team-standard"
+```
+
+#### Add Source Success
+```markdown
+## Template Source Added
+
+**Source:** team-templates
+**URL:** https://raw.githubusercontent.com/team/templates/main/catalog.json
+**Templates found:** 3
+
+| Template | Category |
+|----------|----------|
+| team-standard | team |
+| team-security | security |
+| frontend-react | productivity |
+
+---
+
+**Next steps:**
+- "Browse template catalog" to see all templates
+- "Import team-standard template" to apply one
+```
+
+#### Fetch Template
+```markdown
+## Template Fetched: team-standard
+
+**Source:** team-templates
+**Version:** 1.2.0
+**Checksum:** Verified
+
+**Ready to import.** This template will configure:
+- Confidence thresholds (balanced automation)
+- Commit style (conventional commits)
+- Security scanning (high threshold)
+
+---
+
+**Actions:**
+- "Import team-standard template" (preview before applying)
+- "Compare with current preferences"
+- "Cancel"
+```
+
+### Security Considerations
+
+**URL Validation:**
+- Only HTTPS sources by default
+- `allowHttpSources: false` in settings
+- Warn for non-HTTPS sources
+
+**Checksum Verification:**
+- SHA256 hash comparison
+- Warn if checksum missing
+- Fail if checksum mismatch
+
+**Preview Before Import:**
+- Show diff of what will change
+- Require confirmation
+- Create backup automatically
+
+**Audit Trail:**
+- Track source URL in import history
+- Record when templates were fetched
+- Log source additions/removals
+
+### User Preferences Schema
+
+```json
+{
+  "remoteSources": {
+    "enabled": true,
+    "sources": [
+      {
+        "id": "source-uuid",
+        "name": "team-templates",
+        "catalogUrl": "https://...",
+        "addedAt": "ISO date",
+        "lastFetched": "ISO date",
+        "templateCount": 3,
+        "trusted": false
+      }
+    ],
+    "cache": {
+      "lastRefreshed": "ISO date",
+      "templates": [ /* cached metadata */ ]
+    },
+    "settings": {
+      "autoRefresh": true,
+      "refreshIntervalDays": 7,
+      "verifyChecksums": true,
+      "allowHttpSources": false
+    }
+  }
+}
+```
+
+### Example Workflow
+
+**Team Lead Setup:**
+```
+1. Create git repo with team templates
+2. Add catalog.json listing templates
+3. Share URL with team
+```
+
+**Team Member Usage:**
+```
+User: "Add template source https://github.com/team/templates/catalog.json"
+Skill: Fetches catalog, validates, caches templates
+
+User: "Browse template catalog"
+Skill: Shows all available templates with status
+
+User: "Import team-standard template"
+Skill: Shows preview, creates backup, applies template
+```
+
+### Integration with Other Operations
+
+| Operation | Integration |
+|-----------|-------------|
+| Operation 9 (Import/Export) | Remote templates use same import mechanism |
+| Operation 10 (Templates) | Remote templates appear in template listing |
+| Operation 8 (Tuning) | Can suggest remote templates based on usage |
+
+### File Locations
+
+| Type | Location |
+|------|----------|
+| Remote template cache | `~/.claude/remote-templates/` |
+| Source configuration | `~/.claude/user-preferences.json` (remoteSources) |
+| Downloaded templates | `~/.claude/remote-templates/{source-id}/{template-id}.json` |
+
+---
+
 ## Version History
+
+- **v4.0.0** (2025-12-16): Remote Template Sources
+  - Operation 11: Team template sharing via URLs
+  - Template catalog schema (claude-template-catalog-v1)
+  - Add, browse, fetch, import remote templates
+  - Checksum verification for security
+  - Git-native sharing without authentication
 
 - **v3.14.0** (2025-12-16): Preference Templates
   - Operation 10: Pre-built preference configurations

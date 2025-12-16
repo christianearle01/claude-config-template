@@ -1,0 +1,83 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "your-team",
+  "sourceVersion": "4.0.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "team-standard",
+    "name": "Team Standard",
+    "description": "Our team's standard Claude Code configuration for consistent development practices",
+    "category": "team",
+    "recommendedFor": ["intermediate", "advanced"],
+    "version": "1.0.0",
+    "author": "your-team"
+  },
+
+  "compatibility": {
+    "minVersion": "3.8.0",
+    "maxVersion": "4.0.0"
+  },
+
+  "contents": {
+    "profile": {
+      "experienceLevel": "intermediate",
+      "proactivityLevel": "medium",
+      "preferredWorkflow": "wizard"
+    },
+
+    "confidenceThresholds": {
+      "autoApply": 95,
+      "suggestProminently": 75,
+      "showAsOptional": 50,
+      "hideBelow": 30
+    },
+
+    "learnedPreferences": {
+      "workflow": {
+        "preferred-commit-style": "conventional",
+        "preferred-branch-naming": "feature/"
+      },
+      "quality": {
+        "security-scan-threshold": "high",
+        "test-coverage-target": 80,
+        "lint-on-commit": true
+      },
+      "documentation": {
+        "auto-update-changelog": true
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "security-scanner": {
+        "showInfoLevel": true,
+        "autoFixLowRisk": false
+      },
+      "test-generator": {
+        "coverageReminders": true,
+        "generateMocks": true
+      },
+      "commit-readiness-checker": {
+        "requireChangelog": true,
+        "requireTests": false,
+        "conventionalCommits": true
+      },
+      "standards-enforcer": {
+        "strictMode": false,
+        "autoFormat": true
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "template-team-standard-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}

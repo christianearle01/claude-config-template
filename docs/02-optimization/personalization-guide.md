@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 3.14.0
+**Version:** 4.0.0
 **Last Updated:** 2025-12-16
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -25,6 +25,7 @@ This guide explains how the Personalization Engine works, how to customize your 
 14. [Cross-Project Intelligence](#cross-project-intelligence-v3120) (v3.12.0)
 15. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
 16. [Preference Templates](#preference-templates-v3140) (v3.14.0)
+17. [Remote Template Sources](#remote-template-sources-v400) (v4.0.0)
 
 ---
 
@@ -1139,6 +1140,96 @@ Others can then import your template:
 
 ---
 
+## Remote Template Sources (v4.0.0)
+
+### Overview
+
+Share templates across teams using git repositories or URLs. No authentication required - templates are just JSON files.
+
+**Key Concept:** Git-native template sharing
+- Templates are portable JSON files
+- Share via git repos or raw URLs
+- Teams curate template catalogs
+- No server infrastructure needed
+
+### Adding a Template Source
+
+Add a team or community template catalog:
+
+```
+"Add template source https://raw.githubusercontent.com/your-team/templates/main/catalog.json"
+```
+
+### Browsing Available Templates
+
+View all templates from configured sources:
+
+```
+"Browse template catalog"
+"List remote templates"
+"What templates are available?"
+```
+
+### Importing Remote Templates
+
+Fetch and apply a template from a remote source:
+
+```
+"Import team-standard template"
+"Fetch security-template from team-source"
+```
+
+### Managing Sources
+
+```
+"List template sources"
+"Remove template source [name]"
+"Refresh template sources"
+```
+
+### Creating a Team Template Catalog
+
+**Step 1:** Create a git repository with your templates
+
+**Step 2:** Add a `catalog.json`:
+```json
+{
+  "$schema": "claude-template-catalog-v1",
+  "name": "Your Team Templates",
+  "templates": [
+    {
+      "id": "team-standard",
+      "name": "Team Standard",
+      "sourceUrl": "./team-standard.json",
+      "version": "1.0.0"
+    }
+  ]
+}
+```
+
+**Step 3:** Share the raw URL with your team
+
+See `examples/team-templates/` for a complete example.
+
+### Security
+
+| Feature | Description |
+|---------|-------------|
+| **HTTPS Only** | Only HTTPS sources allowed by default |
+| **Checksum Verification** | SHA256 hash validation |
+| **Preview Before Import** | See changes before applying |
+| **Full Audit Trail** | Track all source additions and imports |
+
+### Template Catalog Comparison
+
+| Source Type | Best For |
+|-------------|----------|
+| Built-in templates | Quick start, common patterns |
+| Team catalog | Organization standards |
+| Community catalog | Discovering new configurations |
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -1172,6 +1263,11 @@ Others can then import your template:
 | `Show cross-project insights` | View established patterns |
 | `Propagate [setting] to [projects]` | Apply pattern across projects |
 | `Show consistency report` | View divergences |
+| `Add template source [URL]` | Add remote template catalog |
+| `Browse template catalog` | View all remote templates |
+| `List template sources` | Show configured sources |
+| `Remove template source [name]` | Remove a source |
+| `Refresh template sources` | Check for updates |
 
 ### Proactivity Quick Guide
 

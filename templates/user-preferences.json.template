@@ -405,6 +405,44 @@
     }
   },
 
+  "remoteSources": {
+    "_comment": "Remote template source configuration (v4.0.0)",
+
+    "enabled": true,
+    "_enabledHint": "Set to false to disable remote template fetching",
+
+    "sources": [],
+    "_sourcesSchema": {
+      "id": "unique-source-id",
+      "name": "Human-readable name",
+      "catalogUrl": "URL to catalog JSON",
+      "addedAt": "ISO date",
+      "lastFetched": "ISO date",
+      "templateCount": 0,
+      "trusted": false
+    },
+
+    "cache": {
+      "_comment": "Local cache of remote template metadata",
+      "lastRefreshed": null,
+      "templates": []
+    },
+
+    "settings": {
+      "autoRefresh": true,
+      "_autoRefreshHint": "Automatically check for updates",
+
+      "refreshIntervalDays": 7,
+      "_refreshIntervalHint": "Days between automatic refresh",
+
+      "verifyChecksums": true,
+      "_verifyChecksumsHint": "Verify template integrity (recommended)",
+
+      "allowHttpSources": false,
+      "_allowHttpHint": "Only allow HTTPS sources (security)"
+    }
+  },
+
   "backup": {
     "_comment": "Backup information - skills create backups before major changes",
     "lastBackup": null,
