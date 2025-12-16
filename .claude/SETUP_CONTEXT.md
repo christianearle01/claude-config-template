@@ -16,9 +16,10 @@
 3. Persona-based setup → 5 user profiles (60s to 120min paths)
 4. Visual guides → 40% cognitive load reduction
 5. Interactive wizards → Validated setup with knowledge checks
-6. Package security (OPTIONAL) → Malware protection for npm/Python projects
+6. Template system (v4.0-v4.5) → Apply team configs with one command
+7. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.4.1
+**Current Version:** v4.5.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/UPDATE_GUIDE.md) for quick commands
 
