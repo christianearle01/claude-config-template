@@ -9,6 +9,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.15.0] - 2025-12-16
+
+### Changed - Consolidation: Documentation Sync & Polish
+
+**Purpose:** Clean foundation before v4.0.0. Fix technical debt accumulated during v3.8-v3.14 rapid development.
+
+#### Documentation Links Fixed
+
+**docs/README.md** - 11 "coming soon" items updated to actual links:
+- Verification & Debugging → `01-fundamentals/VERIFICATION_DEBUGGING.md`
+- Keyboard Shortcuts → `01-fundamentals/KEYBOARD_SHORTCUTS.md`
+- Prompt Caching Guide → `02-optimization/PROMPT_CACHING_GUIDE.md`
+- MCP Optimization → `02-optimization/MCP_OPTIMIZATION_GUIDE.md`
+- Environment Variables → `02-optimization/ENVIRONMENT_VARIABLES.md`
+- Advanced MCP Workflows → `03-advanced/ADVANCED_MCP_WORKFLOWS.md`
+- Sub-agent Best Practices → `03-advanced/SUBAGENT_BEST_PRACTICES.md`
+- Conversation Branching → `03-advanced/CONVERSATION_BRANCHING.md`
+- Vision Optimization → `03-advanced/VISION_OPTIMIZATION.md`
+- Third-Party MCPs → `04-ecosystem/THIRD_PARTY_MCPS.md`
+- Plugins Guide → `04-ecosystem/PLUGINS_GUIDE.md`
+
+**README.md** - Broken paths fixed:
+- 4x VISUAL_QUICKSTART paths corrected (`docs/` → `docs/00-start-here/`)
+- UPDATE_GUIDE path corrected (`UPDATE_GUIDE.md` → `docs/04-ecosystem/UPDATE_GUIDE.md`)
+
+**01_global-setup/nice-to-have/03_agent-coordination.md**:
+- SKILLS_PARADIGM path corrected (`docs/` → `docs/00-start-here/`)
+
+#### New Files
+
+**docs/00-start-here/ENTRY_POINTS.md** (~70 lines)
+- Navigation hub for docs/00-start-here/
+- Entry points by time, goal, and experience level
+- File index with descriptions
+
+**examples/README.md** (~100 lines)
+- Master index of all example directories
+- Usage instructions
+- Directory descriptions
+
+#### Version Updates
+
+**docs/00-start-here/START_HERE.md**:
+- Footer version: v2.6.0 → v3.15.0
+- Last updated date refreshed
+
+#### Summary
+
+| Category | Fixes |
+|----------|-------|
+| "Coming soon" → actual links | 11 |
+| Broken path fixes | 6 |
+| New navigation files | 2 |
+| Version sync updates | 1 |
+
+**Total:** 20 documentation fixes, 2 new files
+
+---
+
 ## [3.14.0] - 2025-12-16
 
 ### Added - Preference Templates: Quick Start Configurations

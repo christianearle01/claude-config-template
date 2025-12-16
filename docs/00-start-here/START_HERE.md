@@ -527,7 +527,7 @@ Scroll up to [Quick Reference Card](#quick-reference-card) ↑
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v3.15.0*
 
-**Last Updated:** 2025-12-08
+**Last Updated:** 2025-12-16
 **Persona-Based Routing:** ✅ Active
