@@ -719,16 +719,308 @@ When user accepts/rejects/skips a suggestion:
 
 ---
 
+## Operation 6: Project Preferences (v3.9.0)
+
+**User Queries:**
+- "Show project preferences"
+- "Set project proactivity to high"
+- "Override security threshold for this project"
+- "Create project preferences file"
+- "Why is this project using different settings?"
+- "Show effective preferences" (merged view)
+
+### The Project Override Problem
+
+**Global preferences don't fit all projects:**
+- Security-critical project needs stricter thresholds
+- Learning project wants more suggestions
+- Legacy project has different coding standards
+- Team project needs shared conventions
+
+**Solution:** Project-level preference overrides that merge with global.
+
+### Merge Logic
+
+```
+Final Preference = Global + Project Override
+
+Merge Rules:
+1. Project values override global values
+2. Unspecified values inherit from global
+3. Deep merge for nested objects
+4. Arrays are replaced (not merged)
+
+Example:
+Global: { proactivityLevel: "medium", autoApply: 95, hideBelow: 30 }
+Project: { proactivityLevel: "high" }
+Result: { proactivityLevel: "high", autoApply: 95, hideBelow: 30 }
+```
+
+### File Locations
+
+```
+Global (personal):
+~/.claude/user-preferences.json
+
+Project (shared with team):
+.claude/project-preferences.json
+
+Reading order:
+1. Read global preferences
+2. Check for project preferences
+3. Deep merge (project wins)
+4. Return effective preferences
+```
+
+### Creating Project Preferences
+
+**User says:** "Create project preferences for this project"
+
+**Steps:**
+1. Check if `.claude/project-preferences.json` exists
+2. If not, create from template with sensible defaults
+3. Prompt user for key overrides (proactivity, security level)
+4. Save to `.claude/project-preferences.json`
+
+**Response:**
+
+```markdown
+## Project Preferences Created
+
+**File:** .claude/project-preferences.json
+
+I've created a project preferences file with:
+- Sparse format (only overrides, inherits rest from global)
+- Reason fields for documentation
+- Project context section
+
+**Current Overrides:** None (using all global settings)
+
+**To customize:**
+- "Set project proactivity to high"
+- "Set project autoApply threshold to 98%"
+- "Enable strict security scanning for this project"
+
+**Team sharing:**
+This file can be committed to git so your team shares the same AI behavior.
+```
+
+### Viewing Project Preferences
+
+**User says:** "Show project preferences"
+
+**Response Template:**
+
+```markdown
+## Project Preferences: claude-config-template
+
+**Status:** Project overrides active
+**File:** .claude/project-preferences.json
+
+---
+
+### Overrides from Global
+
+| Setting | Global | Project | Reason |
+|---------|--------|---------|--------|
+| proactivityLevel | medium | high | Documentation project - want thorough suggestions |
+| autoApply | 95% | 98% | Be conservative with auto-changes |
+| security.showInfoLevel | false | true | Show all security findings |
+
+---
+
+### Inherited from Global (no override)
+
+- Experience level: intermediate
+- Primary languages: typescript, python
+- suggestProminently: 75%
+- showAsOptional: 50%
+- hideBelow: 30%
+
+---
+
+### Project Context
+
+**Tech Stack:**
+- Languages: TypeScript, Markdown
+- Frameworks: None (documentation project)
+- Testing: None
+
+**Priorities:**
+- Security: medium
+- Documentation: high
+- Performance: low
+
+---
+
+**To modify:** "Set project [setting] to [value]"
+**To remove override:** "Remove project override for [setting]"
+**To delete all:** "Delete project preferences"
+```
+
+### Viewing Effective Preferences
+
+**User says:** "Show effective preferences" or "What settings am I actually using?"
+
+**Response Template:**
+
+```markdown
+## Effective Preferences (Merged View)
+
+**Source:** Global + Project overrides
+
+---
+
+### Profile
+| Setting | Value | Source |
+|---------|-------|--------|
+| experienceLevel | intermediate | Global |
+| proactivityLevel | high | **Project** |
+| primaryLanguages | typescript, python | Global |
+
+### Confidence Thresholds
+| Threshold | Value | Source |
+|-----------|-------|--------|
+| autoApply | 98% | **Project** |
+| suggestProminently | 75% | Global |
+| showAsOptional | 50% | Global |
+| hideBelow | 30% | Global |
+
+### Skill Settings
+| Skill | Setting | Value | Source |
+|-------|---------|-------|--------|
+| security-scanner | showInfoLevel | true | **Project** |
+| test-generator | coverageTarget | 80% | Global |
+
+---
+
+**Legend:**
+- Global = From ~/.claude/user-preferences.json
+- **Project** = Override from .claude/project-preferences.json
+```
+
+### Modifying Project Preferences
+
+**User says:** "Set project proactivity to low"
+
+**Steps:**
+1. Load current project preferences (or create if not exists)
+2. Set `overrides.profile.proactivityLevel = "low"`
+3. Add reason field if user provides one
+4. Save to `.claude/project-preferences.json`
+
+**Response:**
+
+```markdown
+✅ Updated project preference
+
+**Setting:** proactivityLevel
+**Global value:** medium
+**Project override:** low
+
+**Reason:** (none provided)
+
+To add a reason: "Set project proactivity reason to 'Security-critical project'"
+
+**Effective value for this project:** low
+```
+
+### Removing Project Override
+
+**User says:** "Remove project override for proactivity"
+
+**Steps:**
+1. Load project preferences
+2. Delete `overrides.profile.proactivityLevel`
+3. Save changes
+
+**Response:**
+
+```markdown
+✅ Removed project override
+
+**Setting:** proactivityLevel
+**Was:** low (project override)
+**Now:** medium (global default)
+
+This project will now use your global proactivity setting.
+```
+
+### Deleting Project Preferences
+
+**User says:** "Delete project preferences"
+
+**Response:**
+
+```markdown
+⚠️ Delete Project Preferences
+
+This will:
+- Delete .claude/project-preferences.json
+- Revert to using global preferences only
+- Remove all project-specific overrides
+
+**Backup:** I'll create .claude/project-preferences.json.backup first
+
+Are you sure? Say "confirm delete project preferences" to proceed.
+```
+
+### Project Context
+
+The `projectContext` section provides hints to skills:
+
+```json
+{
+  "projectContext": {
+    "techStack": {
+      "languages": ["typescript"],
+      "frameworks": ["react"],
+      "testing": ["jest"]
+    },
+    "priorities": {
+      "security": "high",
+      "performance": "medium"
+    }
+  }
+}
+```
+
+**How skills use this:**
+- **test-generator:** Uses `testing` to choose framework
+- **security-scanner:** Uses `security` priority to adjust thoroughness
+- **standards-enforcer:** Uses `techStack` for language-specific rules
+
+### Team Sharing
+
+**Key difference from global preferences:**
+
+| Aspect | Global Preferences | Project Preferences |
+|--------|-------------------|---------------------|
+| Location | `~/.claude/` | `.claude/` in project |
+| Scope | All projects | This project only |
+| Git | Not committed | Can be committed |
+| Sharing | Personal only | Team can share |
+| Privacy | Private settings | Shared conventions |
+
+**Recommendation:** Commit `.claude/project-preferences.json` to git so your team uses the same AI behavior.
+
+---
+
 ## File Structure
 
 ```
 ~/.claude/
-├── user-preferences.json       # Main preferences file
-├── user-preferences.json.backup # Auto-backup before changes
+├── user-preferences.json         # Global preferences (personal)
+├── user-preferences.json.backup  # Auto-backup before changes
 └── ...
 
-Template location:
-templates/user-preferences.json.template
+<project-root>/.claude/
+├── project-preferences.json      # Project overrides (team-shareable)
+└── ...
+
+Templates:
+├── templates/user-preferences.json.template
+└── templates/project-preferences.json.template
 ```
 
 ---
@@ -842,6 +1134,10 @@ rm ~/.claude/user-preferences.json.backup
 | "Don't show [item] again" | Permanently hide item |
 | "Reset [item] preference" | Clear learned preference |
 | "Reset all preferences" | Full reset (with backup) |
+| "Show project preferences" | Display project overrides |
+| "Set project [setting] to [value]" | Create/update project override |
+| "Show effective preferences" | Display merged view |
+| "Delete project preferences" | Remove project overrides |
 
 ### Proactivity Levels
 
@@ -863,6 +1159,13 @@ rm ~/.claude/user-preferences.json.backup
 ---
 
 ## Version History
+
+- **v3.9.0** (2025-12-15): Project-level preferences
+  - Operation 6: Project preferences management
+  - Merge logic (project overrides global)
+  - project-preferences.json.template
+  - Team sharing support (committable to git)
+  - Effective preferences view (merged)
 
 - **v3.8.0** (2025-12-15): Initial implementation
   - Core operations: Read, Update, Thresholds, Analytics

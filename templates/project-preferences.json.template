@@ -1,0 +1,158 @@
+{
+  "$schema": "https://github.com/christianearle01/claude-config-template/blob/main/templates/project-preferences-schema.json",
+  "_comment": "Project-level preference overrides - merges with ~/.claude/user-preferences.json",
+  "_documentation": "https://github.com/christianearle01/claude-config-template/blob/main/docs/02-optimization/personalization-guide.md#project-level-preferences",
+  "_version": "3.9.0",
+
+  "version": "3.9.0",
+  "projectName": "my-project",
+  "description": "Optional description of why these overrides exist",
+
+  "overrides": {
+    "_comment": "Only include settings you want to override from global preferences. Unspecified settings inherit from global.",
+
+    "profile": {
+      "_comment": "Override profile settings for this project",
+      "_example": {
+        "proactivityLevel": "high",
+        "_reason": "Learning project - want more suggestions"
+      }
+    },
+
+    "confidenceThresholds": {
+      "_comment": "Override confidence thresholds for this project",
+      "_example": {
+        "autoApply": 98,
+        "_reason": "Security-critical - be more conservative"
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "_comment": "Override skill-specific settings for this project",
+
+      "security-scanner": {
+        "_example": {
+          "showInfoLevel": true,
+          "_reason": "This project needs thorough security review"
+        }
+      },
+
+      "test-generator": {
+        "_example": {
+          "coverageTarget": 90,
+          "_reason": "Higher coverage requirement for this project"
+        }
+      },
+
+      "standards-enforcer": {
+        "_example": {
+          "strictMode": true,
+          "_reason": "Enforce stricter standards for production code"
+        }
+      }
+    }
+  },
+
+  "projectContext": {
+    "_comment": "Project-specific context that helps skills make better suggestions",
+
+    "techStack": {
+      "_comment": "Technologies used in this project",
+      "languages": [],
+      "_languagesHint": "e.g., ['typescript', 'python', 'go']",
+
+      "frameworks": [],
+      "_frameworksHint": "e.g., ['react', 'fastapi', 'express']",
+
+      "testing": [],
+      "_testingHint": "e.g., ['jest', 'pytest', 'go test']",
+
+      "database": null,
+      "_databaseHint": "e.g., 'postgresql', 'mongodb', 'redis'",
+
+      "infrastructure": [],
+      "_infrastructureHint": "e.g., ['docker', 'kubernetes', 'aws']"
+    },
+
+    "conventions": {
+      "_comment": "Project coding conventions",
+
+      "commitStyle": null,
+      "_commitStyleOptions": ["conventional", "semantic", "simple", "gitmoji"],
+
+      "branchNaming": null,
+      "_branchNamingOptions": ["feature/", "feat/", "fix/", "custom pattern"],
+
+      "codeStyle": null,
+      "_codeStyleOptions": ["functional", "oop", "mixed"],
+
+      "testingPattern": null,
+      "_testingPatternOptions": ["tdd", "bdd", "integration-first", "unit-first"]
+    },
+
+    "priorities": {
+      "_comment": "Project priorities (affects suggestion ordering)",
+
+      "security": "medium",
+      "_securityOptions": ["critical", "high", "medium", "low"],
+
+      "performance": "medium",
+      "_performanceOptions": ["critical", "high", "medium", "low"],
+
+      "documentation": "medium",
+      "_documentationOptions": ["critical", "high", "medium", "low"],
+
+      "testCoverage": "medium",
+      "_testCoverageOptions": ["critical", "high", "medium", "low"]
+    },
+
+    "constraints": {
+      "_comment": "Project constraints that affect suggestions",
+
+      "legacyCode": false,
+      "_legacyCodeHint": "Set true if working with legacy codebase",
+
+      "strictDeadline": false,
+      "_strictDeadlineHint": "Set true to prioritize speed over thoroughness",
+
+      "regulatoryCompliance": [],
+      "_regulatoryComplianceHint": "e.g., ['hipaa', 'gdpr', 'pci-dss', 'sox']"
+    }
+  },
+
+  "disabledSkills": [],
+  "_disabledSkillsHint": "Skills to disable for this project (e.g., ['test-generator'] if using different testing approach)",
+
+  "enabledSkillsOnly": [],
+  "_enabledSkillsOnlyHint": "If non-empty, ONLY these skills are enabled (whitelist mode)",
+
+  "customTriggers": {
+    "_comment": "Custom auto-activation rules for this project",
+    "_example": {
+      "security-scanner": {
+        "autoRunBefore": ["commit", "push"],
+        "autoRunOn": ["*.ts", "*.py"]
+      }
+    }
+  },
+
+  "teamSettings": {
+    "_comment": "Settings for team collaboration",
+
+    "sharedWith": [],
+    "_sharedWithHint": "Team members who should use these preferences",
+
+    "owner": null,
+    "_ownerHint": "Who maintains these project preferences",
+
+    "lastReviewedBy": null,
+    "lastReviewedAt": null
+  },
+
+  "metadata": {
+    "createdAt": "2025-12-15T00:00:00Z",
+    "lastUpdated": "2025-12-15T00:00:00Z",
+    "createdBy": "personalization-engine",
+    "schemaVersion": "1.0"
+  }
+}

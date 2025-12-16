@@ -9,6 +9,71 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.9.0] - 2025-12-16
+
+### Added - Project-Level Preferences: Per-Project Customization
+
+**Core Enhancement:** Override global preferences per project for tailored AI assistance.
+
+#### The Problem Solved
+
+Global preferences don't fit all projects:
+- Security-critical project needs stricter thresholds
+- Learning project wants more suggestions
+- Legacy project has different coding standards
+- Team project needs shared conventions
+
+**Solution:** Project-level preference overrides that merge with global.
+
+#### 1 New Template Created
+
+**Project Preferences Schema** (`templates/project-preferences.json.template`, ~150 lines)
+- Sparse override format (only specify what differs)
+- Reason fields for documentation
+- Project context section (tech stack, priorities)
+- Team sharing support (committable to git)
+- Disabled/enabled skills configuration
+
+#### Updated Skill
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`)
+- Operation 6: Project preferences management
+- Merge logic (project overrides global)
+- Create/read/update/delete project preferences
+- Show effective preferences (merged view)
+- Project context hints for skills
+
+#### Updated Documentation
+
+**Personalization Guide** (`docs/02-optimization/personalization-guide.md`)
+- New section: Project-Level Preferences
+- Override examples (security-critical, learning project)
+- Merge behavior explanation
+- Team sharing guidance
+- Updated commands reference
+
+#### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Sparse Format | Only specify what differs from global |
+| Merge Logic | Project values override global, deep merge |
+| Team Sharing | Commit `.claude/project-preferences.json` to git |
+| Project Context | Tech stack, priorities help skills adapt |
+| Reason Fields | Document WHY overrides exist |
+
+#### Files Changed
+
+- Added: `templates/project-preferences.json.template`
+- Updated: `.claude/skills/personalization-engine/SKILL.md` (+300 lines)
+- Updated: `docs/02-optimization/personalization-guide.md` (+150 lines)
+- Updated: `version.json`
+- Updated: `CHANGELOG.md`
+
+**Total new content:** ~600 lines
+
+---
+
 ## [3.8.0] - 2025-12-15
 
 ### Added - Personalization Engine: Learning User Preferences
