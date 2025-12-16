@@ -19,7 +19,7 @@
 6. Template system (v4.0-v4.5) → Apply team configs with one command
 7. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.10.0
+**Current Version:** v4.10.1
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
@@ -280,35 +280,48 @@ cd ~/claude-config-template
 
 ### Task 8: "Which skills should I use?"
 
-**Quick Answer:** See .claude/skills/SKILLS_CATALOG.md (organized by experience level)
+**Quick Answer:** See .claude/skills/SKILLS_CATALOG.md (case study from this template)
+
+**IMPORTANT:** The 19 skills are EXAMPLES from this template's workflow, not universal requirements.
+
+**This template is documentation-heavy:**
+- 87 markdown files with 11 Mermaid diagrams → mermaid-validator exists
+- Weekly releases → version-management exists
+- Meta-work (skills about skills) → workflow-analyzer exists
+
+**Your project is different:**
+- API-only project? Skip mermaid-validator (no diagrams)
+- No releases? version-management less critical
+- Use **workflow-analyzer** to discover YOUR patterns
+
+**The Meta-Skill (Start Here):**
+**workflow-analyzer** - The truly universal skill
+- Analyzes YOUR git commits
+- Detects YOUR patterns (repeated tasks, token waste)
+- Suggests skills based on YOUR workflow
+- ROI calculation: "Is this pattern worth automating?"
 
 **Skills Catalog Structure:**
-1. **🆕 Foundation Skills** (3 skills) - Essential, start here
-   - Universal applicability (all projects)
-   - Skills: version-management, commit-readiness-checker
+1. **🆕 Foundation Skills** (3 skills) - Essential starting point
+   - version-management, commit-readiness-checker, workflow-analyzer
 
-2. **⚡ Optimization Skills** (10 skills) - Choose by project type
-   - Project-specific improvements
+2. **⚡ Optimization Skills** (10 skills) - Choose by YOUR project type
    - Documentation: documentation-sync-checker, mermaid-validator
-   - Frontend: component-finder
-   - Domain Memory: project-analyzer
    - TDD: testing-workflow, test-generator
    - API: api-debugging, security-scanner
+   - Frontend: component-finder
    - Team: standards-enforcer, mode-selector
+   - Domain Memory: project-analyzer
 
-3. **🚀 Strategic Skills** (6 skills) - Power users
-   - Meta-skills: workflow-analyzer, personalization-engine
-   - Setup automation: project-onboarding-assistant, global-setup-assistant
-   - Planning: pre-project-planning-assistant
-   - Multi-project: projects-registry, skill-template-generator
+3. **🚀 Strategic Skills** (6 skills) - Power users (meta-skills)
+   - workflow-analyzer, personalization-engine, project-onboarding-assistant
+   - global-setup-assistant, pre-project-planning-assistant, projects-registry
 
-**Quick Start by Project Type:**
-- **First-time:** version-management + commit-readiness-checker
-- **Documentation:** + documentation-sync-checker + mermaid-validator (optional)
-- **TDD projects:** + testing-workflow + test-generator
-- **API projects:** + api-debugging + security-scanner
-- **Frontend:** + component-finder
-- **Team:** + standards-enforcer + personalization-engine
+**The Methodology > The List:**
+- ✅ Learn: HOW to detect patterns (workflow-analyzer teaches this)
+- ✅ Learn: WHEN to create skills (ROI > 3 uses, >500 tokens saved)
+- ❌ Don't: Copy all 19 blindly
+- ❌ Don't: Assume these are universal
 
 **Skills Auto-Activate:** Just ask naturally, no configuration needed
 

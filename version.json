@@ -1,7 +1,7 @@
 {
-  "version": "4.10.0",
+  "version": "4.10.1",
   "release_date": "2025-12-17",
-  "release_name": "Skills Catalog - Progressive Disclosure by Experience Level",
+  "release_name": "Skills Catalog Context Clarification - Emergent vs Prescriptive",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",

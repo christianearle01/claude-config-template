@@ -23,7 +23,7 @@
 |------|-------------|
 | **Avoid disasters** | [Anti-Patterns](05_anti-patterns.md) - Read this first! |
 | **Choose a setup path** | [Visual Quickstart](07_visual-quickstart.md) |
-| **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Organized by experience level |
+| **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Case study: how skills emerged from THIS project |
 | **Understand the concepts** | [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) |
 | **Find specific features** | [Quick Reference](09_quick-reference.md) |
 | **Learn progressively** | [Learning Stages](12_learning-stages.md) |

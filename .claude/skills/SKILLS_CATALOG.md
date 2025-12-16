@@ -7,6 +7,62 @@
 
 ---
 
+## 🎯 These Are EXAMPLE Skills, Not Universal Requirements
+
+### This Template is a Documentation-Heavy Project
+
+**Context that created these 19 skills:**
+- 87 markdown files with 11 Mermaid diagrams
+- Weekly releases (heavy version management)
+- Meta-work (creating skills about skills, documentation about skills)
+- Template maintenance (cross-project registry, inheritance, validation)
+
+**Your project is different. Don't cargo-cult.**
+
+### The Methodology > The Skills
+
+**What to learn from this catalog:**
+1. ✅ HOW to detect patterns (workflow-analyzer found 26% Mermaid waste)
+2. ✅ WHEN to create skills (ROI > 3 uses, >500 tokens saved)
+3. ✅ HOW to measure impact (before/after token counts)
+
+**What NOT to do:**
+1. ❌ Copy all 19 skills blindly
+2. ❌ Assume these are universal requirements
+3. ❌ Skip workflow-analyzer (it's the real skill)
+
+### Example: mermaid-validator Origin Story
+
+**Pattern detected:** 13 Mermaid fix commits in 50 commits (26% waste)
+**ROI calculated:** 4,900 tokens saved per validation batch (94% reduction)
+**Decision:** Create the skill (payback immediate)
+**Context:** This project is documentation-heavy with 87 MD files
+
+**Your project:** If you have 0 Mermaid diagrams, you need 0 mermaid-validator.
+
+### Start with the Meta-Skill: workflow-analyzer
+
+**The only truly universal skill: workflow-analyzer**
+
+It will tell you:
+- "You have 10 API debugging commits → consider api-debugging skill"
+- "You have 0 Mermaid commits → skip mermaid-validator"
+- "You have 5 version bumps → version-management makes sense"
+
+Let YOUR workflow tell you what skills YOU need.
+
+### Skills Are Emergent, Not Prescriptive
+
+This catalog is:
+- ✅ A case study (how skills emerged HERE)
+- ✅ A methodology demonstration (detect → calculate ROI → create → measure)
+- ❌ NOT a checklist (don't install all 19)
+- ❌ NOT universal requirements (context matters)
+
+**The lesson:** Use workflow-analyzer monthly to discover YOUR patterns.
+
+---
+
 ## 🆕 Foundation Skills (Start Here)
 
 **For:** First-time users, essential for all projects

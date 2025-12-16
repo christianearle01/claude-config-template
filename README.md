@@ -126,11 +126,12 @@ _Metrics and examples throughout this documentation are theoretical projections,
 - Prompt Polisher - Projected 50-80% token savings
 - Project Planner - Plan before coding
 
-**💡 Skills Catalog** (19 skills, 3 experience levels)
+**💡 Skills Catalog** (19 example skills, 3 experience levels)
 - Foundation skills (3) - Essential for all projects
-- Optimization skills (10) - Workflow-specific improvements
+- Optimization skills (10) - Workflow-specific improvements (choose by project type)
 - Strategic skills (6) - Meta-skills and automation
-- Organized catalog prevents choice overload
+- Case study from this template's workflow (documentation-heavy, meta-work)
+- Organized catalog prevents choice overload, teaches skill discovery methodology
 
 **⚙️ Configuration**
 - Optimized settings.json

@@ -9,6 +9,102 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.10.1] - 2025-12-17
+
+### Added - Context Warning: Skills as Case Study, Not Prescription
+
+**Core Problem Solved:**
+- Cargo-culting risk: Users might blindly adopt all 19 skills
+- Authority bias: "Template has it, so I need it"
+- Missing context: Skills are examples from THIS project, not universal requirements
+- Loss aversion: "What if I skip mermaid-validator and regret it?"
+
+**Reality Check:**
+- mermaid-validator exists because THIS project has 87 MD files with 11 Mermaid diagrams
+- Your API-only project? Zero Mermaid diagrams = zero need for mermaid-validator
+- Skills are emergent (discovered from patterns), not prescriptive (universal checklist)
+
+**New Warning Section** (`.claude/skills/SKILLS_CATALOG.md` - added after intro)
+- Prominent context: "These are EXAMPLE skills from this template's workflow"
+- Template context explained: 87 MD files, weekly releases, meta-work (skills about skills)
+- Methodology > Skills: Learn HOW to detect patterns, not WHAT to copy
+- mermaid-validator origin story: 13 Mermaid fix commits → 26% waste → 4,900 tokens saved → skill created
+- workflow-analyzer as meta-skill: The truly universal skill that teaches discovery
+- Skills are emergent: Case study, methodology demonstration, NOT checklist
+
+**Warning Content Structure:**
+1. **This Template is Documentation-Heavy** - Explains context
+2. **The Methodology > The Skills** - What to learn (✅) vs what NOT to do (❌)
+3. **Example: mermaid-validator Origin Story** - Demonstrates the process
+4. **Start with the Meta-Skill** - workflow-analyzer teaches discovery
+5. **Skills Are Emergent, Not Prescriptive** - Case study framing
+
+**Documentation Updates:**
+- README.md: "19 example skills" + "Case study from this template's workflow"
+- SETUP_CONTEXT.md: Task 8 extensively rewritten
+  - IMPORTANT callout: "19 skills are EXAMPLES, not universal requirements"
+  - Template context: Documentation-heavy, weekly releases, meta-work
+  - "Your project is different" examples (API-only, no releases)
+  - workflow-analyzer emphasized as meta-skill (start here)
+  - "The Methodology > The List" section
+- Entry points: "Skills Catalog" → "Case study: how skills emerged from THIS project"
+
+**Three-Perspective Analysis:**
+
+**🧠 Psychological: Authority Bias**
+- Users see template as authority, assume they need all 19 skills
+- Loss aversion: Fear of missing critical skills
+- Fix: Invert authority - "I discovered, YOU discover yours"
+
+**📚 Educator: Decontextualized Knowledge**
+- Template IS worked example (emergent skill creation)
+- But teaching as decontextualized list (static skills)
+- workflow-analyzer IS the curriculum (teaches methodology)
+- Other 18 skills are examples of applying that methodology
+
+**💻 Software Engineer: Static Catalog vs Dynamic Discovery**
+- Built static catalog for dynamic system (skills are emergent)
+- This project is outlier: needs MORE skills (teaching methodology = meta-work)
+- Anti-pattern: Shipping pre-installed packages vs teaching users to build their own
+
+**Coordinated Insight:**
+"The catalog teaches right methodology (emergent skill creation) but risks being interpreted as prescription (static skill list). The fix: Make context explicit."
+
+**Tone:** Empowering, not cautionary
+- 🎯 emoji (not ⚠️) - positive framing
+- "Learn the methodology, discover your own skills!"
+- Not: "Don't cargo-cult!" (negative framing)
+
+**Expected Impact:**
+- Reduced cargo-culting: Users skip irrelevant skills confidently
+- Increased autonomy: "MY workflow tells me what I need"
+- Transfer learning: Users apply methodology to their projects
+- Meta-cognition: Users understand WHY skills exist, not just WHAT they do
+
+**The Meta-Lesson:**
+The template demonstrates emergent skills, not universal skills. workflow-analyzer is the real skill - it teaches users to discover their own patterns. The catalog is a case study showing the methodology in action.
+
+**Files Modified:**
+- .claude/skills/SKILLS_CATALOG.md: Added warning section (50 lines)
+- README.md: Clarified "example skills" + case study framing
+- .claude/SETUP_CONTEXT.md: Task 8 rewritten with IMPORTANT callout
+- docs/00-start-here/01_entry-points.md: Updated catalog link description
+
+**Files Removed:**
+- .claude/skills-catalog.json: Removed unused JSON catalog (maintenance burden without value)
+- scripts/generate-skills-catalog.sh: Removed generator script (manually maintaining markdown catalog)
+
+**Template Completeness:**
+- ✅ Tools layer: Agents, Commands, Skills
+- ✅ Techniques layer: 10× prompting methods
+- ✅ Workflows layer: 4-layer integration
+- ✅ Quality layer: Anti-patterns, footers
+- ✅ Decision-making layer: Mode selection
+- ✅ Progressive disclosure layer: Skills catalog
+- ✅ **Meta-cognition layer: Context awareness** ← NEW
+
+---
+
 ## [4.10.0] - 2025-12-17
 
 ### Added - Skills Catalog: Progressive Disclosure by Experience Level
