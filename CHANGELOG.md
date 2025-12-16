@@ -9,6 +9,136 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.10.0] - 2025-12-16
+
+### Added - Intelligent Preference Tuning: Self-Optimizing Preferences
+
+**Core Enhancement:** AI-Suggested Tuning that analyzes user patterns and recommends preference optimizations.
+
+#### The Problem Solved
+
+Users set preferences manually but don't know when to adjust them:
+- High rejection rate = threshold too low (wasted suggestions)
+- High acceptance rate = could be more proactive
+- No feedback on whether settings are optimal
+- Preferences drift from actual behavior over time
+
+**Solution:** AI-Suggested Tuning (Operation 7) closes the feedback loop.
+
+#### The Feedback Loop Complete
+
+```
+v3.8.0: SET preferences manually
+       ↓
+v3.9.0: OVERRIDE per project
+       ↓
+v3.10.0: OPTIMIZE based on patterns ← NEW
+       ↓
+     Self-improving system
+```
+
+#### New Feature: Operation 7 - AI-Suggested Tuning
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`, +400 lines)
+- Threshold tuning suggestions (raise if high rejection)
+- Proactivity adjustment recommendations
+- Category-specific analysis (different rates per category)
+- Skill performance detection (underperforming skills)
+- Confidence scoring (High/Medium/Low based on sample size)
+- Apply/Dismiss/Snooze workflow
+
+#### Triggers
+
+- "Suggest preference improvements"
+- "Analyze my preferences"
+- "Optimize my settings"
+- "Tune my preferences"
+- Auto-trigger: Every 7 days (configurable)
+
+#### Analysis Algorithm
+
+The algorithm analyzes:
+1. **Thresholds** - Rejection rate > 40% → suggest raising threshold
+2. **Proactivity** - Acceptance < 60% → suggest lowering proactivity
+3. **Categories** - Variance > 25% → suggest category-specific settings
+4. **Skills** - Acceptance < 50% → suggest disabling or override
+
+#### New Schema: Tuning Suggestions Tracking
+
+**User Preferences** (`templates/user-preferences.json.template`, +70 lines)
+```json
+{
+  "tuningSuggestions": {
+    "lastAnalyzedAt": null,
+    "analysisIntervalDays": 7,
+    "minimumSampleSize": 20,
+    "pendingSuggestions": [],
+    "suggestionHistory": [],
+    "thresholds": { ... },
+    "autoTuning": { ... }
+  }
+}
+```
+
+#### Updated Documentation
+
+**Personalization Guide** (`docs/02-optimization/personalization-guide.md`, +120 lines)
+- New section: AI-Suggested Tuning
+- How it works explanation
+- Triggering analysis (manual & automatic)
+- Understanding suggestions (confidence, rationale, data)
+- Applying/dismissing/snoozing suggestions
+- Configuration options
+- Privacy assurance
+
+#### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Confidence Scoring | High (50+ samples), Medium (20-50), Low (<20) |
+| Rationale | Every suggestion explains WHY with data |
+| One-Command Apply | "Apply suggestion 1" or direct "Set X to Y" |
+| Anti-Nagging | Snooze for 2 weeks, dismiss permanently |
+| Auto-Tuning | Optional auto-apply for high-confidence (off by default) |
+| Privacy | All analysis happens locally |
+
+#### Example Suggestion
+
+```
+Suggestion 1: Raise Auto-Apply Threshold (High Confidence)
+
+Current: autoApply = 95%
+Suggested: autoApply = 97%
+
+Why: You rejected 43% of auto-applied actions (86 of 200).
+Raising the threshold will reduce unwanted automatic changes.
+
+Data:
+- Sample size: 200 decisions (high confidence)
+- Rejection rate: 43% (threshold: 40%)
+- Trend: Stable
+
+Apply: "Set autoApply to 97"
+```
+
+#### Files Changed
+
+- Updated: `templates/user-preferences.json.template` (+70 lines)
+- Updated: `.claude/skills/personalization-engine/SKILL.md` (+400 lines)
+- Updated: `docs/02-optimization/personalization-guide.md` (+120 lines)
+- Updated: `version.json`
+- Updated: `CHANGELOG.md`
+
+**Total new content:** ~590 lines
+
+#### Impact (Projected)
+
+- **Token Efficiency:** Better-tuned thresholds = fewer rejected suggestions
+- **User Experience:** Preferences improve automatically over time
+- **Trust Building:** Clear rationale for every suggestion
+
+---
+
 ## [3.9.0] - 2025-12-16
 
 ### Added - Project-Level Preferences: Per-Project Customization

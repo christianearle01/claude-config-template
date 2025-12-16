@@ -1,12 +1,12 @@
 {
   "$schema": "https://github.com/christianearle01/claude-config-template/blob/main/templates/user-preferences-schema.json",
   "_comment": "User Preferences for Claude Code - Auto-generated, do not edit manually unless you know what you're doing",
-  "_version": "3.8.0",
+  "_version": "3.10.0",
   "_documentation": "https://github.com/christianearle01/claude-config-template/blob/main/docs/02-optimization/personalization-guide.md",
 
-  "version": "3.8.0",
-  "createdAt": "2025-12-15T00:00:00Z",
-  "lastUpdated": "2025-12-15T00:00:00Z",
+  "version": "3.10.0",
+  "createdAt": "2025-12-16T00:00:00Z",
+  "lastUpdated": "2025-12-16T00:00:00Z",
 
   "profile": {
     "_comment": "User profile information - helps skills provide relevant suggestions",
@@ -182,6 +182,79 @@
     "overallAcceptanceRate": 0.0,
     "topAcceptedPatterns": [],
     "topRejectedPatterns": []
+  },
+
+  "tuningSuggestions": {
+    "_comment": "AI-generated tuning recommendations based on usage patterns (v3.10.0)",
+
+    "lastAnalyzedAt": null,
+    "analysisIntervalDays": 7,
+    "_analysisIntervalHint": "How often to run automatic analysis (days)",
+
+    "minimumSampleSize": 20,
+    "_minimumSampleSizeHint": "Minimum decisions before generating suggestions",
+
+    "pendingSuggestions": [],
+    "_pendingSuggestionsSchema": {
+      "id": "unique-suggestion-id",
+      "type": "threshold | proactivity | skill-specific | category",
+      "category": "affected category (if applicable)",
+      "currentValue": "current setting value",
+      "suggestedValue": "recommended new value",
+      "confidence": "high | medium | low",
+      "rationale": "human-readable explanation",
+      "dataPoints": {
+        "acceptanceRate": 0.0,
+        "rejectionRate": 0.0,
+        "sampleSize": 0,
+        "trend": "improving | stable | declining"
+      },
+      "createdAt": "ISO date",
+      "status": "pending | applied | dismissed | snoozed"
+    },
+
+    "suggestionHistory": [],
+    "_suggestionHistorySchema": {
+      "id": "suggestion-id",
+      "action": "applied | dismissed | snoozed",
+      "actionAt": "ISO date",
+      "snoozeUntil": "ISO date (if snoozed)",
+      "userFeedback": "optional user comment"
+    },
+
+    "thresholds": {
+      "_comment": "Configurable thresholds for triggering suggestions",
+      "triggerAnalysis": {
+        "minDecisions": 20,
+        "_minDecisionsHint": "Minimum decisions before any analysis",
+
+        "rejectionRateHigh": 0.4,
+        "_rejectionRateHighHint": "Suggest raising threshold if rejection > this",
+
+        "acceptanceRateLow": 0.6,
+        "_acceptanceRateLowHint": "Suggest lowering proactivity if acceptance < this",
+
+        "acceptanceRateHigh": 0.9,
+        "_acceptanceRateHighHint": "Suggest raising proactivity if acceptance > this"
+      },
+      "confidenceScoring": {
+        "highConfidenceSamples": 50,
+        "mediumConfidenceSamples": 20,
+        "_hint": "Sample sizes for confidence levels: High (>=50), Medium (>=20), Low (<20)"
+      }
+    },
+
+    "autoTuning": {
+      "_comment": "Automatic tuning settings",
+      "enabled": false,
+      "_enabledHint": "If true, automatically applies high-confidence suggestions",
+
+      "requireConfirmation": true,
+      "_requireConfirmationHint": "If true, show suggestion before auto-applying",
+
+      "maxAutoApplyPerWeek": 2,
+      "_maxAutoApplyPerWeekHint": "Limit auto-applied suggestions to prevent rapid changes"
+    }
   },
 
   "backup": {
