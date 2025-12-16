@@ -1,7 +1,7 @@
 {
-  "version": "3.15.0",
+  "version": "4.0.0",
   "release_date": "2025-12-16",
-  "release_name": "Consolidation - Documentation Sync & Polish",
+  "release_name": "Team Template Sharing - Collective Intelligence",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -152,7 +152,12 @@
     "template-recommendation",
     "template-comparison",
     "template-application",
-    "quick-start-configurations"
+    "quick-start-configurations",
+    "remote-template-sources",
+    "template-catalogs",
+    "team-template-sharing",
+    "checksum-verification",
+    "git-native-sharing"
   ],
   "personas_supported": [
     "first-time",
@@ -202,13 +207,14 @@
       "projects-registry.json.template": "3.2.0",
       "features.json.template": "3.6.0",
       "progress.md.template": "3.6.0",
-      "user-preferences.json.template": "3.14.0",
+      "user-preferences.json.template": "4.0.0",
       "project-preferences.json.template": "3.9.0",
       "preference-templates/balanced.json": "3.14.0",
       "preference-templates/security-first.json": "3.14.0",
       "preference-templates/speed-focused.json": "3.14.0",
       "preference-templates/learning-mode.json": "3.14.0",
-      "preference-templates/minimal.json": "3.14.0"
+      "preference-templates/minimal.json": "3.14.0",
+      "template-catalog.json.template": "4.0.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
@@ -261,7 +267,15 @@
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
       "standards-enforcer": "3.7.0",
-      "personalization-engine": "3.14.0"
+      "personalization-engine": "4.0.0"
+    },
+    "examples": {
+      "hooks": "2.0.0",
+      "mcp-servers": "2.0.0",
+      "npm-security": "2.7.0",
+      "python-security": "2.7.0",
+      "global-settings": "2.9.0",
+      "team-templates": "4.0.0"
     },
     "commands": {
       "build": "2.0.0",
@@ -270,7 +284,7 @@
     }
   },
   "metadata": {
-    "total_files": 111,
+    "total_files": 117,
     "total_lines": 49500,
     "skill_count": 18,
     "command_count": 3,

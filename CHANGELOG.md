@@ -9,6 +9,124 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.0.0] - 2025-12-16
+
+### Added - Team Template Sharing: Collective Intelligence
+
+**MAJOR VERSION:** First step toward collective intelligence - teams can now share preference templates via git repositories without authentication complexity.
+
+#### Core Concept: Git-Native Template Sharing
+
+Instead of building authentication, sync, and conflict resolution:
+- Templates are JSON files (already portable)
+- Share via git repos or raw URLs
+- Teams curate template catalogs
+- No server infrastructure needed
+
+#### New Feature: Operation 11 - Remote Template Sources
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`, +350 lines)
+- Add, browse, fetch, import remote templates
+- Template catalog schema (`claude-template-catalog-v1`)
+- Checksum verification for security
+- Source management and caching
+
+**Triggers:**
+- "Add template source [URL]"
+- "Browse template catalog"
+- "List remote templates"
+- "Import template from [URL]"
+- "Remove template source [name]"
+- "Refresh template sources"
+
+#### New Schema: Template Catalog
+
+```json
+{
+  "$schema": "claude-template-catalog-v1",
+  "name": "Team Templates",
+  "templates": [
+    {
+      "id": "team-standard",
+      "name": "Team Standard",
+      "sourceUrl": "https://...",
+      "version": "1.0.0",
+      "checksum": "sha256:..."
+    }
+  ]
+}
+```
+
+#### New Files
+
+**Template Catalog Schema** (`templates/template-catalog.json.template`)
+- Full schema with documentation
+- Compatibility checking
+- Template metadata fields
+
+**Team Templates Example** (`examples/team-templates/`)
+- `catalog.json` - Example catalog structure
+- `team-standard.json` - Standard team template
+- `team-security.json` - Security-focused template
+- `README.md` - Setup guide
+
+#### User Preferences Update
+
+**Remote Sources** (`templates/user-preferences.json.template`, +40 lines)
+```json
+{
+  "remoteSources": {
+    "enabled": true,
+    "sources": [],
+    "cache": { "templates": [] },
+    "settings": {
+      "autoRefresh": true,
+      "verifyChecksums": true,
+      "allowHttpSources": false
+    }
+  }
+}
+```
+
+#### Security Features
+
+| Feature | Description |
+|---------|-------------|
+| **HTTPS Only** | Only HTTPS sources by default |
+| **Checksum Verification** | SHA256 hash validation |
+| **Preview Before Import** | See changes before applying |
+| **Audit Trail** | Track all imports and sources |
+
+#### Team Workflow
+
+**Team Lead:**
+1. Create git repo with templates
+2. Add catalog.json listing templates
+3. Share URL with team
+
+**Team Member:**
+1. "Add template source [URL]"
+2. "Browse template catalog"
+3. "Import team-standard template"
+
+#### Summary
+
+| Category | Additions |
+|----------|-----------|
+| New operation | Operation 11: Remote Template Sources |
+| New schema | `claude-template-catalog-v1` |
+| New templates | 4 (catalog + 3 examples) |
+| New documentation | ~100 lines |
+| SKILL.md additions | ~350 lines |
+
+**Total:** 5 new files, 5 modified files, ~600 new lines
+
+#### Breaking Changes
+
+None. Remote sources are optional - existing functionality unchanged.
+
+---
+
 ## [3.15.0] - 2025-12-16
 
 ### Changed - Consolidation: Documentation Sync & Polish
