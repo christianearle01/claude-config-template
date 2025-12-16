@@ -1,7 +1,7 @@
 # Personalization Guide
 
-**Version:** 3.9.0
-**Last Updated:** 2025-12-15
+**Version:** 3.13.0
+**Last Updated:** 2025-12-16
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
 
@@ -21,6 +21,9 @@ This guide explains how the Personalization Engine works, how to customize your 
 10. [Troubleshooting](#troubleshooting)
 11. [Best Practices](#best-practices)
 12. [Project-Level Preferences](#project-level-preferences-v390) (v3.9.0)
+13. [AI-Suggested Tuning](#ai-suggested-tuning-v3100) (v3.10.0)
+14. [Cross-Project Intelligence](#cross-project-intelligence-v3120) (v3.12.0)
+15. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
 
 ---
 
@@ -937,6 +940,131 @@ No data leaves your machine.
 
 ---
 
+## Import/Export Preferences (v3.13.0)
+
+### Overview
+
+Export your carefully tuned preferences for backup, sharing, or transfer to new machines. Import preferences with validation, preview, and merge strategies.
+
+### Export Commands
+
+| Command | Result |
+|---------|--------|
+| `Export my preferences` | Full export to default path |
+| `Export preferences to [path]` | Export to specific location |
+| `Export preferences as template` | Clean template (no history) |
+| `Export anonymized preferences` | Share without personal data |
+| `Create preferences backup` | Full backup with timestamp |
+
+### Export Types
+
+| Type | Contents | Use Case |
+|------|----------|----------|
+| **full** | All settings + analytics | Personal backup |
+| **partial** | Selected sections only | Share specific settings |
+| **anonymized** | Settings without history/timestamps | Team sharing |
+| **template** | Core settings only (no learned data) | Reusable starter config |
+
+### Import Commands
+
+| Command | Result |
+|---------|--------|
+| `Import preferences from [file]` | Import with preview |
+| `Restore from backup` | Restore last backup |
+| `Compare preferences with [file]` | Show diff without importing |
+
+### Merge Strategies
+
+| Strategy | Behavior |
+|----------|----------|
+| **overwrite** | Replace all matching sections entirely |
+| **merge** | Deep merge (import values win on conflict) |
+| **selective** | Choose what to import per section |
+
+### Safety Features
+
+- **Automatic backup** before every import
+- **Version validation** prevents incompatible imports
+- **Preview mode** shows changes before applying
+- **Daily limit** prevents accidental repeated imports (default: 5)
+- **Rollback** command restores previous state
+
+### Example Workflows
+
+**Backup before system change:**
+```
+"Export my preferences"
+→ Saved to ~/claude-preferences-export.json
+
+# After OS reinstall
+"Import preferences from ~/claude-preferences-export.json"
+→ All settings restored
+```
+
+**Share with teammate:**
+```
+"Export preferences as template"
+→ Creates clean template without personal data
+
+# Teammate imports:
+"Import preferences from ~/team-template.json"
+→ Gets your settings as a starting point
+```
+
+**Machine migration:**
+```
+# On old machine:
+"Export my preferences"
+
+# Copy file to new machine, then:
+"Import preferences from ~/claude-preferences-export.json"
+→ Preview shows what will change
+→ Confirm to apply
+```
+
+### Configuration
+
+```json
+{
+  "importExport": {
+    "safetySettings": {
+      "createBackupBeforeImport": true,
+      "validateSchemaVersion": true,
+      "requireConfirmation": true,
+      "maxImportsPerDay": 5
+    },
+    "defaults": {
+      "exportPath": "~/claude-preferences-export.json",
+      "defaultExportType": "full",
+      "includeAnalytics": true,
+      "includeLearningHistory": false
+    }
+  }
+}
+```
+
+### Export File Format
+
+Exports use a versioned JSON format with compatibility checking:
+
+```json
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "sourceVersion": "3.13.0",
+  "compatibility": {
+    "minVersion": "3.8.0",
+    "maxVersion": "3.13.0"
+  },
+  "contents": { ... },
+  "metadata": {
+    "checksum": "sha256:..."
+  }
+}
+```
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -947,6 +1075,9 @@ No data leaves your machine.
 | `Show my thresholds` | Confidence thresholds |
 | `Show my skill usage` | Usage analytics |
 | `Set proactivity to [low/medium/high]` | Adjust proactivity |
+| `Export my preferences` | Export for backup/sharing |
+| `Import preferences from [file]` | Import with preview |
+| `Restore from backup` | Rollback to previous state |
 | `Set [threshold] to [value]` | Adjust threshold |
 | `Don't show [item] again` | Permanent hide |
 | `Reset [item] preference` | Clear specific learning |
@@ -996,17 +1127,19 @@ The Personalization Engine transforms Claude Code from a generic tool into a per
 6. **Project flexibility** - Override global settings per project (v3.9.0)
 7. **AI-Suggested Tuning** - System suggests preference improvements based on patterns (v3.10.0)
 8. **Cross-Project Intelligence** - Learn once, apply everywhere - Nx leverage (v3.12.0)
+9. **Import/Export** - Portable preferences for backup, sharing, and machine migration (v3.13.0)
 
-**Four levels of customization:**
+**Five levels of customization:**
 - **Global** (`~/.claude/user-preferences.json`) - Your personal defaults
 - **Project** (`.claude/project-preferences.json`) - Per-project overrides, shareable with team
 - **AI-Tuned** - Intelligent suggestions that evolve based on your actual usage
 - **Cross-Project** - Patterns propagated across all your projects automatically
+- **Portable** - Export/import for backup, sharing, and migration
 
 **The personalization journey:**
 ```
-SET → OVERRIDE → OPTIMIZE → LEVERAGE
-(Manual) (Per-project) (AI-suggested) (Cross-project)
+SET → OVERRIDE → OPTIMIZE → LEVERAGE → SHARE
+(Manual) (Per-project) (AI-suggested) (Cross-project) (Export/Import)
 ```
 
-**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time. After 20+ decisions, AI-Suggested Tuning will begin offering optimization recommendations. With 3+ registered projects, Cross-Project Intelligence enables learning leverage across your entire portfolio.
+**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time. After 20+ decisions, AI-Suggested Tuning will begin offering optimization recommendations. With 3+ registered projects, Cross-Project Intelligence enables learning leverage across your entire portfolio. Export your preferences anytime for backup or to share with teammates.

@@ -9,6 +9,153 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.13.0] - 2025-12-16
+
+### Added - Import/Export Preferences: Portable Configuration
+
+**Core Enhancement:** Export and import preferences for backup, sharing, and machine migration with validation, preview, and merge strategies.
+
+#### The Problem Solved
+
+Preferences are siloed to one machine:
+- No backup/restore capability for carefully tuned settings
+- Cannot share configurations with teammates
+- New machine means starting from scratch
+- No way to create "starter templates" for teams
+
+**Solution:** Import/Export System (Operation 9) makes preferences portable.
+
+#### New Feature: Operation 9 - Import/Export Preferences
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`, +500 lines)
+- Four export types: full, partial, anonymized, template
+- Three merge strategies: overwrite, merge, selective
+- Version compatibility checking with minVersion/maxVersion
+- Preview before import with diff view
+- Automatic backup before every import
+- Export/import history tracking
+- Rollback capability from backups
+
+**Export Triggers:**
+- "Export my preferences"
+- "Export preferences to [path]"
+- "Export preferences as template"
+- "Export anonymized preferences"
+- "Create preferences backup"
+
+**Import Triggers:**
+- "Import preferences from [file]"
+- "Restore from backup"
+- "Compare preferences with [file]"
+
+#### Export Types
+
+| Type | Contents | Use Case |
+|------|----------|----------|
+| **full** | All settings + analytics | Personal backup |
+| **partial** | Selected sections only | Share specific settings |
+| **anonymized** | Settings without history | Team sharing |
+| **template** | Core settings only | Reusable starter config |
+
+#### Merge Strategies
+
+| Strategy | Behavior |
+|----------|----------|
+| **overwrite** | Replace all matching sections entirely |
+| **merge** | Deep merge (import values win on conflict) |
+| **selective** | User chooses per section |
+
+#### New Schema: Import/Export Tracking
+
+**User Preferences** (`templates/user-preferences.json.template`, +60 lines)
+```json
+{
+  "importExport": {
+    "lastExportAt": null,
+    "lastImportAt": null,
+    "exportHistory": [],
+    "importHistory": [],
+    "safetySettings": {
+      "createBackupBeforeImport": true,
+      "validateSchemaVersion": true,
+      "requireConfirmation": true,
+      "maxImportsPerDay": 5
+    },
+    "defaults": {
+      "exportPath": "~/claude-preferences-export.json",
+      "defaultExportType": "full",
+      "includeAnalytics": true,
+      "includeLearningHistory": false
+    }
+  }
+}
+```
+
+#### Export File Format
+
+```json
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "sourceVersion": "3.13.0",
+  "exportType": "full",
+  "compatibility": {
+    "minVersion": "3.8.0",
+    "maxVersion": "3.13.0"
+  },
+  "contents": { ... },
+  "metadata": {
+    "checksum": "sha256:..."
+  }
+}
+```
+
+#### Safety Features
+
+- **Automatic backup** before every import
+- **Version validation** prevents incompatible imports
+- **Preview mode** shows changes before applying
+- **Daily limit** prevents accidental repeated imports
+- **Rollback** command restores previous state
+
+#### Updated Documentation
+
+**Personalization Guide** (`docs/02-optimization/personalization-guide.md`, +120 lines)
+- Import/Export Preferences section with full documentation
+- Export commands table
+- Merge strategies explanation
+- Example workflows (backup, sharing, migration)
+- Configuration options
+- Updated summary: 9 capabilities, 5 levels of customization
+- Updated journey: SET → OVERRIDE → OPTIMIZE → LEVERAGE → SHARE
+
+#### Strategic Position
+
+```
+v3.13.0: SHARE (portable preferences) ← THIS RELEASE
+    ↓
+v3.14.0: TEMPLATES (pre-made exports)
+    ↓
+v3.15.0: CONSOLIDATION (pre-v4.0.0 cleanup)
+    ↓
+v4.0.0: COLLECTIVE (team intelligence)
+```
+
+The export format becomes foundation for:
+- **v3.14.0 Templates:** Templates are pre-made exports
+- **v4.0.0 Sharing:** Team sharing protocol extends export format
+
+#### Files Modified
+
+| File | Changes |
+|------|---------|
+| `templates/user-preferences.json.template` | +60 lines (importExport schema) |
+| `.claude/skills/personalization-engine/SKILL.md` | +500 lines (Operation 9) |
+| `docs/02-optimization/personalization-guide.md` | +120 lines (documentation) |
+| `version.json` | Updated to 3.13.0 |
+
+---
+
 ## [3.12.0] - 2025-12-16
 
 ### Added - Cross-Project Intelligence: Learning Leverage Across Projects

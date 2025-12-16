@@ -326,6 +326,68 @@
     }
   },
 
+  "importExport": {
+    "_comment": "Import/Export tracking and configuration (v3.13.0)",
+
+    "lastExportAt": null,
+    "lastImportAt": null,
+
+    "exportHistory": [],
+    "_exportHistorySchema": {
+      "exportedAt": "ISO date",
+      "exportType": "full | partial | anonymized | template",
+      "exportPath": "file path",
+      "sectionsIncluded": ["list of exported sections"],
+      "checksum": "sha256 hash for verification"
+    },
+
+    "importHistory": [],
+    "_importHistorySchema": {
+      "importedAt": "ISO date",
+      "sourceFile": "file path",
+      "sourceVersion": "version of exported file",
+      "mergeStrategy": "overwrite | merge | selective",
+      "sectionsImported": ["list of imported sections"],
+      "conflictsResolved": 0,
+      "backupPath": "path to backup created before import"
+    },
+
+    "safetySettings": {
+      "_comment": "Safety features for import operations",
+
+      "createBackupBeforeImport": true,
+      "_createBackupHint": "Always create backup before importing (recommended)",
+
+      "validateSchemaVersion": true,
+      "_validateSchemaHint": "Check version compatibility before importing",
+
+      "requireConfirmation": true,
+      "_requireConfirmationHint": "Show preview and require confirmation before applying",
+
+      "maxImportsPerDay": 5,
+      "_maxImportsHint": "Prevent accidental repeated imports"
+    },
+
+    "defaults": {
+      "_comment": "Default settings for export operations",
+
+      "exportPath": "~/claude-preferences-export.json",
+      "_exportPathHint": "Default location for exported preferences",
+
+      "defaultExportType": "full",
+      "_defaultExportTypeOptions": ["full", "partial", "anonymized", "template"],
+
+      "includeAnalytics": true,
+      "_includeAnalyticsHint": "Include usage analytics in full exports",
+
+      "includeLearningHistory": false,
+      "_includeLearningHistoryHint": "Include detailed learning events (can be large)",
+
+      "includeProjectPatterns": true,
+      "_includeProjectPatternsHint": "Include cross-project patterns in exports"
+    }
+  },
+
   "backup": {
     "_comment": "Backup information - skills create backups before major changes",
     "lastBackup": null,
