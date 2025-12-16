@@ -1,7 +1,7 @@
 {
-  "version": "4.5.0",
+  "version": "4.5.1",
   "release_date": "2025-12-16",
-  "release_name": "Template Application - Apply Templates to Projects",
+  "release_name": "Directory Hierarchy & Documentation Sync",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",

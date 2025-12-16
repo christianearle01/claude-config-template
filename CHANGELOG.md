@@ -9,6 +9,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.5.1] - 2025-12-16
+
+### Changed - Directory Hierarchy & Documentation Sync
+
+#### Directory Structure Improvements
+
+**Renamed all priority directories with numerical prefixes:**
+- `must-have/` → `01_must-have/`
+- `good-to-have/` → `02_good-to-have/`
+- `nice-to-have/` → `03_nice-to-have/`
+
+**Impact:**
+- ✅ Clearer visual hierarchy
+- ✅ Better file explorer sorting
+- ✅ Improved navigation and onboarding
+
+**Applied to:**
+- `01_global-setup/` (3 subdirectories)
+- `02_project-onboarding/` (2 subdirectories)
+- `03_pre-project-planning/` (1 subdirectory)
+- `04_browser-workflow/` (1 subdirectory)
+
+#### Documentation Sync
+
+**Comprehensive SETUP_CONTEXT.md update:**
+- Updated outdated directory structure references
+- Corrected agent count: 2 → 5 agents
+- Corrected slash command count: 5 → 3 commands
+- Updated version references: v2.8.0 → v4.5.0
+- Browser workflow: Removed "COMING SOON" (now fully documented)
+
+**Added major documentation sections (3,000+ tokens):**
+- Template System (v4.0-v4.5): Complete lifecycle with 6 subsections
+- Domain Memory Architecture (v3.6.0): Two-agent pattern
+- Quality Workflows Framework (v3.7.0): Quality-first architecture
+- Skills System (v3.3.0+): Projects Registry, Personalization Engine
+- All 5 custom agents fully documented
+- All 19 shell scripts documented and categorized
+- Template troubleshooting section
+
+**Files Changed:**
+- 61 files in directory rename
+- Updated 236 documentation references
+- SETUP_CONTEXT.md: +373 insertions, -26 deletions
+
+**Commits:**
+- `db38d1b` - Directory hierarchy improvements
+- `e99042b` - Comprehensive documentation sync
+
+---
+
 ## [4.5.0] - 2025-12-16
 
 ### Added - Template Application Script
