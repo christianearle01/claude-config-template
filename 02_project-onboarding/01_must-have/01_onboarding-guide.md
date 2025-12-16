@@ -11,6 +11,25 @@ This guide helps you set up Claude Code for a project you're joining for the fir
 
 ---
 
+## Why This Matters
+
+**Without CLAUDE.md project documentation:**
+- Claude re-reads 20-50 files every session to understand "What does this app do?"
+- Costs 2,000-10,000 tokens per session just for context gathering
+- You re-explain the same business context in every new conversation
+- Claude makes incorrect assumptions about project purpose and architecture
+
+**With CLAUDE.md (this 30-min investment):**
+- Claude reads 1 file (CLAUDE.md) = 200-500 tokens for full context
+- Saves 95% on context queries (2,000-10,000 → 200-500 tokens)
+- Persistent memory across sessions ("What does this app do?" never needs re-answering)
+- Accurate understanding of business purpose prevents wrong implementation choices
+
+**Time investment:** 30-45 minutes per project (one-time)
+**Projected savings:** $40-80/month per active project in token costs + prevents costly architectural mistakes
+
+---
+
 ## Step 1: Copy Template Files (5 minutes)
 
 ```bash

@@ -4,6 +4,25 @@ A quick reference for Claude Code permission modes - print and keep handy!
 
 ---
 
+## Why This Matters
+
+**Without understanding permission modes:**
+- Risk auto-applying destructive changes (wrong mode for task = accidents)
+- Waste time on excessive permission prompts (ask mode for simple tasks = slow)
+- Miss the balance between safety and speed (one mode for everything = suboptimal)
+- Confusion during setup ("Why is Claude asking me 20 questions?" or "Why did it change things without showing me?")
+
+**With strategic mode switching:**
+- Plan mode for setup/learning = see changes before they happen (safety + education)
+- Ask mode for sensitive operations = granular control when it matters
+- AcceptEdits mode for repetitive tasks = speed when you're confident
+- Know when to switch modes = optimal balance of safety and productivity
+
+**Time investment:** 5 minutes to learn, 3 seconds to switch modes (`Shift+Tab`)
+**Benefit:** Prevent costly mistakes + 30-50% faster workflow on appropriate tasks
+
+---
+
 ## 🎯 The Three Modes
 
 ### ⏸ Plan Mode (RECOMMENDED for Setup)

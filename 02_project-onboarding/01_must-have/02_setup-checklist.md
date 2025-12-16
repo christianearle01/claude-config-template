@@ -9,6 +9,25 @@
 
 ---
 
+## Why This Matters
+
+**Without a setup checklist:**
+- Forget which steps you've completed (where did I leave off?)
+- Miss critical configuration (settings incomplete = suboptimal performance)
+- Can't resume setup easily across sessions (start from scratch each time)
+- No visibility into what's left to do (how much more work?)
+
+**With this checklist:**
+- Resume setup instantly ("Claude, continue the setup" → Claude reads checklist)
+- Visual progress tracking (see what's done, what remains)
+- Ensure complete configuration (nothing forgotten = full benefits)
+- Shareable with team (consistent setup process for all members)
+
+**Time investment:** 0 minutes (just check boxes as you work)
+**Benefit:** Never lose setup progress + ensure complete configuration
+
+---
+
 ## 📋 Core Setup Progress
 
 ### Phase 1: Prerequisites

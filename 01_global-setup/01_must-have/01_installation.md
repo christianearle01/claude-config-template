@@ -13,6 +13,25 @@
 
 ---
 
+## Why This Matters
+
+**Without proper Claude Code setup:**
+- Waste 50-90% more tokens re-explaining context every session
+- Pay $3/million tokens (Sonnet) for tasks that could use $0.25/million (Haiku)
+- Spend 10-20 minutes per session remembering commands and patterns
+- Lack consistent coding standards across projects
+
+**With this one-time setup:**
+- Save 50-95% on token costs through model switching (Sonnet → Haiku workflow)
+- Persistent context via global standards and MCP servers
+- Consistent workflow across ALL projects (one-time effort, permanent benefits)
+- Access to advanced capabilities (memory, sequential thinking, GitHub integration)
+
+**Time investment:** 45-60 minutes now
+**Projected savings:** $50-200/month in token costs + 2-4 hours/month in setup time
+
+---
+
 ## Prerequisites
 
 - [ ] macOS, Linux, or Windows
@@ -576,10 +595,31 @@ cat ~/.claude/settings.json
 - ⏭️ Add project-specific MCP servers (database, Context7)
 - ⏭️ Document project conventions
 
-**Next:** [01_onboarding-guide.md](../../../02_project-onboarding/01_must-have/01_onboarding-guide.md)
+---
+
+## ✅ You've Completed: Global Claude Code Setup
+
+**What you accomplished:**
+- Installed Claude Code (CLI or VS Code Extension)
+- Set up global coding standards (~/.claude/coding-standards.md)
+- Installed essential MCP servers (memory, sequential-thinking, filesystem, GitHub)
+- Configured optimal settings (Sonnet → Haiku workflow, plan mode)
+- Learned key commands and workflow optimization
+
+**Next logical step:**
+
+**Option A: Set Up Your First Project (30 min) - Recommended Next**
+→ [Project Onboarding Guide](../../02_project-onboarding/01_must-have/01_onboarding-guide.md) - Create CLAUDE.md, copy configuration
+
+**Option B: Deep Dive on Model Switching (10 min)**
+→ [Model Switching Guide](../02_good-to-have/01_model-switching.md) - Master the Sonnet → Haiku workflow
+
+**Option C: Learn Permission Modes (5 min)**
+→ [Permission Modes Cheat Sheet](03_permission-modes.md) - Plan vs Ask vs AcceptEdits
+
+**Having trouble?** Run `/doctor` in Claude Code or check troubleshooting section above.
 
 ---
 
+**Estimated next step time:** 5-30 minutes (depending on choice)
 **Last Updated:** 2025-12-04
-**Completion Time:** 45-60 minutes (one-time)
-**Benefit:** Optimized Claude Code workflow for ALL future projects

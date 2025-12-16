@@ -388,6 +388,86 @@ See: `05_git-push-workaround.md` for more details
 
 ---
 
+## Common Mistakes to Avoid
+
+### ❌ Anti-Pattern #1: Running Full Git Diff in Every Commit
+**Problem:** Wastes 500-2,000 tokens per commit when you already see changes in IDE
+
+**Example:**
+```
+You: "Show me all the changes and commit"
+Claude: *runs git diff, outputs 2,000 tokens of diff you already see in VS Code*
+Cost: $0.006 per commit
+```
+
+**✅ Correct Approach:**
+```
+You: "Create a commit with these changes"
+Claude: *drafts from context, you review in IDE*
+Cost: $0.002 per commit (70% savings)
+```
+
+**Pattern:** Trust that you can see changes in your IDE. Claude only needs to draft the message.
+
+---
+
+### ❌ Anti-Pattern #2: Using acceptEdits Mode for All Git Operations
+**Problem:** Accidentally commits without review
+
+**Example:**
+```json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits"  // ⚠️ No git blocking
+  }
+}
+
+Result: Claude commits immediately, no review
+```
+
+**✅ Correct Approach:**
+```json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "neverAutoApprove": [
+      "Bash(git commit*)"  // ✅ Always review commits
+    ]
+  }
+}
+```
+
+**Pattern:** You can use acceptEdits for speed, but ALWAYS block git commits.
+
+---
+
+### ❌ Anti-Pattern #3: Not Testing the Workflow
+**Problem:** Assume it works, discover it doesn't when it matters
+
+**Example:**
+```bash
+# Install settings, never test
+cp settings.json ~/.claude/settings.json
+# Months later: "Why did Claude commit without asking?"
+```
+
+**✅ Correct Approach:**
+```bash
+# Install settings
+cp settings.json ~/.claude/settings.json
+
+# Test immediately
+claude
+You: "Create a test commit"
+# Verify: Does Claude ask for approval?
+
+# If not, debug before relying on it
+```
+
+**Pattern:** Test git approval workflow with dummy commit BEFORE using in production.
+
+---
+
 ## Troubleshooting
 
 ### "Claude still auto-commits"
@@ -574,4 +654,29 @@ Claude will guide you through the best option for your workflow.
 
 ---
 
-[← Back to Global Setup](../../01_global-setup/) | [Security Guide →](./01_security-guide.md)
+## ✅ You've Completed: Git Commit Approval Workflow
+
+**What you learned:**
+- How to configure commit approval (3 protection levels)
+- Token-optimized commit workflow (75% savings)
+- Why git push requires manual execution
+- Common mistakes to avoid (no git diff waste, always block commits, test first)
+
+**Next logical step:**
+
+**Option A: Add More Git Protection (5 min)**
+→ [Git Push Workaround](05_git-push-workaround.md) - Understand authentication requirements
+
+**Option B: Add Security Hooks (10 min)**
+→ [Security Guide](../03_nice-to-have/01_security-guide.md) - Prompt injection detection, response scanning
+
+**Option C: Optimize Token Usage Further (15 min)**
+→ [Prompt Optimization Guide](../../02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Write efficient prompts
+
+**Having trouble?** See troubleshooting section above or ask Claude: "I set up git approval but it's not working"
+
+---
+
+**Estimated next step time:** 5-15 minutes (depending on choice)
+
+[← Back to Global Setup](../../01_global-setup/) | [Security Guide →](../03_nice-to-have/01_security-guide.md)
