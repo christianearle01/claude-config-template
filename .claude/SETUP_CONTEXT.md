@@ -19,7 +19,7 @@
 6. Template system (v4.0-v4.5) → Apply team configs with one command
 7. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.5.2
+**Current Version:** v4.9.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
@@ -788,7 +788,7 @@ The script checks:
 
 ## Version Information
 
-**Current:** v4.5.2 (Template Application)
+**Current:** v4.9.0 (Mode Selection Framework)
 
 **For complete version history and release notes:**
 → See [CHANGELOG.md](../CHANGELOG.md)
