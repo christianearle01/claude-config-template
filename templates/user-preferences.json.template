@@ -1,10 +1,10 @@
 {
   "$schema": "https://github.com/christianearle01/claude-config-template/blob/main/templates/user-preferences-schema.json",
   "_comment": "User Preferences for Claude Code - Auto-generated, do not edit manually unless you know what you're doing",
-  "_version": "3.10.0",
+  "_version": "3.12.0",
   "_documentation": "https://github.com/christianearle01/claude-config-template/blob/main/docs/02-optimization/personalization-guide.md",
 
-  "version": "3.10.0",
+  "version": "3.12.0",
   "createdAt": "2025-12-16T00:00:00Z",
   "lastUpdated": "2025-12-16T00:00:00Z",
 
@@ -254,6 +254,75 @@
 
       "maxAutoApplyPerWeek": 2,
       "_maxAutoApplyPerWeekHint": "Limit auto-applied suggestions to prevent rapid changes"
+    }
+  },
+
+  "crossProjectLearning": {
+    "_comment": "Cross-project pattern aggregation and recommendations (v3.12.0)",
+
+    "enabled": true,
+    "_enabledHint": "Set to false to disable cross-project analysis",
+
+    "lastAggregatedAt": null,
+    "aggregationIntervalDays": 7,
+    "_aggregationIntervalHint": "How often to run automatic cross-project analysis (days)",
+
+    "projectPatterns": {
+      "_comment": "Patterns detected across projects from registry",
+      "_schema": {
+        "pattern": "pattern identifier",
+        "projectCount": "number of projects using this",
+        "projectList": ["project-ids"],
+        "adoptionRate": 0.0,
+        "firstSeen": "ISO date",
+        "category": "workflow | coding-style | quality | documentation"
+      },
+      "patterns": []
+    },
+
+    "consistencyReport": {
+      "_comment": "Divergence detection across projects",
+      "lastGeneratedAt": null,
+      "divergences": [],
+      "_divergenceSchema": {
+        "setting": "setting path (e.g., workflow.preferred-commit-style)",
+        "globalPreference": "your usual choice",
+        "divergentProjects": ["project-ids with different values"],
+        "severity": "info | warning | action-recommended"
+      }
+    },
+
+    "crossProjectSuggestions": {
+      "_comment": "Recommendations based on cross-project analysis",
+      "pending": [],
+      "history": [],
+      "_suggestionSchema": {
+        "id": "unique-suggestion-id",
+        "type": "propagate | standardize | detect-outlier",
+        "pattern": "the pattern in question",
+        "sourceProjects": ["project-ids where pattern is used"],
+        "targetProjects": ["project-ids where pattern should apply"],
+        "confidence": "high | medium | low",
+        "rationale": "human-readable explanation",
+        "createdAt": "ISO date",
+        "status": "pending | applied | dismissed"
+      }
+    },
+
+    "thresholds": {
+      "_comment": "Configurable thresholds for cross-project analysis",
+
+      "minProjectsForPattern": 3,
+      "_minProjectsHint": "Minimum projects sharing a pattern to consider it 'established'",
+
+      "divergenceAlertThreshold": 0.3,
+      "_divergenceAlertHint": "Alert if >30% of projects diverge from established pattern",
+
+      "propagateConfidence": 0.8,
+      "_propagateConfidenceHint": "Minimum adoption rate to suggest propagating to new projects",
+
+      "minProjectsForAnalysis": 3,
+      "_minProjectsForAnalysisHint": "Minimum projects in registry before enabling analysis"
     }
   },
 

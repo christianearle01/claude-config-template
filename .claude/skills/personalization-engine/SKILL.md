@@ -1582,7 +1582,427 @@ Users can adjust tuning behavior in `~/.claude/user-preferences.json`:
 
 ---
 
+## Operation 8: Cross-Project Intelligence (v3.12.0)
+
+**User Queries:**
+- "Analyze patterns across my projects"
+- "What patterns do I use consistently?"
+- "Are my projects configured consistently?"
+- "Apply my preferences to this new project"
+- "Show cross-project insights"
+- "Propagate [setting] to all projects"
+- "Show consistency report"
+
+**Auto-trigger:** When `aggregationIntervalDays` has passed since `lastAggregatedAt` and registry has `minProjectsForAnalysis` projects
+
+### The Cross-Project Problem
+
+**Without Cross-Project Intelligence:**
+- Learning is siloed per project
+- User prefers "conventional commits" in 8/10 projects - new project doesn't know
+- Quality standards vary unintentionally
+- Workflow preferences rediscovered per project
+- No "compound interest" on learning investment
+
+**With Cross-Project Intelligence:**
+- Patterns aggregate across all registered projects
+- New projects inherit established preferences
+- Divergences are detected and flagged
+- One command standardizes across projects
+
+### Analysis Algorithm
+
+```
+1. CHECK PREREQUISITES:
+   - Projects Registry exists at ~/.claude/projects-registry.json
+   - At least minProjectsForAnalysis (3) projects registered
+   - Time since lastAggregatedAt > aggregationIntervalDays (7)
+   - If not met: Return "insufficient data" response
+
+2. LOAD DATA:
+   a. Read ~/.claude/projects-registry.json (project list)
+   b. Read ~/.claude/user-preferences.json (global learnings)
+   c. For each project in registry:
+      - Check if <project-path>/.claude/project-preferences.json exists
+      - Load project-specific overrides
+
+3. AGGREGATE PATTERNS:
+   For each preference category (workflow, coding-style, quality, documentation):
+   For each preference item:
+
+   a. Count projects using this pattern (explicit override or inherited default)
+   b. Calculate adoption rate: projects_using / total_projects
+   c. If adoptionRate >= propagateConfidence (0.8):
+      → Mark as "established pattern"
+   d. Track which projects have different values
+
+4. DETECT CONSISTENCY:
+   For key settings (commit style, branch naming, quality thresholds):
+
+   a. Identify global preference (most common OR explicitly set in global prefs)
+   b. Find divergent projects (different value than global)
+   c. Score severity:
+      - Production project diverges = "action-recommended"
+      - Staging project diverges = "warning"
+      - Personal/experimental = "info"
+   d. Check if divergence has documented reason (in project-preferences)
+
+5. GENERATE SUGGESTIONS:
+   Type A: PROPAGATE
+   - Pattern used in 80%+ of projects
+   - Some projects don't have it
+   - Suggestion: "Apply X to remaining Y projects"
+
+   Type B: STANDARDIZE
+   - Multiple projects use different values for same setting
+   - No clear majority or global preference differs
+   - Suggestion: "Standardize X across projects"
+
+   Type C: DETECT-OUTLIER
+   - Project falls below established standard
+   - E.g., test coverage 50% when standard is 80%
+   - Suggestion: "Project Y below your standard for X"
+
+6. SCORE AND RANK:
+   confidence = based on sample size and adoption rate
+   impact = severity × project_count
+   priority = confidence × impact
+
+   Return top 5 suggestions sorted by priority
+
+7. UPDATE TRACKING:
+   - Set lastAggregatedAt to now
+   - Store detected patterns in projectPatterns
+   - Record divergences in consistencyReport
+   - Add new suggestions to crossProjectSuggestions.pending
+```
+
+### Confidence Scoring for Cross-Project
+
+| Adoption Rate | Project Count | Confidence | Reliability |
+|---------------|---------------|------------|-------------|
+| ≥ 90% | 5+ projects | High | Strong established pattern |
+| 80-89% | 3-4 projects | High | Established pattern |
+| 70-79% | 3+ projects | Medium | Emerging pattern |
+| < 70% | Any | Low | No clear pattern |
+
+### Response Template: Cross-Project Intelligence Report
+
+```markdown
+## Cross-Project Intelligence Report
+
+**Analysis Date:** {date}
+**Projects Analyzed:** {count}
+**Patterns Detected:** {patternCount}
+
+---
+
+### Established Patterns (80%+ Adoption)
+
+| Pattern | Adoption | Projects | Category |
+|---------|----------|----------|----------|
+| Conventional commits | 90% (9/10) | All except legacy-app | workflow |
+| TypeScript strict mode | 80% (8/10) | All except scripts, tools | coding-style |
+| 80% test coverage | 80% (8/10) | All except prototype | quality |
+| Auto-update changelog | 90% (9/10) | All except archived | documentation |
+
+---
+
+### Consistency Report
+
+**Overall Consistency:** {percentage}%
+**Divergences Found:** {count}
+
+#### Divergence 1: Commit Style (Warning)
+
+**Your standard:** conventional
+**Divergent projects:**
+
+| Project | Current Value | Reason |
+|---------|---------------|--------|
+| legacy-app | simple | Not documented |
+
+**Impact:** Production project using non-standard commit style
+
+**Suggestion:** "Standardize legacy-app to conventional commits"
+
+---
+
+#### Divergence 2: Test Coverage (Info)
+
+**Your standard:** 80%
+**Divergent project:**
+
+| Project | Current Value | Reason |
+|---------|---------------|--------|
+| prototype | 50% | "Experimental - lower coverage acceptable" |
+
+**Impact:** Low (experimental project with documented reason)
+
+**Action:** None recommended (reason documented)
+
+---
+
+### Cross-Project Suggestions
+
+#### Suggestion 1: Propagate TypeScript Strict Mode (High Confidence)
+
+**Type:** Propagate established pattern
+**Pattern:** TypeScript strict mode
+**Adoption:** 80% (8/10 projects)
+
+**Source projects:** api, web-app, mobile, dashboard, admin, lib, cli, backend
+**Target projects:** scripts, tools
+
+**Rationale:** You enable TypeScript strict mode in 80% of projects.
+These 2 utility projects may benefit from the same type safety.
+
+**Actions:**
+- Apply: "Propagate strict mode to scripts and tools"
+- Skip: "Skip this suggestion"
+- More info: "Why strict mode?"
+
+---
+
+#### Suggestion 2: Standardize Branch Naming (Medium Confidence)
+
+**Type:** Standardize inconsistent settings
+**Pattern:** Branch naming convention
+**Current state:** Mixed
+
+| Convention | Projects | Count |
+|------------|----------|-------|
+| feature/ | api, web-app, mobile | 3 |
+| feat/ | dashboard, admin | 2 |
+| No prefix | scripts, tools, lib | 3 |
+
+**Rationale:** No clear standard. Consider aligning to most common (feature/).
+
+**Actions:**
+- Apply feature/: "Standardize branch naming to feature/"
+- Keep varied: "Dismiss this suggestion"
+
+---
+
+### Summary
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| Pattern consistency | 87% | Good |
+| Established patterns | 12 | |
+| Projects up-to-date | 8/10 | |
+| Suggested actions | 3 | |
+| Critical divergences | 0 | ✓ |
+| Warnings | 1 | |
+| Info items | 2 | |
+
+**Next analysis:** {nextDate} (in 7 days)
+
+---
+
+**Quick Actions:**
+- "Apply suggestion 1" - Propagate pattern
+- "Apply all propagate suggestions" - Apply all propagate-type suggestions
+- "Show divergence details" - More about inconsistencies
+- "Ignore project [name] for cross-project" - Exclude from analysis
+```
+
+### Response Template: Insufficient Data
+
+```markdown
+## Cross-Project Intelligence
+
+**Status:** Insufficient data for cross-project analysis
+
+**Current State:**
+
+| Requirement | Current | Required |
+|-------------|---------|----------|
+| Projects in registry | {count} | ≥ 3 |
+| Projects with preferences | {prefCount} | ≥ 1 |
+| Days since last analysis | {days} | ≥ 7 |
+
+---
+
+### How to Enable Cross-Project Analysis
+
+1. **Register more projects:**
+   ```
+   "Register this project"
+   ```
+   Or use CLI: `./scripts/register-project.sh`
+
+2. **Build preference history:**
+   - Use skills that track decisions
+   - Accept/reject suggestions to build patterns
+   - Set explicit preferences
+
+3. **Wait for data accumulation:**
+   - Minimum 3 projects needed
+   - Analysis runs every 7 days
+
+**Check registry:** "Show my projects"
+**Check preferences:** "Show my preferences"
+```
+
+### Applying Cross-Project Suggestions
+
+**User says:** "Apply suggestion 1" or "Propagate strict mode to scripts and tools"
+
+**Steps:**
+
+1. **Identify target projects:**
+   - Parse suggestion or command
+   - Get project paths from registry
+
+2. **For each target project:**
+   a. Check if `.claude/project-preferences.json` exists
+   b. If not, create from template
+   c. Add/update the relevant override
+   d. Set reason: "Applied from cross-project suggestion"
+
+3. **Update tracking:**
+   - Move suggestion to history with status "applied"
+   - Record affected projects and timestamp
+
+4. **Confirm to user**
+
+**Response:**
+
+```markdown
+✅ Applied Cross-Project Suggestion
+
+**Pattern:** TypeScript strict mode
+**Applied to:**
+
+| Project | Status |
+|---------|--------|
+| scripts | ✓ Created project-preferences.json |
+| tools | ✓ Updated existing preferences |
+
+**Changes made:**
+```json
+{
+  "overrides": {
+    "skillSpecificPreferences": {
+      "standards-enforcer": {
+        "typescriptStrictMode": true,
+        "_reason": "Applied from cross-project suggestion (80% adoption)"
+      }
+    }
+  }
+}
+```
+
+**Remaining suggestions:** 2
+```
+
+### Propagate to All Projects
+
+**User says:** "Propagate [setting] to all projects"
+
+**Response:**
+
+```markdown
+## Propagate Setting to All Projects
+
+**Setting:** Conventional commits
+**Current adoption:** 9/10 projects (90%)
+
+**This will update:**
+
+| Project | Current | New |
+|---------|---------|-----|
+| legacy-app | simple | conventional |
+
+**Confirm:** "Yes, propagate to all"
+**Cancel:** "Cancel propagation"
+```
+
+### Excluding Projects from Analysis
+
+**User says:** "Ignore [project] for cross-project analysis"
+
+**Steps:**
+1. Add project to exclusion list in user preferences
+2. Remove from future pattern calculations
+
+**Response:**
+
+```markdown
+✅ Excluded from Cross-Project Analysis
+
+**Project:** prototype
+**Reason:** User requested exclusion
+
+This project will be:
+- ❌ Excluded from pattern aggregation
+- ❌ Excluded from consistency reports
+- ❌ Not suggested for propagation
+
+**To re-include:** "Include prototype in cross-project analysis"
+```
+
+### Configuration
+
+Users can adjust cross-project behavior in `~/.claude/user-preferences.json`:
+
+```json
+{
+  "crossProjectLearning": {
+    "enabled": true,
+    "aggregationIntervalDays": 7,
+    "thresholds": {
+      "minProjectsForPattern": 3,
+      "divergenceAlertThreshold": 0.3,
+      "propagateConfidence": 0.8,
+      "minProjectsForAnalysis": 3
+    }
+  }
+}
+```
+
+**Configurable options:**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| enabled | true | Enable/disable cross-project analysis |
+| aggregationIntervalDays | 7 | Days between auto-analyses |
+| minProjectsForPattern | 3 | Min projects to establish a pattern |
+| divergenceAlertThreshold | 0.3 | Alert if >30% diverge |
+| propagateConfidence | 0.8 | Min adoption to suggest propagation |
+| minProjectsForAnalysis | 3 | Min projects before enabling analysis |
+
+### Integration with Projects Registry
+
+Cross-Project Intelligence uses the Projects Registry (v3.2.0) to:
+
+1. **Enumerate projects:** Get list of all registered projects
+2. **Resolve paths:** Find project directories for preference files
+3. **Get metadata:** Use tags for severity scoring (production > staging > personal)
+4. **Track status:** Consider project update status in recommendations
+
+**Registry location:** `~/.claude/projects-registry.json`
+
+### Integration with Project Preferences (v3.9.0)
+
+When propagating patterns, Operation 8 uses the merge logic from v3.9.0:
+
+1. **Read existing:** Load current project-preferences.json (if exists)
+2. **Merge pattern:** Add new override using sparse format
+3. **Document reason:** Include why override was added
+4. **Preserve custom:** Don't overwrite user's explicit overrides
+
+---
+
 ## Version History
+
+- **v3.12.0** (2025-12-16): Cross-Project Intelligence
+  - Operation 8: Cross-project pattern aggregation
+  - Consistency detection across projects
+  - Propagate/standardize/detect-outlier suggestions
+  - Integration with Projects Registry
+  - Learning leverage across multiple projects
 
 - **v3.10.0** (2025-12-16): AI-Suggested Tuning
   - Operation 7: Intelligent preference tuning

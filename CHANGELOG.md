@@ -9,6 +9,130 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.12.0] - 2025-12-16
+
+### Added - Cross-Project Intelligence: Learning Leverage Across Projects
+
+**Core Enhancement:** Pattern aggregation and propagation across all registered projects, enabling Nx leverage on learning investment.
+
+#### The Problem Solved
+
+Single-project learning doesn't leverage cross-project patterns:
+- User prefers "conventional commits" in 8/10 projects - new project doesn't know
+- Quality standards vary unintentionally across projects
+- Workflow preferences rediscovered per project
+- No "compound interest" on learning investment
+
+**Solution:** Cross-Project Intelligence (Operation 8) enables learning leverage.
+
+#### The Learning Leverage Effect
+
+```
+Without cross-project:
+  Project A: learns X
+  Project B: learns X again (wasted)
+  Project C: learns X again (wasted)
+
+With cross-project:
+  Project A: learns X
+  Project B: "You prefer X in Project A. Apply?" ✓
+  Project C: "You prefer X in 2 projects. Apply?" ✓
+
+Result: Nx leverage (where N = number of projects)
+```
+
+#### New Feature: Operation 8 - Cross-Project Intelligence
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`, +450 lines)
+- Pattern aggregation across all registered projects
+- Consistency detection (find divergences from established patterns)
+- Three suggestion types: Propagate, Standardize, Detect-Outlier
+- Confidence scoring based on adoption rate and project count
+- Integration with Projects Registry (v3.2.0)
+- Integration with Project Preferences (v3.9.0)
+
+**Triggers:**
+- "Analyze patterns across my projects"
+- "Show cross-project insights"
+- "Are my projects configured consistently?"
+- "Propagate [setting] to all projects"
+
+#### New Schema: Cross-Project Learning
+
+**User Preferences** (`templates/user-preferences.json.template`, +70 lines)
+```json
+{
+  "crossProjectLearning": {
+    "enabled": true,
+    "aggregationIntervalDays": 7,
+    "projectPatterns": { "patterns": [] },
+    "consistencyReport": { "divergences": [] },
+    "crossProjectSuggestions": { "pending": [], "history": [] },
+    "thresholds": {
+      "minProjectsForPattern": 3,
+      "propagateConfidence": 0.8
+    }
+  }
+}
+```
+
+#### Updated Documentation
+
+**Personalization Guide** (`docs/02-optimization/personalization-guide.md`, +120 lines)
+- New section: Cross-Project Intelligence
+- Learning leverage effect explanation
+- Pattern types and examples
+- Configuration options
+- Privacy assurance
+
+#### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Pattern Aggregation | Detect patterns used in 80%+ of projects |
+| Consistency Report | Find divergences with severity scoring |
+| Propagate Suggestions | "Apply X to remaining projects" |
+| Standardize Suggestions | "Align projects to common standard" |
+| Outlier Detection | "Project Y below your standard" |
+| Privacy | All analysis happens locally |
+
+#### Example Suggestion
+
+```
+Suggestion: Propagate Conventional Commits (High Confidence)
+
+Pattern: conventional commits
+Adoption: 90% (9/10 projects)
+Missing: legacy-app
+
+Rationale: You use conventional commits in 9 projects.
+legacy-app would benefit from the same standard.
+
+Apply: "Propagate conventional commits to legacy-app"
+```
+
+#### Files Changed
+
+- Updated: `templates/user-preferences.json.template` (+70 lines)
+- Updated: `.claude/skills/personalization-engine/SKILL.md` (+450 lines)
+- Updated: `docs/02-optimization/personalization-guide.md` (+120 lines)
+- Updated: `version.json`
+- Updated: `CHANGELOG.md`
+
+**Total new content:** ~640 lines
+
+#### Strategic Position
+
+```
+v3.8-3.10: PERSONAL (preference management)
+v3.12.0:   LEVERAGE (cross-project patterns) ← HERE
+v4.0.0:    COLLECTIVE (multi-user intelligence)
+```
+
+Cross-project intelligence is the foundation for collective intelligence.
+
+---
+
 ## [3.11.0] - 2025-12-16
 
 ### Added - Model Selection Strategy: Intelligent Model Optimization
