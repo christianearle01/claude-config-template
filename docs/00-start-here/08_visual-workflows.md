@@ -10,12 +10,14 @@
 ## Why This Matters
 
 **Without visual workflows:**
+
 - Abstract concepts hard to grasp ("What's the actual sequence?")
 - Miss the connections between tools
 - Unclear when to use which path
 - Can't see the big picture
 
 **With visual workflows:**
+
 - Instant understanding of complete processes
 - See tool relationships clearly
 - Know decision points (when to branch)
@@ -302,58 +304,58 @@ graph TD
 
 ```mermaid
 graph TD
-    Start{What's Not Working?} --> A[Claude Code Won't Start]
-    Start --> B[Settings Not Loading]
-    Start --> C[CLAUDE.md Not Found]
-    Start --> D[MCP Servers Not Appearing]
-    Start --> E[Commands Not Working]
-    Start --> F[Git Approval Not Triggering]
+    Start{What's Not Working?} --> A["Claude Code Won't Start"]
+    Start --> B["Settings Not Loading"]
+    Start --> C["CLAUDE.md Not Found"]
+    Start --> D["MCP Servers Not Appearing"]
+    Start --> E["Commands Not Working"]
+    Start --> F["Git Approval Not Triggering"]
 
     A --> A1["Run: claude --version"]
     A1 --> A2{Version Shows?}
     A2 -->|No| A3["Reinstall: curl -fsSL code.claude.com/install.sh sh"]
     A2 -->|Yes| A4["Run: /doctor"]
-    A4 --> A5[Follow Diagnostic Output]
+    A4 --> A5["Follow Diagnostic Output"]
 
-    B --> B1[Check File Location]
+    B --> B1["Check File Location"]
     B1 --> B2["~/.claude/settings.json exists?"]
-    B2 -->|No| B3[Create from template]
-    B2 -->|Yes| B4[Validate JSON Syntax]
+    B2 -->|No| B3["Create from template"]
+    B2 -->|Yes| B4["Validate JSON Syntax"]
     B4 --> B5["python -m json.tool settings.json"]
     B5 --> B6{Valid JSON?}
-    B6 -->|No| B7[Fix Syntax Errors]
-    B6 -->|Yes| B8[Restart Claude Code]
+    B6 -->|No| B7["Fix Syntax Errors"]
+    B6 -->|Yes| B8["Restart Claude Code"]
 
-    C --> C1[Check Filename]
-    C1 --> C2[Must be: CLAUDE.md all caps]
-    C2 --> C3[Check Location]
-    C3 --> C4[Must be in project root]
-    C4 --> C5[NOT in .claude/ directory]
-    C5 --> C6[Test: Ask 'What does this app do?']
+    C --> C1["Check Filename"]
+    C1 --> C2["Must be: CLAUDE.md all caps"]
+    C2 --> C3["Check Location"]
+    C3 --> C4["Must be in project root"]
+    C4 --> C5["NOT in .claude/ directory"]
+    C5 --> C6["Test: Ask 'What does this app do?'"]
 
     D --> D1["Check ~/.claude.json"]
-    D1 --> D2[mcpServers section exists?]
-    D2 -->|No| D3[Add MCP server config]
+    D1 --> D2["mcpServers section exists?"]
+    D2 -->|No| D3["Add MCP server config"]
     D2 -->|Yes| D4["Run: /mcp"]
     D4 --> D5{Servers Listed?}
-    D5 -->|No| D6[Check npx installation]
-    D5 -->|Yes| D7[Servers Working!]
+    D5 -->|No| D6["Check npx installation"]
+    D5 -->|Yes| D7["Servers Working!"]
 
-    E --> E1[Check .claude/commands/]
-    E1 --> E2[Command files exist?]
-    E2 -->|No| E3[Create command.md files]
-    E2 -->|Yes| E4[Check file format]
-    E4 --> E5[Must end with .md]
-    E5 --> E6[Restart Claude Code]
+    E --> E1["Check .claude/commands/"]
+    E1 --> E2["Command files exist?"]
+    E2 -->|No| E3["Create command.md files"]
+    E2 -->|Yes| E4["Check file format"]
+    E4 --> E5["Must end with .md"]
+    E5 --> E6["Restart Claude Code"]
 
-    F --> F1[Check settings.json]
-    F1 --> F2[neverAutoApprove array exists?]
-    F2 -->|No| F3[Add git commit blocking]
-    F2 -->|Yes| F4[Run test commit]
+    F --> F1["Check settings.json"]
+    F1 --> F2["neverAutoApprove array exists?"]
+    F2 -->|No| F3["Add git commit blocking"]
+    F2 -->|Yes| F4["Run test commit"]
     F4 --> F5{Asks for approval?}
-    F5 -->|No| F6[Check permission mode]
+    F5 -->|No| F6["Check permission mode"]
     F6 --> F7["Press Shift+Tab to check mode"]
-    F5 -->|Yes| F8[Working correctly!]
+    F5 -->|Yes| F8["Working correctly!"]
 
     style Start fill:#e1f0ff
     style A3 fill:#ffe1e1
@@ -372,18 +374,23 @@ graph TD
 ## How to Use These Diagrams
 
 ### During Planning
+
 - **Reference Workflow #1** - Understand new project setup sequence
 - **Reference Workflow #4** - Plan team rollout strategy
 
 ### During Development
+
 - **Reference Workflow #2** - Follow TDD feature loop
 - **Reference Workflow #3** - Understand quality gates
 
 ### During Troubleshooting
+
 - **Reference Workflow #5** - Debug issues systematically
 
 ### Print and Keep Handy
+
 Export these diagrams and keep them visible:
+
 1. GitHub: View in README (renders Mermaid)
 2. VS Code: Use Mermaid Preview extension
 3. Print: Screenshot and print for desk reference
@@ -393,12 +400,14 @@ Export these diagrams and keep them visible:
 ## Legend
 
 **Node Colors:**
+
 - 🟢 Green = Start/Success/Completion
 - 🟡 Yellow = Agent/Tool invocation
 - 🔴 Red = Error state/Parallel execution
 - 🔵 Blue = Information/Check
 
 **Node Shapes:**
+
 - Rectangle = Action/Process
 - Diamond = Decision point
 - Rounded = Start/End
@@ -426,6 +435,7 @@ Export these diagrams and keep them visible:
 ## ✅ You've Completed: Visual Workflows
 
 **What you learned:**
+
 - 5 complete workflows visualized (setup, development, quality, team, troubleshooting)
 - Decision points (when to branch, what to check)
 - Tool relationships (how agents, skills, commands connect)
