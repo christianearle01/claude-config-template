@@ -71,9 +71,9 @@ Learn how to optimize Claude Code for maximum efficiency and minimum cost.
 
 ## Recommended Reading Order
 
-1. **Prompt Caching Guide** - Understand automatic caching (10 min) ← Coming soon
-2. **Environment Variables** - Configuration reference (5 min) ← Coming soon
-3. **MCP Optimization** - Selective loading (10 min) ← Coming soon
+1. **[Prompt Caching Guide](02_prompt-caching-guide.md)** - Understand automatic caching (10 min)
+2. **[Environment Variables](04_environment-variables.md)** - Configuration reference (5 min)
+3. **[MCP Optimization](03_mcp-optimization-guide.md)** - Selective loading (10 min)
 
 ---
 

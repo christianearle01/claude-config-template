@@ -10,19 +10,19 @@ This folder contains everything you need to get started quickly and safely.
 
 ### 🚀 Quick Start Guides
 
-**[5-Minute Success Guide](5_MINUTE_SUCCESS.md)**
+**[5-Minute Success Guide](03_5-minute-success.md)**
 - Ultra-fast demo showing projected 99% token savings
 - Perfect first experience with the template
 - See the value immediately
 
-**[Visual Quickstart Guide](VISUAL_QUICKSTART.md)**
+**[Visual Quickstart Guide](07_visual-quickstart.md)**
 - Decision flowchart for choosing your path
 - Visual guide to persona-based setup
 - Helps you pick the right approach for your needs
 
 ### ⚠️ CRITICAL: Read This FIRST!
 
-**[Anti-Patterns Guide](ANTI_PATTERNS.md)** ← **START HERE**
+**[Anti-Patterns Guide](05_anti-patterns.md)** ← **START HERE**
 - How AI-assisted projects fail (and how to avoid it)
 - Real example: 80-day project vs. 15-hour project
 - Vibe Coding vs. AI Augmented Coding
@@ -32,9 +32,9 @@ This folder contains everything you need to get started quickly and safely.
 
 ## Recommended Reading Order
 
-1. **[Anti-Patterns](ANTI_PATTERNS.md)** - Learn what NOT to do (10 min)
-2. **[5-Minute Success](5_MINUTE_SUCCESS.md)** - Quick demo (5 min)
-3. **[Visual Quickstart](VISUAL_QUICKSTART.md)** - Choose your path (2 min)
+1. **[Anti-Patterns](05_anti-patterns.md)** - Learn what NOT to do (10 min)
+2. **[5-Minute Success](03_5-minute-success.md)** - Quick demo (5 min)
+3. **[Visual Quickstart](07_visual-quickstart.md)** - Choose your path (2 min)
 4. **Then move to [01-Fundamentals](../01-fundamentals/)** to learn core concepts
 
 ---

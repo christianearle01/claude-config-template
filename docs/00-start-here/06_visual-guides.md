@@ -68,18 +68,18 @@ flowchart TD
     Start([Start New Task])
     Start --> Q1{Need to plan<br/>or design?}
 
-    Q1 -->|Yes| Sonnet[Use Sonnet<br/>💰 $3/M tokens]
+    Q1 -->|Yes| Sonnet["Use Sonnet<br/>$3/M tokens"]
     Q1 -->|No| Q2{Already have<br/>a plan?}
 
-    Q2 -->|Yes| Haiku[Use Haiku<br/>💰 $0.25/M tokens<br/>92% savings!]
+    Q2 -->|Yes| Haiku["Use Haiku<br/>$0.25/M tokens<br/>92% savings!"]
     Q2 -->|No| Sonnet
 
     Sonnet --> Q3{Sonnet<br/>struggling?}
-    Q3 -->|Yes| Opus[Use Opus<br/>💰 $15/M tokens<br/>Only for complex]
+    Q3 -->|Yes| Opus["Use Opus<br/>$15/M tokens<br/>Only for complex"]
     Q3 -->|No| Done1([Task Complete])
 
     Haiku --> Q4{Haiku making<br/>mistakes?}
-    Q4 -->|Yes| Sonnet2[Switch to Sonnet<br/>Review + refine]
+    Q4 -->|Yes| Sonnet2["Switch to Sonnet<br/>Review + refine"]
     Q4 -->|No| Done2([Task Complete])
 
     Opus --> Done3([Task Complete])
@@ -226,18 +226,26 @@ gantt
 **Visualize:** How you save 92% on costs.
 
 ```mermaid
-sankey-beta
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
+graph LR
+    subgraph Before["Before Setup: 45,000 tokens"]
+        B1["Exploring codebase<br/>15,000 tokens"]
+        B2["Re-reading files<br/>10,000 tokens"]
+        B3["Asking same questions<br/>8,000 tokens"]
+        B4["Wrong model usage<br/>12,000 tokens"]
+    end
 
-%% Token flow optimization visualization
-Before Setup,Exploring codebase,15000
-Before Setup,Re-reading files,10000
-Before Setup,Asking same questions,8000
-Before Setup,Wrong model usage,12000
+    subgraph After["After Setup: 7,500 tokens"]
+        A1["Context from CLAUDE.md<br/>3,000 tokens"]
+        A2["Focused reading<br/>2,000 tokens"]
+        A3["Sonnet for planning<br/>2,000 tokens"]
+        A4["Haiku for implementation<br/>500 tokens"]
+    end
 
-After Setup,Context from CLAUDE.md,3000
-After Setup,Focused reading,2000
-After Setup,Sonnet for planning,2000
-After Setup,Haiku for implementation,500
+    Before -.->|"83% reduction"| After
+
+    style Before fill:#ffe1e1
+    style After fill:#e1ffe1
 ```
 
 ### ASCII Alternative: Token Cost Waterfall

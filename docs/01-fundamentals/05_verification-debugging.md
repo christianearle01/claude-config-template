@@ -464,8 +464,8 @@ Review the code in [file paths] for:
 
 **Related Guides:**
 - [Anti-Patterns](../00-start-here/05_anti-patterns.md) - How projects fail
-- [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Ctrl+O and other essentials (coming soon)
-- [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
+- [Keyboard Shortcuts](04_keyboard-shortcuts.md) - Ctrl+O and other essentials
+- [Skills Paradigm](../00-start-here/08_skills-paradigm.md) - Building reusable expertise
 
 **Additional Resources:**
 - Claude Code Documentation: https://docs.claude.com
@@ -496,5 +496,5 @@ Review the code in [file paths] for:
 ---
 
 **Previous:** [Skills Paradigm](SKILLS_PARADIGM.md) - The evolution beyond agents
-**Next:** [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Essential patterns (coming soon)
+**Next:** [Keyboard Shortcuts](04_keyboard-shortcuts.md) - Essential patterns
 **See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do

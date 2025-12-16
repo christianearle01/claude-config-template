@@ -409,7 +409,7 @@ async function fetchLatestNews() {
 
 **Additional Resources:**
 - Claude Code Documentation: https://docs.claude.com
-- Official best practices (coming soon)
+- Anthropic Prompt Engineering: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering
 
 ---
 

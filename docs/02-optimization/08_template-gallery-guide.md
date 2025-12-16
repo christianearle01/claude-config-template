@@ -254,7 +254,7 @@ graph TD
 
 **Applying with parameters:**
 ```bash
-# With v4.5.0 application script (coming soon)
+# Using apply-template.sh with parameter overrides
 ./scripts/apply-template.sh gallery-fullstack \
   --param frontendFramework=react \
   --param backendFramework=fastapi \

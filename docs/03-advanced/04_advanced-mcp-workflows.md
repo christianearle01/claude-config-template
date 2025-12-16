@@ -541,6 +541,6 @@ See docs/04-ecosystem/05_third-party-mcps.md for MCP setup
 ---
 
 **See also:**
-- [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - Skills architecture
-- [Sub-agent Best Practices](SUBAGENT_BEST_PRACTICES.md) - Task-focused agents (coming soon)
-- [Third-Party MCPs](../04-ecosystem/THIRD_PARTY_MCPS.md) - Community tools (coming soon)
+- [Skills Paradigm](../00-start-here/08_skills-paradigm.md) - Skills architecture
+- [Sub-agent Best Practices](02_subagent-best-practices.md) - Task-focused agents
+- [Third-Party MCPs](../04-ecosystem/05_third-party-mcps.md) - Community tools

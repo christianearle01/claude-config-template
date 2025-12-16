@@ -438,6 +438,6 @@ A: Check Claude's verbose output (Ctrl+O) to see which MCPs are called.
 ---
 
 **See also:**
-- [Prompt Caching](PROMPT_CACHING_GUIDE.md) - Automatic caching (400-600 token savings)
-- [Environment Variables](ENVIRONMENT_VARIABLES.md) - Complete env var reference
-- [Third-Party MCPs](../04-ecosystem/THIRD_PARTY_MCPS.md) - Community tools (coming soon)
+- [Prompt Caching](01_prompt-caching-guide.md) - Automatic caching (400-600 token savings)
+- [Environment Variables](02_environment-variables.md) - Complete env var reference
+- [Third-Party MCPs](../04-ecosystem/05_third-party-mcps.md) - Community tools

@@ -18,17 +18,17 @@ Not sure where to start? Answer a few quick questions and we'll point you to the
 flowchart TD
     Start([Start: New to this template?]) --> Q1{New to<br/>Claude Code?}
 
-    Q1 -->|Yes| FirstTime[🆕 First-Time Learner<br/>60-90 minutes<br/>Complete understanding]
+    Q1 -->|Yes| FirstTime["First-Time Learner<br/>60-90 minutes<br/>Complete understanding"]
     Q1 -->|No| Q2{Have a project<br/>to set up?}
 
-    Q2 -->|Yes| QuickSetup[⚡ Quick Setup<br/>15-30 minutes<br/>Project ready to code]
+    Q2 -->|Yes| QuickSetup["Quick Setup<br/>15-30 minutes<br/>Project ready to code"]
     Q2 -->|No| Q3{Want advanced<br/>features?}
 
-    Q3 -->|Yes| Advanced[🚀 Advanced Optimizer<br/>20-40 minutes<br/>Security + Custom agents]
+    Q3 -->|Yes| Advanced["Advanced Optimizer<br/>20-40 minutes<br/>Security + Custom agents"]
     Q3 -->|No| Q4{Setting up<br/>for a team?}
 
-    Q4 -->|Yes| TeamLead[👥 Team Lead<br/>90-120 minutes<br/>Deployment process]
-    Q4 -->|No| Returning[🔄 Returning User<br/>10-20 minutes<br/>Quick refresher]
+    Q4 -->|Yes| TeamLead["Team Lead<br/>90-120 minutes<br/>Deployment process"]
+    Q4 -->|No| Returning["Returning User<br/>10-20 minutes<br/>Quick refresher"]
 
     FirstTime --> Path1["Go to: personas/01_first-time-learner.md"]
     QuickSetup --> Path2["Go to: personas/02_quick-setup-user.md"]
@@ -112,7 +112,7 @@ Still not sure? Use this quick selector:
 
 ### ❓ Question 3: Time Available Right Now
 
-- **"5 minutes"** → [5-Minute Win](5_MINUTE_SUCCESS.md)
+- **"5 minutes"** → [5-Minute Win](03_5-minute-success.md)
 - **"15-30 minutes"** → [Quick Setup](#quick-setup)
 - **"1-2 hours"** → [First-Time Learner](#first-time-learner)
 - **"2+ hours"** → [Team Lead](#team-lead)
@@ -173,7 +173,7 @@ Still not sure? Use this quick selector:
 
 **Alternative:** [Run the wizard](../START_HERE.md) → Select "Quick Setup"
 
-**Even faster?** Try the [5-Minute Win](5_MINUTE_SUCCESS.md) first!
+**Even faster?** Try the [5-Minute Win](03_5-minute-success.md) first!
 
 ---
 
@@ -257,7 +257,7 @@ Still not sure? Use this quick selector:
 
 **Start here:** [Returning User Guide](../personas/05_returning-user.md)
 
-**Alternative:** [Quick Reference](../QUICK_REFERENCE.md) *(coming soon)*
+**Alternative:** [Quick Reference](09_quick-reference.md)
 
 ---
 
@@ -283,7 +283,7 @@ Answer YES or NO to find your perfect path:
 
 2. **Do you have 60+ minutes to learn?**
    - YES → **[First-Time Learner](../personas/01_first-time-learner.md)**
-   - NO → Try **[5-Minute Win](5_MINUTE_SUCCESS.md)** first, then decide
+   - NO → Try **[5-Minute Win](03_5-minute-success.md)** first, then decide
 
 3. **Are you setting up for a team?**
    - YES → **[Team Lead](../personas/04_team-lead.md)**
@@ -302,7 +302,7 @@ Answer YES or NO to find your perfect path:
 ### Option 1: The 5-Minute Win (Recommended!)
 Get one quick success first, then decide your path.
 
-**→ [5-Minute Success Guide](5_MINUTE_SUCCESS.md)**
+**→ [5-Minute Success Guide](03_5-minute-success.md)**
 
 **Why this is great:**
 - Instant confidence boost
@@ -372,7 +372,7 @@ This visual guide helps you orient quickly. Bookmark it for future reference.
 ### Common Scenarios:
 
 **"I want to try it but don't have much time"**
-→ [5-Minute Win](5_MINUTE_SUCCESS.md) - See the value immediately
+→ [5-Minute Win](03_5-minute-success.md) - See the value immediately
 
 **"I'm experienced but new to this template"**
 → [Quick Setup](../personas/02_quick-setup-user.md) - Fastest path to productivity
@@ -381,10 +381,10 @@ This visual guide helps you orient quickly. Bookmark it for future reference.
 → [First-Time Learner](../personas/01_first-time-learner.md) - Comprehensive learning path
 
 **"I need to convince my team first"**
-→ [5-Minute Win](5_MINUTE_SUCCESS.md) + [Success Stories](SUCCESS_STORIES.md) *(coming soon)*
+→ [5-Minute Win](03_5-minute-success.md) + Success Stories *(guide coming in v4.10.0)*
 
 **"Just give me the commands!"**
-→ [Quick Reference](../QUICK_REFERENCE.md) or [README Quick Start](../README.md#quick-start-by-persona)
+→ [Quick Reference](09_quick-reference.md) or [README Quick Start](../../README.md#quick-start-by-persona)
 
 ---
 
@@ -394,14 +394,14 @@ This visual guide helps you orient quickly. Bookmark it for future reference.
 
 - **🏃 I'm ready now** → Pick a path above and click the link
 - **🎓 Let the wizard guide me** → Run `./scripts/claude-wizard.sh`
-- **⚡ Quick win first** → [5-Minute Success](5_MINUTE_SUCCESS.md)
+- **⚡ Quick win first** → [5-Minute Success](03_5-minute-success.md)
 - **📖 Learn more first** → [Back to README](../README.md)
 
 ---
 
 ## Navigation
 
-**🏠 [Back to README](../README.md)** | **🗺️ [Detailed Paths](../START_HERE.md)** | **⚡ [5-Minute Win](5_MINUTE_SUCCESS.md)**
+**🏠 [Back to README](../../README.md)** | **🗺️ [Detailed Paths](personas/README.md)** | **⚡ [5-Minute Win](03_5-minute-success.md)**
 
 ---
 
