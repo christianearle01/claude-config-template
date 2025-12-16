@@ -195,6 +195,34 @@ Same configuration, same CLAUDE.md, same benefits on both platforms.
 
 ---
 
+## 🔄 How It All Works Together
+
+**Quick Overview:** This template provides 4 optimization layers that work together:
+
+```
+Layer 4: AGENTS (Complex tasks)        → @project-planner, @coder, @quality-reviewer
+         ↑ uses
+Layer 3: SKILLS (Domain automation)    → testing-workflow, component-finder, commit-readiness
+         ↑ triggers
+Layer 2: COMMANDS (Quick operations)   → /test, /build, /review, /model
+         ↑ reads
+Layer 1: CONTEXT (Foundation)          → CLAUDE.md, settings.json, coding-standards
+```
+
+**Example Workflow:** Adding a feature
+1. **CLAUDE.md** (Layer 1) provides project context
+2. **@coder** agent (Layer 4) implements with TDD
+3. **/test** command (Layer 2) runs suite
+4. **testing-workflow** skill (Layer 3) analyzes results
+5. **@quality-reviewer** agent (Layer 4) validates security + standards
+6. **commit-readiness-checker** skill (Layer 3) validates release criteria
+
+**Result:** Vague idea → Shipped feature with full quality checks
+
+**See:** [Workflow Integration Guide](docs/01-fundamentals/WORKFLOW_INTEGRATION.md) for detailed workflows
+
+---
+
 ## 💡 Core Features
 
 ### CLAUDE.md Project Memory
