@@ -1,7 +1,7 @@
 {
-  "version": "3.12.0",
+  "version": "3.13.0",
   "release_date": "2025-12-16",
-  "release_name": "Cross-Project Intelligence - Learning Leverage Across Projects",
+  "release_name": "Import/Export Preferences - Portable Configuration",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -139,7 +139,15 @@
     "consistency-detection",
     "cross-project-suggestions",
     "propagate-standardize-workflow",
-    "learning-leverage-multiplier"
+    "learning-leverage-multiplier",
+    "import-export-preferences",
+    "preferences-backup",
+    "preferences-templates",
+    "merge-strategies",
+    "version-compatibility-checking",
+    "export-format-schema",
+    "import-preview-diff",
+    "rollback-from-backup"
   ],
   "personas_supported": [
     "first-time",
@@ -170,7 +178,7 @@
       "docs/03-advanced/quality-workflows-guide.md": "3.7.0",
       "docs/02-optimization/quality-context-optimization.md": "3.7.0",
       "docs/00-start-here/QUALITY_WORKFLOWS.md": "3.7.0",
-      "docs/02-optimization/personalization-guide.md": "3.12.0",
+      "docs/02-optimization/personalization-guide.md": "3.13.0",
       "docs/02-optimization/MODEL_SELECTION_STRATEGY.md": "3.11.0",
       "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.8.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
@@ -189,7 +197,7 @@
       "projects-registry.json.template": "3.2.0",
       "features.json.template": "3.6.0",
       "progress.md.template": "3.6.0",
-      "user-preferences.json.template": "3.12.0",
+      "user-preferences.json.template": "3.13.0",
       "project-preferences.json.template": "3.9.0"
     },
     "agents": {
@@ -243,7 +251,7 @@
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
       "standards-enforcer": "3.7.0",
-      "personalization-engine": "3.12.0"
+      "personalization-engine": "3.13.0"
     },
     "commands": {
       "build": "2.0.0",

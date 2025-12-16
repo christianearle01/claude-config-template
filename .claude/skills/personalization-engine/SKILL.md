@@ -1995,7 +1995,513 @@ When propagating patterns, Operation 8 uses the merge logic from v3.9.0:
 
 ---
 
+## Operation 9: Import/Export Preferences (v3.13.0)
+
+### Overview
+
+Export your carefully tuned preferences for backup, sharing, or transfer to new machines. Import preferences from exports with validation, preview, and merge strategies.
+
+### User Queries
+
+**Export:**
+- "Export my preferences"
+- "Export preferences to [path]"
+- "Create a preferences backup"
+- "Export preferences as template"
+- "Export anonymized preferences"
+
+**Import:**
+- "Import preferences from [file]"
+- "Import preferences"
+- "Restore preferences from backup"
+- "Restore from last backup"
+
+**Management:**
+- "Show export/import history"
+- "Compare my preferences with [file]"
+- "Show preference diff with [file]"
+
+### Export Types
+
+| Type | Contents | Use Case |
+|------|----------|----------|
+| **full** | All settings + analytics + history | Personal backup |
+| **partial** | User-selected sections only | Share specific settings |
+| **anonymized** | Settings without history/timestamps | Team sharing |
+| **template** | Core settings only (no learned data) | Reusable starter config |
+
+### Export Algorithm
+
+```
+1. DETERMINE EXPORT TYPE
+   - Check user request for type specification
+   - Default: "full" if not specified
+
+2. GATHER CONTENTS
+   - Read ~/.claude/user-preferences.json
+   - Apply filter based on export type:
+     - full: Include everything
+     - partial: Prompt user for sections to include
+     - anonymized: Strip analytics, learningHistory, timestamps
+     - template: Keep only profile, thresholds, skillSpecificPreferences
+
+3. BUILD EXPORT STRUCTURE
+   {
+     "$schema": "claude-preferences-export-v1",
+     "exportVersion": "1.0.0",
+     "exportedAt": "<ISO timestamp>",
+     "sourceVersion": "<current version>",
+     "exportType": "<type>",
+     "compatibility": {
+       "minVersion": "3.8.0",
+       "maxVersion": "<current version>"
+     },
+     "contents": { <filtered preferences> },
+     "metadata": {
+       "checksum": "<sha256 of contents>",
+       "exportOptions": { <options used> }
+     }
+   }
+
+4. WRITE EXPORT FILE
+   - Use user-specified path or default (~/.claude/claude-preferences-export.json)
+   - Format with 2-space indentation for readability
+
+5. UPDATE TRACKING
+   - Add entry to importExport.exportHistory
+   - Set importExport.lastExportAt
+
+6. RETURN CONFIRMATION
+   - Show export summary
+   - Provide import instructions
+```
+
+### Import Algorithm
+
+```
+1. VALIDATE FILE
+   - Check file exists at specified path
+   - Parse JSON and validate structure
+   - Check $schema matches "claude-preferences-export-v1"
+   - Verify version compatibility (minVersion <= current <= maxVersion)
+
+2. CHECK SAFETY LIMITS
+   - If safetySettings.maxImportsPerDay exceeded, warn and require override
+   - Count today's imports from importHistory
+
+3. CREATE BACKUP
+   - If safetySettings.createBackupBeforeImport is true
+   - Copy current preferences to timestamped backup
+   - Record backup path for potential rollback
+
+4. DETERMINE MERGE STRATEGY
+   - Ask user if not specified:
+     - "overwrite": Replace all matching sections entirely
+     - "merge": Deep merge (import values win on conflict)
+     - "selective": User chooses per-section
+
+5. PREVIEW CHANGES
+   - Show diff of what will change
+   - Highlight conflicts (current vs import values)
+   - List new items that will be added
+   - Show items that will be removed (overwrite mode)
+
+6. REQUIRE CONFIRMATION
+   - If safetySettings.requireConfirmation is true
+   - Wait for explicit user approval
+
+7. APPLY IMPORT
+   - Execute merge based on strategy
+   - Preserve importExport section (never overwrite tracking)
+   - Preserve backup section
+
+8. UPDATE TRACKING
+   - Add entry to importExport.importHistory
+   - Set importExport.lastImportAt
+   - Record merge strategy and sections imported
+
+9. RETURN CONFIRMATION
+   - Show what was imported
+   - Provide rollback command
+   - Show backup location
+```
+
+### Response Templates
+
+#### Export Success
+
+```markdown
+## Export Successful
+
+**Export Type:** Full
+**File:** ~/claude-preferences-export.json
+**Exported At:** 2025-12-16 10:30:00
+**Size:** 4.2 KB
+
+### Contents Exported
+
+| Section | Items | Status |
+|---------|-------|--------|
+| Profile | 5 settings | ✅ Included |
+| Confidence Thresholds | 4 settings | ✅ Included |
+| Learned Preferences | 12 items | ✅ Included |
+| Skill Preferences | 5 skills | ✅ Included |
+| Skipped Recommendations | 3 items | ✅ Included |
+| Analytics | 156 decisions | ✅ Included |
+| Learning History | 100 events | ❌ Excluded |
+| Tuning Suggestions | 2 pending | ✅ Included |
+| Cross-Project Patterns | 8 patterns | ✅ Included |
+
+**Checksum:** sha256:a1b2c3...
+
+---
+
+### To Import on Another Machine
+
+1. Copy file to new machine
+2. Run: "Import preferences from ~/claude-preferences-export.json"
+
+### Other Export Options
+
+- **Template:** "Export preferences as template"
+- **Anonymized:** "Export anonymized preferences"
+- **Partial:** "Export only [section] preferences"
+```
+
+#### Export as Template
+
+```markdown
+## Template Export Successful
+
+**Export Type:** Template
+**File:** ~/claude-preferences-template.json
+
+### Contents (Clean Template)
+
+| Section | Items | Included |
+|---------|-------|----------|
+| Profile | 5 settings | ✅ |
+| Confidence Thresholds | 4 settings | ✅ |
+| Skill Preferences | 5 skills | ✅ |
+| Analytics | - | ❌ (template mode) |
+| Learning History | - | ❌ (template mode) |
+| Learned Preferences | - | ❌ (template mode) |
+
+**Perfect for:** New team members, new machines, sharing best practices
+
+---
+
+**To use template:**
+"Import preferences from ~/claude-preferences-template.json"
+```
+
+#### Import Preview
+
+```markdown
+## Import Preview
+
+**Source:** ~/claude-preferences-export.json
+**Source Version:** 3.12.0 ✅ Compatible
+**Merge Strategy:** merge
+
+---
+
+### Changes to Apply
+
+| Setting | Current | Import | Action |
+|---------|---------|--------|--------|
+| profile.proactivityLevel | medium | high | 🔄 Update |
+| confidenceThresholds.autoApply | 95 | 90 | 🔄 Update |
+| learnedPreferences.workflow.commit-style | conventional | conventional | ✓ Same |
+| skillSpecificPreferences.test-generator.coverageTarget | 80 | 90 | 🔄 Update |
+
+### New Items (will be added)
+
+- learnedPreferences.coding-style.early-returns (acceptanceRate: 0.85)
+- skillSpecificPreferences.custom-skill (new configuration)
+
+### Conflicts (import wins in merge mode)
+
+| Setting | Your Value | Import Value |
+|---------|------------|--------------|
+| confidenceThresholds.autoApply | 95 | 90 |
+
+---
+
+**Backup will be created at:** ~/.claude/user-preferences.json.backup.2025-12-16
+
+**Proceed?**
+- "Yes, apply import" - Apply these changes
+- "No, cancel" - Cancel import
+- "Use selective merge" - Choose per section
+- "Show full diff" - More details
+```
+
+#### Import Success
+
+```markdown
+## Import Successful
+
+**Source:** ~/claude-preferences-export.json
+**Strategy:** merge
+**Imported At:** 2025-12-16 10:35:00
+
+### Summary
+
+| Category | Imported | Unchanged | Conflicts |
+|----------|----------|-----------|-----------|
+| Profile | 2 | 3 | 0 |
+| Thresholds | 3 | 1 | 1 |
+| Learned Preferences | 8 | 4 | 0 |
+| Skill Preferences | 2 | 3 | 0 |
+| **Total** | **15** | **11** | **1** |
+
+---
+
+**Backup available:** ~/.claude/user-preferences.json.backup.2025-12-16
+
+**To rollback:** "Restore preferences from backup"
+**To view changes:** "Show my preferences"
+```
+
+#### Import Validation Error
+
+```markdown
+## Import Failed: Validation Error
+
+**File:** ~/old-preferences.json
+**Error:** Version incompatible
+
+### Details
+
+| Check | Status |
+|-------|--------|
+| File exists | ✅ |
+| Valid JSON | ✅ |
+| Schema match | ✅ |
+| Version compatible | ❌ |
+
+**Problem:** Export version 2.5.0 is below minimum supported (3.8.0)
+
+### Options
+
+1. **Export fresh:** "Export my preferences" from the source machine
+2. **Manual migration:** Copy specific settings by hand
+3. **Force import:** "Import preferences from [file] --force" (may cause issues)
+```
+
+#### Restore from Backup
+
+```markdown
+## Restore from Backup
+
+**Available Backups:**
+
+| # | Date | Size | Reason |
+|---|------|------|--------|
+| 1 | 2025-12-16 10:30 | 4.1 KB | Pre-import backup |
+| 2 | 2025-12-15 14:22 | 3.9 KB | Pre-import backup |
+| 3 | 2025-12-14 09:15 | 3.8 KB | Manual backup |
+
+**Select backup to restore:**
+- "Restore backup 1" - Most recent
+- "Restore backup from 2025-12-15"
+- "Show backup 1 contents"
+```
+
+#### Backup Restored
+
+```markdown
+## Backup Restored
+
+**Restored from:** ~/.claude/user-preferences.json.backup.2025-12-16
+**Original date:** 2025-12-16 10:30:00
+
+### What Changed
+
+| Category | Restored Values |
+|----------|-----------------|
+| Thresholds | autoApply: 95 (was 90) |
+| Profile | proactivityLevel: medium (was high) |
+
+**Current backup created:** ~/.claude/user-preferences.json.backup.restore.2025-12-16
+
+Your preferences are back to the state before the last import.
+```
+
+#### Show History
+
+```markdown
+## Import/Export History
+
+### Recent Exports
+
+| Date | Type | File | Sections |
+|------|------|------|----------|
+| 2025-12-16 10:30 | full | ~/claude-preferences-export.json | 9 sections |
+| 2025-12-10 15:45 | template | ~/team-template.json | 3 sections |
+| 2025-12-05 09:00 | anonymized | ~/shared-prefs.json | 6 sections |
+
+### Recent Imports
+
+| Date | Source | Strategy | Imported |
+|------|--------|----------|----------|
+| 2025-12-16 10:35 | export.json | merge | 15 settings |
+| 2025-12-08 14:20 | team-prefs.json | selective | 8 settings |
+
+**Today's imports:** 1 of 5 allowed
+
+---
+
+**Actions:**
+- "Export my preferences" - Create new export
+- "Clear export history" - Remove history entries
+```
+
+#### Compare/Diff
+
+```markdown
+## Preferences Comparison
+
+**Current** vs **~/other-preferences.json**
+
+### Differences Found: 8
+
+#### Profile
+
+| Setting | Current | Other |
+|---------|---------|-------|
+| proactivityLevel | medium | high |
+| experienceLevel | intermediate | advanced |
+
+#### Confidence Thresholds
+
+| Setting | Current | Other |
+|---------|---------|-------|
+| autoApply | 95 | 90 |
+| suggestProminently | 75 | 70 |
+
+#### Learned Preferences
+
+| Setting | Current | Other |
+|---------|---------|-------|
+| commit-style | conventional | semantic |
+
+### Only in Current (3 items)
+- skillSpecificPreferences.custom-skill
+- learnedPreferences.coding-style.early-returns
+- skippedRecommendations.item-xyz
+
+### Only in Other (2 items)
+- learnedPreferences.workflow.auto-stage
+- skillSpecificPreferences.other-skill
+
+---
+
+**Actions:**
+- "Import preferences from ~/other-preferences.json" - Apply these
+- "Import only thresholds from ~/other-preferences.json" - Partial import
+```
+
+### Configuration
+
+Users can configure import/export behavior in `~/.claude/user-preferences.json`:
+
+```json
+{
+  "importExport": {
+    "safetySettings": {
+      "createBackupBeforeImport": true,
+      "validateSchemaVersion": true,
+      "requireConfirmation": true,
+      "maxImportsPerDay": 5
+    },
+    "defaults": {
+      "exportPath": "~/claude-preferences-export.json",
+      "defaultExportType": "full",
+      "includeAnalytics": true,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": true
+    }
+  }
+}
+```
+
+### Export File Format
+
+```json
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T10:30:00Z",
+  "exportedBy": "personalization-engine",
+  "sourceVersion": "3.13.0",
+
+  "exportType": "full",
+
+  "compatibility": {
+    "minVersion": "3.8.0",
+    "maxVersion": "3.13.0",
+    "breakingChanges": []
+  },
+
+  "contents": {
+    "profile": { },
+    "confidenceThresholds": { },
+    "learnedPreferences": { },
+    "skillSpecificPreferences": { },
+    "skippedRecommendations": { },
+    "dontShowAgain": { }
+  },
+
+  "optionalContents": {
+    "analytics": { },
+    "learningHistory": { },
+    "tuningSuggestions": { },
+    "crossProjectLearning": { }
+  },
+
+  "metadata": {
+    "checksum": "sha256:...",
+    "exportOptions": {
+      "includeAnalytics": true,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": true
+    }
+  }
+}
+```
+
+### Best Practices
+
+**For Backups:**
+- Export weekly for regular backups
+- Use "full" type to capture everything
+- Store exports in cloud storage for safety
+
+**For Team Sharing:**
+- Use "anonymized" to share without personal data
+- Use "template" for onboarding new team members
+- Document which settings are included
+
+**For Machine Migration:**
+- Export "full" from old machine
+- Import with "merge" on new machine
+- Review diff before applying
+
+---
+
 ## Version History
+
+- **v3.13.0** (2025-12-16): Import/Export Preferences
+  - Operation 9: Portable configuration management
+  - Four export types: full, partial, anonymized, template
+  - Three merge strategies: overwrite, merge, selective
+  - Version compatibility checking
+  - Preview before import with diff view
+  - Automatic backup before import
+  - Export/import history tracking
+  - Rollback capability from backups
 
 - **v3.12.0** (2025-12-16): Cross-Project Intelligence
   - Operation 8: Cross-project pattern aggregation
