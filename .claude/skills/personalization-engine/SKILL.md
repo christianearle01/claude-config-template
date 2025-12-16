@@ -2803,6 +2803,186 @@ Custom templates use the same format as built-in templates.
 
 ---
 
+## Template Inheritance (v4.1.0)
+
+### Overview
+
+Templates can extend other templates using the `extends` field. Child templates inherit all settings from the base and can override specific values.
+
+### The `extends` Field
+
+Add `extends` to `templateMetadata` to inherit from a base template:
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-frontend",
+    "name": "Team Frontend",
+    "extends": "team-standard",
+    "_extendsHint": "Base template ID or URL to inherit from"
+  }
+}
+```
+
+### Inheritance Sources
+
+| Source Type | Example | Resolution |
+|-------------|---------|------------|
+| Built-in ID | `"extends": "balanced"` | Lookup in built-in templates |
+| Remote URL | `"extends": "https://..."` | Fetch via Operation 11 |
+| Relative Path | `"extends": "./base.json"` | Resolve relative to template location |
+
+### Inheritance Resolution Algorithm
+
+```
+RESOLVE_INHERITANCE(template, chain = []):
+  1. CHECK FOR EXTENDS
+     - If template.templateMetadata.extends is null/undefined
+       → Return template unchanged
+
+  2. CYCLE DETECTION
+     - If template.templateMetadata.id in chain
+       → ERROR: "Circular inheritance detected: {chain} → {id}"
+     - If chain.length >= 5
+       → ERROR: "Maximum inheritance depth exceeded (5 levels)"
+
+  3. RESOLVE BASE TEMPLATE
+     - extendsValue = template.templateMetadata.extends
+
+     a. If extendsValue is built-in ID (balanced, security-first, etc.)
+        → baseTemplate = load from templates/preference-templates/{id}.json
+
+     b. If extendsValue is HTTPS URL
+        → baseTemplate = fetch via Operation 11 mechanism
+        → Verify checksum if available
+
+     c. If extendsValue is relative path (starts with ./)
+        → baseTemplate = load relative to template's location
+
+     - Validate baseTemplate has claude-preferences-export-v1 schema
+
+  4. RECURSIVE RESOLUTION
+     - chain.push(template.templateMetadata.id)
+     - resolvedBase = RESOLVE_INHERITANCE(baseTemplate, chain)
+
+  5. DEEP MERGE
+     - result = DEEP_MERGE(resolvedBase.contents, template.contents)
+
+     DEEP_MERGE(base, child):
+       For each key in child:
+         - If both base[key] and child[key] are objects (not arrays)
+           → result[key] = DEEP_MERGE(base[key], child[key])
+         - Else (arrays, primitives, or type mismatch)
+           → result[key] = child[key]  // Child wins
+       For each key in base not in child:
+         → result[key] = base[key]  // Inherit from base
+
+  6. PRESERVE CHILD METADATA
+     - result.templateMetadata = template.templateMetadata
+     - result._inheritanceChain = chain
+     - result._baseTemplate = resolvedBase.templateMetadata.id
+
+  7. RETURN RESOLVED TEMPLATE
+```
+
+### Inheritance Triggers
+
+- "Show template inheritance chain for [template]"
+- "What does [template] inherit from?"
+- "Preview resolved [template]"
+- "Show [template] with inheritance resolved"
+
+### Inheritance Chain Response
+
+```markdown
+## Template Inheritance Chain: team-frontend
+
+```
+team-frontend (applying)
+    └── extends: team-standard
+        └── extends: balanced (built-in)
+```
+
+### Resolved Template Preview
+
+| Setting | Value | Source |
+|---------|-------|--------|
+| experienceLevel | intermediate | team-standard |
+| proactivityLevel | high | team-frontend (override) |
+| autoApply | 95 | team-standard |
+| primaryFrameworks | ["react", "nextjs"] | team-frontend (override) |
+
+---
+
+**Inheritance Summary:**
+- Base layers: 2 (balanced → team-standard)
+- Overrides in team-frontend: 4 settings
+- Total effective settings: 23
+
+**Actions:**
+- "Apply team-frontend template"
+- "Show full resolved template"
+- "Compare with current preferences"
+```
+
+### Error Handling
+
+**Circular Inheritance:**
+```markdown
+## Error: Circular Inheritance Detected
+
+Cannot resolve template `team-a`:
+
+```
+team-a → team-b → team-c → team-a (circular!)
+```
+
+**Fix:** Remove the circular reference in one of the templates.
+```
+
+**Max Depth Exceeded:**
+```markdown
+## Error: Maximum Inheritance Depth Exceeded
+
+Template `deep-child` exceeds maximum inheritance depth (5 levels):
+
+```
+deep-child → level-4 → level-3 → level-2 → level-1 → base (6 levels!)
+```
+
+**Fix:** Flatten your template hierarchy to reduce nesting.
+```
+
+**Base Template Not Found:**
+```markdown
+## Error: Base Template Not Found
+
+Template `team-frontend` extends `team-standard`, but `team-standard` was not found.
+
+**Checked locations:**
+- Built-in templates: Not found
+- Remote sources: Not found
+- Relative path: ./team-standard.json - File not found
+
+**Fix:** Ensure the base template exists and is accessible.
+```
+
+### Integration with Operations 9, 10, 11
+
+| Operation | Inheritance Integration |
+|-----------|------------------------|
+| Operation 9 (Import) | Resolve inheritance before preview |
+| Operation 10 (Templates) | Show inheritance chain in template listing |
+| Operation 11 (Remote) | Fetch base templates for remote extends |
+
+When applying a template with inheritance:
+1. Resolve full inheritance chain
+2. Show resolved preview (merged result)
+3. User confirms
+4. Apply resolved template using Operation 9 import
+
+---
+
 ## Operation 11: Remote Template Sources (v4.0.0)
 
 ### Purpose
@@ -3164,6 +3344,15 @@ Skill: Shows preview, creates backup, applies template
 ---
 
 ## Version History
+
+- **v4.1.0** (2025-12-16): Template Inheritance
+  - `extends` field for template composition
+  - Inheritance resolution algorithm with cycle detection
+  - Support for built-in, remote URL, and relative path bases
+  - Deep merge with child override semantics
+  - Maximum depth enforcement (5 levels)
+  - Inheritance chain visualization
+  - Integration with Operations 9, 10, 11
 
 - **v4.0.0** (2025-12-16): Remote Template Sources
   - Operation 11: Team template sharing via URLs

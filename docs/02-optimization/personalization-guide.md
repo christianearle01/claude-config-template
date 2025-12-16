@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 4.0.0
+**Version:** 4.1.0
 **Last Updated:** 2025-12-16
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -26,6 +26,7 @@ This guide explains how the Personalization Engine works, how to customize your 
 15. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
 16. [Preference Templates](#preference-templates-v3140) (v3.14.0)
 17. [Remote Template Sources](#remote-template-sources-v400) (v4.0.0)
+18. [Template Inheritance](#template-inheritance-v410) (v4.1.0)
 
 ---
 
@@ -1230,6 +1231,129 @@ See `examples/team-templates/` for a complete example.
 
 ---
 
+## Template Inheritance (v4.1.0)
+
+### Overview
+
+Templates can extend other templates using the `extends` field. Child templates inherit all settings from the base and can override specific values. This enables powerful composition patterns for teams.
+
+### Basic Usage
+
+Create a template that extends another:
+
+```json
+{
+  "templateMetadata": {
+    "id": "my-custom-template",
+    "name": "My Custom Template",
+    "extends": "balanced"
+  },
+  "contents": {
+    "profile": {
+      "proactivityLevel": "high"
+    }
+  }
+}
+```
+
+This template inherits everything from `balanced` but overrides `proactivityLevel` to `high`.
+
+### Inheritance Sources
+
+| Source Type | Example | Use Case |
+|-------------|---------|----------|
+| Built-in ID | `"extends": "balanced"` | Extend official templates |
+| Remote URL | `"extends": "https://..."` | Extend team templates |
+| Relative Path | `"extends": "./base.json"` | Local template chains |
+
+### Merge Rules
+
+When a template extends another:
+
+- **Objects:** Deep merge - child values override, unspecified inherit
+- **Arrays:** Child replaces base entirely (no merging)
+- **Primitives:** Child value wins
+- **Max depth:** 5 levels (prevents infinite loops)
+
+### Viewing Inheritance
+
+```
+"Show template inheritance chain for team-frontend"
+"What does team-frontend inherit from?"
+"Preview resolved team-frontend"
+```
+
+### Inheritance Chain View
+
+```
+team-frontend (applying)
+    └── extends: team-standard
+        └── extends: balanced (built-in)
+```
+
+### Example: Team Template Hierarchy
+
+Create a hierarchy of templates for different roles:
+
+```
+balanced (built-in)
+    └── team-standard (team base)
+        ├── team-frontend (frontend team)
+        ├── team-backend (backend team)
+        └── team-security (security-focused)
+```
+
+### Creating an Inherited Template
+
+**Step 1:** Choose a base template
+
+```
+"Show available templates"
+```
+
+**Step 2:** Create your template with `extends`
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-frontend",
+    "extends": "team-standard"
+  },
+  "contents": {
+    "profile": {
+      "primaryFrameworks": ["react", "nextjs"]
+    }
+  }
+}
+```
+
+**Step 3:** Add to your catalog
+
+```json
+{
+  "templates": [
+    {
+      "id": "team-frontend",
+      "extends": "team-standard",
+      "sourceUrl": "./team-frontend.json"
+    }
+  ]
+}
+```
+
+### Inheritance Commands
+
+| Command | Description |
+|---------|-------------|
+| `Show template inheritance chain for [template]` | View full chain |
+| `What does [template] inherit from?` | Show base template |
+| `Preview resolved [template]` | Show merged result |
+| `Compare [child] with [base]` | Show overrides |
+
+See `examples/team-templates/team-frontend.json` for a complete example.
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -1268,6 +1392,9 @@ See `examples/team-templates/` for a complete example.
 | `List template sources` | Show configured sources |
 | `Remove template source [name]` | Remove a source |
 | `Refresh template sources` | Check for updates |
+| `Show template inheritance chain for [template]` | View inheritance chain |
+| `What does [template] inherit from?` | Show base template |
+| `Preview resolved [template]` | Show merged result |
 
 ### Proactivity Quick Guide
 

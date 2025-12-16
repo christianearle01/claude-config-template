@@ -9,6 +9,80 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.1.0] - 2025-12-16
+
+### Added - Template Inheritance: Compositional Configuration
+
+Enable templates to extend other templates using the `extends` field. Child templates inherit all settings from the base and can override specific values.
+
+#### Core Feature: `extends` Field
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-frontend",
+    "extends": "team-standard"
+  },
+  "contents": {
+    "profile": {
+      "primaryFrameworks": ["react", "nextjs"]
+    }
+  }
+}
+```
+
+#### Inheritance Sources
+
+| Source Type | Example | Use Case |
+|-------------|---------|----------|
+| Built-in ID | `"extends": "balanced"` | Extend official templates |
+| Remote URL | `"extends": "https://..."` | Extend team templates |
+| Relative Path | `"extends": "./base.json"` | Local template chains |
+
+#### Inheritance Resolution Algorithm
+
+- **Deep merge:** Child values override base values
+- **Arrays:** Child replaces base entirely (not merged)
+- **Cycle detection:** Prevents circular inheritance
+- **Max depth:** 5 levels (prevents infinite loops)
+- **Error handling:** Clear messages for common issues
+
+#### New Commands
+
+| Command | Description |
+|---------|-------------|
+| `Show template inheritance chain for [template]` | View full inheritance chain |
+| `What does [template] inherit from?` | Show base template |
+| `Preview resolved [template]` | Show merged result |
+
+#### Example Team Hierarchy
+
+```
+balanced (built-in)
+    └── team-standard (team base)
+        ├── team-frontend (frontend team)
+        ├── team-backend (backend team)
+        └── team-security (security-focused)
+```
+
+#### Files Changed
+
+| File | Change |
+|------|--------|
+| `.claude/skills/personalization-engine/SKILL.md` | Template Inheritance section (+180 lines) |
+| `examples/team-templates/team-frontend.json` | New inheritance example |
+| `examples/team-templates/catalog.json` | Added team-frontend entry |
+| `examples/team-templates/README.md` | Inheritance documentation |
+| `docs/02-optimization/personalization-guide.md` | Section 18: Template Inheritance |
+
+#### Integration
+
+- **Operation 9 (Import):** Resolve inheritance before preview
+- **Operation 10 (Templates):** Show inheritance chain in listing
+- **Operation 11 (Remote):** Fetch base templates for remote extends
+
+---
+
 ## [4.0.0] - 2025-12-16
 
 ### Added - Team Template Sharing: Collective Intelligence
