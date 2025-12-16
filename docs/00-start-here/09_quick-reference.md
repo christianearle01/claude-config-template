@@ -942,7 +942,38 @@ pip install pip-audit && pip-audit
 pip freeze > requirements.txt
 ```
 
-### Universal Principles (ALL Languages)
+---
+
+## 📖 Coding Principles
+
+**→ [Complete Principles Handbook](../01-fundamentals/06_coding-principles-handbook.md)**
+
+### Quick Lookup
+
+| Principle | Key Question | Example from Project |
+|-----------|--------------|----------------------|
+| **SOLID** | Is my code modular? | Each skill = one responsibility |
+| **DRY** | Am I repeating logic? | Version sync script (single source) |
+| **KISS** | Is this simplest solution? | Markdown catalog (not JSON+generator) |
+| **YAGNI** | Do I need this now? | Removed unused JSON catalog |
+| **Vibe Coding** | Speed or structure? | 6-dimension decision framework |
+| **Trust but Verify** | Did I check Ctrl+O? | Prevents fake actions |
+| **Quality-First** | Will quality gates help? | Automated checks enable speed |
+| **Big O** | Time complexity? | Think O(n) vs O(n²) upfront |
+
+**Progressive learning:**
+- **Beginner**: Anti-Patterns → KISS → YAGNI
+- **Intermediate**: SOLID → Quality-First → Verification
+- **Advanced**: Security → Agent Design → Algorithmic Efficiency
+
+**See handbook for:**
+- Complete examples from this project
+- Context-specific principles (AI-assisted coding, Vibe Engineering)
+- Cross-references to detailed guides
+
+---
+
+### Package Security - Universal Principles (ALL Languages)
 
 Works with npm, pip, gem, cargo, go, Maven, NuGet, etc.
 

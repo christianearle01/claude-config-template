@@ -26,7 +26,7 @@ allowed-tools: Read, Grep
 - Suggests next steps in release workflow
 
 **JIT Help Available:**
-For quick reference on version workflow and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+For quick reference on version workflow and troubleshooting, see: **[Cheat Sheet](./cheatsheet.md)**
 - 5 most common version queries (90% usage)
 - Version sync workflow (6 steps, 2 minutes)
 - 7 file locations reference table

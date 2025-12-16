@@ -34,7 +34,7 @@ The skill automatically activates when users mention:
 - Skill provides intelligence layer, scripts provide execution layer
 
 **JIT Help Available:**
-For quick reference on common queries and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+For quick reference on common queries and troubleshooting, see: **[Cheat Sheet](./cheatsheet.md)**
 - 5 most common queries (90% usage)
 - Pro tips and tag strategies
 - Quick decision tree

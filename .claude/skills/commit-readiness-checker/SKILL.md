@@ -26,7 +26,7 @@ allowed-tools: Read, Bash, Grep
 - Suggests next steps
 
 **JIT Help Available:**
-For quick reference on pre-commit workflow and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+For quick reference on pre-commit workflow and troubleshooting, see: **[Cheat Sheet](./cheatsheet.md)**
 - 5 most common validation queries (90% usage)
 - Pre-commit workflow (6 steps, 5 minutes)
 - Common blocker patterns with fix commands

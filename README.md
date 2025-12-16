@@ -246,6 +246,13 @@ Plan with Sonnet (smarter), implement with Haiku (92% cheaper).
 
 **→ [Model Switching Guide](01_global-setup/02_good-to-have/01_model-switching.md)**
 
+### Coding Principles Handbook
+Single reference consolidating principles from 9 files.
+
+**What's included:** SOLID, DRY, KISS, YAGNI + AI-specific principles (Trust but Verify, Atomic Features, Quality-First)
+
+**→ [Principles Handbook](docs/01-fundamentals/06_coding-principles-handbook.md)**
+
 ### Interactive Wizards
 Guided setup with validation, knowledge checks, and progress tracking.
 

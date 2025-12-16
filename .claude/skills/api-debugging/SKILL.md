@@ -25,7 +25,7 @@ allowed-tools: Read, Grep, Bash
 - Tests API endpoints
 
 **JIT Help Available:**
-For quick reference on common API errors and debugging commands, see: **[Cheat Sheet](./CHEAT_SHEET.md)** *(Coming soon)*
+For quick reference on common API errors and debugging commands, see: **[Cheat Sheet](./cheatsheet.md)**
 
 ---
 

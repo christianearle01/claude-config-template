@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-16
-**Version:** v4.10.1
+**Version:** v4.11.0
 
 ---
 
@@ -594,6 +594,9 @@ git push origin v2.6.0
 
 **"Which model should I use?"**
 → See `docs/02-optimization/01_model-selection-strategy.md` (Three-Question Method: Opus for architecture, Sonnet for implementation, Haiku for exploration)
+
+**"What coding principles should I follow?"**
+→ See `docs/01-fundamentals/06_coding-principles-handbook.md` (SOLID, DRY, KISS, YAGNI + AI-specific principles from 9 consolidated files)
 
 ### File Location Quick Reference
 

@@ -35,7 +35,7 @@ The skill automatically activates when users mention:
 - Provides intelligence layer, test runner provides execution
 
 **JIT Help Available:**
-For quick reference on test commands and troubleshooting, see: **[Cheat Sheet](./CHEAT_SHEET.md)**
+For quick reference on test commands and troubleshooting, see: **[Cheat Sheet](./cheatsheet.md)**
 - 5 most common test queries (90% usage)
 - Speed commands for Jest/pytest/RSpec
 - Quick decision tree

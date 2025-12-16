@@ -25,7 +25,7 @@ allowed-tools: Read, Grep, Glob
 - Navigates component hierarchies
 
 **JIT Help Available:**
-For quick reference on component search patterns and conventions, see: **[Cheat Sheet](./CHEAT_SHEET.md)** *(Coming soon)*
+For quick reference on component search patterns and conventions, see: **[Cheat Sheet](./cheatsheet.md)**
 
 ---
 
