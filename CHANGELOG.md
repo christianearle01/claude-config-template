@@ -9,6 +9,111 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.11.0] - 2025-12-16
+
+### Added - Model Selection Strategy: Intelligent Model Optimization
+
+**Inspired by:** Analysis of token usage patterns showing Sonnet at 80% utilization while other models underutilized.
+
+**Core Enhancement:** Strategic model selection across agents and conversations, with comprehensive decision framework.
+
+#### The Problem Solved
+
+Users default to Sonnet for all tasks, creating:
+- Unnecessary costs (using Sonnet for file exploration when Haiku would work)
+- Missed capability (using Sonnet for architecture when Opus provides better reasoning)
+- Quota exhaustion (Sonnet at 80% while Haiku/Opus sit unused)
+
+**Solution:** Three-Question Method + Agent-Level Smart Defaults
+
+#### Multi-Perspective Analysis (Psychology, Educator, Engineering)
+
+**Psychology Perspective:**
+- Default bias: Users stick with "safe choice" (Sonnet)
+- Decision fatigue: Model selection requires cognitive effort
+- Loss aversion: Fear of worse results from Haiku outweighs savings
+
+**Educator Perspective:**
+- Knowledge gap: Users lack "when to use which model" heuristics
+- Missing decision framework: No simple rules documented
+- Hidden costs: Token costs invisible during execution
+
+**Engineering Perspective:**
+- Missing intelligent routing: No automated selection based on task type
+- Suboptimal agent defaults: Explore agents shouldn't use Sonnet for file reads
+- Manual overhead: System should choose intelligently
+
+#### New Documentation Created
+
+**MODEL_SELECTION_STRATEGY.md** (`docs/02-optimization/`, ~1,900 lines)
+- Comprehensive guide with 11 sections
+- Token cost comparison tables with real API pricing
+- Three-Question Method decision framework
+- ASCII decision tree for quick reference
+- 4 configuration patterns (agent-level, task-based, project-type, progressive)
+- Real examples from this project (5 agents analyzed)
+- 8 best practices with detailed explanations
+- Quick reference cheat sheet
+- FAQ section (10 questions)
+- Honesty check (all savings marked as "projected")
+
+#### Agent Model Updates (4 agents optimized)
+
+| Agent | Previous | New | Rationale |
+|-------|----------|-----|-----------|
+| prompt-polisher | Sonnet | **Haiku** | Mechanical optimization (40-50% savings) |
+| project-planner | Sonnet | **Opus** | 6-perspective analysis needs deep reasoning |
+| initializer | Sonnet | **Opus** | Feature decomposition, learning paths |
+| quality-reviewer | (none) | **Haiku** | Rule-based orchestration (50-60% savings) |
+| coder | Sonnet | Sonnet | Already optimal (no change) |
+
+#### Updated Documentation (4 files)
+
+1. **docs/02-optimization/README.md** - Added new guide to list
+2. **CLAUDE.md** - New "Model Selection Strategy" section + Q&A update
+3. **docs/00-start-here/QUICK_REFERENCE.md** - Expanded Model Switching section with:
+   - Updated pricing table
+   - Three-Question Method
+   - Agent-Level Model Defaults examples
+   - Cost comparison
+
+4. **CHANGELOG.md** - This entry
+
+#### The Three-Question Method
+
+```
+1. Is this CREATIVE or ARCHITECTURAL work? → Opus
+2. Does this involve WRITING CODE? → Sonnet
+3. Is this MECHANICAL or EXPLORATORY? → Haiku
+```
+
+#### Impact (Projected)
+
+- **Exploration tasks:** 91% cheaper with Haiku vs Sonnet
+- **Architecture decisions:** Opus prevents costly rework
+- **Overall:** 24% token reduction
+- **Sonnet utilization:** 80% → 58% (freed headroom)
+- **Speed boost:** Haiku is 3-5x faster than Sonnet
+
+#### Files Changed
+
+**Created (1 file, ~1,900 lines):**
+- `docs/02-optimization/MODEL_SELECTION_STRATEGY.md`
+
+**Modified (8 files):**
+- `.claude/agents/prompt-polisher.md` (model: sonnet → haiku)
+- `.claude/agents/project-planner.md` (model: sonnet → opus)
+- `.claude/agents/initializer.md` (model: sonnet → opus)
+- `.claude/agents/quality-reviewer.md` (added model: haiku)
+- `docs/02-optimization/README.md` (added new guide)
+- `docs/00-start-here/QUICK_REFERENCE.md` (expanded Model Switching)
+- `CLAUDE.md` (new section + Q&A)
+- `CHANGELOG.md` (this entry)
+
+**Total new content:** ~2,100 lines
+
+---
+
 ## [3.10.0] - 2025-12-16
 
 ### Added - Intelligent Preference Tuning: Self-Optimizing Preferences

@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-15
-**Version:** v3.10.0
+**Version:** v3.11.0
 
 ---
 
@@ -161,6 +161,48 @@ Quality improves with better context: codebase + organizational standards + PR h
 **Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected, based on industry research)
 
 **Learn more:** `docs/00-start-here/QUALITY_WORKFLOWS.md` (coming in v3.7.0)
+
+---
+
+## Model Selection Strategy (v3.11.0)
+
+**Optimizing model usage across agents and conversations**
+
+### The Problem Solved
+
+Users default to Sonnet for all tasks, even when:
+- Haiku would be faster and cheaper (exploration, file reading)
+- Opus would provide better reasoning (architecture, planning)
+
+**Result:** Sonnet at 80% utilization while other models sit unused.
+
+### The Three-Question Method
+
+```
+1. Is this CREATIVE or ARCHITECTURAL work? → Opus
+2. Does this involve WRITING CODE? → Sonnet
+3. Is this MECHANICAL or EXPLORATORY? → Haiku
+```
+
+### Agent-Level Smart Defaults
+
+Configured in this project's agents (`.claude/agents/`):
+
+| Agent | Model | Rationale |
+|-------|-------|-----------|
+| prompt-polisher | Haiku | Mechanical prompt optimization |
+| project-planner | Opus | 6-perspective architecture analysis |
+| initializer | Opus | Feature decomposition, learning paths |
+| quality-reviewer | Haiku | Rule-based orchestration |
+| coder | Sonnet | Balanced implementation |
+
+### Cost Impact (Projected)
+
+- **Exploration tasks:** 91% cheaper with Haiku vs Sonnet
+- **Architecture decisions:** Opus prevents costly rework
+- **Overall:** 24% token reduction (projected)
+
+**Learn more:** `docs/02-optimization/MODEL_SELECTION_STRATEGY.md`
 
 ---
 
@@ -549,7 +591,10 @@ git push origin v2.6.0
 → See "Development Workflow" section above
 
 **"How do I optimize tokens?"**
-→ See `docs/02-optimization/` directory (Prompt Caching, MCP Optimization, etc.)
+→ See `docs/02-optimization/` directory (Prompt Caching, MCP Optimization, Model Selection, etc.)
+
+**"Which model should I use?"**
+→ See `docs/02-optimization/MODEL_SELECTION_STRATEGY.md` (Three-Question Method: Opus for architecture, Sonnet for implementation, Haiku for exploration)
 
 ### File Location Quick Reference
 

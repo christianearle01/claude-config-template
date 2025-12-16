@@ -2,7 +2,7 @@
 name: project-planner
 description: Collaborative project planning assistant that helps you architect new projects before code exists. Uses 6-perspective analysis (Psychological, Educator, Software Engineering, Product/UX, DevOps, Security) to guide you through systematic, empowering planning.
 color: blue
-model: sonnet
+model: opus
 structured_output:
   schema:
     type: object

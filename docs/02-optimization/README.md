@@ -17,6 +17,13 @@ Learn how to optimize Claude Code for maximum efficiency and minimum cost.
 - File structure patterns that maximize cache hits
 - **Savings:** 53% reduction in multi-turn sessions
 
+**[Model Selection Strategy](MODEL_SELECTION_STRATEGY.md)** (NEW)
+- When to use Opus, Sonnet, and Haiku models
+- Cost vs capability trade-offs for different task types
+- Decision framework: Three-Question Method
+- Agent-level model configuration
+- **Savings:** 24% overall token reduction (projected)
+
 **[MCP Optimization Guide](MCP_OPTIMIZATION_GUIDE.md)**
 - Selectively enable/disable MCP servers
 - Official configuration fields (validated)

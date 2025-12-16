@@ -1,6 +1,7 @@
 ---
 name: quality-reviewer
 description: Orchestrates parallel quality validation across security, testing, and standards with comprehensive reports and Coder agent integration.
+model: haiku
 structured_output:
   schema:
     type: object

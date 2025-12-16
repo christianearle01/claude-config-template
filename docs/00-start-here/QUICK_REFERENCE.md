@@ -593,46 +593,55 @@ claude
 
 | Model | Cost | Best For | Speed |
 |-------|------|----------|-------|
-| **Haiku** | $1.25/M tokens (cheapest) | Implementation, bulk operations | Fastest |
-| **Sonnet** | $15/M tokens (balanced) | Planning, exploration, architecture | Medium |
-| **Opus** | $75/M tokens (expensive) | Very complex problems only | Slowest |
+| **Haiku** | $0.25/M input, $1.25/M output (cheapest) | Exploration, file reading, mechanical tasks | Fastest |
+| **Sonnet** | $3/M input, $15/M output (balanced) | Implementation, coding, refactoring | Medium |
+| **Opus** | $15/M input, $75/M output (most capable) | Architecture, planning, complex analysis | Slower |
 
 **Commands:**
 ```bash
-/model haiku    # Switch to cheapest
-/model sonnet   # Switch to balanced
-/model opus     # Switch to most powerful
+/model haiku    # Switch to cheapest (exploration, simple edits)
+/model sonnet   # Switch to balanced (implementation)
+/model opus     # Switch to most powerful (architecture)
 ```
 
-**The Sonnet→Haiku Pattern (92% savings):**
+**The Three-Question Method (v3.11.0):**
 
-```bash
-# 1. Start with Sonnet for planning
-claude
-You: "Plan how to add user authentication"
-# Sonnet explores, analyzes, creates plan
+```
+1. Is this CREATIVE or ARCHITECTURAL work? → Opus
+2. Does this involve WRITING CODE? → Sonnet
+3. Is this MECHANICAL or EXPLORATORY? → Haiku
+```
 
-# 2. Switch to Haiku for implementation
-/model haiku
-You: "Implement the authentication plan"
-# Haiku follows the plan efficiently
+**Agent-Level Model Defaults:**
 
-# Cost comparison:
-# All Sonnet: $0.75
-# Sonnet→Haiku: $0.03 + $0.06 = $0.09
-# Savings: 88%
+Configure agents to auto-select optimal models:
+```markdown
+# .claude/agents/explorer.md
+model: haiku  # File reading is cheap and fast
+
+# .claude/agents/implementer.md
+model: sonnet  # Code writing needs balance
+
+# .claude/agents/architect.md
+model: opus  # Architecture needs deep reasoning
 ```
 
 **When to use each:**
-- **Sonnet:** New features, architecture, exploration, debugging
-- **Haiku:** Implementation, refactoring, bulk ops, following clear plans
-- **Opus:** Critical algorithms, complex business logic, research
+- **Haiku:** File exploration, simple edits, prompt optimization, quality checks
+- **Sonnet:** Feature implementation, refactoring, bug fixes, code review
+- **Opus:** Architecture decisions, multi-perspective analysis, high-stakes planning
+
+**Cost comparison (10K input, 2K output):**
+- Opus: $0.30 | Sonnet: $0.06 | Haiku: $0.005
+- **Haiku is 91% cheaper than Sonnet for exploration tasks**
 
 **Important:** Model switches reset context, but CLAUDE.md persists!
 
-**Docs:** [Model Switching Guide](01_global-setup/good-to-have/01_model-switching.md)
+**Docs:**
+- [Model Switching Guide](../../01_global-setup/good-to-have/01_model-switching.md)
+- [Model Selection Strategy](../02-optimization/MODEL_SELECTION_STRATEGY.md) (comprehensive guide)
 
-**Keywords:** models, haiku, sonnet, opus, switch, cost, cheap, expensive, /model
+**Keywords:** models, haiku, sonnet, opus, switch, cost, cheap, expensive, /model, agent defaults
 
 ---
 

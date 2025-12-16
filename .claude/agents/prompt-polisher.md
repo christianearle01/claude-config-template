@@ -2,7 +2,7 @@
 name: prompt-polisher
 description: Transforms vague prompts into optimized, context-rich requests using 12+ techniques. Teaches prompt engineering while polishing. Saves 50-80% tokens.
 color: purple
-model: sonnet
+model: haiku
 structured_output:
   schema:
     type: object
