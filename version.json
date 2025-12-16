@@ -1,7 +1,7 @@
 {
-  "version": "4.4.0",
+  "version": "4.4.1",
   "release_date": "2025-12-16",
-  "release_name": "Template Validator - Quality Tooling",
+  "release_name": "Documentation Sync - v4.3/v4.4 Guides",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -176,7 +176,9 @@
     "domain-specific-templates",
     "template-validator",
     "json-schema-validation",
-    "catalog-validation"
+    "catalog-validation",
+    "template-validator-guide",
+    "template-gallery-guide"
   ],
   "personas_supported": [
     "first-time",
@@ -210,6 +212,9 @@
       "docs/02-optimization/personalization-guide.md": "3.14.0",
       "docs/02-optimization/MODEL_SELECTION_STRATEGY.md": "3.11.0",
       "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.8.0",
+      "docs/00-start-here/QUICK_REFERENCE.md": "4.4.1",
+      "docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md": "4.4.1",
+      "docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md": "4.4.1",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/must-have/01_planning-guide.md": "2.3.0",
       "03_pre-project-planning/README.md": "2.3.0"

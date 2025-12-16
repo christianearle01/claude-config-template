@@ -1089,6 +1089,77 @@ cd ~/claude-config-template
 
 ---
 
+## Template Gallery (v4.3.0)
+
+**What:** Curated collection of 9 domain-specific templates demonstrating inheritance and parameterization
+
+**Location:** `examples/team-templates/`
+
+**Templates Available:**
+- `gallery-frontend-react` - React + TypeScript + Tailwind
+- `gallery-backend-api` - Node.js/Python API development
+- `gallery-data-science` - Python data science with Jupyter/ML
+- `gallery-devops` - Kubernetes, Terraform, CI/CD
+- `gallery-fullstack` - Customizable full-stack (5 parameters)
+
+**Features:**
+- Demonstrates template inheritance (extends field)
+- Shows parameter substitution (${varName})
+- Ready-to-use configurations for common scenarios
+- 9 total templates (4 base + 5 gallery)
+
+**How to Use:**
+1. Browse catalog: `cat examples/team-templates/catalog.json | jq`
+2. Inspect template: `cat examples/team-templates/gallery-frontend-react.json | jq`
+3. Validate: `./scripts/validate-template.sh examples/team-templates/gallery-frontend-react.json`
+4. Copy and customize OR use apply script (v4.5.0)
+
+**Documentation:** [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
+
+**Keywords:** templates, gallery, examples, inheritance, parameters, domain-specific
+
+---
+
+## Template Validator (v4.4.0)
+
+**What:** Validate template JSON files against Claude preferences schema
+
+**Script:** `scripts/validate-template.sh`
+
+**Features:**
+- JSON syntax validation
+- Schema compliance checking (claude-preferences-export-v1)
+- 3-level validation (Critical/Important/Info)
+- Catalog validation with --catalog flag
+- Batch validation for directories
+
+**Usage:**
+```bash
+# Single template
+./scripts/validate-template.sh examples/team-templates/gallery-frontend-react.json
+
+# All templates in directory
+./scripts/validate-template.sh examples/team-templates/
+
+# Catalog file
+./scripts/validate-template.sh --catalog examples/team-templates/catalog.json
+```
+
+**Validation Levels:**
+- **Critical (Errors):** JSON syntax, schema, required fields (id, name, minVersion)
+- **Important (Warnings):** Description, category enum, semver version, checksum
+- **Info:** extends inheritance, parameters, recommendedFor
+
+**Exit Codes:**
+- 0: All validations passed (warnings OK)
+- 1: One or more critical errors
+
+**Documentation:** [Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md)
+
+**Keywords:** validate, validation, template, schema, quality, lint, check
+
+---
+
 ## Troubleshooting
 
 **Common issues and quick fixes:**
