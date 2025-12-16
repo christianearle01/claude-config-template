@@ -1,7 +1,7 @@
 {
-  "version": "4.9.0",
-  "release_date": "2025-12-16",
-  "release_name": "Mode Selection Framework - Vibe Coding vs Vibe Engineering",
+  "version": "4.10.0",
+  "release_date": "2025-12-17",
+  "release_name": "Skills Catalog - Progressive Disclosure by Experience Level",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -184,7 +184,19 @@
     "inheritance-resolution",
     "parameter-substitution",
     "template-preview",
-    "interactive-parameters"
+    "interactive-parameters",
+    "skills-catalog",
+    "skills-json-catalog",
+    "skills-markdown-catalog",
+    "skills-catalog-generator",
+    "three-level-categorization",
+    "foundation-skills",
+    "optimization-skills",
+    "strategic-skills",
+    "project-type-recommendations",
+    "progressive-skill-disclosure",
+    "skills-quick-start-guides",
+    "mermaid-validator-skill"
   ],
   "personas_supported": [
     "first-time",
@@ -272,7 +284,8 @@
       "claude-skills.sh": "3.5.0",
       "claude-health-check.sh": "3.5.0",
       "validate-template.sh": "4.4.0",
-      "apply-template.sh": "4.5.0"
+      "apply-template.sh": "4.5.0",
+      "generate-skills-catalog.sh": "4.10.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -299,7 +312,9 @@
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
       "standards-enforcer": "3.7.0",
-      "personalization-engine": "4.2.0"
+      "personalization-engine": "4.2.0",
+      "mermaid-validator": "4.9.1",
+      "mode-selector": "4.9.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -316,14 +331,18 @@
     }
   },
   "metadata": {
-    "total_files": 117,
-    "total_lines": 49500,
-    "skill_count": 18,
+    "total_files": 120,
+    "total_lines": 50500,
+    "skill_count": 19,
     "command_count": 3,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
     "token_savings_target": 0.85,
     "planning_time_target_minutes": 30,
-    "prompt_optimization_techniques": 14
+    "prompt_optimization_techniques": 14,
+    "skills_catalog_version": "1.0.0",
+    "foundation_skills": 3,
+    "optimization_skills": 10,
+    "strategic_skills": 6
   }
 }
