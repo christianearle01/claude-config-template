@@ -317,7 +317,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v2.9.0
+**Current version:** v4.2.0
 
 **→ [Changelog](CHANGELOG.md)**
 
@@ -435,8 +435,8 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v2.7.1
-**Last Updated:** 2025-12-10
+**Template Version:** v4.2.0
+**Last Updated:** 2025-12-16
 
 ---
 
