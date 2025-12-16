@@ -1,5 +1,11 @@
 # Visual Workflows Guide
 
+> **📊 Diagram Rendering:** These Mermaid diagrams require Mermaid 10.x+ to render correctly.
+> If diagrams don't display in your editor:
+> - **GitHub users:** ✅ Diagrams render automatically
+> - **VS Code users:** Install [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension
+> - **All users:** ASCII alternatives provided where applicable
+
 **5 Mermaid diagrams showing how Claude Code workflows actually work**
 
 **Time to read:** 10 minutes

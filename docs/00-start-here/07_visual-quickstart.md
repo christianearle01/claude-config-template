@@ -1,5 +1,11 @@
 # Visual Quickstart - Choose Your Path
 
+> **📊 Diagram Rendering:** These Mermaid diagrams require Mermaid 10.x+ to render correctly.
+> If diagrams don't display in your editor:
+> - **GitHub users:** ✅ Diagrams render automatically
+> - **VS Code users:** Install [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension
+> - **All users:** ASCII alternatives provided below
+
 **Find your path in 60 seconds** using this visual decision tree.
 
 Not sure where to start? Answer a few quick questions and we'll point you to the right setup path.

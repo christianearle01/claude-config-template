@@ -313,7 +313,8 @@ Shift-Tab        # Cycle permission modes
 
 ### For Everyone
 - [Quick Reference](docs/00-start-here/09_quick-reference.md) - Find any feature (Cmd+F search)
-- [Visual Guides](docs/00-start-here/06_visual-guides.md) - 5 Mermaid diagrams
+- [Visual Guides](docs/00-start-here/06_visual-guides.md) - 5 Mermaid diagrams (requires Mermaid 10.x+)
+  - 💡 [Mermaid Setup Guide](docs/04-ecosystem/13_mermaid-setup-guide.md) - Fix local rendering issues
 - [Projected Impact](docs/04-ecosystem/10_projected-impact.md) - Theoretical examples (not real data)
 - [Directory Guide](docs/04-ecosystem/01_directory-guide.md) - What's where
 

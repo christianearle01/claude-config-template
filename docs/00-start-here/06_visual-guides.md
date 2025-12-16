@@ -1,5 +1,11 @@
 # Visual Learning Guides
 
+> **📊 Diagram Rendering:** These Mermaid diagrams require Mermaid 10.x+ to render correctly.
+> If diagrams don't display in your editor:
+> - **GitHub users:** ✅ Diagrams render automatically
+> - **VS Code users:** Install [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension
+> - **All users:** ASCII alternatives provided below each diagram
+
 This document contains visual diagrams to help you understand Claude Code setup concepts faster.
 
 **Why visuals?** They reduce cognitive load by 40% and improve retention by 25%.
@@ -82,6 +88,24 @@ flowchart TD
     style Haiku fill:#90EE90
     style Sonnet fill:#87CEEB
     style Opus fill:#FFB6C1
+```
+
+### ASCII Alternative: Model Selection
+
+```
+New Task
+    │
+    ├─ Need to plan? ──YES──> Use Sonnet ($3/M)
+    │                              │
+    └─ Already have plan? ──YES──> │
+                                   │
+                    Struggling? ───YES──> Use Opus ($15/M)
+                                   │
+                                   NO
+                                   │
+                    Implementation ─> Use Haiku ($0.25/M)
+                                         │
+                                    Save 92%! 💰
 ```
 
 **Cost Optimization Strategy:**
@@ -214,6 +238,28 @@ After Setup,Context from CLAUDE.md,3000
 After Setup,Focused reading,2000
 After Setup,Sonnet for planning,2000
 After Setup,Haiku for implementation,500
+```
+
+### ASCII Alternative: Token Cost Waterfall
+
+```
+BEFORE SETUP (45,000 tokens)          AFTER SETUP (7,500 tokens)
+─────────────────────────────────     ──────────────────────────
+
+  Exploring        15,000 ─┐              Context from      3,000 ─┐
+  codebase                 │              CLAUDE.md                │
+                           │                                       │
+  Re-reading       10,000 ─┤              Focused          2,000 ─┤
+  files                    ├─► 45,000     reading                 │
+                           │                                       ├─► 7,500
+  Asking same       8,000 ─┤              Sonnet for       2,000 ─┤    (83% ↓)
+  questions                │              planning                │
+                           │                                       │
+  Wrong model      12,000 ─┘              Haiku for          500 ─┘
+  usage                                   implementation
+
+  Cost: $135/session                      Cost: $22.50/session
+                                          SAVINGS: $112.50 (83%)
 ```
 
 **Cost Breakdown:**
