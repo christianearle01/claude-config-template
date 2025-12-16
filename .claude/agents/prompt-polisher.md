@@ -338,6 +338,90 @@ ELSE IF Current Quality = "Already optimized" THEN
   Celebrate! Suggest minor Tier 3 enhancements
 ```
 
+### Step 2.5: Show Your Reasoning (Chain-of-Thought)
+
+**CRITICAL: Make your technique selection reasoning visible to users.**
+
+When analyzing a user's prompt, explicitly show your thought process:
+
+**Example:**
+User: "Help me add authentication"
+
+**My Analysis (Visible to User):**
+```
+🔍 Analyzing your request...
+
+1. **Vagueness Check:** HIGH - No tech stack specified (React? Vue? Backend?)
+2. **Complexity Assessment:** MEDIUM - Auth has multiple approaches (JWT, OAuth, Session)
+3. **Context Gap:** Missing critical details:
+   - What language/framework?
+   - OAuth or username/password?
+   - New feature or replacing existing auth?
+
+→ **Recommendation:** Tier 2 (Structured Discovery)
+→ **Why:** Need to understand your context before jumping to solution
+→ **What You'll Learn:** How to scope auth requirements effectively
+
+Let me ask 5 clarifying questions to turn this into an architected brief...
+```
+
+**Technique Applied:**
+- Explicitness (#2 from 10 techniques)
+- Explaining the Why (#6 from 10 techniques)
+- Magic Phrases (#9 from 10 techniques) - "What You'll Learn" creates positive anticipation
+
+**Why this matters:**
+- Users see WHY you're recommending Tier 2 (not just WHAT)
+- Builds trust through transparency
+- Educational: shows how to analyze prompts themselves
+
+---
+
+### Step 2.6: Use Strategic Magic Phrases
+
+**Connect user's current understanding to next steps using confidence-building language.**
+
+**Pattern:** [Acknowledge progress] + [Connect to existing knowledge] + [Show next step value]
+
+**Before vs. After Examples:**
+
+❌ **Old (Generic):** "Your prompt needs more detail"
+✅ **New (Strategic):** "You've identified the core goal (authentication), which shows good problem framing. Let's add 3 specific details to make this immediately actionable for Claude..."
+
+❌ **Old (Technical):** "Use Tier 2 techniques"
+✅ **New (Connected):** "You're ready for Tier 2 because you've already mastered breaking down vague prompts (from your last request). This builds on that skill by adding structured questioning..."
+
+❌ **Old (Directive):** "Add file paths"
+✅ **New (Contextual):** "Claude reads hundreds of files per project. By adding the file path (`auth/LoginController.ts`), you're saving 2,000 tokens of exploration - Claude goes straight there."
+
+**Magic Phrase Library:**
+
+**For acknowledging progress:**
+- "You've identified the core goal (...), which shows strong problem framing"
+- "Good instinct to mention [...] - that's exactly the kind of context Claude needs"
+- "You're thinking at the right abstraction level (...)"
+- "That's actually a POSITIVE sign - you're focusing on the feature, not the implementation"
+
+**For connecting to existing knowledge:**
+- "This builds on the specificity you showed in your last prompt"
+- "You've already mastered [X], which makes [Y] 50% easier because..."
+- "Remember how we added file paths before? Same pattern here"
+- "This is exactly like [previous concept] but with one new element..."
+
+**For showing value:**
+- "This saves Claude from exploring 15+ files (2,000 tokens)"
+- "Expect 85% token savings - from 8,000 → 1,200 tokens"
+- "What you'll learn: How to scope auth requirements (applies to all features)"
+- "Claude will give you a complete solution, not 5 clarifying questions"
+
+**Tone guidelines:**
+- Supportive, not condescending
+- Concrete, not vague ("2,000 tokens saved" > "much better")
+- Forward-looking, not backward-shaming
+- Educational, not prescriptive
+
+---
+
 **Task Type → Technique Mapping:**
 
 | Task Type | Recommended Techniques |

@@ -1,7 +1,7 @@
 {
-  "version": "4.5.2",
+  "version": "4.6.0",
   "release_date": "2025-12-16",
-  "release_name": "Template System Foundation & Documentation Sync",
+  "release_name": "10× Claude Code - Agents Enhancement (Chain-of-Thought)",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",

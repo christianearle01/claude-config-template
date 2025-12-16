@@ -401,6 +401,160 @@ Use 0.0-1.0 confidence scores throughout:
 - Known time estimate (2-3 hours typical for login feature)
 ```
 
+---
+
+### Detailed Confidence Score Rationale (Chain-of-Thought)
+
+**CRITICAL: Break down confidence scores into itemized components so users understand WHY.**
+
+When assigning confidence scores to features, show your math:
+
+**Example for feat-002 (User Registration):**
+
+```markdown
+## Feature: feat-002 (User Registration)
+**Confidence: 0.88 (HIGH) 🟢**
+
+### Why 0.88? Here's the breakdown:
+
+**Factors INCREASING confidence:**
+✅ [+0.30] **Standard CRUD pattern** - You've implemented this pattern before
+  - Registration follows same structure as login (feat-001 you just completed)
+  - Create → Validate → Save → Return token (familiar flow)
+
+✅ [+0.25] **Clear requirements** - Spec is well-defined
+  - Username, email, password validation (standard fields)
+  - Duplicate email check (known edge case)
+  - Email verification (can use SendGrid/Mailgun libraries)
+
+✅ [+0.20] **Well-documented libraries** - Mature ecosystem
+  - bcrypt for password hashing (10M+ weekly downloads, stable)
+  - validator.js for email/username validation (examples everywhere)
+  - jsonwebtoken for auth tokens (you used this in feat-001)
+
+✅ [+0.13] **Similar to feat-001** - Knowledge reuse is HIGH
+  - User model schema: Already exists ✅
+  - Password hashing: Pattern from feat-001 ✅
+  - JWT generation: Reuse from feat-001 ✅
+  - Expected pattern reuse: 80%
+
+**Factors DECREASING confidence:**
+⚠️ [-0.12] **Email verification adds complexity** - New for you
+  - Need to generate verification tokens (new pattern)
+  - Send emails asynchronously (requires email service integration)
+  - Handle expired tokens (edge case handling)
+  - Research time: ~30 minutes to understand email services
+
+⚠️ [-0.08] **Duplicate handling uncertainty** - Database-specific
+  - Need unique constraint on email field
+  - Error handling varies by database (Postgres vs MongoDB)
+  - May need research: 15 minutes
+
+---
+
+**Total: 0.88 → Highly confident this will go smoothly**
+
+### What this means for YOU:
+
+**Expected Time:**
+- 2-3 hours implementation (vs 4+ for lower confidence)
+- 30 min research (email service setup)
+- **Total: 3-3.5 hours** (manageable single session)
+
+**Learning Curve:**
+- **LOW** - Reuses 80% of login patterns you just mastered
+- **One new concept:** Email verification (well-documented, mature libs)
+- **Confidence boost:** Success here = ready for password reset (similar pattern)
+
+**Likely Blockers:**
+1. Email service integration (SendGrid API key, SMTP setup)
+   - Solution: Use SendGrid free tier (100 emails/day)
+   - Docs: https://sendgrid.com/docs/for-developers/
+   - Time: 15-20 minutes
+2. Token expiration handling (new pattern)
+   - Solution: JWT with 24h expiration
+   - Example: Similar to auth token pattern
+   - Time: 10-15 minutes
+
+**Why this is the IDEAL next feature:**
+- ✅ Builds on feat-001 success (momentum + confidence)
+- ✅ Introduces ONE new concept (vs multiple unknowns)
+- ✅ Unlocks downstream features (password reset, profile edit)
+- ✅ High success probability (88%) = positive learning experience
+```
+
+---
+
+### Show Learning Path Dependencies
+
+**CRITICAL: Make sequential dependencies and knowledge reuse VISIBLE.**
+
+When recommending next features, show the dependency graph:
+
+**Example:**
+
+```markdown
+## 🗺️ Your Feature Learning Path
+
+### Sequential Dependencies:
+```
+feat-001 (Login) → COMPLETE ✅ (you nailed it!)
+  ↓ unlocks
+feat-002 (Registration) → RECOMMENDED NOW 🎯
+  ↓ unlocks
+feat-003 (Password Reset) → Next logical step
+  ↓ unlocks
+feat-004 (Profile Edit) → Requires both feat-001 and feat-002
+```
+
+### Knowledge Reuse Analysis:
+
+**From feat-001 (Login), you learned:**
+- ✅ User model schema (lines 12-28 in User.ts)
+- ✅ Password hashing with bcrypt (line 45: `bcrypt.hash(password, 10)`)
+- ✅ JWT token generation (line 67: `jwt.sign({userId}, SECRET)`)
+- ✅ Request validation patterns (lines 30-38 in LoginController)
+- ✅ Error handling for auth failures (lines 55-60)
+
+**feat-002 (Registration) reuses:**
+- ✅ User model → 100% reuse (same file, add createUser method)
+- ✅ Password hashing → 100% reuse (exact same bcrypt call)
+- ✅ JWT generation → 100% reuse (identical token pattern)
+- ✅ Validation pattern → 90% reuse (add email uniqueness check)
+- ✅ Error handling → 85% reuse (similar HTTP status codes)
+
+**Overall knowledge reuse: 80%** → Expected speed boost: **50% faster than feat-001**
+
+**Why 50% faster?**
+- feat-001 took you 4 hours (included learning bcrypt, JWT, validation)
+- feat-002 reuses all those learnings
+- Only new concept: Email verification (~30 min)
+- Math: 4 hours * 0.5 (reuse factor) + 0.5 hours (new email concept) = **2.5 hours**
+
+---
+
+### Alternative Feature Considered: feat-004 (Profile Edit)
+
+**Why NOT recommended now:**
+❌ Requires understanding BOTH login AND registration patterns
+❌ Introduces file upload (new complexity: Multer, S3, image validation)
+❌ Lower confidence (0.65) - two unknowns at once
+❌ Strategic: Better to master registration first (builds confidence)
+
+**When to do feat-004:**
+✅ After completing feat-002 and feat-003
+✅ When you're comfortable with full auth flow
+✅ Expected confidence then: 0.82 (vs 0.65 now)
+
+---
+
+**The pattern:** Each feature builds on previous success, introducing ONE new concept at a time.
+
+This is intentional scaffolding - you're not just building features, you're building **mastery**.
+```
+
+---
+
 ### JIT Cheat Sheets (Just-In-Time Help)
 
 When relevant, link to skill cheat sheets:

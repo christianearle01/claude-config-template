@@ -472,6 +472,136 @@ async function handleSubmit(e) {
 }
 ```
 
+---
+
+### Common TDD Mistakes (Learn from Anti-Patterns)
+
+**CRITICAL: Show users what NOT to do with concrete negative examples.**
+
+❌ **ANTI-PATTERN #1: Code-First Development**
+
+```javascript
+// DON'T: Write all implementation first, then test
+function register(userData) {
+  // ... 200 lines of registration logic ...
+  // ... password hashing ...
+  // ... email validation ...
+  // ... duplicate checking ...
+  // ... email sending ...
+}
+
+// Now trying to write tests (TOO LATE - assumptions already baked in)
+test('register works', async () => {
+  // Struggling to test this monolith
+  // Can't isolate email sending, can't mock database easily
+  // Test becomes integration test requiring full setup
+});
+```
+
+**Why this fails:**
+- Already made architectural decisions (hard to change)
+- Functions tightly coupled (can't test in isolation)
+- Missing edge cases (no test forced you to think about them)
+- Hard to refactor (no test safety net)
+
+✅ **CORRECT: Test-First Development**
+
+```javascript
+// DO: Write test first (Red phase)
+test('register creates user with hashed password', async () => {
+  const user = await register({
+    email: 'test@example.com',
+    password: 'plain123'
+  });
+
+  // This test FORCES you to think about password hashing
+  expect(user.password).not.toBe('plain123'); // Must be hashed
+  expect(user.password).toMatch(/^\$2[aby]\$/); // bcrypt format
+});
+
+// Now implement minimum to pass (Green phase)
+async function register(userData) {
+  const hashedPassword = await bcrypt.hash(userData.password, 10);
+  return { ...userData, password: hashedPassword };
+}
+// Test passes → Naturally led to correct design
+```
+
+**Why this works:**
+- ✅ Test drives design decisions (password hashing required)
+- ✅ Small, testable functions (easy to mock/isolate)
+- ✅ Edge cases caught early (test makes you think about them)
+- ✅ Refactor-safe (test protects against regressions)
+
+---
+
+❌ **ANTI-PATTERN #2: Happy-Path-Only Testing**
+
+```javascript
+// DON'T: Only test success cases
+test('register works', async () => {
+  const user = await register({
+    email: 'a@b.com',
+    password: 'pass'
+  });
+  expect(user).toEqual({ success: true });
+});
+// Deployed to production → Users enter duplicate emails → 500 error → Outage
+```
+
+**Why this fails:**
+- Missing validation (weak passwords accepted)
+- Missing error handling (duplicate email crashes server)
+- Missing edge cases (empty fields? SQL injection?)
+- False confidence (tests pass, but production breaks)
+
+✅ **CORRECT: Edge Case Coverage (Failure-First)**
+
+```javascript
+// DO: Test failure modes BEFORE success case
+test('register rejects duplicate email', async () => {
+  await register({ email: 'a@b.com', password: 'pass123' });
+
+  // This test FORCES you to handle duplicates
+  await expect(
+    register({ email: 'a@b.com', password: 'different' })
+  ).rejects.toThrow('Email already exists');
+});
+
+test('register rejects weak password', async () => {
+  // Forces you to add password validation
+  await expect(
+    register({ email: 'a@b.com', password: '1' })
+  ).rejects.toThrow('Password must be 8+ characters');
+});
+
+test('register rejects invalid email', async () => {
+  // Forces you to add email validation
+  await expect(
+    register({ email: 'not-an-email', password: 'pass123' })
+  ).rejects.toThrow('Invalid email format');
+});
+
+// NOW test success case (after edge cases protected)
+test('register succeeds with valid data', async () => {
+  const user = await register({
+    email: 'test@example.com',
+    password: 'SecurePass123!'
+  });
+  expect(user.email).toBe('test@example.com');
+});
+```
+
+**Why this works:**
+- ✅ Production-ready from start (handles errors gracefully)
+- ✅ Prevents "forgot to validate" bugs (tests force validation)
+- ✅ Documents requirements (tests show all edge cases)
+- ✅ Confidence in deployment (if tests pass, feature works)
+
+**Pattern:** Write failure tests BEFORE success tests. Prevents 80% of production bugs.
+
+---
+
 **Confidence Updates:**
 
 As you build incrementally, update adoption.percentageComplete:
@@ -945,6 +1075,106 @@ Will create tests as features are built
 ```
 
 **Step 5: Identify next feature**
+
+### Feature Selection Reasoning (Chain-of-Thought)
+
+**CRITICAL: Show complete analysis of candidate features, not just the winner.**
+
+When recommending the next feature, analyze multiple candidates and explain your decision:
+
+**Example Analysis:**
+
+```markdown
+📊 Analyzing 3 candidate features from features.json...
+
+---
+
+**feat-002 (User Registration):**
+  ✅ **Prerequisites:** feat-001 (Login) ✅ COMPLETE
+  ✅ **Complexity match:** MEDIUM (same as your last success with feat-001)
+  ✅ **Knowledge reuse:** HIGH (uses 80% of login patterns you just mastered)
+     - User model schema: Already exists ✅
+     - Password hashing: Pattern from feat-001 ✅
+     - JWT generation: Reuse from feat-001 ✅
+  ✅ **Strategic value:** CRITICAL (unlocks 5 downstream features)
+  ✅ **Test coverage:** Easy (similar test patterns to login)
+  🟢 **Score: 0.92** → IDEAL NEXT STEP
+
+**Why 0.92 is ideal:**
+- Builds on fresh success (feat-001 just completed)
+- One new concept (email verification) vs many unknowns
+- High success probability = momentum + confidence
+
+---
+
+**feat-005 (Shopping Cart):**
+  ⚠️ **Prerequisites:** feat-002, feat-003 ⚠️ NOT READY
+     - Needs registration (feat-002) for user association
+     - Needs product listing (feat-003) for cart items
+  ✅ **Complexity match:** MEDIUM
+  ❌ **Knowledge reuse:** LOW (new patterns: state management, persistence)
+     - React Context or Redux: New pattern
+     - LocalStorage persistence: New approach
+     - Cart calculations: New logic
+  🟡 **Score: 0.65** → DEFER (prerequisites incomplete)
+
+**Why defer:**
+- Prerequisites block implementation
+- Too many unknowns at once (state + persistence + calculations)
+- Better to build foundation first (feat-002, feat-003)
+
+---
+
+**feat-010 (Payment Integration - Stripe):**
+  ✅ **Prerequisites:** All met (cart, checkout exist)
+  ❌ **Complexity match:** HIGH (significant jump from current level)
+     - Third-party API: Stripe SDK (new library)
+     - Webhook handling: New server pattern
+     - Security: PCI compliance concerns
+     - Error scenarios: Payment failures, refunds, chargebacks
+  ❌ **Knowledge reuse:** NONE (entirely new domain)
+  🔴 **Score: 0.45** → SKIP FOR NOW (too advanced)
+
+**Why skip:**
+- 4× more complex than current skill level
+- Introduces 5+ new concepts at once (API, webhooks, security, errors, compliance)
+- Risk of getting stuck (demotivating)
+- Strategic: Build confidence with feat-002 first
+
+---
+
+## ✅ Decision: feat-002 (User Registration)
+
+### Why this is PERFECT timing:
+
+1. **Builds directly on feat-001 success** (momentum + confidence)
+   - You just mastered: password hashing, JWT tokens, validation
+   - Registration reuses 80% of that knowledge
+   - Expected speed: 50% faster than feat-001 (2.5 hours vs 4 hours)
+
+2. **Introduces ONE new concept** (not overwhelming)
+   - feat-002: Email verification (manageable)
+   - vs feat-010: 5+ new concepts (overwhelming)
+   - Learning sweet spot: 1 new thing per feature
+
+3. **Unlocks the next 5 features** in your roadmap
+   - feat-003 (Password Reset) - needs registration
+   - feat-004 (Profile Edit) - needs registration
+   - feat-006 (Order History) - needs user accounts
+   - Strategic value: Build foundation early
+
+4. **High success probability (92%)** = positive learning experience
+   - Clear path (similar to feat-001)
+   - Known libraries (bcrypt, jsonwebtoken, validator.js)
+   - Estimated time: 2.5-3 hours (manageable single session)
+
+**You're ready for this. Let's build on your success.**
+```
+
+---
+
+**Actual bootup output:**
+
 ```
 🟢 High confidence (0.95): feat-001 (User Login)
 - No prerequisites (can start immediately)
