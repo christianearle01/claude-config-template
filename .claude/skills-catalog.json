@@ -1,0 +1,430 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-12-17",
+  "metadata": {
+    "total_skills": 19,
+    "foundation": 3,
+    "optimization": 10,
+    "strategic": 6
+  },
+  "skills": {
+    "foundation": [
+      {
+        "name": "version-management",
+        "description": "Tracks version consistency across version.json, README, CLAUDE.md, CHANGELOG, and SETUP_CONTEXT",
+        "activation_patterns": [
+          "What version are we at?",
+          "Is version synced?",
+          "Did I update all version files?",
+          "What needs updating for v3.x.0?"
+        ],
+        "roi": "58% token reduction (600→250 tokens/query)",
+        "frequency": "8 queries per month",
+        "complexity": "beginner",
+        "prerequisites": [],
+        "recommended_for": ["all_projects"],
+        "file_path": ".claude/skills/version-management/SKILL.md",
+        "operations_count": 5,
+        "auto_activates": true
+      },
+      {
+        "name": "commit-readiness-checker",
+        "description": "Validates all release criteria are met before git commit",
+        "activation_patterns": [
+          "Am I ready to commit?",
+          "What's missing for release?",
+          "Check commit readiness",
+          "Validate release criteria"
+        ],
+        "roi": "Prevents 15% of fixup commits",
+        "frequency": "6 queries per month",
+        "complexity": "beginner",
+        "prerequisites": [],
+        "recommended_for": ["all_projects"],
+        "file_path": ".claude/skills/commit-readiness-checker/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      }
+    ],
+    "optimization": [
+      {
+        "name": "documentation-sync-checker",
+        "description": "Validates documentation consistency across all MD files, checks broken links",
+        "activation_patterns": [
+          "Are links broken?",
+          "Check documentation sync",
+          "Validate doc consistency",
+          "Find broken cross-references"
+        ],
+        "roi": "Prevents documentation drift, catches broken links",
+        "frequency": "4 queries per month",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["projects_with_documentation", "all_projects"],
+        "file_path": ".claude/skills/documentation-sync-checker/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "mermaid-validator",
+        "description": "Validates Mermaid diagram syntax to prevent rendering failures",
+        "activation_patterns": [
+          "Check my Mermaid diagram",
+          "Validate Mermaid syntax",
+          "Why isn't my diagram rendering?",
+          "Fix my Mermaid diagram"
+        ],
+        "roi": "94% token reduction (4,900→300 tokens/validation)",
+        "frequency": "2 queries per month",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["projects_with_documentation", "markdown_heavy_projects"],
+        "file_path": ".claude/skills/mermaid-validator/SKILL.md",
+        "operations_count": 5,
+        "auto_activates": true
+      },
+      {
+        "name": "component-finder",
+        "description": "Helps locate React/Vue/Angular components, UI elements, and frontend code",
+        "activation_patterns": [
+          "Where is LoginButton?",
+          "Find component X",
+          "Locate UI element",
+          "How to find components?"
+        ],
+        "roi": "Faster code navigation, reduced exploration time",
+        "frequency": "10 queries per month",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["frontend_projects", "react_projects", "vue_projects"],
+        "file_path": ".claude/skills/component-finder/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "project-analyzer",
+        "description": "Zero-config project intelligence analyzing features.json and progress.md",
+        "activation_patterns": [
+          "What's our project status?",
+          "What's blocking us?",
+          "Which category should I focus on?",
+          "Give me a summary"
+        ],
+        "roi": "67% token reduction (1,200→400 tokens/query)",
+        "frequency": "Daily standups",
+        "complexity": "intermediate",
+        "prerequisites": ["domain_memory_architecture", "features_json"],
+        "recommended_for": ["projects_with_features_json", "domain_memory_projects"],
+        "file_path": ".claude/skills/project-analyzer/SKILL.md",
+        "operations_count": 3,
+        "auto_activates": true
+      },
+      {
+        "name": "testing-workflow",
+        "description": "Provides insights on test execution results, test failures, pass rates",
+        "activation_patterns": [
+          "Show test results",
+          "Why are tests failing?",
+          "Test status",
+          "Analyze test failures"
+        ],
+        "roi": "Test-specific diagnostics and failure analysis",
+        "frequency": "Per test run",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["projects_with_tests", "tdd_projects"],
+        "file_path": ".claude/skills/testing-workflow/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "security-scanner",
+        "description": "Automated security validation for OWASP Top 10, CVE detection, secrets scanning",
+        "activation_patterns": [
+          "Scan for vulnerabilities",
+          "Check security issues",
+          "Find CVEs",
+          "Detect secrets"
+        ],
+        "roi": "Catch security issues early, prevent vulnerabilities",
+        "frequency": "Pre-deployment, monthly scans",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["api_projects", "production_projects", "all_projects"],
+        "file_path": ".claude/skills/security-scanner/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "test-generator",
+        "description": "Generates tests from features.json test criteria with multi-framework support",
+        "activation_patterns": [
+          "Generate tests for feat-X",
+          "Create test suite",
+          "Write tests",
+          "Auto-generate tests"
+        ],
+        "roi": "Automated test creation, ensures coverage",
+        "frequency": "Per new feature",
+        "complexity": "intermediate",
+        "prerequisites": ["features_json"],
+        "recommended_for": ["tdd_projects", "projects_with_features_json"],
+        "file_path": ".claude/skills/test-generator/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "standards-enforcer",
+        "description": "Applies coding standards from CLAUDE.md with dynamic learning",
+        "activation_patterns": [
+          "Check code style",
+          "Enforce standards",
+          "Validate code quality",
+          "Apply team conventions"
+        ],
+        "roi": "Consistent code quality, team alignment",
+        "frequency": "Per code review",
+        "complexity": "intermediate",
+        "prerequisites": ["CLAUDE_md_file"],
+        "recommended_for": ["team_projects", "all_projects"],
+        "file_path": ".claude/skills/standards-enforcer/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "mode-selector",
+        "description": "Model selection decision tree (Opus/Sonnet/Haiku)",
+        "activation_patterns": [
+          "Which model should I use?",
+          "Switch model",
+          "Optimize model costs",
+          "Model recommendation"
+        ],
+        "roi": "24% token reduction through optimal model selection",
+        "frequency": "Per major task",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["all_projects", "cost_sensitive_projects"],
+        "file_path": ".claude/skills/mode-selector/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": false
+      },
+      {
+        "name": "api-debugging",
+        "description": "Helps debug API requests, responses, status codes, and network issues",
+        "activation_patterns": [
+          "API error help",
+          "Debug API call",
+          "Why is API failing?",
+          "HTTP status code explanation"
+        ],
+        "roi": "Faster API debugging, clear diagnostics",
+        "frequency": "Per API issue",
+        "complexity": "intermediate",
+        "prerequisites": [],
+        "recommended_for": ["api_projects", "backend_projects", "fullstack_projects"],
+        "file_path": ".claude/skills/api-debugging/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      }
+    ],
+    "strategic": [
+      {
+        "name": "workflow-analyzer",
+        "description": "Meta-skill: Analyzes git commit patterns, detects repeated operations, suggests new skills",
+        "activation_patterns": [
+          "What patterns do you see?",
+          "Analyze my workflow",
+          "What skills should I create?",
+          "Detect repeated tasks"
+        ],
+        "roi": "56% token reduction, enables skill evolution",
+        "frequency": "Monthly retrospective",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["template_maintainers", "skill_creators", "power_users"],
+        "file_path": ".claude/skills/workflow-analyzer/SKILL.md",
+        "operations_count": 3,
+        "auto_activates": true
+      },
+      {
+        "name": "personalization-engine",
+        "description": "Central hub for managing user preferences, learning patterns, cross-session memory",
+        "activation_patterns": [
+          "What are my preferences?",
+          "Show my settings",
+          "Remember this choice",
+          "What have you learned about me?"
+        ],
+        "roi": "40% context recovery, reduces repeated decisions",
+        "frequency": "Passive (background)",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["experienced_users", "teams", "power_users"],
+        "file_path": ".claude/skills/personalization-engine/SKILL.md",
+        "operations_count": 5,
+        "auto_activates": true
+      },
+      {
+        "name": "project-onboarding-assistant",
+        "description": "Guides users through per-project Claude Code setup",
+        "activation_patterns": [
+          "Setup new project",
+          "Create CLAUDE.md",
+          "Project onboarding",
+          "Initialize project"
+        ],
+        "roi": "Setup time 20min → 5min (75% reduction)",
+        "frequency": "Per new project",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["frequent_project_creators", "teams"],
+        "file_path": ".claude/skills/project-onboarding-assistant/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "global-setup-assistant",
+        "description": "Guides users through one-time machine setup for claude-config-template",
+        "activation_patterns": [
+          "Install Claude Code",
+          "Global setup",
+          "First-time installation",
+          "Machine configuration"
+        ],
+        "roi": "Reduces setup friction, validates installation",
+        "frequency": "One-time per machine",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["first_time_users", "teams"],
+        "file_path": ".claude/skills/global-setup-assistant/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "pre-project-planning-assistant",
+        "description": "Guides users through pre-project planning phase (concept → architecture → tech → timeline)",
+        "activation_patterns": [
+          "Plan new project",
+          "Architecture guidance",
+          "Choose tech stack",
+          "Project planning"
+        ],
+        "roi": "Structured planning, prevents rework",
+        "frequency": "Per new project",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["project_planners", "architects", "teams"],
+        "file_path": ".claude/skills/pre-project-planning-assistant/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      },
+      {
+        "name": "projects-registry",
+        "description": "Manages and provides insights from the projects registry (multi-project tracking)",
+        "activation_patterns": [
+          "List my projects",
+          "Show project status",
+          "Find project",
+          "Project registry"
+        ],
+        "roi": "Cross-project tracking, 58% token savings vs CLI",
+        "frequency": "Daily (multi-project users)",
+        "complexity": "advanced",
+        "prerequisites": ["projects_registry_json"],
+        "recommended_for": ["multi_project_users", "teams"],
+        "file_path": ".claude/skills/projects-registry/SKILL.md",
+        "operations_count": 5,
+        "auto_activates": true
+      },
+      {
+        "name": "skill-template-generator",
+        "description": "Generates SKILL.md structure interactively, accelerates skill creation",
+        "activation_patterns": [
+          "Create new skill",
+          "Generate skill template",
+          "Skill scaffold",
+          "New skill help"
+        ],
+        "roi": "Accelerates skill creation with interactive questions",
+        "frequency": "Per new skill",
+        "complexity": "advanced",
+        "prerequisites": [],
+        "recommended_for": ["skill_creators", "template_maintainers", "power_users"],
+        "file_path": ".claude/skills/skill-template-generator/SKILL.md",
+        "operations_count": 1,
+        "auto_activates": true
+      }
+    ]
+  },
+  "quick_start_recommendations": {
+    "first_time_setup": [
+      "version-management",
+      "commit-readiness-checker"
+    ],
+    "documentation_projects": [
+      "version-management",
+      "commit-readiness-checker",
+      "mermaid-validator",
+      "documentation-sync-checker"
+    ],
+    "tdd_projects": [
+      "version-management",
+      "commit-readiness-checker",
+      "testing-workflow",
+      "test-generator"
+    ],
+    "api_projects": [
+      "version-management",
+      "commit-readiness-checker",
+      "api-debugging",
+      "security-scanner"
+    ],
+    "frontend_projects": [
+      "version-management",
+      "commit-readiness-checker",
+      "component-finder",
+      "testing-workflow"
+    ],
+    "team_projects": [
+      "version-management",
+      "commit-readiness-checker",
+      "standards-enforcer",
+      "personalization-engine"
+    ],
+    "template_maintainers": [
+      "version-management",
+      "commit-readiness-checker",
+      "documentation-sync-checker",
+      "workflow-analyzer",
+      "skill-template-generator"
+    ]
+  },
+  "project_type_mapping": {
+    "personal_project": {
+      "foundation": ["all"],
+      "optimization": ["project-analyzer"],
+      "strategic": ["workflow-analyzer"]
+    },
+    "documentation_site": {
+      "foundation": ["all"],
+      "optimization": ["mermaid-validator", "documentation-sync-checker"],
+      "strategic": []
+    },
+    "api_backend": {
+      "foundation": ["all"],
+      "optimization": ["api-debugging", "security-scanner"],
+      "strategic": []
+    },
+    "frontend_app": {
+      "foundation": ["all"],
+      "optimization": ["component-finder", "testing-workflow"],
+      "strategic": []
+    },
+    "team_codebase": {
+      "foundation": ["all"],
+      "optimization": ["standards-enforcer", "mode-selector"],
+      "strategic": ["personalization-engine"]
+    }
+  }
+}

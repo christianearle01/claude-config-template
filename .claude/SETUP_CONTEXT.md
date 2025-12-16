@@ -278,6 +278,42 @@ cd ~/claude-config-template
 
 **Answer:** docs/00-start-here/03_5-minute-success.md
 
+### Task 8: "Which skills should I use?"
+
+**Quick Answer:** See .claude/skills/SKILLS_CATALOG.md (organized by experience level)
+
+**Skills Catalog Structure:**
+1. **🆕 Foundation Skills** (3 skills) - Essential, start here
+   - Universal applicability (all projects)
+   - Skills: version-management, commit-readiness-checker
+
+2. **⚡ Optimization Skills** (10 skills) - Choose by project type
+   - Project-specific improvements
+   - Documentation: documentation-sync-checker, mermaid-validator
+   - Frontend: component-finder
+   - Domain Memory: project-analyzer
+   - TDD: testing-workflow, test-generator
+   - API: api-debugging, security-scanner
+   - Team: standards-enforcer, mode-selector
+
+3. **🚀 Strategic Skills** (6 skills) - Power users
+   - Meta-skills: workflow-analyzer, personalization-engine
+   - Setup automation: project-onboarding-assistant, global-setup-assistant
+   - Planning: pre-project-planning-assistant
+   - Multi-project: projects-registry, skill-template-generator
+
+**Quick Start by Project Type:**
+- **First-time:** version-management + commit-readiness-checker
+- **Documentation:** + documentation-sync-checker + mermaid-validator (optional)
+- **TDD projects:** + testing-workflow + test-generator
+- **API projects:** + api-debugging + security-scanner
+- **Frontend:** + component-finder
+- **Team:** + standards-enforcer + personalization-engine
+
+**Skills Auto-Activate:** Just ask naturally, no configuration needed
+
+**Reference:** .claude/skills/SKILLS_CATALOG.md
+
 **Why:**
 - 5 minutes total
 - Demonstrates 99% token savings

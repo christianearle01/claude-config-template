@@ -23,6 +23,7 @@
 |------|-------------|
 | **Avoid disasters** | [Anti-Patterns](05_anti-patterns.md) - Read this first! |
 | **Choose a setup path** | [Visual Quickstart](07_visual-quickstart.md) |
+| **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Organized by experience level |
 | **Understand the concepts** | [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) |
 | **Find specific features** | [Quick Reference](09_quick-reference.md) |
 | **Learn progressively** | [Learning Stages](12_learning-stages.md) |
@@ -60,6 +61,7 @@
 | [11_proactive-paradigm.md](11_proactive-paradigm.md) | Future direction (v3.5.0+) |
 | [12_quality-workflows.md](12_quality-workflows.md) | Quality-first development |
 | [09_quick-reference.md](09_quick-reference.md) | Searchable feature catalog |
+| [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) | 19 skills organized by experience level |
 | [04_quick-start.md](04_quick-start.md) | Minimal setup guide |
 | [02_quick-win.md](02_quick-win.md) | Fast wins path |
 | [08_skills-paradigm.md](08_skills-paradigm.md) | Commands → Agents → Skills |
