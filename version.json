@@ -1,7 +1,7 @@
 {
-  "version": "4.3.0",
+  "version": "4.4.0",
   "release_date": "2025-12-16",
-  "release_name": "Template Gallery - Ready-to-Use Configurations",
+  "release_name": "Template Validator - Quality Tooling",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -173,7 +173,10 @@
     "gallery-data-science",
     "gallery-devops",
     "gallery-fullstack",
-    "domain-specific-templates"
+    "domain-specific-templates",
+    "template-validator",
+    "json-schema-validation",
+    "catalog-validation"
   ],
   "personas_supported": [
     "first-time",
@@ -256,7 +259,8 @@
       "setup-git-workflow.sh": "2.9.0",
       "remove-commands.sh": "3.4.0",
       "claude-skills.sh": "3.5.0",
-      "claude-health-check.sh": "3.5.0"
+      "claude-health-check.sh": "3.5.0",
+      "validate-template.sh": "4.4.0"
     },
     "examples": {
       "hooks": "2.0.0",
