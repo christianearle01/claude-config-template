@@ -821,6 +821,122 @@ All analysis happens locally. Your decision history never leaves your machine. T
 
 ---
 
+## Cross-Project Intelligence (v3.12.0)
+
+### How It Works
+
+Cross-Project Intelligence analyzes patterns across all your registered projects:
+
+1. **Pattern Aggregation** - Identifies preferences used consistently across projects
+2. **Consistency Detection** - Finds divergences from your established patterns
+3. **Cross-Project Suggestions** - Recommends propagating patterns to new projects
+
+### The Learning Leverage Effect
+
+```
+Single-project learning:
+  Project A: learns X
+  Project B: learns X again (wasted effort)
+  Project C: learns X again (wasted effort)
+
+Cross-project learning:
+  Project A: learns X
+  Project B: "You prefer X in Project A. Apply here?" ✓
+  Project C: "You prefer X in 2 projects. Apply here?" ✓
+
+Result: Nx leverage on learning investment (where N = projects)
+```
+
+### Triggering Analysis
+
+**Manual:**
+```
+"Analyze patterns across my projects"
+"Show cross-project insights"
+"Are my projects configured consistently?"
+"What patterns do I use consistently?"
+```
+
+**Automatic:** Every 7 days (configurable via `aggregationIntervalDays`)
+
+### Pattern Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Propagate** | Apply established pattern to new projects | "Enable strict mode in 2 remaining projects" |
+| **Standardize** | Align divergent projects to a standard | "3 projects use different commit styles" |
+| **Detect-Outlier** | Flag projects below your standard | "Project Y has lower test coverage" |
+
+### Example Cross-Project Suggestion
+
+```
+Suggestion: Propagate Conventional Commits (High Confidence)
+
+Pattern: conventional commits
+Adoption: 90% (9/10 projects)
+Missing: legacy-app
+
+Rationale: You use conventional commits in 9 projects.
+legacy-app would benefit from the same standard.
+
+Apply: "Propagate conventional commits to legacy-app"
+```
+
+### Applying Suggestions
+
+**Propagate to specific projects:**
+- `Propagate strict mode to scripts and tools`
+- `Apply suggestion 1`
+
+**Propagate to all projects:**
+- `Propagate conventional commits to all projects`
+
+**Exclude projects from analysis:**
+- `Ignore prototype for cross-project analysis`
+
+### Configuration
+
+```json
+{
+  "crossProjectLearning": {
+    "enabled": true,
+    "aggregationIntervalDays": 7,
+    "thresholds": {
+      "minProjectsForPattern": 3,
+      "propagateConfidence": 0.8,
+      "minProjectsForAnalysis": 3
+    }
+  }
+}
+```
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `enabled` | true | Enable/disable cross-project analysis |
+| `aggregationIntervalDays` | 7 | Days between auto-analyses |
+| `minProjectsForPattern` | 3 | Min projects to establish a pattern |
+| `propagateConfidence` | 0.8 | Min adoption rate to suggest propagation |
+| `minProjectsForAnalysis` | 3 | Min projects before enabling |
+
+### Requirements
+
+Cross-project analysis requires:
+- **Projects Registry:** At least 3 projects registered (`~/.claude/projects-registry.json`)
+- **Learning History:** Some decision history in user preferences
+
+**Check your registry:** "Show my projects"
+
+### Privacy
+
+All cross-project analysis happens locally. The system reads:
+- Your projects registry (names, paths, tags)
+- User preferences (global learnings)
+- Project preferences (per-project overrides)
+
+No data leaves your machine.
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -844,6 +960,10 @@ All analysis happens locally. Your decision history never leaves your machine. T
 | `Dismiss suggestion [n]` | Dismiss a suggestion |
 | `Snooze suggestion [n] for [time]` | Remind later |
 | `Show suggestion history` | View applied/dismissed suggestions |
+| `Analyze patterns across my projects` | Cross-project analysis |
+| `Show cross-project insights` | View established patterns |
+| `Propagate [setting] to [projects]` | Apply pattern across projects |
+| `Show consistency report` | View divergences |
 
 ### Proactivity Quick Guide
 
@@ -875,16 +995,18 @@ The Personalization Engine transforms Claude Code from a generic tool into a per
 5. **Transparency** - See what I've learned, reset anytime
 6. **Project flexibility** - Override global settings per project (v3.9.0)
 7. **AI-Suggested Tuning** - System suggests preference improvements based on patterns (v3.10.0)
+8. **Cross-Project Intelligence** - Learn once, apply everywhere - Nx leverage (v3.12.0)
 
-**Three levels of customization:**
+**Four levels of customization:**
 - **Global** (`~/.claude/user-preferences.json`) - Your personal defaults
 - **Project** (`.claude/project-preferences.json`) - Per-project overrides, shareable with team
 - **AI-Tuned** - Intelligent suggestions that evolve based on your actual usage
+- **Cross-Project** - Patterns propagated across all your projects automatically
 
 **The personalization journey:**
 ```
-SET → OVERRIDE → OPTIMIZE
-(Manual) (Per-project) (AI-suggested)
+SET → OVERRIDE → OPTIMIZE → LEVERAGE
+(Manual) (Per-project) (AI-suggested) (Cross-project)
 ```
 
-**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time. After 20+ decisions, AI-Suggested Tuning will begin offering optimization recommendations.
+**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time. After 20+ decisions, AI-Suggested Tuning will begin offering optimization recommendations. With 3+ registered projects, Cross-Project Intelligence enables learning leverage across your entire portfolio.
