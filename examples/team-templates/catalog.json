@@ -37,11 +37,25 @@
       "tags": ["team", "security", "compliance"],
       "createdAt": "2025-12-16T00:00:00Z",
       "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "team-frontend",
+      "name": "Team Frontend",
+      "description": "Frontend-specific configuration extending team-standard (v4.1.0)",
+      "category": "team",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./team-frontend.json",
+      "version": "1.0.0",
+      "author": "your-team",
+      "tags": ["team", "frontend", "react", "inheritance"],
+      "extends": "team-standard",
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
     }
   ],
 
   "metadata": {
-    "totalTemplates": 2,
+    "totalTemplates": 3,
     "categories": ["team", "security"],
     "contact": {
       "github": "https://github.com/your-org"
