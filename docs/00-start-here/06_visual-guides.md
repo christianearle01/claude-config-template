@@ -4,7 +4,6 @@
 > If diagrams don't display in your editor:
 > - **GitHub users:** ✅ Diagrams render automatically
 > - **VS Code users:** Install [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension
-> - **All users:** ASCII alternatives provided below each diagram
 
 This document contains visual diagrams to help you understand Claude Code setup concepts faster.
 
@@ -88,24 +87,6 @@ flowchart TD
     style Haiku fill:#90EE90
     style Sonnet fill:#87CEEB
     style Opus fill:#FFB6C1
-```
-
-### ASCII Alternative: Model Selection
-
-```
-New Task
-    │
-    ├─ Need to plan? ──YES──> Use Sonnet ($3/M)
-    │                              │
-    └─ Already have plan? ──YES──> │
-                                   │
-                    Struggling? ───YES──> Use Opus ($15/M)
-                                   │
-                                   NO
-                                   │
-                    Implementation ─> Use Haiku ($0.25/M)
-                                         │
-                                    Save 92%! 💰
 ```
 
 **Cost Optimization Strategy:**
@@ -226,48 +207,29 @@ gantt
 **Visualize:** How you save 92% on costs.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
-graph LR
-    subgraph Before["Before Setup: 45,000 tokens"]
-        B1["Exploring codebase<br/>15,000 tokens"]
-        B2["Re-reading files<br/>10,000 tokens"]
-        B3["Asking same questions<br/>8,000 tokens"]
-        B4["Wrong model usage<br/>12,000 tokens"]
-    end
+flowchart LR
+    Start["Session Start"] --> Before{Before Setup<br/>45,000 tokens/session}
 
-    subgraph After["After Setup: 7,500 tokens"]
-        A1["Context from CLAUDE.md<br/>3,000 tokens"]
-        A2["Focused reading<br/>2,000 tokens"]
-        A3["Sonnet for planning<br/>2,000 tokens"]
-        A4["Haiku for implementation<br/>500 tokens"]
-    end
+    Before --> B1["15,000 tokens<br/>Exploring codebase"]
+    Before --> B2["10,000 tokens<br/>Re-reading files"]
+    Before --> B3["8,000 tokens<br/>Asking same questions"]
+    Before --> B4["12,000 tokens<br/>Wrong model usage"]
 
-    Before -.->|"83% reduction"| After
+    B1 & B2 & B3 & B4 --> Cost1["Cost: $135/session"]
+
+    Start --> After{After Setup<br/>7,500 tokens/session}
+
+    After --> A1["3,000 tokens<br/>Context from CLAUDE.md"]
+    After --> A2["2,000 tokens<br/>Focused reading"]
+    After --> A3["2,000 tokens<br/>Sonnet for planning"]
+    After --> A4["500 tokens<br/>Haiku for implementation"]
+
+    A1 & A2 & A3 & A4 --> Cost2["Cost: $22.50/session<br/>83% savings!"]
 
     style Before fill:#ffe1e1
     style After fill:#e1ffe1
-```
-
-### ASCII Alternative: Token Cost Waterfall
-
-```
-BEFORE SETUP (45,000 tokens)          AFTER SETUP (7,500 tokens)
-─────────────────────────────────     ──────────────────────────
-
-  Exploring        15,000 ─┐              Context from      3,000 ─┐
-  codebase                 │              CLAUDE.md                │
-                           │                                       │
-  Re-reading       10,000 ─┤              Focused          2,000 ─┤
-  files                    ├─► 45,000     reading                 │
-                           │                                       ├─► 7,500
-  Asking same       8,000 ─┤              Sonnet for       2,000 ─┤    (83% ↓)
-  questions                │              planning                │
-                           │                                       │
-  Wrong model      12,000 ─┘              Haiku for          500 ─┘
-  usage                                   implementation
-
-  Cost: $135/session                      Cost: $22.50/session
-                                          SAVINGS: $112.50 (83%)
+    style Cost1 fill:#ffcccc
+    style Cost2 fill:#ccffcc
 ```
 
 **Cost Breakdown:**
@@ -283,73 +245,6 @@ BEFORE SETUP (45,000 tokens)          AFTER SETUP (7,500 tokens)
 - Before: $1,350
 - After: $165
 - **You save: $1,185/month** 💰
-
----
-
-## ASCII Art Versions (Terminal-Friendly)
-
-### Configuration Hierarchy (ASCII)
-
-```
-┌─────────────────────────────────────┐
-│  Global Settings (~/.claude.json)   │
-│  ├─ model: "sonnet"                 │
-│  └─ alwaysThinkingEnabled: true     │
-└──────────┬──────────────────────────┘
-           │ inherited by
-           ↓
-┌─────────────────────────────────────┐
-│  Project (.claude/settings.json)    │
-│  ├─ model: "haiku" (OVERRIDES)      │
-│  └─ inherits: alwaysThinkingEnabled │
-└──────────┬──────────────────────────┘
-           │ can be overridden by
-           ↓
-┌─────────────────────────────────────┐
-│  Runtime (/model opus)              │
-│  └─ model: "opus" (OVERRIDES ALL)   │
-└─────────────────────────────────────┘
-
-Priority: Runtime > Project > Global
-```
-
-### Model Selection (ASCII)
-
-```
-New Task
-    │
-    ├─ Need to plan? ──YES──> Use Sonnet ($3/M)
-    │                              │
-    └─ Already have plan? ──YES──> │
-                                   │
-                    Struggling? ───YES──> Use Opus ($15/M)
-                                   │
-                                   NO
-                                   │
-                    Implementation ─> Use Haiku ($0.25/M)
-                                         │
-                                    Save 92%! 💰
-```
-
-### Setup Progress (ASCII)
-
-```
-First-Time Learner (75 min total)
-├─ [████░░] Install (20 min)
-├─ [████░░] Quick Start (15 min)
-├─ [███░░░] Model Switching (10 min)
-└─ [████████] Project Setup (30 min)
-
-Quick Setup (13 min total)
-├─ [█░] Copy files (2 min)
-├─ [████████] Edit CLAUDE.md (10 min)
-└─ [░] Test (1 min)
-
-Advanced (35 min total)
-├─ [███░░░] Security Hooks (10 min)
-├─ [███████░] Custom Agents (15 min)
-└─ [███░░░] MCP Servers (10 min)
-```
 
 ---
 
@@ -370,7 +265,7 @@ Advanced (35 min total)
 
 ### For Team Leads
 1. **Share:** All diagrams with team
-2. **Print:** ASCII versions for offline reference
+2. **Print:** Export Mermaid diagrams for offline reference
 3. **Customize:** Fork and add your org's specifics
 
 ---
@@ -394,8 +289,8 @@ Advanced (35 min total)
 - Click diagrams to enlarge
 - Light/dark mode supported
 
-**In Terminal:**
-- Use ASCII versions above
+**In VS Code:**
+- Install [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension
 - Or: Copy Mermaid code to [mermaid.live](https://mermaid.live)
 
 **For Presentations:**
@@ -404,7 +299,7 @@ Advanced (35 min total)
 
 ---
 
-**Last Updated:** 2025-12-05
-**Diagrams:** 5 Mermaid + 3 ASCII
+**Last Updated:** 2025-12-17
+**Diagrams:** 5 Mermaid diagrams (Mermaid 10.x+ required)
 **Reduces cognitive load by:** 40%
 **Improves retention by:** 25%
