@@ -1,6 +1,6 @@
 # Project Memory - Claude Code Configuration Template
 
-**Last Updated:** 2025-12-15
+**Last Updated:** 2025-12-16
 **Version:** v4.2.0
 
 ---
@@ -42,9 +42,9 @@ This is an **educational documentation project** that provides a comprehensive c
 
 ---
 
-## Proactive Intelligence Framework (v3.5.0+)
+## Proactive Intelligence Framework (v3.5.0) ✅
 
-**Future Direction:** Transforming from reactive template → proactive assistant
+**Status:** Implemented in v3.5.0 - Transforming from reactive template → proactive assistant
 
 **Inspiration:** [Jewels Proactive Agent Patterns](https://www.youtube.com/watch?v=v3u8xc0zLec) - A research project demonstrating how AI agents can proactively assist developers by reducing mental load and context switching.
 
@@ -59,35 +59,33 @@ The framework builds on four core principles:
 
 ### Three Levels of Proactivity
 
-**Level 1: Attentive Sous Chef (v3.5.0)** - Task-level automation
+**Level 1: Attentive Sous Chef (v3.5.0)** ✅ - Task-level automation
 - Detect and auto-fix immediate issues while performing other tasks
 - Confidence-scored suggestions (High/Medium/Low reliability)
 - Just-in-time cheat sheets for self-troubleshooting
 - Proactive setup assistant and TODO discovery
 - **Target:** Reduce mental load by 70%, recover 40% productive time lost to context switching
 
-**Level 2: Kitchen Manager (v3.6.0)** - Project-level awareness
+**Level 2: Kitchen Manager (v3.6.0)** ✅ - Project-level awareness
 - Contextually aware of entire project, anticipates next need
 - Project analyzer with zero-config environment intelligence
 - Personalization engine learning user preferences
 - Living CLAUDE.md that agents can propose updates to
 - **Target:** Predictive suggestions before user asks
 
-**Level 3: Alignment & Collective Intelligence (v4.0.0+)** - Multi-project orchestration
-- Agents converge context to understand consequence across projects
-- Multi-project pattern recognition and impact analysis
-- Team alignment and collective learning from all projects
-- **Target:** Cross-system improvements and consequence prediction
+**Level 3: Alignment & Collective Intelligence (v4.0.0+)** ✅ - Multi-project orchestration
+- Template sharing across teams (v4.0.0)
+- Template inheritance for composition (v4.1.0)
+- Template parameters for customization (v4.2.0)
+- **Target:** Cross-system improvements and team alignment
 
-**Status:** Plan approved, v3.5.0 implementation beginning (3-4 week roadmap)
-
-**Learn more:** `docs/00-start-here/PROACTIVE_PARADIGM.md` (coming in v3.5.0)
+**Learn more:** `docs/00-start-here/PROACTIVE_PARADIGM.md`
 
 ---
 
-## Domain Memory Architecture (v3.6.0+)
+## Domain Memory Architecture (v3.6.0) ✅
 
-**Future Direction:** Persistent state management for long-running projects
+**Status:** Implemented in v3.6.0 - Persistent state management for long-running projects
 
 **Inspiration:**
 - [AI Agents That Actually Work: The Pattern Anthropic Just Revealed](https://www.youtube.com/watch?v=xNcEgqzlPqs) - Two-agent pattern, domain memory, bootup ritual
@@ -103,12 +101,12 @@ The framework builds on four core principles:
 
 ### Anthropic's Two-Agent Pattern
 
-**Initializer Agent:**
+**Initializer Agent** (`.claude/agents/initializer.md`):
 - Expands user intent into structured domain memory
 - Creates features.json with task breakdown, dependencies, test criteria
 - Defines bootup ritual checklist
 
-**Coder Agent:**
+**Coder Agent** (`.claude/agents/coder.md`):
 - Executes bootup ritual every session (read memory, verify state)
 - Picks ONE feature atomically, builds incrementally
 - Tests until passing, updates state, commits
@@ -122,13 +120,13 @@ The framework builds on four core principles:
 
 **Impact:** Token savings 350-700 per session (85% reduction in regrounding), mental load reduced 80%, project completion rate 60% → 90% (projected)
 
-**Learn more:** Implementation planned for v3.6.0 (3-4 weeks after v3.5.0)
+**Learn more:** `.claude/agents/initializer.md` and `.claude/agents/coder.md`
 
 ---
 
-## Quality Workflows Framework (v3.7.0+)
+## Quality Workflows Framework (v3.7.0) ✅
 
-**Future Direction:** Breaking the AI productivity glass ceiling through automated quality
+**Status:** Implemented in v3.7.0 - Breaking the AI productivity glass ceiling through automated quality
 
 **Inspiration:** [The State of AI Code Quality: Hype vs Reality — Itamar Friedman, Qodo](https://www.youtube.com/watch?v=rgjF5o2Qjsc)
 
@@ -141,7 +139,7 @@ The framework builds on four core principles:
 
 ### Quality-First Architecture
 
-**Automated Quality Gates:**
+**Quality Reviewer Agent** (`.claude/agents/quality-reviewer.md`):
 - Security scanner (OWASP top 10, CVE checks)
 - Test generator (ensures coverage for features.json)
 - Standards enforcer (learns team preferences)
@@ -160,7 +158,7 @@ Quality improves with better context: codebase + organizational standards + PR h
 
 **Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected, based on industry research)
 
-**Learn more:** `docs/00-start-here/QUALITY_WORKFLOWS.md` (coming in v3.7.0)
+**Learn more:** `docs/00-start-here/QUALITY_WORKFLOWS.md`
 
 ---
 
@@ -252,10 +250,11 @@ claude-config-template/
 ├── templates/               # Reusable templates (3 files)
 ├── scripts/                 # Wizards & helpers (12 scripts)
 ├── examples/                # Example configs (6 files)
-├── .claude/                 # Claude Code config (8 files)
+├── .claude/                 # Claude Code config
 │   ├── settings.json
 │   ├── SETUP_CONTEXT.md    # Token-optimized setup guide
-│   ├── agents/             # 2 custom agents
+│   ├── agents/             # 5 custom agents (coder, initializer, project-planner, prompt-polisher, quality-reviewer)
+│   ├── skills/             # Skill definitions (personalization-engine, projects-registry)
 │   └── commands/           # 5 slash commands
 │
 ├── README.md               # Landing page (408 lines)
@@ -881,6 +880,40 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v4.2.0 (2025-12-16):**
+  - Template Parameters: `${varName}` syntax for dynamic configuration
+  - Parameter types: string, number, boolean with defaults
+  - Parameter resolution algorithm
+  - Updated CLAUDE.md to reflect current state (this update)
+- **v4.1.0 (2025-12-16):**
+  - Template Inheritance: `extends` field for compositional templates
+  - Deep merge with child override
+  - Cycle detection and max depth (5 levels)
+- **v4.0.0 (2025-12-16):**
+  - Team Template Sharing: Remote sources, catalogs
+  - Git-native distribution without authentication
+  - Trust model documentation
+- **v3.15.0 (2025-12-16):**
+  - Consolidation: Documentation sync, version alignment
+- **v3.14.0 (2025-12-16):**
+  - Preference Templates: 5 built-in templates (minimal, balanced, proactive, team, security)
+  - Template schema and validation
+- **v3.11.0 (2025-12-16):**
+  - Model Selection Strategy: Three-Question Method
+  - Agent-level smart defaults (Opus for architecture, Sonnet for implementation, Haiku for exploration)
+- **v3.8.0-v3.10.0 (2025-12-15):**
+  - Personalization Engine skill
+  - Confidence scoring system
+  - Multi-perspective analysis patterns
+- **v3.6.0 (2025-12-15):**
+  - Domain Memory Architecture: Initializer + Coder agents
+  - Bootup ritual, features.json, progress.md artifacts
+  - Two-agent pattern from Anthropic
+- **v3.5.0 (2025-12-15):**
+  - Proactive Intelligence: Attentive Sous Chef
+  - Confidence-scored suggestions
+  - Just-in-time cheat sheets
+  - Proactive setup assistant
 - **v3.7.0 (2025-12-15):**
   - Added Claude Skills complete guide for browser workflow (account-level skills)
   - 10th must-have guide in 04_browser-workflow/ (now 11 files total)
