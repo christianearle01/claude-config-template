@@ -191,8 +191,8 @@ graph TD
     L -->|Clean| P[Security: PASS]
 
     J --> Q{Coverage Check}
-    Q -->|<80%| R[Generate Missing Tests]
-    Q -->|≥80%| S[Testing: PASS]
+    Q -->|"<80%"| R[Generate Missing Tests]
+    Q -->|"≥80%"| S[Testing: PASS]
 
     K --> T{Standards Check}
     T -->|Violations| U[Report Style Issues]
