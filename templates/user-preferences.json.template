@@ -385,6 +385,23 @@
 
       "includeProjectPatterns": true,
       "_includeProjectPatternsHint": "Include cross-project patterns in exports"
+    },
+
+    "templates": {
+      "_comment": "Template usage tracking (v3.14.0)",
+
+      "appliedTemplate": null,
+      "_appliedTemplateHint": "ID of the last template applied",
+
+      "appliedAt": null,
+      "_appliedAtHint": "When the last template was applied",
+
+      "templateHistory": [],
+      "_templateHistorySchema": {
+        "templateId": "template ID (e.g., 'balanced', 'security-first')",
+        "appliedAt": "ISO date when applied",
+        "mergeStrategy": "merge strategy used (usually 'merge')"
+      }
     }
   },
 

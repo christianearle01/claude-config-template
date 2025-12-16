@@ -1,0 +1,66 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "claude-config-template",
+  "sourceVersion": "3.14.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "minimal",
+    "name": "Minimal Interruptions",
+    "description": "For experts who want minimal suggestions and maximum autonomy",
+    "category": "expert",
+    "recommendedFor": ["expert"],
+    "version": "1.0.0",
+    "author": "claude-config-template"
+  },
+
+  "compatibility": {
+    "minVersion": "3.8.0",
+    "maxVersion": "3.14.0"
+  },
+
+  "contents": {
+    "profile": {
+      "experienceLevel": "expert",
+      "proactivityLevel": "low",
+      "preferredWorkflow": "manual"
+    },
+    "confidenceThresholds": {
+      "autoApply": 98,
+      "suggestProminently": 90,
+      "showAsOptional": 75,
+      "hideBelow": 50
+    },
+    "skillSpecificPreferences": {
+      "security-scanner": {
+        "showInfoLevel": false,
+        "autoFixLowRisk": false
+      },
+      "test-generator": {
+        "coverageReminders": false,
+        "generateMocks": false
+      },
+      "commit-readiness-checker": {
+        "requireChangelog": false,
+        "requireTests": false,
+        "conventionalCommits": false
+      },
+      "standards-enforcer": {
+        "strictMode": false,
+        "autoFormat": false
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "template-minimal-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}
