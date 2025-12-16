@@ -857,3 +857,256 @@ npm audit fix                # Auto-fix vulnerabilities
 **Last Updated:** 2025-12-09
 **Version:** 1.0
 **Applies to:** npm 9+, Node.js 18+
+
+---
+
+## 🚫 Common NPM Security Mistakes (Anti-Patterns)
+
+### ❌ Anti-Pattern #1: "I'll Just Disable Scripts Temporarily"
+
+**Problem:** Temporarily disabling security for one package, then forgetting to re-enable
+
+**Example:**
+```bash
+# Install one package without script protection
+npm install --ignore-scripts=false some-package
+
+# Forget to re-enable protection
+# Next install: vulnerable to malicious scripts!
+npm install another-package  # No protection!
+```
+
+**✅ Correct Approach:**
+```bash
+# Keep .npmrc with ignore-scripts=true ALWAYS
+
+# If you MUST run scripts for specific package:
+npm rebuild some-package
+
+# This runs scripts AFTER install, so you can inspect first
+# Scripts run in controlled environment, not during install
+```
+
+**Pattern:** Never disable global script protection. Use `npm rebuild` for legitimate scripts only after inspection.
+
+---
+
+### ❌ Anti-Pattern #2: Not Committing package-lock.json
+
+**Problem:** Thinking lockfile is "generated code" that shouldn't be committed
+
+**Example:**
+```bash
+# Developer A
+echo "package-lock.json" >> .gitignore  # ❌ BAD!
+git add .gitignore
+git commit -m "Ignore generated files"
+
+# Developer B clones repo
+npm install  # Gets DIFFERENT versions!
+# Different versions = different behavior = different vulnerabilities
+```
+
+**✅ Correct Approach:**
+```bash
+# ALWAYS commit lockfile
+git add package-lock.json
+git commit -m "Update dependencies with security fixes"
+
+# In CI/CD, use npm ci (not npm install)
+npm ci  # Uses lockfile exclusively, fails if out of sync
+```
+
+**Pattern:** package-lock.json is a critical security file, not generated code. Always commit it.
+
+---
+
+### ❌ Anti-Pattern #3: Running npm audit fix --force Blindly
+
+**Problem:** Auto-fixing without understanding changes
+
+**Example:**
+```bash
+# Audit finds 47 vulnerabilities
+npm audit
+
+# Panic! Fix everything immediately!
+npm audit fix --force  # ❌ DANGER!
+
+# Result:
+# - Breaking changes introduced (major version bumps)
+# - Tests fail
+# - App broken in production
+# - No idea what changed or why
+```
+
+**✅ Correct Approach:**
+```bash
+# 1. Review audit output first
+npm audit
+
+# 2. Fix safe patches only
+npm audit fix  # No --force, only patch/minor updates
+
+# 3. Review what changed
+git diff package-lock.json
+
+# 4. Test thoroughly
+npm test
+
+# 5. For remaining vulnerabilities, fix manually
+npm audit  # See what's left
+npm update package-name@safe-version  # One at a time
+
+# 6. Commit with clear message
+git commit -m "fix: Update dependencies to fix CVE-2024-12345"
+```
+
+**Pattern:** Understand changes before applying them. Test after every fix. Never use `--force` without reviewing impact.
+
+---
+
+### ❌ Anti-Pattern #4: "It Has 10M Downloads, It Must Be Safe"
+
+**Problem:** Trusting popularity without verification
+
+**Example:**
+```bash
+# Package has 10M weekly downloads
+npm view colors  # Looks legitimate!
+
+# Install without inspection
+npm install colors
+
+# Didn't check:
+# - Maintainer changed (account compromised)
+# - Latest version was just published (supply chain attack)
+# - GitHub repo archived (abandoned project)
+```
+
+**✅ Correct Approach:**
+```bash
+# 1. Check multiple signals
+npm view colors versions  # Review version history
+npm view colors time  # When was latest published?
+npm view colors maintainers  # Who maintains it?
+
+# 2. Visit GitHub repo
+# Look for: Active maintenance, security policy, recent commits
+
+# 3. Check package-lock.json after install
+git diff package-lock.json  # Verify integrity hash
+
+# 4. Review postinstall scripts
+npm view colors --json | jq .scripts
+
+# 5. Monitor for changes
+# Set up Dependabot or Socket Security alerts
+```
+
+**Pattern:** Popularity is one signal, not the only signal. Always verify package source, maintainers, and recent activity.
+
+---
+
+### ❌ Anti-Pattern #5: Installing Packages from Tutorials Without Verification
+
+**Problem:** Copy-pasting npm install commands from random blogs
+
+**Example:**
+```bash
+# Following 3-year-old tutorial blog post
+npm install express body-parser cors mongoose dotenv helmet compression
+
+# Didn't check:
+# - body-parser is deprecated (built into Express now)
+# - Versions in tutorial are 2+ years old
+# - Tutorial author copied from another tutorial (outdated practices)
+# - Installing 8 packages when you need 3
+```
+
+**✅ Correct Approach:**
+```bash
+# 1. Verify each package is still needed
+# body-parser: Built into Express 4.16+ (skip it!)
+
+# 2. Check official documentation, not tutorials
+# Express docs: https://expressjs.com/
+
+# 3. Install one at a time with exact versions
+npm install express@4.18.2 --save-exact
+
+# 4. Review what it installs
+npm ls express  # See dependency tree
+
+# 5. Verify in package.json
+cat package.json  # Should match exact version
+
+# 6. Test immediately
+npm test  # Ensure it works
+```
+
+**Pattern:** Always verify packages are current and needed. Use official docs, not outdated tutorials. Install exact versions one at a time.
+
+---
+
+## ✅ You've Completed: NPM Security Guide
+
+**What you accomplished:**
+- Understand npm supply chain attack vectors (install scripts, dependency confusion, typosquatting)
+- Configure secure .npmrc (ignore-scripts=true, prefer-offline mode)
+- Master npm audit workflow (weekly audits, safe vs forced fixes)
+- Learn manual package inspection (npm pack, source review, GitHub verification)
+- Understand lockfile security (integrity hashes, reproducible builds)
+- Set up CI/CD security automation (GitHub Actions, pre-commit hooks)
+- Know incident response procedures (isolation, investigation, recovery)
+- Know 5 critical anti-patterns to avoid
+
+**Security measures configured:**
+- ✅ .npmrc with ignore-scripts protection
+- ✅ package-lock.json committed (integrity verification)
+- ✅ Weekly audit workflow established
+- ✅ Manual inspection process defined
+- ✅ CI/CD security checks configured
+- ✅ Incident response plan understood
+
+**Next logical step:**
+
+**Option A: Apply NPM Security to Your Project (15 min) - Recommended**
+→ Copy .npmrc and set up security workflow
+- `cp ~/Developer/claude-config-template/.npmrc .`
+- Add security scripts to package.json
+- Run npm audit to check current dependencies
+- Commit lockfile if not already committed
+- Set up pre-commit hook (optional)
+
+**Option B: Learn Python Security (15 min) - If Applicable**
+→ [Python Security Guide](07_python-security-guide.md)
+- Similar principles, different tools
+- pip-audit, Poetry, safety checks
+- Wheel-only installation
+- Virtual environment isolation
+
+**Option C: Learn Universal Package Security (10 min)**
+→ [Package Security Principles](03_package-security-principles.md)
+- Works with ANY package manager
+- Applies to: gem, cargo, go, maven, etc.
+- 6 universal principles
+- Language-agnostic strategies
+
+**Option D: Set Up Socket Security (10 min) - Advanced**
+→ Real-time malware detection
+- Visit https://socket.dev/
+- Install Socket CLI: `npm install -g @socketsecurity/cli`
+- Run: `socket-security check`
+- Integrate into CI/CD pipeline
+
+---
+
+**Estimated next step time:** 10-15 minutes (depending on choice)
+**Security posture:** 80%+ protection with .npmrc + weekly audits
+**Attack surface:** Reduced by blocking install scripts (primary attack vector)
+**Having trouble?** Check the Troubleshooting section above or ask: "How do I secure my npm dependencies?"
+
+**Last Updated:** 2025-12-16
+**Version:** 1.0
+**Applies to:** npm 9+, Node.js 18+

@@ -444,3 +444,245 @@ Some developers prefer "learn by doing" - that's fine!
 **Last Updated:** December 5, 2025
 **Template Version:** 2.3.0
 **Recommended Time Investment:** 25-30 minutes per project
+
+---
+
+## 🚫 Common Planning Mistakes (Anti-Patterns)
+
+### ❌ Anti-Pattern #1: Analysis Paralysis (Over-Planning)
+
+**Problem:** Spending hours/days planning without writing code
+
+**Example:**
+```
+Hour 1: Debating React vs Vue vs Svelte
+Hour 2: Comparing 5 hosting providers
+Hour 3: Designing complete database schema
+Hour 4: Planning API versioning strategy
+Hour 5: Still haven't written a single line of code!
+```
+
+**✅ Correct Approach:**
+```
+Minute 0-25: Quick planning session with @project-planner
+  - Get tech stack recommendation
+  - Identify first 2-3 features
+  - Understand migration paths
+
+Minute 30: Start coding MVP
+  - Build simplest version that works
+  - Refine as you learn
+  - Make decisions when you need to, not before
+```
+
+**Pattern:** Time-box planning to 30 minutes max. Start coding with "good enough" decisions. Iterate based on real problems, not hypothetical ones.
+
+---
+
+### ❌ Anti-Pattern #2: Resume-Driven Development
+
+**Problem:** Choosing tech stack to learn new skills, not to solve problem
+
+**Example:**
+```
+Project: Simple blog with 100 visitors/month
+
+Bad decision: "I'll use Kubernetes + microservices + GraphQL +
+Redis + Kafka + gRPC because I want to learn them!"
+
+Result:
+- 6 months to build simple blog
+- Over-engineered for actual needs
+- Maintenance nightmare
+- Never finishes project
+```
+
+**✅ Correct Approach:**
+```
+Project: Simple blog with 100 visitors/month
+
+Good decision: "I'll use Next.js + Vercel because:
+- I already know JavaScript
+- Deploys in 5 minutes
+- Free hosting
+- Can finish in 1 week"
+
+Result:
+- MVP in 1 week
+- Learn by shipping, not by over-engineering
+- Can always refactor later if needed
+```
+
+**Pattern:** Choose familiar tech for MVP. Learn new skills in side projects or on-the-job, not in critical path of your main project.
+
+---
+
+### ❌ Anti-Pattern #3: Planning Without Constraints
+
+**Problem:** Not specifying budget, timeline, or skill level
+
+**Example:**
+```
+You: "I want to build a social network"
+Agent: "What's your timeline?"
+You: "No specific deadline"
+Agent: "What's your budget?"
+You: "Unlimited"
+Agent: "What's your skill level?"
+You: "I can learn anything"
+
+Result: Agent can't give actionable recommendations
+```
+
+**✅ Correct Approach:**
+```
+You: "I want to build a social network for 1,000 users.
+     I'm intermediate with Python and React.
+     I have $50/month for hosting.
+     I want MVP in 8 weeks working 10 hours/week."
+
+Agent: "Great! Here's what's realistic with those constraints..."
+
+Result: Specific, actionable plan based on YOUR reality
+```
+
+**Pattern:** Always specify: timeline, budget, skill level, scale. Constraints breed creativity and focus.
+
+---
+
+### ❌ Anti-Pattern #4: Ignoring Migration Paths
+
+**Problem:** Choosing tech with no upgrade path when needs grow
+
+**Example:**
+```
+Project: MVP for 50 users
+Decision: "I'll use Firebase (no-code backend)"
+
+6 months later: 5,000 users, need custom logic
+Problem: Firebase Functions too expensive ($500/month)
+Problem: Locked into Firebase ecosystem
+Problem: Can't migrate data easily
+
+Result: Complete rewrite required
+```
+
+**✅ Correct Approach:**
+```
+Project: MVP for 50 users
+Decision: "I'll use Supabase (PostgreSQL + REST API)"
+
+Agent explains migration path:
+- Start: Supabase free tier (1GB database)
+- Grow: Supabase pro ($25/month, 8GB database)
+- Scale: Self-host PostgreSQL + custom API ($100/month, unlimited)
+
+Result: Smooth migration path as needs grow
+```
+
+**Pattern:** Always ask "What happens when I outgrow this?" Choose tech with clear upgrade/migration paths.
+
+---
+
+### ❌ Anti-Pattern #5: Skipping MVP Feature Priority
+
+**Problem:** Treating all features as equally important
+
+**Example:**
+```
+Feature list (all "high priority"):
+- User authentication
+- Payment processing
+- Real-time chat
+- Email notifications
+- Admin dashboard
+- Analytics
+- Mobile app
+- API documentation
+
+Result: Work on all features at once, finish none
+```
+
+**✅ Correct Approach:**
+```
+MVP Feature Priority (ask @project-planner):
+
+Week 1: Authentication only
+  - Can't do anything without users
+
+Week 2: Core feature (the thing that makes your app unique)
+  - This is why users will come
+
+Week 3: Payment processing
+  - Can't run business without revenue
+
+Later: Chat, notifications, admin, analytics
+  - Nice to have, not critical for MVP
+
+Result: Shipping features in priority order, validating early
+```
+
+**Pattern:** Ruthlessly prioritize. Build ONE feature at a time. Ship minimum viable version, then iterate.
+
+---
+
+## ✅ You've Completed: Pre-Project Planning Guide
+
+**What you accomplished:**
+- Understand when to use @project-planner (new projects with no code yet)
+- Know the 4-phase conversation flow (discover → constrain → recommend → output)
+- Learn what makes a good planning session (25-30 min, time-boxed, specific constraints)
+- See example planning session (SaaS task tracker)
+- Know 5 critical anti-patterns to avoid (analysis paralysis, resume-driven dev, no constraints, no migration paths, no MVP priority)
+- Understand "good enough" planning (start coding once you have clarity)
+
+**Planning readiness checklist:**
+- ✅ Project idea defined (what problem does it solve?)
+- ✅ Constraints specified (timeline, budget, skill level, scale)
+- ✅ Ready for 25-30 minute planning session
+- ✅ Understand you can change decisions later
+- ✅ Time-boxed commitment (no analysis paralysis)
+
+**Next logical step:**
+
+**Option A: Start Your Planning Session (30 min) - Recommended**
+→ Open Claude Code and invoke @project-planner
+```bash
+claude
+
+# Then type:
+@project-planner I want to build [your project idea].
+I'm [your skill level] with [languages/frameworks].
+I have [budget] for hosting and [timeline] to build MVP.
+I expect [number of users] initially.
+```
+
+**Option B: See Example Planning Output (5 min)**
+→ [Project Plan Template](../../templates/project-plan-template.md)
+- See complete agent output example
+- Understand what recommendations look like
+- Review before starting your session
+
+**Option C: Learn Project Onboarding First (30 min)**
+→ [Project Onboarding Guide](../../02_project-onboarding/01_must-have/01_onboarding-guide.md)
+- If you want to understand AFTER-planning steps first
+- See complete project setup workflow
+- Then come back to plan
+
+**Option D: Skip Planning, Start Coding**
+→ If you prefer learning by doing
+- Go to [Project Onboarding](../../02_project-onboarding/01_must-have/01_onboarding-guide.md)
+- Set up Claude Code for your project
+- Ask Claude for help as you code
+- Use @project-planner later if stuck on architecture
+
+---
+
+**Estimated next step time:** 25-30 minutes for planning session
+**Planning output:** CLAUDE.md draft, tech stack recommendations, MVP feature priority, migration paths
+**After planning:** Project onboarding → Start coding first feature
+**Having trouble?** Check the Common Questions section above or ask: "Help me plan my project idea"
+
+**Last Updated:** 2025-12-16
+**Template Version:** 2.3.0
+**Recommended Time Investment:** 25-30 minutes per project
