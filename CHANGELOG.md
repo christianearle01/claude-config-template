@@ -9,6 +9,70 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.4.0] - 2025-12-16
+
+### Added - Template Validator: Quality Tooling
+
+Bash script to validate template JSON files against the schema before application.
+
+#### Usage
+
+```bash
+# Validate single template
+./scripts/validate-template.sh examples/team-templates/gallery-frontend-react.json
+
+# Validate all templates in directory
+./scripts/validate-template.sh examples/team-templates/
+
+# Validate catalog file
+./scripts/validate-template.sh --catalog examples/team-templates/catalog.json
+```
+
+#### Validation Levels
+
+| Level | Type | Checks |
+|-------|------|--------|
+| Critical (Errors) | Required | JSON syntax, schema field, exportType, templateMetadata.id, templateMetadata.name, compatibility.minVersion |
+| Important (Warnings) | Recommended | description exists, category is valid enum, version is semver, contents object exists, checksum exists |
+| Info | Optional | extends inheritance, parameters presence, recommendedFor array |
+
+#### Sample Output
+
+```
+🔍 Validating: gallery-frontend-react.json
+
+  ✅ JSON syntax valid
+  ✅ Schema: claude-preferences-export-v1
+  ✅ Export type: template
+  ✅ Template ID: gallery-frontend-react
+  ✅ Template name: Frontend React
+  ✅ Min version: 4.3.0
+  ✅ Description present (50 chars)
+  ✅ Category: frontend
+  ✅ Version: 1.0.0 (semver)
+  ✅ Contents object present
+  ✅ Checksum: gallery-frontend-react-v1
+  ℹ️  Extends: team-standard (inheritance enabled)
+
+────────────────────────────────────────
+Result: PASSED
+```
+
+#### Catalog Validation
+
+The `--catalog` flag validates catalog.json files:
+- Schema: `claude-template-catalog-v1`
+- Required: name, templates array
+- Checks: duplicate IDs, totalTemplates count
+
+#### Files Changed
+
+| File | Change |
+|------|--------|
+| `scripts/validate-template.sh` | New validation script (~250 lines) |
+
+---
+
 ## [4.3.0] - 2025-12-16
 
 ### Added - Template Gallery: Ready-to-Use Configurations
