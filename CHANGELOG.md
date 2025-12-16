@@ -2106,7 +2106,7 @@ Quality improves with better context:
 3. `CLAUDE.md` - Documented skills + Learning Stages
 4. `README.md` - Version sync
 5. `.claude/SETUP_CONTEXT.md` - Version sync
-6. `docs/00-start-here/SKILLS_PARADIGM.md` - Added workflow + setup skills examples
+6. `docs/01-fundamentals/SKILLS_PARADIGM.md` - Added workflow + setup skills examples
 7. `docs/00-start-here/QUICK_REFERENCE.md` - Added Learning Stages reference
 8. `01_global-setup/01_must-have/01_installation.md` - References global-setup-assistant skill
 9. `02_project-onboarding/01_must-have/01_onboarding-guide.md` - References project-onboarding-assistant + workflow-analyzer

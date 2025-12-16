@@ -498,7 +498,7 @@ Quality agents at every phase (planning, development, review, testing, deploymen
 - examples/: Sample queries and schemas
 - operations guide: Detailed implementation
 
-**Documentation:** `docs/00-start-here/SKILLS_PARADIGM.md`
+**Documentation:** `docs/01-fundamentals/SKILLS_PARADIGM.md`
 
 ---
 

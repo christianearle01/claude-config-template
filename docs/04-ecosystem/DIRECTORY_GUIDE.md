@@ -1,5 +1,8 @@
 # Directory Structure Guide
 
+**Version:** 4.5.1
+**Last Updated:** 2025-12-16
+
 Complete guide to navigating the Claude Code Configuration Template.
 
 **Purpose:** Understand what each directory contains and where to find specific content.
@@ -54,7 +57,7 @@ UX-optimized guides for better onboarding
 
 **When to use:** Setting up Claude Code on your computer for the first time
 
-### must-have/ ⚠️ **Read these first**
+### 01_must-have/ ⚠️ **Read these first**
 Essential for everyone, regardless of experience level
 
 **Files:**
@@ -76,7 +79,7 @@ Essential for everyone, regardless of experience level
    - Safety considerations
    - Team environment recommendations
 
-### good-to-have/ ⭐ **Read these next**
+### 02_good-to-have/ ⭐ **Read these next**
 High-value optimizations with huge efficiency gains
 
 **Files:**
@@ -97,7 +100,7 @@ High-value optimizations with huge efficiency gains
    - Best practices
    - Environment variable management
 
-### nice-to-have/ 💡 **Read when needed**
+### 03_nice-to-have/ 💡 **Read when needed**
 Advanced topics for power users
 
 **Files:**
@@ -123,7 +126,7 @@ Advanced topics for power users
 
 **When to use:** Adding Claude Code configuration to an existing project
 
-### must-have/ ⚠️ **Essential for project setup**
+### 01_must-have/ ⚠️ **Essential for project setup**
 
 **Files:**
 1. **01_onboarding-guide.md** - Set up Claude Code for your project
@@ -141,7 +144,7 @@ Advanced topics for power users
    - Hook installation
    - Slash command setup
 
-### good-to-have/ ⭐ **Maximize efficiency**
+### 02_good-to-have/ ⭐ **Maximize efficiency**
 
 **Files:**
 1. **01_prompt-optimization.md** - Write better prompts = massive token savings
@@ -161,7 +164,7 @@ Advanced topics for power users
    - Team standards documentation
    - Onboarding new team members
 
-### nice-to-have/ 💡 **Reserved for future content**
+### 03_nice-to-have/ 💡 **Reserved for future content**
 Placeholder for advanced project-specific topics
 
 ---
@@ -172,7 +175,7 @@ Placeholder for advanced project-specific topics
 
 **When to use:** Starting a new project from scratch
 
-### must-have/ ⚠️ **Start here for new projects**
+### 01_must-have/ ⚠️ **Start here for new projects**
 
 **Files:**
 1. **01_planning-guide.md** - Complete guide to using project-planner agent
@@ -203,19 +206,28 @@ Placeholder for advanced project-specific topics
 
 ## 🌐 Browser Workflow (04_browser-workflow/)
 
-**Status:** Available (v2.6.0)
+**Status:** Available (v2.6.0+)
 
-**Purpose:** Role-based Claude browser configurations
+**Purpose:** Role-based Claude browser configurations for claude.ai
 
-**Planned content:**
-- Software Engineer workflow
-- Quality Assurance Engineer workflow
-- DevOps Engineer workflow
-- Data Scientist workflow
-- Product Manager workflow
-- Technical Writer workflow
+**Content:**
 
-**Customization:** Each role gets optimized prompts, agents, and commands
+### 01_must-have/ ⚠️ **Essential browser configs**
+
+**Files:**
+1. **00_all-available-roles-complete-library.md** - Role library index
+2. **01_custom-role.md** - Create your own role
+3. **02_software-engineer.md** - Software engineer workflow
+4. **03_qa-engineer.md** - Quality assurance engineer workflow
+5. **04_data-scientist.md** - Data scientist workflow
+6. **05_devops-engineer.md** - DevOps engineer workflow
+7. **06_product-manager.md** - Product manager workflow
+8. **07_technical-writer.md** - Technical writer workflow
+9. **08_frontend-developer.md** - Frontend developer workflow
+10. **09_security-engineer.md** - Security engineer workflow
+11. **10_claude-skills-complete-guide.md** - Account-level skills guide (v3.7.0)
+
+**Customization:** Each role gets optimized Custom Instructions for browser-based Claude
 
 ---
 
@@ -279,6 +291,73 @@ Example output from project-planner agent
 
 ---
 
+## 🎨 Template System (v4.0-v4.5)
+
+**Purpose:** Share and reuse Claude Code preferences across projects and teams
+
+**Location:** `examples/team-templates/`
+
+### Template Gallery (9 Templates)
+
+**Base Templates:**
+1. **team-standard.json** - Standard team configuration
+2. **team-security.json** - Security-focused configuration
+
+**Gallery Templates (v4.3.0):**
+3. **gallery-frontend-react.json** - React + TypeScript + Tailwind
+4. **gallery-backend-api.json** - Node.js/Python API development
+5. **gallery-data-science.json** - Python data science with Jupyter
+6. **gallery-devops.json** - Kubernetes, Terraform, CI/CD
+7. **gallery-fullstack.json** - Customizable full-stack (parameterized)
+
+**Demonstration Templates:**
+8. **team-frontend.json** - Inheritance example (extends team-standard)
+9. **team-parameterized.json** - Parameters example
+
+### Template System Features
+
+**v4.0.0 - Import/Export Foundation**
+- Export settings as shareable templates
+- Import templates from files or URLs
+- Git-native distribution (no authentication required)
+
+**v4.1.0 - Template Inheritance**
+- `extends` field for compositional templates
+- Deep merge algorithm (child overrides parent)
+- Cycle detection and max depth (5 levels)
+
+**v4.2.0 - Template Parameters**
+- `${varName}` syntax for dynamic values
+- Parameter types: string, number, boolean
+- CLI mode and interactive mode support
+- Required vs optional parameters with defaults
+
+**v4.3.0 - Template Gallery**
+- 9 curated domain-specific templates
+- Frontend, backend, data science, devops, full-stack
+
+**v4.4.0 - Template Validator**
+- Script: `scripts/validate-template.sh`
+- JSON schema validation
+- 3-level validation (Critical/Important/Info)
+- Catalog validation with --catalog flag
+
+**v4.5.0 - Template Application**
+- Script: `scripts/apply-template.sh`
+- Automated inheritance resolution
+- Parameter substitution (CLI or interactive)
+- Preview with diff before applying
+- Automatic backup creation
+
+### Documentation
+
+- **Foundation:** `docs/02-optimization/TEMPLATE_SYSTEM_FOUNDATION.md` (v4.0-v4.2)
+- **Gallery:** `docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md` (v4.3.0)
+- **Validator:** `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md` (v4.4.0)
+- **Application:** `docs/04-ecosystem/APPLY_TEMPLATE_GUIDE.md` (v4.5.0)
+
+---
+
 ## 🔧 Scripts (scripts/)
 
 **Purpose:** Interactive setup wizards with validation
@@ -304,18 +383,31 @@ Example output from project-planner agent
   - Command availability checks
   - Success celebrations
 
-**Update system:**
-- **claude-update.sh** - Keep template current
-  - Check for updates: `--check`
-  - Apply updates: `--apply`
-  - Rollback: `--rollback`
-  - 3-way merge, automatic backups
+**Template Management (v4.x):**
+- **validate-template.sh** (v4.4.0) - Validate template JSON structure
+  - JSON schema validation
+  - 3-level validation (Critical/Important/Info)
+  - Catalog validation with `--catalog` flag
 
-**Analytics:**
-- **claude-analytics.sh** - Opt-in usage tracking
-  - Privacy-first (local only)
-  - Helps improve template
-  - Completely optional
+- **apply-template.sh** (v4.5.0) - Apply templates to projects
+  - Inheritance resolution with cycle detection
+  - Parameter substitution (CLI + interactive modes)
+  - Preview with diff before applying
+  - Automatic backup creation
+
+**Project Management (v3.2.0+):**
+- **register-project.sh** - Register project in multi-project registry
+- **claude-projects.sh** - CLI for managing multiple projects
+- **claude-skills.sh** (v3.5.0) - Skills catalog and management
+
+**Development Tools:**
+- **setup-git-workflow.sh** (v2.9.0) - Git commit approval configuration
+- **sync-version.sh** (v2.8.0) - Automated version updates across files
+- **progress-bar-config.sh** (v3.1.0) - Global progress bar configuration
+- **claude-health-check.sh** (v3.5.0) - System health check
+- **remove-commands.sh** (v3.4.0) - Clean up old slash commands
+- **claude-update.sh** - Keep template current
+- **claude-analytics.sh** - Opt-in usage tracking (privacy-first)
 
 ---
 
@@ -396,15 +488,33 @@ Token-optimized guide for Claude to scan first
 ### agents/
 Custom agents for specialized workflows
 
-**Built-in agents:**
+**Built-in agents (5 total):**
 
-1. **prompt-polisher.md** - Transform vague prompts
+1. **initializer.md** (v3.6.0) - Domain memory expansion
+   - Expands user intent into structured task breakdown
+   - Creates features.json with dependencies and test criteria
+   - Defines bootup ritual checklist
+   - Anthropic two-agent pattern
+
+2. **coder.md** (v3.6.0) - Bootup ritual execution
+   - Executes bootup ritual every session
+   - Picks ONE feature atomically
+   - Tests until passing, updates state, commits
+   - 85% token reduction in regrounding
+
+3. **quality-reviewer.md** (v3.11.0) - Automated quality validation
+   - Security scanner (OWASP top 10, CVE checks)
+   - Test generator (features.json integration)
+   - Standards enforcer (learns team preferences)
+   - Parallel quality gates
+
+4. **prompt-polisher.md** (v2.4.0) - Transform vague prompts
    - 14 optimization techniques
    - Intelligent selection
    - 50-80% token savings
    - Educational output
 
-2. **project-planner.md** - Plan new projects
+5. **project-planner.md** (v2.3.0) - Plan new projects
    - 6-perspective design
    - 4-phase conversation
    - CLAUDE.md draft generation
@@ -418,13 +528,11 @@ Custom agents for specialized workflows
 ### commands/
 Slash commands for common tasks
 
-**Built-in commands:**
+**Built-in commands (3 total):**
 
-1. **/onboarding.md** - Generate project onboarding guide
-2. **/standards.md** - Show coding standards
-3. **/test.md** - Run test suite
-4. **/build.md** - Build project and report errors
-5. **/review.md** - Code review against standards
+1. **/test.md** - Run test suite with proper reporting
+2. **/build.md** - Build project and report errors
+3. **/review.md** - Code review against project standards
 
 **How to create custom commands:**
 1. Create `.md` file in `.claude/commands/`
@@ -440,15 +548,14 @@ Slash commands for common tasks
 **Note:** You don't need to directly interact with this directory
 
 **Branches:**
-- `main` - Current stable version (v2.6.0)
-- `release/vX.X.X` - Version-specific branches
+- `main` - Current stable version (v4.5.1)
+- `release/vX.X.X` - Version-specific branches (v4.0-v4.5)
 - `historical/v1.0-original` - Original template (pre-v2.0)
-- `phase-1-persona-routing` - Development branch
-- `phase-2-wizard` - Development branch
-- `phase-3-updates` - Development branch
 
 **Tags:**
-- `v2.0.0`, `v2.1.0`, `v2.2.0`, `v2.2.1`, `v2.4.0` - Version releases
+- `v2.0.0` through `v2.9.0` - v2.x releases
+- `v3.0.0` through `v3.15.0` - v3.x releases
+- `v4.0.0` through `v4.5.1` - v4.x releases (current)
 
 ---
 
@@ -477,9 +584,9 @@ Slash commands for common tasks
 
 ## 🎯 Priority System Explained
 
-The template uses a 3-tier system:
+The template uses a 3-tier system with numerical prefixes:
 
-### ⚠️ must-have/
+### ⚠️ 01_must-have/
 **Read these first** - Essential for everyone
 
 - Core concepts
@@ -488,7 +595,7 @@ The template uses a 3-tier system:
 
 **Time:** Usually 30-60 minutes
 
-### ⭐ good-to-have/
+### ⭐ 02_good-to-have/
 **Read these next** - High-value optimizations
 
 - Huge efficiency gains
@@ -497,7 +604,7 @@ The template uses a 3-tier system:
 
 **Time:** Usually 20-40 minutes
 
-### 💡 nice-to-have/
+### 💡 03_nice-to-have/
 **Read when needed** - Advanced topics
 
 - Power user features
@@ -510,27 +617,36 @@ The template uses a 3-tier system:
 
 ## 📈 How Content Grows
 
-**v2.6.0 structure:**
+**v4.5.1 structure:**
 ```
-docs/ (4 files) → NEW!
-01_global-setup/ (9 files)
-02_project-onboarding/ (6 files)
+docs/ (44 MD files)
+├── 00-start-here/ (14 files) - Entry points
+├── 01-fundamentals/ (4 files) - Core concepts
+├── 02-optimization/ (7 files) - Token & workflow optimization
+├── 03-advanced/ (6 files) - Expert techniques
+└── 04-ecosystem/ (8 files) - Tools & reference
+
+01_global-setup/ (9 files organized in 3 tiers)
+02_project-onboarding/ (6 files organized in 2 tiers)
 03_pre-project-planning/ (2 files)
-04_browser-workflow/ (coming soon)
-templates/ (3 files)
-scripts/ (8 files)
-examples/ (6 files)
-.claude/ (8 files)
+04_browser-workflow/ (11 files) → Available!
+templates/ (3 files + 9 template gallery files)
+scripts/ (19 shell scripts)
+examples/ (team-templates, hooks, MCP configs)
+.claude/ (5 agents, 3 commands, skills/)
 
-Total: 50+ files, 22,400+ lines of documentation
+Total: 87+ MD files, 49,500+ lines of documentation
+Agents: 5 (initializer, coder, quality-reviewer, prompt-polisher, project-planner)
+Commands: 3 (test, build, review)
+Templates: 9 (team + gallery)
+Scripts: 19 (wizards, template tools, project management, dev tools)
 ```
 
-**Growth areas for v2.6.0:**
-- 04_browser-workflow/ (role-based configs)
-- More custom agents
-- More slash commands
-- Language-specific templates
-- Framework-specific guides
+**Growth areas for v4.6.0+:**
+- Analytics & Validation (measuring token savings)
+- User Experience & Tooling (CLI tools)
+- Template Expansion (mobile, game-dev, AI/ML domains)
+- Skills Development (implementing 13+ documented skills)
 
 ---
 
@@ -540,4 +656,4 @@ Total: 50+ files, 22,400+ lines of documentation
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.5.1*

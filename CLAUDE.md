@@ -460,7 +460,7 @@ git push origin v2.6.0
 - `README.md` - Landing page, 408 lines (reduced from 539)
 - `docs/00-start-here/ENTRY_POINTS.md` - Navigation guide (v3.0.0)
 - `docs/00-start-here/START_HERE.md` - Detailed persona guide (v3.0.0: moved from root)
-- `docs/00-start-here/SKILLS_PARADIGM.md` - Future of Claude Code (v3.0.0)
+- `docs/01-fundamentals/SKILLS_PARADIGM.md` - Future of Claude Code (v3.0.0)
 - `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide (v3.0.0)
 
 ### Critical Templates (What users copy)
@@ -581,7 +581,7 @@ git push origin v2.6.0
 → Start with `docs/01-fundamentals/ANTI_PATTERNS.md` (#1 priority)
 
 **"What's the Skills Paradigm?"**
-→ See `docs/00-start-here/SKILLS_PARADIGM.md` (the future of Claude Code)
+→ See `docs/01-fundamentals/SKILLS_PARADIGM.md` (the future of Claude Code)
 
 **"Where is feature X?"**
 → Use `QUICK_REFERENCE.md` (alphabetically organized, searchable)
