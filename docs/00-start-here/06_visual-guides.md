@@ -12,10 +12,10 @@ This document contains visual diagrams to help you understand Claude Code setup 
 
 ```mermaid
 graph TB
-    A[Global ~/.claude.json]
+    A["Global ~/.claude.json"]
     B[User Preferences]
-    C[Project .claude/settings.json]
-    D[Runtime Flags /model haiku]
+    C["Project .claude/settings.json"]
+    D["Runtime Flags /model haiku"]
 
     A -->|Inherited by| C
     B -->|Overrides| A
@@ -107,7 +107,7 @@ Claude (Haiku): [Implements at 92% lower cost]
 
 ```mermaid
 graph LR
-    CLAUDE[CLAUDE.md]
+    CLAUDE["CLAUDE.md"]
 
     CLAUDE --> BusinessPurpose[1. Business Purpose<br/>WHAT the app does]
     CLAUDE --> KeyFeatures[2. Key Features<br/>User perspective]
