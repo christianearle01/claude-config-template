@@ -372,6 +372,23 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 
 **Location:** `.claude/agents/project-planner.md`
 
+### 3. Mode Selector Agent
+**Purpose:** Choose between Vibe Coding (speed) and Vibe Engineering (quality)
+
+**Usage:**
+```bash
+@mode-selector I'm about to [describe task]. What mode should I use?
+```
+
+**Features:**
+- 6-dimension context analysis (phase, requirements, longevity, risk, team size, timeline)
+- Confidence-scored recommendations
+- Transition guidance (prototype → production)
+- Prevents over-engineering MVPs and under-engineering production systems
+
+**Location:** `.claude/agents/mode-selector.md`
+**Docs:** `docs/01-fundamentals/01_vibe-coding-vs-engineering.md`
+
 **How to create custom agents:**
 1. Create `.md` file in `.claude/agents/`
 2. Define agent purpose and behavior
@@ -381,6 +398,7 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 - [Agent Coordination Guide](01_global-setup/03_nice-to-have/03_agent-coordination.md)
 - [Prompt Polisher Details](.claude/agents/prompt-polisher.md)
 - [Project Planner Details](.claude/agents/project-planner.md)
+- [Mode Selector Details](.claude/agents/mode-selector.md)
 
 **Keywords:** agents, subagents, specialized, workflow, automation, @mention
 

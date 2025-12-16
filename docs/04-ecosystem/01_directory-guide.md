@@ -351,10 +351,10 @@ Example output from project-planner agent
 
 ### Documentation
 
-- **Foundation:** `docs/02-optimization/TEMPLATE_SYSTEM_FOUNDATION.md` (v4.0-v4.2)
-- **Gallery:** `docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md` (v4.3.0)
-- **Validator:** `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md` (v4.4.0)
-- **Application:** `docs/04-ecosystem/APPLY_TEMPLATE_GUIDE.md` (v4.5.0)
+- **Foundation:** `docs/02-optimization/07_template-system-foundation.md` (v4.0-v4.2)
+- **Gallery:** `docs/02-optimization/08_template-gallery-guide.md` (v4.3.0)
+- **Validator:** `docs/04-ecosystem/06_template-validator-guide.md` (v4.4.0)
+- **Application:** `docs/04-ecosystem/07_apply-template-guide.md` (v4.5.0)
 
 ---
 

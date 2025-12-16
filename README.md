@@ -17,7 +17,7 @@ Projected: Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo develop
 
 Try the ultra-fast demo to see projected 99% token savings.
 
-**→ [5-Minute Success Guide](docs/00-start-here/5_MINUTE_SUCCESS.md)**
+**→ [5-Minute Success Guide](docs/00-start-here/03_5-minute-success.md)**
 
 Perfect for: Everyone (try this first!)
 
@@ -29,8 +29,8 @@ Perfect for: Everyone (try this first!)
 
 Choose your path based on experience and time available.
 
-**→ [Visual Path Selector](docs/00-start-here/VISUAL_QUICKSTART.md)**
-**→ [Detailed Persona Guide](docs/00-start-here/START_HERE.md)**
+**→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
+**→ [Detailed Persona Guide](docs/00-start-here/personas/README.md)**
 
 Perfect for: Setting up for real work
 
@@ -41,7 +41,7 @@ Perfect for: Setting up for real work
 💡 **AI-Assisted Alternative:** Instead of running commands manually, you can ask Claude Code in your terminal:
 > "Help me set up Claude Code configuration following the 5-minute success path"
 
-Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](docs/04-ecosystem/UPDATE_GUIDE.md#-interactive-update-with-claude)
+Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](docs/04-ecosystem/09_update-guide.md#-interactive-update-with-claude)
 
 **Or run the interactive wizard:**
 ```bash
@@ -56,9 +56,9 @@ cd ~/claude-config-template
 **This README is your single entry point.** All other documentation is linked from here.
 
 **Your journey path:**
-1. **New user?** → Start with [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) (see value in 5 min)
-2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) or [START_HERE.md](docs/00-start-here/START_HERE.md) (detailed persona paths)
-3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/QUICK_REFERENCE.md) (searchable reference)
+1. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
+2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [START_HERE.md](docs/00-start-here/personas/README.md) (detailed persona paths)
+3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
 4. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
 
 **Don't know where to start?** Read the Get Started section above ↑
@@ -152,7 +152,7 @@ _Note: These are theoretical projections, not verified results. Help us validate
 | Team of 5 | $100-200 | $1,200-2,400 |
 | Enterprise (20+) | $500-1,000 | $6,000-12,000 |
 
-**→ [See Projected Impact](docs/04-ecosystem/PROJECTED_IMPACT.md)** _(Theoretical examples, not real user data)_
+**→ [See Projected Impact](docs/04-ecosystem/10_projected-impact.md)** _(Theoretical examples, not real user data)_
 
 ### Projected Setup Improvements (Estimated)
 
@@ -170,17 +170,17 @@ _*Goals based on template design analysis, not measured user data_
 
 **Not sure where to start?** Take the 30-second visual quiz:
 
-**→ [Visual Quickstart Flowchart](docs/00-start-here/VISUAL_QUICKSTART.md)**
+**→ [Visual Quickstart Flowchart](docs/00-start-here/07_visual-quickstart.md)**
 
 ### Quick Profile Selector
 
 | You Are... | Time | Path |
 |------------|------|------|
-| 🆕 **New to Claude Code** | 60-90 min | [First-Time Learner](docs/00-start-here/START_HERE.md#first-time-learner) |
-| ⚡ **Need fast project setup** | 15-30 min | [Quick Setup](docs/00-start-here/START_HERE.md#quick-setup-user) |
-| 🚀 **Want advanced features** | 20-40 min | [Advanced Optimizer](docs/00-start-here/START_HERE.md#advanced-optimizer) |
-| 👥 **Setting up for team** | 90-120 min | [Team Lead](docs/00-start-here/START_HERE.md#team-lead) |
-| 🔄 **Returning for refresher** | 10-20 min | [Returning User](docs/00-start-here/START_HERE.md#returning-user) |
+| 🆕 **New to Claude Code** | 60-90 min | [First-Time Learner](docs/00-start-here/personas/01_first-time-learner.md) |
+| ⚡ **Need fast project setup** | 15-30 min | [Quick Setup](docs/00-start-here/personas/02_quick-setup-user.md) |
+| 🚀 **Want advanced features** | 20-40 min | [Advanced Optimizer](docs/00-start-here/personas/03_advanced-optimizer.md) |
+| 👥 **Setting up for team** | 90-120 min | [Team Lead](docs/00-start-here/personas/04_team-lead.md) |
+| 🔄 **Returning for refresher** | 10-20 min | [Returning User](docs/00-start-here/personas/05_returning-user.md) |
 
 ---
 
@@ -219,7 +219,7 @@ Layer 1: CONTEXT (Foundation)          → CLAUDE.md, settings.json, coding-stan
 
 **Result:** Vague idea → Shipped feature with full quality checks
 
-**See:** [Workflow Integration Guide](docs/01-fundamentals/WORKFLOW_INTEGRATION.md) for detailed workflows
+**See:** [Workflow Integration Guide](docs/01-fundamentals/03_workflow-integration.md) for detailed workflows
 
 ---
 
@@ -251,6 +251,7 @@ Guided setup with validation, knowledge checks, and progress tracking.
 ### Custom Agents
 - **@prompt-polisher** - Transform vague prompts (projected 50-80% token savings)
 - **@project-planner** - Plan projects before coding (25-30 min sessions)
+- **@mode-selector** - Choose between speed (Vibe Coding) and quality (Vibe Engineering)
 
 **→ [Agent Documentation](.claude/agents/)**
 
@@ -298,23 +299,23 @@ Tab              # Toggle thinking on/off
 Shift-Tab        # Cycle permission modes
 ```
 
-**→ [Complete Quick Reference](docs/00-start-here/QUICK_REFERENCE.md)**
+**→ [Complete Quick Reference](docs/00-start-here/09_quick-reference.md)**
 
 ---
 
 ## 📚 Documentation Hub
 
 ### For Beginners
-- [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) - Ultra-fast demo
-- [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) - Decision flowchart
+- [5-Minute Success](docs/00-start-here/03_5-minute-success.md) - Ultra-fast demo
+- [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) - Decision flowchart
 - [Installation Guide](01_global-setup/01_must-have/01_installation.md) - Set up Claude Code
 - [Quick Start Guide](01_global-setup/01_must-have/02_quick-start.md) - Core concepts
 
 ### For Everyone
-- [Quick Reference](docs/00-start-here/QUICK_REFERENCE.md) - Find any feature (Cmd+F search)
-- [Visual Guides](docs/00-start-here/VISUAL_GUIDES.md) - 5 Mermaid diagrams
-- [Projected Impact](docs/04-ecosystem/PROJECTED_IMPACT.md) - Theoretical examples (not real data)
-- [Directory Guide](docs/04-ecosystem/DIRECTORY_GUIDE.md) - What's where
+- [Quick Reference](docs/00-start-here/09_quick-reference.md) - Find any feature (Cmd+F search)
+- [Visual Guides](docs/00-start-here/06_visual-guides.md) - 5 Mermaid diagrams
+- [Projected Impact](docs/04-ecosystem/10_projected-impact.md) - Theoretical examples (not real data)
+- [Directory Guide](docs/04-ecosystem/01_directory-guide.md) - What's where
 
 ### For Advanced Users
 - [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 92% cost savings
@@ -345,7 +346,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v4.5.2
+**Current version:** v4.9.0
 
 **→ [Changelog](CHANGELOG.md)**
 
@@ -371,7 +372,7 @@ chmod +x scripts/*.sh
 
 **More issues?**
 - Run `/doctor` in Claude Code
-- Check [Quick Reference § Troubleshooting](docs/00-start-here/QUICK_REFERENCE.md#troubleshooting)
+- Check [Quick Reference § Troubleshooting](docs/00-start-here/09_quick-reference.md#troubleshooting)
 
 ---
 
@@ -395,7 +396,7 @@ nice-to-have/ (💡)
 - 02_xxx.md → Read second
 - 03_xxx.md → Read third
 
-**→ [Full Directory Structure](docs/04-ecosystem/DIRECTORY_GUIDE.md)**
+**→ [Full Directory Structure](docs/04-ecosystem/01_directory-guide.md)**
 
 ---
 
@@ -407,7 +408,7 @@ Projected savings (theoretical):
 - **Model switching:** 92% implementation savings
 - **Prompt optimization:** 50-80% query reduction
 
-**→ [Projected Cost Savings](docs/04-ecosystem/PROJECTED_IMPACT.md#-projected-cost-savings-examples)**
+**→ [Projected Cost Savings](docs/04-ecosystem/10_projected-impact.md#-projected-cost-savings-examples)**
 
 ### 2. Persona-Based Routing
 Different users need different paths:
@@ -417,7 +418,7 @@ Different users need different paths:
 - Team: Deployment strategy (90-120 min)
 - Returning: Quick refresher (10-20 min)
 
-**→ [Visual Path Selector](docs/00-start-here/VISUAL_QUICKSTART.md)**
+**→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
 
 ### 3. Validation & Education
 - Interactive wizards with knowledge checks
@@ -425,7 +426,7 @@ Different users need different paths:
 - Step-by-step validation
 - Educational output modes
 
-**→ [Wizard Documentation](docs/04-ecosystem/DIRECTORY_GUIDE.md#-scripts-scripts)**
+**→ [Wizard Documentation](docs/04-ecosystem/01_directory-guide.md#-scripts-scripts)**
 
 ---
 
@@ -440,15 +441,15 @@ git clone https://github.com/your-username/claude-config-template.git
 ```
 
 ### 2. Choose Your Path
-- **⚡ 5 minutes:** [Quick demo](docs/00-start-here/5_MINUTE_SUCCESS.md)
-- **🎯 15-30 minutes:** [Quick setup](docs/00-start-here/START_HERE.md#quick-setup-user)
-- **📚 60-90 minutes:** [Complete learning](docs/00-start-here/START_HERE.md#first-time-learner)
+- **⚡ 5 minutes:** [Quick demo](docs/00-start-here/03_5-minute-success.md)
+- **🎯 15-30 minutes:** [Quick setup](docs/00-start-here/personas/02_quick-setup-user.md)
+- **📚 60-90 minutes:** [Complete learning](docs/00-start-here/personas/01_first-time-learner.md)
 - **🧙 Guided:** Run `./scripts/claude-wizard.sh`
 
 ### 3. Start Saving
 Begin using Claude Code with optimized configuration.
 
-**→ [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md)** if you need help choosing!
+**→ [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md)** if you need help choosing!
 
 ---
 
@@ -463,11 +464,11 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v4.5.2
+**Template Version:** v4.9.0
 **Last Updated:** 2025-12-16
 
 ---
 
 *Choose your path, optimize your workflow, start saving tokens today!*
 
-**→ [Get Started Now](docs/00-start-here/VISUAL_QUICKSTART.md)** 👈
+**→ [Get Started Now](docs/00-start-here/07_visual-quickstart.md)** 👈

@@ -592,7 +592,7 @@ Then ask me again for up-to-date insights!
 
 ## See Also
 
-- **Skills Paradigm:** `docs/01-fundamentals/SKILLS_PARADIGM.md`
+- **Skills Paradigm:** `docs/01-fundamentals/02_skills-paradigm.md`
 - **Skill Creation Guide:** `.claude/skills/skill-creation-guide.md`
 - **API Debugging Skill:** `.claude/skills/api-debugging/SKILL.md`
 - **Component Finder Skill:** `.claude/skills/component-finder/SKILL.md`

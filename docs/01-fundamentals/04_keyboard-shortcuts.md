@@ -501,7 +501,7 @@ User wants to implement authentication. I'll need to:
 
 **Related Guides:**
 - [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Deep dive on Ctrl+O workflow
-- [Anti-Patterns](../00-start-here/ANTI_PATTERNS.md) - Vibe Coding vs. AI Augmented
+- [Anti-Patterns](../00-start-here/05_anti-patterns.md) - Vibe Coding vs. AI Augmented
 - [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
 
 **Additional Resources:**
@@ -540,5 +540,5 @@ User wants to implement authentication. I'll need to:
 ---
 
 **Previous:** [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Trust, then verify
-**See also:** [Anti-Patterns](../00-start-here/ANTI_PATTERNS.md) - What NOT to do
+**See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do
 **Next:** [02-Optimization](../02-optimization/) - Token saving strategies

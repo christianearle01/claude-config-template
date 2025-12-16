@@ -21,7 +21,7 @@
 
 **Current Version:** v4.5.2
 
-**Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/UPDATE_GUIDE.md) for quick commands
+**Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
 ---
 
@@ -66,17 +66,17 @@ claude-config-template/
 │   └── python-security/           # Python malware protection (5 scripts) - OPTIONAL
 ├── .claude/                       # Claude Code configuration
 │   ├── settings.json              # Optimized settings
-│   ├── agents/                    # Custom agents (5 agents)
+│   ├── agents/                    # Custom agents (6 agents)
 │   ├── commands/                  # Slash commands (3 commands)
-│   ├── skills/                    # Skills (personalization-engine, projects-registry)
+│   ├── skills/                    # Skills (personalization-engine, projects-registry, mode-selector)
 │   └── SETUP_CONTEXT.md          # This file!
 │
 └── [Entry Points]
     ├── README.md                  # Landing page (will be 250 lines)
     ├── docs/00-start-here/        # Entry points and navigation
     │   ├── QUICK_WIN.md           # Quick win path
-    │   ├── docs/00-start-here/START_HERE.md          # Detailed persona router
-    │   └── docs/00-start-here/VISUAL_GUIDES.md       # 5 Mermaid diagrams
+    │   ├── docs/00-start-here/personas/README.md          # Detailed persona router
+    │   └── docs/00-start-here/06_visual-guides.md       # 5 Mermaid diagrams
 ```
 
 ---
@@ -84,12 +84,12 @@ claude-config-template/
 ## Critical Files (Read These for Setup Help)
 
 ### Entry Points (User's First Touch)
-- **docs/00-start-here/ANTI_PATTERNS.md** - ⚠️ READ FIRST! How projects fail (v3.0.0)
-- **docs/00-start-here/5_MINUTE_SUCCESS.md** - 5-min demo (recommend this)
-- **docs/00-start-here/VISUAL_QUICKSTART.md** - Visual flowchart for path selection
+- **docs/00-start-here/05_anti-patterns.md** - ⚠️ READ FIRST! How projects fail (v3.0.0)
+- **docs/00-start-here/03_5-minute-success.md** - 5-min demo (recommend this)
+- **docs/00-start-here/07_visual-quickstart.md** - Visual flowchart for path selection
 - **docs/README.md** - Master learning journey map (v3.0.0)
 - **README.md** - Project overview and value props
-- **docs/00-start-here/START_HERE.md** - Persona selector with detailed paths
+- **docs/00-start-here/personas/README.md** - Persona selector with detailed paths
 
 ### Templates (What Users Copy)
 - **templates/CLAUDE.md.template** (284 lines)
@@ -155,14 +155,14 @@ claude-config-template/
 **Quick Response Pattern:**
 1. Ask persona: "Are you new to Claude Code or experienced?"
 2. Route to appropriate path:
-   - New → docs/00-start-here/5_MINUTE_SUCCESS.md first, then wizard
-   - Experienced → docs/00-start-here/START_HERE.md#quick-setup-user
-   - Team → docs/00-start-here/START_HERE.md#team-lead
+   - New → docs/00-start-here/03_5-minute-success.md first, then wizard
+   - Experienced → docs/00-start-here/personas/02_quick-setup-user.md
+   - Team → docs/00-start-here/personas/04_team-lead.md
 3. Recommend wizard: `./scripts/claude-wizard.sh`
 
 **Files to Reference:**
-- docs/00-start-here/VISUAL_QUICKSTART.md (decision tree)
-- docs/00-start-here/START_HERE.md (detailed paths)
+- docs/00-start-here/07_visual-quickstart.md (decision tree)
+- docs/00-start-here/personas/README.md (detailed paths)
 
 ### Task 2: "Copy template to my project"
 
@@ -226,7 +226,7 @@ cd ~/claude-config-template
 **If Wizard Fails:**
 - Check permissions: `chmod +x scripts/*.sh`
 - Check dependencies: bash, python (for JSON validation)
-- Manual setup: docs/00-start-here/START_HERE.md → persona section
+- Manual setup: docs/00-start-here/personas/README.md → persona section
 
 ### Task 5: "Explain model switching"
 
@@ -256,27 +256,27 @@ cd ~/claude-config-template
 1. **🆕 First-Time Learner** (60-90 min)
    - New to Claude Code
    - Complete learning path
-   - File: docs/00-start-here/START_HERE.md#first-time-learner
+   - File: docs/00-start-here/personas/01_first-time-learner.md
 
 2. **⚡ Quick Setup** (15-30 min)
    - Experienced, fast project setup
-   - File: docs/00-start-here/START_HERE.md#quick-setup-user
+   - File: docs/00-start-here/personas/02_quick-setup-user.md
 
 3. **🚀 Advanced Optimizer** (20-40 min)
    - Security hooks, custom agents, MCP
-   - File: docs/00-start-here/START_HERE.md#advanced-optimizer
+   - File: docs/00-start-here/personas/03_advanced-optimizer.md
 
 4. **👥 Team Lead** (90-120 min)
    - Team deployment
-   - File: docs/00-start-here/START_HERE.md#team-lead
+   - File: docs/00-start-here/personas/04_team-lead.md
 
 5. **🔄 Returning User** (10-20 min)
    - Quick refresher
-   - File: docs/00-start-here/START_HERE.md#returning-user
+   - File: docs/00-start-here/personas/05_returning-user.md
 
 ### Task 7: "What's the fastest way to see value?"
 
-**Answer:** docs/00-start-here/5_MINUTE_SUCCESS.md
+**Answer:** docs/00-start-here/03_5-minute-success.md
 
 **Why:**
 - 5 minutes total
@@ -286,7 +286,7 @@ cd ~/claude-config-template
 
 **Next Step After 5-Min Win:**
 - Convinced → Run wizard
-- Want more info → docs/00-start-here/START_HERE.md
+- Want more info → docs/00-start-here/personas/README.md
 - Just need commands → QUICK_REFERENCE.md (coming soon)
 
 ### Task 8: "How do I protect against package malware?" (OPTIONAL)
@@ -316,9 +316,9 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 | Slash commands | .claude/commands/*.md |
 | Custom agents | .claude/agents/*.md |
 | Setup wizards | scripts/wizard-*.sh |
-| Visual guides | docs/00-start-here/VISUAL_GUIDES.md |
-| 5-min demo | docs/00-start-here/5_MINUTE_SUCCESS.md |
-| Decision flowchart | docs/00-start-here/VISUAL_QUICKSTART.md |
+| Visual guides | docs/00-start-here/06_visual-guides.md |
+| 5-min demo | docs/00-start-here/03_5-minute-success.md |
+| Decision flowchart | docs/00-start-here/07_visual-quickstart.md |
 | Installation guide | 01_global-setup/01_must-have/01_installation.md |
 | Quick start | 01_global-setup/01_must-have/02_quick-start.md |
 | Permission modes | 01_global-setup/01_must-have/03_permission-modes.md |
@@ -434,7 +434,7 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 
 **Impact:** 85% token reduction in regrounding (350-700 tokens saved per session), mental load reduced 80%, project completion rate 60% → 90% (projected)
 
-**Documentation:** `docs/03-advanced/bootup-ritual-guide.md`
+**Documentation:** `docs/03-advanced/01_bootup-ritual-guide.md`
 
 ---
 
@@ -468,7 +468,7 @@ Quality agents at every phase (planning, development, review, testing, deploymen
 
 **Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected)
 
-**Documentation:** `docs/00-start-here/QUALITY_WORKFLOWS.md`, `docs/03-advanced/quality-workflows-guide.md`
+**Documentation:** `docs/00-start-here/11_quality-workflows.md`, `docs/03-advanced/03_quality-workflows-guide.md`
 
 ---
 
@@ -498,7 +498,7 @@ Quality agents at every phase (planning, development, review, testing, deploymen
 - examples/: Sample queries and schemas
 - operations guide: Detailed implementation
 
-**Documentation:** `docs/01-fundamentals/SKILLS_PARADIGM.md`
+**Documentation:** `docs/01-fundamentals/02_skills-paradigm.md`
 
 ---
 
@@ -579,7 +579,7 @@ Complete template lifecycle: Create → Validate → Apply → Share
 
 **Location:** `examples/team-templates/gallery-*.json`
 
-**Documentation:** `docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md`
+**Documentation:** `docs/02-optimization/08_template-gallery-guide.md`
 
 ### Template Validator (v4.4.0)
 **Purpose:** Validate template JSON structure
@@ -598,7 +598,7 @@ Complete template lifecycle: Create → Validate → Apply → Share
 ./scripts/validate-template.sh catalog.json --catalog
 ```
 
-**Documentation:** `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md`
+**Documentation:** `docs/04-ecosystem/06_template-validator-guide.md`
 
 ### Template Application (v4.5.2)
 **Purpose:** Apply templates with inheritance and parameter resolution
@@ -626,7 +626,7 @@ Complete template lifecycle: Create → Validate → Apply → Share
     --param backendFramework=fastapi
 ```
 
-**Documentation:** `docs/04-ecosystem/APPLY_TEMPLATE_GUIDE.md`
+**Documentation:** `docs/04-ecosystem/07_apply-template-guide.md`
 
 ---
 
@@ -638,7 +638,7 @@ Complete template lifecycle: Create → Validate → Apply → Share
    - Saves ~20K tokens (don't need to explore 50+ files)
 
 2. **Reference files by path** instead of reading them
-   - Example: "See docs/00-start-here/START_HERE.md#quick-setup-user"
+   - Example: "See docs/00-start-here/personas/02_quick-setup-user.md"
    - Only read if user needs specific content
 
 3. **Skip these directories:**
@@ -743,7 +743,7 @@ The script will:
 3. Show preview with diff
 4. Ask for confirmation before applying
 
-**See:** `docs/04-ecosystem/APPLY_TEMPLATE_GUIDE.md`
+**See:** `docs/04-ecosystem/07_apply-template-guide.md`
 
 ### Issue: "How do I validate my custom template?"
 **Solution:** Use the validate-template script (v4.4.0):
@@ -762,7 +762,7 @@ The script checks:
 - Schema version (Important)
 - Parameter format (Info)
 
-**See:** `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md`
+**See:** `docs/04-ecosystem/06_template-validator-guide.md`
 
 ### Issue: "What templates are available?"
 **Answer:** 9 templates in the gallery (v4.3.0+):
@@ -782,7 +782,7 @@ The script checks:
 
 **Location:** `examples/team-templates/`
 
-**See:** `docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md`
+**See:** `docs/02-optimization/08_template-gallery-guide.md`
 
 ---
 
@@ -828,19 +828,19 @@ The script checks:
 ## Helpful Phrases for Efficient Responses
 
 **When user asks about setup:**
-"I recommend starting with the 5-minute demo to see the value: docs/00-start-here/5_MINUTE_SUCCESS.md. Then we can discuss the full setup path that fits your needs."
+"I recommend starting with the 5-minute demo to see the value: docs/00-start-here/03_5-minute-success.md. Then we can discuss the full setup path that fits your needs."
 
 **When user is experienced:**
-"Since you're familiar with Claude Code, the Quick Setup path takes 15-30 minutes: docs/00-start-here/START_HERE.md#quick-setup-user. Or run the wizard: `./scripts/claude-wizard.sh`"
+"Since you're familiar with Claude Code, the Quick Setup path takes 15-30 minutes: docs/00-start-here/personas/02_quick-setup-user.md. Or run the wizard: `./scripts/claude-wizard.sh`"
 
 **When user wants everything:**
-"The First-Time Learner path covers everything in 60-90 minutes: docs/00-start-here/START_HERE.md#first-time-learner. Or use the visual guide to choose: docs/00-start-here/VISUAL_QUICKSTART.md"
+"The First-Time Learner path covers everything in 60-90 minutes: docs/00-start-here/personas/01_first-time-learner.md. Or use the visual guide to choose: docs/00-start-here/07_visual-quickstart.md"
 
 **When user asks about a specific file:**
 "That's located at [path]. [1-sentence description]. Would you like me to read it for details?"
 
 **When user is lost:**
-"Let's use the visual flowchart to find your path: docs/00-start-here/VISUAL_QUICKSTART.md. Or answer this: Are you new to Claude Code, or just new to this template?"
+"Let's use the visual flowchart to find your path: docs/00-start-here/07_visual-quickstart.md. Or answer this: Are you new to Claude Code, or just new to this template?"
 
 ---
 
@@ -859,9 +859,9 @@ This file should be your **first resource** when helping users set up this templ
 - **Savings: 96% reduction**
 
 **Next Steps for User:**
-1. Recommend docs/00-start-here/5_MINUTE_SUCCESS.md (fastest value)
-2. Use docs/00-start-here/VISUAL_QUICKSTART.md (if they need help choosing path)
-3. Route to appropriate persona path in docs/00-start-here/START_HERE.md
+1. Recommend docs/00-start-here/03_5-minute-success.md (fastest value)
+2. Use docs/00-start-here/07_visual-quickstart.md (if they need help choosing path)
+3. Route to appropriate persona path in docs/00-start-here/personas/README.md
 4. Or run wizard: `./scripts/claude-wizard.sh`
 
 Happy helping! 🚀

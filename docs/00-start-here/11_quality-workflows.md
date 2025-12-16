@@ -874,8 +874,8 @@ Each version standalone provides value, but together they're exponentially more 
 ## Related Resources
 
 **Within Template:**
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - Vibe coding vs AI augmented
-- `docs/00-start-here/PROACTIVE_PARADIGM.md` - Jewels proactive intelligence
+- `do../00-start-here/05_anti-patterns.md` - Vibe coding vs AI augmented
+- `docs/00-start-here/10_proactive-paradigm.md` - Jewels proactive intelligence
 - `CLAUDE.md` - Domain memory architecture
 - Plan: `/Users/christianearle01/.claude/plans/nifty-weaving-raven.md` - Full roadmap
 

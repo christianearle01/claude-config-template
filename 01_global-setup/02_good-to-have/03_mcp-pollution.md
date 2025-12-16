@@ -363,7 +363,7 @@ cat ~/.claude.json | grep -i "api_key"
 
 - **Full MCP Setup:** [02_mcp-setup.md](02_mcp-setup.md)
 - **Security Guide:** [01_security-guide.md](../03_nice-to-have/01_security-guide.md)
-- **Quick Start:** [START_HERE.md](../../../docs/00-start-here/START_HERE.md)
+- **Quick Start:** [START_HERE.md](../../../docs/00-start-here/personas/README.md)
 - **Template README:** [README.md](../../../README.md)
 
 ---

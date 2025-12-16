@@ -803,7 +803,7 @@ I won't suggest it again unless you ask.
 (Say 'reset sequential-thinking preference' to see it again)"
 ```
 
-**Learn more:** `docs/02-optimization/personalization-guide.md`
+**Learn more:** `docs/02-optimization/06_personalization-guide.md`
 
 ### Pattern 10: Timeliness (Right-Moment Intervention)
 

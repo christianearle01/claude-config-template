@@ -208,7 +208,7 @@ If project-specific MCPs needed:
 
 ## 🎓 Learning & Optimization
 
-- [ ] Read [START_HERE.md](../../../docs/00-start-here/START_HERE.md) (5-minute essentials)
+- [ ] Read [START_HERE.md](../../../docs/00-start-here/personas/README.md) (5-minute essentials)
 - [ ] Read [02_quick-start.md](../../../01_global-setup/01_must-have/02_quick-start.md) (15-minute full setup)
 - [ ] Read [02_optimization-guide.md](../02_good-to-have/02_optimization-guide.md) (token savings strategies)
 - [ ] Read [01_prompt-optimization.md](../02_good-to-have/01_prompt-optimization.md) (better prompts)

@@ -81,7 +81,7 @@ Skill (expertise) + MCP (data/tools) + Sub-agent (orchestration)
 - ✅ Completed [01-Fundamentals](../01-fundamentals/)
 - ✅ Understand Skills paradigm
 - ✅ Comfortable with Ctrl+O verification
-- ✅ Read [Anti-Patterns](../00-start-here/ANTI_PATTERNS.md)
+- ✅ Read [Anti-Patterns](../00-start-here/05_anti-patterns.md)
 
 **Without fundamentals, advanced techniques can create:**
 - Over-engineered solutions

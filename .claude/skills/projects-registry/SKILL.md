@@ -561,7 +561,7 @@ Or use the CLI:
 - **Registry Operations Guide:** `registry-operations.md` (this directory)
 - **Sample Queries:** `examples/sample-queries.md` (this directory)
 - **Schema Example:** `examples/sample-registry.json` (this directory)
-- **Skills Paradigm:** `docs/01-fundamentals/SKILLS_PARADIGM.md`
+- **Skills Paradigm:** `docs/01-fundamentals/02_skills-paradigm.md`
 
 ---
 

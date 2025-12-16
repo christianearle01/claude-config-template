@@ -522,11 +522,17 @@ project-name/
    - Document project purpose, tech stack, and architecture decisions
    - This becomes your project memory for future Claude sessions
 
-4. [ ] **Start with [First Feature]**
+4. [ ] **Determine development mode** (before coding)
+   - Invoke `@mode-selector I'm about to start [project]. What mode should I use?`
+   - Choose between Vibe Coding (speed-focused) and Vibe Engineering (quality-focused)
+   - This prevents over-engineering MVPs OR under-engineering production systems
+   - See: `docs/01-fundamentals/01_vibe-coding-vs-engineering.md`
+
+5. [ ] **Start with [First Feature]**
    - Example: "Build user authentication" or "Create basic CRUD for [core entity]"
    - Get something working end-to-end before adding features
 
-5. [ ] **Set up basic testing**
+6. [ ] **Set up basic testing**
    - Write a few tests for core functionality
    - Prevents regressions as you build
 

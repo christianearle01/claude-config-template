@@ -2,7 +2,7 @@
 
 **⚠️ NEW: Skills are now the recommended approach for reusable expertise.**
 
-See [docs/01-fundamentals/SKILLS_PARADIGM.md](../../docs/01-fundamentals/SKILLS_PARADIGM.md) for:
+See [docs/01-fundamentals/02_skills-paradigm.md](../../docs/01-fundamentals/02_skills-paradigm.md) for:
 - How Skills differ from sub-agents
 - When to use Skills vs. Agents
 - The evolution: Commands → Agents → **Skills**

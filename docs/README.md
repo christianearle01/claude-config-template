@@ -9,9 +9,9 @@
 ### 🆕 Absolute Beginner (Start Here!)
 
 **→ [00-Start Here](00-start-here/)**
-- **Read FIRST:** [Anti-Patterns](00-start-here/ANTI_PATTERNS.md) - How projects fail (prevents 80-day disasters)
-- [5-Minute Success](00-start-here/5_MINUTE_SUCCESS.md) - Quick demo
-- [Visual Quickstart](00-start-here/VISUAL_QUICKSTART.md) - Choose your path
+- **Read FIRST:** [Anti-Patterns](00-start-here/05_anti-patterns.md) - How projects fail (prevents 80-day disasters)
+- [5-Minute Success](00-start-here/03_5-minute-success.md) - Quick demo
+- [Visual Quickstart](00-start-here/07_visual-quickstart.md) - Choose your path
 
 **Time:** 15-20 minutes
 **Outcome:** Know what NOT to do, see quick value, choose setup path
@@ -21,9 +21,9 @@
 ### 📚 Learning Fundamentals
 
 **→ [01-Fundamentals](01-fundamentals/)**
-- [Skills Paradigm](01-fundamentals/SKILLS_PARADIGM.md) - Commands → Agents → Skills
-- [Verification & Debugging](01-fundamentals/VERIFICATION_DEBUGGING.md) - Ctrl+O workflow
-- [Keyboard Shortcuts](01-fundamentals/KEYBOARD_SHORTCUTS.md) - Essential patterns
+- [Skills Paradigm](01-fundamentals/02_skills-paradigm.md) - Commands → Agents → Skills
+- [Verification & Debugging](01-fundamentals/05_verification-debugging.md) - Ctrl+O workflow
+- [Keyboard Shortcuts](01-fundamentals/04_keyboard-shortcuts.md) - Essential patterns
 
 **Time:** 30 minutes
 **Outcome:** Understand core concepts, essential tools, foundation for AI Augmented Coding
@@ -33,9 +33,9 @@
 ### ⚡ Optimizing Performance
 
 **→ [02-Optimization](02-optimization/)**
-- [Prompt Caching Guide](02-optimization/PROMPT_CACHING_GUIDE.md) - Automatic 400-600 token savings
-- [MCP Optimization](02-optimization/MCP_OPTIMIZATION_GUIDE.md) - Selective loading
-- [Environment Variables](02-optimization/ENVIRONMENT_VARIABLES.md) - Official configuration
+- [Prompt Caching Guide](02-optimization/02_prompt-caching-guide.md) - Automatic 400-600 token savings
+- [MCP Optimization](02-optimization/03_mcp-optimization-guide.md) - Selective loading
+- [Environment Variables](02-optimization/04_environment-variables.md) - Official configuration
 
 **Time:** 25 minutes
 **Outcome:** Save 50-95% on tokens, faster responses, better efficiency
@@ -45,10 +45,10 @@
 ### 🚀 Advanced Techniques
 
 **→ [03-Advanced](03-advanced/)**
-- [Advanced MCP Workflows](03-advanced/ADVANCED_MCP_WORKFLOWS.md) - Multi-tool orchestration
-- [Sub-agent Best Practices](03-advanced/SUBAGENT_BEST_PRACTICES.md) - Task-focused agents
-- [Conversation Branching](03-advanced/CONVERSATION_BRANCHING.md) - Context management
-- [Vision Optimization](03-advanced/VISION_OPTIMIZATION.md) - Multimodal efficiency
+- [Advanced MCP Workflows](03-advanced/04_advanced-mcp-workflows.md) - Multi-tool orchestration
+- [Sub-agent Best Practices](03-advanced/02_subagent-best-practices.md) - Task-focused agents
+- [Conversation Branching](03-advanced/06_conversation-branching.md) - Context management
+- [Vision Optimization](03-advanced/05_vision-optimization.md) - Multimodal efficiency
 
 **Time:** 40 minutes
 **Outcome:** Master autonomous workflows, Skills + MCPs, power user techniques
@@ -58,10 +58,10 @@
 ### 🌐 Ecosystem & Reference
 
 **→ [04-Ecosystem](04-ecosystem/)**
-- [Directory Guide](04-ecosystem/DIRECTORY_GUIDE.md) - Project navigation
-- [Projected Impact](04-ecosystem/PROJECTED_IMPACT.md) - ROI estimates
-- [Third-Party MCPs](04-ecosystem/THIRD_PARTY_MCPS.md) - Community tools
-- [Plugins Guide](04-ecosystem/PLUGINS_GUIDE.md) - Workflow sharing
+- [Directory Guide](04-ecosystem/01_directory-guide.md) - Project navigation
+- [Projected Impact](04-ecosystem/10_projected-impact.md) - ROI estimates
+- [Third-Party MCPs](04-ecosystem/05_third-party-mcps.md) - Community tools
+- [Plugins Guide](04-ecosystem/04_plugins-guide.md) - Workflow sharing
 
 **Time:** 20 minutes
 **Outcome:** Navigate project, discover third-party tools, understand ROI
@@ -71,23 +71,23 @@
 ## 🎯 Quick Access by Topic
 
 ### Critical Warnings
-- **[Anti-Patterns](00-start-here/ANTI_PATTERNS.md)** ← Everyone should read this first!
+- **[Anti-Patterns](00-start-here/05_anti-patterns.md)** ← Everyone should read this first!
 
 ### Core Concepts
-- [Skills Paradigm](01-fundamentals/SKILLS_PARADIGM.md)
-- [Verification & Debugging](01-fundamentals/VERIFICATION_DEBUGGING.md)
+- [Skills Paradigm](01-fundamentals/02_skills-paradigm.md)
+- [Verification & Debugging](01-fundamentals/05_verification-debugging.md)
 
 ### Optimization
-- [Prompt Caching](02-optimization/PROMPT_CACHING_GUIDE.md)
-- [MCP Configuration](02-optimization/MCP_OPTIMIZATION_GUIDE.md)
+- [Prompt Caching](02-optimization/02_prompt-caching-guide.md)
+- [MCP Configuration](02-optimization/03_mcp-optimization-guide.md)
 
 ### Advanced
-- [MCP Workflows](03-advanced/ADVANCED_MCP_WORKFLOWS.md)
-- [Sub-agents](03-advanced/SUBAGENT_BEST_PRACTICES.md)
+- [MCP Workflows](03-advanced/04_advanced-mcp-workflows.md)
+- [Sub-agents](03-advanced/02_subagent-best-practices.md)
 
 ### Reference
-- [Directory Guide](04-ecosystem/DIRECTORY_GUIDE.md)
-- [Projected Impact](04-ecosystem/PROJECTED_IMPACT.md)
+- [Directory Guide](04-ecosystem/01_directory-guide.md)
+- [Projected Impact](04-ecosystem/10_projected-impact.md)
 
 ---
 
@@ -154,9 +154,9 @@
 - Reference README.md in each folder
 
 ### Teams
-- Share [Anti-Patterns](00-start-here/ANTI_PATTERNS.md) with everyone
+- Share [Anti-Patterns](00-start-here/05_anti-patterns.md) with everyone
 - New members follow numbered progression
-- Share [Skills Paradigm](01-fundamentals/SKILLS_PARADIGM.md) for team governance
+- Share [Skills Paradigm](01-fundamentals/02_skills-paradigm.md) for team governance
 
 ---
 

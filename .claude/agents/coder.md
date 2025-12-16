@@ -320,6 +320,14 @@ After completing all 5 steps, present this summary:
 - **Git Status:** ✅ Clean / ⚠️ Uncommitted changes / ❌ Conflicts
 - **Tests:** ✅ X passing / ⚠️ Y failing / ❌ No tests
 
+---
+
+### 🎯 Development Mode
+
+- **Detected Mode:** [Vibe Coding | Vibe Engineering | Unclear]
+- **Rationale:** [Brief reason based on project phase, risk level, timeline]
+- **If unclear:** Invoke `@mode-selector` before starting feature to determine appropriate approach
+
 **Action Needed:**
 - [Any issues detected in Steps 3-4]
 

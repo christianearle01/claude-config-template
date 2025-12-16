@@ -586,9 +586,9 @@ Can you help me figure this out?"
 
 ## See Also
 
-- [Skills Paradigm](../../docs/01-fundamentals/SKILLS_PARADIGM.md) - Conceptual overview
+- [Skills Paradigm](../../docs/01-fundamentals/02_skills-paradigm.md) - Conceptual overview
 - [Projects Registry Skill](projects-registry/SKILL.md) - First reference implementation
-- [QUICK_REFERENCE.md](../../docs/00-start-here/QUICK_REFERENCE.md#skills) - Quick skill lookup
+- [QUICK_REFERENCE.md](../../docs/00-start-here/09_quick-reference.md#skills) - Quick skill lookup
 
 ---
 

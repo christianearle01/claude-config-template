@@ -600,7 +600,7 @@ Issue: Skills not working as expected
 - **Health Check System:** `./scripts/claude-health-check.sh`
 - **Individual Skill Docs:** `.claude/skills/<skill-name>/SKILL.md`
 - **JIT Cheat Sheets:** `.claude/skills/<skill-name>/CHEAT_SHEET.md` (4 skills)
-- **Skills Paradigm:** `docs/01-fundamentals/SKILLS_PARADIGM.md`
+- **Skills Paradigm:** `docs/01-fundamentals/02_skills-paradigm.md`
 - **GitHub Issues:** https://github.com/christianearle01/claude-config-template/issues
 
 ---

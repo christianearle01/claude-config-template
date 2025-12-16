@@ -536,7 +536,7 @@ Result: Failing tests → Passing tests with proper fixes
 - [CLAUDE.md Template](../../templates/CLAUDE.md.template)
 
 **Layer 2 (Commands):**
-- [Slash Commands Reference](../00-start-here/QUICK_REFERENCE.md#slash-commands)
+- [Slash Commands Reference](../00-start-here/09_quick-reference.md#slash-commands)
 - [Custom Commands Guide](../../.claude/commands/README.md)
 
 **Layer 3 (Skills):**

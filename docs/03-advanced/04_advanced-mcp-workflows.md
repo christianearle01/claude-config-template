@@ -474,7 +474,7 @@ If API issue → Use Context7 MCP
 
 ## Installation
 
-See docs/04-ecosystem/THIRD_PARTY_MCPS.md for MCP setup
+See docs/04-ecosystem/05_third-party-mcps.md for MCP setup
 ```
 
 ---

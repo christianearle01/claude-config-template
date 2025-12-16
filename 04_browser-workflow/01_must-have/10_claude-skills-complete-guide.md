@@ -130,7 +130,7 @@ Understanding the three types of context systems helps you choose the right tool
 - Team's git workflow
 - API endpoint documentation
 
-**Learn more:** [Local Claude Code Skills Guide](../../docs/01-fundamentals/SKILLS_PARADIGM.md)
+**Learn more:** [Local Claude Code Skills Guide](../../docs/01-fundamentals/02_skills-paradigm.md)
 
 ---
 
@@ -1159,9 +1159,9 @@ Once you're comfortable:
 
 ### Related Guides in This Template
 - **[Custom Instructions Guide](../README.md)** - How to set up your claude.ai profile
-- **[Local Claude Code Skills](../../docs/01-fundamentals/SKILLS_PARADIGM.md)** - Project-specific skills for Claude Code CLI
+- **[Local Claude Code Skills](../../docs/01-fundamentals/02_skills-paradigm.md)** - Project-specific skills for Claude Code CLI
 - **[All Roles Library](00_all-available-roles-complete-library.md)** - Role-based Custom Instructions templates
-- **[Quick Reference](../../docs/00-start-here/QUICK_REFERENCE.md)** - Searchable feature reference
+- **[Quick Reference](../../docs/00-start-here/09_quick-reference.md)** - Searchable feature reference
 
 ### YouTube Source
 This guide is based on insights from:
@@ -1179,7 +1179,7 @@ This guide is based on insights from:
 
 ## Navigation
 
-**🏠 [Browser Workflow Home](../README.md)** | **📚 [All Roles Library](00_all-available-roles-complete-library.md)** | **📖 [Quick Reference](../../docs/00-start-here/QUICK_REFERENCE.md)**
+**🏠 [Browser Workflow Home](../README.md)** | **📚 [All Roles Library](00_all-available-roles-complete-library.md)** | **📖 [Quick Reference](../../docs/00-start-here/09_quick-reference.md)**
 
 ---
 

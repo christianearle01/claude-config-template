@@ -463,7 +463,7 @@ Review the code in [file paths] for:
 **For full source citations and validation status, see "Sources & Validation" section at the top of this document.**
 
 **Related Guides:**
-- [Anti-Patterns](../00-start-here/ANTI_PATTERNS.md) - How projects fail
+- [Anti-Patterns](../00-start-here/05_anti-patterns.md) - How projects fail
 - [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Ctrl+O and other essentials (coming soon)
 - [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
 
@@ -497,4 +497,4 @@ Review the code in [file paths] for:
 
 **Previous:** [Skills Paradigm](SKILLS_PARADIGM.md) - The evolution beyond agents
 **Next:** [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Essential patterns (coming soon)
-**See also:** [Anti-Patterns](../00-start-here/ANTI_PATTERNS.md) - What NOT to do
+**See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do

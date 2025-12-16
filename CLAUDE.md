@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-16
-**Version:** v4.8.1
+**Version:** v4.9.0
 
 ---
 
@@ -79,7 +79,7 @@ The framework builds on four core principles:
 - Template parameters for customization (v4.2.0)
 - **Target:** Cross-system improvements and team alignment
 
-**Learn more:** `docs/00-start-here/PROACTIVE_PARADIGM.md`
+**Learn more:** `docs/00-start-here/10_proactive-paradigm.md`
 
 ---
 
@@ -158,7 +158,7 @@ Quality improves with better context: codebase + organizational standards + PR h
 
 **Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected, based on industry research)
 
-**Learn more:** `docs/00-start-here/QUALITY_WORKFLOWS.md`
+**Learn more:** `docs/00-start-here/11_quality-workflows.md`
 
 ---
 
@@ -200,7 +200,7 @@ Configured in this project's agents (`.claude/agents/`):
 - **Architecture decisions:** Opus prevents costly rework
 - **Overall:** 24% token reduction (projected)
 
-**Learn more:** `docs/02-optimization/MODEL_SELECTION_STRATEGY.md`
+**Learn more:** `docs/02-optimization/01_model-selection-strategy.md`
 
 ---
 
@@ -458,9 +458,9 @@ git push origin v2.6.0
 
 ### Entry Points (What users see first)
 - `README.md` - Landing page, 408 lines (reduced from 539)
-- `docs/00-start-here/ENTRY_POINTS.md` - Navigation guide (v3.0.0)
-- `docs/00-start-here/START_HERE.md` - Detailed persona guide (v3.0.0: moved from root)
-- `docs/01-fundamentals/SKILLS_PARADIGM.md` - Future of Claude Code (v3.0.0)
+- `docs/00-start-here/01_entry-points.md` - Navigation guide (v3.0.0)
+- `docs/00-start-here/personas/README.md` - Detailed persona guide (v3.0.0: moved from root)
+- `docs/01-fundamentals/02_skills-paradigm.md` - Future of Claude Code (v3.0.0)
 - `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide (v3.0.0)
 
 ### Critical Templates (What users copy)
@@ -490,15 +490,15 @@ git push origin v2.6.0
   - See: `.claude/skills/projects-registry/SKILL.md`
 
 ### Reference Documentation
-- `docs/00-start-here/QUICK_REFERENCE.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)
-- `docs/00-start-here/VISUAL_GUIDES.md` - 5 Mermaid diagrams (v3.0.0: moved from root)
-- `docs/00-start-here/QUICK_START.md` - Quick setup guide (v3.0.0: moved from root)
-- `docs/00-start-here/QUICK_WIN.md` - Fast wins path (v3.0.0: moved from root)
+- `docs/00-start-here/09_quick-reference.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)
+- `docs/00-start-here/06_visual-guides.md` - 5 Mermaid diagrams (v3.0.0: moved from root)
+- `docs/00-start-here/04_quick-start.md` - Quick setup guide (v3.0.0: moved from root)
+- `docs/00-start-here/02_quick-win.md` - Fast wins path (v3.0.0: moved from root)
 - `docs/README.md` - Documentation hub with learning journey (v3.0.0)
 - `docs/02-optimization/` - Token & workflow optimization guides (v3.0.0)
 - `docs/03-advanced/` - MCP workflows, sub-agents, vision (v3.0.0)
-- `docs/04-ecosystem/PROGRESS_BAR_GUIDE.md` - Progress bar config (v3.0.0)
-- `docs/04-ecosystem/UPDATE_GUIDE.md` - Update instructions (v3.0.0: moved from root)
+- `docs/04-ecosystem/02_progress-bar-guide.md` - Progress bar config (v3.0.0)
+- `docs/04-ecosystem/09_update-guide.md` - Update instructions (v3.0.0: moved from root)
 
 ### Browser Workflow (claude.ai)
 - `04_browser-workflow/README.md` - Entry point for role-based Custom Instructions (v2.6.0)
@@ -575,13 +575,13 @@ git push origin v2.6.0
 ### Common User Questions & Quick Answers
 
 **"How do I set this up?"**
-→ Direct to `docs/00-start-here/ENTRY_POINTS.md` first, then learning journey
+→ Direct to `docs/00-start-here/01_entry-points.md` first, then learning journey
 
 **"What should I learn first?"**
 → Start with `docs/01-fundamentals/ANTI_PATTERNS.md` (#1 priority)
 
 **"What's the Skills Paradigm?"**
-→ See `docs/01-fundamentals/SKILLS_PARADIGM.md` (the future of Claude Code)
+→ See `docs/01-fundamentals/02_skills-paradigm.md` (the future of Claude Code)
 
 **"Where is feature X?"**
 → Use `QUICK_REFERENCE.md` (alphabetically organized, searchable)
@@ -593,7 +593,7 @@ git push origin v2.6.0
 → See `docs/02-optimization/` directory (Prompt Caching, MCP Optimization, Model Selection, etc.)
 
 **"Which model should I use?"**
-→ See `docs/02-optimization/MODEL_SELECTION_STRATEGY.md` (Three-Question Method: Opus for architecture, Sonnet for implementation, Haiku for exploration)
+→ See `docs/02-optimization/01_model-selection-strategy.md` (Three-Question Method: Opus for architecture, Sonnet for implementation, Haiku for exploration)
 
 ### File Location Quick Reference
 

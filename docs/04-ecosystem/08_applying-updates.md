@@ -230,10 +230,10 @@ ls docs/00-start-here/personas/
 cat docs/00-start-here/personas/01_first-time-learner.md
 
 # Read workflow integration
-cat docs/01-fundamentals/WORKFLOW_INTEGRATION.md
+cat docs/01-fundamentals/03_workflow-integration.md
 
 # View visual workflows (Mermaid diagrams)
-cat docs/00-start-here/VISUAL_WORKFLOWS.md
+cat docs/00-start-here/08_visual-workflows.md
 ```
 
 ### Or Browse on GitHub
@@ -294,7 +294,7 @@ With CLAUDE.md: Claude reads 1 file (200-500 tokens) = 95% savings
 
 ### Workflow Integration (v4.8.0+)
 
-**Files:** `docs/01-fundamentals/WORKFLOW_INTEGRATION.md`, `docs/00-start-here/VISUAL_WORKFLOWS.md`
+**Files:** `docs/01-fundamentals/03_workflow-integration.md`, `docs/00-start-here/08_visual-workflows.md`
 
 **What you get:**
 - **4-layer system explained** - Context → Commands → Skills → Agents
@@ -505,7 +505,7 @@ ls ~/Developer/claude-config-template/docs/00-start-here/personas/
 # Should show: 01-06 persona files
 
 # Can you read workflows?
-cat ~/Developer/claude-config-template/docs/01-fundamentals/WORKFLOW_INTEGRATION.md
+cat ~/Developer/claude-config-template/docs/01-fundamentals/03_workflow-integration.md
 # Should display guide
 ```
 

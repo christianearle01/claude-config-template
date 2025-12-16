@@ -24,11 +24,11 @@ flowchart TD
     Q4 -->|Yes| TeamLead[👥 Team Lead<br/>90-120 minutes<br/>Deployment process]
     Q4 -->|No| Returning[🔄 Returning User<br/>10-20 minutes<br/>Quick refresher]
 
-    FirstTime --> Path1[Go to: START_HERE.md#first-time-learner]
-    QuickSetup --> Path2[Go to: START_HERE.md#quick-setup-user]
-    Advanced --> Path3[Go to: START_HERE.md#advanced-optimizer]
-    TeamLead --> Path4[Go to: START_HERE.md#team-lead]
-    Returning --> Path5[Go to: START_HERE.md#returning-user]
+    FirstTime --> Path1[Go to: personas/01_first-time-learner.md]
+    QuickSetup --> Path2[Go to: personas/02_quick-setup-user.md]
+    Advanced --> Path3[Go to: personas/03_advanced-optimizer.md]
+    TeamLead --> Path4[Go to: personas/04_team-lead.md]
+    Returning --> Path5[Go to: personas/05_returning-user.md]
 
     style Start fill:#e1f5ff
     style FirstTime fill:#d4edda
@@ -136,7 +136,7 @@ Still not sure? Use this quick selector:
 3. Understand token optimization (save 50-95%!)
 4. Set up your first project with validation
 
-**Start here:** [First-Time Learner Guide](../START_HERE.md#first-time-learner)
+**Start here:** [First-Time Learner Guide](../personas/01_first-time-learner.md)
 
 **Alternative:** [Run the wizard](../START_HERE.md) → Select "First-Time Learner"
 
@@ -163,7 +163,7 @@ Still not sure? Use this quick selector:
 3. Document your project's business purpose
 4. Test with Claude Code
 
-**Start here:** [Quick Setup Guide](../START_HERE.md#quick-setup-user)
+**Start here:** [Quick Setup Guide](../personas/02_quick-setup-user.md)
 
 **Alternative:** [Run the wizard](../START_HERE.md) → Select "Quick Setup"
 
@@ -192,7 +192,7 @@ Still not sure? Use this quick selector:
 3. Configure MCP servers (Context7, GitHub, Memory)
 4. Test advanced features
 
-**Start here:** [Advanced Optimizer Guide](../START_HERE.md#advanced-optimizer)
+**Start here:** [Advanced Optimizer Guide](../personas/03_advanced-optimizer.md)
 
 **Alternative:** [Run the wizard](../START_HERE.md) → Select "Advanced Optimizer"
 
@@ -222,7 +222,7 @@ Still not sure? Use this quick selector:
 5. Gather feedback and refine
 6. Roll out to full team
 
-**Start here:** [Team Lead Guide](../START_HERE.md#team-lead)
+**Start here:** [Team Lead Guide](../personas/04_team-lead.md)
 
 **Alternative:** [Run the wizard](../START_HERE.md) → Select "Team Lead"
 
@@ -249,7 +249,7 @@ Still not sure? Use this quick selector:
 3. Check new features (Checkpointing, Background tasks, etc.)
 4. Get quick reference card
 
-**Start here:** [Returning User Guide](../START_HERE.md#returning-user)
+**Start here:** [Returning User Guide](../personas/05_returning-user.md)
 
 **Alternative:** [Quick Reference](../QUICK_REFERENCE.md) *(coming soon)*
 
@@ -276,16 +276,16 @@ Answer YES or NO to find your perfect path:
    - YES → Go to question 3
 
 2. **Do you have 60+ minutes to learn?**
-   - YES → **[First-Time Learner](../START_HERE.md#first-time-learner)**
+   - YES → **[First-Time Learner](../personas/01_first-time-learner.md)**
    - NO → Try **[5-Minute Win](5_MINUTE_SUCCESS.md)** first, then decide
 
 3. **Are you setting up for a team?**
-   - YES → **[Team Lead](../START_HERE.md#team-lead)**
+   - YES → **[Team Lead](../personas/04_team-lead.md)**
    - NO → Go to question 4
 
 4. **Do you want advanced features (security, custom agents)?**
-   - YES → **[Advanced Optimizer](../START_HERE.md#advanced-optimizer)**
-   - NO → **[Quick Setup](../START_HERE.md#quick-setup-user)** or **[Returning User](../START_HERE.md#returning-user)**
+   - YES → **[Advanced Optimizer](../personas/03_advanced-optimizer.md)**
+   - NO → **[Quick Setup](../personas/02_quick-setup-user.md)** or **[Returning User](../personas/05_returning-user.md)**
 
 ---
 
@@ -369,10 +369,10 @@ This visual guide helps you orient quickly. Bookmark it for future reference.
 → [5-Minute Win](5_MINUTE_SUCCESS.md) - See the value immediately
 
 **"I'm experienced but new to this template"**
-→ [Quick Setup](../START_HERE.md#quick-setup-user) - Fastest path to productivity
+→ [Quick Setup](../personas/02_quick-setup-user.md) - Fastest path to productivity
 
 **"I want to understand everything"**
-→ [First-Time Learner](../START_HERE.md#first-time-learner) - Comprehensive learning path
+→ [First-Time Learner](../personas/01_first-time-learner.md) - Comprehensive learning path
 
 **"I need to convince my team first"**
 → [5-Minute Win](5_MINUTE_SUCCESS.md) + [Success Stories](SUCCESS_STORIES.md) *(coming soon)*

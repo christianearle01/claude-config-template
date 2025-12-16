@@ -295,7 +295,7 @@ Modified files (staged):
 New files (staged):
 ✅ .claude/skills/version-management/SKILL.md
 ✅ .claude/skills/commit-readiness-checker/SKILL.md
-✅ docs/00-start-here/LEARNING_STAGES.md
+✅ docs/00-start-here/12_learning-stages.md
 [... 10 more files]
 
 Untracked files:

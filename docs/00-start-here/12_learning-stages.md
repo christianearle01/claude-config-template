@@ -234,7 +234,7 @@ If you've removed commands and rely on natural language + skills, **congratulati
 
 - [SKILLS_PARADIGM.md](./SKILLS_PARADIGM.md) - Deep dive into Skills architecture
 - [QUICK_START.md](./QUICK_START.md) - Fast setup for beginners
-- [ANTI_PATTERNS.md](../01-fundamentals/ANTI_PATTERNS.md) - Common mistakes at each stage
+- [ANTI_PATTERNS.md](../00-start-here/05_anti-patterns.md) - Common mistakes at each stage
 - [scripts/remove-commands.sh](../../scripts/remove-commands.sh) - Graduation script
 
 ---

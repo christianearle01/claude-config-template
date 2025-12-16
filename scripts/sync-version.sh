@@ -65,9 +65,8 @@ echo -e "${CYAN}📝 Updating documentation files...${NC}"
 echo ""
 
 update_version_in_file "$TEMPLATE_DIR/CLAUDE.md" 4 "Version"
-update_version_in_file "$TEMPLATE_DIR/README.md" 306 "Current version"
-update_version_in_file "$TEMPLATE_DIR/README.md" 339 "Current:"
-update_version_in_file "$TEMPLATE_DIR/README.md" 463 "Template Version"
+update_version_in_file "$TEMPLATE_DIR/README.md" 349 "Current version"
+update_version_in_file "$TEMPLATE_DIR/README.md" 467 "Template Version"
 update_version_in_file "$TEMPLATE_DIR/.claude/SETUP_CONTEXT.md" 21 "Current Version"
 update_version_in_file "$TEMPLATE_DIR/.claude/SETUP_CONTEXT.md" 437 "Current:"
 
