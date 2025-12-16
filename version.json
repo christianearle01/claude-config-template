@@ -1,7 +1,7 @@
 {
-  "version": "4.8.0",
+  "version": "4.8.1",
   "release_date": "2025-12-16",
-  "release_name": "10× Claude Code - Workflow Integration (Connect the Dots)",
+  "release_name": "Navigation Refinement - Next Steps & Manual Updates",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",

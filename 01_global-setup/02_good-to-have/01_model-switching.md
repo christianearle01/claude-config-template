@@ -577,3 +577,48 @@ Before switching models, ask:
 **Part of:** Claude Code Configuration Template
 
 *Save money, code smart!* 💰
+
+---
+
+## ✅ You've Completed: Model Switching
+
+**What you accomplished:**
+- Understand the three Claude models (Opus, Sonnet, Haiku)
+- Learn when to switch models mid-conversation
+- Know the cost implications of model switching
+- Understand OpusPlan mode for automatic optimization
+- Master the decision tree for optimal model selection
+- Calculate potential monthly savings (60-90% vs all-Opus)
+
+**Next logical step:**
+
+**Option A: Master Prompt Optimization (15 min) - Recommended**
+→ [Prompt Optimization Guide](../../02_project-onboarding/02_good-to-have/01_prompt-optimization.md)
+- Reduce token usage by 50-80%
+- Learn to write specific, context-aware prompts
+- 5 real-world examples with before/after
+
+**Option B: Set Up MCP Servers (15 min)**
+→ [MCP Setup Guide](02_mcp-setup.md)
+- GitHub integration for PR creation
+- Sequential Thinking for complex problems
+- Memory persistence across sessions
+
+**Option C: Add Security Features (10 min)**
+→ [Security Guide](../03_nice-to-have/01_security-guide.md)
+- Commit approval workflows
+- Token-optimized git operations
+- Three protection levels
+
+**Option D: Start Using Model Switching**
+→ You're ready! Try:
+  - `/model haiku` for file exploration
+  - `/model sonnet` for feature implementation
+  - `/model opus` for architecture planning
+  - `/model opusplan` for automatic optimization
+
+---
+
+**Estimated next step time:** 10-15 minutes (depending on choice)
+**Projected monthly savings:** $20-80 with optimized model usage
+**Having trouble?** Check the Common Mistakes section above or ask: "Why didn't my model switch work?"

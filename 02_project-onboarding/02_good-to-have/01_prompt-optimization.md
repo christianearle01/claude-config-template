@@ -763,3 +763,56 @@ Before sending any prompt, check:
 ---
 
 **Master these techniques and watch your Claude Code productivity soar while token costs plummet!**
+
+---
+
+## ✅ You've Completed: Prompt Optimization
+
+**What you accomplished:**
+- Understand the 6 core principles of prompt optimization
+- Learn to write specific, context-aware prompts
+- Master the "Skip" technique (50-70% token savings)
+- See 5 real-world examples (bug fixes, features, reviews, tests, docs)
+- Learn advanced techniques (@-mentions, CLAUDE.md references, Plan mode)
+- Understand workflow integration (daily dev, git, code review, debugging)
+- Know common mistakes to avoid (vagueness, "figure it out", searching everywhere)
+
+**Token savings demonstrated:**
+- Bug fixes: 84% savings (5,000 → 800 tokens)
+- Features: 75% savings (10,000 → 2,500 tokens)
+- Reviews: 80% savings (15,000 → 3,000 tokens)
+- Tests: 69% savings (8,000 → 2,500 tokens)
+- Docs: 83% savings (12,000 → 2,000 tokens)
+- **Average: 78% token reduction**
+
+**Next logical step:**
+
+**Option A: Practice on Real Task (Immediate)**
+→ Apply these techniques to your current work
+- Use the Quick Reference Prompt Template (scroll up)
+- Check the 6-point Prompt Optimization Checklist
+- Start with one task, track improvement
+
+**Option B: Set Up Team Onboarding (30 min)**
+→ [Team Onboarding Guide](03_team-onboarding.md)
+- Share these techniques with your team
+- Establish prompt optimization standards
+- 4-week rollout plan included
+
+**Option C: Learn Agent Coordination (15 min)**
+→ [Agent Coordination Guide](../../../01_global-setup/03_nice-to-have/08_agent-coordination.md)
+- Use custom agents for repeated workflows
+- Combine with prompt optimization for maximum efficiency
+- Prompt Polisher + Project Planner patterns
+
+**Option D: Explore Advanced MCP Workflows (20 min)**
+→ [Advanced MCP Workflows](../../../docs/03-advanced/advanced-mcp-workflows.md)
+- Combine MCP servers with optimized prompts
+- Multi-server coordination patterns
+- Real examples for common tasks
+
+---
+
+**Estimated next step time:** Immediate practice or 15-30 min learning
+**Expected impact:** 50-80% token reduction starting today
+**Having trouble?** Review the Common Mistakes section or ask: "How can I optimize this prompt?" with your specific prompt
