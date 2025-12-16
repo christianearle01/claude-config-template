@@ -226,26 +226,28 @@ gantt
 **Visualize:** How you save 92% on costs.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
-graph LR
-    subgraph Before["Before Setup: 45,000 tokens"]
-        B1["Exploring codebase<br/>15,000 tokens"]
-        B2["Re-reading files<br/>10,000 tokens"]
-        B3["Asking same questions<br/>8,000 tokens"]
-        B4["Wrong model usage<br/>12,000 tokens"]
-    end
+graph TD
+    Start["Session Start"] --> B["BEFORE SETUP<br/>45,000 tokens/session"]
+    Start --> A["AFTER SETUP<br/>7,500 tokens/session"]
 
-    subgraph After["After Setup: 7,500 tokens"]
-        A1["Context from CLAUDE.md<br/>3,000 tokens"]
-        A2["Focused reading<br/>2,000 tokens"]
-        A3["Sonnet for planning<br/>2,000 tokens"]
-        A4["Haiku for implementation<br/>500 tokens"]
-    end
+    B --> B1["15,000 tokens<br/>Exploring codebase"]
+    B --> B2["10,000 tokens<br/>Re-reading files"]
+    B --> B3["8,000 tokens<br/>Asking same questions"]
+    B --> B4["12,000 tokens<br/>Wrong model usage"]
 
-    Before -.->|"83% reduction"| After
+    B1 & B2 & B3 & B4 --> BC["Total: $135/session"]
 
-    style Before fill:#ffe1e1
-    style After fill:#e1ffe1
+    A --> A1["3,000 tokens<br/>Context from CLAUDE.md"]
+    A --> A2["2,000 tokens<br/>Focused reading"]
+    A --> A3["2,000 tokens<br/>Sonnet for planning"]
+    A --> A4["500 tokens<br/>Haiku for implementation"]
+
+    A1 & A2 & A3 & A4 --> AC["Total: $22.50/session<br/>SAVE 83%"]
+
+    style B fill:#ffcccc
+    style A fill:#ccffcc
+    style BC fill:#ff9999
+    style AC fill:#99ff99
 ```
 
 ### ASCII Alternative: Token Cost Waterfall
