@@ -188,7 +188,7 @@ Please:
    - Test after applying updates
 
 4. **Use version context:**
-   - "I'm on v2.4.0, what's new in v2.6.0?"
+   - "I'm on v2.4.0, what's new in v4.5.2?"
    - Helps Claude prioritize important changes
 
 5. **Iterate:**
@@ -202,13 +202,13 @@ Please:
 **User:**
 ```
 Claude, I haven't updated my project setup in a while. My CLAUDE.md
-says v2.3.0 and the template is now v2.6.0. Please analyze what I'm
+says v2.3.0 and the template is now v4.5.2. Please analyze what I'm
 missing and categorize as Recommended vs Optional.
 ```
 
 **Claude:**
 ```
-I'll compare your v2.3.0 setup against template v2.6.0...
+I'll compare your v2.3.0 setup against template v4.5.2...
 
 ## Recommended (3 releases behind)
 
@@ -431,5 +431,5 @@ chmod 644 .claude/agents/*.md
 
 ---
 
-*Quick Update Guide - Part of Claude Code Configuration Template v2.6.0*
+*Quick Update Guide - Part of Claude Code Configuration Template v4.5.2*
 *Last updated: 2025-12-08*

@@ -19,7 +19,7 @@
 6. Template system (v4.0-v4.5) → Apply team configs with one command
 7. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.5.0
+**Current Version:** v4.5.2
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/UPDATE_GUIDE.md) for quick commands
 
@@ -125,7 +125,7 @@ claude-config-template/
 - **wizard-helpers.sh** - Validation functions for all wizards
 
 #### Template Management (v4.x)
-- **apply-template.sh** (v4.5.0) - Apply templates with inheritance + parameters
+- **apply-template.sh** (v4.5.2) - Apply templates with inheritance + parameters
 - **validate-template.sh** (v4.4.0) - Validate template JSON structure
 
 #### Project Management (v3.2.0+)
@@ -600,7 +600,7 @@ Complete template lifecycle: Create → Validate → Apply → Share
 
 **Documentation:** `docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md`
 
-### Template Application (v4.5.0)
+### Template Application (v4.5.2)
 **Purpose:** Apply templates with inheritance and parameter resolution
 
 **Script:** `scripts/apply-template.sh`
@@ -725,7 +725,7 @@ Claude will:
 **See:** `01_global-setup/02_good-to-have/04_git-approval-workflow.md`
 
 ### Issue: "How do I apply a template to my project?"
-**Solution:** Use the apply-template script (v4.5.0):
+**Solution:** Use the apply-template script (v4.5.2):
 
 ```bash
 # Simple template
@@ -788,7 +788,7 @@ The script checks:
 
 ## Version Information
 
-**Current:** v4.5.0 (Template Application)
+**Current:** v4.5.2 (Template Application)
 
 **For complete version history and release notes:**
 → See [CHANGELOG.md](../CHANGELOG.md)

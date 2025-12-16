@@ -206,7 +206,7 @@ Placeholder for advanced project-specific topics
 
 ## 🌐 Browser Workflow (04_browser-workflow/)
 
-**Status:** Available (v2.6.0+)
+**Status:** Available (v4.5.2+)
 
 **Purpose:** Role-based Claude browser configurations for claude.ai
 

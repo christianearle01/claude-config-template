@@ -86,7 +86,7 @@ kill [PID]
 - Easy to backtrack
 - Skip ahead to next topic
 
-**Status:** Available (v2.6.0)
+**Status:** Available (v4.5.2)
 
 **Keywords:** navigation, breadcrumbs, lost, where am i, back
 
@@ -1319,7 +1319,7 @@ chmod +x scripts/*.sh
 - ✅ Persona-specific update notifications
 - ✅ Rollback capability
 
-**Current version:** v2.6.0
+**Current version:** v4.5.2
 
 **Docs:** [CHANGELOG.md](CHANGELOG.md)
 
@@ -1452,6 +1452,6 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v2.6.0*
+*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v4.5.2*
 
 *Last updated: 2025-12-08*
