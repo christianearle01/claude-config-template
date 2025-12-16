@@ -1,0 +1,74 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "claude-config-template",
+  "sourceVersion": "4.3.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "gallery-data-science",
+    "name": "Data Science",
+    "description": "Python data science with Jupyter and ML frameworks",
+    "category": "data-science",
+    "recommendedFor": ["intermediate", "advanced"],
+    "version": "1.0.0",
+    "author": "claude-config-template",
+    "extends": "team-security",
+    "_extendsHint": "Inherits security settings from team-security for sensitive data handling"
+  },
+
+  "compatibility": {
+    "minVersion": "4.3.0",
+    "maxVersion": null
+  },
+
+  "contents": {
+    "profile": {
+      "primaryLanguages": ["python"],
+      "primaryFrameworks": ["pandas", "numpy", "scikit-learn", "jupyter", "matplotlib"]
+    },
+
+    "learnedPreferences": {
+      "workflow": {
+        "notebook-first": true,
+        "exploratory-coding": true,
+        "reproducibility": true
+      },
+      "quality": {
+        "data-validation": true,
+        "model-versioning": true,
+        "experiment-tracking": true
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "test-generator": {
+        "dataValidation": true,
+        "modelTesting": true,
+        "edgeCaseTesting": true,
+        "testFramework": "pytest"
+      },
+      "security-scanner": {
+        "checkDataLeakage": true,
+        "checkPIIExposure": true,
+        "checkModelBias": true
+      },
+      "standards-enforcer": {
+        "notebookCleanup": true,
+        "docstringRequired": true,
+        "typeHints": true
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "gallery-data-science-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}

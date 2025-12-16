@@ -9,6 +9,62 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.3.0] - 2025-12-16
+
+### Added - Template Gallery: Ready-to-Use Configurations
+
+Curated collection of domain-specific templates demonstrating inheritance (v4.1.0) and parameters (v4.2.0).
+
+#### Gallery Templates
+
+| Template | Extends | Use Case |
+|----------|---------|----------|
+| `gallery-frontend-react` | team-standard | React + TypeScript + Tailwind frontend |
+| `gallery-backend-api` | team-standard | Node.js/Python API development |
+| `gallery-data-science` | team-security | Python data science with Jupyter/ML |
+| `gallery-devops` | team-standard | Kubernetes, Terraform, CI/CD |
+| `gallery-fullstack` | (parameterized) | Customizable full-stack development |
+
+#### Inheritance Hierarchy
+
+```
+team-standard (base)
+├── team-frontend
+├── gallery-frontend-react
+├── gallery-backend-api
+└── gallery-devops
+
+team-security (base)
+└── gallery-data-science
+
+standalone (with parameters)
+├── team-parameterized
+└── gallery-fullstack
+```
+
+#### Parameterized Full-Stack Template
+
+`gallery-fullstack` demonstrates parameters:
+- `frontendFramework` (required): react, vue, svelte, angular
+- `backendFramework` (required): express, fastapi, django, rails
+- `database` (default: postgresql): postgresql, mysql, mongodb
+- `testCoverage` (default: 80): Test coverage target
+- `useTypeScript` (default: true): TypeScript enabled
+
+#### Files Changed
+
+| File | Change |
+|------|--------|
+| `examples/team-templates/gallery-frontend-react.json` | New template |
+| `examples/team-templates/gallery-backend-api.json` | New template |
+| `examples/team-templates/gallery-data-science.json` | New template |
+| `examples/team-templates/gallery-devops.json` | New template |
+| `examples/team-templates/gallery-fullstack.json` | New parameterized template |
+| `examples/team-templates/catalog.json` | Added 5 gallery templates (9 total) |
+| `examples/team-templates/README.md` | Gallery section |
+
+---
+
 ## [4.2.0] - 2025-12-16
 
 ### Added - Template Parameters: Dynamic Configuration

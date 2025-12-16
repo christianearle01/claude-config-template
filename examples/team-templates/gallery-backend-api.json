@@ -1,0 +1,76 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "claude-config-template",
+  "sourceVersion": "4.3.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "gallery-backend-api",
+    "name": "Backend API",
+    "description": "Node.js/Python API development with testing",
+    "category": "backend",
+    "recommendedFor": ["intermediate", "advanced"],
+    "version": "1.0.0",
+    "author": "claude-config-template",
+    "extends": "team-standard",
+    "_extendsHint": "Inherits all settings from team-standard, adds backend-specific configuration"
+  },
+
+  "compatibility": {
+    "minVersion": "4.3.0",
+    "maxVersion": null
+  },
+
+  "contents": {
+    "profile": {
+      "primaryLanguages": ["typescript", "python"],
+      "primaryFrameworks": ["express", "fastapi", "prisma", "sqlalchemy"]
+    },
+
+    "learnedPreferences": {
+      "workflow": {
+        "api-first-design": true,
+        "database-migrations": true
+      },
+      "quality": {
+        "input-validation": true,
+        "error-handling": true,
+        "logging-standards": true
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "security-scanner": {
+        "checkOWASP": true,
+        "checkSQLInjection": true,
+        "checkAuthPatterns": true,
+        "checkRateLimiting": true,
+        "checkInputSanitization": true
+      },
+      "test-generator": {
+        "testFramework": "jest",
+        "apiTestingPatterns": true,
+        "mockDatabases": true,
+        "integrationTests": true,
+        "coverageTarget": 85
+      },
+      "api-debugging": {
+        "requestLogging": true,
+        "responseValidation": true,
+        "performanceMetrics": true
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "gallery-backend-api-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}
