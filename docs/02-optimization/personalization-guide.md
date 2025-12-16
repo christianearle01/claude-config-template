@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 3.13.0
+**Version:** 3.14.0
 **Last Updated:** 2025-12-16
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -24,6 +24,7 @@ This guide explains how the Personalization Engine works, how to customize your 
 13. [AI-Suggested Tuning](#ai-suggested-tuning-v3100) (v3.10.0)
 14. [Cross-Project Intelligence](#cross-project-intelligence-v3120) (v3.12.0)
 15. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
+16. [Preference Templates](#preference-templates-v3140) (v3.14.0)
 
 ---
 
@@ -1065,6 +1066,79 @@ Exports use a versioned JSON format with compatibility checking:
 
 ---
 
+## Preference Templates (v3.14.0)
+
+### Overview
+
+Preference templates are pre-built configurations for common use cases. Instead of starting from scratch, apply a template that matches your workflow.
+
+### Available Templates
+
+| Template | Best For | Key Characteristics |
+|----------|----------|---------------------|
+| **balanced** | Most developers | Sensible defaults, balanced automation |
+| **security-first** | Security-conscious | Conservative, thorough scanning |
+| **speed-focused** | Experienced devs | Maximum automation, fewer prompts |
+| **learning-mode** | Beginners | Maximum guidance, lots of suggestions |
+| **minimal** | Experts | Minimal interruptions |
+
+### Using Templates
+
+**List templates:**
+```
+"Show available templates"
+"What templates are available?"
+```
+
+**Apply a template:**
+```
+"Apply balanced template"
+"Apply security-first template"
+```
+
+**Get help choosing:**
+```
+"Help me choose a template"
+"Compare balanced and speed-focused"
+```
+
+### How Templates Work
+
+Templates use the same format as exports (v3.13.0). When you apply a template:
+
+1. **Preview** - See what will change
+2. **Backup** - Current preferences backed up
+3. **Merge** - Template values applied (your learned preferences preserved)
+4. **Track** - Template recorded in history
+
+### Template Comparison
+
+Each template has different threshold settings:
+
+| Setting | balanced | security-first | speed-focused | learning-mode | minimal |
+|---------|----------|----------------|---------------|---------------|---------|
+| autoApply | 95 | 99 | 90 | 98 | 98 |
+| suggestProminently | 75 | 85 | 65 | 60 | 90 |
+| showAsOptional | 50 | 60 | 40 | 35 | 75 |
+| hideBelow | 30 | 40 | 25 | 15 | 50 |
+| proactivity | medium | medium | high | high | low |
+
+### Creating Custom Templates
+
+Export your preferences as a template to share with teammates:
+
+```
+"Export preferences as template"
+```
+
+Others can then import your template:
+
+```
+"Import preferences from ~/team-template.json"
+```
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -1078,6 +1152,9 @@ Exports use a versioned JSON format with compatibility checking:
 | `Export my preferences` | Export for backup/sharing |
 | `Import preferences from [file]` | Import with preview |
 | `Restore from backup` | Rollback to previous state |
+| `Show available templates` | List preference templates |
+| `Apply [template] template` | Apply a pre-built template |
+| `Compare templates` | Compare template settings |
 | `Set [threshold] to [value]` | Adjust threshold |
 | `Don't show [item] again` | Permanent hide |
 | `Reset [item] preference` | Clear specific learning |

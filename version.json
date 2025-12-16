@@ -1,7 +1,7 @@
 {
-  "version": "3.13.0",
+  "version": "3.14.0",
   "release_date": "2025-12-16",
-  "release_name": "Import/Export Preferences - Portable Configuration",
+  "release_name": "Preference Templates - Quick Start Configurations",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -147,7 +147,12 @@
     "version-compatibility-checking",
     "export-format-schema",
     "import-preview-diff",
-    "rollback-from-backup"
+    "rollback-from-backup",
+    "preference-templates-catalog",
+    "template-recommendation",
+    "template-comparison",
+    "template-application",
+    "quick-start-configurations"
   ],
   "personas_supported": [
     "first-time",
@@ -178,7 +183,7 @@
       "docs/03-advanced/quality-workflows-guide.md": "3.7.0",
       "docs/02-optimization/quality-context-optimization.md": "3.7.0",
       "docs/00-start-here/QUALITY_WORKFLOWS.md": "3.7.0",
-      "docs/02-optimization/personalization-guide.md": "3.13.0",
+      "docs/02-optimization/personalization-guide.md": "3.14.0",
       "docs/02-optimization/MODEL_SELECTION_STRATEGY.md": "3.11.0",
       "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.8.0",
       "01_global-setup/good-to-have/05_git-push-workaround.md": "2.9.0",
@@ -197,8 +202,13 @@
       "projects-registry.json.template": "3.2.0",
       "features.json.template": "3.6.0",
       "progress.md.template": "3.6.0",
-      "user-preferences.json.template": "3.13.0",
-      "project-preferences.json.template": "3.9.0"
+      "user-preferences.json.template": "3.14.0",
+      "project-preferences.json.template": "3.9.0",
+      "preference-templates/balanced.json": "3.14.0",
+      "preference-templates/security-first.json": "3.14.0",
+      "preference-templates/speed-focused.json": "3.14.0",
+      "preference-templates/learning-mode.json": "3.14.0",
+      "preference-templates/minimal.json": "3.14.0"
     },
     "agents": {
       "project-planner.md": "2.3.0",
@@ -251,7 +261,7 @@
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
       "standards-enforcer": "3.7.0",
-      "personalization-engine": "3.13.0"
+      "personalization-engine": "3.14.0"
     },
     "commands": {
       "build": "2.0.0",
@@ -260,7 +270,7 @@
     }
   },
   "metadata": {
-    "total_files": 106,
+    "total_files": 111,
     "total_lines": 49500,
     "skill_count": 18,
     "command_count": 3,

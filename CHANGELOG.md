@@ -9,6 +9,113 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.14.0] - 2025-12-16
+
+### Added - Preference Templates: Quick Start Configurations
+
+**Core Enhancement:** Pre-built preference configurations for common use cases - new users get optimized defaults immediately instead of starting from scratch.
+
+#### The Problem Solved
+
+Cold start problem for new users:
+- New users have no preferences configured
+- Takes weeks to build up learned preferences through usage
+- No way to benefit from "expert configurations"
+- Teams can't provide standard starting points
+
+**Solution:** Preference Templates (Operation 10) - curated configurations using the v3.13.0 export format.
+
+#### New Feature: Operation 10 - Preference Templates
+
+**Personalization Engine** (`.claude/skills/personalization-engine/SKILL.md`, +300 lines)
+- Five pre-built templates covering common use cases
+- Template recommendation based on user profile
+- Side-by-side template comparison
+- Seamless application using Operation 9 import mechanism
+- Template usage tracking
+
+**Template Triggers:**
+- "Show available templates"
+- "List preference templates"
+- "Apply [template-name] template"
+- "Help me choose a template"
+- "Compare [template-a] and [template-b]"
+
+#### Available Templates
+
+| Template | Description | Best For |
+|----------|-------------|----------|
+| **balanced** | Sensible defaults - good suggestions without overwhelm | Most developers (default) |
+| **security-first** | Conservative automation, thorough security scanning | Security-conscious teams |
+| **speed-focused** | Maximum automation for experienced developers | Experienced devs wanting speed |
+| **learning-mode** | Maximum guidance and suggestions | Beginners learning Claude Code |
+| **minimal** | Minimal interruptions, maximum autonomy | Experts who want minimal help |
+
+#### Template Key Differences
+
+| Setting | balanced | security-first | speed-focused | learning-mode | minimal |
+|---------|----------|----------------|---------------|---------------|---------|
+| proactivityLevel | medium | medium | high | high | low |
+| autoApply | 95 | 99 | 90 | 98 | 98 |
+| suggestProminently | 75 | 85 | 65 | 60 | 90 |
+| showAsOptional | 50 | 60 | 40 | 35 | 75 |
+| hideBelow | 30 | 40 | 25 | 15 | 50 |
+
+#### New Files
+
+**Template Files** (`templates/preference-templates/`)
+- `balanced.json` - Default recommended template
+- `security-first.json` - Conservative automation
+- `speed-focused.json` - Maximum automation
+- `learning-mode.json` - Maximum guidance
+- `minimal.json` - Minimal interruptions
+
+#### Template Tracking
+
+**User Preferences** (`templates/user-preferences.json.template`, +15 lines)
+```json
+{
+  "importExport": {
+    "templates": {
+      "appliedTemplate": null,
+      "appliedAt": null,
+      "templateHistory": []
+    }
+  }
+}
+```
+
+#### Documentation
+
+**Personalization Guide** (`docs/02-optimization/personalization-guide.md`, +75 lines)
+- Template catalog with descriptions
+- Usage commands and examples
+- How templates work
+- Creating custom templates
+- Template comparison guide
+
+#### Design Philosophy
+
+Templates leverage v3.13.0's export format - a template IS an export with `exportType: "template"`. This means:
+- No new import logic needed
+- Full compatibility validation
+- Preview before applying
+- Automatic backup on apply
+
+#### Personalization Journey Complete
+
+| Version | Capability | Status |
+|---------|-----------|--------|
+| v3.8.0 | SET preferences (Personalization Engine) | ✅ |
+| v3.9.0 | OVERRIDE per project (Project-Level Preferences) | ✅ |
+| v3.10.0 | OPTIMIZE based on patterns (AI-Suggested Tuning) | ✅ |
+| v3.11.0 | CHOOSE models intelligently (Model Selection Strategy) | ✅ |
+| v3.12.0 | LEVERAGE across projects (Cross-Project Intelligence) | ✅ |
+| v3.13.0 | SHARE preferences (Import/Export) | ✅ |
+| v3.14.0 | JUMPSTART with templates (Preference Templates) | ✅ |
+
+---
+
 ## [3.13.0] - 2025-12-16
 
 ### Added - Import/Export Preferences: Portable Configuration

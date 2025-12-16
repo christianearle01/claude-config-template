@@ -2491,7 +2491,326 @@ Users can configure import/export behavior in `~/.claude/user-preferences.json`:
 
 ---
 
+## Operation 10: Preference Templates (v3.14.0)
+
+### Overview
+
+Apply pre-built preference configurations for common use cases. Templates provide curated starting points so new users can get optimized defaults immediately.
+
+### User Queries
+
+**List/Browse:**
+- "Show available templates"
+- "List preference templates"
+- "What templates are available?"
+
+**Apply:**
+- "Apply [template-name] template"
+- "Apply balanced template"
+- "Apply security-first template"
+- "Use the learning-mode template"
+
+**Help/Compare:**
+- "Help me choose a template"
+- "Compare templates"
+- "Compare balanced and speed-focused"
+- "What's the difference between templates?"
+
+### Available Templates
+
+| Template | Description | Best For |
+|----------|-------------|----------|
+| **balanced** | Sensible defaults - good suggestions without overwhelm | Most developers |
+| **security-first** | Conservative automation, thorough security scanning | Security-conscious |
+| **speed-focused** | Maximum automation, fewer interruptions | Experienced devs |
+| **learning-mode** | Maximum guidance and suggestions | Beginners |
+| **minimal** | Minimal interruptions, maximum autonomy | Experts |
+
+### Template Locations
+
+Templates are stored in: `templates/preference-templates/`
+
+- `balanced.json` - Default recommended template
+- `security-first.json` - Security-focused configuration
+- `speed-focused.json` - Productivity-optimized configuration
+- `learning-mode.json` - Beginner-friendly configuration
+- `minimal.json` - Expert/minimal configuration
+
+### Algorithm
+
+```
+1. LIST TEMPLATES
+   - Read template files from templates/preference-templates/
+   - Extract templateMetadata from each
+   - Show name, description, recommendedFor
+   - Highlight recommended template based on user's experienceLevel
+
+2. RECOMMEND TEMPLATE
+   If user asks "help me choose":
+   - Read current profile.experienceLevel (if exists)
+   - Match to template.recommendedFor
+   - Ask clarifying question if needed:
+     - "Do you prioritize speed or security?"
+     - "How much guidance do you want?"
+   - Recommend matching template with explanation
+
+3. APPLY TEMPLATE
+   - Load selected template file
+   - Use Operation 9 import mechanism
+   - Default merge strategy: "merge" (preserves learned preferences)
+   - Show preview of changes
+   - Create backup before applying
+   - Update template tracking in importExport.templates
+
+4. COMPARE TEMPLATES
+   - Load both template files
+   - Show side-by-side comparison table
+   - Highlight key differences
+   - Explain trade-offs in plain language
+```
+
+### Response Templates
+
+#### List Templates
+
+```markdown
+## Available Preference Templates
+
+| Template | Description | Best For |
+|----------|-------------|----------|
+| **balanced** | Sensible defaults | Most developers |
+| **security-first** | Conservative automation | Security-conscious |
+| **speed-focused** | Maximum automation | Experienced devs |
+| **learning-mode** | Maximum guidance | Beginners |
+| **minimal** | Minimal interruptions | Experts |
+
+---
+
+**Your profile:** intermediate
+**Recommended:** balanced
+
+---
+
+**Actions:**
+- "Apply balanced template"
+- "Compare balanced and speed-focused"
+- "Help me choose a template"
+```
+
+#### Help Choose Template
+
+```markdown
+## Help Me Choose a Template
+
+Based on your profile and preferences, I have a few questions:
+
+### 1. Experience Level
+
+What's your experience with Claude Code?
+- **Beginner** → learning-mode
+- **Intermediate** → balanced
+- **Advanced/Expert** → speed-focused or minimal
+
+### 2. Priority
+
+What matters more to you?
+- **Safety & thoroughness** → security-first
+- **Speed & minimal interruptions** → speed-focused
+- **Balance of both** → balanced
+
+### 3. Learning
+
+Do you want to learn from suggestions?
+- **Yes, show me everything** → learning-mode
+- **Some guidance is fine** → balanced
+- **I know what I'm doing** → minimal
+
+---
+
+**Based on typical intermediate developers:**
+
+**Recommended: balanced**
+
+Sensible defaults that provide helpful suggestions without being overwhelming.
+
+**Apply:** "Apply balanced template"
+```
+
+#### Apply Template Preview
+
+```markdown
+## Apply Template: Balanced Developer
+
+**Template:** balanced
+**Description:** Sensible defaults - good suggestions without overwhelm
+**Version:** 1.0.0
+
+### Changes to Apply
+
+| Setting | Current | Template | Action |
+|---------|---------|----------|--------|
+| experienceLevel | - | intermediate | Set |
+| proactivityLevel | - | medium | Set |
+| autoApply | - | 95 | Set |
+| suggestProminently | - | 75 | Set |
+| showAsOptional | - | 50 | Set |
+| hideBelow | - | 30 | Set |
+
+### Skill Preferences
+
+| Skill | Setting | Value |
+|-------|---------|-------|
+| security-scanner | showInfoLevel | false |
+| test-generator | coverageReminders | true |
+| commit-readiness | conventionalCommits | true |
+
+**Merge strategy:** merge
+- Template values applied to matching settings
+- Your existing learned preferences preserved
+- Analytics and history unchanged
+
+---
+
+**Backup will be created at:** ~/.claude/user-preferences.json.backup
+
+**Proceed?**
+- "Yes, apply template"
+- "No, cancel"
+- "Show other templates"
+```
+
+#### Template Applied
+
+```markdown
+## Template Applied Successfully
+
+**Template:** balanced
+**Applied At:** 2025-12-16 11:00:00
+
+### Summary
+
+| Category | Settings Applied |
+|----------|------------------|
+| Profile | 3 settings |
+| Thresholds | 4 settings |
+| Skill Preferences | 3 skills |
+| **Total** | **10 settings** |
+
+**Backup created:** ~/.claude/user-preferences.json.backup
+
+---
+
+**Your preferences are now configured!**
+
+The balanced template provides:
+- Medium proactivity (helpful but not overwhelming)
+- Conservative auto-apply (95% confidence required)
+- Changelog and conventional commits enabled
+- Security scanning at high level only
+
+**To customize further:** "Show my preferences"
+**To try different template:** "Apply speed-focused template"
+**To restore backup:** "Restore from backup"
+```
+
+#### Compare Templates
+
+```markdown
+## Template Comparison
+
+**Comparing:** balanced vs speed-focused
+
+### Profile Settings
+
+| Setting | balanced | speed-focused |
+|---------|----------|---------------|
+| experienceLevel | intermediate | advanced |
+| proactivityLevel | medium | high |
+| preferredWorkflow | wizard | automated |
+
+### Confidence Thresholds
+
+| Threshold | balanced | speed-focused |
+|-----------|----------|---------------|
+| autoApply | 95 | 90 |
+| suggestProminently | 75 | 65 |
+| showAsOptional | 50 | 40 |
+| hideBelow | 30 | 25 |
+
+### Key Differences
+
+**balanced:**
+- More conservative automation (95% vs 90% for auto-apply)
+- More suggestions shown (lower hideBelow threshold)
+- Wizard-guided workflows
+- Good for: Most developers, learning Claude Code
+
+**speed-focused:**
+- More aggressive automation (90% auto-apply)
+- Fewer interruptions (higher hideBelow threshold)
+- Automated workflows preferred
+- Good for: Experienced devs who want speed
+
+---
+
+**Choose:**
+- "Apply balanced template"
+- "Apply speed-focused template"
+- "Compare other templates"
+```
+
+### Integration with Operation 9
+
+Templates are applied using the Operation 9 import mechanism:
+
+1. Template files use the same `claude-preferences-export-v1` schema
+2. `exportType: "template"` indicates it's a template
+3. Apply uses the same preview/backup/merge flow as regular imports
+4. Template tracking recorded in `importExport.templates`
+
+### Template Tracking
+
+Applied templates are tracked in user preferences:
+
+```json
+{
+  "importExport": {
+    "templates": {
+      "appliedTemplate": "balanced",
+      "appliedAt": "2025-12-16T11:00:00Z",
+      "templateHistory": [
+        {
+          "templateId": "balanced",
+          "appliedAt": "2025-12-16T11:00:00Z",
+          "mergeStrategy": "merge"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Creating Custom Templates
+
+Users can create their own templates:
+
+1. Configure preferences as desired
+2. Export as template: "Export preferences as template"
+3. Share the exported file
+4. Others can import: "Import preferences from [file]"
+
+Custom templates use the same format as built-in templates.
+
+---
+
 ## Version History
+
+- **v3.14.0** (2025-12-16): Preference Templates
+  - Operation 10: Pre-built preference configurations
+  - Five curated templates: balanced, security-first, speed-focused, learning-mode, minimal
+  - Template listing, comparison, and recommendation
+  - Integration with Operation 9 import mechanism
+  - Template tracking in user preferences
 
 - **v3.13.0** (2025-12-16): Import/Export Preferences
   - Operation 9: Portable configuration management
