@@ -309,17 +309,17 @@ graph TD
     Start --> E[Commands Not Working]
     Start --> F[Git Approval Not Triggering]
 
-    A --> A1[Run: claude --version]
+    A --> A1["Run: claude --version"]
     A1 --> A2{Version Shows?}
-    A2 -->|No| A3[Reinstall: curl -fsSL code.claude.com/install.sh sh]
-    A2 -->|Yes| A4[Run: /doctor]
+    A2 -->|No| A3["Reinstall: curl -fsSL code.claude.com/install.sh sh"]
+    A2 -->|Yes| A4["Run: /doctor"]
     A4 --> A5[Follow Diagnostic Output]
 
     B --> B1[Check File Location]
-    B1 --> B2[~/.claude/settings.json exists?]
+    B1 --> B2["~/.claude/settings.json exists?"]
     B2 -->|No| B3[Create from template]
     B2 -->|Yes| B4[Validate JSON Syntax]
-    B4 --> B5[python -m json.tool settings.json]
+    B4 --> B5["python -m json.tool settings.json"]
     B5 --> B6{Valid JSON?}
     B6 -->|No| B7[Fix Syntax Errors]
     B6 -->|Yes| B8[Restart Claude Code]
@@ -331,10 +331,10 @@ graph TD
     C4 --> C5[NOT in .claude/ directory]
     C5 --> C6[Test: Ask 'What does this app do?']
 
-    D --> D1[Check ~/.claude.json]
+    D --> D1["Check ~/.claude.json"]
     D1 --> D2[mcpServers section exists?]
     D2 -->|No| D3[Add MCP server config]
-    D2 -->|Yes| D4[Run: /mcp]
+    D2 -->|Yes| D4["Run: /mcp"]
     D4 --> D5{Servers Listed?}
     D5 -->|No| D6[Check npx installation]
     D5 -->|Yes| D7[Servers Working!]
@@ -352,7 +352,7 @@ graph TD
     F2 -->|Yes| F4[Run test commit]
     F4 --> F5{Asks for approval?}
     F5 -->|No| F6[Check permission mode]
-    F6 --> F7[Press Shift+Tab to check mode]
+    F6 --> F7["Press Shift+Tab to check mode"]
     F5 -->|Yes| F8[Working correctly!]
 
     style Start fill:#e1f0ff
