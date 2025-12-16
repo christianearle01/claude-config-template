@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 3.8.0
+**Version:** 3.9.0
 **Last Updated:** 2025-12-15
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -20,6 +20,7 @@ This guide explains how the Personalization Engine works, how to customize your 
 9. [Common Operations](#common-operations)
 10. [Troubleshooting](#troubleshooting)
 11. [Best Practices](#best-practices)
+12. [Project-Level Preferences](#project-level-preferences-v390) (v3.9.0)
 
 ---
 
@@ -556,6 +557,154 @@ Before adjusting thresholds, understand the current behavior:
 
 ---
 
+## Project-Level Preferences (v3.9.0)
+
+### When to Use Project Preferences
+
+Use project-level preferences when:
+- **Security-critical project** needs stricter thresholds
+- **Learning project** where you want more suggestions
+- **Legacy project** with different coding standards
+- **Team project** needs shared conventions
+
+### How It Works
+
+```
+Global Preferences (~/.claude/user-preferences.json)
+        ↓
+        + (merge)
+        ↓
+Project Preferences (.claude/project-preferences.json)
+        ↓
+        = Effective Preferences (what skills actually use)
+```
+
+**Merge rules:**
+1. Project values override global values
+2. Unspecified values inherit from global
+3. Deep merge for nested objects
+4. Arrays are replaced (not merged)
+
+### Creating Project Preferences
+
+```
+"Create project preferences for this project"
+"Set up project-level overrides"
+```
+
+This creates `.claude/project-preferences.json` with:
+- Sparse format (only overrides, inherits rest)
+- Reason fields for documentation
+- Project context section
+
+### Override Examples
+
+**Security-Critical Project:**
+```json
+{
+  "projectName": "banking-api",
+  "description": "Security-critical financial API",
+  "overrides": {
+    "confidenceThresholds": {
+      "autoApply": 98,
+      "_reason": "Be very conservative with auto-changes"
+    },
+    "profile": {
+      "proactivityLevel": "low",
+      "_reason": "Minimize surprises in production code"
+    },
+    "skillSpecificPreferences": {
+      "security-scanner": {
+        "showInfoLevel": true,
+        "_reason": "Show all security findings"
+      }
+    }
+  },
+  "projectContext": {
+    "priorities": {
+      "security": "critical",
+      "performance": "high"
+    }
+  }
+}
+```
+
+**Learning Project:**
+```json
+{
+  "projectName": "learn-react",
+  "description": "Personal learning project",
+  "overrides": {
+    "profile": {
+      "proactivityLevel": "high",
+      "_reason": "Want maximum suggestions while learning"
+    },
+    "confidenceThresholds": {
+      "hideBelow": 20,
+      "_reason": "Show more suggestions, even uncertain ones"
+    }
+  }
+}
+```
+
+### Viewing Project Settings
+
+```
+"Show project preferences"        # See project overrides
+"Show effective preferences"      # See merged view (what's actually used)
+"Why is this project different?"  # Explain differences from global
+```
+
+### Modifying Project Preferences
+
+```
+"Set project proactivity to high"
+"Set project autoApply threshold to 98%"
+"Enable strict security for this project"
+"Remove project override for proactivity"
+```
+
+### Team Sharing
+
+**Key difference from global preferences:**
+
+| Aspect | Global | Project |
+|--------|--------|---------|
+| Location | `~/.claude/` | `.claude/` in project |
+| Git | Not committed | **Can be committed** |
+| Scope | All your projects | This project only |
+| Sharing | Personal only | **Team shares** |
+
+**Recommendation:** Commit `.claude/project-preferences.json` to git so your team uses the same AI behavior.
+
+### Project Context
+
+The `projectContext` section helps skills make better suggestions:
+
+```json
+{
+  "projectContext": {
+    "techStack": {
+      "languages": ["typescript"],
+      "frameworks": ["react", "express"],
+      "testing": ["jest"]
+    },
+    "priorities": {
+      "security": "high",
+      "performance": "medium",
+      "documentation": "low"
+    }
+  }
+}
+```
+
+**How skills use this:**
+- **test-generator:** Uses `testing` to choose framework
+- **security-scanner:** Uses `security` priority for thoroughness
+- **standards-enforcer:** Uses `techStack` for language rules
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -570,6 +719,10 @@ Before adjusting thresholds, understand the current behavior:
 | `Don't show [item] again` | Permanent hide |
 | `Reset [item] preference` | Clear specific learning |
 | `Reset all preferences` | Full reset |
+| `Show project preferences` | Project overrides |
+| `Set project [setting] to [value]` | Create/update project override |
+| `Show effective preferences` | Merged view |
+| `Delete project preferences` | Remove all project overrides |
 
 ### Proactivity Quick Guide
 
@@ -599,5 +752,10 @@ The Personalization Engine transforms Claude Code from a generic tool into a per
 3. **Control** - Adjust thresholds and proactivity anytime
 4. **Privacy** - All data local, never synced
 5. **Transparency** - See what I've learned, reset anytime
+6. **Project flexibility** - Override global settings per project (v3.9.0)
+
+**Two levels of customization:**
+- **Global** (`~/.claude/user-preferences.json`) - Your personal defaults
+- **Project** (`.claude/project-preferences.json`) - Per-project overrides, shareable with team
 
 **Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time.
