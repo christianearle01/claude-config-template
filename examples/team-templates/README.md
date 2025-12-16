@@ -290,6 +290,62 @@ You'll be prompted to provide values for required parameters.
 
 ---
 
+## Template Gallery (v4.3.0)
+
+### Overview
+
+Ready-to-use templates for common development scenarios. Each gallery template demonstrates inheritance (v4.1.0) or parameters (v4.2.0).
+
+### Gallery Templates
+
+| Template | Extends | Parameters | Use Case |
+|----------|---------|------------|----------|
+| `gallery-frontend-react` | team-standard | No | React + TypeScript + Tailwind frontend |
+| `gallery-backend-api` | team-standard | No | Node.js/Python API development |
+| `gallery-data-science` | team-security | No | Python data science with Jupyter/ML |
+| `gallery-devops` | team-standard | No | Kubernetes, Terraform, CI/CD |
+| `gallery-fullstack` | None | Yes | Customizable full-stack development |
+
+### Inheritance Hierarchy
+
+```
+team-standard (base)
+├── team-frontend
+├── gallery-frontend-react
+├── gallery-backend-api
+└── gallery-devops
+
+team-security (base)
+└── gallery-data-science
+
+standalone (with parameters)
+├── team-parameterized
+└── gallery-fullstack
+```
+
+### Applying Gallery Templates
+
+**Inheritance-based templates:**
+```
+"Apply gallery-frontend-react template"
+"Apply gallery-backend-api template"
+"Apply gallery-data-science template"
+"Apply gallery-devops template"
+```
+
+**Parameterized templates:**
+```
+"Apply gallery-fullstack template"
+```
+You'll be prompted for: frontendFramework, backendFramework, database, testCoverage, useTypeScript
+
+**With inline parameters:**
+```
+"Apply gallery-fullstack with frontendFramework=react backendFramework=fastapi"
+```
+
+---
+
 ## Catalog Schema Reference
 
 ```json
@@ -336,4 +392,4 @@ You'll be prompted to provide values for required parameters.
 
 ---
 
-*v4.0.0 - Team Template Sharing*
+*v4.3.0 - Template Gallery*

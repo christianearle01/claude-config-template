@@ -65,12 +65,82 @@
       "hasParameters": true,
       "createdAt": "2025-12-16T00:00:00Z",
       "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "gallery-frontend-react",
+      "name": "Frontend React",
+      "description": "React + TypeScript + Tailwind frontend development (v4.3.0 Gallery)",
+      "category": "frontend",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./gallery-frontend-react.json",
+      "version": "1.0.0",
+      "author": "claude-config-template",
+      "tags": ["gallery", "frontend", "react", "typescript", "tailwind"],
+      "extends": "team-standard",
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "gallery-backend-api",
+      "name": "Backend API",
+      "description": "Node.js/Python API development with testing (v4.3.0 Gallery)",
+      "category": "backend",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./gallery-backend-api.json",
+      "version": "1.0.0",
+      "author": "claude-config-template",
+      "tags": ["gallery", "backend", "api", "nodejs", "python", "express", "fastapi"],
+      "extends": "team-standard",
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "gallery-data-science",
+      "name": "Data Science",
+      "description": "Python data science with Jupyter and ML frameworks (v4.3.0 Gallery)",
+      "category": "data-science",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./gallery-data-science.json",
+      "version": "1.0.0",
+      "author": "claude-config-template",
+      "tags": ["gallery", "data-science", "python", "jupyter", "ml", "pandas"],
+      "extends": "team-security",
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "gallery-devops",
+      "name": "DevOps Infrastructure",
+      "description": "Kubernetes, Terraform, and CI/CD workflows (v4.3.0 Gallery)",
+      "category": "devops",
+      "recommendedFor": ["advanced", "expert"],
+      "sourceUrl": "./gallery-devops.json",
+      "version": "1.0.0",
+      "author": "claude-config-template",
+      "tags": ["gallery", "devops", "kubernetes", "terraform", "docker", "cicd"],
+      "extends": "team-standard",
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "gallery-fullstack",
+      "name": "Full-Stack Parameterized",
+      "description": "Customizable full-stack development with parameters (v4.3.0 Gallery)",
+      "category": "fullstack",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./gallery-fullstack.json",
+      "version": "1.0.0",
+      "author": "claude-config-template",
+      "tags": ["gallery", "fullstack", "parameters", "customizable"],
+      "hasParameters": true,
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
     }
   ],
 
   "metadata": {
-    "totalTemplates": 4,
-    "categories": ["team", "security"],
+    "totalTemplates": 9,
+    "categories": ["team", "security", "frontend", "backend", "data-science", "devops", "fullstack"],
     "contact": {
       "github": "https://github.com/your-org"
     },

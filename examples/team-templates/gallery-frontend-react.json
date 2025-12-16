@@ -1,0 +1,72 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "claude-config-template",
+  "sourceVersion": "4.3.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "gallery-frontend-react",
+    "name": "Frontend React",
+    "description": "React + TypeScript + Tailwind frontend development",
+    "category": "frontend",
+    "recommendedFor": ["intermediate", "advanced"],
+    "version": "1.0.0",
+    "author": "claude-config-template",
+    "extends": "team-standard",
+    "_extendsHint": "Inherits all settings from team-standard, adds frontend-specific configuration"
+  },
+
+  "compatibility": {
+    "minVersion": "4.3.0",
+    "maxVersion": null
+  },
+
+  "contents": {
+    "profile": {
+      "primaryLanguages": ["typescript", "javascript"],
+      "primaryFrameworks": ["react", "nextjs", "tailwind", "testing-library"]
+    },
+
+    "learnedPreferences": {
+      "workflow": {
+        "component-driven": true,
+        "hot-reload": true
+      },
+      "quality": {
+        "accessibility-checks": true,
+        "responsive-design": true
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "component-finder": {
+        "frameworkHints": ["react", "jsx", "tsx"],
+        "componentPatterns": ["src/components/**", "app/**", "components/**"],
+        "stateManagement": ["useState", "useReducer", "zustand", "redux"]
+      },
+      "test-generator": {
+        "testFramework": "vitest",
+        "testingLibrary": "testing-library/react",
+        "coverageTarget": 80,
+        "snapshotTesting": false
+      },
+      "standards-enforcer": {
+        "eslintConfig": "recommended",
+        "prettierEnabled": true,
+        "importOrdering": true
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "gallery-frontend-react-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}
