@@ -200,6 +200,94 @@ balanced (built-in)
 - Document what the base template provides
 - Only override settings that need to differ
 
+### Parameters
+- Declare parameters with type, required flag, and description
+- Use `${varName}` syntax in template contents
+- Provide sensible defaults for optional parameters
+
+---
+
+## Template Parameters (v4.2.0)
+
+### Overview
+
+Templates can include parameters that are resolved when applied. This enables reusable templates that adapt to your specific values.
+
+### Declaring Parameters
+
+Add a `parameters` field to `templateMetadata`:
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-parameterized",
+    "parameters": {
+      "company": {
+        "type": "string",
+        "required": true,
+        "description": "Your company name"
+      },
+      "coverageTarget": {
+        "type": "number",
+        "default": 80,
+        "description": "Test coverage target"
+      }
+    }
+  }
+}
+```
+
+### Using Parameters in Contents
+
+Reference parameters with `${varName}` syntax:
+
+```json
+{
+  "contents": {
+    "learnedPreferences": {
+      "workflow": {
+        "preferred-commit-style": "feat(${company}): "
+      },
+      "quality": {
+        "test-coverage-target": "${coverageTarget}"
+      }
+    }
+  }
+}
+```
+
+### Parameter Types
+
+| Type | Example | Description |
+|------|---------|-------------|
+| `string` | `"Acme Corp"` | Text value |
+| `number` | `80` | Numeric value |
+| `boolean` | `true` | True/false |
+
+### Parameter Syntax
+
+| Syntax | Description |
+|--------|-------------|
+| `${varName}` | Simple variable reference |
+| `${varName:default}` | Variable with inline default |
+
+### Files in This Example
+
+| File | Parameters | Purpose |
+|------|------------|---------|
+| `team-standard.json` | None | Base team configuration |
+| `team-security.json` | None | Security-focused variant |
+| `team-frontend.json` | None | Frontend-specific (uses inheritance) |
+| `team-parameterized.json` | Yes | Customizable with company/team |
+
+### Applying Parameterized Templates
+
+```
+"Apply team-parameterized template"
+```
+
+You'll be prompted to provide values for required parameters.
+
 ---
 
 ## Catalog Schema Reference

@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 4.1.0
+**Version:** 4.2.0
 **Last Updated:** 2025-12-16
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -27,6 +27,7 @@ This guide explains how the Personalization Engine works, how to customize your 
 16. [Preference Templates](#preference-templates-v3140) (v3.14.0)
 17. [Remote Template Sources](#remote-template-sources-v400) (v4.0.0)
 18. [Template Inheritance](#template-inheritance-v410) (v4.1.0)
+19. [Template Parameters](#template-parameters-v420) (v4.2.0)
 
 ---
 
@@ -1354,6 +1355,120 @@ See `examples/team-templates/team-frontend.json` for a complete example.
 
 ---
 
+## Template Parameters (v4.2.0)
+
+### Overview
+
+Templates can include parameters that are resolved when applied. This enables reusable templates that adapt to your specific values like company name, team, or configuration settings.
+
+### Basic Usage
+
+Create a template with parameters:
+
+```json
+{
+  "templateMetadata": {
+    "parameters": {
+      "company": { "type": "string", "required": true },
+      "coverage": { "type": "number", "default": 80 }
+    }
+  },
+  "contents": {
+    "quality": {
+      "test-coverage-target": "${coverage}"
+    }
+  }
+}
+```
+
+### Parameter Declaration
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | string | `"string"`, `"number"`, or `"boolean"` |
+| `required` | boolean | If true, user must provide value |
+| `default` | any | Default value if not provided |
+| `description` | string | Description shown in prompts |
+
+### Parameter Syntax
+
+| Syntax | Description |
+|--------|-------------|
+| `${varName}` | Simple variable reference |
+| `${varName:default}` | Variable with inline default |
+
+### Parameter Types
+
+| Type | Example | Description |
+|------|---------|-------------|
+| `string` | `"Acme Corp"` | Text value |
+| `number` | `80` | Numeric value |
+| `boolean` | `true` | True/false |
+
+### Applying Parameterized Templates
+
+```
+"Apply team-parameterized template"
+```
+
+You'll be prompted for required parameters:
+
+```
+"Apply with company=Acme team=Frontend"
+```
+
+### Parameter Commands
+
+| Command | Description |
+|---------|-------------|
+| `Apply [template] with [param]=[value]` | Apply with parameter values |
+| `Show template parameters for [template]` | List parameters |
+| `Set parameter [name] to [value]` | Pre-set a parameter |
+
+### Integration with Inheritance
+
+Parameters work with template inheritance:
+- Child templates can add new parameters
+- Child can make optional parameters required
+- Child can change default values
+- Parameters merge across inheritance chain
+
+### Example
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-parameterized",
+    "parameters": {
+      "company": {
+        "type": "string",
+        "required": true,
+        "description": "Your company name"
+      },
+      "coverageTarget": {
+        "type": "number",
+        "default": 80,
+        "description": "Test coverage target %"
+      }
+    }
+  },
+  "contents": {
+    "learnedPreferences": {
+      "workflow": {
+        "preferred-commit-style": "feat(${company}): "
+      },
+      "quality": {
+        "test-coverage-target": "${coverageTarget}"
+      }
+    }
+  }
+}
+```
+
+See `examples/team-templates/team-parameterized.json` for a complete example.
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -1395,6 +1510,9 @@ See `examples/team-templates/team-frontend.json` for a complete example.
 | `Show template inheritance chain for [template]` | View inheritance chain |
 | `What does [template] inherit from?` | Show base template |
 | `Preview resolved [template]` | Show merged result |
+| `Show template parameters for [template]` | List template parameters |
+| `Apply [template] with [param]=[value]` | Apply with parameters |
+| `Set parameter [name] to [value]` | Pre-set a parameter |
 
 ### Proactivity Quick Guide
 

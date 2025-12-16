@@ -2983,6 +2983,249 @@ When applying a template with inheritance:
 
 ---
 
+## Template Parameters (v4.2.0)
+
+### Overview
+
+Templates can include parameters that are resolved when applied. Parameters enable reusable templates that adapt to specific values like company name, team, or configuration settings.
+
+### The `parameters` Field
+
+Add `parameters` to `templateMetadata` to declare template parameters:
+
+```json
+{
+  "templateMetadata": {
+    "id": "team-parameterized",
+    "name": "Team Parameterized",
+    "parameters": {
+      "company": {
+        "type": "string",
+        "required": true,
+        "description": "Your company name"
+      },
+      "team": {
+        "type": "string",
+        "required": true,
+        "description": "Your team name"
+      },
+      "coverageTarget": {
+        "type": "number",
+        "default": 80,
+        "description": "Test coverage target percentage"
+      },
+      "strictMode": {
+        "type": "boolean",
+        "default": false,
+        "description": "Enable strict quality checks"
+      }
+    }
+  }
+}
+```
+
+### Parameter Schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | string | `"string"`, `"number"`, or `"boolean"` |
+| `required` | boolean | If true, user must provide value |
+| `default` | any | Default value if not provided (required if not required) |
+| `description` | string | Human-readable description for prompts |
+
+### Variable Syntax
+
+Use `${varName}` syntax in template contents:
+
+```json
+{
+  "contents": {
+    "learnedPreferences": {
+      "workflow": {
+        "preferred-commit-style": "feat(${company}/${team}): "
+      },
+      "quality": {
+        "test-coverage-target": "${coverageTarget}"
+      }
+    }
+  }
+}
+```
+
+| Syntax | Description |
+|--------|-------------|
+| `${varName}` | Simple variable reference |
+| `${varName:defaultValue}` | Variable with inline default |
+
+### Parameter Resolution Algorithm
+
+```
+RESOLVE_PARAMETERS(template, providedValues = {}):
+  1. EXTRACT PARAMETERS
+     - parameters = template.templateMetadata.parameters || {}
+     - If no parameters → return template unchanged
+
+  2. VALIDATE REQUIRED PARAMETERS
+     - For each param where required = true:
+       - If param not in providedValues
+         → Prompt user: "Enter value for {param}: {description}"
+       - Store response in providedValues
+
+  3. APPLY DEFAULTS
+     - For each param with default value:
+       - If param not in providedValues
+         → providedValues[param] = default
+
+  4. TYPE COERCION
+     - For each param:
+       - If type = "number" → parseFloat(value)
+       - If type = "boolean" → value === "true" || value === true
+       - If type = "string" → String(value)
+
+  5. SUBSTITUTE IN CONTENTS
+     - contentsJson = JSON.stringify(template.contents)
+     - For each ${varName} or ${varName:default} in contentsJson:
+       - If varName in providedValues
+         → Replace with providedValues[varName]
+       - Else if inline default exists
+         → Replace with inline default
+       - Else
+         → ERROR: "Unresolved parameter: ${varName}"
+     - template.contents = JSON.parse(contentsJson)
+
+  6. RECORD RESOLUTION
+     - template._resolvedParameters = providedValues
+     - template._parameterSource = { paramName: "user" | "default" | "inline" }
+
+  7. RETURN RESOLVED TEMPLATE
+```
+
+### Parameter Triggers
+
+- "Apply [template] template" (with parameters)
+- "Show template parameters for [template]"
+- "Set parameter [name] to [value]"
+- "Apply template with company=[value] team=[value]"
+
+### Parameter Prompt Response
+
+```markdown
+## Applying Template: team-parameterized
+
+This template has the following parameters:
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| company | string | Yes | - | Your company name |
+| team | string | Yes | - | Your team name |
+| coverageTarget | number | No | 80 | Test coverage % |
+| strictMode | boolean | No | false | Strict quality checks |
+
+**Required parameters:** Please provide values for `company` and `team`.
+
+---
+
+**Actions:**
+- "Apply with company=Acme team=Frontend"
+- "Show parameter descriptions"
+- "Cancel"
+```
+
+### Parameter Resolution Response
+
+```markdown
+## Template Parameters Resolved: team-parameterized
+
+| Parameter | Value | Source |
+|-----------|-------|--------|
+| company | "Acme Corp" | user-provided |
+| team | "Frontend" | user-provided |
+| coverageTarget | 80 | default |
+| strictMode | false | default |
+
+### Preview (values substituted)
+
+```json
+{
+  "learnedPreferences": {
+    "workflow": {
+      "preferred-commit-style": "feat(Acme Corp/Frontend): "
+    },
+    "quality": {
+      "test-coverage-target": 80
+    }
+  }
+}
+```
+
+---
+
+**Actions:**
+- "Apply resolved template"
+- "Change parameter company to [value]"
+- "Cancel"
+```
+
+### Integration with Inheritance
+
+**Order of Operations:**
+1. Resolve inheritance chain (v4.1.0)
+2. Merge parameters from all levels (child overrides parent)
+3. Prompt for required parameters
+4. Apply defaults
+5. Substitute in final merged content
+
+**Parameter Inheritance:**
+```
+Base: { company: required, team: optional(default: "General") }
+Child: { team: required, project: optional }
+Merged: { company: required, team: required, project: optional }
+```
+
+**Rules:**
+- Child can make optional parameter required
+- Child can change default value
+- Child can add new parameters
+- Child cannot make required parameter optional
+
+### Error Handling
+
+**Missing Required Parameter:**
+```markdown
+## Error: Missing Required Parameter
+
+Template `team-parameterized` requires parameter `company` but no value was provided.
+
+**Fix:** Provide the parameter value:
+- "Apply template with company=YourCompany"
+```
+
+**Invalid Parameter Type:**
+```markdown
+## Error: Invalid Parameter Type
+
+Parameter `coverageTarget` expects type `number` but received `"high"`.
+
+**Expected:** A number (e.g., 80)
+**Received:** "high"
+
+**Fix:** Provide a numeric value:
+- "Set parameter coverageTarget to 90"
+```
+
+**Unresolved Parameter:**
+```markdown
+## Error: Unresolved Parameter
+
+Template contains `${unknownParam}` but no parameter `unknownParam` is declared.
+
+**Fix:** Either:
+1. Declare the parameter in templateMetadata.parameters
+2. Remove the `${unknownParam}` reference from contents
+```
+
+---
+
 ## Operation 11: Remote Template Sources (v4.0.0)
 
 ### Purpose
@@ -3344,6 +3587,16 @@ Skill: Shows preview, creates backup, applies template
 ---
 
 ## Version History
+
+- **v4.2.0** (2025-12-16): Template Parameters
+  - `parameters` field for declaring template variables
+  - `${varName}` syntax for variable substitution
+  - Parameter types: string, number, boolean
+  - Required vs optional with defaults
+  - Parameter resolution algorithm
+  - Integration with inheritance (merged parameters)
+  - Type coercion and validation
+  - Error handling for missing/invalid parameters
 
 - **v4.1.0** (2025-12-16): Template Inheritance
   - `extends` field for template composition
