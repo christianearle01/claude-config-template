@@ -1,7 +1,7 @@
 {
-  "version": "4.1.0",
+  "version": "4.2.0",
   "release_date": "2025-12-16",
-  "release_name": "Template Inheritance - Compositional Configuration",
+  "release_name": "Template Parameters - Dynamic Configuration",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -162,7 +162,11 @@
     "extends-field",
     "inheritance-chain",
     "deep-merge-algorithm",
-    "cycle-detection"
+    "cycle-detection",
+    "template-parameters",
+    "variable-substitution",
+    "parameter-types",
+    "parameter-resolution"
   ],
   "personas_supported": [
     "first-time",
@@ -272,7 +276,7 @@
       "security-scanner": "3.7.0",
       "test-generator": "3.7.0",
       "standards-enforcer": "3.7.0",
-      "personalization-engine": "4.1.0"
+      "personalization-engine": "4.2.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -280,7 +284,7 @@
       "npm-security": "2.7.0",
       "python-security": "2.7.0",
       "global-settings": "2.9.0",
-      "team-templates": "4.1.0"
+      "team-templates": "4.2.0"
     },
     "commands": {
       "build": "2.0.0",

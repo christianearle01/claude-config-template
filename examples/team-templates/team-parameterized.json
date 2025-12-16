@@ -1,0 +1,98 @@
+{
+  "$schema": "claude-preferences-export-v1",
+  "exportVersion": "1.0.0",
+  "exportedAt": "2025-12-16T00:00:00Z",
+  "exportedBy": "your-team",
+  "sourceVersion": "4.2.0",
+
+  "exportType": "template",
+
+  "templateMetadata": {
+    "id": "team-parameterized",
+    "name": "Team Parameterized",
+    "description": "Parameterized team template - customize with your company and team values",
+    "category": "team",
+    "recommendedFor": ["intermediate", "advanced"],
+    "version": "1.0.0",
+    "author": "your-team",
+    "parameters": {
+      "company": {
+        "type": "string",
+        "required": true,
+        "description": "Your company name (used in commit prefixes)"
+      },
+      "team": {
+        "type": "string",
+        "required": true,
+        "description": "Your team name"
+      },
+      "coverageTarget": {
+        "type": "number",
+        "default": 80,
+        "description": "Test coverage target percentage (0-100)"
+      },
+      "strictMode": {
+        "type": "boolean",
+        "default": false,
+        "description": "Enable strict quality checks"
+      }
+    },
+    "_parametersHint": "Parameters are resolved when the template is applied. Required parameters must be provided by the user."
+  },
+
+  "compatibility": {
+    "minVersion": "4.2.0",
+    "maxVersion": null
+  },
+
+  "contents": {
+    "profile": {
+      "experienceLevel": "intermediate",
+      "proactivityLevel": "medium"
+    },
+
+    "confidenceThresholds": {
+      "autoApply": 95,
+      "suggestProminently": 75,
+      "showAsOptional": 50,
+      "hideBelow": 30
+    },
+
+    "learnedPreferences": {
+      "workflow": {
+        "preferred-commit-style": "feat(${company}/${team}): ",
+        "preferred-branch-naming": "feature/${team}/"
+      },
+      "quality": {
+        "test-coverage-target": "${coverageTarget}",
+        "lint-on-commit": true
+      }
+    },
+
+    "skillSpecificPreferences": {
+      "commit-readiness-checker": {
+        "conventionalCommits": true,
+        "requireTests": "${strictMode}",
+        "requireChangelog": true
+      },
+      "test-generator": {
+        "coverageReminders": true,
+        "targetCoverage": "${coverageTarget}",
+        "generateMocks": true
+      },
+      "standards-enforcer": {
+        "strictMode": "${strictMode}",
+        "autoFormat": true
+      }
+    }
+  },
+
+  "metadata": {
+    "checksum": "template-team-parameterized-v1",
+    "exportOptions": {
+      "includeAnalytics": false,
+      "includeLearningHistory": false,
+      "includeProjectPatterns": false
+    }
+  }
+}

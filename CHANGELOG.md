@@ -9,6 +9,84 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.2.0] - 2025-12-16
+
+### Added - Template Parameters: Dynamic Configuration
+
+Enable templates to include parameters that are resolved when applied. This enables reusable templates that adapt to specific values like company name, team, or configuration settings.
+
+#### Core Feature: Parameters Declaration
+
+```json
+{
+  "templateMetadata": {
+    "parameters": {
+      "company": {
+        "type": "string",
+        "required": true,
+        "description": "Your company name"
+      },
+      "coverageTarget": {
+        "type": "number",
+        "default": 80,
+        "description": "Test coverage target"
+      }
+    }
+  }
+}
+```
+
+#### Variable Syntax
+
+| Syntax | Description |
+|--------|-------------|
+| `${varName}` | Simple variable reference |
+| `${varName:default}` | Variable with inline default |
+
+#### Parameter Types
+
+| Type | Example | Description |
+|------|---------|-------------|
+| `string` | `"Acme Corp"` | Text value |
+| `number` | `80` | Numeric value |
+| `boolean` | `true` | True/false |
+
+#### Resolution Algorithm
+
+1. Extract parameters from templateMetadata
+2. Prompt for required parameters
+3. Apply defaults for optional parameters
+4. Type coercion (string → number/boolean)
+5. Substitute `${varName}` in contents
+6. Return resolved template
+
+#### New Commands
+
+| Command | Description |
+|---------|-------------|
+| `Apply [template] with [param]=[value]` | Apply with parameters |
+| `Show template parameters for [template]` | List parameters |
+| `Set parameter [name] to [value]` | Pre-set a parameter |
+
+#### Integration with Inheritance
+
+- Parameters merge across inheritance chain
+- Child can add new parameters
+- Child can make optional parameters required
+- Child can change default values
+
+#### Files Changed
+
+| File | Change |
+|------|--------|
+| `.claude/skills/personalization-engine/SKILL.md` | Template Parameters section (+240 lines) |
+| `examples/team-templates/team-parameterized.json` | New parameterized example |
+| `examples/team-templates/catalog.json` | Added team-parameterized entry |
+| `examples/team-templates/README.md` | Parameters documentation |
+| `docs/02-optimization/personalization-guide.md` | Section 19: Template Parameters |
+
+---
+
 ## [4.1.0] - 2025-12-16
 
 ### Added - Template Inheritance: Compositional Configuration

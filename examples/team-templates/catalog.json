@@ -51,11 +51,25 @@
       "extends": "team-standard",
       "createdAt": "2025-12-16T00:00:00Z",
       "updatedAt": "2025-12-16T00:00:00Z"
+    },
+    {
+      "id": "team-parameterized",
+      "name": "Team Parameterized",
+      "description": "Parameterized template with customizable company/team values (v4.2.0)",
+      "category": "team",
+      "recommendedFor": ["intermediate", "advanced"],
+      "sourceUrl": "./team-parameterized.json",
+      "version": "1.0.0",
+      "author": "your-team",
+      "tags": ["team", "parameters", "customizable", "dynamic"],
+      "hasParameters": true,
+      "createdAt": "2025-12-16T00:00:00Z",
+      "updatedAt": "2025-12-16T00:00:00Z"
     }
   ],
 
   "metadata": {
-    "totalTemplates": 3,
+    "totalTemplates": 4,
     "categories": ["team", "security"],
     "contact": {
       "github": "https://github.com/your-org"
