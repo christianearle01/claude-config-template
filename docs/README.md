@@ -22,8 +22,8 @@
 
 **→ [01-Fundamentals](01-fundamentals/)**
 - [Skills Paradigm](01-fundamentals/SKILLS_PARADIGM.md) - Commands → Agents → Skills
-- Verification & Debugging (coming soon) - Ctrl+O workflow
-- Keyboard Shortcuts (coming soon) - Essential patterns
+- [Verification & Debugging](01-fundamentals/VERIFICATION_DEBUGGING.md) - Ctrl+O workflow
+- [Keyboard Shortcuts](01-fundamentals/KEYBOARD_SHORTCUTS.md) - Essential patterns
 
 **Time:** 30 minutes
 **Outcome:** Understand core concepts, essential tools, foundation for AI Augmented Coding
@@ -33,9 +33,9 @@
 ### ⚡ Optimizing Performance
 
 **→ [02-Optimization](02-optimization/)**
-- Prompt Caching Guide (coming soon) - Automatic 400-600 token savings
-- MCP Optimization (coming soon) - Selective loading
-- Environment Variables (coming soon) - Official configuration
+- [Prompt Caching Guide](02-optimization/PROMPT_CACHING_GUIDE.md) - Automatic 400-600 token savings
+- [MCP Optimization](02-optimization/MCP_OPTIMIZATION_GUIDE.md) - Selective loading
+- [Environment Variables](02-optimization/ENVIRONMENT_VARIABLES.md) - Official configuration
 
 **Time:** 25 minutes
 **Outcome:** Save 50-95% on tokens, faster responses, better efficiency
@@ -45,10 +45,10 @@
 ### 🚀 Advanced Techniques
 
 **→ [03-Advanced](03-advanced/)**
-- Advanced MCP Workflows (coming soon) - Multi-tool orchestration
-- Sub-agent Best Practices (coming soon) - Task-focused agents
-- Conversation Branching (coming soon) - Context management
-- Vision Optimization (coming soon) - Multimodal efficiency
+- [Advanced MCP Workflows](03-advanced/ADVANCED_MCP_WORKFLOWS.md) - Multi-tool orchestration
+- [Sub-agent Best Practices](03-advanced/SUBAGENT_BEST_PRACTICES.md) - Task-focused agents
+- [Conversation Branching](03-advanced/CONVERSATION_BRANCHING.md) - Context management
+- [Vision Optimization](03-advanced/VISION_OPTIMIZATION.md) - Multimodal efficiency
 
 **Time:** 40 minutes
 **Outcome:** Master autonomous workflows, Skills + MCPs, power user techniques
@@ -60,8 +60,8 @@
 **→ [04-Ecosystem](04-ecosystem/)**
 - [Directory Guide](04-ecosystem/DIRECTORY_GUIDE.md) - Project navigation
 - [Projected Impact](04-ecosystem/PROJECTED_IMPACT.md) - ROI estimates
-- Third-Party MCPs (coming soon) - Community tools
-- Plugins Guide (coming soon) - Workflow sharing
+- [Third-Party MCPs](04-ecosystem/THIRD_PARTY_MCPS.md) - Community tools
+- [Plugins Guide](04-ecosystem/PLUGINS_GUIDE.md) - Workflow sharing
 
 **Time:** 20 minutes
 **Outcome:** Navigate project, discover third-party tools, understand ROI
@@ -75,15 +75,15 @@
 
 ### Core Concepts
 - [Skills Paradigm](01-fundamentals/SKILLS_PARADIGM.md)
-- Verification & Debugging (coming soon)
+- [Verification & Debugging](01-fundamentals/VERIFICATION_DEBUGGING.md)
 
 ### Optimization
-- Prompt Caching (coming soon)
-- MCP Configuration (coming soon)
+- [Prompt Caching](02-optimization/PROMPT_CACHING_GUIDE.md)
+- [MCP Configuration](02-optimization/MCP_OPTIMIZATION_GUIDE.md)
 
 ### Advanced
-- MCP Workflows (coming soon)
-- Sub-agents (coming soon)
+- [MCP Workflows](03-advanced/ADVANCED_MCP_WORKFLOWS.md)
+- [Sub-agents](03-advanced/SUBAGENT_BEST_PRACTICES.md)
 
 ### Reference
 - [Directory Guide](04-ecosystem/DIRECTORY_GUIDE.md)

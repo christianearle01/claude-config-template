@@ -41,7 +41,7 @@ Perfect for: Setting up for real work
 💡 **AI-Assisted Alternative:** Instead of running commands manually, you can ask Claude Code in your terminal:
 > "Help me set up Claude Code configuration following the 5-minute success path"
 
-Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](UPDATE_GUIDE.md#-interactive-update-with-claude)
+Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](docs/04-ecosystem/UPDATE_GUIDE.md#-interactive-update-with-claude)
 
 **Or run the interactive wizard:**
 ```bash
@@ -170,7 +170,7 @@ _*Goals based on template design analysis, not measured user data_
 
 **Not sure where to start?** Take the 30-second visual quiz:
 
-**→ [Visual Quickstart Flowchart](docs/VISUAL_QUICKSTART.md)**
+**→ [Visual Quickstart Flowchart](docs/00-start-here/VISUAL_QUICKSTART.md)**
 
 ### Quick Profile Selector
 
@@ -278,7 +278,7 @@ Shift-Tab        # Cycle permission modes
 
 ### For Beginners
 - [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) - Ultra-fast demo
-- [Visual Quickstart](docs/VISUAL_QUICKSTART.md) - Decision flowchart
+- [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) - Decision flowchart
 - [Installation Guide](01_global-setup/must-have/01_installation.md) - Set up Claude Code
 - [Quick Start Guide](01_global-setup/must-have/02_quick-start.md) - Core concepts
 
@@ -420,7 +420,7 @@ git clone https://github.com/your-username/claude-config-template.git
 ### 3. Start Saving
 Begin using Claude Code with optimized configuration.
 
-**→ [Visual Quickstart](docs/VISUAL_QUICKSTART.md)** if you need help choosing!
+**→ [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md)** if you need help choosing!
 
 ---
 
@@ -442,4 +442,4 @@ Begin using Claude Code with optimized configuration.
 
 *Choose your path, optimize your workflow, start saving tokens today!*
 
-**→ [Get Started Now](docs/VISUAL_QUICKSTART.md)** 👈
+**→ [Get Started Now](docs/00-start-here/VISUAL_QUICKSTART.md)** 👈
