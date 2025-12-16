@@ -24,11 +24,11 @@ flowchart TD
     Q4 -->|Yes| TeamLead[👥 Team Lead<br/>90-120 minutes<br/>Deployment process]
     Q4 -->|No| Returning[🔄 Returning User<br/>10-20 minutes<br/>Quick refresher]
 
-    FirstTime --> Path1[Go to: personas/01_first-time-learner.md]
-    QuickSetup --> Path2[Go to: personas/02_quick-setup-user.md]
-    Advanced --> Path3[Go to: personas/03_advanced-optimizer.md]
-    TeamLead --> Path4[Go to: personas/04_team-lead.md]
-    Returning --> Path5[Go to: personas/05_returning-user.md]
+    FirstTime --> Path1["Go to: personas/01_first-time-learner.md"]
+    QuickSetup --> Path2["Go to: personas/02_quick-setup-user.md"]
+    Advanced --> Path3["Go to: personas/03_advanced-optimizer.md"]
+    TeamLead --> Path4["Go to: personas/04_team-lead.md"]
+    Returning --> Path5["Go to: personas/05_returning-user.md"]
 
     style Start fill:#e1f5ff
     style FirstTime fill:#d4edda
