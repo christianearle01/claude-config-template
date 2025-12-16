@@ -1158,7 +1158,438 @@ rm ~/.claude/user-preferences.json.backup
 
 ---
 
+## Operation 7: AI-Suggested Tuning (v3.10.0)
+
+**User Queries:**
+- "Suggest preference improvements"
+- "Analyze my preferences"
+- "Why am I seeing so many suggestions?"
+- "Optimize my settings"
+- "Tune my preferences"
+- "Show tuning suggestions"
+
+**Auto-trigger:** When `analysisIntervalDays` has passed since `lastAnalyzedAt` and `totalDecisionsTracked >= minimumSampleSize`
+
+### The Tuning Problem
+
+**Without AI-Suggested Tuning:**
+- Users set preferences once and forget
+- High rejection rate = wasted suggestions
+- High acceptance rate = could be more proactive
+- No feedback on whether settings are optimal
+- Preferences drift from actual behavior
+
+**With AI-Suggested Tuning:**
+- System analyzes decision patterns
+- Generates confidence-scored recommendations
+- User applies with one command or dismisses
+- Preferences evolve based on actual usage
+
+### Analysis Algorithm
+
+```
+1. CHECK PREREQUISITES:
+   - totalDecisionsTracked >= minimumSampleSize (default: 20)
+   - Time since lastAnalyzedAt > analysisIntervalDays (default: 7)
+   - If not met: Return "insufficient data" response
+
+2. ANALYZE THRESHOLDS:
+   For each confidence level (autoApply, suggestProminently, showAsOptional):
+
+   a. Calculate acceptance rate for suggestions at that level
+   b. If rejectionRate > 40%:
+      → SUGGEST raising threshold
+      → Rationale: "You rejected X% of suggestions at this level"
+   c. If acceptanceRate > 90%:
+      → SUGGEST lowering threshold (more automation)
+      → Rationale: "You accept X% at this level - could automate more"
+
+3. ANALYZE PROACTIVITY:
+   a. If overallAcceptanceRate < 60%:
+      → SUGGEST lowering proactivity
+      → Rationale: "Overall acceptance low - reduce suggestion frequency"
+   b. If overallAcceptanceRate > 85% AND skillUsageFrequency is high:
+      → SUGGEST raising proactivity
+      → Rationale: "High acceptance + active usage = can show more"
+
+4. ANALYZE CATEGORY VARIANCE:
+   For each category in categoryBreakdown:
+
+   a. Calculate category-specific acceptance rate
+   b. If variance > 25% from overall:
+      → SUGGEST category-specific settings
+      → Example: "coding-style: 92%, documentation: 41%"
+
+5. ANALYZE SKILLS:
+   For each skill in skillUsageFrequency:
+
+   a. If skill acceptance < 50% AND sampleSize > 10:
+      → SUGGEST disabling or threshold override
+      → Rationale: "This skill's suggestions aren't matching your preferences"
+   b. If skill acceptance > 95% AND sampleSize > 20:
+      → SUGGEST skill can be more proactive
+      → Rationale: "You accept almost all - could auto-apply"
+
+6. SCORE AND RANK SUGGESTIONS:
+   confidence = High (samples >= 50), Medium (>= 20), Low (< 20)
+   impact = deviation from optimal rate
+   priority = confidence × impact
+
+   Sort by priority, return top 3
+
+7. UPDATE tuningSuggestions:
+   - Set lastAnalyzedAt to now
+   - Store pendingSuggestions
+   - Preserve suggestionHistory
+```
+
+### Confidence Scoring
+
+| Sample Size | Confidence | Reliability |
+|-------------|------------|-------------|
+| ≥ 50 | High | Strong pattern, reliable suggestion |
+| 20-49 | Medium | Emerging pattern, moderate confidence |
+| < 20 | Low | Insufficient data, tentative suggestion |
+
+### Response Template: Tuning Suggestions Found
+
+```markdown
+## Preference Tuning Suggestions
+
+Based on analyzing **{totalDecisions}** decisions over **{learningPeriodDays}** days:
+
+---
+
+### Suggestion 1: Raise Auto-Apply Threshold (High Confidence)
+
+**Current:** autoApply = 95%
+**Suggested:** autoApply = 97%
+
+**Why:** You rejected 43% of auto-applied actions (86 of 200).
+Raising the threshold will reduce unwanted automatic changes.
+
+**Data:**
+| Metric | Value |
+|--------|-------|
+| Sample size | 200 decisions |
+| Rejection rate | 43% |
+| Threshold trigger | > 40% |
+| Trend | Stable |
+
+**Actions:**
+- Apply: "Set autoApply to 97"
+- Dismiss: "Dismiss suggestion 1"
+- Snooze: "Snooze suggestion 1 for 2 weeks"
+
+---
+
+### Suggestion 2: Lower Proactivity for Documentation (Medium Confidence)
+
+**Current:** proactivityLevel = medium (global)
+**Suggested:** Set documentation category to low proactivity
+
+**Why:** You accept 92% of coding suggestions but only 41% of documentation suggestions.
+The variance suggests category-specific settings would help.
+
+**Data:**
+| Category | Acceptance | Sample Size |
+|----------|------------|-------------|
+| coding-style | 92% | 95 |
+| documentation | 41% | 29 |
+| Variance | 51% | - |
+
+**Actions:**
+- Apply: "Set documentation proactivity to low"
+- Dismiss: "Dismiss suggestion 2"
+
+---
+
+### Suggestion 3: Consider Disabling test-generator (Low Confidence)
+
+**Current:** test-generator enabled
+**Suggested:** Disable or override thresholds
+
+**Why:** You've rejected 67% of test-generator suggestions (8 of 12).
+This skill may not match your testing workflow.
+
+**Data:**
+| Metric | Value |
+|--------|-------|
+| Sample size | 12 decisions |
+| Rejection rate | 67% |
+| Confidence | Low (needs more data) |
+
+**Actions:**
+- Apply: "Disable test-generator skill"
+- Override: "Set test-generator threshold to 90%"
+- Wait: "Keep collecting data"
+
+---
+
+### Summary
+
+| Category | Acceptance | Trend | Suggested Action |
+|----------|------------|-------|------------------|
+| coding-style | 92% | improving | None needed |
+| workflow | 78% | stable | None needed |
+| quality | 85% | stable | None needed |
+| documentation | 41% | declining | **Lower proactivity** |
+
+**Next analysis:** {nextAnalysisDate} (in 7 days)
+
+---
+
+**Quick Actions:**
+- "Apply suggestion 1" - Apply first suggestion
+- "Apply all suggestions" - Apply all (use with caution)
+- "Dismiss all" - Dismiss all suggestions
+- "Show suggestion details" - More information
+```
+
+### Response Template: No Suggestions Needed
+
+```markdown
+## Preference Analysis Complete
+
+**Status:** Your preferences are well-tuned!
+
+**Analysis Period:** {learningPeriodDays} days
+**Decisions Analyzed:** {totalDecisions}
+**Last Analysis:** {lastAnalyzedAt}
+
+---
+
+### Current Performance
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| Overall acceptance | 82% | Good |
+| Decisions tracked | 156 | Sufficient |
+| Learning period | 21 days | Mature |
+
+---
+
+### Category Breakdown
+
+| Category | Acceptance | Trend | Status |
+|----------|------------|-------|--------|
+| coding-style | 89% | stable | ✓ Well-tuned |
+| workflow | 78% | improving | ✓ Well-tuned |
+| quality | 85% | stable | ✓ Well-tuned |
+| documentation | 76% | stable | ✓ Well-tuned |
+
+---
+
+### Analysis Summary
+
+All metrics within optimal ranges:
+- ✓ No thresholds triggering high rejection
+- ✓ No categories with significant variance
+- ✓ No underperforming skills detected
+
+**Next analysis:** {nextAnalysisDate}
+
+---
+
+**Tip:** You can always manually adjust preferences:
+- "Set autoApply to 98%"
+- "Set proactivity to low"
+- "Show my current thresholds"
+```
+
+### Response Template: Insufficient Data
+
+```markdown
+## Preference Analysis: Insufficient Data
+
+**Status:** Not enough data for meaningful analysis
+
+**Current Data:**
+| Metric | Value | Required |
+|--------|-------|----------|
+| Decisions tracked | {totalDecisions} | ≥ 20 |
+| Days since last analysis | {daysSinceAnalysis} | ≥ 7 |
+
+---
+
+### What's Needed
+
+To generate tuning suggestions, we need:
+1. **Minimum 20 decisions** - Accept, reject, or skip suggestions from skills
+2. **At least 7 days** since last analysis
+
+**Current Progress:**
+```
+Decisions: [{totalDecisions}/20] ████████░░░░░░░░░░░░ {percentage}%
+```
+
+---
+
+### How to Build Data Faster
+
+Use skills that track decisions:
+- **security-scanner** - Accept/reject security findings
+- **standards-enforcer** - Accept/reject style suggestions
+- **test-generator** - Accept/reject test suggestions
+- **commit-readiness-checker** - Accept/reject pre-commit checks
+
+Each decision you make helps the system learn your preferences.
+
+**Check again:** "Analyze my preferences" (after more usage)
+```
+
+### Applying Suggestions
+
+**User says:** "Apply suggestion 1" or "Set autoApply to 97"
+
+**Steps:**
+1. Find pending suggestion by ID or parse direct command
+2. Update relevant preference in `user-preferences.json`
+3. Move suggestion from `pendingSuggestions` to `suggestionHistory`
+4. Set status to "applied"
+
+**Response:**
+
+```markdown
+✅ Applied Tuning Suggestion
+
+**Change:** autoApply threshold
+**Before:** 95%
+**After:** 97%
+
+**Rationale:** Reduces unwanted auto-applied actions based on your 43% rejection rate.
+
+**Effect:** Actions now need ≥97% confidence to auto-apply.
+
+**To revert:** "Set autoApply to 95%"
+
+---
+
+**Remaining suggestions:** 2
+- "Show tuning suggestions" to see others
+```
+
+### Dismissing Suggestions
+
+**User says:** "Dismiss suggestion 1" or "Dismiss all"
+
+**Steps:**
+1. Find suggestion(s) by ID
+2. Move to `suggestionHistory` with status "dismissed"
+3. Record `actionAt` timestamp
+
+**Response:**
+
+```markdown
+✅ Dismissed Suggestion
+
+**Suggestion:** Raise Auto-Apply Threshold
+**Status:** Dismissed (won't be suggested again)
+
+**Note:** If your rejection pattern continues, a similar suggestion may appear in future analyses with fresh data.
+
+**Remaining suggestions:** 2
+```
+
+### Snoozing Suggestions
+
+**User says:** "Snooze suggestion 1 for 2 weeks"
+
+**Steps:**
+1. Calculate `snoozeUntil` date
+2. Set status to "snoozed"
+3. Move to history with snooze timestamp
+
+**Response:**
+
+```markdown
+✅ Snoozed Suggestion
+
+**Suggestion:** Raise Auto-Apply Threshold
+**Status:** Snoozed until {snoozeUntilDate}
+
+I'll remind you about this suggestion after the snooze period if the pattern persists.
+
+**Remaining suggestions:** 2
+```
+
+### Viewing Suggestion History
+
+**User says:** "Show suggestion history" or "What suggestions have I applied?"
+
+**Response:**
+
+```markdown
+## Tuning Suggestion History
+
+### Applied
+
+| Date | Suggestion | Change |
+|------|------------|--------|
+| 2025-12-10 | Raise autoApply | 95% → 97% |
+| 2025-12-03 | Lower doc proactivity | medium → low |
+
+### Dismissed
+
+| Date | Suggestion | Reason |
+|------|------------|--------|
+| 2025-12-08 | Disable test-generator | Wanted to keep trying |
+
+### Snoozed
+
+| Suggestion | Snooze Until |
+|------------|--------------|
+| Category-specific thresholds | 2025-12-25 |
+
+---
+
+**Total:** 2 applied, 1 dismissed, 1 snoozed
+```
+
+### Configuration
+
+Users can adjust tuning behavior in `~/.claude/user-preferences.json`:
+
+```json
+{
+  "tuningSuggestions": {
+    "analysisIntervalDays": 7,
+    "minimumSampleSize": 20,
+    "thresholds": {
+      "triggerAnalysis": {
+        "rejectionRateHigh": 0.4,
+        "acceptanceRateLow": 0.6,
+        "acceptanceRateHigh": 0.9
+      }
+    },
+    "autoTuning": {
+      "enabled": false,
+      "requireConfirmation": true
+    }
+  }
+}
+```
+
+**Configurable options:**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| analysisIntervalDays | 7 | Days between auto-analyses |
+| minimumSampleSize | 20 | Min decisions before suggestions |
+| rejectionRateHigh | 0.4 | Suggest raising threshold if rejection > this |
+| acceptanceRateHigh | 0.9 | Suggest lowering threshold if acceptance > this |
+| autoTuning.enabled | false | Auto-apply high-confidence suggestions |
+
+---
+
 ## Version History
+
+- **v3.10.0** (2025-12-16): AI-Suggested Tuning
+  - Operation 7: Intelligent preference tuning
+  - Confidence-scored recommendations
+  - Apply/dismiss/snooze workflow
+  - Tuning suggestions tracking in preferences
+  - Analysis algorithm for thresholds, proactivity, skills
 
 - **v3.9.0** (2025-12-15): Project-level preferences
   - Operation 6: Project preferences management

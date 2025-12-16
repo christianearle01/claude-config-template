@@ -705,6 +705,122 @@ The `projectContext` section helps skills make better suggestions:
 
 ---
 
+## AI-Suggested Tuning (v3.10.0)
+
+### How It Works
+
+The personalization engine analyzes your decision patterns and suggests preference optimizations:
+
+1. **Threshold Tuning** - If you reject many suggestions at a confidence level, suggests raising the threshold
+2. **Proactivity Adjustment** - If acceptance varies by category, suggests category-specific settings
+3. **Skill Optimization** - Identifies skills that might need different settings or disabling
+
+### Triggering Analysis
+
+**Manual:**
+```
+"Suggest preference improvements"
+"Analyze my preferences"
+"Optimize my settings"
+"Tune my preferences"
+```
+
+**Automatic:** Every 7 days (configurable via `analysisIntervalDays`)
+
+### Understanding Suggestions
+
+Each suggestion includes:
+- **Confidence Level:** High (50+ samples), Medium (20-50), Low (<20)
+- **Rationale:** Why this change is recommended
+- **Data Points:** The numbers behind the suggestion
+- **Actions:** Apply, Dismiss, or Snooze
+
+### Example Suggestion
+
+```
+Suggestion 1: Raise Auto-Apply Threshold (High Confidence)
+
+Current: autoApply = 95%
+Suggested: autoApply = 97%
+
+Why: You rejected 43% of auto-applied actions (86 of 200).
+Raising the threshold will reduce unwanted automatic changes.
+
+Data:
+- Sample size: 200 decisions (high confidence)
+- Rejection rate: 43% (threshold: 40%)
+- Trend: Stable
+
+Apply: "Set autoApply to 97"
+Dismiss: "Dismiss suggestion 1"
+Snooze: "Snooze suggestion 1 for 2 weeks"
+```
+
+### Applying Suggestions
+
+**One-command application:**
+- `Apply suggestion 1` - Apply specific suggestion
+- `Set autoApply to 97` - Direct setting change
+- `Apply all suggestions` - Apply all (use with caution)
+
+**Dismissing:**
+- `Dismiss suggestion 1` - Won't be shown again
+- `Dismiss all` - Dismiss all current suggestions
+
+**Snoozing:**
+- `Snooze suggestion 1 for 2 weeks` - Remind later
+
+### Configuration
+
+Adjust tuning behavior in `~/.claude/user-preferences.json`:
+
+```json
+{
+  "tuningSuggestions": {
+    "analysisIntervalDays": 7,
+    "minimumSampleSize": 20,
+    "thresholds": {
+      "triggerAnalysis": {
+        "rejectionRateHigh": 0.4,
+        "acceptanceRateHigh": 0.9
+      }
+    },
+    "autoTuning": {
+      "enabled": false,
+      "requireConfirmation": true
+    }
+  }
+}
+```
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `analysisIntervalDays` | 7 | Days between auto-analyses |
+| `minimumSampleSize` | 20 | Min decisions before suggestions |
+| `rejectionRateHigh` | 0.4 | Suggest raising threshold if rejection > this |
+| `acceptanceRateHigh` | 0.9 | Suggest lowering threshold if acceptance > this |
+| `autoTuning.enabled` | false | Auto-apply high-confidence suggestions |
+
+### The Feedback Loop
+
+```
+v3.8.0: SET preferences manually
+       ↓
+v3.9.0: OVERRIDE per project
+       ↓
+v3.10.0: OPTIMIZE based on patterns ← You are here
+       ↓
+     Self-improving preferences
+```
+
+AI-Suggested Tuning closes the feedback loop. Instead of preferences being static, they evolve based on your actual usage patterns. Over time, the system learns what works for you and suggests adjustments to improve the experience.
+
+### Privacy
+
+All analysis happens locally. Your decision history never leaves your machine. The tuning algorithm runs entirely on your data without any cloud processing.
+
+---
+
 ## Quick Reference
 
 ### Commands Cheat Sheet
@@ -723,6 +839,11 @@ The `projectContext` section helps skills make better suggestions:
 | `Set project [setting] to [value]` | Create/update project override |
 | `Show effective preferences` | Merged view |
 | `Delete project preferences` | Remove all project overrides |
+| `Suggest preference improvements` | Get AI-suggested tuning |
+| `Apply suggestion [n]` | Apply a tuning suggestion |
+| `Dismiss suggestion [n]` | Dismiss a suggestion |
+| `Snooze suggestion [n] for [time]` | Remind later |
+| `Show suggestion history` | View applied/dismissed suggestions |
 
 ### Proactivity Quick Guide
 
@@ -753,9 +874,17 @@ The Personalization Engine transforms Claude Code from a generic tool into a per
 4. **Privacy** - All data local, never synced
 5. **Transparency** - See what I've learned, reset anytime
 6. **Project flexibility** - Override global settings per project (v3.9.0)
+7. **AI-Suggested Tuning** - System suggests preference improvements based on patterns (v3.10.0)
 
-**Two levels of customization:**
+**Three levels of customization:**
 - **Global** (`~/.claude/user-preferences.json`) - Your personal defaults
 - **Project** (`.claude/project-preferences.json`) - Per-project overrides, shareable with team
+- **AI-Tuned** - Intelligent suggestions that evolve based on your actual usage
 
-**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time.
+**The personalization journey:**
+```
+SET → OVERRIDE → OPTIMIZE
+(Manual) (Per-project) (AI-suggested)
+```
+
+**Start simple:** Use skills normally, accept/reject suggestions, and the system will adapt to you over time. After 20+ decisions, AI-Suggested Tuning will begin offering optimization recommendations.
