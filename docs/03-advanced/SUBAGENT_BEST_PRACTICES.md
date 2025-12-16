@@ -556,4 +556,4 @@ A: Use Ctrl+O to see the prompt sent to the sub-agent. Refine the agent's instru
 **See also:**
 - [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - When to use Skills vs. Agents
 - [Advanced MCP Workflows](ADVANCED_MCP_WORKFLOWS.md) - Orchestrating sub-agents with MCPs
-- [Custom Agents Guide](../../01_global-setup/nice-to-have/04_custom-agents.md) - How to create agents
+- [Custom Agents Guide](../../01_global-setup/03_nice-to-have/04_custom-agents.md) - How to create agents

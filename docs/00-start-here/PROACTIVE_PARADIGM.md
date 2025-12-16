@@ -539,7 +539,7 @@ Common Issues:
   - "Connection failed" → Restart Claude Code
 
 Detailed guide:
-  docs/01_global-setup/nice-to-have/04_sequential-thinking-mcp.md
+  docs/01_global-setup/03_nice-to-have/04_sequential-thinking-mcp.md
 
 Should I walk you through troubleshooting step-by-step?
 ```

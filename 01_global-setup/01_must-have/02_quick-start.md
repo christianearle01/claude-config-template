@@ -792,8 +792,8 @@ The `.claude/` directory and `CLAUDE.md` are already configured.
 
 Now that you're set up:
 
-1. **Learn Optimization Techniques**: Read [02_optimization-guide.md](../../../02_project-onboarding/good-to-have/02_optimization-guide.md)
-2. **Master Prompt Writing**: Read [01_prompt-optimization.md](../../../02_project-onboarding/good-to-have/01_prompt-optimization.md)
+1. **Learn Optimization Techniques**: Read [02_optimization-guide.md](../../../02_project-onboarding/02_good-to-have/02_optimization-guide.md)
+2. **Master Prompt Writing**: Read [01_prompt-optimization.md](../../../02_project-onboarding/02_good-to-have/01_prompt-optimization.md)
 3. **Explore Custom Agents**: Check `.claude/agents/` directory
 4. **Create Slash Commands**: Add `.md` files to `.claude/commands/`
 
@@ -1006,7 +1006,7 @@ Try this workflow to see the benefits:
 You should see significant token savings using this pattern!
 
 **💡 Want to learn more about model switching?**
-See [01_model-switching.md](../good-to-have/01_model-switching.md) for:
+See [01_model-switching.md](../02_good-to-have/01_model-switching.md) for:
 - When to switch models (and when not to)
 - Token costs and prompt caching explained
 - How to avoid wasting money on context transfers
@@ -1016,6 +1016,6 @@ See [01_model-switching.md](../good-to-have/01_model-switching.md) for:
 
 **Questions?** Check the comprehensive guides in `docs/` directory.
 
-**Need help?** Run `/doctor` for diagnostics or review [03_team-onboarding.md](../../../02_project-onboarding/good-to-have/03_team-onboarding.md).
+**Need help?** Run `/doctor` for diagnostics or review [03_team-onboarding.md](../../../02_project-onboarding/02_good-to-have/03_team-onboarding.md).
 
 Happy coding! 🎉

@@ -611,7 +611,7 @@ If needed, update .gitignore before committing.
 - **version-management skill** - Check version consistency
 - **documentation-sync-checker skill** - Validate docs
 - **workflow-analyzer skill** - Analyze commit patterns
-- **Git Approval Workflow** - 01_global-setup/good-to-have/04_git-approval-workflow.md
+- **Git Approval Workflow** - 01_global-setup/02_good-to-have/04_git-approval-workflow.md
 - **CLAUDE.md** - Git commit workflow documentation
 
 ---

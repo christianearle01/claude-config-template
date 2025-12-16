@@ -516,7 +516,7 @@ None. Remote sources are optional - existing functionality unchanged.
 - 4x VISUAL_QUICKSTART paths corrected (`docs/` → `docs/00-start-here/`)
 - UPDATE_GUIDE path corrected (`UPDATE_GUIDE.md` → `docs/04-ecosystem/UPDATE_GUIDE.md`)
 
-**01_global-setup/nice-to-have/03_agent-coordination.md**:
+**01_global-setup/03_nice-to-have/03_agent-coordination.md**:
 - SKILLS_PARADIGM path corrected (`docs/` → `docs/00-start-here/`)
 
 #### New Files
@@ -2028,8 +2028,8 @@ Quality improves with better context:
 - Updated CLAUDE.md with all 7 new skills + Learning Stages
 - Updated SKILLS_PARADIGM.md with workflow + setup skill examples
 - Updated QUICK_REFERENCE.md with Learning Stages reference
-- Updated 01_global-setup/must-have/01_installation.md - References global-setup-assistant skill
-- Updated 02_project-onboarding/must-have/01_initial-setup.md - References project-onboarding-assistant skill
+- Updated 01_global-setup/01_must-have/01_installation.md - References global-setup-assistant skill
+- Updated 02_project-onboarding/01_must-have/01_initial-setup.md - References project-onboarding-assistant skill
 
 ### Files Changed
 
@@ -2057,9 +2057,9 @@ Quality improves with better context:
 5. `.claude/SETUP_CONTEXT.md` - Version sync
 6. `docs/00-start-here/SKILLS_PARADIGM.md` - Added workflow + setup skills examples
 7. `docs/00-start-here/QUICK_REFERENCE.md` - Added Learning Stages reference
-8. `01_global-setup/must-have/01_installation.md` - References global-setup-assistant skill
-9. `02_project-onboarding/must-have/01_onboarding-guide.md` - References project-onboarding-assistant + workflow-analyzer
-10. `03_pre-project-planning/must-have/01_planning-guide.md` - References pre-project-planning-assistant skill (if updated)
+8. `01_global-setup/01_must-have/01_installation.md` - References global-setup-assistant skill
+9. `02_project-onboarding/01_must-have/01_onboarding-guide.md` - References project-onboarding-assistant + workflow-analyzer
+10. `03_pre-project-planning/01_must-have/01_planning-guide.md` - References pre-project-planning-assistant skill (if updated)
 
 ---
 
@@ -2172,7 +2172,7 @@ This architecture separates "knowing what" from "doing how" - skills know contex
   - `remove` - Delete from registry
   - `show` - Display project details
 - **Template file**: templates/projects-registry.json.template (example for users)
-- **User guide**: 01_global-setup/nice-to-have/05_projects-registry.md
+- **User guide**: 01_global-setup/03_nice-to-have/05_projects-registry.md
   - When to use (5+ projects)
   - Token savings analysis (450 tokens per multi-project session)
   - CLI commands reference
@@ -2336,7 +2336,7 @@ This architecture separates "knowing what" from "doing how" - skills know contex
 **Post-v3.0.0 improvements** focusing on workflow quality, MCP usage guidelines, root file consolidation, and progress bar customization.
 
 #### MCP Usage Guidelines & Sequential-Thinking Documentation
-- **Sequential-Thinking MCP User Guide** (01_global-setup/nice-to-have/04_sequential-thinking-mcp.md, 244 lines)
+- **Sequential-Thinking MCP User Guide** (01_global-setup/03_nice-to-have/04_sequential-thinking-mcp.md, 244 lines)
   - Token efficiency paradox explained (upfront cost → overall savings)
   - When to use vs when NOT to use
   - Real-world examples (REST vs GraphQL decision)
@@ -2403,8 +2403,8 @@ This architecture separates "knowing what" from "doing how" - skills know contex
 - **Minimal Protection**: Only prevent destructive operations
 
 #### Documentation
-- **Git Approval Workflow Guide** (01_global-setup/good-to-have/04_git-approval-workflow.md)
-- **Git Push Workaround** (01_global-setup/good-to-have/05_git-push-workaround.md)
+- **Git Approval Workflow Guide** (01_global-setup/02_good-to-have/04_git-approval-workflow.md)
+- **Git Push Workaround** (01_global-setup/02_good-to-have/05_git-push-workaround.md)
 - **Updated CLAUDE.md**: Section 18 with token-optimized commit workflow
 
 ### Changed
@@ -2817,7 +2817,7 @@ When users invoke `@prompt-polisher`:
   - .claude/agents/project-planner.md (~450 lines)
   - templates/project-plan-template.md (~480 lines)
   - 03_pre-project-planning/README.md (~200 lines)
-  - 03_pre-project-planning/must-have/01_planning-guide.md (~500 lines)
+  - 03_pre-project-planning/01_must-have/01_planning-guide.md (~500 lines)
   - Plan file: cozy-shimmying-dusk.md (~800 lines comprehensive analysis)
 - **Files modified:** 4
   - START_HERE.md (~70 lines added)

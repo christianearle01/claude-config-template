@@ -632,7 +632,7 @@ After completing this onboarding:
 
 **Template Issues:** Check [README.md](../../../README.md)
 **Claude Code Docs:** https://code.claude.com/docs
-**MCP Setup:** [02_mcp-setup.md](../../../01_global-setup/good-to-have/02_mcp-setup.md)
+**MCP Setup:** [02_mcp-setup.md](../../../01_global-setup/02_good-to-have/02_mcp-setup.md)
 
 ---
 

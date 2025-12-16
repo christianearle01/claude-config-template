@@ -422,7 +422,7 @@ Some developers prefer "learn by doing" - that's fine!
 - **[Project Planner Agent Documentation](../../.claude/agents/README.md#-project-planner)** - Full agent capabilities
 - **[Example Project Plan](../../templates/project-plan-template.md)** - See complete output example
 - **[CLAUDE.md Template](../../templates/CLAUDE.md.template)** - Template you'll customize after planning
-- **[Project Onboarding](../../02_project-onboarding/must-have/01_onboarding-guide.md)** - What to do AFTER planning
+- **[Project Onboarding](../../02_project-onboarding/01_must-have/01_onboarding-guide.md)** - What to do AFTER planning
 
 ---
 

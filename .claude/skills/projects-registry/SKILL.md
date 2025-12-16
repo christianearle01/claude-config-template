@@ -347,7 +347,7 @@ This file tracks all your Claude Code projects centrally.
 To manage it:
 - Register project: ./scripts/register-project.sh
 - List projects: ./scripts/claude-projects.sh list
-- CLI reference: 01_global-setup/nice-to-have/05_projects-registry.md
+- CLI reference: 01_global-setup/03_nice-to-have/05_projects-registry.md
 ```
 
 ---
@@ -420,7 +420,7 @@ The skill recommends these commands when appropriate:
 ```
 
 **Full CLI documentation:**
-`01_global-setup/nice-to-have/05_projects-registry.md`
+`01_global-setup/03_nice-to-have/05_projects-registry.md`
 
 ---
 
@@ -557,7 +557,7 @@ Or use the CLI:
 
 ## See Also
 
-- **CLI Documentation:** `01_global-setup/nice-to-have/05_projects-registry.md`
+- **CLI Documentation:** `01_global-setup/03_nice-to-have/05_projects-registry.md`
 - **Registry Operations Guide:** `registry-operations.md` (this directory)
 - **Sample Queries:** `examples/sample-queries.md` (this directory)
 - **Schema Example:** `examples/sample-registry.json` (this directory)

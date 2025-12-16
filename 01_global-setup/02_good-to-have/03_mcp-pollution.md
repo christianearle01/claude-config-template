@@ -362,7 +362,7 @@ cat ~/.claude.json | grep -i "api_key"
 ## Additional Resources
 
 - **Full MCP Setup:** [02_mcp-setup.md](02_mcp-setup.md)
-- **Security Guide:** [01_security-guide.md](../nice-to-have/01_security-guide.md)
+- **Security Guide:** [01_security-guide.md](../03_nice-to-have/01_security-guide.md)
 - **Quick Start:** [START_HERE.md](../../../docs/00-start-here/START_HERE.md)
 - **Template README:** [README.md](../../../README.md)
 
@@ -378,7 +378,7 @@ cat ~/.claude.json | grep -i "api_key"
 
 **Still have pollution issues?**
 1. Read the full [02_mcp-setup.md](02_mcp-setup.md)
-2. Check [01_security-guide.md](../nice-to-have/01_security-guide.md) for best practices
+2. Check [01_security-guide.md](../03_nice-to-have/01_security-guide.md) for best practices
 3. Review your configuration:
    ```bash
    # Global config

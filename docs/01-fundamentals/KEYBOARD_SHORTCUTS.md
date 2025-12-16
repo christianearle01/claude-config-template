@@ -136,7 +136,7 @@ You: # Remember: We use JWT for auth, not sessions. Token expiry is 7 days.
 2. Write prompt template
 3. Use with `/command-name`
 
-**See:** [Slash Commands Guide](../../01_global-setup/nice-to-have/03_slash-commands.md)
+**See:** [Slash Commands Guide](../../01_global-setup/03_nice-to-have/03_slash-commands.md)
 
 ---
 
@@ -210,7 +210,7 @@ Refactor @components/Button.tsx following @STANDARDS.md
 - Trusted simple tasks → Accept Edits
 - Learning/exploring → Ask Mode
 
-**See:** [Permission Modes Guide](../../01_global-setup/must-have/02_permissions.md)
+**See:** [Permission Modes Guide](../../01_global-setup/01_must-have/02_permissions.md)
 
 ---
 

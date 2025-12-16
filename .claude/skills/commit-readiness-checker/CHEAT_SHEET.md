@@ -413,7 +413,7 @@ PATCH (0.0.X) - Bug fixes
 ## Additional Resources
 
 - **Skill Documentation:** `.claude/skills/commit-readiness-checker/SKILL.md`
-- **Git Workflow Guide:** `01_global-setup/good-to-have/04_git-approval-workflow.md`
+- **Git Workflow Guide:** `01_global-setup/02_good-to-have/04_git-approval-workflow.md`
 - **CLAUDE.md:** Git commit workflow section
 - **Version Sync Script:** `./scripts/sync-version.sh`
 

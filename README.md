@@ -209,7 +209,7 @@ Plan with Sonnet (smarter), implement with Haiku (92% cheaper).
 
 **Projected savings:** 92% on implementation costs
 
-**→ [Model Switching Guide](01_global-setup/good-to-have/01_model-switching.md)**
+**→ [Model Switching Guide](01_global-setup/02_good-to-have/01_model-switching.md)**
 
 ### Interactive Wizards
 Guided setup with validation, knowledge checks, and progress tracking.
@@ -231,7 +231,7 @@ Guided setup with validation, knowledge checks, and progress tracking.
 - Response scanning
 - Pre-tool validation
 
-**→ [Security Guide](01_global-setup/nice-to-have/01_security-guide.md)**
+**→ [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md)**
 
 ### Package Security (Optional)
 Protect your projects from npm/Python malware attacks.
@@ -243,9 +243,9 @@ Protect your projects from npm/Python malware attacks.
 - Python security: Prefer wheels, pip-audit integration, Poetry support
 - 10 automation scripts for weekly security checks
 
-**→ [Package Security Guide](01_global-setup/nice-to-have/02_package-security-principles.md)**
-**→ [NPM Checklist](01_global-setup/nice-to-have/03_npm-security-checklist.md)**
-**→ [Python Checklist](01_global-setup/nice-to-have/03_python-security-checklist.md)**
+**→ [Package Security Guide](01_global-setup/03_nice-to-have/02_package-security-principles.md)**
+**→ [NPM Checklist](01_global-setup/03_nice-to-have/03_npm-security-checklist.md)**
+**→ [Python Checklist](01_global-setup/03_nice-to-have/03_python-security-checklist.md)**
 
 ---
 
@@ -279,8 +279,8 @@ Shift-Tab        # Cycle permission modes
 ### For Beginners
 - [5-Minute Success](docs/00-start-here/5_MINUTE_SUCCESS.md) - Ultra-fast demo
 - [Visual Quickstart](docs/00-start-here/VISUAL_QUICKSTART.md) - Decision flowchart
-- [Installation Guide](01_global-setup/must-have/01_installation.md) - Set up Claude Code
-- [Quick Start Guide](01_global-setup/must-have/02_quick-start.md) - Core concepts
+- [Installation Guide](01_global-setup/01_must-have/01_installation.md) - Set up Claude Code
+- [Quick Start Guide](01_global-setup/01_must-have/02_quick-start.md) - Core concepts
 
 ### For Everyone
 - [Quick Reference](docs/00-start-here/QUICK_REFERENCE.md) - Find any feature (Cmd+F search)
@@ -289,14 +289,14 @@ Shift-Tab        # Cycle permission modes
 - [Directory Guide](docs/04-ecosystem/DIRECTORY_GUIDE.md) - What's where
 
 ### For Advanced Users
-- [Model Switching](01_global-setup/good-to-have/01_model-switching.md) - Projected 92% cost savings
-- [Prompt Optimization](02_project-onboarding/good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
-- [Security Guide](01_global-setup/nice-to-have/01_security-guide.md) - Hooks & validation
-- [Agent Coordination](01_global-setup/nice-to-have/03_agent-coordination.md) - Custom workflows
+- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 92% cost savings
+- [Prompt Optimization](02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
+- [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md) - Hooks & validation
+- [Agent Coordination](01_global-setup/03_nice-to-have/03_agent-coordination.md) - Custom workflows
 
 ### For Teams
-- [Team Onboarding](02_project-onboarding/good-to-have/03_team-onboarding.md) - Deployment strategy
-- [Project Onboarding](02_project-onboarding/must-have/01_onboarding-guide.md) - Per-project setup
+- [Team Onboarding](02_project-onboarding/02_good-to-have/03_team-onboarding.md) - Deployment strategy
+- [Project Onboarding](02_project-onboarding/01_must-have/01_onboarding-guide.md) - Per-project setup
 
 ---
 

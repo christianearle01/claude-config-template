@@ -65,7 +65,7 @@ ps aux | grep [process-name]
 kill [PID]
 ```
 
-**Docs:** [Quick Start Guide § Background Tasks](01_global-setup/must-have/02_quick-start.md#background-tasks)
+**Docs:** [Quick Start Guide § Background Tasks](01_global-setup/01_must-have/02_quick-start.md#background-tasks)
 
 **Keywords:** ctrl-b, background, long-running, parallel, multitask
 
@@ -125,7 +125,7 @@ Press Esc twice
 
 **Available in:** Claude Code v2.0+
 
-**Docs:** [Quick Start Guide § Checkpointing](01_global-setup/must-have/02_quick-start.md#part-45-checkpointing--rewind-system)
+**Docs:** [Quick Start Guide § Checkpointing](01_global-setup/01_must-have/02_quick-start.md#part-45-checkpointing--rewind-system)
 
 **Keywords:** undo, revert, rollback, esc esc, safety, experiments
 
@@ -162,7 +162,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 # Edit the file - add your project details
 ```
 
-**Docs:** [Project Onboarding Guide](02_project-onboarding/must-have/01_onboarding-guide.md)
+**Docs:** [Project Onboarding Guide](02_project-onboarding/01_must-have/01_onboarding-guide.md)
 
 **Keywords:** project memory, context, documentation, business purpose, onboarding
 
@@ -172,7 +172,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 **What:** Reusable instruction manuals available across all claude.ai projects, Claude Code, and Claude API
 
-**Location:** `04_browser-workflow/must-have/10_claude-skills-complete-guide.md`
+**Location:** `04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md`
 
 **Purpose:** Package workflows into portable skills that reduce repetitive context setting
 
@@ -212,7 +212,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 - Without skills: ~3,000 tokens per email (context setting)
 - With skills: ~1,200 tokens (60% savings)
 
-**Docs:** [Claude Skills Complete Guide](../04_browser-workflow/must-have/10_claude-skills-complete-guide.md)
+**Docs:** [Claude Skills Complete Guide](../04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md)
 
 **Related:**
 - [Local Claude Code Skills](SKILLS_PARADIGM.md) - Project-specific skills for CLI
@@ -275,7 +275,7 @@ Run the deployment process:
 4. Show deployment URL
 ```
 
-**Docs:** [Agent Setup Guide § Slash Commands](02_project-onboarding/must-have/03_claude-agent-setup.md)
+**Docs:** [Agent Setup Guide § Slash Commands](02_project-onboarding/01_must-have/03_claude-agent-setup.md)
 
 **Keywords:** custom commands, slash, workflow, automation
 
@@ -320,8 +320,8 @@ Example savings: $28.50 (95%)
 _Note: This is a new project. Help us validate these projections with your real usage!_
 
 **Docs:**
-- [Model Switching Guide](01_global-setup/good-to-have/01_model-switching.md)
-- [Prompt Optimization Guide](02_project-onboarding/good-to-have/01_prompt-optimization.md)
+- [Model Switching Guide](01_global-setup/02_good-to-have/01_model-switching.md)
+- [Prompt Optimization Guide](02_project-onboarding/02_good-to-have/01_prompt-optimization.md)
 
 **Keywords:** money, savings, cheap, expensive, tokens, cost, budget
 
@@ -378,7 +378,7 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 3. Invoke with `@agent-name`
 
 **Docs:**
-- [Agent Coordination Guide](01_global-setup/nice-to-have/03_agent-coordination.md)
+- [Agent Coordination Guide](01_global-setup/03_nice-to-have/03_agent-coordination.md)
 - [Prompt Polisher Details](.claude/agents/prompt-polisher.md)
 - [Project Planner Details](.claude/agents/project-planner.md)
 
@@ -446,7 +446,7 @@ Learning note: Async/await is syntactic sugar for Promises
 
 **Available in:** Claude Code v2.0+
 
-**Docs:** [Quick Start Guide § Educational Modes](01_global-setup/must-have/02_quick-start.md#educational-output-styles)
+**Docs:** [Quick Start Guide § Educational Modes](01_global-setup/01_must-have/02_quick-start.md#educational-output-styles)
 
 **Keywords:** learning, teaching, explain, understand, beginner, tutorial
 
@@ -493,16 +493,16 @@ Learning note: Async/await is syntactic sugar for Promises
 | Team lead wizard | `scripts/wizard-team-lead.sh` |
 | Returning user wizard | `scripts/wizard-returning.sh` |
 | **Documentation** | |
-| Installation guide | `01_global-setup/must-have/01_installation.md` |
-| Quick start guide | `01_global-setup/must-have/02_quick-start.md` |
-| Permission modes | `01_global-setup/must-have/03_permission-modes.md` |
-| Model switching | `01_global-setup/good-to-have/01_model-switching.md` |
-| MCP setup | `01_global-setup/good-to-have/02_mcp-setup.md` |
-| Security guide | `01_global-setup/nice-to-have/01_security-guide.md` |
-| Project onboarding | `02_project-onboarding/must-have/01_onboarding-guide.md` |
-| Prompt optimization | `02_project-onboarding/good-to-have/01_prompt-optimization.md` |
-| Team onboarding | `02_project-onboarding/good-to-have/03_team-onboarding.md` |
-| Planning guide | `03_pre-project-planning/must-have/01_planning-guide.md` |
+| Installation guide | `01_global-setup/01_must-have/01_installation.md` |
+| Quick start guide | `01_global-setup/01_must-have/02_quick-start.md` |
+| Permission modes | `01_global-setup/01_must-have/03_permission-modes.md` |
+| Model switching | `01_global-setup/02_good-to-have/01_model-switching.md` |
+| MCP setup | `01_global-setup/02_good-to-have/02_mcp-setup.md` |
+| Security guide | `01_global-setup/03_nice-to-have/01_security-guide.md` |
+| Project onboarding | `02_project-onboarding/01_must-have/01_onboarding-guide.md` |
+| Prompt optimization | `02_project-onboarding/02_good-to-have/01_prompt-optimization.md` |
+| Team onboarding | `02_project-onboarding/02_good-to-have/03_team-onboarding.md` |
+| Planning guide | `03_pre-project-planning/01_must-have/01_planning-guide.md` |
 
 **Keywords:** find, location, path, where, file
 
@@ -533,7 +533,7 @@ Learning note: Async/await is syntactic sugar for Promises
 - ❓ ask mode - Asks permission for each tool
 - 🔓 acceptEdits mode - Auto-applies changes
 
-**Docs:** [Quick Start Guide § Keyboard Shortcuts](01_global-setup/must-have/02_quick-start.md#part-46-keyboard-shortcuts--productivity)
+**Docs:** [Quick Start Guide § Keyboard Shortcuts](01_global-setup/01_must-have/02_quick-start.md#part-46-keyboard-shortcuts--productivity)
 
 **Keywords:** shortcuts, hotkeys, keybindings, keyboard, fast, quick
 
@@ -579,7 +579,7 @@ claude
 
 **Configuration location:** `.claude/settings.json`
 
-**Docs:** [MCP Setup Guide](01_global-setup/good-to-have/02_mcp-setup.md)
+**Docs:** [MCP Setup Guide](01_global-setup/02_good-to-have/02_mcp-setup.md)
 
 **Keywords:** mcp, servers, extensions, plugins, integrations, context7, memory, github
 
@@ -638,7 +638,7 @@ model: opus  # Architecture needs deep reasoning
 **Important:** Model switches reset context, but CLAUDE.md persists!
 
 **Docs:**
-- [Model Switching Guide](../../01_global-setup/good-to-have/01_model-switching.md)
+- [Model Switching Guide](../../01_global-setup/02_good-to-have/01_model-switching.md)
 - [Model Selection Strategy](../02-optimization/MODEL_SELECTION_STRATEGY.md) (comprehensive guide)
 
 **Keywords:** models, haiku, sonnet, opus, switch, cost, cheap, expensive, /model, agent defaults
@@ -697,7 +697,7 @@ model: opus  # Architecture needs deep reasoning
 }
 ```
 
-**Docs:** [Permission Modes Guide](01_global-setup/must-have/03_permission-modes.md)
+**Docs:** [Permission Modes Guide](01_global-setup/01_must-have/03_permission-modes.md)
 
 **Keywords:** permissions, plan, ask, accept, modes, safety, control, shift-tab
 
@@ -758,8 +758,8 @@ model: opus  # Architecture needs deep reasoning
 ```
 
 **Docs:**
-- [Git Approval Workflow](01_global-setup/good-to-have/04_git-approval-workflow.md)
-- [Git Push Workaround](01_global-setup/good-to-have/05_git-push-workaround.md)
+- [Git Approval Workflow](01_global-setup/02_good-to-have/04_git-approval-workflow.md)
+- [Git Push Workaround](01_global-setup/02_good-to-have/05_git-push-workaround.md)
 - [Wizard Script](scripts/setup-git-workflow.sh)
 
 **Keywords:** git, commit, approval, workflow, push, authentication, wizard, global
@@ -884,7 +884,7 @@ model: opus  # Architecture needs deep reasoning
 }
 ```
 
-**Docs:** [Security Guide](01_global-setup/nice-to-have/01_security-guide.md)
+**Docs:** [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md)
 
 **Keywords:** security, safety, hooks, injection, validation, protection
 
@@ -938,16 +938,16 @@ Works with npm, pip, gem, cargo, go, Maven, NuGet, etc.
 ### Available Resources
 
 **Universal Guide:**
-- [Package Security Principles](01_global-setup/nice-to-have/02_package-security-principles.md) - Works with ALL languages
+- [Package Security Principles](01_global-setup/03_nice-to-have/02_package-security-principles.md) - Works with ALL languages
 
 **NPM/JavaScript:**
-- [NPM Security Checklist](01_global-setup/nice-to-have/03_npm-security-checklist.md) - 2-minute scan
-- [NPM Security Guide](01_global-setup/nice-to-have/04_npm-security-guide.md) - Comprehensive (653 lines)
+- [NPM Security Checklist](01_global-setup/03_nice-to-have/03_npm-security-checklist.md) - 2-minute scan
+- [NPM Security Guide](01_global-setup/03_nice-to-have/04_npm-security-guide.md) - Comprehensive (653 lines)
 - Automation scripts: `examples/npm-security/` (5 scripts)
 
 **Python/pip:**
-- [Python Security Checklist](01_global-setup/nice-to-have/03_python-security-checklist.md) - 2-minute scan
-- [Python Security Guide](01_global-setup/nice-to-have/05_python-security-guide.md) - Comprehensive (557 lines)
+- [Python Security Checklist](01_global-setup/03_nice-to-have/03_python-security-checklist.md) - 2-minute scan
+- [Python Security Guide](01_global-setup/03_nice-to-have/05_python-security-guide.md) - Comprehensive (557 lines)
 - Automation scripts: `examples/python-security/` (5 scripts)
 
 ### When to Use
@@ -1012,9 +1012,9 @@ claude
 **Goal:** Understand everything
 
 **Do this:**
-1. Read [Installation Guide](01_global-setup/must-have/01_installation.md)
-2. Read [Quick Start](01_global-setup/must-have/02_quick-start.md)
-3. Read [Model Switching](01_global-setup/good-to-have/01_model-switching.md)
+1. Read [Installation Guide](01_global-setup/01_must-have/01_installation.md)
+2. Read [Quick Start](01_global-setup/01_must-have/02_quick-start.md)
+3. Read [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md)
 4. Set up first project
 
 **Result:** Complete understanding + setup
@@ -1083,7 +1083,7 @@ cd ~/claude-config-template
 - @prompt-polisher agent (transforms vague→optimized)
 - SETUP_CONTEXT.md (for Claude to read first)
 
-**Docs:** [Prompt Optimization Guide](02_project-onboarding/good-to-have/01_prompt-optimization.md)
+**Docs:** [Prompt Optimization Guide](02_project-onboarding/02_good-to-have/01_prompt-optimization.md)
 
 **Keywords:** tokens, optimization, savings, reduce, efficient, cheap
 
@@ -1281,7 +1281,7 @@ chmod +x scripts/*.sh
 - Switch once: Sonnet (plan) → Haiku (implement)
 - Not: Sonnet → Haiku → Sonnet → Haiku
 
-**Docs:** [Model Switching § When Not to Switch](01_global-setup/good-to-have/01_model-switching.md)
+**Docs:** [Model Switching § When Not to Switch](01_global-setup/02_good-to-have/01_model-switching.md)
 
 ---
 
@@ -1437,7 +1437,7 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 **If you're set up already:**
 - Keep this file bookmarked for quick reference
 - Check [Update System](#update-system) for new versions
-- Share with your team: [Team Onboarding](02_project-onboarding/good-to-have/03_team-onboarding.md)
+- Share with your team: [Team Onboarding](02_project-onboarding/02_good-to-have/03_team-onboarding.md)
 
 **If you're stuck:**
 - Search this file with Cmd+F

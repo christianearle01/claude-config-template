@@ -271,7 +271,7 @@ Tell user:
 - Ask Mode = asks for every action (slower but maximum control)
 
 **Reference:**
-Point user to: [03_permission-modes.md](../../../01_global-setup/must-have/03_permission-modes.md) for details.
+Point user to: [03_permission-modes.md](../../../01_global-setup/01_must-have/03_permission-modes.md) for details.
 
 ---
 
@@ -299,7 +299,7 @@ claude mcp add memory npx -- -y @modelcontextprotocol/server-memory
 3. Scopes: `repo`, `read:org`
 4. Claude Code will prompt for token on first use
 
-**Reference:** [02_mcp-setup.md](../../../01_global-setup/good-to-have/02_mcp-setup.md) for complete details.
+**Reference:** [02_mcp-setup.md](../../../01_global-setup/02_good-to-have/02_mcp-setup.md) for complete details.
 
 ---
 
@@ -406,10 +406,10 @@ Tell user:
 - [docs/00-start-here/START_HERE.md](../../../docs/00-start-here/START_HERE.md) - 5-minute quick start (80/20 rule)
 
 **When needed:**
-- [03_permission-modes.md](../../../01_global-setup/must-have/03_permission-modes.md) - Print-friendly mode guide
-- [01_model-switching.md](../../../01_global-setup/good-to-have/01_model-switching.md) - When to switch models
-- [01_security-guide.md](../../../01_global-setup/nice-to-have/01_security-guide.md) - Security best practices
-- [02_mcp-setup.md](../../../01_global-setup/good-to-have/02_mcp-setup.md) - More MCP servers
+- [03_permission-modes.md](../../../01_global-setup/01_must-have/03_permission-modes.md) - Print-friendly mode guide
+- [01_model-switching.md](../../../01_global-setup/02_good-to-have/01_model-switching.md) - When to switch models
+- [01_security-guide.md](../../../01_global-setup/03_nice-to-have/01_security-guide.md) - Security best practices
+- [02_mcp-setup.md](../../../01_global-setup/02_good-to-have/02_mcp-setup.md) - More MCP servers
 
 **Full documentation:**
 - [README.md](../../../README.md) - Complete overview

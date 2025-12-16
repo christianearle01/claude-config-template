@@ -55,7 +55,7 @@ Step 3: MCP Servers (Optional)
 - sequential-thinking MCP
 - filesystem MCP
 - memory MCP
-Guide: 01_global-setup/nice-to-have/04_sequential-thinking-mcp.md
+Guide: 01_global-setup/03_nice-to-have/04_sequential-thinking-mcp.md
 
 Step 4: Validation
 Run: claude --help
@@ -267,7 +267,7 @@ When skill detects:
 npm install -g @anthropic/sequential-thinking-mcp
 
 # Add to settings.json
-# Guide: 01_global-setup/nice-to-have/04_sequential-thinking-mcp.md
+# Guide: 01_global-setup/03_nice-to-have/04_sequential-thinking-mcp.md
 ```
 
 **Alternative:** Continue without MCP - I'll still help, just without the structured reasoning framework.

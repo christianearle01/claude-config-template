@@ -570,7 +570,7 @@ cat ~/path/to/project/version.json
 - **Main Skill Documentation:** `SKILL.md` (parent directory)
 - **Sample Queries:** `examples/sample-queries.md`
 - **Schema Example:** `examples/sample-registry.json`
-- **User Guide:** `01_global-setup/nice-to-have/05_projects-registry.md`
+- **User Guide:** `01_global-setup/03_nice-to-have/05_projects-registry.md`
 
 ---
 

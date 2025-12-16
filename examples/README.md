@@ -65,7 +65,7 @@ NPM package security configurations and scripts.
 - Dependency scanning configurations
 - Lock file audit scripts
 
-**Related docs:** [NPM Security Guide](../01_global-setup/nice-to-have/04_npm-security-guide.md)
+**Related docs:** [NPM Security Guide](../01_global-setup/03_nice-to-have/04_npm-security-guide.md)
 
 ---
 
@@ -81,7 +81,7 @@ Python package security configurations and templates.
 - `pyproject.toml` security configurations
 - Virtual environment best practices
 
-**Related docs:** [Python Security Guide](../01_global-setup/nice-to-have/05_python-security-guide.md)
+**Related docs:** [Python Security Guide](../01_global-setup/03_nice-to-have/05_python-security-guide.md)
 
 ---
 

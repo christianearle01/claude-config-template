@@ -27,16 +27,16 @@
 
 ### Your Personalized Path
 
-1. **[Install Claude Code](01_global-setup/must-have/01_installation.md)** (20 min)
+1. **[Install Claude Code](01_global-setup/01_must-have/01_installation.md)** (20 min)
    Set up Claude Code on your machine
 
-2. **[Quick Start Guide](01_global-setup/must-have/02_quick-start.md)** (15 min)
+2. **[Quick Start Guide](01_global-setup/01_must-have/02_quick-start.md)** (15 min)
    Learn core concepts and first commands
 
-3. **[Model Switching Strategy](01_global-setup/good-to-have/01_model-switching.md)** (10 min)
+3. **[Model Switching Strategy](01_global-setup/02_good-to-have/01_model-switching.md)** (10 min)
    Save 92% on costs with smart model usage
 
-4. **[Project Onboarding](02_project-onboarding/must-have/01_onboarding-guide.md)** (30 min)
+4. **[Project Onboarding](02_project-onboarding/01_must-have/01_onboarding-guide.md)** (30 min)
    Set up your first project with CLAUDE.md
 
 ### Journey Checklist
@@ -61,7 +61,7 @@ You can start Claude Code, switch models, and have documented one project's busi
 
 ### Your Personalized Path
 
-**→ Jump to:** [Project Setup Checklist](02_project-onboarding/must-have/02_setup-checklist.md)
+**→ Jump to:** [Project Setup Checklist](02_project-onboarding/01_must-have/02_setup-checklist.md)
 
 **Fast track:**
 ```bash
@@ -101,13 +101,13 @@ Claude Code can explain your project's business purpose without exploring files.
 
 ### Your Personalized Path
 
-1. **[Security Hooks](01_global-setup/nice-to-have/01_security-guide.md)** (10 min)
+1. **[Security Hooks](01_global-setup/03_nice-to-have/01_security-guide.md)** (10 min)
    Prompt injection detection, response scanning
 
-2. **[Custom Agents](01_global-setup/good-to-have/03_custom-agents.md)** (15 min)
+2. **[Custom Agents](01_global-setup/02_good-to-have/03_custom-agents.md)** (15 min)
    Build specialized agents for your workflow
 
-3. **[MCP Servers](01_global-setup/good-to-have/02_mcp-setup.md)** (10 min)
+3. **[MCP Servers](01_global-setup/02_good-to-have/02_mcp-setup.md)** (10 min)
    Install context7, GitHub, database integrations
 
 ### Advanced Checklist
@@ -132,16 +132,16 @@ Security hooks active, custom agents working, MCP servers connected.
 
 ### Your Personalized Path
 
-1. **[Team Onboarding Guide](02_project-onboarding/good-to-have/03_team-onboarding.md)** (20 min)
+1. **[Team Onboarding Guide](02_project-onboarding/02_good-to-have/03_team-onboarding.md)** (20 min)
    Understand team rollout strategy
 
-2. **[Create Shared Template](02_project-onboarding/good-to-have/02_optimization-guide.md)** (30 min)
+2. **[Create Shared Template](02_project-onboarding/02_good-to-have/02_optimization-guide.md)** (30 min)
    Fork this template for your organization
 
 3. **[Write Team Guidelines](templates/CLAUDE.md.template)** (30 min)
    Document your team's coding standards
 
-4. **[Pilot Deployment](02_project-onboarding/must-have/02_setup-checklist.md)** (30 min)
+4. **[Pilot Deployment](02_project-onboarding/01_must-have/02_setup-checklist.md)** (30 min)
    Onboard 2-3 developers first
 
 ### Team Deployment Checklist
@@ -190,7 +190,7 @@ Remember key commands, model switching strategy, and any new template features.
 
 ### Your Personalized Path
 
-**→ Jump to:** [Pre-Project Planning Guide](03_pre-project-planning/must-have/01_planning-guide.md)
+**→ Jump to:** [Pre-Project Planning Guide](03_pre-project-planning/01_must-have/01_planning-guide.md)
 
 **Quick Start:**
 ```bash

@@ -403,7 +403,7 @@ git push
 
 - **Git Approval Workflow:** `04_git-approval-workflow.md`
 - **Security Guide:** `01_security-guide.md`
-- **Permission Modes:** `../../must-have/03_permission-modes.md`
+- **Permission Modes:** `../../01_must-have/03_permission-modes.md`
 - **Sandbox Configuration:** `../../.claude/settings-explained.json`
 
 ---

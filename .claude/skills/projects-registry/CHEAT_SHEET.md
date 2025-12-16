@@ -296,7 +296,7 @@ cat /path/to/project/version.json
 
 ## Additional Resources
 
-- **Full Documentation:** `01_global-setup/nice-to-have/05_projects-registry.md`
+- **Full Documentation:** `01_global-setup/03_nice-to-have/05_projects-registry.md`
 - **Skill Documentation:** `.claude/skills/projects-registry/SKILL.md`
 - **CLI Reference:** `./scripts/claude-projects.sh --help`
 - **Schema Example:** `.claude/skills/projects-registry/examples/sample-registry.json`

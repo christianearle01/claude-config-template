@@ -30,8 +30,8 @@ git add package-lock.json
 ```
 
 **Resources:**
-- Universal guide: `01_global-setup/nice-to-have/02_package-security-principles.md`
-- NPM checklist: `01_global-setup/nice-to-have/03_npm-security-checklist.md`
+- Universal guide: `01_global-setup/03_nice-to-have/02_package-security-principles.md`
+- NPM checklist: `01_global-setup/03_nice-to-have/03_npm-security-checklist.md`
 - NPM scripts: `examples/npm-security/` (5 automation scripts)
 
 ---
@@ -50,8 +50,8 @@ pip freeze > requirements.txt
 ```
 
 **Resources:**
-- Universal guide: `01_global-setup/nice-to-have/02_package-security-principles.md`
-- Python checklist: `01_global-setup/nice-to-have/03_python-security-checklist.md`
+- Universal guide: `01_global-setup/03_nice-to-have/02_package-security-principles.md`
+- Python checklist: `01_global-setup/03_nice-to-have/03_python-security-checklist.md`
 - Python scripts: `examples/python-security/` (5 automation scripts)
 
 ---

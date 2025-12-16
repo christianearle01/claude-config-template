@@ -460,13 +460,13 @@ Slash commands for common tasks
 |--------------|----------|
 | **Get started fast** | docs/5_MINUTE_SUCCESS.md |
 | **Choose my path** | docs/VISUAL_QUICKSTART.md or START_HERE.md |
-| **Install Claude Code** | 01_global-setup/must-have/01_installation.md |
-| **Set up a project** | 02_project-onboarding/must-have/01_onboarding-guide.md |
-| **Plan a new project** | 03_pre-project-planning/must-have/01_planning-guide.md |
-| **Save money (model switching)** | 01_global-setup/good-to-have/01_model-switching.md |
-| **Optimize prompts** | 02_project-onboarding/good-to-have/01_prompt-optimization.md |
-| **Set up for team** | 02_project-onboarding/good-to-have/03_team-onboarding.md |
-| **Add security** | 01_global-setup/nice-to-have/01_security-guide.md |
+| **Install Claude Code** | 01_global-setup/01_must-have/01_installation.md |
+| **Set up a project** | 02_project-onboarding/01_must-have/01_onboarding-guide.md |
+| **Plan a new project** | 03_pre-project-planning/01_must-have/01_planning-guide.md |
+| **Save money (model switching)** | 01_global-setup/02_good-to-have/01_model-switching.md |
+| **Optimize prompts** | 02_project-onboarding/02_good-to-have/01_prompt-optimization.md |
+| **Set up for team** | 02_project-onboarding/02_good-to-have/03_team-onboarding.md |
+| **Add security** | 01_global-setup/03_nice-to-have/01_security-guide.md |
 | **Find any feature** | QUICK_REFERENCE.md |
 | **Understand concepts** | VISUAL_GUIDES.md |
 | **Copy templates** | templates/ directory |

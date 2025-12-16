@@ -288,7 +288,7 @@ If this demo impressed you, imagine the impact on your team:
 - Standardized Claude Code usage
 - Shared cost savings
 
-**See:** [Team Onboarding Guide](../02_project-onboarding/good-to-have/03_team-onboarding.md)
+**See:** [Team Onboarding Guide](../02_project-onboarding/02_good-to-have/03_team-onboarding.md)
 
 ---
 
@@ -346,7 +346,7 @@ You can expand it over time as you use Claude Code.
 **Option 3: Share This Win**
 - Show your team this 5-minute demo
 - Calculate your potential savings
-- Plan team rollout: [Team Onboarding](../02_project-onboarding/good-to-have/03_team-onboarding.md)
+- Plan team rollout: [Team Onboarding](../02_project-onboarding/02_good-to-have/03_team-onboarding.md)
 
 ---
 

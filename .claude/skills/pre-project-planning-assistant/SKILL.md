@@ -59,7 +59,7 @@ Guides you through **4 planning phases** systematically:
 ### 2. References Planning Documentation
 
 Points you to the comprehensive planning guide:
-- `03_pre-project-planning/must-have/01_planning-guide.md` (detailed methodology)
+- `03_pre-project-planning/01_must-have/01_planning-guide.md` (detailed methodology)
 - `templates/project-plan-template.md` (structured template)
 
 ### 3. Coordinates with project-planner Agent
@@ -124,7 +124,7 @@ Let me ask a few questions to understand your vision:
 Once you answer these, I'll help with architecture and tech stack decisions.
 
 Resources:
-- Detailed planning guide: 03_pre-project-planning/must-have/01_planning-guide.md
+- Detailed planning guide: 03_pre-project-planning/01_must-have/01_planning-guide.md
 - Project plan template: templates/project-plan-template.md
 ```
 
@@ -225,7 +225,7 @@ Option 3: Go + Gin + JWT + PostgreSQL
 
 Based on your answers, I can recommend the best fit.
 
-Deep dive: See 03_pre-project-planning/must-have/01_planning-guide.md
+Deep dive: See 03_pre-project-planning/01_must-have/01_planning-guide.md
 ```
 
 **Why This Matters:**
@@ -337,7 +337,7 @@ Skill: "MERN works, but consider these trade-offs:
        - MongoDB: Good for product catalogs, but payment data needs ACID
        - Recommend: PostgreSQL for transactions, MongoDB for products
        - Add Redis for cart sessions (performance)
-       See why: 03_pre-project-planning/must-have/01_planning-guide.md#tech-stack"
+       See why: 03_pre-project-planning/01_must-have/01_planning-guide.md#tech-stack"
 You: Adjusts plan based on feedback
 ```
 
@@ -424,7 +424,7 @@ workflow-analyzer (improve process)
 ## Helpful Resources
 
 **Within Template:**
-- `03_pre-project-planning/must-have/01_planning-guide.md` - Comprehensive methodology
+- `03_pre-project-planning/01_must-have/01_planning-guide.md` - Comprehensive methodology
 - `templates/project-plan-template.md` - Structured documentation template
 - `.claude/agents/project-planner.md` - Deep multi-perspective analysis
 - `docs/01-fundamentals/ANTI_PATTERNS.md` - Common planning mistakes

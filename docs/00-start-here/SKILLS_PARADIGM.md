@@ -487,7 +487,7 @@ As skills multiply:
 ## See Also
 
 - **Current Skills:** [Projects Registry Skill](.claude/skills/projects-registry/SKILL.md)
-- **Implementation:** [Projects Registry Guide](../../01_global-setup/nice-to-have/05_projects-registry.md)
+- **Implementation:** [Projects Registry Guide](../../01_global-setup/03_nice-to-have/05_projects-registry.md)
 - **Quick Reference:** [QUICK_REFERENCE.md](QUICK_REFERENCE.md#skills)
 
 ---

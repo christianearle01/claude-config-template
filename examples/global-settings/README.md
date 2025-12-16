@@ -210,10 +210,10 @@ cp ~/.claude/settings.json.backup ~/.claude/settings.json
 ## Related Documentation
 
 - **Setup Wizard:** `../../scripts/setup-git-workflow.sh`
-- **Git Approval Guide:** `../../01_global-setup/good-to-have/04_git-approval-workflow.md`
-- **Git Push Workaround:** `../../01_global-setup/good-to-have/05_git-push-workaround.md`
-- **Permission Modes:** `../../01_global-setup/must-have/03_permission-modes.md`
-- **Security Guide:** `../../01_global-setup/nice-to-have/01_security-guide.md`
+- **Git Approval Guide:** `../../01_global-setup/02_good-to-have/04_git-approval-workflow.md`
+- **Git Push Workaround:** `../../01_global-setup/02_good-to-have/05_git-push-workaround.md`
+- **Permission Modes:** `../../01_global-setup/01_must-have/03_permission-modes.md`
+- **Security Guide:** `../../01_global-setup/03_nice-to-have/01_security-guide.md`
 
 ---
 
@@ -232,4 +232,4 @@ Claude can also help you choose! Just ask:
 
 ---
 
-[← Back to Examples](../) | [Setup Guide →](../../01_global-setup/good-to-have/04_git-approval-workflow.md)
+[← Back to Examples](../) | [Setup Guide →](../../01_global-setup/02_good-to-have/04_git-approval-workflow.md)

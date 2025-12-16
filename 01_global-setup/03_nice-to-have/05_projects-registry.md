@@ -640,10 +640,10 @@ jq '.projects | map(select(.tags[] == "team"))' \
 
 ## See Also
 
-- [Quick Start](../must-have/02_quick-start.md) - Setting up claude-config-template
-- [Model Switching](../good-to-have/01_model-switching.md) - Token optimization
+- [Quick Start](../01_must-have/02_quick-start.md) - Setting up claude-config-template
+- [Model Switching](../02_good-to-have/01_model-switching.md) - Token optimization
 - [Sequential Thinking](04_sequential-thinking-mcp.md) - Complex decision analysis
-- [Git Approval Workflow](../good-to-have/04_git-approval-workflow.md) - Git commit management
+- [Git Approval Workflow](../02_good-to-have/04_git-approval-workflow.md) - Git commit management
 
 ---
 

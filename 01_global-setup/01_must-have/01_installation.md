@@ -286,7 +286,7 @@ claude
 ```
 
 **Detailed MCP Setup Guide:**
-See [02_mcp-setup.md](../good-to-have/02_mcp-setup.md) for comprehensive installation instructions, including:
+See [02_mcp-setup.md](../02_good-to-have/02_mcp-setup.md) for comprehensive installation instructions, including:
 - Context7 MCP (documentation lookup - project-specific)
 - Database MCPs (project-specific)
 - Custom MCP servers
@@ -441,7 +441,7 @@ Skip reading other files."
 - No need to re-explain every time
 - 70-85% token savings per request
 
-**You'll set this up per-project** (see next: [01_onboarding-guide.md](../../../02_project-onboarding/must-have/01_onboarding-guide.md))
+**You'll set this up per-project** (see next: [01_onboarding-guide.md](../../../02_project-onboarding/01_must-have/01_onboarding-guide.md))
 
 ### Prompt Efficiency
 
@@ -510,7 +510,7 @@ claude
 ## Next Steps
 
 ### For New Projects:
-**→ Read [01_onboarding-guide.md](../../../02_project-onboarding/must-have/01_onboarding-guide.md)**
+**→ Read [01_onboarding-guide.md](../../../02_project-onboarding/01_must-have/01_onboarding-guide.md)**
 
 This shows you how to:
 - Copy .claude/ configuration to a project
@@ -521,14 +521,14 @@ This shows you how to:
 ### Keep Learning:
 
 **Essential Reading:**
-- [01_model-switching.md](../good-to-have/01_model-switching.md) - Deep dive on Sonnet → Haiku workflow
+- [01_model-switching.md](../02_good-to-have/01_model-switching.md) - Deep dive on Sonnet → Haiku workflow
 - [03_permission-modes.md](03_permission-modes.md) - When to use each mode
-- [02_mcp-setup.md](../good-to-have/02_mcp-setup.md) - Advanced MCP configurations
+- [02_mcp-setup.md](../02_good-to-have/02_mcp-setup.md) - Advanced MCP configurations
 
 **Advanced Topics:**
-- [02_optimization-guide.md](../../../02_project-onboarding/good-to-have/02_optimization-guide.md) - Token optimization strategies
-- [01_security-guide.md](../nice-to-have/01_security-guide.md) - Security best practices
-- [03_mcp-pollution.md](../good-to-have/03_mcp-pollution.md) - Avoid API key conflicts
+- [02_optimization-guide.md](../../../02_project-onboarding/02_good-to-have/02_optimization-guide.md) - Token optimization strategies
+- [01_security-guide.md](../03_nice-to-have/01_security-guide.md) - Security best practices
+- [03_mcp-pollution.md](../02_good-to-have/03_mcp-pollution.md) - Avoid API key conflicts
 
 ---
 
@@ -576,7 +576,7 @@ cat ~/.claude/settings.json
 - ⏭️ Add project-specific MCP servers (database, Context7)
 - ⏭️ Document project conventions
 
-**Next:** [01_onboarding-guide.md](../../../02_project-onboarding/must-have/01_onboarding-guide.md)
+**Next:** [01_onboarding-guide.md](../../../02_project-onboarding/01_must-have/01_onboarding-guide.md)
 
 ---
 

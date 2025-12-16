@@ -218,7 +218,7 @@ cd ~/claude-config-template
 /model opus     # For very complex problems only
 ```
 
-**Reference:** 01_global-setup/good-to-have/01_model-switching.md
+**Reference:** 01_global-setup/02_good-to-have/01_model-switching.md
 
 ### Task 6: "What are the 5 personas?"
 
@@ -290,14 +290,14 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 | Visual guides | docs/00-start-here/VISUAL_GUIDES.md |
 | 5-min demo | docs/00-start-here/5_MINUTE_SUCCESS.md |
 | Decision flowchart | docs/00-start-here/VISUAL_QUICKSTART.md |
-| Installation guide | 01_global-setup/must-have/01_installation.md |
-| Quick start | 01_global-setup/must-have/02_quick-start.md |
-| Permission modes | 01_global-setup/must-have/03_permission-modes.md |
-| Model switching | 01_global-setup/good-to-have/01_model-switching.md |
-| MCP setup | 01_global-setup/good-to-have/02_mcp-setup.md |
-| Security guide | 01_global-setup/nice-to-have/01_security-guide.md |
-| Project onboarding | 02_project-onboarding/must-have/01_onboarding-guide.md |
-| Team onboarding | 02_project-onboarding/good-to-have/03_team-onboarding.md |
+| Installation guide | 01_global-setup/01_must-have/01_installation.md |
+| Quick start | 01_global-setup/01_must-have/02_quick-start.md |
+| Permission modes | 01_global-setup/01_must-have/03_permission-modes.md |
+| Model switching | 01_global-setup/02_good-to-have/01_model-switching.md |
+| MCP setup | 01_global-setup/02_good-to-have/02_mcp-setup.md |
+| Security guide | 01_global-setup/03_nice-to-have/01_security-guide.md |
+| Project onboarding | 02_project-onboarding/01_must-have/01_onboarding-guide.md |
+| Team onboarding | 02_project-onboarding/02_good-to-have/03_team-onboarding.md |
 
 ---
 
@@ -415,7 +415,7 @@ git push origin branch-name
 - ✅ Safe: You review branch name before pushing
 - ✅ Control: You decide when to push
 
-**See:** `01_global-setup/good-to-have/05_git-push-workaround.md`
+**See:** `01_global-setup/02_good-to-have/05_git-push-workaround.md`
 
 ### Issue: "How do I set up git commit approval?"
 **Solution:** Run the interactive wizard:
@@ -435,7 +435,7 @@ Claude will:
 - **Commit-Only:** Approval only for commits (solo/speed)
 - **Minimal:** Approval for commits + destructive ops (experienced)
 
-**See:** `01_global-setup/good-to-have/04_git-approval-workflow.md`
+**See:** `01_global-setup/02_good-to-have/04_git-approval-workflow.md`
 
 ---
 

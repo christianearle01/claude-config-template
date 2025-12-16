@@ -492,9 +492,9 @@ Project settings take precedence over global settings.
 
 ## Related Documentation
 
-- **Permission Modes:** `01_global-setup/must-have/03_permission-modes.md`
-- **Git Push Guide:** `01_global-setup/good-to-have/05_git-push-workaround.md`
-- **Security Guide:** `01_global-setup/nice-to-have/01_security-guide.md`
+- **Permission Modes:** `01_global-setup/01_must-have/03_permission-modes.md`
+- **Git Push Guide:** `01_global-setup/02_good-to-have/05_git-push-workaround.md`
+- **Security Guide:** `01_global-setup/03_nice-to-have/01_security-guide.md`
 - **Hooks:** `examples/hooks/README.md`
 - **Example Settings:** `examples/global-settings/git-approval-settings.json`
 

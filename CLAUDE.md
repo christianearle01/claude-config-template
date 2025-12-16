@@ -233,19 +233,19 @@ claude-config-template/
 │   └── 04-ecosystem/       # Progress bar, integrations, tools
 │
 ├── 01_global-setup/         # One-time machine setup
-│   ├── must-have/          # Essential (3 files)
-│   ├── good-to-have/       # High-value (3 files)
-│   └── nice-to-have/       # Advanced (3 files)
+│   ├── 01_must-have/       # Essential (3 files)
+│   ├── 02_good-to-have/    # High-value (3 files)
+│   └── 03_nice-to-have/    # Advanced (3 files)
 │
 ├── 02_project-onboarding/   # Per-project setup
-│   ├── must-have/          # Essential (3 files)
-│   └── good-to-have/       # Optimization (3 files)
+│   ├── 01_must-have/       # Essential (3 files)
+│   └── 02_good-to-have/    # Optimization (3 files)
 │
 ├── 03_pre-project-planning/ # New project planning
-│   └── must-have/          # Planning guide (2 files)
+│   └── 01_must-have/       # Planning guide (2 files)
 │
 ├── 04_browser-workflow/     # Role-based configs for claude.ai
-│   └── must-have/          # 10 files: 9 roles + skills guide (11 files total)
+│   └── 01_must-have/       # 10 files: 9 roles + skills guide (11 files total)
 │
 ├── templates/               # Reusable templates (3 files)
 ├── scripts/                 # Wizards & helpers (12 scripts)
@@ -289,8 +289,8 @@ claude-config-template/
 - **Documentation:** Use descriptive names with priority prefix
   - `01_installation.md`, `02_quick-start.md`
   - Numbered for reading sequence
-- **Directories:** Use hyphens, lowercase
-  - `01_global-setup/`, `good-to-have/`
+- **Directories:** Use hyphens, lowercase, with numeric prefixes for hierarchy
+  - `01_global-setup/`, `02_good-to-have/`
 
 ### Bash Scripts
 - **Shebang:** Always `#!/bin/bash`
@@ -476,7 +476,7 @@ git push origin v2.6.0
 ### User Configuration
 - `~/.claude/projects-registry.json` - Multi-project tracking (v3.2.0)
   - Centralized registry for managing multiple projects
-  - See: `01_global-setup/nice-to-have/05_projects-registry.md`
+  - See: `01_global-setup/03_nice-to-have/05_projects-registry.md`
   - CLI: `scripts/claude-projects.sh`
   - Wizard: `scripts/register-project.sh`
 
@@ -502,9 +502,9 @@ git push origin v2.6.0
 
 ### Browser Workflow (claude.ai)
 - `04_browser-workflow/README.md` - Entry point for role-based Custom Instructions (v2.6.0)
-- `04_browser-workflow/must-have/00_all-available-roles-complete-library.md` - Role library index (v2.6.0)
-- `04_browser-workflow/must-have/01-09_*.md` - 9 role-specific guides (v2.6.0)
-- `04_browser-workflow/must-have/10_claude-skills-complete-guide.md` - Account-level skills guide (v3.7.0)
+- `04_browser-workflow/01_must-have/00_all-available-roles-complete-library.md` - Role library index (v2.6.0)
+- `04_browser-workflow/01_must-have/01-09_*.md` - 9 role-specific guides (v2.6.0)
+- `04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md` - Account-level skills guide (v3.7.0)
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history (includes v1.0.0 in historical/v1.0-original branch)

@@ -38,12 +38,12 @@ Open Claude Code in your project and ask:
 ## Next Steps (Optional)
 
 **Want more savings?**
-- [Model Switching](01_global-setup/good-to-have/01_model-switching.md) - Projected 92% cost savings
-- [Prompt Optimization](02_project-onboarding/good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
+- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 92% cost savings
+- [Prompt Optimization](02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
 
 **Need security?**
-- [Security Guide](01_global-setup/nice-to-have/01_security-guide.md) - Optional protection
-- [Package Security](01_global-setup/nice-to-have/02_package-security-principles.md) - npm/Python malware prevention
+- [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md) - Optional protection
+- [Package Security](01_global-setup/03_nice-to-have/02_package-security-principles.md) - npm/Python malware prevention
 
 ---
 

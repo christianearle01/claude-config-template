@@ -227,8 +227,8 @@ A: No, they're complementary. Built-in thinking shows stream-of-consciousness. S
 
 ## See Also
 
-- [Model Switching](../good-to-have/01_model-switching.md) - For token optimization
-- [MCP Setup](../good-to-have/02_mcp-setup.md) - MCP configuration basics
+- [Model Switching](../02_good-to-have/01_model-switching.md) - For token optimization
+- [MCP Setup](../02_good-to-have/02_mcp-setup.md) - MCP configuration basics
 - [CLAUDE.md Template](../../../templates/CLAUDE.md.template) - How to document complex decisions
 
 ---
