@@ -1,7 +1,7 @@
 {
-  "version": "4.4.1",
+  "version": "4.5.0",
   "release_date": "2025-12-16",
-  "release_name": "Documentation Sync - v4.3/v4.4 Guides",
+  "release_name": "Template Application - Apply Templates to Projects",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -178,7 +178,13 @@
     "json-schema-validation",
     "catalog-validation",
     "template-validator-guide",
-    "template-gallery-guide"
+    "template-gallery-guide",
+    "template-application",
+    "apply-template-script",
+    "inheritance-resolution",
+    "parameter-substitution",
+    "template-preview",
+    "interactive-parameters"
   ],
   "personas_supported": [
     "first-time",
@@ -265,7 +271,8 @@
       "remove-commands.sh": "3.4.0",
       "claude-skills.sh": "3.5.0",
       "claude-health-check.sh": "3.5.0",
-      "validate-template.sh": "4.4.0"
+      "validate-template.sh": "4.4.0",
+      "apply-template.sh": "4.5.0"
     },
     "examples": {
       "hooks": "2.0.0",

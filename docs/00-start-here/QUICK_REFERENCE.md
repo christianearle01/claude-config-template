@@ -1160,6 +1160,52 @@ cd ~/claude-config-template
 
 ---
 
+## Template Application (v4.5.0)
+
+**What:** Apply templates to projects with inheritance and parameter resolution
+
+**Script:** `scripts/apply-template.sh`
+
+**Features:**
+- Template search by ID or file path
+- Automatic inheritance resolution
+- Parameter substitution (CLI or interactive)
+- Preview with diff before applying
+- Backup creation
+
+**Usage:**
+```bash
+# Simple template (no params)
+./scripts/apply-template.sh team-standard
+
+# Template with inheritance
+./scripts/apply-template.sh gallery-frontend-react
+
+# Parameterized template (CLI)
+./scripts/apply-template.sh gallery-fullstack \
+    --param frontendFramework=react \
+    --param backendFramework=fastapi
+
+# Interactive mode (prompts for params)
+./scripts/apply-template.sh gallery-fullstack
+```
+
+**How It Works:**
+1. Finds template by ID or path
+2. Resolves `extends` inheritance chains
+3. Discovers and collects `${varName}` parameters
+4. Merges parent + child + parameters
+5. Generates preview (.claude/settings.preview.json)
+6. Shows diff against current settings
+7. Asks for confirmation
+8. Creates backup and applies
+
+**Documentation:** [Apply Template Guide](../04-ecosystem/APPLY_TEMPLATE_GUIDE.md)
+
+**Keywords:** apply, template, inheritance, parameters, merge, preview
+
+---
+
 ## Troubleshooting
 
 **Common issues and quick fixes:**

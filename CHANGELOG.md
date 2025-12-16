@@ -9,6 +9,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.5.0] - 2025-12-16
+
+### Added - Template Application Script
+
+Apply templates to projects with inheritance resolution and parameter substitution.
+
+#### Script: `scripts/apply-template.sh`
+
+**Usage:**
+```bash
+# Simple template (no params)
+./scripts/apply-template.sh team-standard
+
+# Template with inheritance
+./scripts/apply-template.sh gallery-frontend-react
+
+# Parameterized template (CLI args)
+./scripts/apply-template.sh gallery-fullstack \
+    --param frontendFramework=react \
+    --param backendFramework=fastapi
+
+# Interactive mode (prompts for parameters)
+./scripts/apply-template.sh gallery-fullstack
+```
+
+#### Features
+
+- **Template search:** Finds templates by ID or file path
+- **Inheritance resolution:** Recursive with cycle detection (max depth 5)
+- **Deep merge:** Parent/child templates merge intelligently
+- **Parameter discovery:** Finds all `${varName}` references
+- **Parameter modes:** CLI args (`--param key=value`) OR interactive prompts
+- **Preview with diff:** Shows changes before applying
+- **User confirmation:** "Apply these changes? (y/n)"
+- **Backup:** Creates `.claude/settings.json.backup`
+
+#### Implementation
+
+- ~420 lines of bash
+- jq with python3 fallback
+- Color-coded output
+- Error handling: template not found, invalid JSON, circular inheritance, max depth
+
+#### Files Changed
+
+| File | Change |
+|------|--------|
+| `scripts/apply-template.sh` | New script (~420 lines) |
+
+---
+
 ## [4.4.1] - 2025-12-16
 
 ### Added - Documentation Sync
