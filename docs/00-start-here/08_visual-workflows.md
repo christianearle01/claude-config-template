@@ -34,7 +34,7 @@
 graph TD
     Start[Start: New Project] --> A{Have Project Idea?}
 
-    A -->|No Code Yet| B[@project-planner Agent]
+    A -->|No Code Yet| B["@project-planner Agent"]
     A -->|Have Code| C[Skip Planning]
 
     B --> D[Tech Stack Recommendations]
@@ -49,7 +49,7 @@ graph TD
 
     I --> J{Need Feature Breakdown?}
 
-    J -->|Yes| K[@initializer Agent]
+    J -->|Yes| K["@initializer Agent"]
     J -->|No| L[Start Coding Directly]
 
     K --> M[features.json Created]
@@ -58,14 +58,14 @@ graph TD
     L --> O[Development Loop]
     N --> O
 
-    O --> P[@coder Agent]
+    O --> P["@coder Agent"]
     P --> Q[TDD: Write Test First]
     Q --> R[Implement Feature]
     R --> S[/test Command]
 
     S --> T{Tests Pass?}
     T -->|No| Q
-    T -->|Yes| U[@quality-reviewer]
+    T -->|Yes| U["@quality-reviewer"]
 
     U --> V[Security + Standards Check]
     V --> W{Issues Found?}
@@ -98,7 +98,7 @@ graph LR
     A[Read features.json] --> B{Select Next Feature}
 
     B --> C[Pick Highest Confidence]
-    C --> D[@coder Agent Activates]
+    C --> D["@coder Agent Activates"]
 
     D --> E[Read CLAUDE.md for Conventions]
     E --> F[TDD Phase 1: Write Failing Test]
@@ -121,7 +121,7 @@ graph LR
     O -->|No| P[Fix Regressions]
     P --> N
 
-    O -->|Yes| Q[@quality-reviewer]
+    O -->|Yes| Q["@quality-reviewer"]
     Q --> R[Parallel Quality Gates]
 
     R --> S[Security Scanner]
@@ -165,7 +165,7 @@ graph LR
 
 ```mermaid
 graph TD
-    Start[Feature Implementation Complete] --> A[@quality-reviewer Invoked]
+    Start[Feature Implementation Complete] --> A["@quality-reviewer Invoked"]
 
     A --> B[Detect Project Phase]
     B --> C{Phase Type?}
@@ -210,7 +210,7 @@ graph TD
     W --> X{All Gates Pass?}
 
     X -->|No| Y[Show Issues with Fixes]
-    Y --> Z[@coder Agent Fixes]
+    Y --> Z["@coder Agent Fixes"]
     Z --> A
 
     X -->|Yes| AA[Quality Report: SUCCESS]
