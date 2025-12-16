@@ -204,23 +204,16 @@ gantt
 ```mermaid
 sankey-beta
 
-%% Define flows
+%% Token flow optimization visualization
 Before Setup,Exploring codebase,15000
 Before Setup,Re-reading files,10000
 Before Setup,Asking same questions,8000
 Before Setup,Wrong model usage,12000
-Total Waste,45000 tokens,$135
 
-After CLAUDE.md,Context from CLAUDE.md,3000
-After CLAUDE.md,Focused reading,2000
-Total CLAUDE Savings,5000 tokens,$15
-
-After Model Switch,Sonnet for planning,2000
-After Model Switch,Haiku for implementation,500
-Total Model Savings,2500 tokens,$1.50
-
-Final Cost,Optimized session,7500 tokens,$16.50
-Savings,Total saved,37500 tokens,$118.50
+After Setup,Context from CLAUDE.md,3000
+After Setup,Focused reading,2000
+After Setup,Sonnet for planning,2000
+After Setup,Haiku for implementation,500
 ```
 
 **Cost Breakdown:**
