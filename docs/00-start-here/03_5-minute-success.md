@@ -28,7 +28,7 @@ Claude will guide you through each step interactively. [See full workflow →](.
 ```bash
 # Clone the template to your home directory
 cd ~
-git clone https://github.com/your-username/claude-config-template.git
+git clone https://github.com/christianearle01/claude-config-template.git
 
 # Navigate into it
 cd claude-config-template
@@ -360,4 +360,4 @@ You can expand it over time as you use Claude Code.
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v4.5.2*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.5.2*

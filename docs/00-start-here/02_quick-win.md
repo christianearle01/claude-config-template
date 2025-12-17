@@ -531,6 +531,6 @@ cd ~/claude-config-template
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/your-repo) - v4.5.2*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.5.2*
 
 *Last updated: 2025-12-08*

@@ -58,9 +58,9 @@ https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid
 **Easiest option:** View documentation directly on GitHub where diagrams render automatically.
 
 **Quick links:**
-- [Visual Learning Guides](https://github.com/your-repo/claude-config-template/blob/main/docs/00-start-here/06_visual-guides.md)
-- [Visual Workflows](https://github.com/your-repo/claude-config-template/blob/main/docs/00-start-here/08_visual-workflows.md)
-- [Visual Quickstart](https://github.com/your-repo/claude-config-template/blob/main/docs/00-start-here/07_visual-quickstart.md)
+- [Visual Learning Guides](https://github.com/christianearle01/claude-config-template/blob/main/docs/00-start-here/06_visual-guides.md)
+- [Visual Workflows](https://github.com/christianearle01/claude-config-template/blob/main/docs/00-start-here/08_visual-workflows.md)
+- [Visual Quickstart](https://github.com/christianearle01/claude-config-template/blob/main/docs/00-start-here/07_visual-quickstart.md)
 
 **Pros:**
 - ✅ No setup required
@@ -326,7 +326,7 @@ If diagrams still don't render after following this guide:
    - Mermaid version: Check extension changelog
 
 2. Open an issue:
-   - Repository: https://github.com/your-repo/claude-config-template/issues
+   - Repository: https://github.com/christianearle01/claude-config-template/issues
    - Include: VS Code version, extension version, which diagram fails
    - Screenshot of error (if any)
 

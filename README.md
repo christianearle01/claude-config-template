@@ -94,7 +94,7 @@ cd claude-config-template
 - **Metrics shown:** Projected/estimated based on theoretical analysis
 - **Looking for:** Early adopters to validate these projections!
 
-_Metrics and examples throughout this documentation are theoretical projections, not verified by multiple real users. [Help validate them!](https://github.com/your-repo/issues)_
+_Metrics and examples throughout this documentation are theoretical projections, not verified by multiple real users. [Help validate them!](https://github.com/christianearle01/claude-config-template/issues)_
 
 ---
 
@@ -452,7 +452,7 @@ Different users need different paths:
 ### 1. Clone the Template
 ```bash
 cd ~
-git clone https://github.com/your-username/claude-config-template.git
+git clone https://github.com/christianearle01/claude-config-template.git
 ```
 
 ### 2. Choose Your Path
@@ -470,11 +470,10 @@ Begin using Claude Code with optimized configuration.
 
 ## 📞 Connect & Contribute
 
-- **Issues & Feedback:** [GitHub Issues](https://github.com/your-username/claude-config-template/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/your-username/claude-config-template/discussions)
+- **Issues & Feedback:** [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues)
 - **Official Docs:** [Claude Code Documentation](https://code.claude.com/docs)
 
-**Have a success story?** We'd love to hear it! Open an issue or discussion.
+**Have a success story?** We'd love to hear it! Open an issue.
 
 ---
 
