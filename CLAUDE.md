@@ -880,6 +880,41 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
    - Prevents rework by catching issues early (saves tokens overall)
    - See "MCP Usage Guidelines" section above for decision framework
 
+10. **Show workflow progress to users (v4.16.0) - OPTIONAL**
+   - **Note:** This is the author's preference for transparency - NOT required for other users
+   - Use `scripts/claude-progress.sh` functions during multi-step operations
+   - Provides transparency into Claude's workflow (reduces "black box" anxiety)
+   - Standard workflow phases: Understanding → Planning → Implementation → Validation
+   - **User preference:** Can be disabled by removing this instruction from your CLAUDE.md
+   - **When to use:**
+     - Multi-file changes (show which file you're working on)
+     - Complex refactoring (show phases: analyze → plan → implement)
+     - Long operations (show task N of M progress)
+     - Agent operations (indicate when launching Explore/Plan agents)
+   - **How to use:**
+     ```bash
+     # Source the helper (automatically available when you need it)
+     # For 4-phase standard workflow:
+     claude_progress_understanding 1 3 "Reading codebase files"
+     claude_progress_planning 1 2 "Designing approach"
+     claude_progress_implementing 3 5 "Updating wizard-helpers.sh"
+     claude_progress_validating 1 2 "Running tests"
+
+     # For simple tasks (3-phase):
+     claude_progress_simple_understand 1 1 "Analyzing request"
+     claude_progress_simple_implement 1 1 "Making changes"
+     claude_progress_simple_validate 1 1 "Verifying changes"
+
+     # For agent operations:
+     claude_progress_agent "Explore" "Searching for component files"
+
+     # For quick status updates:
+     claude_progress_status "Reading file: src/Header.tsx"
+     ```
+   - **Educational value:** Users see your multi-phase thinking process
+   - **When NOT to use:** Single-file trivial changes (< 5 lines), simple reads
+   - **Frequency:** Balance transparency with noise - use for major steps, not every action
+
 **Common maintenance tasks:**
 - Adding new documentation → See "Development Workflow" above
 - Fixing broken links → Search and replace, test thoroughly
