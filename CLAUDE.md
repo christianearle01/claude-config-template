@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
-**Last Updated:** 2025-12-16
-**Version:** v4.15.0
+**Last Updated:** 2025-12-17
+**Version:** v4.17.0
 
 ---
 
@@ -927,6 +927,16 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v4.17.0 (2025-12-17):**
+  - Fabric-inspired prompt-polisher enhancements: 3 output modes (Fast/Balanced/Educational)
+  - Before/after diff view for transparency and learning
+  - Standalone portable version works in any LLM (ChatGPT, Gemini, local models)
+  - Credit to Fabric project by Daniel Miessler for speed-first philosophy inspiration
+- **v4.16.0 (2025-12-17):**
+  - Nested progress bar system: Two-level visualization (phase + task)
+  - Updated 5 wizards with adaptive complexity and dynamic updates
+  - Educational documentation on UX principles and psychological transparency
+  - Interactive demo with 4 patterns (simple, nested, dynamic, adaptive)
 - **v4.15.0 (2025-12-17):**
   - Agent Enhancement: Standardized patterns across all 7 agents
   - Confidence scoring (🟢🟡🔴), structured output schemas, permission to fail

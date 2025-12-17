@@ -1,7 +1,7 @@
 {
-  "version": "4.15.0",
+  "version": "4.17.0",
   "release_date": "2025-12-17",
-  "release_name": "Agent Enhancement: Standardized Patterns for Consistency",
+  "release_name": "Fabric-Inspired Prompt Polisher Enhancements",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
