@@ -9,6 +9,230 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.12.0] - 2025-12-17
+
+### Added - Prompting Fundamentals: Empowering Users
+
+**Core Problem Solved:**
+- **Psychological:** Users treat AI as "magic" → anxiety when outputs are unclear or hallucinated
+- **Educational:** Template has advanced features (agents, plan mode) but assumes users already understand prompting
+- **Engineering:** Users don't provide context → AI guesses → hallucinations and rework
+
+**Three-Perspective Coordinated Insight:**
+"The template teaches methodology brilliantly BUT assumes clarity of thought. Users lack foundational 'how AI works' knowledge, leading to vague prompts and poor results. Prompting is the meta-skill that unlocks everything else."
+
+---
+
+### 1. Prompting Fundamentals Guide (NEW)
+
+**File Created:** `docs/01-fundamentals/07_prompting-fundamentals.md` (~600 lines)
+
+**Inspiration:** ["You SUCK at Prompting AI (Here's the secret)"](https://www.youtube.com/watch?v=pwWBcsxEoLk) - YouTube analysis using three-perspective framework
+
+**What it teaches:**
+
+**Section 1: How AI Actually Works**
+- LLMs are prediction engines, not magic or sentient beings
+- Mental model shift: probability calculator vs intelligent friend
+- Why "garbage in, garbage out" is literally true
+- Stops users from anthropomorphizing AI
+
+**Section 2: The Meta-Skill of Clarity**
+- Clear thinking → clear prompts → clear output
+- The Clarity Test: Can you describe it to a colleague?
+- Vague vs concrete example comparisons
+- "If your thinking is messy, your prompt will be messy"
+
+**Section 3: Prompting is Programming**
+- A prompt is a program written in natural language
+- Call to action (not question)
+- Code example: traditional programming vs prompting
+- Empowers users: programming with words
+
+**Section 4: Permission to Fail** (#1 hallucination fix)
+- AI "people-pleasing" tendency → makes things up
+- Solution: "If uncertain, say 'I don't know'"
+- Before/after examples (hallucination vs honesty)
+- Builds trust by reducing false information
+
+**Section 5: Context is King**
+- "Any information you don't provide will be filled in by guessing"
+- The Context Checklist (6 questions)
+- Example: vague request → missing context → AI guess → wrong output
+- Never assume AI knows your project/framework/constraints
+
+**Section 6: Few-Shot > Zero-Shot**
+- Show 2-3 examples → AI pattern-matches
+- Zero-shot (describing) vs few-shot (showing) comparison
+- Commit message example: inconsistent vs consistent
+- Scaffolding for complex outputs
+
+**Section 7: When to Use Chain of Thought**
+- Decision tree: simple vs complex, mechanical vs reasoning
+- When COT helps: multi-step, multiple correct paths, high stakes
+- When to skip: simple, straightforward, well-defined
+- Trees of Thought for exploring alternatives
+
+**Section 8: Draft → Plan → Act**
+- Most reliable path to quality
+- Why plan mode exists (this explains existing template feature!)
+- Cost of catching issues: planning (1 min) vs rework (30 min)
+- Validation checkpoint prevents wasted work
+
+**Content structure:**
+- 8 sections, ~600 lines total
+- Before/after examples throughout
+- Decision trees and frameworks
+- Links to existing template features (plan mode, sequential thinking)
+- Educational tone (teach WHY, not just HOW)
+
+**Why it matters:**
+- Before: Users struggle with unclear AI responses, don't know why
+- After: Users understand HOW AI works → better prompts → better results
+- Addresses foundational gap: template assumes prompting skill
+- Complements Principles Handbook: WHAT to write (principles) + HOW to ask for it (prompting)
+
+**Integration:**
+- Added to navigation: `docs/00-start-here/01_entry-points.md`
+- Added to quick reference: `docs/00-start-here/09_quick-reference.md` (with 8-principle summary)
+- Added to CLAUDE.md FAQ: "How do I prompt effectively?"
+
+---
+
+### 2. Navigation & Discoverability Improvements
+
+**Files Updated (3):**
+
+**1. Entry Points** (`docs/00-start-here/01_entry-points.md`)
+- Added "Learn effective prompting" row to goal-based navigation
+- Links to Prompting Fundamentals with description
+
+**2. Quick Reference** (`docs/00-start-here/09_quick-reference.md`)
+- Added "Prompting Fundamentals" section (alphabetical position)
+- 8 core principles summary
+- Before/after examples (vague vs clear)
+- Quick decision tree (when to use guide)
+- Complements Coding Principles Handbook
+- Keywords for searchability (Cmd+F)
+
+**3. CLAUDE.md** (Project Memory)
+- Added FAQ: "How do I prompt effectively?"
+- Links to Prompting Fundamentals with key concepts
+- Appears in "Common User Questions" section
+
+---
+
+## Three-Perspective Validation
+
+**🧠 Psychological: Does this reduce user anxiety?**
+- ✅ Demystifies AI (prediction engine, not magic) → realistic expectations
+- ✅ Permission to fail reduces "lying AI" frustration
+- ✅ Context checklist prevents "AI didn't understand me" anxiety
+- ✅ Explains WHY existing features work (plan mode, COT)
+
+**📚 Educator: Does this improve teachability?**
+- ✅ Teaches the meta-skill (clarity) before techniques
+- ✅ Progressive: mental models → techniques → advanced patterns
+- ✅ Before/after examples (show, don't just tell)
+- ✅ Decision trees reduce "When do I use this?" confusion
+- ✅ Connects to existing template features (educational coherence)
+
+**💻 Software Engineer: Is this technically sound?**
+- ✅ Accurate AI model (prediction engine matches Claude's architecture)
+- ✅ Patterns align with Anthropic best practices
+- ✅ Permission to fail = documented hallucination fix
+- ✅ Few-shot prompting = proven technique (research-backed)
+- ✅ Context engineering = primary optimization lever
+
+**Coordinated outcome:** "Empowered users who understand AI fundamentals and can craft effective prompts."
+
+---
+
+## What's NOT in This Release (Deferred)
+
+These were identified in the YouTube analysis plan but deferred to future versions:
+
+**v4.13.0: Prompt Pattern Library** (Priority 3 - MEDIUM)
+- Gallery of 8-10 reusable prompt patterns
+- Copy-paste templates for common scenarios
+- Few-shot examples for scaffolding
+- Estimated: ~400 lines, 1-2 hours
+
+**v4.14.0: Adversarial Validation Agent** (Priority 2 - MEDIUM)
+- Playoff method: generate multiple solutions → critique → best
+- Multi-persona evaluation
+- Automated quality through competition
+- Estimated: ~500 lines, 3-4 hours
+
+**v4.15.0: Agent Enhancement** (Priority 4 - LOW)
+- Standardize output requirements across all agents
+- Add "permission to fail" patterns to agents
+- Document reasoning for structured output
+- Estimated: ~100 lines, 1-2 hours
+
+**Also Deferred from v4.11.0:**
+- **Model Usage Tracker** (could be v4.16.0 or later)
+- **Guide Evolution Framework** (could be v4.17.0 or later)
+
+**Rationale for phased approach:**
+- v4.12.0 addresses Priority 1: Foundational gap (most critical)
+- Future versions can add patterns (P3), adversarial validation (P2), polish (P4)
+- Educational project prioritizes teaching value > feature count
+- Users need fundamentals before advanced techniques
+
+---
+
+## Files Modified (4)
+
+### New Files (1):
+1. `docs/01-fundamentals/07_prompting-fundamentals.md` (~600 lines)
+
+### Updated Files (3):
+2. `docs/00-start-here/01_entry-points.md` - Added prompting navigation row
+3. `docs/00-start-here/09_quick-reference.md` - Added Prompting Fundamentals section
+4. `CLAUDE.md` - Added prompting FAQ
+
+### Version Control (2):
+5. `version.json` - Bumped to v4.12.0, added 8 prompting features
+6. `CHANGELOG.md` - This entry
+
+---
+
+## Impact
+
+**Immediate (Post-Release):**
+- ✅ Users understand HOW AI works (not magic)
+- ✅ Foundational prompting knowledge available
+- ✅ Clear path from fundamentals → advanced features
+- ✅ Explains WHY template features exist (plan mode, COT)
+
+**Expected (30 Days):**
+- Reduced hallucinations (permission to fail pattern)
+- Better prompts (context checklist, few-shot examples)
+- Users reference guide when getting unclear responses
+- "How do I ask Claude...?" questions answered
+
+**Long-term (90 Days):**
+- Users craft effective prompts naturally (meta-skill internalized)
+- Reduced rework from vague requests
+- Prompting fundamentals become part of workflow
+- Users teach others using this guide
+
+---
+
+## Version Metadata
+
+- **Version:** 4.12.0 (MINOR - new foundational guide)
+- **Release Name:** "Prompting Fundamentals: Empowering Users"
+- **Release Date:** 2025-12-17
+- **Breaking Changes:** None
+- **Update Priority:** Recommended
+- **Lines of Code:** +600 (Prompting Fundamentals guide)
+- **Files Changed:** 6 (1 new, 5 updated)
+- **Closes Gap:** Foundational prompting education (Priority 1 from YouTube analysis)
+
+---
+
 ## [4.11.0] - 2025-12-17
 
 ### Added - Principles & Completion: Closing the Gaps

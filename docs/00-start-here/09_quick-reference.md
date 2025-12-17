@@ -663,6 +663,65 @@ model: opus  # Architecture needs deep reasoning
 
 ---
 
+## Prompting Fundamentals
+
+**What:** Foundational guide to effective AI prompting
+
+**Purpose:** Teach the meta-skill of clarity and how to prompt Claude effectively
+
+**→ [Complete Prompting Fundamentals Guide](../01-fundamentals/07_prompting-fundamentals.md)**
+
+### Quick Concepts
+
+**8 Core Principles:**
+
+1. **How AI Actually Works** - LLMs are prediction engines, not magic
+2. **Meta-Skill of Clarity** - Clear thinking → clear prompts
+3. **Prompting is Programming** - Call to action, not question
+4. **Permission to Fail** - #1 hallucination fix: "If uncertain, say 'I don't know'"
+5. **Context is King** - Never assume AI knows, always provide context
+6. **Few-Shot > Zero-Shot** - Show examples, don't just describe
+7. **When to Use Chain of Thought** - Decision tree for COT vs direct prompting
+8. **Draft → Plan → Act** - Why plan mode exists and works
+
+### Before vs After Examples
+
+**❌ Vague (without fundamentals):**
+```
+"Fix the bug"
+"Make it better"
+"Add authentication"
+```
+
+**✅ Clear (with fundamentals):**
+```
+"Fix the authentication bug in src/auth.ts:45 where users with
+special characters in email can't log in. Error: 'Invalid email format'.
+If the solution isn't clear from the code, say 'I need more context'."
+```
+
+### Quick Decision Tree
+
+**Use this guide when:**
+- First time using Claude Code (foundational)
+- Getting unclear or hallucinated responses
+- Want to reduce token costs through better prompts
+- Teaching others how to use AI effectively
+
+**See full guide for:**
+- Mental models (prediction engine vs magic)
+- Adversarial validation (playoff method)
+- Output requirements specification
+- Educational examples from this template
+
+**Complements:**
+- [Coding Principles Handbook](../01-fundamentals/06_coding-principles-handbook.md) - WHAT to write
+- Prompting Fundamentals - HOW to ask for it
+
+**Keywords:** prompting, clarity, context, hallucinations, few-shot, chain of thought, meta-skill, prediction engine
+
+---
+
 ## Permission Modes
 
 **What:** Control how Claude makes changes to your codebase

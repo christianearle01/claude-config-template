@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-16
-**Version:** v4.11.0
+**Version:** v4.12.0
 
 ---
 
@@ -597,6 +597,9 @@ git push origin v2.6.0
 
 **"What coding principles should I follow?"**
 → See `docs/01-fundamentals/06_coding-principles-handbook.md` (SOLID, DRY, KISS, YAGNI + AI-specific principles from 9 consolidated files)
+
+**"How do I prompt effectively?"**
+→ See `docs/01-fundamentals/07_prompting-fundamentals.md` (How AI works, meta-skill of clarity, permission to fail, context is king, few-shot > zero-shot)
 
 ### File Location Quick Reference
 
