@@ -1435,6 +1435,38 @@ chmod +x scripts/*.sh
 
 ---
 
+## YouTube Sources
+
+**What:** Central reference for all 10 YouTube videos that inspired template features
+
+**Location:** [YouTube Sources Reference](../04-ecosystem/11_youtube-sources.md)
+
+**Purpose:** Quick scan of all video sources without searching multiple files
+
+**10 Videos Included:**
+1. You SUCK at Prompting AI → Prompting Fundamentals (v4.12.0)
+2. Anthropic 10× Claude Code → Prompt optimization
+3. AI Agents That Actually Work → Domain Memory (v3.6.0)
+4. AI-Native Companies → "Code wins" philosophy
+5. Vibe Coding to Vibe Engineering → Mode selector (v4.9.0)
+6. State of AI Code Quality → Quality Workflows (v3.7.0)
+7. Jewels Proactive Patterns → Proactive Intelligence (v3.5.0)
+8. Vibe Coding vs AI Augmented → Workflow patterns
+9. 800+ Hours Experience → Real-world best practices
+10. Claude Code Skills → Skills paradigm
+
+**Each video includes:**
+- Direct YouTube link
+- What it inspired (features/docs)
+- Referenced in (file list)
+- Key takeaways
+
+**Verification:** All links verified as of 2025-12-17 (v4.12.0)
+
+**Keywords:** youtube, videos, sources, inspiration, references, credits
+
+---
+
 ## Visual Guides
 
 **What:** 5 Mermaid diagrams explaining key concepts

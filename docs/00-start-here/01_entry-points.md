@@ -28,6 +28,7 @@
 | **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Case study: how skills emerged from THIS project |
 | **Understand the concepts** | [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) |
 | **Find specific features** | [Quick Reference](09_quick-reference.md) |
+| **See video sources** | [YouTube Sources](../04-ecosystem/11_youtube-sources.md) - 10 videos that inspired this template |
 | **Learn progressively** | [Learning Stages](12_learning-stages.md) |
 
 ---
