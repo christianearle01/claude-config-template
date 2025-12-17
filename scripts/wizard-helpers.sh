@@ -7,7 +7,7 @@
 ################################################################################
 
 ################################################################################
-# Progress Bar Function
+# Progress Bar Function (Original - Maintained for Backward Compatibility)
 # Usage: show_progress <current> <total> <description>
 ################################################################################
 show_progress() {
@@ -36,6 +36,191 @@ show_progress() {
         echo -e " - ${description}"
     else
         echo ""
+    fi
+}
+
+################################################################################
+# ANSI Support Detection
+# WHY: Different terminals have different capabilities
+# EDUCATIONAL: Teaches importance of graceful degradation in CLI tools
+################################################################################
+detect_ansi_support() {
+    # Check if terminal supports ANSI escape codes
+    # TERM=dumb, empty TERM, or missing TERM means no ANSI support
+    if [[ $TERM == "dumb" ]] || [[ $TERM == "" ]] || [[ -z $TERM ]]; then
+        export PROGRESS_ANSI_SUPPORTED=false
+        export PROGRESS_DYNAMIC_UPDATE=false
+        return 1
+    else
+        export PROGRESS_ANSI_SUPPORTED=true
+        return 0
+    fi
+}
+
+# Initialize ANSI support detection
+detect_ansi_support
+
+# Global state for nested progress
+# WHY: Allows progress bars to know their context (phase + task)
+# EDUCATIONAL: Shows trade-off between global state (convenient) vs pure functions (safer)
+CURRENT_PHASE=0
+TOTAL_PHASES=0
+PHASE_NAME=""
+CURRENT_TASK=0
+TOTAL_TASKS=0
+TASK_NAME=""
+LAST_UPDATE_TIME=0
+
+################################################################################
+# Cleanup Progress State
+# WHY: Prevents state pollution across script executions
+# EDUCATIONAL: Demonstrates proper resource cleanup in bash scripts
+################################################################################
+cleanup_progress_state() {
+    unset CURRENT_PHASE TOTAL_PHASES PHASE_NAME
+    unset CURRENT_TASK TOTAL_TASKS TASK_NAME
+    unset LAST_UPDATE_TIME
+}
+
+# Register cleanup handler
+trap cleanup_progress_state EXIT
+
+################################################################################
+# Phase-Level Progress Bar
+# Usage: show_phase_progress <current_phase> <total_phases> <phase_name>
+# WHY: Shows high-level workflow structure (Exploration → Design → Review)
+# EDUCATIONAL: Nested progress teaches users about system architecture
+################################################################################
+show_phase_progress() {
+    local current=$1
+    local total=$2
+    local description=$3
+
+    # Store state for nested display
+    CURRENT_PHASE=$current
+    TOTAL_PHASES=$total
+    PHASE_NAME="$description"
+
+    # Use environment variables with defaults
+    local bar_width=${PROGRESS_BAR_WIDTH:-50}
+    local label=${PROGRESS_PHASE_LABEL:-"Phase"}
+    local char_filled=${PROGRESS_CHAR_FILLED:-'█'}
+    local char_empty=${PROGRESS_CHAR_EMPTY:-'░'}
+    local color_label=${PROGRESS_COLOR_LABEL:-${CYAN:-'\033[0;36m'}}
+    local color_reset=${PROGRESS_COLOR_RESET:-${NC:-'\033[0m'}}
+
+    local percentage=$((current * 100 / total))
+    local filled=$((current * bar_width / total))
+    local empty=$((bar_width - filled))
+
+    echo -n -e "${color_label}${label}:${color_reset} ["
+    printf "%${filled}s" | tr ' ' "$char_filled"
+    printf "%${empty}s" | tr ' ' "$char_empty"
+    echo -e "] ${percentage}% - ${description}"
+}
+
+################################################################################
+# Task-Level Progress Bar (Nested under Phase)
+# Usage: show_task_progress <current_task> <total_tasks> <task_name>
+# WHY: Shows detailed steps within each phase
+# EDUCATIONAL: Two-level hierarchy matches how humans think about complex work
+################################################################################
+show_task_progress() {
+    local current=$1
+    local total=$2
+    local description=$3
+
+    # Store state
+    CURRENT_TASK=$current
+    TOTAL_TASKS=$total
+    TASK_NAME="$description"
+
+    # Use environment variables with defaults
+    local bar_width=${PROGRESS_BAR_WIDTH:-50}
+    local label=${PROGRESS_TASK_LABEL:-"Task"}
+    local indent=${PROGRESS_TASK_INDENT:-"  "}
+    local char_filled=${PROGRESS_CHAR_FILLED:-'█'}
+    local char_empty=${PROGRESS_CHAR_EMPTY:-'░'}
+    local color_label=${PROGRESS_COLOR_LABEL:-${CYAN:-'\033[0;36m'}}
+    local color_reset=${PROGRESS_COLOR_RESET:-${NC:-'\033[0m'}}
+
+    local percentage=$((current * 100 / total))
+    local filled=$((current * bar_width / total))
+    local empty=$((bar_width - filled))
+
+    # Indented to show nesting under phase
+    echo -n -e "${indent}${color_label}${label}:${color_reset} ["
+    printf "%${filled}s" | tr ' ' "$char_filled"
+    printf "%${empty}s" | tr ' ' "$char_empty"
+    echo -e "] ${percentage}% - ${description}"
+}
+
+################################################################################
+# Dynamic Progress Update (Overwrites Previous Progress)
+# Usage: update_progress
+# WHY: Real-time updates without scrolling = better UX for long operations
+# EDUCATIONAL: ANSI escape codes enable powerful terminal control
+# NOTE: Only works when ANSI is supported, otherwise prints new line
+################################################################################
+update_progress() {
+    # Rate limiting: Don't update more than once per 100ms
+    # WHY: Prevents flicker and reduces terminal stress on slow connections
+    local current_time=$(date +%s%3N 2>/dev/null || echo "0")  # milliseconds
+    local rate_limit=${PROGRESS_UPDATE_RATE_MS:-100}
+
+    if [[ $current_time -gt 0 ]] && [[ $LAST_UPDATE_TIME -gt 0 ]]; then
+        local elapsed=$((current_time - LAST_UPDATE_TIME))
+        if [[ $elapsed -lt $rate_limit ]]; then
+            return  # Skip update, too soon
+        fi
+    fi
+    LAST_UPDATE_TIME=$current_time
+
+    # Check if ANSI is supported and dynamic updates are enabled
+    if [[ ${PROGRESS_ANSI_SUPPORTED:-true} == "true" ]] && [[ ${PROGRESS_DYNAMIC_UPDATE:-true} == "true" ]]; then
+        # Move cursor up 2 lines, clear from cursor to end of screen
+        echo -ne "\033[2A\033[J"
+
+        # Redraw phase progress
+        if [[ $CURRENT_PHASE -gt 0 ]] && [[ $TOTAL_PHASES -gt 0 ]]; then
+            show_phase_progress $CURRENT_PHASE $TOTAL_PHASES "$PHASE_NAME"
+        fi
+
+        # Redraw task progress
+        if [[ $CURRENT_TASK -gt 0 ]] && [[ $TOTAL_TASKS -gt 0 ]]; then
+            show_task_progress $CURRENT_TASK $TOTAL_TASKS "$TASK_NAME"
+        fi
+    else
+        # Fallback: Just print new progress lines without cursor movement
+        # WHY: Ensures functionality even in limited terminal environments
+        if [[ $CURRENT_PHASE -gt 0 ]] && [[ $TOTAL_PHASES -gt 0 ]]; then
+            show_phase_progress $CURRENT_PHASE $TOTAL_PHASES "$PHASE_NAME"
+        fi
+        if [[ $CURRENT_TASK -gt 0 ]] && [[ $TOTAL_TASKS -gt 0 ]]; then
+            show_task_progress $CURRENT_TASK $TOTAL_TASKS "$TASK_NAME"
+        fi
+    fi
+}
+
+################################################################################
+# Adaptive Progress (Auto-chooses Simple vs Nested)
+# Usage: show_adaptive_progress <total_tasks> <current_task> <description>
+# WHY: Prevents cognitive overload on trivial operations (< 5 tasks)
+# EDUCATIONAL: Teaches that appropriate UX adapts to context, not one-size-fits-all
+################################################################################
+show_adaptive_progress() {
+    local total=$1
+    local current=$2
+    local description=$3
+
+    local threshold=${PROGRESS_NESTED_THRESHOLD:-5}
+
+    if [[ $total -lt $threshold ]]; then
+        # Simple operation: Use single-line progress
+        show_progress $current $total "$description"
+    else
+        # Complex operation: Use task progress (assumes phase is already shown)
+        show_task_progress $current $total "$description"
     fi
 }
 
@@ -369,7 +554,18 @@ create_claude_structure() {
 ################################################################################
 # Export all functions
 ################################################################################
+# Original progress function
 export -f show_progress
+
+# Nested progress functions (v4.16.0)
+export -f detect_ansi_support
+export -f cleanup_progress_state
+export -f show_phase_progress
+export -f show_task_progress
+export -f update_progress
+export -f show_adaptive_progress
+
+# Other helper functions
 export -f checkpoint
 export -f celebrate
 export -f quiz

@@ -32,11 +32,17 @@ echo ""
 
 echo -e "${GREEN}Welcome back to Claude Code!${NC}"
 echo ""
-echo "This quick refresher will cover:"
-echo "  1. Essential commands (5 min)"
-echo "  2. Model switching strategy (3 min)"
-echo "  3. What's new in v2.1 (5 min)"
-echo "  4. Quick reference card"
+echo "This quick refresher will cover (3 phases):"
+echo ""
+echo "  ${MAGENTA}Phase 1: Refresher${NC}"
+echo "    • Essential commands (5 min)"
+echo "    • Model switching strategy (3 min)"
+echo ""
+echo "  ${MAGENTA}Phase 2: Updates${NC}"
+echo "    • What's new in v2.1 (5 min)"
+echo ""
+echo "  ${MAGENTA}Phase 3: Reference${NC}"
+echo "    • Quick reference card"
 echo ""
 
 show_tip "This assumes you've used Claude Code before."
@@ -48,7 +54,8 @@ pause
 ################################################################################
 
 clear
-show_progress 1 4 "Essential Commands"
+show_phase_progress 1 3 "Refresher"
+show_task_progress 1 2 "Essential Commands"
 echo ""
 
 echo -e "${CYAN}Part 1: Essential Commands (5 minutes)${NC}"
@@ -92,7 +99,8 @@ pause
 ################################################################################
 
 clear
-show_progress 2 4 "Model Switching"
+show_phase_progress 1 3 "Refresher"
+show_task_progress 2 2 "Model Switching"
 check_timer "Progress check"
 echo ""
 
@@ -132,7 +140,8 @@ pause
 ################################################################################
 
 clear
-show_progress 3 4 "What's New"
+show_phase_progress 2 3 "Updates"
+show_task_progress 1 1 "What's New"
 check_timer "Progress check"
 echo ""
 
@@ -180,7 +189,8 @@ pause
 ################################################################################
 
 clear
-show_progress 4 4 "Quick Reference"
+show_phase_progress 3 3 "Reference"
+show_task_progress 1 1 "Quick Reference"
 check_timer "Progress check"
 echo ""
 

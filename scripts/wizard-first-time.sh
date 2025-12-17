@@ -32,11 +32,17 @@ echo ""
 
 echo -e "${CYAN}Welcome to Claude Code!${NC}"
 echo ""
-echo "This wizard will teach you everything you need to know:"
-echo "  1. Install Claude Code globally (20 min)"
-echo "  2. Learn core concepts (15 min)"
-echo "  3. Understand model switching (10 min) - Save 92%!"
-echo "  4. Set up your first project (30 min)"
+echo "This wizard will teach you everything you need to know (3 phases):"
+echo ""
+echo "  ${MAGENTA}Phase 1: Learning${NC}"
+echo "    • Install Claude Code globally (20 min)"
+echo "    • Learn core concepts (15 min)"
+echo ""
+echo "  ${MAGENTA}Phase 2: Optimization${NC}"
+echo "    • Understand model switching (10 min) - Save 92%!"
+echo ""
+echo "  ${MAGENTA}Phase 3: Application${NC}"
+echo "    • Set up your first project (30 min)"
 echo ""
 
 show_tip "Take your time. We'll validate your understanding at each step."
@@ -44,11 +50,12 @@ show_tip "Take your time. We'll validate your understanding at each step."
 pause
 
 ################################################################################
-# Part 1: Installation (20 minutes)
+# Phase 1: Learning - Task 1 (Installation - 20 minutes)
 ################################################################################
 
 clear
-show_progress 1 4 "Installation"
+show_phase_progress 1 3 "Learning"
+show_task_progress 1 2 "Installation"
 echo ""
 
 echo -e "${CYAN}Part 1: Installing Claude Code (20 minutes)${NC}"
@@ -117,7 +124,8 @@ pause
 ################################################################################
 
 clear
-show_progress 2 4 "Core Concepts"
+show_phase_progress 1 3 "Learning"
+show_task_progress 2 2 "Core Concepts"
 check_timer "Progress check"
 echo ""
 
@@ -201,7 +209,8 @@ pause
 ################################################################################
 
 clear
-show_progress 3 4 "Model Switching"
+show_phase_progress 2 3 "Optimization"
+show_task_progress 1 1 "Model Switching"
 check_timer "Progress check"
 echo ""
 
@@ -253,7 +262,8 @@ pause
 ################################################################################
 
 clear
-show_progress 4 4 "First Project Setup"
+show_phase_progress 3 3 "Application"
+show_task_progress 1 1 "First Project Setup"
 check_timer "Progress check"
 echo ""
 

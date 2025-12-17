@@ -30,11 +30,17 @@ echo -e "${MAGENTA}║                                                          
 echo -e "${MAGENTA}╚════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-echo -e "${CYAN}Advanced features we'll set up:${NC}"
-echo "  1. Security hooks (prompt injection detection)"
-echo "  2. Custom agents (specialized workflows)"
-echo "  3. MCP servers (database, GitHub, context7)"
-echo "  4. Project-specific optimizations"
+echo -e "${CYAN}Advanced features we'll set up (3 phases):${NC}"
+echo ""
+echo "  ${MAGENTA}Phase 1: Security & Automation${NC}"
+echo "    • Security hooks (prompt injection detection)"
+echo "    • Custom agents (specialized workflows)"
+echo ""
+echo "  ${MAGENTA}Phase 2: Integration${NC}"
+echo "    • MCP servers (database, GitHub, context7)"
+echo ""
+echo "  ${MAGENTA}Phase 3: Performance${NC}"
+echo "    • Project-specific optimizations"
 echo ""
 
 show_tip "This assumes you're already familiar with Claude Code basics."
@@ -46,7 +52,8 @@ pause
 ################################################################################
 
 clear
-show_progress 1 4 "Security Hooks"
+show_phase_progress 1 3 "Security & Automation"
+show_task_progress 1 2 "Security Hooks"
 echo ""
 
 echo -e "${CYAN}Part 1: Security Hooks (10 minutes)${NC}"
@@ -146,7 +153,8 @@ pause
 ################################################################################
 
 clear
-show_progress 2 4 "Custom Agents"
+show_phase_progress 1 3 "Security & Automation"
+show_task_progress 2 2 "Custom Agents"
 check_timer "Progress check"
 echo ""
 
@@ -244,7 +252,8 @@ pause
 ################################################################################
 
 clear
-show_progress 3 4 "MCP Servers"
+show_phase_progress 2 3 "Integration"
+show_task_progress 1 1 "MCP Servers"
 check_timer "Progress check"
 echo ""
 
@@ -302,7 +311,8 @@ pause
 ################################################################################
 
 clear
-show_progress 4 4 "Project Optimizations"
+show_phase_progress 3 3 "Performance"
+show_task_progress 1 1 "Project Optimizations"
 check_timer "Progress check"
 echo ""
 

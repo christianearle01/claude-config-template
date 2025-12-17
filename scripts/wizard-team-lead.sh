@@ -30,12 +30,18 @@ echo -e "${YELLOW}║                                                           
 echo -e "${YELLOW}╚════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-echo -e "${CYAN}Team deployment plan:${NC}"
-echo "  1. Plan rollout strategy (pilot → full team)"
-echo "  2. Create shared template repository"
-echo "  3. Document team-specific standards"
-echo "  4. Onboard pilot users (2-3 developers)"
-echo "  5. Gather feedback and refine"
+echo -e "${CYAN}Team deployment plan (3 phases):${NC}"
+echo ""
+echo "  ${MAGENTA}Phase 1: Planning${NC}"
+echo "    • Plan rollout strategy (pilot → full team)"
+echo "    • Create shared template repository"
+echo ""
+echo "  ${MAGENTA}Phase 2: Implementation${NC}"
+echo "    • Document team-specific standards"
+echo "    • Onboard pilot users (2-3 developers)"
+echo ""
+echo "  ${MAGENTA}Phase 3: Iteration${NC}"
+echo "    • Gather feedback and refine"
 echo ""
 
 show_tip "This is a one-time investment that pays off with team consistency."
@@ -47,7 +53,8 @@ pause
 ################################################################################
 
 clear
-show_progress 1 5 "Rollout Strategy"
+show_phase_progress 1 3 "Planning"
+show_task_progress 1 2 "Rollout Strategy"
 echo ""
 
 echo -e "${CYAN}Part 1: Planning Your Rollout Strategy (15 minutes)${NC}"
@@ -100,7 +107,8 @@ pause
 ################################################################################
 
 clear
-show_progress 2 5 "Shared Template"
+show_phase_progress 1 3 "Planning"
+show_task_progress 2 2 "Shared Template"
 check_timer "Progress check"
 echo ""
 
@@ -269,7 +277,8 @@ pause
 ################################################################################
 
 clear
-show_progress 3 5 "Team Standards"
+show_phase_progress 2 3 "Implementation"
+show_task_progress 1 2 "Team Standards"
 check_timer "Progress check"
 echo ""
 
@@ -365,7 +374,8 @@ pause
 ################################################################################
 
 clear
-show_progress 4 5 "Pilot Onboarding"
+show_phase_progress 2 3 "Implementation"
+show_task_progress 2 2 "Pilot Onboarding"
 check_timer "Progress check"
 echo ""
 
@@ -415,7 +425,8 @@ pause
 ################################################################################
 
 clear
-show_progress 5 5 "Feedback Collection"
+show_phase_progress 3 3 "Iteration"
+show_task_progress 1 1 "Feedback Collection"
 check_timer "Progress check"
 echo ""
 

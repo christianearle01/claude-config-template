@@ -30,12 +30,18 @@ echo -e "${BLUE}║                                                            �
 echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-echo -e "${CYAN}What we'll do:${NC}"
-echo "  1. Get your project path"
-echo "  2. Copy .claude/ configuration files"
-echo "  3. Create CLAUDE.md from template"
-echo "  4. Document business purpose (the key step!)"
-echo "  5. Test setup"
+echo -e "${CYAN}What we'll do (3 phases):${NC}"
+echo ""
+echo "  ${MAGENTA}Phase 1: Setup${NC}"
+echo "    • Get your project path"
+echo "    • Copy .claude/ configuration files"
+echo ""
+echo "  ${MAGENTA}Phase 2: Configuration${NC}"
+echo "    • Create CLAUDE.md from template"
+echo "    • Document business purpose (the key step!)"
+echo ""
+echo "  ${MAGENTA}Phase 3: Validation${NC}"
+echo "    • Test setup"
 echo ""
 
 show_tip "This assumes you already have Claude Code installed globally."
@@ -43,11 +49,12 @@ show_tip "This assumes you already have Claude Code installed globally."
 pause
 
 ################################################################################
-# Step 1: Get Project Path
+# Phase 1: Setup - Task 1 (Get Project Path)
 ################################################################################
 
 clear
-show_progress 1 5 "Get Project Path"
+show_phase_progress 1 3 "Setup"
+show_task_progress 1 2 "Get Project Path"
 echo ""
 
 echo -e "${CYAN}Step 1: Specify Your Project${NC}"
@@ -75,11 +82,12 @@ echo -e "${CYAN}Detected project type: ${PROJECT_TYPE}${NC}"
 pause
 
 ################################################################################
-# Step 2: Copy Configuration Files
+# Phase 1: Setup - Task 2 (Copy Configuration Files)
 ################################################################################
 
 clear
-show_progress 2 5 "Copy Configuration Files"
+show_phase_progress 1 3 "Setup"
+show_task_progress 2 2 "Copy Configuration Files"
 echo ""
 
 echo -e "${CYAN}Step 2: Copying Configuration Files${NC}"
@@ -103,11 +111,12 @@ checkpoint 1 "Configuration files copied"
 pause
 
 ################################################################################
-# Step 3: Create CLAUDE.md
+# Phase 2: Configuration - Task 1 (Create CLAUDE.md)
 ################################################################################
 
 clear
-show_progress 3 5 "Create CLAUDE.md"
+show_phase_progress 2 3 "Configuration"
+show_task_progress 1 2 "Create CLAUDE.md"
 echo ""
 
 echo -e "${CYAN}Step 3: Creating CLAUDE.md${NC}"
@@ -131,11 +140,12 @@ checkpoint 2 "CLAUDE.md created"
 pause
 
 ################################################################################
-# Step 4: Document Business Purpose (CRITICAL STEP)
+# Phase 2: Configuration - Task 2 (Document Business Purpose - CRITICAL STEP)
 ################################################################################
 
 clear
-show_progress 4 5 "Document Business Purpose"
+show_phase_progress 2 3 "Configuration"
+show_task_progress 2 2 "Document Business Purpose"
 echo ""
 
 echo -e "${CYAN}Step 4: Document Your Project's Business Purpose${NC}"
@@ -196,11 +206,12 @@ quiz \
 pause
 
 ################################################################################
-# Step 5: Test Setup
+# Phase 3: Validation - Task 1 (Test Setup)
 ################################################################################
 
 clear
-show_progress 5 5 "Test Setup"
+show_phase_progress 3 3 "Validation"
+show_task_progress 1 1 "Test Setup"
 echo ""
 
 echo -e "${CYAN}Step 5: Testing Your Setup${NC}"
