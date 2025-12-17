@@ -23,6 +23,7 @@
 |------|-------------|
 | **Avoid disasters** | [Anti-Patterns](05_anti-patterns.md) - Read this first! |
 | **Learn effective prompting** | [Prompting Fundamentals](../01-fundamentals/07_prompting-fundamentals.md) - How AI works, meta-skill of clarity, context is king |
+| **Use prompt templates** | [Prompt Pattern Library](../01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates for common scenarios |
 | **Learn coding principles** | [Coding Principles Handbook](../01-fundamentals/06_coding-principles-handbook.md) - SOLID, DRY, KISS, YAGNI + AI-specific |
 | **Choose a setup path** | [Visual Quickstart](07_visual-quickstart.md) |
 | **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Case study: how skills emerged from THIS project |

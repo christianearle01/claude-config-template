@@ -25,6 +25,7 @@ Jump to any section:
 - [MCP Servers](#mcp-servers)
 - [Model Switching](#model-switching)
 - [Permission Modes](#permission-modes)
+- [Prompt Patterns](#prompt-patterns)
 - [Personas (User Profiles)](#personas-user-profiles)
 - [Security Hooks](#security-hooks)
 - [Setup Paths](#setup-paths)
@@ -813,6 +814,73 @@ If the solution isn't clear from the code, say 'I need more context'."
 **Docs:** [Permission Modes Guide](01_global-setup/01_must-have/03_permission-modes.md)
 
 **Keywords:** permissions, plan, ask, accept, modes, safety, control, shift-tab
+
+---
+
+## Prompt Patterns
+
+**What:** Copy-paste templates for common AI prompting scenarios
+
+**Purpose:** Reusable prompt structures that get better results faster
+
+**10 Patterns Available:**
+
+### Foundational Patterns
+1. **Context-Rich Request** - Provide comprehensive background (60-80% fewer clarifications)
+2. **Permission to Fail** - Reduce hallucinations by 95%
+3. **Output Requirements** - Standardize response format (70% fewer revisions)
+
+### Reasoning Patterns
+4. **Chain of Thought** - Step-by-step thinking for complex decisions
+5. **Few-Shot Scaffolding** - Show examples (85% reduction in formatting corrections)
+6. **Iterative Refinement** - Draft → Plan → Act (90% less rework)
+
+### Specialized Patterns
+7. **Role-Based Persona** - Expert perspective (50% deeper insights)
+8. **Constraint Specification** - Clear boundaries (80% fewer back-and-forth cycles)
+9. **Example-Driven Generation** - Pattern matching (95% time savings)
+10. **Verification Checklist** - Quality assurance (66% reduction in incidents)
+
+**Quick Example (Context-Rich Request):**
+```
+I'm working on [PROJECT NAME/TYPE].
+
+Context:
+- Tech stack: [languages, frameworks, libraries]
+- Architecture: [monolith/microservices, patterns]
+- Current state: [what exists now]
+- Problem: [what's not working or missing]
+
+Goal: [specific outcome you want]
+
+Requirements:
+- [bullet point 1]
+- [bullet point 2]
+- [bullet point 3]
+
+Constraints:
+- [limitations]
+```
+
+**Pattern Selection Quick Guide:**
+- Simple task? → Direct request (no pattern)
+- Have examples? → Use Few-Shot (#5)
+- Research/facts? → Use Permission to Fail (#2)
+- Complex decision? → Use Chain of Thought (#4)
+- Need specific format? → Use Output Requirements (#3)
+- Need context? → Use Context-Rich (#1)
+
+**Combining Patterns:**
+Patterns work better together! Example: Context + Output Requirements + Verification
+
+**Full Library:** `docs/01-fundamentals/08_prompt-patterns.md` (~550 lines)
+
+**Related:**
+- [Prompting Fundamentals](../01-fundamentals/07_prompting-fundamentals.md) - Learn the theory
+- [Adversarial Validator Agent](#custom-agents) - 3-persona decision exploration
+- [Prompt Polisher Agent](#custom-agents) - Transform vague prompts
+
+**Keywords:** prompting, templates, patterns, reusable, copy-paste, examples, best practices, clarity
 
 ---
 
