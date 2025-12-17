@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-17
-**Version:** v4.17.0
+**Version:** v4.18.0
 
 ---
 
@@ -927,6 +927,14 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v4.18.0 (2025-12-17):**
+  - "Mastering What You Have" - Consolidation Release
+  - Decision Framework Guide: WHEN to use WHAT tool (eliminates integration paralysis)
+  - Integration Patterns Guide: HOW tools work together (sequential/parallel/combinations)
+  - 4 Workflow Examples: End-to-end scenarios showing decision-making in practice
+  - Meta-learning: Teaching decision-making process, not just individual tools
+  - 6 new files, ~2,074 lines of integration knowledge
+  - Theme: Integration over features - multiplies value of everything that exists
 - **v4.17.0 (2025-12-17):**
   - Fabric-inspired prompt-polisher enhancements: 3 output modes (Fast/Balanced/Educational)
   - Before/after diff view for transparency and learning

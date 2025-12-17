@@ -22,11 +22,14 @@
 
 **→ [01-Fundamentals](01-fundamentals/)**
 - [Skills Paradigm](01-fundamentals/02_skills-paradigm.md) - Commands → Agents → Skills
+- [Prompting Fundamentals](01-fundamentals/07_prompting-fundamentals.md) - How AI actually works
+- [Prompt Patterns](01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates
+- [Decision Framework](01-fundamentals/09_decision-framework.md) - WHEN to use WHAT tool (v4.18.0)
 - [Verification & Debugging](01-fundamentals/05_verification-debugging.md) - Ctrl+O workflow
 - [Keyboard Shortcuts](01-fundamentals/04_keyboard-shortcuts.md) - Essential patterns
 
-**Time:** 30 minutes
-**Outcome:** Understand core concepts, essential tools, foundation for AI Augmented Coding
+**Time:** 45 minutes
+**Outcome:** Understand core concepts, prompting skills, tool selection, foundation for AI Augmented Coding
 
 ---
 
@@ -35,10 +38,11 @@
 **→ [02-Optimization](02-optimization/)**
 - [Prompt Caching Guide](02-optimization/02_prompt-caching-guide.md) - Automatic 400-600 token savings
 - [MCP Optimization](02-optimization/03_mcp-optimization-guide.md) - Selective loading
+- [Integration Patterns](02-optimization/06_integration-patterns.md) - How tools work together (v4.18.0)
 - [Environment Variables](02-optimization/04_environment-variables.md) - Official configuration
 
-**Time:** 25 minutes
-**Outcome:** Save 50-95% on tokens, faster responses, better efficiency
+**Time:** 30 minutes
+**Outcome:** Save 50-95% on tokens, faster responses, effective tool combinations
 
 ---
 
@@ -80,6 +84,14 @@
 ### Optimization
 - [Prompt Caching](02-optimization/02_prompt-caching-guide.md)
 - [MCP Configuration](02-optimization/03_mcp-optimization-guide.md)
+
+### Practical Examples (v4.18.0)
+- [Decision Framework](01-fundamentals/09_decision-framework.md) - WHEN to use WHAT tool
+- [Integration Patterns](02-optimization/06_integration-patterns.md) - HOW tools combine
+- [Bug Fix Workflow](../../examples/workflows/01_bug-fix-workflow.md) - Grep → Read → Fix
+- [New Feature Workflow](../../examples/workflows/02_new-feature-workflow.md) - Domain memory pattern
+- [Refactor Workflow](../../examples/workflows/03_refactor-workflow.md) - Adversarial validation
+- [Optimization Workflow](../../examples/workflows/04_optimization-workflow.md) - Graduated complexity
 
 ### Advanced
 - [MCP Workflows](03-advanced/04_advanced-mcp-workflows.md)
@@ -132,12 +144,13 @@
 | Level | Time | Cumulative | Benefit |
 |-------|------|------------|---------|
 | 00-Start Here | 20 min | 20 min | Prevent failures, see value |
-| 01-Fundamentals | 30 min | 50 min | Core concepts, tools |
-| 02-Optimization | 25 min | 75 min | 50-95% token savings |
-| 03-Advanced | 40 min | 115 min | Autonomous workflows |
-| 04-Ecosystem | 20 min | 135 min | Complete knowledge |
+| 01-Fundamentals | 45 min | 65 min | Core concepts, prompting, tool selection |
+| 02-Optimization | 30 min | 95 min | 50-95% token savings, integration |
+| Practical Examples (v4.18.0) | 30 min | 125 min | Real workflows, decision-making |
+| 03-Advanced | 40 min | 165 min | Autonomous workflows |
+| 04-Ecosystem | 20 min | 185 min | Complete knowledge |
 
-**Total:** ~2.25 hours to master everything
+**Total:** ~3 hours to master everything (includes v4.18.0 consolidation content)
 
 ---
 
