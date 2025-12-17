@@ -340,13 +340,41 @@ _Note: This is a new project. Help us validate these projections with your real 
 **Usage:**
 ```bash
 @prompt-polisher [your vague prompt]
+
+# Or with specific mode:
+@prompt-polisher improve only: [prompt]        # Fast mode
+@prompt-polisher educational: [prompt]         # Deep learning mode
 ```
 
+**NEW in v4.17.0: Fabric-Inspired Enhancements**
+- **Inspiration:** Enhanced with insights from [Fabric's improve_prompt pattern](https://github.com/danielmiessler/fabric)
+- **Three output modes:** Fast, Balanced, Educational
+- **Diff view:** See before/after changes with rationale (educational mode)
+- **Learning pathways:** Links to Prompting Fundamentals and Pattern Library
+- **Standalone version:** Works in any LLM (`examples/improve-prompt-standalone.md`)
+
 **Features:**
-- 14 optimization techniques
+- 14 optimization techniques (3-tier system)
 - Intelligent selection based on complexity
-- 50-80% token savings
-- Educational (teaches WHY)
+- 50-80% token savings (projected)
+- Educational (teaches WHY improvements work)
+
+**Three Output Modes:**
+
+**Mode 1: 🚀 Improved Only (Fast)**
+- Polished prompt + brief impact + one key learning
+- Minimal explanation, maximum speed
+- Request with: "improve only", "fast mode"
+
+**Mode 2: 📚 With Explanation (Default)**
+- Analysis + polished prompt + improvements + impact + techniques
+- Balanced speed and education
+- Default behavior
+
+**Mode 3: 🎓 Educational (Deep Learning)**
+- Detailed analysis + diff view + learning pathway + personalized next steps
+- Maximum learning, builds mastery
+- Request with: "educational", "show diff", "teach me"
 
 **Example:**
 ```bash
@@ -356,7 +384,9 @@ After: "Fix the authentication bug in src/auth.ts:45 where
        Error: 'Invalid email format'. Skip test files."
 ```
 
-**Location:** `.claude/agents/prompt-polisher.md`
+**Locations:**
+- Agent: `.claude/agents/prompt-polisher.md`
+- Standalone (any LLM): `examples/improve-prompt-standalone.md`
 
 ### 2. Project Planner Agent
 **Purpose:** Plan NEW projects before writing code

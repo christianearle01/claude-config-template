@@ -9,6 +9,242 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.17.0] - 2025-12-17
+
+### Added - Prompt Polisher: Fabric-Inspired Educational Enhancements
+
+**Core Problem Solved:**
+- **Psychological:** Users face choice paralysis between speed (Fabric) and depth (our trilogy) → need graduated pathway from quick wins to mastery
+- **Educational:** Fabric excels at immediate gratification but lacks depth → our system excels at depth but requires upfront learning → complementary approaches not integrated
+- **Engineering:** Prompt-polisher agent locked to single output style → users can't choose fast/balanced/deep based on current need → inflexible UX
+
+**Three-Perspective Coordinated Insight:**
+"Fabric and our educational trilogy represent different points on the expertise continuum, not competing approaches. By integrating Fabric's speed-first philosophy with our depth-first learning system, we create a complete graduation pathway: Novice → Fabric-style quick wins → Our balanced mode → Educational mastery."
+
+---
+
+### 1. Fabric Credit & Inspiration
+
+**Files Modified:**
+- `.claude/agents/prompt-polisher.md` - Added "Inspiration & Credit" section
+
+**What We Added:**
+- Official Fabric project link: https://github.com/danielmiessler/fabric
+- improve_prompt pattern link: https://github.com/danielmiessler/fabric/blob/main/data/patterns/improve_prompt/system.md
+- Credit to Daniel Miessler (@DanielMiessler)
+- Philosophy statement explaining complementary approaches
+
+**From the documentation:**
+> "Fabric optimizes for speed and immediate gratification. We optimize for depth and long-term competence. Together they create a complete graduation pathway: Novice → Fabric-style quick wins → Our trilogy → Mastery"
+
+**Why it matters:**
+- Proper attribution to Fabric project (integrity)
+- Clear positioning: complementary, not competing
+- Educational value: users understand WHEN to use each approach
+
+---
+
+### 2. Three Output Modes (Graduated Complexity)
+
+**Files Modified:**
+- `.claude/agents/prompt-polisher.md` - Added "Output Mode Selection" section
+
+**Mode 1: 🚀 Improved Only (Fabric-Inspired Fast Mode)**
+- Polished prompt + brief impact + ONE key learning
+- Minimal explanation, maximum speed
+- Trigger: "improve only", "fast mode", "just the prompt"
+- Use case: Quick wins, time pressure, exploring tools
+
+**Mode 2: 📚 With Explanation (Default Balanced Mode)**
+- Full analysis + polished prompt + improvements + impact + techniques
+- Balanced speed and education
+- Default behavior (existing output format)
+- Use case: Standard usage, learning while improving
+
+**Mode 3: 🎓 Educational Mode (Deep Learning)**
+- Detailed 3D analysis + **diff view** + learning pathway + personalized next steps
+- Maximum learning, builds mastery
+- Trigger: "educational", "teach me", "show diff"
+- Use case: Deliberate learning, building long-term skills
+
+**Implementation:**
+- Agent detects mode from user's message ("improve only" → Mode 1)
+- Adapts based on user history (consistently fast → remember Mode 1)
+- Users can override anytime ("give me educational mode this time")
+
+**Why it matters:**
+- Before: One-size-fits-all output → users who want speed got overwhelmed, users who want depth got frustrated
+- After: User chooses complexity level → matches current need and expertise
+- Graduated pathway: Users start Mode 1 → build confidence → graduate to Mode 3
+
+---
+
+### 3. Diff View (Before/After Transparency)
+
+**Files Modified:**
+- `.claude/agents/prompt-polisher.md` - Enhanced Mode 3 output format
+
+**What it shows:**
+```diff
+- Original: "Fix the login bug"
++ Polished: "Fix the login authentication bug in `app/auth/LoginController.ts`"
+
+**Why this change:**
+- Added file path (Technique #1: Be Specific)
+- Specified bug type "authentication" (Technique #1: Be Specific)
+- Token impact: Eliminates 2,000 token file discovery phase
+```
+
+**Features:**
+- Shows exact segment-by-segment changes
+- Explains which technique applied to each change
+- Quantifies token impact of each improvement
+- Visual clarity with diff syntax highlighting
+
+**Why it matters:**
+- Transparency: Users see EXACTLY what changed (not black box)
+- Educational: Links changes to techniques (teaches WHY)
+- Confidence: Knowing the reasoning builds trust
+
+---
+
+### 4. Learning Pathway Integration
+
+**Files Modified:**
+- `.claude/agents/prompt-polisher.md` - Added learning pathway section to Mode 3
+
+**What it includes:**
+- **Graduation visualization:**
+  ```
+  [X] Tier 1 Fundamentals ← You are here!
+  [ ] Tier 2 Power Techniques
+  [ ] Tier 3 Expert Mastery
+  ```
+- **Deep dive resources:**
+  - [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) - Understanding WHY
+  - [Prompt Pattern Library](../../docs/01-fundamentals/08_prompt-patterns.md) - Copy-paste templates
+  - Specific pattern links (Context-Rich Request, Few-Shot Scaffolding, Chain of Thought)
+- **Personalized next steps:**
+  - When to level up to next tier (specific conditions)
+  - Challenge exercise related to prompt type
+
+**Why it matters:**
+- Connects agent experience to broader learning journey (v4.12-v4.14 trilogy)
+- No dead ends: always shows next step for growth
+- Self-paced mastery path
+
+---
+
+### 5. Standalone Portable Version
+
+**Files Created:**
+- `examples/improve-prompt-standalone.md` - Works in any LLM
+
+**What it is:**
+- Fabric-style standalone pattern (copy entire file into any LLM)
+- Educational enhancements (explains WHY, shows diff, teaches techniques)
+- Works in ChatGPT, Claude, Gemini, local models, etc.
+
+**Features:**
+- 6 core techniques (distilled from our 14-technique system)
+- Before/after examples
+- Quick reference guide
+- Learning resources section (links to Fabric + our guides)
+
+**Usage:**
+```
+Step 1: Copy entire file into LLM
+Step 2: Say "improve my prompt: [vague prompt]"
+Step 3: Get improved prompt with explanation
+```
+
+**Why it matters:**
+- **Accessibility:** Works everywhere, not just Claude Code
+- **Portability:** Users can share with non-Claude-Code teams
+- **Gateway:** Introduces our educational approach to Fabric users
+- **Flexibility:** Use in browser, API, local models
+
+---
+
+### 6. Documentation Updates
+
+**Files Modified:**
+- `docs/00-start-here/09_quick-reference.md` - Updated Custom Agents section
+
+**What we added:**
+- NEW in v4.17.0 badge
+- Fabric inspiration and credit link
+- Three output modes with usage examples
+- Diff view feature description
+- Standalone version location
+
+**Example from docs:**
+```bash
+@prompt-polisher [your vague prompt]
+
+# Or with specific mode:
+@prompt-polisher improve only: [prompt]        # Fast mode
+@prompt-polisher educational: [prompt]         # Deep learning mode
+```
+
+---
+
+### Impact Summary
+
+**Psychological Benefits:**
+- Reduced choice paralysis: Clear mode selection based on current need
+- Graduated confidence building: Start fast (Mode 1) → grow to deep (Mode 3)
+- Transparency reduces anxiety: Diff view shows exactly what changed
+
+**Educational Benefits:**
+- Complementary pathways: Fabric (speed) + Our trilogy (depth) = complete journey
+- Learning pathway integration: Agent connects to v4.12-v4.14 resources
+- Portable knowledge: Standalone version teaches techniques everywhere
+
+**Engineering Benefits:**
+- Flexible UX: Users choose complexity level per interaction
+- Portable implementation: Standalone version = broader reach
+- Standardized modes: Consistent pattern for future agents
+
+**Projected Token Impact:**
+- Mode 1 (Fast): 70% fewer tokens than Mode 2 (300 vs 1,000 tokens)
+- Mode 3 (Educational): 40% more tokens than Mode 2 (1,400 vs 1,000 tokens)
+- Net benefit: Users optimize based on need (learn once deeply, then use fast mode)
+
+**Philosophy Integration:**
+- Complements Fabric: "Use Fabric when you need quick wins, use our agent when you want to learn"
+- Supports graduation: "Start with Fabric-style Mode 1, graduate to our educational Mode 3"
+- Respects user agency: "You choose the trade-off between speed and depth"
+
+---
+
+### Files Changed Summary
+
+**Modified (2):**
+- `.claude/agents/prompt-polisher.md` (1,286 → 1,550+ lines)
+  - Added Inspiration & Credit section
+  - Added Output Mode Selection section
+  - Enhanced Output Format Template with 3 modes
+  - Added learning pathway integration
+- `docs/00-start-here/09_quick-reference.md`
+  - Updated Custom Agents § Prompt Polisher entry
+
+**Created (1):**
+- `examples/improve-prompt-standalone.md` (~600 lines)
+  - Standalone pattern for any LLM
+  - Fabric-inspired with educational enhancements
+  - 6 core techniques + examples + quick reference
+
+---
+
+## [4.16.0] - 2025-12-17
+
+### Added - Nested Progress Bars: Visual Workflow Transparency
+
+**See full v4.16.0 changelog below for comprehensive nested progress implementation**
+
+---
+
 ## [4.15.0] - 2025-12-17
 
 ### Added - Agent Enhancement: Standardized Patterns for Consistency
