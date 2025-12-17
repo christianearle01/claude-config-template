@@ -13,6 +13,7 @@ Jump to any section:
 - [Background Tasks](#background-tasks)
 - [Breadcrumb Navigation](#breadcrumb-navigation)
 - [Checkpointing / Rewind](#checkpointing--rewind)
+- [Cheatsheets](#cheatsheets)
 - [CLAUDE.md Template](#claudemd-template)
 - [Claude Skills (Account-Level)](#claude-skills-account-level)
 - [Commands (Slash)](#commands-slash)
@@ -25,6 +26,7 @@ Jump to any section:
 - [MCP Servers](#mcp-servers)
 - [Model Switching](#model-switching)
 - [Permission Modes](#permission-modes)
+- [Progress Bars](#progress-bars)
 - [Prompt Patterns](#prompt-patterns)
 - [Personas (User Profiles)](#personas-user-profiles)
 - [Security Hooks](#security-hooks)
@@ -910,7 +912,81 @@ Patterns work better together! Example: Context + Output Requirements + Verifica
 - [Adversarial Validator Agent](#custom-agents) - 3-persona decision exploration
 - [Prompt Polisher Agent](#custom-agents) - Transform vague prompts
 
-**Keywords:** prompting, templates, patterns, reusable, copy-paste, examples, best practices, clarity
+### Standalone Patterns (NEW in v4.17.0)
+
+**What:** Copy-paste patterns that work in ANY LLM (ChatGPT, Gemini, local models)
+
+**Why:** Share patterns with non-Claude-Code teams, use in browser, API, etc.
+
+#### Improve Prompt Pattern (Fabric-Inspired)
+
+**File:** `examples/improve-prompt-standalone.md`
+
+**How to use:**
+1. Copy entire file into any LLM
+2. Say "improve my prompt: [vague prompt]"
+3. Get improved prompt with explanation
+
+**Features:**
+- 6 core optimization techniques
+- Before/after examples
+- Quick reference guide
+- Educational approach (shows WHY, not just WHAT)
+
+**Credit:** Inspired by [Fabric's improve_prompt pattern](https://github.com/danielmiessler/fabric) by Daniel Miessler
+
+**Philosophy:**
+- Fabric optimizes for **speed** and immediate gratification
+- Our approach optimizes for **depth** and long-term competence
+- **Complementary, not competing:** Use Fabric for quick wins, our trilogy for mastery
+
+**Related:**
+- [Prompting Fundamentals](../01-fundamentals/07_prompting-fundamentals.md) - Understanding WHY
+- [Prompt Pattern Library](../01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates
+- [@prompt-polisher agent](#custom-agents) - 3 output modes
+
+### Three Output Modes (@prompt-polisher agent)
+
+The prompt-polisher agent now supports graduated complexity (v4.17.0):
+
+**Mode 1: 🚀 Improved Only (Fabric-Fast)**
+```bash
+@prompt-polisher improve only: [your prompt]
+```
+- Polished prompt + brief impact + ONE key learning
+- Minimal explanation, maximum speed
+- **Use when:** Time pressure, quick wins, exploring
+
+**Mode 2: 📚 With Explanation (Default)**
+```bash
+@prompt-polisher [your prompt]
+```
+- Full analysis + polished prompt + improvements + techniques
+- Balanced speed and education
+- **Use when:** Standard usage, learning while improving
+
+**Mode 3: 🎓 Educational (Deep Learning)**
+```bash
+@prompt-polisher educational: [your prompt]
+```
+- Detailed analysis + **diff view** + learning pathway + next steps
+- Maximum learning, builds mastery
+- **Use when:** Deliberate learning, building long-term skills
+
+**Diff View Example (Mode 3):**
+```diff
+- Original: "Fix the login bug"
++ Polished: "Fix the login authentication bug in `app/auth/LoginController.ts`"
+
+Why this change:
+- Added file path (Technique #1: Be Specific)
+- Specified bug type "authentication"
+- Token impact: Eliminates 2,000 token file discovery phase
+```
+
+**Pattern:** Choose mode based on current need (speed vs depth)
+
+**Keywords:** prompting, templates, patterns, reusable, copy-paste, examples, best practices, clarity, fabric, standalone, modes
 
 ---
 
@@ -1061,6 +1137,59 @@ Patterns work better together! Example: Context + Output Requirements + Verifica
 - [Projects Registry Skill](.claude/skills/projects-registry/SKILL.md)
 
 **Keywords:** skills, expertise, automatic, knowledge, intelligence
+
+---
+
+## Cheatsheets
+
+Quick reference guides for common tasks. More detailed than skills, focused on immediate problem-solving.
+
+**When to use:** You need a quick answer to "How do I..." without reading full skill documentation.
+
+### Available Cheatsheets
+
+1. **API Debugging** (`.claude/skills/api-debugging/cheatsheet.md`)
+   - HTTP status codes (200, 401, 403, 404, 500, etc.)
+   - CORS issues and fixes
+   - Common error patterns
+   - Authentication troubleshooting
+   - **Use when:** API request fails, unclear error response
+
+2. **Component Finder** (`.claude/skills/component-finder/cheatsheet.md`)
+   - React component search patterns
+   - Vue component location patterns
+   - Angular component structure
+   - **Use when:** Can't find where UI element is defined
+
+3. **Commit Readiness** (`.claude/skills/commit-readiness-checker/cheatsheet.md`)
+   - Pre-commit validation checklist
+   - Version bump verification
+   - Changelog requirements
+   - **Use when:** Ready to commit but want to verify completeness
+
+4. **Projects Registry** (`.claude/skills/projects-registry/cheatsheet.md`)
+   - Multi-project tracking commands
+   - Registry query patterns
+   - Status checking shortcuts
+   - **Use when:** Managing multiple Claude Code projects
+
+5. **Version Management** (`.claude/skills/version-management/cheatsheet.md`)
+   - Version sync commands
+   - File consistency checks
+   - Release checklist
+   - **Use when:** Bumping version or releasing new version
+
+6. **Testing Workflow** (`.claude/skills/testing-workflow/cheatsheet.md`)
+   - Test execution commands
+   - Failure diagnosis patterns
+   - Coverage checking shortcuts
+   - **Use when:** Running tests or debugging test failures
+
+**Pattern:** Each cheatsheet lives alongside its parent skill as `cheatsheet.md`
+
+**Related:** See [Skills](#skills-v330) for full skill documentation
+
+**Keywords:** cheatsheets, quick reference, how-to, troubleshooting, debugging, testing, version, commit
 
 ---
 
@@ -1630,6 +1759,81 @@ Visualize 92% savings with optimizations
 - [Visual Quickstart](docs/VISUAL_QUICKSTART.md) - Decision flowchart
 
 **Keywords:** visual, diagram, flowchart, graphic, image, picture
+
+---
+
+## Progress Bars
+
+Visual workflow transparency for multi-step operations. Added in v4.16.0.
+
+**Related Guide:** [`docs/04-ecosystem/02_progress-bar-guide.md`](../04-ecosystem/02_progress-bar-guide.md)
+
+### Four Progress Patterns
+
+1. **Simple Progress** (single bar)
+   ```bash
+   show_progress 3 5 "Installing dependencies"
+   # [■■■□□] 60% - Installing dependencies (3/5)
+   ```
+   - **Use when:** Single-phase task, < 5 steps
+   - Example: File copy, package install
+
+2. **Nested Progress** (phase + task)
+   ```bash
+   show_phase_progress 2 3 "Configuration"
+   show_task_progress 3 5 "Writing settings.json"
+   # Phase: [■■□] 67% - Configuration (2/3)
+   # Task:  [■■■□□] 60% - Writing settings.json (3/5)
+   ```
+   - **Use when:** Multi-phase workflow, >= 5 tasks total
+   - Example: Wizard with Setup → Configure → Validate phases
+
+3. **Dynamic Progress** (real-time updates)
+   ```bash
+   show_dynamic_progress 45 100 "Processing files"
+   # Updates in real-time without line breaks
+   ```
+   - **Use when:** Long-running operation with incremental updates
+   - Example: Large file processing, network operations
+
+4. **Adaptive Progress** (auto-nests based on complexity)
+   ```bash
+   show_adaptive_progress 8 12 "Complex workflow"
+   # Automatically uses nested if PROGRESS_NESTED_THRESHOLD met
+   ```
+   - **Use when:** Workflow complexity varies
+   - Threshold: Default 5 tasks (configure via `PROGRESS_NESTED_THRESHOLD`)
+
+### Configuration
+
+Set in `~/.claude/progress-bar-config` or environment:
+```bash
+PROGRESS_NESTED_ENABLED=true        # Enable nested progress
+PROGRESS_NESTED_THRESHOLD=5         # Auto-nest if >= 5 tasks
+PROGRESS_DYNAMIC_UPDATE_RATE=10     # Updates per second (max)
+PROGRESS_PHASE_LABEL="Phase"        # Phase bar label
+PROGRESS_TASK_LABEL="Task"          # Task bar label
+```
+
+### Interactive Demo
+
+Run the demo to see all 4 patterns:
+```bash
+bash examples/progress-nested-example.sh
+```
+
+Demonstrates:
+- Simple progress (5 steps)
+- Nested progress (3 phases, 5 tasks each)
+- Dynamic progress (100 incremental updates)
+- Adaptive progress (switches based on threshold)
+
+**Why it matters:**
+- **Psychological:** Transparency reduces anxiety during long operations
+- **Educational:** Users see workflow structure (phases → tasks)
+- **Professional:** CLI standards matching tools like npm, cargo
+
+**Keywords:** progress, progress bar, visual feedback, transparency, nested, dynamic, adaptive, workflow, UX
 
 ---
 
