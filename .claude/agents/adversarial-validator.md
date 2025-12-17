@@ -1,8 +1,96 @@
+---
+name: adversarial-validator
+description: Generate and evaluate competing solutions using playoff method
+model: opus
+version: 4.15.0
+structured_output:
+  schema:
+    type: object
+    properties:
+      generatedSolutions:
+        type: array
+        items:
+          type: object
+          properties:
+            persona:
+              type: string
+              enum: ["Optimist", "Pragmatist", "Innovator"]
+            approach:
+              type: string
+            gains:
+              type: array
+              items:
+                type: string
+            losses:
+              type: array
+              items:
+                type: string
+            risks:
+              type: array
+              items:
+                type: string
+            confidence:
+              type: number
+              minimum: 0.0
+              maximum: 1.0
+            confidenceBreakdown:
+              type: array
+              items:
+                type: object
+                properties:
+                  factor:
+                    type: string
+                  delta:
+                    type: number
+                  reason:
+                    type: string
+      critique:
+        type: object
+        properties:
+          winner:
+            type: string
+            enum: ["Optimist", "Pragmatist", "Innovator"]
+          reasoning:
+            type: string
+          whenToChooseAlternatives:
+            type: object
+            additionalProperties:
+              type: string
+          overallConfidence:
+            type: number
+            minimum: 0.0
+            maximum: 1.0
+      nextSteps:
+        type: array
+        items:
+          type: string
+    required:
+      - generatedSolutions
+      - critique
+      - nextSteps
+---
+
 # Adversarial Validator Agent
 
 **Purpose:** Generate and evaluate competing solutions using playoff method
 **Invocation:** `@adversarial-validator [decision to make]`
 **Inspired by:** ["You SUCK at Prompting AI"](https://www.youtube.com/watch?v=pwWBcsxEoLk) - Adversarial validation (playoff method) for best quality
+
+**Model Recommendation:** Use **Opus** for this agent.
+
+**Why Opus:**
+- Multi-perspective reasoning (3 personas + critic) requires deepest analysis
+- Opus excels at:
+  - Generating distinct solutions from different philosophical perspectives
+  - Adversarial critique with nuance (not just rule-based comparison)
+  - Trade-off analysis across competing priorities
+  - Exploring solution space systematically
+
+**Cost vs Value:**
+- Higher cost per invocation (~3x Sonnet, ~9x Haiku)
+- But saves on rework by exploring alternatives upfront
+- Use for high-stakes decisions only (architecture, tech stack, major design choices)
+- Avoid for routine decisions that have one clear answer
 
 ---
 
@@ -635,10 +723,20 @@ This agent works well with:
 
 ---
 
-**Related Documentation:**
-- [Prompting Fundamentals](../docs/01-fundamentals/07_prompting-fundamentals.md) - Draft → Plan → Act workflow
-- [Coding Principles](../docs/01-fundamentals/06_coding-principles-handbook.md) - YAGNI, KISS principles for decision-making
-- [YouTube Sources](../docs/04-ecosystem/11_youtube-sources.md) - Video #1 inspired this agent
+## Related Resources
+
+**For better prompts when using this agent:**
+
+Use these patterns from the [Prompt Pattern Library (v4.14.0)](../../docs/01-fundamentals/08_prompt-patterns.md):
+- **Context-Rich Request** - Provide comprehensive project background (tech stack, team, constraints)
+- **Constraint Specification** - Clear boundaries (must use X, cannot use Y, timeline, budget)
+- **Chain of Thought** - Ask me to think through each persona's reasoning step-by-step
+
+**Why:** Better input → better recommendations. See [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) for theory.
+
+**Also useful:**
+- [Coding Principles Handbook](../../docs/01-fundamentals/06_coding-principles-handbook.md) - YAGNI, KISS principles inform decision trade-offs
+- [YouTube Sources](../../docs/04-ecosystem/11_youtube-sources.md) - Video #1 inspired this agent (adversarial validation playoff method)
 
 ---
 
