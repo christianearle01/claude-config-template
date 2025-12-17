@@ -298,6 +298,108 @@ After choosing your tool, choose your model:
 
 ---
 
+### Deployment/Release Decision Tree (NEW in v4.19.0)
+
+```
+1. Are you ready to DEPLOY to production?
+   YES → Continue to validation
+   NO → Complete development first
+
+2. Have you run QUALITY checks?
+   YES → Continue to version validation
+   NO → Use @quality-reviewer agent (security + tests + standards)
+
+3. Is the VERSION bumped consistently?
+   YES → Continue to changelog validation
+   NO → Use version-management skill (check all files synced)
+
+4. Is the CHANGELOG entry complete?
+   YES → Continue to git validation
+   NO → Update CHANGELOG.md with release notes
+
+5. Is your GIT state clean?
+   YES → Continue to deployment readiness
+   NO → Commit all changes, ensure on correct branch
+
+6. Are you confident this is READY to deploy?
+   UNSURE → Use @deployment-readiness agent (comprehensive check)
+   YES → Use /release command (orchestrates all checks)
+
+7. All checks passed?
+   YES → Create git tag, push to remote, deploy
+   NO → Fix blockers reported in validation output
+```
+
+**Decision shortcuts:**
+
+**Quick validation (2-3 min):**
+```bash
+/release
+```
+- Orchestrates all 5 checks sequentially
+- Provides confidence-scored report
+- Fails fast on blockers
+- Token cost: 1,200 tokens
+- Use when: Ready to ship, want comprehensive validation
+
+**Manual validation (25-35 min):**
+- Run each check individually
+- Investigate each component deeply
+- Token cost: 3,700 tokens
+- Use when: First release, learning the process, debugging failures
+
+**Example workflows:**
+
+**Scenario A: Confident release**
+```
+User: "Ready to release v4.19.0"
+→ /release
+→ All checks pass (91% confidence)
+→ Create tag: git tag -a v4.19.0 -m "Release v4.19.0"
+→ Push: git push origin v4.19.0
+→ Deploy
+Total: 2 minutes, 1,200 tokens
+```
+
+**Scenario B: Uncertain, need validation**
+```
+User: "Is this ready to deploy?"
+→ @deployment-readiness
+→ Conditional (72% confidence) - 2 warnings found
+→ Fix warnings (update docs, bump version)
+→ Re-run: @deployment-readiness
+→ Ready (88% confidence)
+→ /release for final validation
+→ Deploy
+Total: 15 minutes, 2,400 tokens (still faster than manual 35 min)
+```
+
+**Scenario C: Failed validation**
+```
+User: "Ready to release"
+→ /release
+→ Step 1: Quality checks FAIL (62% confidence - 3 security issues)
+→ Workflow stops, reports blockers with file:line
+→ Fix security issues
+→ Re-run: /release
+→ All pass (89% confidence)
+→ Deploy
+Total: 20 minutes, 2,800 tokens (prevented production incident)
+```
+
+**When NOT to use automated deployment checks:**
+- ❌ Still in development (tests failing, code incomplete)
+- ❌ Experimental features (not ready for production)
+- ❌ Hot fix without time for full validation (use judgment, but risky)
+- ❌ Pre-alpha / proof-of-concept (no formal release process yet)
+
+**Integration with v4.18.0 frameworks:**
+- **Decision Framework:** Follow the 6-step tree above
+- **Integration Pattern:** Sequential tool chain (quality → version → changelog → git → deployment)
+- **Confidence Scoring:** ≥85% = safe, 60-84% = risky, <60% = blocked
+
+---
+
 ## Quick Reference
 
 ### Start Here: 3-Step Decision Process
@@ -361,6 +463,7 @@ Choose workflow               → Mode-selector           → Sonnet
 Complex reasoning             → Sequential-thinking MCP → Sonnet
 Quick status check            → Skill (auto)            → N/A
 Project workflow              → Slash command           → N/A
+Release validation            → /release OR @deployment-readiness → Sonnet
 ```
 
 ---

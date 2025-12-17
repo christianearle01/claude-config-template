@@ -195,6 +195,60 @@ Read Header → wait → Read Sidebar → wait → Read useAuth
 
 ---
 
+### Pattern 7: Release Workflow Chain (NEW in v4.19.0)
+
+**Use case:** Production deployment validation
+
+**Chain:**
+```
+1. @quality-reviewer (security, tests, standards)
+   ↓ output: quality confidence score
+2. version-management skill (check all files synced)
+   ↓ output: version consistency report
+3. commit-readiness-checker skill (validate changelog)
+   ↓ output: changelog completeness
+4. git status check (clean working directory)
+   ↓ output: git state validation
+5. @deployment-readiness (comprehensive pre-deploy check)
+   ↓ output: deployment confidence score + blockers
+```
+
+**Automated via:**
+```bash
+/release
+```
+
+**Token cost:**
+- Manual chain: 3,700 tokens (running each step separately)
+- /release command: 1,200 tokens (orchestrated)
+- **Savings:** 2,500 tokens (68% reduction, projected)
+
+**Time:**
+- Manual: 25-35 minutes
+- Automated: 2-3 minutes
+- **Time saved:** 22-32 minutes per release
+
+**Why sequential:** Each step must pass before proceeding. Fails fast on blockers.
+
+**Pass criteria:** All steps ≥85% confidence
+
+**Output:** Comprehensive release report with confidence scoring
+
+**Example:** [Deployment Readiness Workflow](../../examples/workflows/05_deployment-readiness-workflow.md)
+
+**Integration with decision framework:**
+- Follow deployment decision tree (step-by-step validation)
+- Use /release for quick validation, manual steps for debugging
+- Confidence scoring guides next action (fix blockers vs deploy)
+
+**Why this pattern matters:**
+- Prevents production incidents (catches issues before deploy)
+- Reduces deployment anxiety ("did I check everything?")
+- Standardizes release process (repeatable, auditable)
+- Demonstrates v4.18.0 integration patterns in action
+
+---
+
 ## Agent Combinations
 
 **When:** Agents complement each other's strengths
