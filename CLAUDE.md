@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-16
-**Version:** v4.12.0
+**Version:** v4.13.0
 
 ---
 
@@ -600,6 +600,9 @@ git push origin v2.6.0
 
 **"How do I prompt effectively?"**
 → See `docs/01-fundamentals/07_prompting-fundamentals.md` (How AI works, meta-skill of clarity, permission to fail, context is king, few-shot > zero-shot)
+
+**"How do I choose between multiple valid approaches?"**
+→ Use `@adversarial-validator [decision]` - Playoff method generates 3 competing solutions (Optimist, Pragmatist, Innovator), adversarial critique selects winner with confidence scores. Perfect for high-stakes decisions (architecture, tech stack). See `.claude/agents/adversarial-validator.md`
 
 ### File Location Quick Reference
 

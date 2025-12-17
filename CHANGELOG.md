@@ -9,6 +9,205 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.13.0] - 2025-12-17
+
+### Added - Adversarial Validation: Playoff Method for Quality
+
+**Core Problem Solved:**
+- **Psychological:** Users face decision paralysis when multiple valid approaches exist
+- **Educational:** No systematic way to explore solution space → picks first idea
+- **Engineering:** Single-path thinking misses better alternatives, leads to costly rework
+
+**Three-Perspective Coordinated Insight:**
+"Users need systematic decision exploration for high-stakes choices. Adversarial validation (playoff method) automatically generates competing solutions, critiques them, and recommends the winner - turning AI's strength at evaluation into a decision-making superpower."
+
+---
+
+### 1. Adversarial Validator Agent (NEW)
+
+**File Created:** `.claude/agents/adversarial-validator.md` (~570 lines)
+
+**Inspiration:** ["You SUCK at Prompting AI"](https://www.youtube.com/watch?v=pwWBcsxEoLk) - Adversarial validation (playoff method) = best quality
+
+**What it does:**
+
+**The Playoff Method (6-step workflow):**
+1. **UNDERSTAND:** Parse request, determine constraints (time, budget, team skill, risk tolerance)
+2. **GENERATE:** 3 personas create competing solutions in parallel
+   - 🚀 Optimist: Maximize speed/simplicity
+   - ⚖️ Pragmatist: Maximize maintainability/balance
+   - 💡 Innovator: Maximize novel/creative approaches
+3. **CRITIQUE:** Adversarial critic evaluates all solutions
+4. **RANK:** Confidence-scored recommendations (0.0-1.0 with itemized breakdown)
+5. **SYNTHESIZE:** Winner + when to choose alternatives + next steps
+6. **ITERATE:** Allow "try solution B instead" workflow
+
+**Example usage:**
+```
+@adversarial-validator What database should we use for our SaaS app?
+
+Result:
+🚀 Optimist: MongoDB (speed) - Confidence: 0.72
+⚖️ Pragmatist: PostgreSQL (balance) - Confidence: 0.89
+💡 Innovator: CockroachDB (future-proof) - Confidence: 0.58
+👁️ Critic: PostgreSQL wins - team skill match, proven at scale
+```
+
+**Content structure:**
+- **How It Works:** Visual workflow diagram, 6-step process
+- **Core Operations:** Context gathering, parallel generation (3 personas), adversarial critique, synthesis report
+- **Confidence Scoring System:** Itemized breakdown (+/-0.XX factors), 3 confidence ranges (High/Medium/Low)
+- **Example 1:** Real-time notifications (Socket.io vs SSE vs WebTransport) - detailed analysis with confidence breakdowns
+- **Example 2:** State management (placeholder for future)
+- **Iteration Support:** "Try solution B instead" workflow, modify constraints, add requirements
+- **Integration:** Works with @prompt-polisher, @project-planner, @coder, @quality-reviewer
+- **Model Recommendation:** Opus (multi-perspective reasoning depth)
+- **Limitations:** What agent cannot do (replace expertise, guarantee perfection)
+- **Success Metrics:** How to measure if agent helped
+
+**Why it matters:**
+- Before: Users pick first viable solution → miss better alternatives → costly rework
+- After: Systematic exploration generates 3 options → critique selects winner → confidence-backed decisions
+- Addresses "decision paralysis" for high-stakes choices (architecture, tech stack, design patterns)
+
+**When to use:**
+- Multiple valid implementation approaches exist
+- High-stakes decisions (architecture, tech stack, design patterns)
+- Need to explore solution space systematically
+- Want automated quality through competition
+
+**Patterns implemented (from agent exploration):**
+1. **Parallel Generation** (Quality Reviewer pattern) - 3 solutions simultaneously
+2. **Multi-Perspective Coordination** (Project Planner pattern) - Make persona reasoning visible
+3. **Confidence Breakdown** (All Agents pattern) - Itemized scoring, show the math
+4. **Rationale Provision** (All Agents pattern) - "Why This Matters" for decisions
+5. **Iteration Support** (Coder pattern) - Allow workflow changes, track choices
+
+**Integration:**
+- Added to Quick Reference: `docs/00-start-here/09_quick-reference.md` (Custom Agents §4)
+- Added to CLAUDE.md FAQ: "How do I choose between multiple valid approaches?"
+
+---
+
+### 2. Three-Perspective Analysis: Agent vs Skill Decision
+
+**User asked:** "Should v4.13.0 include agent, skill, or both?"
+
+**Analysis conducted using Psychological × Educator × Software Engineer framework:**
+
+🧠 **Psychological Perspective:**
+- Agent ONLY wins: High-stakes tool needs explicit control (reduces "AI took over" anxiety)
+- Auto-triggering would reduce trust ("Why is this running? I didn't ask for this")
+- Explicit invocation = predictable, safe, intentional
+
+📚 **Educator Perspective:**
+- Agent ONLY wins: Clear teaching moment - users learn WHEN to use playoff method
+- Explicit pattern: "I need competing solutions" → @adversarial-validator
+- Progressive disclosure: Master agent first, consider skill later if validated
+
+💻 **Software Engineer Perspective:**
+- Agent ONLY wins: Simpler (3-4 hours vs 5-6), faster to validate, single source of truth
+- No duplication (DRY principle)
+- Can add skill later if users request auto-activation
+
+**Decision:** Agent-only approach for v4.13.0 (skill deferred to v4.14.0+ if validated)
+
+**Rationale:** Adversarial validation is like prompt-polisher (explicit transformation), NOT like component-finder (auto-activation knowledge). High-stakes decisions need user control.
+
+---
+
+### 3. Navigation & Discoverability Improvements
+
+**Files Updated (2):**
+
+**1. Quick Reference** (`docs/00-start-here/09_quick-reference.md`)
+- Added Adversarial Validator as Custom Agent #4
+- Updated agent count: 2 → 4 sophisticated agents
+- Example usage with database decision scenario
+- Keywords for searchability (Cmd+F)
+
+**2. CLAUDE.md** (Project Memory)
+- Added FAQ: "How do I choose between multiple valid approaches?"
+- Links to adversarial-validator.md with playoff method explanation
+- Appears in "Common User Questions" section
+
+---
+
+## Three-Perspective Validation
+
+**🧠 Psychological: Does this reduce decision anxiety?**
+- ✅ Systematic exploration reduces "did I miss something?" worry
+- ✅ Confidence breakdowns provide justification ("Here's WHY this wins")
+- ✅ "When to choose others" reduces fear of wrong choice
+- ✅ Explicit invocation maintains control (high-stakes = user decides when to explore)
+
+**📚 Educator: Does this improve decision-making skills?**
+- ✅ Teaches systematic exploration (don't stop at first idea)
+- ✅ Shows tradeoff analysis (every choice has gains AND losses)
+- ✅ Confidence scoring teaches risk assessment
+- ✅ Examples demonstrate when to use (high-stakes, multiple paths forward)
+
+**💻 Software Engineer: Is this technically sound?**
+- ✅ Playoff method proven pattern (video source, AI evaluation strength)
+- ✅ 3-persona generation explores solution space systematically
+- ✅ Confidence scoring based on factors (proven tech, team skill, risks, time estimate)
+- ✅ Integrates with existing agent ecosystem (quality-reviewer, prompt-polisher patterns)
+
+**Coordinated outcome:** "Systematic decision exploration that turns AI evaluation strength into decision-making superpower."
+
+---
+
+## Files Modified (4)
+
+### New Files (1):
+1. `.claude/agents/adversarial-validator.md` (~570 lines)
+
+### Updated Files (3):
+2. `docs/00-start-here/09_quick-reference.md` - Added Adversarial Validator agent
+3. `CLAUDE.md` - Added decision-making FAQ
+4. `version.json` - Bumped to v4.13.0, added 7 adversarial features
+
+### Version Control (1):
+5. `CHANGELOG.md` - This entry
+
+---
+
+## Impact
+
+**Immediate (Post-Release):**
+- ✅ Users have systematic tool for high-stakes decisions
+- ✅ Adversarial validation explores solution space automatically
+- ✅ Confidence-scored recommendations reduce decision paralysis
+- ✅ "When to choose alternatives" provides decision flexibility
+
+**Expected (30 Days):**
+- Users reference agent when facing architecture decisions
+- "I was only thinking X, adversarial-validator showed me Y is better" feedback
+- Reduced rework from hasty single-path decisions
+- Better understanding of tradeoffs before committing
+
+**Long-term (90 Days):**
+- Systematic exploration becomes part of decision-making workflow
+- Users internalize 3-persona thinking (speed vs balance vs innovation)
+- Confidence scoring improves risk assessment skills
+- Agent validates value, skill added in future if requested
+
+---
+
+## Version Metadata
+
+- **Version:** 4.13.0 (MINOR - new agent, agent-only approach)
+- **Release Name:** "Adversarial Validation: Playoff Method for Quality"
+- **Release Date:** 2025-12-17
+- **Breaking Changes:** None
+- **Update Priority:** Recommended
+- **Lines of Code:** +570 (Adversarial Validator agent)
+- **Files Changed:** 5 (1 new, 4 updated)
+- **Closes:** Priority 2 from YouTube analysis (Adversarial Validation)
+- **Design Choice:** Agent-only (skill deferred pending validation)
+
+---
+
 ## [4.12.0] - 2025-12-17
 
 ### Added - Prompting Fundamentals: Empowering Users

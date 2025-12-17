@@ -331,7 +331,7 @@ _Note: This is a new project. Help us validate these projections with your real 
 
 **What:** Specialized AI assistants for specific workflows
 
-**Built-in agents:** 2 sophisticated agents included
+**Built-in agents:** 4 sophisticated agents included
 
 ### 1. Prompt Polisher Agent
 **Purpose:** Transform vague prompts into optimized requests
@@ -389,6 +389,41 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 **Location:** `.claude/agents/mode-selector.md`
 **Docs:** `docs/01-fundamentals/01_vibe-coding-vs-engineering.md`
 
+### 4. Adversarial Validator Agent (NEW in v4.13.0)
+**Purpose:** Generate and evaluate competing solutions using playoff method
+
+**Usage:**
+```bash
+@adversarial-validator [decision to make]
+```
+
+**Features:**
+- 3-persona generation (Optimist, Pragmatist, Innovator)
+- Adversarial critique evaluates all solutions
+- Confidence-scored recommendations (0.0-1.0 with breakdown)
+- Shows winner + when to choose alternatives
+- Iteration support ("try solution B instead")
+
+**Example:**
+```bash
+@adversarial-validator What database should we use for our SaaS app?
+
+Result:
+🚀 Optimist: MongoDB (speed) - Confidence: 0.72
+⚖️ Pragmatist: PostgreSQL (balance) - Confidence: 0.89
+💡 Innovator: CockroachDB (future-proof) - Confidence: 0.58
+👁️ Critic: PostgreSQL wins - team skill match, proven at scale
+```
+
+**When to use:**
+- Multiple valid implementation approaches exist
+- High-stakes decisions (architecture, tech stack)
+- Need to explore solution space systematically
+- Want automated quality through competition
+
+**Location:** `.claude/agents/adversarial-validator.md`
+**Inspired by:** [YouTube video](https://www.youtube.com/watch?v=pwWBcsxEoLk) - Adversarial validation (playoff method)
+
 **How to create custom agents:**
 1. Create `.md` file in `.claude/agents/`
 2. Define agent purpose and behavior
@@ -399,6 +434,7 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 - [Prompt Polisher Details](.claude/agents/prompt-polisher.md)
 - [Project Planner Details](.claude/agents/project-planner.md)
 - [Mode Selector Details](.claude/agents/mode-selector.md)
+- [Adversarial Validator Details](.claude/agents/adversarial-validator.md)
 
 **Keywords:** agents, subagents, specialized, workflow, automation, @mention
 
