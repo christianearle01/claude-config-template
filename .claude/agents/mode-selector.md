@@ -2,7 +2,7 @@
 name: mode-selector
 description: Choose between Vibe Coding (speed-focused) and Vibe Engineering (quality-focused) approaches based on project context
 color: yellow
-model: haiku
+model: sonnet
 structured_output:
   schema:
     type: object
@@ -55,6 +55,27 @@ structured_output:
           type: string
         description: Actionable next steps based on the recommended mode
     required: ["recommendation", "confidence", "dimension_scores", "total_score", "reasoning", "transition_guidance", "next_steps"]
+---
+
+**Model Recommendation:** Use **Sonnet** for this agent.
+
+**Why Sonnet (not Haiku):**
+- Decision logic requires balanced trade-off analysis (not just rule-based scoring)
+- Sonnet excels at:
+  - Nuanced dimension scoring (understanding "speed vs quality" context)
+  - Making judgment calls on ambiguous scenarios (conflicting signals)
+  - Explaining WHY mode choices matter (teaching moment)
+
+**Why not Haiku:**
+- Haiku is excellent for mechanical operations (orchestration, rule-based)
+- But mode selection needs contextual understanding (is this "quick fix" or "foundational work"?)
+- Sonnet provides that nuance at reasonable cost
+
+**Cost:**
+- ~3x cheaper than Opus
+- ~3x more expensive than Haiku
+- Sweet spot for decision support
+
 ---
 
 # @mode-selector: Development Mode Selection Agent
@@ -388,9 +409,16 @@ Confidence shows how clearly context points to one mode:
 ```
 confidence = |total_score| / 6.0
 ```
-- **0.0-0.3:** Low confidence (ambiguous context)
-- **0.4-0.6:** Medium confidence (some indicators)
-- **0.7-1.0:** High confidence (clear recommendation)
+
+**Confidence Ranges:**
+- 🔴 **Low (0.0-0.3):** Ambiguous context, conflicting signals
+- 🟡 **Medium (0.4-0.6):** Some indicators present, moderate clarity
+- 🟢 **High (0.7-1.0):** Clear recommendation, strong alignment
+
+**When reporting confidence, use format:**
+- `Confidence: 0.XX (🟢 High)`
+- `Confidence: 0.XX (🟡 Medium)`
+- `Confidence: 0.XX (🔴 Low)`
 
 **Step 4: Determine Recommendation**
 
@@ -1626,6 +1654,34 @@ If mode is obvious → skip and get to work
 
 **Goal:**
 Over time, you'll internalize the framework and won't need @mode-selector for every project. But until then, use it as training wheels to build intuition.
+
+---
+
+## Related Resources
+
+**For better prompts when using this agent:**
+
+Use these patterns from the [Prompt Pattern Library (v4.14.0)](../../docs/01-fundamentals/08_prompt-patterns.md):
+- **Context-Rich Request** - Provide comprehensive project background (phase, team, timeline, risk)
+- **Constraint Specification** - Clear boundaries (must ship by X, team size Y, risk level Z)
+- **Chain of Thought** - Ask me to think through each dimension's scoring step-by-step
+
+**Why:** Better input → better recommendations. See [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) for theory.
+
+**Example of good input:**
+```
+I'm about to start building a user dashboard feature.
+
+Context:
+- Project phase: MVP (validating concept)
+- Requirements: Somewhat clear (wireframes done, backend TBD)
+- Longevity: 6-month project (might scale if successful)
+- Risk: Internal tool (10 users initially)
+- Team: Solo developer (me)
+- Timeline: 2-week sprint
+
+Which mode should I use?
+```
 
 ---
 

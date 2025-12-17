@@ -1,7 +1,7 @@
 {
-  "version": "4.14.0",
+  "version": "4.15.0",
   "release_date": "2025-12-17",
-  "release_name": "Prompt Pattern Library: Practical Templates for Better Results",
+  "release_name": "Agent Enhancement: Standardized Patterns for Consistency",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -232,7 +232,14 @@
     "project-type-recommendations",
     "progressive-skill-disclosure",
     "skills-quick-start-guides",
-    "mermaid-validator-skill"
+    "mermaid-validator-skill",
+    "agent-confidence-standardization",
+    "structured-output-completion",
+    "permission-to-fail-agents",
+    "prompt-pattern-cross-references",
+    "model-recommendation-clarity",
+    "agent-consistency-polish",
+    "educational-continuity-v4-15"
   ],
   "personas_supported": [
     "first-time",

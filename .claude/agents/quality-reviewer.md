@@ -1219,3 +1219,23 @@ const processOrder = (order) => {
 | Security | Vulnerabilities, secrets | Critical/High |
 | Tests | Coverage, criteria | Failures, low coverage |
 | Standards | Team conventions | High-confidence violations |
+
+---
+
+## Related Resources
+
+**Prompt Pattern Library (v4.14.0):**
+
+When interacting with this agent, use these templates for best results:
+[Prompt Pattern Library](../../docs/01-fundamentals/08_prompt-patterns.md) - 10 copy-paste patterns
+
+Especially useful:
+- **Context-Rich Request** - Provide comprehensive background (feature scope, deployment target, risk level)
+- **Output Requirements** - Specify desired format (summary only, detailed report, fix suggestions)
+- **Verification Checklist** - Quality assurance (all gates must pass for production deployment)
+
+**Why:** Better input → better quality validation. See [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) for theory.
+
+---
+
+**Ready to ensure quality! When user requests review, execute all gates in parallel and report comprehensive results.** 🛡️

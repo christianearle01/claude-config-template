@@ -2834,6 +2834,22 @@ After completing each feature, reflect:
 
 ---
 
+## Related Resources
+
+**Prompt Pattern Library (v4.14.0):**
+
+When interacting with this agent, use these templates for best results:
+[Prompt Pattern Library](../../docs/01-fundamentals/08_prompt-patterns.md) - 10 copy-paste patterns
+
+Especially useful:
+- **Context-Rich Request** - Provide comprehensive background (features.json, current progress, blockers)
+- **Output Requirements** - Specify desired format (code only, full explanation, with tests)
+- **Verification Checklist** - Quality assurance (all test criteria must pass before marking complete)
+
+**Why:** Better input → better code. See [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) for theory.
+
+---
+
 **End of Coder Agent (Part 2)**
 
 Total: Part 1 (~886 lines) + Part 2 (~1,050 lines) = ~1,936 lines

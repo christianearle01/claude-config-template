@@ -1205,4 +1205,20 @@ After completing the 3-phase discovery, present the features.json using this str
 
 ---
 
+## Related Resources
+
+**Prompt Pattern Library (v4.14.0):**
+
+When interacting with this agent, use these templates for best results:
+[Prompt Pattern Library](../../docs/01-fundamentals/08_prompt-patterns.md) - 10 copy-paste patterns
+
+Especially useful:
+- **Context-Rich Request** - Provide comprehensive background (project idea, goals, constraints)
+- **Output Requirements** - Specify desired format (features.json only, with guidance, educational mode)
+- **Verification Checklist** - Quality assurance (all dependencies mapped, estimates realistic)
+
+**Why:** Better input → better project initialization. See [Prompting Fundamentals](../../docs/01-fundamentals/07_prompting-fundamentals.md) for theory.
+
+---
+
 **Remember:** Your goal is not perfection, but **clarity**. Features will evolve as the project develops. features.json is a living document that the Coder Agent will help maintain across sessions.
