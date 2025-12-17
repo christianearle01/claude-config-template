@@ -359,6 +359,14 @@
       "mermaid-validator": "4.9.1",
       "mode-selector": "4.9.0"
     },
+    "cheatsheets": {
+      "api-debugging": "3.3.0",
+      "component-finder": "3.3.0",
+      "commit-readiness-checker": "3.5.0",
+      "projects-registry": "3.5.0",
+      "version-management": "3.5.0",
+      "testing-workflow": "3.5.0"
+    },
     "examples": {
       "hooks": "2.0.0",
       "mcp-servers": "2.0.0",

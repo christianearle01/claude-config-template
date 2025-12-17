@@ -1788,13 +1788,19 @@ Visual workflow transparency for multi-step operations. Added in v4.16.0.
    - **Use when:** Multi-phase workflow, >= 5 tasks total
    - Example: Wizard with Setup → Configure → Validate phases
 
-3. **Dynamic Progress** (real-time updates)
+3. **Dynamic Updates** (real-time updates)
    ```bash
-   show_dynamic_progress 45 100 "Processing files"
-   # Updates in real-time without line breaks
+   # Initial display
+   show_phase_progress 1 3 "Validation"
+   show_task_progress 1 10 "Validating template 1"
+
+   # Update progress (overwrites previous)
+   CURRENT_TASK=2
+   TASK_NAME="Validating template 2"
+   update_progress  # Re-renders both bars
    ```
-   - **Use when:** Long-running operation with incremental updates
-   - Example: Large file processing, network operations
+   - **Use when:** Long-running operation with many incremental updates
+   - Uses ANSI cursor movement to update in-place (no scrolling)
 
 4. **Adaptive Progress** (auto-nests based on complexity)
    ```bash
@@ -1810,7 +1816,8 @@ Set in `~/.claude/progress-bar-config` or environment:
 ```bash
 PROGRESS_NESTED_ENABLED=true        # Enable nested progress
 PROGRESS_NESTED_THRESHOLD=5         # Auto-nest if >= 5 tasks
-PROGRESS_DYNAMIC_UPDATE_RATE=10     # Updates per second (max)
+PROGRESS_UPDATE_RATE_MS=100         # Min time between updates (ms)
+PROGRESS_DYNAMIC_UPDATE=true        # Enable ANSI cursor movement
 PROGRESS_PHASE_LABEL="Phase"        # Phase bar label
 PROGRESS_TASK_LABEL="Task"          # Task bar label
 ```
@@ -1825,7 +1832,7 @@ bash examples/progress-nested-example.sh
 Demonstrates:
 - Simple progress (5 steps)
 - Nested progress (3 phases, 5 tasks each)
-- Dynamic progress (100 incremental updates)
+- Dynamic updates (real-time progress bar updates)
 - Adaptive progress (switches based on threshold)
 
 **Why it matters:**
