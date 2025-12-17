@@ -892,6 +892,56 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
+- **v4.15.0 (2025-12-17):**
+  - Agent Enhancement: Standardized patterns across all 7 agents
+  - Confidence scoring (🟢🟡🔴), structured output schemas, permission to fail
+  - Pattern library cross-references, model recommendations (Opus/Sonnet/Haiku)
+  - Educational continuity: v4.12.0 → v4.14.0 → v4.15.0 (Prompting Trilogy complete)
+- **v4.14.0 (2025-12-17):**
+  - Prompt Pattern Library: 10 copy-paste templates for better prompts
+  - Foundational, reasoning, and specialized patterns
+  - 60-95% token savings across different pattern types
+  - Transforms v4.12.0 theory into practical action
+- **v4.13.0 (2025-12-17):**
+  - Adversarial Validation Agent: Playoff method for quality decisions
+  - 3-persona generation (Optimist, Pragmatist, Innovator) with critic
+  - Solution space exploration for high-stakes decisions
+  - Use with Opus model for architecture and tech stack choices
+- **v4.12.0 (2025-12-17):**
+  - Prompting Fundamentals: How AI actually works
+  - Meta-skill of clarity, permission to fail, context is king
+  - Chain-of-thought decision tree, draft-plan-act workflow
+  - Foundation for v4.14.0 Prompt Patterns and v4.15.0 Agent Integration
+- **v4.11.0 (2025-12-17):**
+  - Coding Principles Handbook: Consolidated 9 scattered files into single reference
+  - SOLID, classic (DRY/KISS/YAGNI), and AI-assisted coding principles
+  - Completed API debugging and component finder cheatsheets
+- **v4.10.0 (2025-12-17):**
+  - Skills Catalog: 19 skills organized by experience level
+  - Foundation (3), Optimization (10), Strategic (6) skill categories
+  - Progressive disclosure prevents choice overload
+  - CLI and markdown catalog formats with skill quick-start guides
+- **v4.9.0 (2025-12-16):**
+  - Mode Selection Framework: Vibe Coding vs Vibe Engineering
+  - 6-dimension scoring (speed, quality, exploration, context, risk, learning)
+  - Mode-selector agent for intelligent workflow choice
+  - Educational agent demonstrating decision framework
+- **v4.8.0 (2025-12-16):**
+  - Workflow Integration: 4-layer optimization model
+  - Context → Commands → Skills → Agents working together
+  - Example workflows from vague idea to shipped feature
+  - Phase 3 of 10× Techniques methodology
+- **v4.7.0 (2025-12-16):**
+  - Documentation Refinement: Entry points restructure
+  - Improved navigation and learning journey clarity
+  - Phase 2 of 10× Techniques methodology
+- **v4.6.0 (2025-12-16):**
+  - Agents Enhancement: Structured output and consistency improvements
+  - Phase 1 of 10× Techniques methodology
+- **v4.5.0 (2025-12-16):**
+  - Template Application Script: Apply preference templates programmatically
+  - Inheritance resolution and parameter substitution
+  - Interactive parameter prompts and template preview
 - **v4.4.0 (2025-12-16):**
   - Template Validator: JSON schema validation script
   - Catalog validation with --catalog flag
