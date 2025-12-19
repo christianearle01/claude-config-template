@@ -458,10 +458,10 @@ git push origin v2.6.0
 
 ### Entry Points (What users see first)
 - `README.md` - Landing page, 408 lines (reduced from 539)
-- `docs/00-start-here/01_entry-points.md` - Navigation guide (v3.0.0)
-- `docs/00-start-here/personas/README.md` - Detailed persona guide (v3.0.0: moved from root)
-- `docs/01-fundamentals/02_skills-paradigm.md` - Future of Claude Code (v3.0.0)
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide (v3.0.0)
+- `docs/00-start-here/01_entry-points.md` - Navigation guide
+- `docs/00-start-here/personas/README.md` - Detailed persona guide
+- `docs/01-fundamentals/02_skills-paradigm.md` - Future of Claude Code
+- `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide
 
 ### Critical Templates (What users copy)
 - `templates/CLAUDE.md.template` - Project memory template (284 lines)
@@ -471,16 +471,16 @@ git push origin v2.6.0
 ### Core Configuration
 - `.claude/settings.json` - Project settings
 - `.claude/settings-explained.json` - Educational reference
-- `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide (v2.5.0)
+- `.claude/SETUP_CONTEXT.md` - Token-optimized setup guide
 
 ### User Configuration
-- `~/.claude/projects-registry.json` - Multi-project tracking (v3.2.0)
+- `~/.claude/projects-registry.json` - Multi-project tracking
   - Centralized registry for managing multiple projects
   - See: `01_global-setup/03_nice-to-have/05_projects-registry.md`
   - CLI: `scripts/claude-projects.sh`
   - Wizard: `scripts/register-project.sh`
 
-### Skills (v3.3.0+)
+### Skills
 - `.claude/skills/projects-registry/` - Projects Registry Skill
   - Automatic natural language access to registry
   - SKILL.md: Core expertise (auto-invoked by context)
@@ -490,25 +490,25 @@ git push origin v2.6.0
   - See: `.claude/skills/projects-registry/SKILL.md`
 
 ### Reference Documentation
-- `docs/00-start-here/09_quick-reference.md` - Searchable feature reference (v2.5.0, v3.0.0: moved from root)
-- `docs/00-start-here/06_visual-guides.md` - 5 Mermaid diagrams (v3.0.0: moved from root)
-- `docs/00-start-here/04_quick-start.md` - Quick setup guide (v3.0.0: moved from root)
-- `docs/00-start-here/02_quick-win.md` - Fast wins path (v3.0.0: moved from root)
-- `docs/README.md` - Documentation hub with learning journey (v3.0.0)
-- `docs/02-optimization/` - Token & workflow optimization guides (v3.0.0)
-- `docs/03-advanced/` - MCP workflows, sub-agents, vision (v3.0.0)
-- `docs/04-ecosystem/02_progress-bar-guide.md` - Progress bar config (v3.0.0)
-- `docs/04-ecosystem/09_update-guide.md` - Update instructions (v3.0.0: moved from root)
+- `docs/00-start-here/09_quick-reference.md` - Searchable feature reference
+- `docs/00-start-here/06_visual-guides.md` - 5 Mermaid diagrams
+- `docs/00-start-here/04_quick-start.md` - Quick setup guide
+- `docs/00-start-here/02_quick-win.md` - Fast wins path
+- `docs/README.md` - Documentation hub with learning journey
+- `docs/02-optimization/` - Token & workflow optimization guides
+- `docs/03-advanced/` - MCP workflows, sub-agents, vision
+- `docs/04-ecosystem/02_progress-bar-guide.md` - Progress bar config
+- `docs/04-ecosystem/09_update-guide.md` - Update instructions
 
 ### Browser Workflow (claude.ai)
-- `04_browser-workflow/README.md` - Entry point for role-based Custom Instructions (v2.6.0)
-- `04_browser-workflow/01_must-have/00_all-available-roles-complete-library.md` - Role library index (v2.6.0)
-- `04_browser-workflow/01_must-have/01-09_*.md` - 9 role-specific guides (v2.6.0)
-- `04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md` - Account-level skills guide (v3.7.0)
+- `04_browser-workflow/README.md` - Entry point for role-based Custom Instructions
+- `04_browser-workflow/01_must-have/00_all-available-roles-complete-library.md` - Role library index
+- `04_browser-workflow/01_must-have/01-09_*.md` - 9 role-specific guides
+- `04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md` - Account-level skills guide
 
 ### Version Control
 - `CHANGELOG.md` - Complete version history (includes v1.0.0 in historical/v1.0-original branch)
-- `README.md.backup` - Backup of previous README (v2.4.0)
+- `README.md.backup` - Backup of previous README
 
 ---
 
@@ -675,144 +675,20 @@ See `.claude/SETUP_CONTEXT.md` for complete file location table.
 
 ## Git Workflow & Commit Approval
 
-### User Approval Required for Commits
+### Core Rules
+1. **ALWAYS get user approval before committing** - Draft message, show files, wait for approval
+2. **Git push is display-only** - Show command, explain credentials requirement (first time only)
+3. **NEVER auto-commit** even if user says "commit when done"
 
-**CRITICAL: Always get user approval before committing.**
+### Token Efficiency
+- Skip `git diff` (users see changes in IDE) - saves 500-2,000 tokens
+- Minimal workflow: ~400 tokens/commit (75% savings)
+- Run `git status/diff` only when context needed for message quality
 
-#### Commit Workflow (Token-Optimized):
+### Configuration
+Run `./scripts/setup-git-workflow.sh` to choose protection level (Full/Commit-Only/Minimal).
 
-**1. Draft Phase:**
-   - Draft a commit message from context/file names
-   - **Optional:** Run `git status` only if user asks or you need to verify files
-   - **Optional:** Run `git diff --stat` only if you need to see change summary
-   - **Note:** Users see changes in their IDE, so avoid redundant git commands
-
-**2. Review Phase - MANDATORY:**
-   - Present the drafted commit message to the user
-   - List which files will be committed (from context or git status if run)
-   - Use conversational language: "Here's the commit message I've drafted. Should I proceed?"
-   - Wait for explicit approval (user says "yes", "go ahead", "commit it", etc.)
-
-**3. Execute Phase:**
-   - Only after user approval, run: `git add [files] && git commit -m "message"`
-   - Confirm success briefly
-
-**NEVER auto-commit** even if the user says "commit when done" - always show the message first.
-
-#### Token Efficiency Tips:
-
-**Minimal workflow (recommended):**
-```
-User: "Commit the login changes"
-Claude: Drafts message → Shows message → Waits for approval
-Tokens: ~300-500 per commit
-```
-
-**When to run git commands:**
-- `git status`: Only if user asks "what files changed?" or you're unsure
-- `git diff --stat`: Only if you need change context for message quality
-- `git diff`: Avoid (users see full diff in IDE, wastes 500-2,000 tokens)
-
-**Cost comparison:**
-- With git status + git diff: ~2,000 tokens/commit
-- With git diff --stat: ~800 tokens/commit
-- Without git commands: ~400 tokens/commit (75% savings!)
-
-**User sees changes in their IDE already** - don't duplicate information unless requested.
-
-### Helping Users Configure Git Workflow
-
-**When users ask about setting up git commit approval globally:**
-
-1. **Understand their needs first.** Ask these questions:
-   - "Are you working solo or in a team?"
-   - "Do you prefer seeing every change, or do you trust fast automation?"
-   - "What git operations worry you most? (commits, pushes, merges, rebases)"
-   - "Are you learning Claude Code, or are you already experienced with it?"
-
-2. **Recommend based on their answers:**
-
-   **Recommend Full Protection if:**
-   - Working in a team
-   - Learning Claude Code
-   - Safety-critical work
-   - Wants to see everything before it happens
-
-   **Recommend Commit-Only Protection if:**
-   - Working solo
-   - Experienced developer who wants speed
-   - Trusts Claude with file edits
-   - Only wants commit message control
-
-   **Recommend Minimal Protection if:**
-   - Very experienced with Claude Code
-   - Needs maximum speed
-   - Only worried about accidents (destructive operations)
-   - Comfortable with automation
-
-3. **Guide the setup:**
-   - Explain your recommendation clearly with reasoning
-   - Offer to help: "I can help you set this up. Would you like me to show you the command to run?"
-   - Show: `./scripts/setup-git-workflow.sh`
-   - After they run it, mention they should choose option [1/2/3] based on your recommendation
-   - Reassure: "You can always change this later by running the wizard again"
-
-4. **Example conversation:**
-   ```
-   User: "I want to set up git approval globally"
-
-   Claude: "I'll help you choose the best configuration! Let me ask a few questions:
-
-   1. Are you working solo or in a team?
-   2. How comfortable are you with Claude Code? (new/experienced)
-   3. Do you prefer seeing plans before actions, or fast automation?"
-
-   User: "Solo, pretty experienced, I like speed but want to review commits"
-
-   Claude: "Perfect! Based on that, I recommend **Commit-Only Protection**:
-
-   ✅ You get speed (acceptEdits mode for file changes)
-   ✅ You review every commit message before it's committed
-   ✅ Git push commands are displayed (not executed due to auth)
-
-   To set this up, run this wizard:
-     ./scripts/setup-git-workflow.sh
-
-   When prompted, choose option 2 (Commit-Only Protection).
-
-   This will update your ~/.claude/settings.json globally. Sound good?"
-   ```
-
-### Git Push - Display Only
-
-**IMPORTANT: Due to git authentication requirements, Claude cannot execute git push directly.**
-
-Instead of executing git push:
-1. Show the user the exact command to run:
-   ```bash
-   git push origin <branch-name>
-   ```
-2. **First time in conversation:** Briefly explain why: "This requires your git credentials."
-3. **Subsequent times:** Just show the command without explanation (user already knows)
-4. **If user asks why:** Explain: "Git authentication requires interactive credential input that Claude Code's sandbox cannot handle."
-
-**Example (first push):**
-```
-✅ Commit successful!
-
-To push these changes to GitHub, please run:
-  git push origin main
-
-This requires your git credentials.
-```
-
-**Example (subsequent pushes in same conversation):**
-```
-✅ Commit successful!
-
-To push:
-  git push origin main
-```
+**Full guide:** `docs/00-start-here/09_quick-reference.md#git-workflow--commit-approval`
 
 ---
 
@@ -880,40 +756,11 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
    - Prevents rework by catching issues early (saves tokens overall)
    - See "MCP Usage Guidelines" section above for decision framework
 
-10. **Show workflow progress to users (v4.16.0) - OPTIONAL**
-   - **Note:** This is the author's preference for transparency - NOT required for other users
-   - Use `scripts/claude-progress.sh` functions during multi-step operations
-   - Provides transparency into Claude's workflow (reduces "black box" anxiety)
-   - Standard workflow phases: Understanding → Planning → Implementation → Validation
-   - **User preference:** Can be disabled by removing this instruction from your CLAUDE.md
-   - **When to use:**
-     - Multi-file changes (show which file you're working on)
-     - Complex refactoring (show phases: analyze → plan → implement)
-     - Long operations (show task N of M progress)
-     - Agent operations (indicate when launching Explore/Plan agents)
-   - **How to use:**
-     ```bash
-     # Source the helper (automatically available when you need it)
-     # For 4-phase standard workflow:
-     claude_progress_understanding 1 3 "Reading codebase files"
-     claude_progress_planning 1 2 "Designing approach"
-     claude_progress_implementing 3 5 "Updating wizard-helpers.sh"
-     claude_progress_validating 1 2 "Running tests"
-
-     # For simple tasks (3-phase):
-     claude_progress_simple_understand 1 1 "Analyzing request"
-     claude_progress_simple_implement 1 1 "Making changes"
-     claude_progress_simple_validate 1 1 "Verifying changes"
-
-     # For agent operations:
-     claude_progress_agent "Explore" "Searching for component files"
-
-     # For quick status updates:
-     claude_progress_status "Reading file: src/Header.tsx"
-     ```
-   - **Educational value:** Users see your multi-phase thinking process
-   - **When NOT to use:** Single-file trivial changes (< 5 lines), simple reads
-   - **Frequency:** Balance transparency with noise - use for major steps, not every action
+10. **Show workflow progress (v4.16.0) - OPTIONAL**
+   - Author preference for transparency - not required for other users
+   - Use `scripts/claude-progress.sh` for multi-step operations
+   - Standard phases: Understanding → Planning → Implementation → Validation
+   - **Full guide:** `docs/04-ecosystem/02_progress-bar-guide.md`
 
 **Common maintenance tasks:**
 - Adding new documentation → See "Development Workflow" above
@@ -927,158 +774,12 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 ## Version History (This File)
 
-- **v4.19.0 (2025-12-17):**
-  - "Complete Workflows" - From Code to Production
-  - Deployment-Readiness Agent: Comprehensive pre-deploy validation with confidence scoring
-  - Documentation-Sync-Checker Enhancement: Auto-generates docstrings, README updates, API change detection
-  - /release Command: Orchestrates 5-step validation workflow (quality → version → changelog → git → deployment)
-  - Documentation Updates: Deployment decision tree, Pattern 7 (release workflow), end-to-end example
-  - 3 new components (1 agent, 1 skill enhancement, 1 command), ~2,300 lines
-  - Validates v4.18.0 frameworks through application (users practice integration patterns)
-  - Theme: Application over learning - fills deployment workflow gap, completes development loop
-- **v4.18.0 (2025-12-17):**
-  - "Mastering What You Have" - Consolidation Release
-  - Decision Framework Guide: WHEN to use WHAT tool (eliminates integration paralysis)
-  - Integration Patterns Guide: HOW tools work together (sequential/parallel/combinations)
-  - 4 Workflow Examples: End-to-end scenarios showing decision-making in practice
-  - Meta-learning: Teaching decision-making process, not just individual tools
-  - 6 new files, ~2,074 lines of integration knowledge
-  - Theme: Integration over features - multiplies value of everything that exists
-- **v4.17.0 (2025-12-17):**
-  - Fabric-inspired prompt-polisher enhancements: 3 output modes (Fast/Balanced/Educational)
-  - Before/after diff view for transparency and learning
-  - Standalone portable version works in any LLM (ChatGPT, Gemini, local models)
-  - Credit to Fabric project by Daniel Miessler for speed-first philosophy inspiration
-- **v4.16.0 (2025-12-17):**
-  - Nested progress bar system: Two-level visualization (phase + task)
-  - Updated 5 wizards with adaptive complexity and dynamic updates
-  - Educational documentation on UX principles and psychological transparency
-  - Interactive demo with 4 patterns (simple, nested, dynamic, adaptive)
-- **v4.15.0 (2025-12-17):**
-  - Agent Enhancement: Standardized patterns across all 7 agents
-  - Confidence scoring (🟢🟡🔴), structured output schemas, permission to fail
-  - Pattern library cross-references, model recommendations (Opus/Sonnet/Haiku)
-  - Educational continuity: v4.12.0 → v4.14.0 → v4.15.0 (Prompting Trilogy complete)
-- **v4.14.0 (2025-12-17):**
-  - Prompt Pattern Library: 10 copy-paste templates for better prompts
-  - Foundational, reasoning, and specialized patterns
-  - 60-95% token savings across different pattern types
-  - Transforms v4.12.0 theory into practical action
-- **v4.13.0 (2025-12-17):**
-  - Adversarial Validation Agent: Playoff method for quality decisions
-  - 3-persona generation (Optimist, Pragmatist, Innovator) with critic
-  - Solution space exploration for high-stakes decisions
-  - Use with Opus model for architecture and tech stack choices
-- **v4.12.0 (2025-12-17):**
-  - Prompting Fundamentals: How AI actually works
-  - Meta-skill of clarity, permission to fail, context is king
-  - Chain-of-thought decision tree, draft-plan-act workflow
-  - Foundation for v4.14.0 Prompt Patterns and v4.15.0 Agent Integration
-- **v4.11.0 (2025-12-17):**
-  - Coding Principles Handbook: Consolidated 9 scattered files into single reference
-  - SOLID, classic (DRY/KISS/YAGNI), and AI-assisted coding principles
-  - Completed API debugging and component finder cheatsheets
-- **v4.10.0 (2025-12-17):**
-  - Skills Catalog: 19 skills organized by experience level
-  - Foundation (3), Optimization (10), Strategic (6) skill categories
-  - Progressive disclosure prevents choice overload
-  - CLI and markdown catalog formats with skill quick-start guides
-- **v4.9.0 (2025-12-16):**
-  - Mode Selection Framework: Vibe Coding vs Vibe Engineering
-  - 6-dimension scoring (speed, quality, exploration, context, risk, learning)
-  - Mode-selector agent for intelligent workflow choice
-  - Educational agent demonstrating decision framework
-- **v4.8.0 (2025-12-16):**
-  - Workflow Integration: 4-layer optimization model
-  - Context → Commands → Skills → Agents working together
-  - Example workflows from vague idea to shipped feature
-  - Phase 3 of 10× Techniques methodology
-- **v4.7.0 (2025-12-16):**
-  - Documentation Refinement: Entry points restructure
-  - Improved navigation and learning journey clarity
-  - Phase 2 of 10× Techniques methodology
-- **v4.6.0 (2025-12-16):**
-  - Agents Enhancement: Structured output and consistency improvements
-  - Phase 1 of 10× Techniques methodology
-- **v4.5.0 (2025-12-16):**
-  - Template Application Script: Apply preference templates programmatically
-  - Inheritance resolution and parameter substitution
-  - Interactive parameter prompts and template preview
-- **v4.4.0 (2025-12-16):**
-  - Template Validator: JSON schema validation script
-  - Catalog validation with --catalog flag
-  - 3-level validation (Critical/Important/Info)
-  - Script: validate-template.sh (~250 lines)
-  - Validates JSON syntax, required fields, enum values
-- **v4.3.0 (2025-12-16):**
-  - Template Gallery: 5 domain-specific templates
-  - Demonstrates inheritance (v4.1.0) and parameters (v4.2.0)
-  - Templates: gallery-frontend-react, gallery-backend-api, gallery-data-science, gallery-devops, gallery-fullstack
-  - Catalog updated to 9 total templates
-  - Inheritance hierarchy: team-standard/team-security as base templates
-- **v4.2.0 (2025-12-16):**
-  - Template Parameters: `${varName}` syntax for dynamic configuration
-  - Parameter types: string, number, boolean with defaults
-  - Parameter resolution algorithm
-  - Updated CLAUDE.md to reflect current state (this update)
-- **v4.1.0 (2025-12-16):**
-  - Template Inheritance: `extends` field for compositional templates
-  - Deep merge with child override
-  - Cycle detection and max depth (5 levels)
-- **v4.0.0 (2025-12-16):**
-  - Team Template Sharing: Remote sources, catalogs
-  - Git-native distribution without authentication
-  - Trust model documentation
-- **v3.15.0 (2025-12-16):**
-  - Consolidation: Documentation sync, version alignment
-- **v3.14.0 (2025-12-16):**
-  - Preference Templates: 5 built-in templates (minimal, balanced, proactive, team, security)
-  - Template schema and validation
-- **v3.11.0 (2025-12-16):**
-  - Model Selection Strategy: Three-Question Method
-  - Agent-level smart defaults (Opus for architecture, Sonnet for implementation, Haiku for exploration)
-- **v3.8.0-v3.10.0 (2025-12-15):**
-  - Personalization Engine skill
-  - Confidence scoring system
-  - Multi-perspective analysis patterns
-- **v3.6.0 (2025-12-15):**
-  - Domain Memory Architecture: Initializer + Coder agents
-  - Bootup ritual, features.json, progress.md artifacts
-  - Two-agent pattern from Anthropic
-- **v3.5.0 (2025-12-15):**
-  - Proactive Intelligence: Attentive Sous Chef
-  - Confidence-scored suggestions
-  - Just-in-time cheat sheets
-  - Proactive setup assistant
-- **v3.7.0 (2025-12-15):**
-  - Added Claude Skills complete guide for browser workflow (account-level skills)
-  - 10th must-have guide in 04_browser-workflow/ (now 11 files total)
-  - Integration with Custom Instructions and Projects explained
-  - Skills vs Custom Instructions vs Local Skills comparison table
-  - Based on YouTube source: "The REAL POWER of Claude Agent SKILLS"
-- **v3.0.0 (2025-12-12):**
-  - Major documentation restructure: Learning journey (00-start-here → 01-fundamentals → 02-optimization → 03-advanced → 04-ecosystem)
-  - Added 14 comprehensive guides (6,000+ lines): Anti-Patterns, Skills Paradigm, Ctrl+O Workflow, Prompt Caching, MCP Optimization, Environment Variables, Advanced MCP Workflows, Sub-Agent Best Practices, Vision Optimization, Conversation Branching, Third-Party MCPs, Plugins Guide
-  - Structured output schemas for agents (prompt-polisher, project-planner)
-  - Progress bar global configuration system (v3.0.0 post-release)
-  - Browser workflow broken link fix (v3.0.0 post-release)
-  - Root file consolidation: Phase 1 & 2 (11 → 4 files, 64% reduction)
-  - MCP Usage Guidelines: Sequential-thinking decision framework (Phase 3)
-  - Sequential-thinking MCP user guide in nice-to-have (Phase 3)
-  - Updated file counts: 87 MD files (from 39), 12 shell scripts (from 8)
-- **v2.9.0 (2025-12-11):** Added comprehensive Git Workflow & Commit Approval section with token-optimized patterns (draft → review → approve workflow, 75% token savings)
-- **v2.8.0 (2025-12-08):** Version sync script implementation, automated version updates across multiple files
-- **v2.7.1 (2025-12-08):** Quick wins documentation and honesty policy refinements
-- **v2.7.0 (2025-12-08):** Package security release documentation
-- **v2.6.1 (2025-12-08):** Honesty policy enforcement - removed misleading 'battle-tested' language
-- **v2.6.0 (2025-12-08):** Added Browser Workflow - 9 role-based Custom Instructions guides for claude.ai users (now 10 files including library overview)
-- **v2.5.0 (2025-12-08):** Created CLAUDE.md for template project (meta-example) with comprehensive project documentation
-- **v2.4.0 (2025-12-05):** Enhanced prompt-polisher agent documentation (3-tier technique system, intelligent selection)
-- **v2.3.0 (2025-12-05):** Added project-planner agent documentation (6-perspective coordination)
-- **v2.2.1 (2025-12-07):** Educational modes refinement
-- **v2.2.0 (2025-12-06):** Claude Code 2.0 feature documentation
-- **v2.1.0 (2025-12-05):** Progressive setup wizard documentation
-- **v2.0.0 (2024-XX-XX):** Initial creation with comprehensive project documentation
+**Recent changes:**
+- **v4.19.0 (2025-12-17):** Complete Workflows - Deployment-readiness agent, /release command, documentation-sync-checker enhancements
+- **v4.18.0 (2025-12-17):** Mastering What You Have - Decision framework, integration patterns, workflow examples
+- **v4.17.0 (2025-12-17):** Fabric-inspired prompt-polisher with 3 output modes
+
+**Full history:** See `CHANGELOG.md`
 
 ---
 
