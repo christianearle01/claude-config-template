@@ -1,7 +1,7 @@
 {
-  "version": "4.20.0",
+  "version": "4.20.1",
   "release_date": "2025-12-19",
-  "release_name": "External Perspectives - Community Patterns Framework",
+  "release_name": "External Perspectives - Enterprise Edition",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -392,7 +392,7 @@
       "personalization-engine": "4.2.0",
       "mermaid-validator": "4.9.1",
       "mode-selector": "4.9.0",
-      "external-perspectives": "4.20.0"
+      "external-perspectives": "4.20.1"
     },
     "cheatsheets": {
       "api-debugging": "3.3.0",
