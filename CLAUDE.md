@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
-**Last Updated:** 2025-12-17
-**Version:** v4.19.0
+**Last Updated:** 2025-12-19
+**Version:** v4.20.0
 
 ---
 
@@ -775,6 +775,7 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 ## Version History (This File)
 
 **Recent changes:**
+- **v4.20.0 (2025-12-19):** External Perspectives - Community Patterns Framework (4 complete patterns: Compounding Loop validates our approach, Pre-Task Scoring adoption, Workflow Automation comparison, Transparent Process enhancement, 2 patterns pending research)
 - **v4.19.0 (2025-12-17):** Complete Workflows - Deployment-readiness agent, /release command, documentation-sync-checker enhancements
 - **v4.18.0 (2025-12-17):** Mastering What You Have - Decision framework, integration patterns, workflow examples
 - **v4.17.0 (2025-12-17):** Fabric-inspired prompt-polisher with 3 output modes

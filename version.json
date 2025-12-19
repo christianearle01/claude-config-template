@@ -1,7 +1,7 @@
 {
-  "version": "4.19.0",
-  "release_date": "2025-12-17",
-  "release_name": "Complete Workflows - From Code to Production",
+  "version": "4.20.0",
+  "release_date": "2025-12-19",
+  "release_name": "External Perspectives - Community Patterns Framework",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -254,7 +254,19 @@
     "new-feature-workflow",
     "refactor-workflow",
     "optimization-workflow",
-    "consolidation-release-paradigm"
+    "consolidation-release-paradigm",
+    "external-perspectives-skill",
+    "community-patterns-framework",
+    "validation-patterns",
+    "adoption-patterns",
+    "enhancement-patterns",
+    "comparative-analysis-framework",
+    "compounding-engineering-loop-pattern",
+    "pre-task-complexity-scoring-pattern",
+    "workflow-automation-comparison",
+    "transparent-process-visibility-pattern",
+    "research-in-progress-model",
+    "template-driven-pattern-contribution"
   ],
   "personas_supported": [
     "first-time",
@@ -379,7 +391,8 @@
       "standards-enforcer": "3.7.0",
       "personalization-engine": "4.2.0",
       "mermaid-validator": "4.9.1",
-      "mode-selector": "4.9.0"
+      "mode-selector": "4.9.0",
+      "external-perspectives": "4.20.0"
     },
     "cheatsheets": {
       "api-debugging": "3.3.0",
@@ -405,9 +418,9 @@
     }
   },
   "metadata": {
-    "total_files": 132,
-    "total_lines": 59700,
-    "skill_count": 19,
+    "total_files": 134,
+    "total_lines": 60800,
+    "skill_count": 20,
     "command_count": 4,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
