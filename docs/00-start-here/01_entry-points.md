@@ -25,6 +25,7 @@
 | **Learn effective prompting** | [Prompting Fundamentals](../01-fundamentals/07_prompting-fundamentals.md) - How AI works, meta-skill of clarity, context is king |
 | **Use prompt templates** | [Prompt Pattern Library](../01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates for common scenarios |
 | **Learn coding principles** | [Coding Principles Handbook](../01-fundamentals/06_coding-principles-handbook.md) - SOLID, DRY, KISS, YAGNI + AI-specific |
+| **Follow learning path** | [Skills Progression Map](14_skills-progression-map.md) - Foundation → Optimization → Strategic (19 skills with prerequisites) |
 | **Choose a setup path** | [Visual Quickstart](07_visual-quickstart.md) |
 | **Choose which skills to use** | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) - Case study: how skills emerged from THIS project |
 | **Understand the concepts** | [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) |
@@ -61,6 +62,7 @@
 |------|---------|
 | [03_5-minute-success.md](03_5-minute-success.md) | Ultra-fast demo |
 | [05_anti-patterns.md](05_anti-patterns.md) | What NOT to do (critical) |
+| [14_skills-progression-map.md](14_skills-progression-map.md) | Learning path (Foundation → Optimization → Strategic) |
 | [10_learning-stages.md](10_learning-stages.md) | Progressive skill building |
 | [11_proactive-paradigm.md](11_proactive-paradigm.md) | Future direction (v3.5.0+) |
 | [12_quality-workflows.md](12_quality-workflows.md) | Quality-first development |

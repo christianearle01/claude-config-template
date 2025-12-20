@@ -58,8 +58,9 @@ cd ~/claude-config-template
 **Your journey path:**
 1. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
 2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [START_HERE.md](docs/00-start-here/personas/README.md) (detailed persona paths)
-3. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
-4. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
+3. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
+4. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
+5. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
 
 **Don't know where to start?** Read the Get Started section above ↑
 

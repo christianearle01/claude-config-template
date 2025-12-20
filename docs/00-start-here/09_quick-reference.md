@@ -30,6 +30,8 @@
 - [Personas](#personas-user-profiles) - 5 learning paths (5-90 min)
 - [Decision Framework](#decision-framework) - Tool selection for teams
 
+**Want a complete learning path?** See [Skills Progression Map](14_skills-progression-map.md) for systematic progression from Foundation → Optimization → Strategic with prerequisites, time estimates, and self-assessment checkpoints for all 19 skills.
+
 ---
 
 ## 🔍 Method 2: Search by Keyword (Most Flexible)
@@ -39,7 +41,8 @@
 **Common searches:**
 - **"save tokens"** → Model Switching, CLAUDE.md, Token Optimization, Prompt Patterns
 - **"faster"** → Background Tasks, Keyboard Shortcuts, Model Switching (Haiku)
-- **"learn"** → Personas, Visual Guides, Prompt Patterns, Decision Framework
+- **"learn"** → Skills Progression Map, Personas, Visual Guides, Prompt Patterns
+- **"prerequisites"** → Skills Progression Map (what to learn first)
 - **"security"** → Security Hooks, Package Security, Git Commit Approval
 - **"team"** → Git Workflow, Personas, Decision Framework
 - **"errors"** → Troubleshooting, Cheatsheets, Workflow Examples
