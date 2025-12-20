@@ -1,12 +1,56 @@
 # Quick Reference - Claude Code Template
 
-**How to use:** Press `Cmd+F` (Mac) or `Ctrl+F` (Windows) and search for any keyword.
+**Purpose:** Find any feature from 269+ options in <2 minutes.
 
-**Purpose:** Find any feature, command, or concept instantly without browsing documentation.
+**Problem:** With 269 documented features, finding what you need can be overwhelming.
+
+**Solution:** Three discovery methods below - choose what works for you.
 
 ---
 
-## 📖 Table of Contents (Alphabetical)
+## 🎯 Method 1: Find by User Type (Fastest)
+
+**New to Claude Code?** Start with Foundation features (must-have):
+- [CLAUDE.md Template](#claudemd-template) - Project memory (95% context token savings)
+- [Keyboard Shortcuts](#keyboard-shortcuts) - Esc Esc (rewind), Ctrl-b (background tasks)
+- [Permission Modes](#permission-modes) - Plan/ask/acceptEdits control
+
+**Want to optimize workflow?** Try Optimization features (good-to-have):
+- [Model Switching](#model-switching) - Sonnet→Haiku (92% cost savings)
+- [Prompt Patterns](#prompt-patterns) - 10 reusable templates
+- [Token Optimization](#token-optimization) - Reduce costs 50-95%
+
+**Advanced user?** Explore Strategic features (nice-to-have):
+- [Custom Agents](#custom-agents) - @prompt-polisher, @project-planner
+- [MCP Servers](#mcp-servers) - Sequential-thinking, memory, filesystem
+- [Security Hooks](#security-hooks) - Prompt injection detection
+
+**Setting up for team?** Check Team features:
+- [Git Workflow & Commit Approval](#git-workflow--commit-approval) - Token-optimized commits
+- [Personas](#personas-user-profiles) - 5 learning paths (5-90 min)
+- [Decision Framework](#decision-framework) - Tool selection for teams
+
+---
+
+## 🔍 Method 2: Search by Keyword (Most Flexible)
+
+**How:** Press `Cmd+F` (Mac) or `Ctrl+F` (Windows) and search.
+
+**Common searches:**
+- **"save tokens"** → Model Switching, CLAUDE.md, Token Optimization, Prompt Patterns
+- **"faster"** → Background Tasks, Keyboard Shortcuts, Model Switching (Haiku)
+- **"learn"** → Personas, Visual Guides, Prompt Patterns, Decision Framework
+- **"security"** → Security Hooks, Package Security, Git Commit Approval
+- **"team"** → Git Workflow, Personas, Decision Framework
+- **"errors"** → Troubleshooting, Cheatsheets, Workflow Examples
+
+**Pro tip:** Each section has "Keywords:" at the bottom for better search matching.
+
+---
+
+## 📚 Method 3: Browse by Category (Most Complete)
+
+### 📖 Table of Contents (Alphabetical)
 
 Jump to any section:
 
