@@ -98,6 +98,30 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ---
 
+## 🙏 Seeking Validators - Help Prove This Works!
+
+**v4.21.0 just released with 100% External Perspectives research complete.** Now we need YOUR help to validate the approach!
+
+### We Need 5-10 Early Adopters To:
+1. **Test the 5-minute success path** - Does it actually work in 5 minutes?
+2. **Measure token savings** - Are the 50-95% projections real?
+3. **Share feedback** - What's confusing? What's helpful?
+
+### What You Get:
+- ✅ 1-on-1 setup support from the author
+- ✅ Priority bug fixes for your use case
+- ✅ Your feedback shapes v5.0 roadmap
+- ✅ Recognition in project credits
+
+### How to Help:
+1. Try the [5-Minute Success Guide](docs/00-start-here/03_5-minute-success.md)
+2. Track your setup time and token usage
+3. Share results via [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues/new?template=validation-feedback.md) or email
+
+**Your data helps transform "projected 50-95% savings" → "measured X% savings from Y users"**
+
+---
+
 ## ✨ What You Get
 
 ### Immediate Benefits

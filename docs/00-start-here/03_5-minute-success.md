@@ -190,6 +190,68 @@ _Help us validate these projections! Try the template and share your results._
 
 ---
 
+## 📈 Track Your Actual Savings - Help Validate!
+
+**You just completed the 5-minute demo!** Now help us transform "projected" → "measured" by tracking your actual experience.
+
+### Quick Metrics (2 minutes)
+
+**1. Setup Time (Actual)**
+- How long did the demo actually take? _____ minutes
+- Compare to claimed "5 minutes"
+
+**2. Did It Work?**
+- [ ] Yes - Claude read CLAUDE.md and answered instantly
+- [ ] Partial - Worked but had issues: ___________
+- [ ] No - Blocked by: ___________
+
+**3. Token Usage (If You Can Check)**
+
+Using Claude Code CLI, check your token usage:
+```bash
+claude /usage
+```
+
+Or in conversation:
+```
+How many tokens did we just use?
+```
+
+**Before CLAUDE.md (typical project query):**
+- Estimated: ~20,000 tokens (based on file exploration)
+
+**After CLAUDE.md (your actual usage):**
+- Your actual: _____ tokens
+
+**Your savings:** _____ %
+
+### Share Your Results
+
+Your real-world data helps future users know what to expect!
+
+**Option 1: GitHub Issue (Recommended)**
+[Share feedback using our template →](https://github.com/christianearle01/claude-config-template/issues/new?template=validation-feedback.md)
+
+**Option 2: Quick Comment**
+Open a GitHub issue with just:
+- "5-min demo took X minutes"
+- "Token savings: Y%"
+- "Worked? Yes/No/Partial"
+
+**Option 3: Email**
+Send to: [your-email-here] with subject "v4.21.0 Validation"
+
+### What Happens to Your Data
+
+✅ Helps replace "projected 50-95%" with "measured X% (from Y users)"
+✅ Identifies friction points to fix in v4.22
+✅ Builds case studies for future adopters (with your permission)
+✅ Shapes v5.0 roadmap priorities
+
+**Thank you for helping validate!** 🙏
+
+---
+
 ## 🚀 Next Steps - Choose Your Path
 
 You've seen the value. Now decide how deep you want to go:
