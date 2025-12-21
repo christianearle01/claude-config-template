@@ -1,0 +1,277 @@
+# project-spec.yaml
+# Example: Add real-time notification system for order updates
+project: real-time-order-notifications
+version: 1.0
+created: 2025-12-21
+
+essential_complexity:
+  description: "New functionality that MUST be implemented"
+  requirements:
+    - Real-time notifications when order status changes (placed, shipped, delivered)
+    - Browser notifications (Web Push API for desktop/mobile)
+    - Email notifications as fallback (user preference)
+    - Notification preferences per user (enable/disable per type)
+    - Notification history (last 30 days, user can view/delete)
+    - Admin can send broadcast notifications to all users
+    - Works on Chrome, Firefox, Safari (95%+ browser coverage)
+
+accidental_complexity_to_remove:
+  description: "Existing code that can be simplified or removed"
+  items:
+    - pattern: "Manual email queue in application code"
+      locations:
+        - "src/services/email-queue.ts:entire file"
+      confidence: 0.8
+      action: "Replace with Redis pub/sub for unified notification queue"
+      reasoning: "Currently separate email queue, will unify with notification system"
+      current_impact: "Duplicate queueing logic, harder to maintain"
+
+    - pattern: "Polling-based order status check"
+      locations:
+        - "src/frontend/components/OrderStatus.tsx:useEffect polling"
+      confidence: 0.9
+      action: "Replace with WebSocket subscription"
+      reasoning: "Polling every 10s is inefficient, WebSocket gives real-time updates"
+      current_impact: "Unnecessary server load, delayed updates"
+
+    - pattern: "Hardcoded notification messages in controllers"
+      locations:
+        - "src/controllers/order-controller.ts:multiple locations"
+      confidence: 0.85
+      action: "Centralize in NotificationTemplateService"
+      reasoning: "Messages scattered across code, hard to update wording"
+      current_impact: "Inconsistent messaging, no i18n support"
+
+architecture:
+  patterns:
+    - Observer pattern (order status changes trigger notifications)
+    - Pub/Sub pattern (Redis for notification queue)
+    - WebSocket pattern (real-time browser delivery)
+    - Template pattern (notification message templates)
+    - Strategy pattern (multiple delivery channels: push, email, SMS future)
+
+  components:
+    - name: NotificationService
+      responsibility: "Core notification logic - create, queue, deliver"
+      interface_first: true
+      dependencies: ["NotificationRepository", "PubSubClient", "WebSocketManager"]
+
+    - name: NotificationRepository
+      responsibility: "Persist notifications to database"
+      interface_first: true
+      dependencies: ["Database connection"]
+
+    - name: PubSubClient
+      responsibility: "Redis pub/sub for notification queue"
+      interface_first: true
+      dependencies: ["Redis connection"]
+
+    - name: WebSocketManager
+      responsibility: "Manage WebSocket connections per user"
+      interface_first: true
+      dependencies: ["Socket.io library"]
+
+    - name: NotificationTemplateService
+      responsibility: "Generate notification messages from templates"
+      interface_first: true
+      dependencies: ["Template files"]
+
+    - name: PushNotificationService
+      responsibility: "Send browser push notifications (Web Push API)"
+      interface_first: true
+      dependencies: ["web-push library", "VAPID keys"]
+
+    - name: NotificationPreferencesService
+      responsibility: "Manage user notification preferences"
+      interface_first: true
+      dependencies: ["User preferences in database"]
+
+implementation_sequence:
+  phase_1:
+    description: "Define interfaces and data models"
+    estimated_time: "3 hours"
+    tasks:
+      - Define INotification interface (id, user_id, type, message, created_at, read_at)
+      - Define INotificationService interface (create, queue, deliver, markAsRead)
+      - Define NotificationType enum (ORDER_PLACED, ORDER_SHIPPED, ORDER_DELIVERED)
+      - Define DeliveryChannel enum (PUSH, EMAIL, SMS)
+      - Create database migration for notifications table
+      - Create database migration for user_notification_preferences table
+      - Document notification payload schema
+    validation:
+      - [ ] All interfaces compile with TypeScript strict mode
+      - [ ] Database migrations run successfully on dev database
+      - [ ] Schema supports all required fields
+      - [ ] Foreign keys properly defined (user_id → users.id)
+
+  phase_2:
+    description: "Write comprehensive tests (TDD)"
+    estimated_time: "5 hours"
+    tasks:
+      - Write NotificationService unit tests (create, queue, deliver)
+      - Write NotificationRepository unit tests (CRUD operations)
+      - Write PubSubClient integration tests (publish, subscribe)
+      - Write WebSocketManager integration tests (connection, message delivery)
+      - Write NotificationTemplateService tests (message generation)
+      - Write end-to-end test (order placed → notification delivered)
+      - Mock external services (Redis, WebSocket, browser Push API)
+    validation:
+      - [ ] All tests fail initially (RED phase - no implementation)
+      - [ ] Test coverage plan >85% for notification code
+      - [ ] Edge cases tested (offline users, failed delivery, retry logic)
+      - [ ] Tests run in <30 seconds (fast feedback)
+
+  phase_3:
+    description: "Implement backend services"
+    estimated_time: "8 hours"
+    tasks:
+      - Implement NotificationService (core business logic)
+      - Implement NotificationRepository (database operations)
+      - Implement PubSubClient (Redis pub/sub wrapper)
+      - Implement WebSocketManager (Socket.io setup)
+      - Implement NotificationTemplateService (message templates)
+      - Implement PushNotificationService (Web Push API)
+      - Implement NotificationPreferencesService (user preferences)
+      - Wire up dependency injection
+      - Add observer to OrderService (publish events on status change)
+    validation:
+      - [ ] All unit tests pass (GREEN phase)
+      - [ ] Integration tests pass
+      - [ ] No TypeScript errors (strict mode)
+      - [ ] Redis pub/sub working (test with redis-cli SUBSCRIBE)
+
+  phase_4:
+    description: "Implement frontend components"
+    estimated_time: "6 hours"
+    tasks:
+      - Create NotificationBell component (icon with unread count)
+      - Create NotificationList component (dropdown with history)
+      - Create NotificationPreferences component (user settings page)
+      - Implement WebSocket connection in React (useEffect hook)
+      - Request browser notification permission (Web Push API)
+      - Display toast notifications on incoming messages
+      - Add service worker for background push notifications
+      - Update OrderStatus component (remove polling, use WebSocket)
+    validation:
+      - [ ] Frontend tests pass (React Testing Library)
+      - [ ] Components render correctly (Storybook visual tests)
+      - [ ] WebSocket connects on page load
+      - [ ] Notifications display in real-time (test with curl to API)
+
+  phase_5:
+    description: "Integration, testing, and deployment"
+    estimated_time: "4 hours"
+    tasks:
+      - End-to-end test: Place order → notification appears
+      - Test on Chrome, Firefox, Safari (browser compatibility)
+      - Load test: 1000 concurrent WebSocket connections
+      - Test notification preferences (enable/disable per type)
+      - Test offline scenario (user reconnects, gets missed notifications)
+      - Security audit (validate user can only see own notifications)
+      - Deploy to staging environment
+      - Update API documentation
+    validation:
+      - [ ] All end-to-end tests pass
+      - [ ] Browser compatibility verified (95%+ support)
+      - [ ] Load test passes (1000 connections, <500ms latency)
+      - [ ] No security vulnerabilities (OWASP check)
+      - [ ] Staging deployment successful
+
+validation_checkpoints:
+  functionality:
+    - [ ] User receives notification when order status changes
+    - [ ] Browser push notifications work on Chrome/Firefox/Safari
+    - [ ] Email fallback works if push disabled
+    - [ ] Notification history shows last 30 days
+    - [ ] User can enable/disable notification types
+    - [ ] Admin can send broadcast notifications
+    - [ ] Unread count badge updates in real-time
+
+  performance:
+    - [ ] WebSocket connection established <1 second
+    - [ ] Notification delivery latency <2 seconds (order update → browser)
+    - [ ] 1000+ concurrent WebSocket connections supported
+    - [ ] Database queries optimized (no N+1 on notification fetch)
+    - [ ] Redis pub/sub handles 100+ messages/second
+
+  security:
+    - [ ] User can only access own notifications (authorization check)
+    - [ ] WebSocket connections authenticated (JWT token)
+    - [ ] VAPID keys stored securely (environment variables)
+    - [ ] No XSS vulnerabilities in notification messages (sanitized)
+    - [ ] No sensitive data in browser push payload
+
+  user_experience:
+    - [ ] Notification permission requested at appropriate time (not on page load)
+    - [ ] Clear messaging when notifications blocked by browser
+    - [ ] Notification history paginated (50 per page)
+    - [ ] Toast notifications auto-dismiss after 5 seconds
+    - [ ] Unread badge clears when notification clicked
+
+  operations:
+    - [ ] WebSocket server monitored (connection count, errors)
+    - [ ] Redis pub/sub monitored (queue depth, latency)
+    - [ ] Graceful degradation (falls back to email if WebSocket fails)
+    - [ ] Database migration reversible (DOWN script works)
+    - [ ] CLAUDE.md updated with notification architecture
+
+confidence_score: 0.78
+rationale: |
+  Moderate-high confidence - real-time features have more complexity than CRUD.
+  WebSocket and Push API are proven but require careful testing.
+  Risks: Browser compatibility, connection stability, scaling WebSockets.
+  Mitigation: Comprehensive testing, fallback to email, load testing.
+  Similar systems exist (Slack, Discord) proving feasibility.
+
+estimated_total_time: "26 hours"
+expected_outcome:
+  - "Real-time order updates with <2s latency"
+  - "95%+ browser coverage (Chrome, Firefox, Safari)"
+  - "Email fallback ensures 100% delivery"
+  - "User satisfaction: Faster communication, less checking order page"
+
+risks:
+  high:
+    - "Browser push notification permission denied by user (mitigation: email fallback)"
+    - "WebSocket scaling complexity (mitigation: use Socket.io clustering, Redis adapter)"
+
+  medium:
+    - "Service worker caching issues (mitigation: versioned service worker)"
+    - "Offline users miss notifications (mitigation: notification history on reconnect)"
+
+  low:
+    - "Template message typos (mitigation: spell check, user testing)"
+    - "Notification fatigue (mitigation: preferences, smart defaults)"
+
+dependencies:
+  external_libraries:
+    - "socket.io: ^4.5.0 (WebSocket server)"
+    - "socket.io-client: ^4.5.0 (WebSocket client)"
+    - "web-push: ^3.5.0 (browser push notifications)"
+    - "ioredis: ^5.3.0 (Redis pub/sub)"
+
+  infrastructure:
+    - "Redis server (existing, add pub/sub channel)"
+    - "HTTPS required (Web Push API requirement)"
+    - "VAPID keys generated (one-time setup)"
+
+migration_strategy:
+  rollout:
+    - "Phase 1: Internal testing (dev team, 1 week)"
+    - "Phase 2: Beta users (opt-in, 10% of users, 2 weeks)"
+    - "Phase 3: Gradual rollout (25% → 50% → 100%, 4 weeks)"
+
+  feature_flag: "ENABLE_REAL_TIME_NOTIFICATIONS"
+
+  rollback_plan:
+    - "Disable feature flag (instant rollback)"
+    - "WebSocket server can be stopped independently"
+    - "Falls back to email notifications (existing functionality)"
+    - "Database migrations reversible"
+
+monitoring_and_alerts:
+  - "WebSocket connection count (alert if >5000)"
+  - "WebSocket error rate (alert if >1%)"
+  - "Notification delivery latency (alert if >5 seconds)"
+  - "Redis pub/sub queue depth (alert if >1000)"
+  - "Push notification failure rate (alert if >5%)"

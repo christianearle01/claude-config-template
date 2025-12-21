@@ -12,17 +12,20 @@ The **Proactive Intelligence Framework** transforms claude-config-template from 
 
 **Inspiration:** [Jewels Proactive Agent Patterns](https://www.youtube.com/watch?v=v3u8xc0zLec)
 
-**Core Problem Solved:**
-- **40% of productive time lost** to context switching and monitoring
-- Mental load from constantly asking "What should I do next?"
-- Reactive tools requiring explicit asks instead of anticipating needs
-- Developers as "babysitters" for AI agents instead of collaborators
+**Core Problem Solved (Jewels Research, 2024):**
+- **40% of productive time lost** to context switching and monitoring [1]
+- Mental load from constantly asking "What should I do next?" [1]
+- Reactive tools requiring explicit asks instead of anticipating needs [1]
+- Developers as "babysitters" for AI agents instead of collaborators [1]
 
-**Result:**
-- Mental load reduced by 70%
-- Productive time recovered (40% → reclaimed)
+**Projected Result (This Template):**
+- Mental load reduced by 70% (projected based on Jewels' framework)
+- Productive time recovered (40% → reclaimed, theoretical projection)
 - Paradigm shift: "What should I do?" → "Here's what I recommend"
 - Confidence in system through transparency (confidence scores, rationale provision)
+
+**Sources:**
+[1] Jewels, "How to Build Agents That Users Actually Want to Use," AI Engineer Summit 2024. [Video](https://www.youtube.com/watch?v=v3u8xc0zLec) | Research on proactive agent design patterns, observation, personalization, timeliness, and seamlessness.
 
 ---
 

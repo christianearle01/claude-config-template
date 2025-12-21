@@ -1,7 +1,7 @@
 {
-  "version": "4.21.0",
-  "release_date": "2025-12-20",
-  "release_name": "External Perspectives - Complete Edition",
+  "version": "4.22.0",
+  "release_date": "2025-12-21",
+  "release_name": "Understanding Over Speed - Jake Nations Edition",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -14,9 +14,10 @@
     "feedback_url": "https://github.com/christianearle01/claude-config-template/issues",
     "validation_needed": [
       "Token savings verification",
-      "Setup time measurements",
-      "Multi-user testing",
-      "03_pre-project-planning effectiveness"
+      "Understanding score measurements",
+      "Pattern recognition validation",
+      "Maintenance confidence assessment",
+      "Sandbox effectiveness testing"
     ]
   },
   "features": [
@@ -266,7 +267,17 @@
     "workflow-automation-comparison",
     "transparent-process-visibility-pattern",
     "research-in-progress-model",
-    "template-driven-pattern-contribution"
+    "template-driven-pattern-contribution",
+    "understanding-over-speed-philosophy",
+    "understanding-checkpoints",
+    "common-mistakes-sections",
+    "spec-generator-agent",
+    "spec-driven-development",
+    "sandbox-practice-templates",
+    "tech-debt-detection",
+    "jake-nations-test",
+    "understanding-focused-metrics",
+    "hands-on-practice-guide"
   ],
   "personas_supported": [
     "first-time",
@@ -300,7 +311,7 @@
       "docs/02-optimization/personalization-guide.md": "3.14.0",
       "docs/02-optimization/MODEL_SELECTION_STRATEGY.md": "3.11.0",
       "docs/00-start-here/PROACTIVE_PARADIGM.md": "3.8.0",
-      "docs/00-start-here/QUICK_REFERENCE.md": "4.18.0",
+      "docs/00-start-here/QUICK_REFERENCE.md": "4.22.0",
       "docs/04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md": "4.4.1",
       "docs/02-optimization/TEMPLATE_GALLERY_GUIDE.md": "4.4.1",
       "docs/01-fundamentals/09_decision-framework.md": "4.18.0",
@@ -311,7 +322,10 @@
       "examples/workflows/04_optimization-workflow.md": "4.18.0",
       "01_global-setup/02_good-to-have/05_git-push-workaround.md": "2.9.0",
       "03_pre-project-planning/01_must-have/01_planning-guide.md": "2.3.0",
-      "03_pre-project-planning/README.md": "2.3.0"
+      "03_pre-project-planning/README.md": "2.3.0",
+      "docs/03-advanced/06_spec-driven-development.md": "4.22.0",
+      "docs/01-fundamentals/09_hands-on-practice.md": "4.22.0",
+      "docs/04-ecosystem/03_success-metrics.md": "4.22.0"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",
@@ -335,14 +349,12 @@
       "template-catalog.json.template": "4.0.0"
     },
     "agents": {
-      "project-planner.md": "2.3.0",
-      "prompt-polisher.md": "2.4.0",
-      "initializer.md": "3.6.0",
-      "coder.md": "3.6.0",
-      "quality-reviewer.md": "3.11.0",
-      "prompt-polisher.md": "3.11.0",
       "project-planner.md": "3.11.0",
-      "initializer.md": "3.11.0",
+      "prompt-polisher.md": "3.11.0",
+      "initializer.md": "4.22.0",
+      "coder.md": "4.22.0",
+      "quality-reviewer.md": "4.22.0",
+      "spec-generator.md": "4.22.0",
       "deployment-readiness.md": "4.19.0"
     },
     "scripts": {
@@ -369,7 +381,10 @@
       "mcp-servers": "2.0.0",
       "npm-security": "2.7.0",
       "python-security": "2.7.0",
-      "global-settings": "2.9.0"
+      "global-settings": "2.9.0",
+      "team-templates": "4.3.0",
+      "specs": "4.22.0",
+      "sandbox": "4.22.0"
     },
     "skills": {
       "projects-registry": "3.5.0",
@@ -402,14 +417,6 @@
       "version-management": "3.5.0",
       "testing-workflow": "3.5.0"
     },
-    "examples": {
-      "hooks": "2.0.0",
-      "mcp-servers": "2.0.0",
-      "npm-security": "2.7.0",
-      "python-security": "2.7.0",
-      "global-settings": "2.9.0",
-      "team-templates": "4.3.0"
-    },
     "commands": {
       "build": "2.0.0",
       "review": "2.0.0",
@@ -418,13 +425,19 @@
     }
   },
   "metadata": {
-    "total_files": 134,
-    "total_lines": 60800,
+    "total_files": 148,
+    "total_lines": 63500,
     "skill_count": 20,
     "command_count": 4,
+    "agent_count": 9,
+    "sandbox_count": 5,
+    "spec_example_count": 3,
     "completion_rate_target": 0.95,
     "setup_time_target_minutes": 28,
     "token_savings_target": 0.85,
+    "understanding_score_target": 0.8,
+    "pattern_recognition_target": 3,
+    "maintenance_confidence_target": 0.9,
     "planning_time_target_minutes": 30,
     "prompt_optimization_techniques": 14,
     "skills_catalog_version": "1.0.0",

@@ -358,6 +358,35 @@ Use consistently for visual hierarchy:
 
 4. **Update CHANGELOG.md**
 
+### Jake Nations Test (4 Questions for Every Feature) - v4.22.0
+
+**Before adding any feature, ask:**
+
+1. **Does this make users faster, or smarter?**
+   - ✅ Smarter wins
+   - Example: Understanding checkpoint (smarter) > Auto-complete (faster)
+   - Principle: Speed without comprehension = chronic anxiety
+
+2. **Does this encourage "easy" or "simple"?**
+   - ✅ Simple wins (one-fold, no entanglement)
+   - ❌ Easy = frictionless but may bypass learning
+   - Example: Wizard with checkpoints (simple) > Wizard without (easy)
+
+3. **Will users understand the code this generates?**
+   - ✅ If no, add understanding checkpoint
+   - Example: Spec-generator shows plan before code
+   - Principle: Ship with understanding, not just working code
+
+4. **Are we preserving complexity or creating clarity?**
+   - ✅ Clarity wins
+   - Example: Tech debt detection removes accidental complexity
+   - Principle: AI treats tech debt as patterns - we must identify it
+
+**Source:** "The Infinite Software Crisis" - Jake Nations (Netflix)
+**Link:** https://www.youtube.com/watch?v=eIoohUmYpGI
+
+**This test ensures every feature aligns with "Understanding Over Speed" philosophy.**
+
 ### Version Bumping
 
 **Semantic versioning:** MAJOR.MINOR.PATCH

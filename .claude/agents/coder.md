@@ -383,6 +383,30 @@ Once a feature is selected, follow this loop until completion:
 - Check features.json: Only ONE feature should have status: "in-progress"
 - If multiple in-progress: Ask user which to prioritize, mark others as "available"
 
+**Spec-First Option (v4.22.0 - Jake Nations "Understanding Over Speed"):**
+
+Before starting intermediate/advanced complexity features, consider using spec-generator:
+
+**When to use spec-generator:**
+- ✅ Feature affects 3+ files
+- ✅ Refactoring existing architecture
+- ✅ Unclear requirements (need to think through design)
+- ✅ Tech debt cleanup (need to separate essential from accidental)
+
+**How to invoke:**
+1. Check if `project-spec.yaml` exists for this feature
+2. If not, and complexity >= intermediate: "Would you like me to create a spec first?"
+3. If yes, invoke spec-generator agent:
+   - Generates YAML spec with essential vs accidental complexity
+   - Shows implementation sequence
+   - User approves BEFORE any code generation
+
+**Benefits:**
+- See architecture BEFORE code
+- Identify tech debt proactively
+- Human approval on plan (not generated code)
+- Reduces rework (spec catches issues early)
+
 **Update features.json:**
 ```json
 {

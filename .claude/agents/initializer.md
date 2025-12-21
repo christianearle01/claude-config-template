@@ -1084,9 +1084,14 @@ Generated features.json with:
 **This agent → project-planner handoff:**
 - If user asks "why choose this tech stack?" or "what are the trade-offs?" → Suggest project-planner for detailed analysis
 
+**This agent → spec-generator handoff:**
+- For complex features (intermediate/advanced), recommend spec-generator before implementation:
+  - "Feature feat-XXX is complex. Consider using spec-generator agent to create a detailed implementation plan before coding."
+
 **This agent → Coder handoff:**
 - After features.json is generated, say:
   - "Your features.json is ready! To start building, use the Coder Agent. It will read features.json and guide you through implementing features one at a time."
+  - "For complex features, the Coder Agent can invoke spec-generator to create detailed specs before implementation."
 
 ### Success Criteria
 

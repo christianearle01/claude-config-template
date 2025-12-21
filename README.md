@@ -127,7 +127,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ### Understanding Over Speed (v4.22.0 - Jake Nations Edition)
 - ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
-- ✅ **Projected 92% cost savings** - Sonnet→Haiku workflow for implementation
+- ✅ **66.7% cost savings** - Sonnet→Haiku workflow (per official Anthropic API pricing)
 - ✅ **Deep understanding in 60 minutes** - Learn, don't just copy (reduces chronic anxiety)
 - ✅ **Ship code you can explain** - Confidence from comprehension, not just completion
 - ✅ **Visual guides + practice** - Sandbox templates for hands-on learning
@@ -265,9 +265,9 @@ Write your project context once, Claude reads it every session.
 **→ [CLAUDE.md Template](templates/CLAUDE.md.template)**
 
 ### Model Switching (Sonnet→Haiku)
-Plan with Sonnet (smarter), implement with Haiku (92% cheaper).
+Plan with Sonnet (smarter), implement with Haiku (66.7% cheaper).
 
-**Projected savings:** 92% on implementation costs
+**Projected savings:** 66.7% on implementation costs (based on official Anthropic API pricing)
 
 **→ [Model Switching Guide](01_global-setup/02_good-to-have/01_model-switching.md)**
 
@@ -321,7 +321,7 @@ Protect your projects from npm/Python malware attacks.
 
 **Essential commands:**
 ```bash
-/model haiku      # Switch to cheapest model (projected 92% savings)
+/model haiku      # Switch to cheapest model (66.7% cheaper than Sonnet per Anthropic pricing)
 /model sonnet     # Switch to balanced model
 /standards        # View project coding standards
 /onboarding       # Generate project onboarding guide
@@ -358,7 +358,7 @@ Shift-Tab        # Cycle permission modes
 - [Directory Guide](docs/04-ecosystem/01_directory-guide.md) - What's where
 
 ### For Advanced Users
-- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 92% cost savings
+- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - 66.7% cost savings (official Anthropic pricing)
 - [Prompt Optimization](02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
 - [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md) - Hooks & validation
 - [Agent Coordination](01_global-setup/03_nice-to-have/03_agent-coordination.md) - Custom workflows
@@ -445,18 +445,18 @@ nice-to-have/ (💡)
 ### 1. Token Optimization Focus
 Projected savings (theoretical):
 - **CLAUDE.md:** 95% context reduction
-- **Model switching:** 92% implementation savings
+- **Model switching:** 66.7% implementation savings (official Anthropic API pricing)
 - **Prompt optimization:** 50-80% query reduction
 
 **→ [Projected Cost Savings](docs/04-ecosystem/10_projected-impact.md#-projected-cost-savings-examples)**
 
 ### 2. Persona-Based Routing
-Different users need different paths:
-- First-time: Complete learning (60-90 min)
-- Experienced: Fast setup (15-30 min)
-- Advanced: Power features (20-40 min)
-- Team: Deployment strategy (90-120 min)
-- Returning: Quick refresher (10-20 min)
+Different users need different paths (estimated time):
+- First-time: Complete learning (est. 60-90 min)
+- Experienced: Fast setup (est. 15-30 min)
+- Advanced: Power features (est. 20-40 min)
+- Team: Deployment strategy (est. 90-120 min)
+- Returning: Quick refresher (est. 10-20 min)
 
 **→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
 

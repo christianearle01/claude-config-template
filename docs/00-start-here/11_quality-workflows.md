@@ -12,11 +12,14 @@ The **Quality Workflows Framework** addresses the critical gap between AI code g
 
 **Inspiration:** [The State of AI Code Quality: Hype vs Reality — Itamar Friedman, Qodo](https://www.youtube.com/watch?v=rgjF5o2Qjsc)
 
-**Core Problem:**
-- 67% of developers have serious quality concerns about AI-generated code
-- AI code generation = 97% more PRs, 90% more review time
-- 3x increase in security incidents correlates with 3x increase in code written
+**Core Problem (Qodo Research, 2024):**
+- 67% of developers have serious quality concerns about AI-generated code [1]
+- AI code generation = 97% more PRs, 90% more review time [1]
+- 3x increase in security incidents correlates with 3x increase in code written [1]
 - **Productivity glass ceiling:** Speed gains lost to fixing quality issues
+
+**Sources:**
+[1] Itamar Friedman (Qodo CEO), "The State of AI Code Quality: Hype vs Reality," AI Engineer Summit 2024. [Video](https://www.youtube.com/watch?v=rgjF5o2Qjsc) | Research based on Qodo's analysis of AI-assisted development patterns across enterprise teams.
 
 **Result:**
 - Automated quality gates at every SDLC phase

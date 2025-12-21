@@ -1,0 +1,216 @@
+# project-spec.yaml
+# Example: Optimize slow API endpoint with N+1 query problem
+project: product-listing-optimization
+version: 1.0
+created: 2025-12-21
+
+essential_complexity:
+  description: "Core functionality that MUST remain"
+  requirements:
+    - Return paginated list of products (50 per page)
+    - Include product details (name, price, description, stock)
+    - Include category information for each product
+    - Include average rating from reviews
+    - Support filtering by category and price range
+    - Support sorting by price, rating, date added
+    - Response time target <200ms (currently 2,500ms)
+
+accidental_complexity_to_remove:
+  description: "Performance bottlenecks and inefficient code to FIX or DELETE"
+  items:
+    - pattern: "N+1 query problem - fetching categories in loop"
+      locations:
+        - "src/controllers/product-controller.ts:78-95"
+      confidence: 0.98
+      action: "Replace with single JOIN query or eager loading"
+      reasoning: "51 queries (1 products + 50 categories) instead of 1"
+      current_impact: "1,200ms per request"
+
+    - pattern: "N+1 query problem - fetching ratings in loop"
+      locations:
+        - "src/controllers/product-controller.ts:97-110"
+      confidence: 0.98
+      action: "Replace with aggregated subquery or separate bulk query"
+      reasoning: "50 additional queries for average ratings"
+      current_impact: "800ms per request"
+
+    - pattern: "Unnecessary data fetching - loading all product fields"
+      locations:
+        - "src/repositories/product-repository.ts:45"
+      confidence: 0.9
+      action: "SELECT only needed fields (avoid 'SELECT *')"
+      reasoning: "Loading 15 fields when only 7 are returned in API"
+      current_impact: "200ms per request (network + parsing)"
+
+    - pattern: "Missing database indexes"
+      locations:
+        - "database schema: products.category_id"
+        - "database schema: products.price"
+        - "database schema: reviews.product_id"
+      confidence: 0.95
+      action: "Add composite index on (category_id, price, created_at)"
+      reasoning: "Full table scan on filtered queries"
+      current_impact: "300ms per request on 100K+ products"
+
+    - pattern: "No caching on static category data"
+      locations:
+        - "src/services/category-service.ts"
+      confidence: 0.85
+      action: "Add Redis cache with 1-hour TTL"
+      reasoning: "Categories rarely change, fetched on every request"
+      current_impact: "50ms per request"
+
+architecture:
+  patterns:
+    - Repository pattern (existing, will optimize queries)
+    - Service layer (existing, will add caching)
+    - Query Builder pattern (use ORM's eager loading)
+    - Cache-Aside pattern (for categories)
+
+  components:
+    - name: ProductRepository (enhanced)
+      responsibility: "Optimized product data access with eager loading"
+      interface_first: false
+      changes:
+        - "Add getProductsWithRelations() method"
+        - "Use JOIN or eager loading for categories"
+        - "Use subquery for average ratings"
+        - "SELECT only required fields"
+
+    - name: CategoryCache (new)
+      responsibility: "Cache category lookups"
+      interface_first: true
+      dependencies: ["Redis client"]
+
+    - name: DatabaseMigration
+      responsibility: "Add missing indexes"
+      interface_first: false
+
+implementation_sequence:
+  phase_1:
+    description: "Measure baseline and identify bottlenecks"
+    estimated_time: "1 hour"
+    tasks:
+      - Enable query logging on staging database
+      - Run profiler on /api/products endpoint (10 requests)
+      - Document current query count and timing breakdown
+      - Identify top 3 slowest queries
+      - Screenshot slow query log for before/after comparison
+    validation:
+      - [ ] Baseline response time documented (avg, p50, p95, p99)
+      - [ ] Query count documented (currently ~100+ per request)
+      - [ ] Slowest queries identified with EXPLAIN output
+
+  phase_2:
+    description: "Fix N+1 queries with database optimizations"
+    estimated_time: "3 hours"
+    tasks:
+      - Rewrite ProductRepository.getAll() to use JOINs or eager loading
+      - Replace category loop with single JOIN on products.category_id
+      - Replace rating loop with subquery AVG(rating) GROUP BY product_id
+      - Add SELECT field list (remove SELECT *)
+      - Write unit tests for new repository methods
+    validation:
+      - [ ] Query count reduced from ~100 to <10
+      - [ ] All existing tests still pass
+      - [ ] New tests verify correct data returned
+      - [ ] EXPLAIN shows JOIN instead of loop
+
+  phase_3:
+    description: "Add database indexes"
+    estimated_time: "2 hours"
+    tasks:
+      - Create migration file for composite index (category_id, price, created_at)
+      - Create index on reviews.product_id for faster rating lookups
+      - Run migration on staging database
+      - Verify EXPLAIN output shows index usage
+      - Document index names in CLAUDE.md
+    validation:
+      - [ ] EXPLAIN shows "Using index" instead of "Using where"
+      - [ ] Migration reversible (DOWN script works)
+      - [ ] Production migration plan documented
+      - [ ] Index size is reasonable (<100MB)
+
+  phase_4:
+    description: "Add caching layer for categories"
+    estimated_time: "2 hours"
+    tasks:
+      - Implement CategoryCache service with Redis
+      - Cache-aside pattern (check cache, fallback to DB)
+      - Set TTL to 1 hour (categories change infrequently)
+      - Add cache invalidation on category update
+      - Write tests for cache hit/miss scenarios
+    validation:
+      - [ ] Cache hit rate >90% after warmup
+      - [ ] Category fetch time <5ms (cache hit)
+      - [ ] Fallback to DB works when cache miss
+      - [ ] Cache invalidates on category update
+
+  phase_5:
+    description: "Measure improvements and validate"
+    estimated_time: "1 hour"
+    tasks:
+      - Re-run profiler on optimized endpoint
+      - Compare before/after metrics (response time, query count)
+      - Load test with 100 concurrent requests
+      - Document improvements in CHANGELOG
+      - Screenshot fast query log for comparison
+    validation:
+      - [ ] Response time <200ms (target achieved)
+      - [ ] Query count <10 (down from ~100)
+      - [ ] p95 response time <300ms (acceptable)
+      - [ ] No regressions in functionality
+
+validation_checkpoints:
+  performance:
+    - [ ] Response time reduced by >80% (2,500ms → <200ms)
+    - [ ] Query count reduced by >90% (~100 → <10)
+    - [ ] Database CPU usage reduced (monitor in staging)
+    - [ ] Cache hit rate >90% after 1 hour uptime
+
+  functionality:
+    - [ ] All existing API tests pass
+    - [ ] Data accuracy unchanged (spot check 10 products)
+    - [ ] Pagination works correctly
+    - [ ] Filtering and sorting work correctly
+    - [ ] Edge cases handled (empty results, invalid filters)
+
+  scalability:
+    - [ ] Load test: 100 concurrent users, <500ms p95
+    - [ ] No database connection pool exhaustion
+    - [ ] Redis memory usage acceptable (<50MB for cache)
+
+  operations:
+    - [ ] Database migration tested on staging
+    - [ ] Rollback plan documented and tested
+    - [ ] Monitoring alerts updated (new baseline)
+    - [ ] CLAUDE.md updated with optimization details
+
+confidence_score: 0.92
+rationale: |
+  Very high confidence - classic N+1 problem with proven solutions.
+  JOINs and indexes are well-established techniques.
+  Risk: Low, optimizations are additive (can roll back easily).
+  Similar optimizations proven successful in many production systems.
+
+estimated_total_time: "9 hours"
+expected_improvement:
+  response_time: "2,500ms → <200ms (92% reduction)"
+  query_count: "~100 → <10 (90% reduction)"
+  database_load: "51 queries/request → 2-3 queries/request"
+
+risks:
+  - "Indexes increase write time (mitigated: reads >>> writes for products)"
+  - "Cache invalidation complexity (mitigated: simple TTL, categories rarely change)"
+  - "Memory usage for Redis cache (mitigated: only ~1000 categories, <50MB)"
+
+monitoring:
+  - "Response time p50, p95, p99 (target: p95 <300ms)"
+  - "Query count per request (target: <10)"
+  - "Cache hit rate (target: >90%)"
+  - "Database CPU usage (should decrease)"
+
+rollback_plan:
+  - "Remove indexes: Fast, no data loss"
+  - "Disable cache: Feature flag, instant rollback"
+  - "Revert repository changes: Git rollback, redeploy"

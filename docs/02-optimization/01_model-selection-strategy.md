@@ -22,12 +22,15 @@
 
 ## Sources & Validation
 
-**Official Claude Documentation:**
-- **Anthropic API Pricing**: [https://www.anthropic.com/pricing](https://www.anthropic.com/pricing) ✅ VALIDATED
-  - Opus: $15/1M input, $75/1M output
-  - Sonnet: $3/1M input, $15/1M output
-  - Haiku: $0.25/1M input, $1.25/1M output
+**Official Anthropic Claude Documentation:**
+- **Anthropic API Pricing**: [https://www.anthropic.com/pricing](https://www.anthropic.com/pricing) ✅ VALIDATED (Last verified: 2025-12-21)
+  - Claude Opus 4.5: $15/1M input, $75/1M output
+  - Claude Sonnet 4.5: $3/1M input, $15/1M output
+  - Claude Haiku 4.5: $1/1M input, $5/1M output
+  - **Source**: Official Anthropic API pricing page
+  - **All cost calculations in this guide are based on these official rates**
 - **Model Capabilities**: Based on Anthropic model cards and benchmarks ✅ VALIDATED
+  - **Source**: Official Anthropic model documentation at docs.anthropic.com
 
 **Project-Specific Data:**
 - **Agent Analysis**: Derived from `.claude/agents/` exploration (this project)
@@ -148,11 +151,15 @@ Strategic model selection can:
 
 ### Pricing Table
 
+**Source**: Official Anthropic API Pricing ([anthropic.com/pricing](https://www.anthropic.com/pricing)) - Verified 2025-12-21
+
 | Model | Input Cost (per 1M tokens) | Output Cost (per 1M tokens) | Relative Cost | Speed |
 |-------|---------------------------|----------------------------|---------------|-------|
-| **Opus** | $15 | $75 | 5x Sonnet, 60x Haiku | Slower |
-| **Sonnet** | $3 | $15 | 1x (baseline) | Medium |
-| **Haiku** | $0.25 | $1.25 | 0.08x Sonnet | Fastest |
+| **Opus 4.5** | $15 | $75 | 5x Sonnet, 15x Haiku | Slower |
+| **Sonnet 4.5** | $3 | $15 | 1x (baseline) | Medium |
+| **Haiku 4.5** | $1 | $5 | 0.33x Sonnet | Fastest |
+
+_All prices from official Anthropic Claude API documentation. Updated pricing may be available at anthropic.com/pricing._
 
 ### Real-World Cost Examples
 

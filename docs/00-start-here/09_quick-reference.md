@@ -468,7 +468,7 @@ When to escalate from simple to complex tools:
 
 **What:** Specialized AI assistants for specific workflows
 
-**Built-in agents:** 8 sophisticated agents included (5 shown below, plus initializer, coder, quality-reviewer)
+**Built-in agents:** 9 sophisticated agents included (6 shown below, plus initializer, coder, quality-reviewer)
 
 ### 1. Prompt Polisher Agent
 **Purpose:** Transform vague prompts into optimized requests
@@ -524,7 +524,127 @@ After: "Fix the authentication bug in src/auth.ts:45 where
 - Agent: `.claude/agents/prompt-polisher.md`
 - Standalone (any LLM): `examples/improve-prompt-standalone.md`
 
-### 2. Project Planner Agent
+### 2. Spec-Generator Agent (NEW in v4.22.0)
+**Purpose:** Generate YAML specification BEFORE code generation (Jake Nations "Understanding Over Speed")
+
+**Usage:**
+```bash
+@spec-generator [feature or refactor description]
+
+# Example:
+@spec-generator Refactor authentication from sessions to JWT
+```
+
+**Philosophy:** Research → Planning (Spec) → Implementation
+- See architecture BEFORE generating code
+- Separate essential complexity (business requirements) from accidental complexity (tech debt)
+- Human approval on plan, not generated code
+
+**Features:**
+- YAML spec with essential vs accidental complexity
+- Implementation sequence (interfaces → tests → implementation → cleanup)
+- Validation checkpoints (security, functionality, performance, documentation)
+- Confidence scoring (0.0-1.0) based on clarity and risk
+- Integration with initializer, coder, and quality-reviewer agents
+
+**Output example:**
+```yaml
+essential_complexity:
+  - User login with JWT tokens
+  - Secure token generation (RS256)
+  - Token refresh mechanism
+
+accidental_complexity_to_remove:
+  - Session cookie logic (confidence: 0.95)
+  - Redis session store (confidence: 0.9)
+  - Defensive null checks (confidence: 0.7)
+
+implementation_sequence:
+  phase_1: Create interfaces
+  phase_2: Write tests (TDD)
+  phase_3: Implement components
+  phase_4: Integrate and cleanup
+```
+
+**When to use:**
+- ✅ Complex refactors (3+ files)
+- ✅ New features with architectural decisions
+- ✅ Tech debt cleanup (need to identify what to remove)
+- ❌ Simple bug fixes or typo corrections
+
+**Value:**
+- Prevents rework (spec catches issues early)
+- Better architecture (intentional design, not emergent)
+- Tech debt removal (explicitly identified and deleted)
+- Understanding (you know what the code does and why)
+
+**Location:** `.claude/agents/spec-generator.md`
+**Examples:** `examples/specs/` - 3 complete specs (auth refactor, API optimization, new feature)
+**Docs:** `docs/03-advanced/06_spec-driven-development.md`
+**Inspired by:** [Jake Nations - Netflix](https://www.youtube.com/watch?v=eIoohUmYpGI)
+
+### 3. Documentation Verifier Agent (NEW in v4.22.0)
+**Purpose:** Enforce Documentation Honesty Policy through automated citation verification
+
+**Usage:**
+```bash
+@documentation-verifier [optional: file path]
+
+# Verify all documentation
+@documentation-verifier
+
+# Verify specific file
+@documentation-verifier docs/02-optimization/01_model-selection-strategy.md
+```
+
+**Philosophy:** Integrity over marketing. Automatic enforcement of citation requirements.
+
+**Features:**
+- **Citation Scanner:** Detects claims with statistics, percentages, costs
+- **Official Source Validator:** Verifies against Anthropic/Claude Code documentation
+- **Disclaimer Injector:** Adds "Projected"/"Theoretical"/"Based on author observation" labels
+- **Confidence Scoring:** 1.0 (Verified) → 0.0 (Invalid)
+- **YAML Output:** verification_report with corrections and recommended actions
+
+**What it detects:**
+- ✅ Pricing/cost claims (e.g., "92% cheaper", "$5/month savings")
+- ✅ Performance claims (e.g., "3x faster", "50% reduction")
+- ✅ Statistics (e.g., "67% of developers")
+- ✅ Time estimates (e.g., "30 minutes average")
+- ✅ Unverified claims without disclaimers
+
+**Output example:**
+```yaml
+verification_report:
+  file: "README.md"
+  claims:
+    - line: 130
+      claim: "92% cost savings"
+      status: "NEEDS_CORRECTION"
+      confidence: 0.7
+      correction: "66.7% cost savings (official Anthropic pricing)"
+      source: "https://www.anthropic.com/pricing"
+      action: "UPDATE"
+```
+
+**When to use:**
+- ✅ Before releasing new documentation
+- ✅ When adding statistics or cost claims
+- ✅ During documentation review process
+- ✅ After making technical corrections
+- ✅ Part of release checklist
+
+**Value:**
+- Maintains Documentation Honesty Policy automatically
+- Catches incorrect pricing math
+- Ensures proper source citations
+- Prevents misleading claims
+- Builds user trust through transparency
+
+**Location:** `.claude/agents/documentation-verifier.md`
+**Integration:** Part of release workflow (pre-release verification step)
+
+### 4. Project Planner Agent
 **Purpose:** Plan NEW projects before writing code
 
 **Usage:**

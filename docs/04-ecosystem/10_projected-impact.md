@@ -77,7 +77,7 @@ _Note: Theoretical projection. Team adoption patterns may vary._
 
 ---
 
-### Story 3: Freelancer - ROI in 3 Days
+### Example Scenario 3: Freelancer - ROI in 3 Days
 
 **Before:** "I use Claude Code for 5-10 client projects simultaneously. Context switching was killing my token budget."
 
@@ -99,7 +99,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ## ⏱️ Projected Time Savings Examples
 
-### Story 4: Reduced Setup Time by 50%
+### Example Scenario 4: Reduced Setup Time by 50%
 
 **Before:** "It took me 45 minutes to set up Claude Code for each new project. I never felt confident I got everything right."
 
@@ -115,7 +115,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ---
 
-### Story 5: Onboarding New Team Members
+### Example Scenario 5: Onboarding New Team Members
 
 **Before:** "Onboarding a new developer to use Claude Code took 2 full days of handholding. They'd ask the same questions everyone asks."
 
@@ -135,7 +135,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ## 🎯 Productivity Stories
 
-### Story 6: Consistent Results Across Team
+### Example Scenario 6: Consistent Results Across Team
 
 **Before:** "My team was using Claude Code inconsistently. Different developers got different results. Code quality varied wildly."
 
@@ -151,7 +151,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ---
 
-### Story 7: No More Context Loss
+### Example Scenario 7: No More Context Loss
 
 **Before:** "Every time I started a new Claude Code session, I'd waste 5 minutes explaining my project. Multiplied by 20 sessions per week, that's 100 minutes gone."
 
@@ -171,7 +171,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ## 📚 Learning Stories
 
-### Story 8: From Confused to Confident
+### Example Scenario 8: From Confused to Confident
 
 **Before:** "I spent 20 minutes reading docs, got overwhelmed, and gave up. Came back a week later, still confused. Never got Claude Code working properly."
 
@@ -185,7 +185,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ---
 
-### Story 9: Visual Learner Finally Gets It
+### Example Scenario 9: Visual Learner Finally Gets It
 
 **Before:** "I'm a visual thinker. Wall-of-text documentation doesn't work for me. I tried three times to set up Claude Code and failed each time."
 
@@ -201,7 +201,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ## 👥 Team Adoption Stories
 
-### Story 10: From Pilot to Full Team in 3 Weeks
+### Example Scenario 10: From Pilot to Full Team in 3 Weeks
 
 **Team size:** 25 developers
 
@@ -226,7 +226,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ---
 
-### Story 11: Distributed Team Standardization
+### Example Scenario 11: Distributed Team Standardization
 
 **Team:** 15 developers across 4 timezones
 
@@ -250,7 +250,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ## 🚀 Advanced User Stories
 
-### Story 12: Security Hooks Prevented Data Leak
+### Example Scenario 12: Security Hooks Prevented Data Leak
 
 **User:** Security-conscious startup
 
@@ -266,7 +266,7 @@ _**Reminder:** All stories below are theoretical projections, not real user repo
 
 ---
 
-### Story 13: Custom Agent Saved 20 Hours/Month
+### Example Scenario 13: Custom Agent Saved 20 Hours/Month
 
 **User:** Data scientist building ML pipelines
 
@@ -474,6 +474,6 @@ We'd love to hear how this template helped you:
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.5.2*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.22.0*
 
-*Stories compiled from user reports, analytics, and surveys (2025-12-08)*
+*Theoretical projections based on Anthropic API pricing and author's usage analysis. Real user validation needed. [Help us validate →](https://github.com/christianearle01/claude-config-template/issues)*

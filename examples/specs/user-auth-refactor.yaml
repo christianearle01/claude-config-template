@@ -1,0 +1,180 @@
+# project-spec.yaml
+# Example: Refactor authentication from session cookies to JWT
+project: jwt-authentication-refactor
+version: 1.0
+created: 2025-12-21
+
+essential_complexity:
+  description: "Core authentication requirements that MUST exist"
+  requirements:
+    - User login with email/password credentials
+    - Secure token generation following JWT standard (RS256 algorithm)
+    - Token validation on protected endpoints
+    - Token refresh mechanism for long-lived sessions
+    - User logout and token invalidation
+    - Password hashing with bcrypt (12 rounds minimum)
+
+accidental_complexity_to_remove:
+  description: "Tech debt and unnecessary code to DELETE"
+  items:
+    - pattern: "Session cookie logic"
+      locations:
+        - "src/auth/session-manager.ts:45-180"
+        - "src/middleware/session-check.ts:entire file"
+      confidence: 0.95
+      action: "Delete after JWT implementation verified"
+      reasoning: "Sessions no longer needed with stateless JWT"
+
+    - pattern: "Redis session store"
+      locations:
+        - "src/database/redis-client.ts:session methods"
+        - "config/redis.config.ts:session-specific"
+      confidence: 0.9
+      action: "Remove session-specific code, keep Redis for other uses"
+      reasoning: "JWT is stateless, no server-side session storage needed"
+
+    - pattern: "Defensive null checks on session object"
+      locations:
+        - "src/middleware/auth.ts:15 instances"
+      confidence: 0.7
+      action: "Remove checks after session code deleted"
+      reasoning: "TypeScript strict mode handles, becomes unnecessary"
+
+    - pattern: "Legacy cookie parsing utilities"
+      locations:
+        - "src/utils/cookie-parser.ts:legacy methods"
+      confidence: 0.85
+      action: "Keep modern cookie utilities, remove legacy"
+      reasoning: "Still need cookies for refresh tokens, but simpler"
+
+architecture:
+  patterns:
+    - Repository pattern (user data access)
+    - Service layer (JWT business logic)
+    - Middleware pattern (token validation)
+    - Strategy pattern (different auth methods future-proofing)
+
+  components:
+    - name: JWTService
+      responsibility: "Token generation, validation, refresh"
+      interface_first: true
+      dependencies: ["crypto library", "user repository"]
+
+    - name: AuthService
+      responsibility: "Login/logout business logic"
+      interface_first: true
+      dependencies: ["JWTService", "PasswordService", "UserRepository"]
+
+    - name: AuthMiddleware
+      responsibility: "HTTP request authentication"
+      interface_first: true
+      dependencies: ["JWTService"]
+
+    - name: UserRepository
+      responsibility: "User data access (existing, may need updates)"
+      interface_first: false
+      dependencies: ["database connection"]
+
+implementation_sequence:
+  phase_1:
+    description: "Define contracts (no implementation)"
+    estimated_time: "2 hours"
+    tasks:
+      - Create IJWTService interface (generate, validate, refresh methods)
+      - Create IAuthService interface (login, logout methods)
+      - Define JWT payload type (user id, roles, expiry)
+      - Define AuthToken type (access token, refresh token)
+      - Document expected behavior in interface comments
+    validation:
+      - [ ] All interfaces compile
+      - [ ] Type system is sound (no 'any' types)
+      - [ ] JWT payload includes required claims (sub, iat, exp)
+
+  phase_2:
+    description: "Write tests (red/green/refactor)"
+    estimated_time: "4 hours"
+    tasks:
+      - Write JWTService unit tests (token generation, validation, expiry)
+      - Write AuthService unit tests (login success/failure, logout)
+      - Write AuthMiddleware integration tests (protected endpoints)
+      - Set up test fixtures (mock users, expired tokens, invalid tokens)
+      - Test edge cases (null input, malformed tokens, expired refresh tokens)
+    validation:
+      - [ ] All tests fail (no implementation yet) - RED phase
+      - [ ] Test coverage >80% on new code
+      - [ ] Edge cases covered (null, empty, malicious input)
+
+  phase_3:
+    description: "Implement JWT components"
+    estimated_time: "6 hours"
+    tasks:
+      - Implement JWTService (use jsonwebtoken library)
+      - Implement AuthService (integrate with existing PasswordService)
+      - Implement AuthMiddleware (validate tokens on requests)
+      - Wire up dependency injection
+      - Configure JWT secrets in environment variables
+    validation:
+      - [ ] All tests pass - GREEN phase
+      - [ ] No new eslint/tsc errors
+      - [ ] JWT tokens validate with https://jwt.io
+      - [ ] Secrets not committed to git
+
+  phase_4:
+    description: "Integrate and cleanup"
+    estimated_time: "3 hours"
+    tasks:
+      - Replace session middleware with JWT middleware
+      - Update login endpoint to return JWT instead of setting session
+      - Update protected endpoints to use new middleware
+      - Delete session-manager.ts and session-check.ts
+      - Remove Redis session store code
+      - Update API documentation
+    validation:
+      - [ ] All existing tests still pass
+      - [ ] No regressions in user flows (login, access protected resources, logout)
+      - [ ] Performance acceptable (JWT validation <5ms)
+      - [ ] Security audit passes (no token leakage in logs)
+
+validation_checkpoints:
+  security:
+    - [ ] JWT secrets stored in environment variables (not code)
+    - [ ] Tokens expire (access: 15min, refresh: 7 days)
+    - [ ] HTTPS enforced (tokens only transmitted securely)
+    - [ ] Refresh token rotation implemented (prevent replay attacks)
+    - [ ] No sensitive data in JWT payload (only user ID and roles)
+
+  functionality:
+    - [ ] User can login and receive valid JWT
+    - [ ] Protected endpoints reject invalid/expired tokens
+    - [ ] Token refresh works correctly
+    - [ ] Logout invalidates refresh token
+    - [ ] Existing user flows unaffected
+
+  performance:
+    - [ ] Token validation <5ms per request
+    - [ ] No N+1 queries introduced
+    - [ ] Redis freed from session storage (reduced memory)
+
+  documentation:
+    - [ ] CLAUDE.md updated (JWT architecture documented)
+    - [ ] README updated (new authentication flow)
+    - [ ] API docs updated (new endpoint contracts)
+
+confidence_score: 0.88
+rationale: |
+  High confidence - well-defined refactor with clear boundaries.
+  JWT is well-established pattern with proven libraries.
+  Risk: Existing session logic may have edge cases we don't know about.
+  Mitigation: Comprehensive testing and staged rollout recommended.
+
+estimated_total_time: "15 hours"
+risks:
+  - "Unknown dependencies on session storage (search codebase for 'session')"
+  - "Existing mobile apps may expect cookies (check API consumers)"
+  - "Token size larger than cookies (monitor network impact)"
+
+migration_strategy:
+  - "Feature flag: JWT auth alongside sessions for 1 week"
+  - "Monitor error rates and performance"
+  - "Gradual rollout: 10% → 50% → 100% of traffic"
+  - "Rollback plan: Re-enable sessions if critical issues"

@@ -162,10 +162,16 @@ Quality Orchestrator
     │    ├─ Test validation
     │    └─ Missing criteria check
     │
-    └─── Standards Enforcer (async)
-         ├─ CLAUDE.md rules
-         ├─ coding-standards.md
-         └─ Team preferences
+    ├─── Standards Enforcer (async)
+    │    ├─ CLAUDE.md rules
+    │    ├─ coding-standards.md
+    │    └─ Team preferences
+    │
+    └─── Spec Validator (async, v4.22.0)
+         ├─ Check project-spec.yaml exists
+         ├─ Validate essential complexity addressed
+         ├─ Validate accidental complexity removed
+         └─ Validate validation checkpoints
     │
     ▼
 Aggregate Results
@@ -173,6 +179,44 @@ Aggregate Results
     ▼
 Generate Unified Report
 ```
+
+**Spec Validator Gate (v4.22.0 - Jake Nations "Understanding Over Speed"):**
+
+If `project-spec.yaml` exists for the feature being reviewed:
+
+**Checks:**
+1. **Essential complexity addressed:**
+   - All requirements from spec.essential_complexity implemented
+   - Confidence: High (0.9+) if all requirements met
+
+2. **Accidental complexity removed:**
+   - Items from spec.accidental_complexity_to_remove are deleted
+   - Confidence based on spec confidence scores
+
+3. **Validation checkpoints pass:**
+   - All items from spec.validation_checkpoints checked off
+   - Security, functionality, performance, documentation
+
+**Output:**
+```yaml
+spec_validation:
+  spec_exists: true
+  spec_path: "project-spec.yaml"
+  essential_complexity_score: 0.95  # 95% of requirements met
+  accidental_complexity_score: 0.88  # 88% of tech debt removed
+  validation_checkpoints_score: 0.92  # 92% of checkpoints passed
+  missing_requirements:
+    - "Password strength validation (essential)"
+  remaining_tech_debt:
+    - "Duplicate validation logic (lines 45-67)" # Medium confidence, user chose to keep
+  missing_checkpoints:
+    - "Documentation updated in CLAUDE.md"
+```
+
+**Integration with other gates:**
+- Spec validation runs in parallel with other gates
+- If spec doesn't exist, gate is skipped (not an error)
+- Spec validation results included in unified report
 
 **Gate execution:**
 
@@ -1160,6 +1204,317 @@ const processOrder = (order) => {
   // remaining logic
 };
 ```
+```
+
+---
+
+## Tech Debt Detection (v4.22.0 - Jake Nations "Understanding Over Speed")
+
+**Purpose:** Prevent AI from preserving complexity as patterns
+
+**Jake Nations Warning (7:02-7:22):**
+> "AI doesn't understand technical debt as debt—it just sees more code to preserve as patterns"
+
+**When to run:** BEFORE Planning phase to inform spec generation
+
+---
+
+### 5 Tech Debt Patterns
+
+#### Pattern 1: Duplicate Code
+**Detection:** >10 lines repeated 3+ times across files
+
+**Search methodology:**
+- Exact match: Identical code blocks
+- Similar match: 80%+ similarity (accounting for variable names)
+
+**Confidence scoring:**
+- 🟢 High (0.9+): Exact duplicates, no variation
+- 🟡 Medium (0.6-0.9): Similar but with variations
+- 🔴 Low (<0.6): Structural similarity only
+
+**Example:**
+```typescript
+// File 1: users.ts
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    throw new Error('Invalid email');
+  }
+}
+
+// File 2: auth.ts
+function validateEmail(email) {  // Exact duplicate!
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    throw new Error('Invalid email');
+  }
+}
+
+// File 3: newsletter.ts
+function validateEmail(email) {  // Exact duplicate!
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    throw new Error('Invalid email');
+  }
+}
+```
+
+**Detection output:**
+```yaml
+pattern: "Duplicate Code"
+locations: ["users.ts:12-18", "auth.ts:45-51", "newsletter.ts:8-14"]
+confidence: 0.95
+recommendation: "Extract to shared utils/validators.ts"
+impact: "3 copies of 7 lines = 21 lines → 7 lines (67% reduction)"
+```
+
+**Action:** Extract to shared function
+
+---
+
+#### Pattern 2: Dead Code
+**Detection:** Functions never called, unused imports, commented code
+
+**Search methodology:**
+- Grep for unused exports (no import statements found)
+- Find commented-out blocks >20 lines
+- Check git blame for age (>30 days = likely abandoned)
+
+**Confidence scoring:**
+- 🟢 High (0.9+): No references found, dated >30 days
+- 🟡 Medium (0.6-0.9): Few references, unclear usage
+- 🔴 Low (<0.6): Unclear if needed
+
+**Example:**
+```typescript
+// Dead function - no imports found
+export function oldUserFormatter(user) {
+  // Replaced by new formatter 3 months ago
+  return `${user.firstName} ${user.lastName}`;
+}
+
+// Commented-out code block (45 lines)
+/*
+function legacyAuthFlow() {
+  // This was the old authentication system
+  // Replaced by JWT in Q2 2023
+  // ... 40 more lines
+}
+*/
+```
+
+**Detection output:**
+```yaml
+pattern: "Dead Code"
+locations:
+  - "utils/formatters.ts:oldUserFormatter (no imports found)"
+  - "auth/legacy.ts:45-90 (commented block, 6 months old)"
+confidence: 0.92
+recommendation: "Safe to delete - no references, archived in git"
+impact: "Remove 90 lines of unused code"
+```
+
+**Action:** Safe to remove
+
+---
+
+#### Pattern 3: Defensive Checks (Unnecessary in Strict Mode)
+**Detection:** Null checks in TypeScript strict mode, redundant validations
+
+**Search methodology:**
+- Find `if (x !== null)` in TypeScript strict projects
+- Check tsconfig.json for strictNullChecks
+- Identify checks that type system already guarantees
+
+**Confidence scoring:**
+- 🟢 High (0.9+): Type system guarantees, check impossible to fail
+- 🟡 Medium (0.7): May be intentional (external API boundaries)
+- 🔴 Low (<0.6): Unclear if needed
+
+**Example:**
+```typescript
+// tsconfig.json has strictNullChecks: true
+
+interface User {
+  id: string;  // Non-nullable in strict mode
+  name: string;
+}
+
+function getUser(id: string): User {
+  const user = database.findById(id);
+
+  // UNNECESSARY - TypeScript guarantees user.id exists
+  if (user.id !== null) {  // Defensive check
+    return user;
+  }
+}
+```
+
+**Detection output:**
+```yaml
+pattern: "Defensive Checks"
+locations: ["services/user-service.ts:45, 78, 92, 105"]
+confidence: 0.7
+recommendation: "Review necessity - TypeScript strict mode may handle"
+rationale: "TypeScript strictNullChecks guarantees non-null, but may be intentional for runtime safety"
+```
+
+**Action:** Review necessity (may be intentional at boundaries)
+
+---
+
+#### Pattern 4: Abandoned Approaches
+**Detection:** Commented-out blocks >20 lines, dated >30 days
+
+**Search methodology:**
+- Find large comment blocks with code
+- Check git blame for last modification
+- Identify patterns like "OLD:", "DEPRECATED:", "TODO: remove"
+
+**Confidence scoring:**
+- 🟢 High (0.9+): Dated >90 days, clear abandonment markers
+- 🟡 Medium (0.6-0.9): Dated 30-90 days
+- 🔴 Low (<0.6): Recent or unclear intent
+
+**Example:**
+```typescript
+/*
+// OLD APPROACH - Before we switched to JWT
+// Last modified: 2023-06-15 (6 months ago)
+function sessionBasedAuth(req, res) {
+  const sessionId = req.cookies.sessionId;
+  const session = redis.get(sessionId);
+  // ... 40 more lines of session logic
+}
+*/
+```
+
+**Detection output:**
+```yaml
+pattern: "Abandoned Approaches"
+locations: ["auth/session-legacy.ts:12-55 (dated 6 months)"]
+confidence: 0.94
+recommendation: "Remove - archived in git history, no longer relevant"
+rationale: "Code predates JWT migration, safely stored in git"
+```
+
+**Action:** Remove or document why kept
+
+---
+
+#### Pattern 5: Framework Overgrowth
+**Detection:** Dependencies with <5% usage, unused features
+
+**Search methodology:**
+- Check package.json dependencies
+- Grep for import statements per dependency
+- Calculate usage percentage (imports / total files)
+
+**Confidence scoring:**
+- 🟢 High (0.9+): <1% usage, clear alternative exists
+- 🟡 Medium (0.6): 1-5% usage, may have hidden benefits
+- 🔴 Low (<0.6): >5% usage or unclear
+
+**Example:**
+```json
+// package.json
+{
+  "dependencies": {
+    "lodash": "^4.17.21"  // 500KB bundle
+  }
+}
+```
+
+```bash
+# Usage analysis
+$ grep -r "import.*lodash" src/
+src/utils/helpers.ts:import { debounce } from 'lodash';
+
+# Result: 1 import in 50 files = 2% usage
+# Alternative: Custom debounce (20 lines) vs 500KB library
+```
+
+**Detection output:**
+```yaml
+pattern: "Framework Overgrowth"
+locations: ["package.json:lodash (2% usage - 1/50 files)"]
+confidence: 0.6
+recommendation: "Consider replacing with custom implementation"
+rationale: "500KB bundle for single function. Custom debounce = 20 lines."
+impact: "Bundle size: -500KB (if tree-shaking not available)"
+```
+
+**Action:** Review for removal or replacement
+
+---
+
+### Output Format
+
+```yaml
+tech_debt_report:
+  timestamp: "2025-12-21T10:30:00Z"
+  project: "my-api-project"
+  files_analyzed: 127
+
+  patterns_found:
+    - pattern: "Duplicate Code"
+      instances: 3
+      locations:
+        - files: ["users.ts:12-18", "auth.ts:45-51", "newsletter.ts:8-14"]
+          confidence: 0.95
+          recommendation: "Extract to shared utils/validators.ts"
+
+    - pattern: "Dead Code"
+      instances: 2
+      locations:
+        - files: ["utils/formatters.ts:oldUserFormatter"]
+          confidence: 0.92
+          recommendation: "Safe to delete - no references"
+
+    - pattern: "Defensive Checks"
+      instances: 15
+      locations:
+        - files: ["services/user-service.ts:multiple locations"]
+          confidence: 0.7
+          recommendation: "Review - may be intentional at boundaries"
+
+  summary:
+    total_issues: 20
+    high_confidence: 5   # confidence >= 0.9
+    medium_confidence: 10  # confidence 0.6-0.9
+    low_confidence: 5    # confidence < 0.6
+
+    estimated_cleanup_time: "2-3 hours"
+    estimated_lines_removed: 150
+```
+
+---
+
+### Integration with Spec-Generator
+
+**Before spec-generator creates YAML:**
+
+1. Quality Reviewer runs tech debt detection
+2. Generates tech_debt_report
+3. Passes report to spec-generator
+4. Spec-generator populates `accidental_complexity_to_remove` section
+
+**Example flow:**
+```
+User: "Refactor authentication to use JWT"
+  ↓
+Quality Reviewer: Detects session code as tech debt
+  tech_debt_report: "Session logic (confidence: 0.95, safe to remove)"
+  ↓
+Spec-Generator: Creates YAML spec
+  accidental_complexity_to_remove:
+    - Session cookie logic (confidence: 0.95)
+    - Redis session store (confidence: 0.9)
+  ↓
+Human: Reviews and approves spec
+  ↓
+Coder: Implements and removes tech debt
 ```
 
 ---

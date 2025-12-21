@@ -39,10 +39,12 @@ Every developer faces this recurring tension:
 
 **The trap:** Most developers default to their personality type (always fast OR always slow) instead of adapting to context.
 
-**The cost:**
-- **40% of MVPs are over-engineered** - weeks wasted on throwaway code
-- **35% of production systems are under-engineered** - technical debt explosion
+**The cost (Author's observation from industry experience):**
+- **Many MVPs are over-engineered** - weeks wasted on throwaway code with unnecessary complexity
+- **Many production systems are under-engineered** - technical debt explosion from "move fast" mindset
 - **Result:** "Should I design first or just code?" becomes a source of anxiety
+
+_Note: These patterns are based on author's observation of industry practices, not formal research. The exact prevalence varies by team and context._
 
 ### The Solution: Context-Appropriate Mode Selection
 
@@ -480,10 +482,10 @@ Watch for these 7 signals:
 - Transition checklist for prototype → production
 - Anti-patterns guide to avoid common mistakes
 
-**The Impact:**
+**The Impact (Projected Goals):**
 - Reduced decision anxiety (clear framework)
-- Fewer over-engineered MVPs (40% → 10%)
-- Fewer under-engineered production systems (35% → 5%)
+- Fewer over-engineered MVPs (goal: 40% → 10%)
+- Fewer under-engineered production systems (goal: 35% → 5%)
 - Sustainable velocity (right quality at right time)
 
 **The Next Step:**
