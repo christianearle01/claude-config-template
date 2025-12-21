@@ -39,7 +39,7 @@ Understand what Claude Code is, how it works, and your first commands.
 ### 3. Master Model Switching (10 min)
 **→ [Model Switching Strategy](../../01_global-setup/02_good-to-have/01_model-switching.md)**
 
-Learn how to save 92% on costs by using the right model for each task.
+Learn how to save 66.7% on costs by using the right model for each task.
 
 ### 4. Set Up Your First Project (30 min)
 **→ [Project Onboarding Guide](../../02_project-onboarding/01_must-have/01_onboarding-guide.md)**

@@ -435,7 +435,7 @@ Cost: $3 per million tokens
 You: "/model haiku"
 You: "List all the API endpoints in this project"
 Claude (Haiku): *explores, lists endpoints*
-Cost: $0.25 per million tokens (92% cheaper)
+Cost: $1 per million tokens (66.7% cheaper)
 ```
 
 **Pattern:** Exploration = Haiku. Implementation = Sonnet. Architecture = Opus.

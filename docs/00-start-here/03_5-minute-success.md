@@ -326,7 +326,7 @@ The one-sentence description was just to demonstrate the concept. A complete `CL
 **Tip 2: Model Switching for Maximum Savings**
 You can save even more with the Sonnet→Haiku pattern:
 1. Use **Sonnet** for planning (smarter, more thorough)
-2. Switch to **Haiku** for implementation (92% cheaper!)
+2. Switch to **Haiku** for implementation (66.7% cheaper!)
 
 **Example:**
 ```bash
@@ -339,7 +339,7 @@ You: "Plan how to add user authentication"
 You: "Implement the authentication plan"
 ```
 
-**Savings: 92% on implementation costs!**
+**Savings: 66.7% on implementation costs!**
 
 ---
 

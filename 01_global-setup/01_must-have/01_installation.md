@@ -324,7 +324,7 @@ See [02_mcp-setup.md](../02_good-to-have/02_mcp-setup.md) for comprehensive inst
 - Use for: Planning, architecture, complex reasoning
 - When: Start of tasks, design decisions, understanding requirements
 
-**Haiku 4.5** ($0.25 per million tokens - 92% cheaper!)
+**Haiku 4.5** ($1 per million tokens - 66.7% cheaper!)
 - Use for: Implementation, repetitive tasks, simple changes
 - When: After plan is approved, routine coding
 

@@ -128,7 +128,7 @@
 ### Workflow Optimization
 
 #### 4. Model Switching (Sonnet→Haiku) ⭐
-**What:** Use Sonnet for planning, Haiku for implementation (92% cheaper)
+**What:** Use Sonnet for planning, Haiku for implementation (66.7% cheaper)
 **Why:** Same quality, massive cost savings
 **Estimated time:** 10 minutes to understand pattern
 **Prerequisites:** CLAUDE.md (Tier 1)
@@ -503,6 +503,6 @@ For detailed information on each skill, see:
 
 ---
 
-*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.21.0*
+*Part of the [Claude Code Configuration Template](https://github.com/christianearle01/claude-config-template) - v4.22.0*
 
-*Last updated: 2025-12-20*
+*Last updated: 2025-12-21*

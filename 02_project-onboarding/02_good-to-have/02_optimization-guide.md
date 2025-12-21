@@ -286,7 +286,7 @@ Consider adding:
 2. **Implementation Phase** (Haiku 4.5):
    - Switch with `/model haiku` after plan is approved
    - Best for: Executing plans, straightforward coding
-   - Cost: $0.25/M input, $1.25/M output (92% cheaper!)
+   - Cost: $1/M input, $5/M output (66.7% cheaper!)
    - Exit Plan Mode: **Shift+Tab** again for build/deploy
 
 **Quick Model Switching:**

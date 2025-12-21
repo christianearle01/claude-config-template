@@ -54,7 +54,7 @@ By the end of this guide, you'll have:
 
 **With this 15-minute setup:**
 - CLAUDE.md provides persistent context (95% reduction in context queries)
-- Model switching saves 92% on implementation costs (Sonnet → Haiku workflow)
+- Model switching saves 66.7% on implementation costs (Sonnet → Haiku workflow, per official Anthropic pricing)
 - Consistent configuration you can copy to all future projects
 - Proven patterns from real-world usage (not trial-and-error)
 
@@ -312,7 +312,7 @@ Claude: [Fetches latest React docs from Context7]
 **2. Test Model Switching:**
 ```
 You: "/model haiku"
-Claude: [Switches to Haiku - 92% cheaper!]
+Claude: [Switches to Haiku - 66.7% cheaper!]
 
 You: "/model sonnet"
 Claude: [Back to Sonnet for planning]

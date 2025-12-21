@@ -34,7 +34,7 @@
    Learn core concepts and first commands
 
 3. **[Model Switching Strategy](01_global-setup/02_good-to-have/01_model-switching.md)** (10 min)
-   Save 92% on costs with smart model usage
+   Save 66.7% on costs with smart model usage
 
 4. **[Project Onboarding](02_project-onboarding/01_must-have/01_onboarding-guide.md)** (30 min)
    Set up your first project with CLAUDE.md
@@ -240,7 +240,7 @@ Once you've completed planning:
 ### Essential Commands
 
 ```bash
-/model haiku      # Switch to cheap model (92% cost savings)
+/model haiku      # Switch to cheap model (66.7% cost savings)
 /model sonnet     # Switch to balanced model (default)
 /model opus       # Switch to most capable model (use sparingly)
 /usage            # Check your plan limits and usage
@@ -249,7 +249,7 @@ Once you've completed planning:
 /help             # Show all available commands
 ```
 
-### Model Switching Strategy (Save 92% on costs!)
+### Model Switching Strategy (Save 66.7% on costs!)
 
 **The Strategy:**
 1. **🎯 Sonnet for Planning** - "Plan how to implement feature X"
@@ -262,7 +262,7 @@ You: "Plan how to add OAuth authentication"
 Claude (Sonnet): [Creates detailed plan]
 You: "/model haiku"
 You: "Implement the plan you just created"
-Claude (Haiku): [Implements at 92% lower cost]
+Claude (Haiku): [Implements at 66.7% lower cost]
 ```
 
 **Cost Comparison:**

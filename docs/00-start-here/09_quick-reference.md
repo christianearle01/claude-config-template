@@ -16,7 +16,7 @@
 - [Permission Modes](#permission-modes) - Plan/ask/acceptEdits control
 
 **Want to optimize workflow?** Try Optimization features (good-to-have):
-- [Model Switching](#model-switching) - Sonnet→Haiku (92% cost savings)
+- [Model Switching](#model-switching) - Sonnet→Haiku (66.7% cost savings)
 - [Prompt Patterns](#prompt-patterns) - 10 reusable templates
 - [Token Optimization](#token-optimization) - Reduce costs 50-95%
 
@@ -368,9 +368,9 @@ Run the deployment process:
 - Claude reads it instead of exploring files
 - Saves ~20K tokens per context query (estimated)
 
-### 2. Model Switching (92% implementation savings - projected)
+### 2. Model Switching (66.7% implementation savings - projected)
 - Use Sonnet for planning (smarter)
-- Switch to Haiku for implementation (92% cheaper)
+- Switch to Haiku for implementation (66.7% cheaper)
 - Pattern: Plan → Switch → Implement
 
 ### 3. Prompt Optimization (50-80% query savings - projected)
@@ -2379,7 +2379,7 @@ Press `Cmd+D` (Mac) or `Ctrl+D` (Windows) to bookmark. Use Cmd+F to find anythin
 Can't decide which path? [docs/VISUAL_QUICKSTART.md](docs/VISUAL_QUICKSTART.md) has an interactive decision tree.
 
 ### Tip 4: Model Switching is Your Friend
-Plan with Sonnet, implement with Haiku. Save 92% on implementation costs.
+Plan with Sonnet, implement with Haiku. Save 66.7% on implementation costs.
 
 ### Tip 5: CLAUDE.md Evolves
 Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go.

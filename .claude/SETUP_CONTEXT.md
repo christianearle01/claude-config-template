@@ -12,14 +12,16 @@
 
 **Core Value Propositions:**
 1. CLAUDE.md system → 95% context token reduction
-2. Model switching (Sonnet→Haiku) → 92% cost savings
-3. Persona-based setup → 5 user profiles (60s to 120min paths)
-4. Visual guides → 40% cognitive load reduction
-5. Interactive wizards → Validated setup with knowledge checks
-6. Template system (v4.0-v4.5) → Apply team configs with one command
-7. Package security (OPTIONAL) → Malware protection for npm/Python projects
+2. Model switching (Sonnet→Haiku) → 66.7% cost savings (official Anthropic pricing)
+3. Spec-driven development → Plan before code (Understanding Over Speed philosophy)
+4. Persona-based setup → 5 user profiles (60s to 120min paths)
+5. Visual guides → 40% cognitive load reduction
+6. Interactive wizards → Validated setup with knowledge checks
+7. Sandbox practice templates → 5 hands-on learning environments
+8. Template system (v4.0-v4.5) → Apply team configs with one command
+9. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.21.0
+**Current Version:** v4.22.0
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
@@ -61,13 +63,15 @@ claude-config-template/
 │   ├── wizard-helpers.sh          # Validation functions
 │   └── wizard-[persona].sh        # 5 persona-specific wizards
 │
-├── examples/                      # Example configs (hooks, MCP, security)
+├── examples/                      # Example configs (hooks, MCP, security, specs, sandboxes)
 │   ├── npm-security/              # NPM malware protection (5 scripts) - OPTIONAL
-│   └── python-security/           # Python malware protection (5 scripts) - OPTIONAL
+│   ├── python-security/           # Python malware protection (5 scripts) - OPTIONAL
+│   ├── sandbox/                   # 5 hands-on practice templates (v4.22.0)
+│   └── specs/                     # 3 YAML spec examples (v4.22.0)
 ├── .claude/                       # Claude Code configuration
 │   ├── settings.json              # Optimized settings
-│   ├── agents/                    # Custom agents (6 agents)
-│   ├── commands/                  # Slash commands (3 commands)
+│   ├── agents/                    # Custom agents (7 agents)
+│   ├── commands/                  # Slash commands (5 commands)
 │   ├── skills/                    # Skills (personalization-engine, projects-registry, mode-selector)
 │   └── SETUP_CONTEXT.md          # This file!
 │
@@ -267,9 +271,9 @@ cd ~/claude-config-template
 
 **Why:**
 - Sonnet: Smarter, better at planning, exploring, architecture
-- Haiku: 92% cheaper, good at following clear instructions
+- Haiku: 66.7% cheaper, good at following clear instructions
 - Cost: $0.03 (planning) + $0.06 (impl) = $0.09 vs $0.75 (all Sonnet)
-- Savings: 88%
+- Savings: 88% overall (per official Anthropic API pricing)
 
 **Commands:**
 ```bash
@@ -410,7 +414,7 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 
 ---
 
-## Custom Agents (5 Agents)
+## Custom Agents (7 Agents)
 
 ### 1. Initializer Agent (v3.6.0)
 **Location:** .claude/agents/initializer.md
@@ -478,6 +482,34 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 - Outputs: Planning summary, tech stack, CLAUDE.md draft, next steps
 
 **Usage:** `@project-planner I want to build [project idea]`
+
+### 6. Spec-Generator Agent (v4.22.0)
+**Location:** .claude/agents/spec-generator.md
+
+**Purpose:** Generate YAML specifications before writing code (Understanding Over Speed philosophy)
+
+**Key Features:**
+- Separates essential vs accidental complexity
+- Creates project-spec.yaml with implementation sequence
+- Jake Nations methodology: Research → Planning → Implementation
+- Prevents tech debt preservation
+- Human approval before code generation
+
+**Usage:** `@spec-generator [refactor/feature description]`
+
+### 7. Documentation-Verifier Agent (v4.22.0)
+**Location:** .claude/agents/documentation-verifier.md
+
+**Purpose:** Enforce Documentation Honesty Policy through automated citation verification
+
+**Key Features:**
+- Citation scanner (statistics, costs, percentages)
+- Official source validator (Anthropic docs, research papers)
+- Disclaimer injector (projected/theoretical/observed labels)
+- Confidence scoring (1.0 verified → 0.0 invalid)
+- YAML verification reports
+
+**Usage:** `@documentation-verifier [optional: file path]`
 
 ---
 
@@ -868,7 +900,7 @@ The script checks:
 
 ## Version Information
 
-**Current:** v4.9.0 (Mode Selection Framework)
+**Current:** v4.22.0 (Understanding Over Speed - Jake Nations Edition)
 
 **For complete version history and release notes:**
 → See [CHANGELOG.md](../CHANGELOG.md)

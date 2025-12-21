@@ -71,7 +71,7 @@ flowchart TD
     Q1 -->|Yes| Sonnet["Use Sonnet<br/>$3/M tokens"]
     Q1 -->|No| Q2{Already have<br/>a plan?}
 
-    Q2 -->|Yes| Haiku["Use Haiku<br/>$0.25/M tokens<br/>92% savings!"]
+    Q2 -->|Yes| Haiku["Use Haiku<br/>$1/M tokens<br/>66.7% savings!"]
     Q2 -->|No| Sonnet
 
     Sonnet --> Q3{Sonnet<br/>struggling?}
@@ -110,7 +110,7 @@ New Task
 
 **Cost Optimization Strategy:**
 1. **Start with Sonnet** for planning
-2. **Switch to Haiku** for implementation (92% cheaper!)
+2. **Switch to Haiku** for implementation (66.7% cheaper!)
 3. **Use Opus** only when Sonnet can't solve it
 
 **Example Workflow:**
@@ -120,7 +120,7 @@ Claude (Sonnet): [Creates plan]
 
 You: "/model haiku"
 You: "Implement the plan you created"
-Claude (Haiku): [Implements at 92% lower cost]
+Claude (Haiku): [Implements at 66.7% lower cost]
 ```
 
 ---
@@ -223,7 +223,7 @@ gantt
 
 ## 5. Token Cost Waterfall
 
-**Visualize:** How you save 92% on costs.
+**Visualize:** How you save 66.7% on costs.
 
 ```mermaid
 graph TD

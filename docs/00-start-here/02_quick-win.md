@@ -34,7 +34,7 @@ Takes 30 seconds to find your perfect path.
 A **comprehensive template** that optimizes your Claude Code setup:
 
 - ✅ **50-95% token savings** - CLAUDE.md system
-- ✅ **92% cost savings** - Sonnet→Haiku workflow
+- ✅ **66.7% cost savings** - Sonnet→Haiku workflow (per official Anthropic pricing)
 - ✅ **15-30 min setup** - Interactive wizards
 - ✅ **5 user profiles** - Customized paths
 - ✅ **Visual guides** - 40% cognitive load reduction
@@ -87,7 +87,7 @@ The wizard will guide you through setup with:
 ### For First-Time Learners (60-90 min)
 1. How to install Claude Code globally
 2. Core concepts: CLAUDE.md, model switching, token optimization
-3. Model switching strategy (save 92% on costs!)
+3. Model switching strategy (save 66.7% on costs!)
 4. Setting up your first project
 5. **Result:** Complete understanding + working setup
 
@@ -498,7 +498,7 @@ Check for updates monthly: `./scripts/claude-update.sh --check`
 ## 💡 Pro Tips
 
 1. **Update CLAUDE.md as you build** - Keep it current for best results
-2. **Use Haiku for implementation** - 92% cheaper than Sonnet
+2. **Use Haiku for implementation** - 66.7% cheaper than Sonnet
 3. **Reference files explicitly** - "Follow pattern in app/auth.py:127"
 4. **Tell Claude what to skip** - "Skip: node_modules/, dist/, .git/"
 5. **Use /clear between contexts** - Start fresh when switching projects

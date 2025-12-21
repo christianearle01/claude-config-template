@@ -128,9 +128,11 @@ _Metrics and examples throughout this documentation are theoretical projections,
 ### Understanding Over Speed (v4.22.0 - Jake Nations Edition)
 - ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
 - ✅ **66.7% cost savings** - Sonnet→Haiku workflow (per official Anthropic API pricing)
+- ✅ **Spec-driven development** - YAML specs before code (Research → Planning → Implementation)
 - ✅ **Deep understanding in 60 minutes** - Learn, don't just copy (reduces chronic anxiety)
 - ✅ **Ship code you can explain** - Confidence from comprehension, not just completion
-- ✅ **Visual guides + practice** - Sandbox templates for hands-on learning
+- ✅ **Visual guides + practice** - 5 sandbox templates for hands-on learning
+- ✅ **Tech debt detection** - Separates essential vs accidental complexity
 
 ### Long-Term Value
 - ✅ **Pattern recognition** built through experience, not documentation
@@ -147,9 +149,14 @@ _Metrics and examples throughout this documentation are theoretical projections,
 - 39 comprehensive guides
 - Searchable quick reference
 
-**🤖 Custom Agents** (2 sophisticated)
+**🤖 Custom Agents** (7 sophisticated)
+- Spec-Generator - YAML specs before code (Understanding Over Speed)
+- Documentation-Verifier - Automated citation verification
 - Prompt Polisher - Projected 50-80% token savings
 - Project Planner - Plan before coding
+- Quality Reviewer - Security, testing, standards validation
+- Coder - Domain memory with bootup ritual
+- Initializer - Structured task breakdown
 
 **💡 Skills Catalog** (19 example skills, 3 experience levels)
 - Foundation skills (3) - Essential for all projects
@@ -160,9 +167,11 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 **⚙️ Configuration**
 - Optimized settings.json
-- 5 slash commands
+- 5 slash commands (/test, /build, /review, /release, /commit-readiness)
 - Security hooks (optional)
 - MCP server integrations
+- 3 YAML spec examples
+- 5 sandbox practice templates
 
 **🧙 Interactive Wizards**
 - 5 persona-specific paths
@@ -386,7 +395,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v4.9.0
+**Current version:** v4.22.0
 
 **→ [Changelog](CHANGELOG.md)**
 
@@ -503,8 +512,8 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v4.9.0
-**Last Updated:** 2025-12-16
+**Template Version:** v4.22.0
+**Last Updated:** 2025-12-21
 
 ---
 

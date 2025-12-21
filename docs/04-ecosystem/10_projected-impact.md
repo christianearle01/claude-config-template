@@ -411,7 +411,7 @@ Total: $0.21
 
 2. **Model switching compounds savings**
    - Works best WITH CLAUDE.md
-   - Sonnet→Haiku pattern: 77-92% implementation savings
+   - Sonnet→Haiku pattern: 66.7% implementation savings (per official Anthropic pricing)
    - Requires understanding (First-Time Learner path)
 
 3. **Wizards improve completion rates**

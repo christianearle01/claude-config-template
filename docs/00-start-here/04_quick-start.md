@@ -38,7 +38,7 @@ Open Claude Code in your project and ask:
 ## Next Steps (Optional)
 
 **Want more savings?**
-- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 92% cost savings
+- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - Projected 66.7% cost savings
 - [Prompt Optimization](02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
 
 **Need security?**

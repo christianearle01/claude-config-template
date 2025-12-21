@@ -366,7 +366,7 @@ Confirm user has:
 ```bash
 # Model switching (cost optimization)
 /model sonnet    # Default, balanced
-/model haiku     # 92% cheaper (use after planning)
+/model haiku     # 66.7% cheaper (use after planning)
 /model opus      # Expensive, smart (use sparingly)
 
 # Monitoring
@@ -384,7 +384,7 @@ The ONE rule:
 ```
 1. Plan with Sonnet
 2. Switch to Haiku: /model haiku
-3. Implement with Haiku (92% cheaper!)
+3. Implement with Haiku (66.7% cheaper!)
 ```
 
 **Example:**

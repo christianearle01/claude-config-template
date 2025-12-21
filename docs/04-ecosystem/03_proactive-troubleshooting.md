@@ -2,7 +2,7 @@
 
 **Purpose:** Common failure modes in skills ecosystem, detection patterns, and resolution steps
 
-**Last Updated:** 2025-12-21 (v4.21.0)
+**Last Updated:** 2025-12-21 (v4.22.0)
 
 ---
 

@@ -733,7 +733,7 @@ Track your improvement over time:
 
 **Tip:** While there's no direct cost tracking command, you can estimate savings by:
 - Using `/usage` to check plan limits consumption
-- Tracking model switches (Haiku = 92% cheaper than Sonnet)
+- Tracking model switches (Haiku = 66.7% cheaper than Sonnet)
 - Monitoring conversation length (fewer back-and-forths = fewer tokens)
 
 ---

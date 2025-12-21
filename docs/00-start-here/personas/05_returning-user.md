@@ -29,7 +29,7 @@ Quick refresher on essential commands, model switching strategy, and what's new 
 ### 1. Essential Commands (5 min)
 
 ```bash
-# Model switching (save 92% on costs)
+# Model switching (save 66.7% on costs)
 /model haiku      # Cheap model for exploration
 /model sonnet     # Balanced model (default)
 /model opus       # Most capable (use sparingly)
@@ -55,8 +55,8 @@ Quick refresher on essential commands, model switching strategy, and what's new 
 
 **Why this works:**
 - Sonnet: $3/million tokens (smart planning)
-- Haiku: $0.25/million tokens (follows instructions well)
-- **Savings: 92%** on implementation costs
+- Haiku: $1/million tokens (follows instructions well)
+- **Savings: 66.7%** on implementation costs
 
 ### 3. CLAUDE.md Reminder (3 min)
 

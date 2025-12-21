@@ -21,12 +21,12 @@ Claude Code supports three main models:
 
 **Without model switching strategy:**
 - Use Sonnet for everything = pay $3/million tokens for simple tasks
-- Haiku could handle 60-70% of tasks at $0.25/million (92% cheaper)
+- Haiku could handle 60-70% of tasks at $1/million (66.7% cheaper)
 - Waste $50-150/month on over-powered model for basic operations
 - Miss opportunities to use Opus for truly complex problems (rationing incorrectly)
 
 **With strategic model switching:**
-- Plan with Sonnet ($3/M) → Implement with Haiku ($0.25/M) = 92% savings on implementation
+- Plan with Sonnet ($3/M) → Implement with Haiku ($1/M) = 66.7% savings on implementation
 - Use Opus only for hardest 5% of problems (optimal resource allocation)
 - Typical breakdown: 20% Haiku, 70% Sonnet, 10% Opus = 40-60% cost reduction
 - Understand when switching helps vs. when it wastes tokens (cache considerations)

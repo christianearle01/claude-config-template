@@ -195,7 +195,7 @@ your-project/
 You're ready to explore more features:
 
 **Option A: Learn Model Switching (10 min)**
-→ [Model Switching Strategy](../../01_global-setup/02_good-to-have/01_model-switching.md) - Save 92% on costs
+→ [Model Switching Strategy](../../01_global-setup/02_good-to-have/01_model-switching.md) - Save 66.7% on costs
 
 **Option B: Add More Projects (15 min each)**
 → Repeat this Quick Setup process for other projects

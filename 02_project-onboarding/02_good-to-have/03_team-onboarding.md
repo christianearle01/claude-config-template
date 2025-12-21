@@ -83,7 +83,7 @@
 | Command | Purpose |
 |---------|---------|
 | `/usage` | Check plan limits and usage |
-| `/model haiku` | Switch to cheaper model (92% savings) |
+| `/model haiku` | Switch to cheaper model (66.7% savings) |
 | `/clear` | Start fresh context between tasks |
 | `/model opus` | Switch to Opus for complex problems |
 | `/model sonnet` | Switch to Sonnet for regular work |
