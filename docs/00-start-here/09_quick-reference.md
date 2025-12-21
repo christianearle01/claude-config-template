@@ -1294,6 +1294,28 @@ Why this change:
 }
 ```
 
+**Common Mistakes:**
+
+1. **Choosing Full Protection by default** - Most restrictive mode for everyone
+   - **Problem:** Annoying for experienced users, slows down workflow
+   - **Solution:** Start with Commit-Only, upgrade to Full if needed
+
+2. **Not reading git diff before approving** - Blindly saying "yes"
+   - **Problem:** Defeats purpose of approval workflow (catching mistakes)
+   - **Solution:** Actually review changes, that's why approval exists
+
+3. **Forgetting to configure after cloning** - Missing setup step
+   - **Problem:** No protection, Claude commits without approval
+   - **Solution:** Run `./scripts/setup-git-workflow.sh` in new projects
+
+4. **Disabling for "quick fixes"** - Removing protection temporarily
+   - **Problem:** Forget to re-enable, lose protection permanently
+   - **Solution:** Keep protection on, approval is fast (10 seconds)
+
+5. **Not understanding git push limitation** - Expecting Claude to push
+   - **Problem:** Confusion when Claude shows command but doesn't execute
+   - **Solution:** Git push requires credentials, Claude can't access (by design)
+
 **Docs:**
 - [Git Approval Workflow](01_global-setup/02_good-to-have/04_git-approval-workflow.md)
 - [Git Push Workaround](01_global-setup/02_good-to-have/05_git-push-workaround.md)

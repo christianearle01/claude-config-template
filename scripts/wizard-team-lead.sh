@@ -258,6 +258,9 @@ EOF
 
     checkpoint 2 "Shared template created"
 
+    # v4.22.0: Add understanding checkpoint
+    understanding_checkpoint "Teaching CLAUDE.md" "How will you explain CLAUDE.md to your team in 2 sentences?"
+
     echo ""
     echo -e "${MAGENTA}Next steps for shared template:${NC}"
     echo "  1. Push to GitHub/GitLab: git remote add origin <url>"
@@ -366,6 +369,9 @@ EOF
 echo -e "${GREEN}✅ Created ~/.claude/coding-standards.md${NC}"
 
 checkpoint 3 "Team standards documented"
+
+# v4.22.0: Add understanding checkpoint
+understanding_checkpoint "Standards Priority" "What's one coding standard your team will benefit from most?"
 
 pause
 
@@ -509,6 +515,9 @@ echo "Feedback template: $TEAM_TEMPLATE_PATH/team/feedback-template.md"
 echo ""
 
 checkpoint 5 "Feedback process established"
+
+# v4.22.0: Add final understanding checkpoint
+understanding_checkpoint "Measuring Success" "How will you measure if this template is helping your team?"
 
 pause
 

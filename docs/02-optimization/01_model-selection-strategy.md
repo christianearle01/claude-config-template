@@ -1485,6 +1485,60 @@ model: opus
 
 ---
 
+## Common Mistakes
+
+### 1. Using Opus for Everything
+**Problem:** Defaulting to most powerful model for all tasks
+- 15x cost vs Haiku for tasks that don't need it
+- Example: Using Opus to read a file or run `ls`
+
+**Solution:** Use Three-Question Method
+- Creative/Architectural work? → Opus
+- Writing code? → Sonnet
+- Mechanical/Exploratory? → Haiku
+
+### 2. Using Haiku for Code Generation
+**Problem:** Saving money on implementation
+- Lower quality code requires more iterations, wastes time
+- Example: "Generate user authentication" with Haiku
+
+**Solution:** Sonnet for code, Haiku for exploration/reading only
+- Haiku: Search, read files, grep, understand existing code
+- Sonnet: Implement features, write tests, refactor
+- Opus: Design architecture, plan approach
+
+### 3. Not Configuring Agent Defaults
+**Problem:** Manual model switching every time
+- Forget to switch, use wrong model frequently
+- Example: Forgetting to switch from Sonnet → Haiku before exploration
+
+**Solution:** Set model defaults in agent definitions (`.claude/agents/`)
+- explorer.md: `model: haiku`
+- implementer.md: `model: sonnet`
+- architect.md: `model: opus`
+
+### 4. Switching Mid-Conversation
+**Problem:** Changing models during complex task
+- Context loss, inconsistent quality
+- Example: Start with Sonnet, switch to Haiku mid-implementation
+
+**Solution:** Complete task with same model, switch between tasks
+- Finish entire feature with Sonnet
+- Then switch to Haiku for next exploration task
+- Maintain conversation context within model
+
+### 5. Ignoring Token Costs
+**Problem:** Not tracking actual savings
+- Assumptions about savings, not measured reality
+- Example: "I'm using model switching so I'm saving money" (unverified)
+
+**Solution:** Use `claude /usage` to verify model switching saves money
+- Track weekly costs before and after
+- Calculate actual savings percentage
+- Adjust strategy if not seeing expected savings
+
+---
+
 ### What's Next?
 
 **Immediate actions:**

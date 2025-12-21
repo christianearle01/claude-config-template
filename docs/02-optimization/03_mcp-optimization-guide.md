@@ -387,6 +387,66 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 
 ---
 
+## Common Mistakes
+
+### 1. Enabling All MCPs by Default
+**Problem:** "More is better" mentality
+- Startup slowdown (each MCP adds initialization time)
+- Token overhead (MCP tools sent in every request)
+- Unnecessary complexity (features you don't use)
+
+**Solution:** Enable only MCPs you actively use
+```json
+{
+  "disable": ["github", "sequential-thinking", "unused-mcp"]
+}
+```
+
+### 2. Not Reading MCP Documentation
+**Problem:** Guessing how MCPs work
+- Using tools incorrectly
+- Missing features that would save time
+- Frustration from unexpected behavior
+
+**Solution:** Read MCP-specific docs before enabling
+- Check official documentation
+- Understand tool capabilities and limitations
+- Test in sandbox before production use
+
+### 3. Forgetting to Restart Claude Code
+**Problem:** Config changes to settings.json don't take effect
+- MCP additions/removals not applied
+- Confusion: "Why isn't my MCP working?"
+
+**Solution:** Restart Claude Code after modifying MCP config
+- Settings changes require full restart
+- Not just closing the terminal window
+- Verify MCP loaded in startup messages
+
+### 4. Using Deprecated MCPs
+**Problem:** Old community MCPs without updates
+- Broken functionality
+- Security vulnerabilities
+- Compatibility issues with new Claude Code versions
+
+**Solution:** Check MCP last update date
+- Prefer official MCPs (Anthropic-maintained)
+- Check GitHub last commit date
+- Look for active maintenance (issues closed, PRs merged)
+
+### 5. Over-Relying on MCPs
+**Problem:** Using MCP when built-in tools work fine
+- Unnecessary complexity
+- Maintenance burden (updates, config)
+- Example: Using filesystem MCP when Read/Write tools sufficient
+
+**Solution:** Use built-in Claude Code features first, MCPs for gaps
+- Built-in: Read, Write, Edit, Bash, Grep, Glob
+- MCP for: Specialized needs (databases, APIs, custom tools)
+- Default to simple, add complexity only when needed
+
+---
+
 ### 4. Use Project-Specific Configs
 
 ```

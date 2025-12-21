@@ -202,6 +202,9 @@ quiz \
     "Use Haiku (92% cheaper, good for implementation)" \
     "Always use Sonnet (safest choice)"
 
+# v4.22.0: Add understanding checkpoint (open-ended reflection)
+understanding_checkpoint "CLAUDE.md Project Memory" "what does CLAUDE.md do for your project?"
+
 pause
 
 ################################################################################
@@ -254,6 +257,9 @@ quiz \
     "Use Opus for everything (always best quality)" \
     "Plan with Sonnet, implement with Haiku (92% savings)" \
     "Use Haiku for everything (maximize savings)"
+
+# v4.22.0: Add understanding checkpoint (open-ended reflection)
+understanding_checkpoint "Model Switching" "which model would you use for planning architecture? For implementing a function?"
 
 pause
 
@@ -458,6 +464,9 @@ else
 fi
 
 checkpoint 4 "First project setup complete"
+
+# v4.22.0: Add final understanding checkpoint (reflection on learning)
+understanding_checkpoint "Learning Reflection" "What's one thing you learned that surprised you?"
 
 ################################################################################
 # Final Summary & Celebration

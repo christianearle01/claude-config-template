@@ -340,6 +340,56 @@ edit CLAUDE.md  # 5 PM (one comprehensive update)
 
 ---
 
+## Common Mistakes
+
+### 1. Caching Frequently Changing Content
+**Problem:** Using prompt caching on dynamic data (current sprint status, timestamps)
+- Cache misses every request, wastes money instead of saving
+- Example: Caching "Last updated: 3:42 PM" in CLAUDE.md
+
+**Solution:** Only cache stable content (docs, schemas, project context)
+- Good: Tech stack, architecture decisions, code conventions
+- Bad: Current sprint tasks, recent changes, timestamps
+
+### 2. Not Structuring for 1024-Token Boundaries
+**Problem:** Random context order causes small changes to invalidate entire cache
+- Changing one line at top invalidates everything below
+- Example: Adding new dependency at top of CLAUDE.md
+
+**Solution:** Group stable content first, put dynamic content at end
+- Stable first: Tech stack, architecture, conventions
+- Dynamic last: Current sprint, recent decisions, known issues
+
+### 3. Expecting Instant Cache Hits
+**Problem:** Not understanding 5-minute TTL (time to live)
+- Confusion when cache expires mid-session
+- Example: "Why did it work 2 minutes ago but not now?"
+
+**Solution:** Understand cache lifecycle
+- Cache lasts 5 minutes after last use
+- Refresh long-running sessions by re-sending context
+
+### 4. Caching Small Contexts
+**Problem:** Using caching for contexts <1024 tokens
+- Overhead cost exceeds savings
+- Example: Caching a 500-token CLAUDE.md file
+
+**Solution:** Only cache contexts >5000 tokens for meaningful savings
+- Small projects (<5 files): Don't use caching
+- Large projects (>20 files): Caching pays off
+
+### 5. Not Measuring Actual Savings
+**Problem:** Assuming caching works without validation
+- Might be paying for caching that doesn't help
+- Example: "I enabled caching, so I'm saving money" (unverified)
+
+**Solution:** Use `claude /usage` to verify cache hit rates
+- Check after 1 week of use
+- Look for cache_write_tokens vs cache_read_tokens
+- Disable if hit rate <50%
+
+---
+
 ## FAQ
 
 **Q: Can I disable caching for my project?**

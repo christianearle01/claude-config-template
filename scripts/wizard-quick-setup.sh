@@ -137,6 +137,9 @@ fi
 echo ""
 checkpoint 2 "CLAUDE.md created"
 
+# v4.22.0: Add understanding checkpoint
+understanding_checkpoint "CLAUDE.md Creation" "What's the #1 thing you put in CLAUDE.md for this project?"
+
 pause
 
 ################################################################################
@@ -276,6 +279,9 @@ else
 fi
 
 checkpoint 4 "Setup tested successfully"
+
+# v4.22.0: Add final understanding checkpoint
+understanding_checkpoint "Project Improvement" "What will you do differently in this project compared to your last one?"
 
 ################################################################################
 # Final Summary

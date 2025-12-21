@@ -66,6 +66,27 @@
 
 **Success indicator:** Claude answers "What does this project do?" without exploring files
 
+**Common Mistakes:**
+1. **Too much information** - Copying entire codebase into CLAUDE.md
+   - **Problem:** Exceeds context window, defeats token savings purpose
+   - **Solution:** Curate essential info only (tech stack, architecture, conventions)
+
+2. **No updates after creation** - File becomes stale as project evolves
+   - **Problem:** Claude gets outdated context, makes wrong assumptions
+   - **Solution:** Update CLAUDE.md when making significant changes
+
+3. **Missing WHY context** - Only documenting WHAT, not WHY
+   - **Problem:** Claude can't make informed decisions about tradeoffs
+   - **Solution:** Explain architectural decisions, constraints, business context
+
+4. **Vague descriptions** - "We use React" without details
+   - **Problem:** Claude doesn't know versions, patterns, conventions
+   - **Solution:** Be specific (React 18, hooks-only, TypeScript strict mode)
+
+5. **Skipping file structure** - Not documenting where things live
+   - **Problem:** Claude wastes tokens searching, makes wrong assumptions
+   - **Solution:** Include directory structure with purpose annotations
+
 ---
 
 ### 2. Keyboard Shortcuts ⚠️
