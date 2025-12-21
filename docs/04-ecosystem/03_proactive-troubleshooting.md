@@ -2,7 +2,7 @@
 
 **Purpose:** Common failure modes in skills ecosystem, detection patterns, and resolution steps
 
-**Last Updated:** 2025-12-15 (v3.5.0)
+**Last Updated:** 2025-12-21 (v4.21.0)
 
 ---
 
@@ -467,6 +467,291 @@ Track tokens over 1 week:
 
 ---
 
+## Issue 7: Agent Parse Errors in `/doctor`
+
+### Detection Patterns
+```
+/doctor output shows:
+- "Agent Parse Errors"
+- "Failed to parse N agent file(s)"
+- "Missing required 'name' field in frontmatter"
+- Specific agents listed (e.g., initializer.md, coder.md)
+```
+
+### Causes
+1. **Missing Version Field**
+   - Agent frontmatter lacks `version:` field
+   - Some agents require version for proper parsing
+   - Error message is misleading (says "missing name" but name exists)
+
+2. **Oversized Frontmatter**
+   - Large `structured_output` schemas in frontmatter (100+ lines)
+   - YAML parser may have size/complexity limits
+   - Frontmatter should be minimal metadata only
+
+3. **Malformed YAML Syntax**
+   - Indentation errors in nested structures
+   - Missing colons, incorrect spacing
+   - Frontmatter not properly delimited with `---`
+
+4. **Required Field Inconsistency**
+   - Different agents have different required fields
+   - Working agents may have fields that failing agents lack
+   - Claude Code parser expectations not fully documented
+
+### Resolution Steps
+
+**Step 1: Add Version Field (Quickest Fix)**
+```yaml
+---
+name: agent-name
+description: What this agent does
+color: blue
+model: sonnet
+version: 4.21.0  ← Add this line
+---
+```
+
+**Why this works:**
+- Agents like `adversarial-validator.md` include `version:` and parse successfully
+- Missing version field may cause parser to fail early with misleading error
+- Adding version is minimal change with high success rate
+
+**Step 2: Verify All Required Fields**
+```bash
+head -10 .claude/agents/your-agent.md
+
+# Should include:
+# name: agent-name (required)
+# description: text (required)
+# model: opus/sonnet/haiku (recommended)
+# version: x.x.x (recommended for complex agents)
+# color: blue/green/red/yellow (optional)
+```
+
+**Step 3: Validate YAML Syntax**
+```bash
+# Extract frontmatter (between first two ---)
+sed -n '/^---$/,/^---$/p' .claude/agents/your-agent.md | head -n -1 | tail -n +2 > /tmp/frontmatter.yml
+
+# Check for syntax errors
+python3 -c "import yaml; yaml.safe_load(open('/tmp/frontmatter.yml'))"
+
+# If error: Fix indentation/syntax issues
+```
+
+**Step 4: Simplify Large Frontmatter (If Version Didn't Fix)**
+```yaml
+# If agent has large structured_output schema (100+ lines)
+# Consider moving schema documentation to agent body instead
+
+Before:
+---
+name: agent
+structured_output:
+  schema:
+    type: object
+    properties: ...  ← 100+ lines
+---
+
+After:
+---
+name: agent
+version: 4.21.0
+---
+
+## Structured Output Format
+
+The agent returns JSON with the following schema:
+...schema docs here...
+```
+
+**Step 5: Run `/doctor` to Verify Fix**
+```bash
+# In Claude Code terminal
+/doctor
+
+# Look for:
+# ✅ Agent Parse Errors: No errors
+# (or absence of "Agent Parse Errors" section = success)
+```
+
+### Prevention
+- **Always include version field** for custom agents with structured output
+- **Keep frontmatter minimal** (metadata only, not documentation)
+- **Test after creation:** Run `/doctor` immediately after creating new agent
+- **Follow working examples:** Copy frontmatter structure from `project-planner.md` or `adversarial-validator.md`
+
+### Real-World Example
+```
+Problem: initializer.md and coder.md showing parse errors
+Symptom: "Missing required 'name' field" but name IS present
+Root cause: Missing version: field in frontmatter
+Solution: Added version: 4.21.0 to both files
+Result: ✅ Parse errors resolved
+```
+
+---
+
+## Issue 8: MCP Context Token Warnings in `/doctor`
+
+### Detection Patterns
+```
+/doctor output shows:
+- "Context Usage Warnings"
+- "⚠ Large MCP tools context (~35,985 tokens > 25,000)"
+- List of MCP servers with token counts
+- github: 26 tools (~18,123 tokens)
+- filesystem: 14 tools (~9,220 tokens)
+```
+
+### Causes
+1. **Multiple MCP Servers Enabled**
+   - Each MCP server adds tools to context
+   - Tools include documentation, schemas, examples
+   - Total context can exceed recommended threshold
+
+2. **Large Tool Schemas**
+   - Some MCP tools have extensive documentation
+   - GitHub MCP: 26 tools with rich schemas
+   - Filesystem MCP: 14 tools with detailed parameters
+
+3. **Token Budget Impact**
+   - MCP context loaded on every request
+   - Reduces available tokens for conversation
+   - May impact response quality if context is too large
+
+4. **Not Actually a Problem**
+   - Warning threshold is conservative (25,000 tokens)
+   - Real issues start around 50,000+ tokens
+   - 35,985 tokens is elevated but functional
+
+### Resolution Steps
+
+**Step 1: Assess If Action Needed**
+```
+Token Count    Status      Action
+<25,000       ✅ Optimal    None needed
+25,000-40,000 ⚠️  Elevated  Monitor, no immediate action
+40,000-50,000 ⚠️  High      Consider optimization
+>50,000       🔴 Critical   Immediate optimization
+```
+
+**Your case: 35,985 tokens = Elevated but functional**
+- System still works normally
+- No immediate action required
+- Monitor if it grows over time
+
+**Step 2: Identify Unused MCP Servers (If Optimization Needed)**
+```bash
+# Check which MCP servers you actually use
+# Review .claude/settings.json
+
+# Example:
+cat .claude/settings.json | grep -A 5 "mcpServers"
+
+# Ask yourself:
+# - Do I use GitHub MCP? (if not using GitHub features)
+# - Do I use Memory MCP? (if not using knowledge graph)
+# - Do I use Sequential-Thinking? (if not doing complex reasoning)
+```
+
+**Step 3: Disable Unused MCPs (Optional)**
+```json
+// .claude/settings.json
+{
+  "mcpServers": {
+    "github": {
+      "disabled": true  ← Add this to disable
+    },
+    "memory": {
+      "disabled": false  ← Keep enabled ones
+    }
+  }
+}
+```
+
+**Step 4: Use Selective MCP Activation**
+```
+Instead of: All MCPs enabled globally
+Try: Enable MCPs per-project basis
+
+Global settings (~/.claude/settings.json):
+- Only essential MCPs (filesystem, IDE)
+
+Project settings (.claude/settings.json):
+- Add project-specific MCPs (github for OSS projects)
+```
+
+**Step 5: Verify Token Reduction**
+```bash
+# After disabling MCPs
+/doctor
+
+# Check new MCP context size
+# Should see reduced token count
+```
+
+### Prevention
+- **Enable MCPs intentionally:** Don't enable "because it exists"
+- **Review quarterly:** Check `/doctor` every 3 months, disable unused MCPs
+- **Project-specific MCPs:** Use global for essentials, project for specialized
+- **Token budget awareness:** Know your MCP overhead before adding new servers
+
+### When to Worry vs. When to Ignore
+
+**✅ Safe to ignore warning if:**
+- Token count 25,000-40,000 (elevated but functional)
+- You actively use all enabled MCP servers
+- System responds normally
+- No performance degradation
+
+**⚠️ Take action if:**
+- Token count >50,000 (critical)
+- MCPs enabled but never used
+- Noticeable slowness in responses
+- Context limit errors appearing
+
+**🔴 Immediate action if:**
+- Token count >75,000 (severe)
+- Context overflow errors
+- Responses truncated or incomplete
+- "Token limit exceeded" messages
+
+### Real-World Example
+```
+Scenario: 35,985 tokens from 5 MCP servers
+Analysis:
+- github: 18,123 tokens (needed for PRs/issues)
+- filesystem: 9,220 tokens (essential)
+- memory: 5,795 tokens (using knowledge graph)
+- sequential-thinking: 1,554 tokens (complex reasoning)
+- ide: 1,293 tokens (editor integration)
+
+Decision: Keep all enabled
+Rationale: All actively used, 35K is elevated but functional
+Action: Monitor, revisit if grows >40K
+```
+
+### Optimization Strategy (If Needed)
+
+**Tier 1 Removal (Least Impact):**
+- Disable `memory` if not using knowledge graph
+- Disable `sequential-thinking` if not doing complex analysis
+- Savings: 5,000-7,000 tokens
+
+**Tier 2 Removal (Moderate Impact):**
+- Disable `github` if working locally only
+- Use `gh` CLI commands via Bash tool instead
+- Savings: 18,000 tokens
+
+**Tier 3 Removal (High Impact):**
+- Disable `filesystem` MCP, use native Read/Write tools
+- Last resort, significant workflow impact
+- Savings: 9,000 tokens
+
+---
+
 ## TODO Discovery Pattern
 
 When skills encounter issues, they proactively mention TODOs:
@@ -605,6 +890,7 @@ Issue: Skills not working as expected
 
 ---
 
-**Troubleshooting Version:** 3.5.0
-**Covers:** 6 common failure modes + TODO discovery + escalation paths
+**Troubleshooting Version:** 4.21.0
+**Covers:** 8 common failure modes + TODO discovery + escalation paths + `/doctor` diagnostics
 **Maintained By:** claude-config-template project
+**Last Updated:** 2025-12-21

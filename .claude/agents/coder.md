@@ -3,6 +3,7 @@ name: coder
 description: Executes features.json atomically with bootup ritual discipline. Solves LLM amnesia by reading state files every session, picking ONE feature, building incrementally, testing until passing, updating progress, and committing with feature ID.
 color: red
 model: sonnet
+version: 4.21.0
 structured_output:
   schema:
     type: object

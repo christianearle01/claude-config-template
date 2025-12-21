@@ -269,4 +269,44 @@ To share broadly:
 
 ---
 
+## Troubleshooting Agent Issues
+
+### Agent Parse Errors in `/doctor`
+
+If `/doctor` shows "Failed to parse agent file(s)" with "Missing required 'name' field":
+
+**Quick fix:**
+```yaml
+# Add version field to your agent frontmatter:
+---
+name: your-agent
+description: What it does
+model: sonnet
+version: 4.21.0  ← Add this line
+---
+```
+
+**Why this happens:**
+- Error message is misleading (name field IS present, but parser fails)
+- Large `structured_output` schemas (100+ lines) can overwhelm YAML parser
+- Missing `version:` field causes some agents to fail parsing
+- Agents with complex frontmatter need version field for successful parsing
+
+**Full guide:** See [Proactive Troubleshooting Guide](../../04-ecosystem/03_proactive-troubleshooting.md#issue-7-agent-parse-errors-in-doctor) for complete resolution steps, prevention tips, and real-world examples.
+
+### MCP Context Token Warnings
+
+If `/doctor` shows "⚠ Large MCP tools context (~35,985 tokens > 25,000)":
+
+**Is this a problem?**
+- **25,000-40,000 tokens**: Elevated but functional - monitor, no immediate action needed
+- **40,000-50,000 tokens**: High - consider optimization
+- **>50,000 tokens**: Critical - immediate optimization required
+
+**Your case (35,985 tokens):** System works normally, no action required unless you want to optimize.
+
+**Full guide:** See [Proactive Troubleshooting Guide](../../04-ecosystem/03_proactive-troubleshooting.md#issue-8-mcp-context-token-warnings-in-doctor) for optimization strategies, when to worry vs. ignore, and tier-based MCP removal approach.
+
+---
+
 **Pro tip:** Use agents to codify your team's best practices. They're like having a senior developer always available to guide the team!

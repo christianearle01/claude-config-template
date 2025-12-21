@@ -3,6 +3,7 @@ name: initializer
 description: Transforms vague project ideas into structured features.json with learning paths, dependencies, and testable criteria. Uses 3-phase discovery to decompose vision into actionable features.
 color: green
 model: opus
+version: 4.21.0
 structured_output:
   schema:
     type: object
