@@ -101,7 +101,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ## 🙏 Seeking Validators - Help Prove This Works!
 
-**v4.22.0 just released with Understanding Over Speed philosophy complete.** Now we need YOUR help to validate the approach!
+**Understanding Over Speed philosophy just released.** Now we need YOUR help to validate the approach!
 
 ### We Need 5-10 Early Adopters To:
 1. **Test the 5-minute success path** - Does it actually work in 5 minutes?
@@ -125,7 +125,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ## ✨ What You Get
 
-### Understanding Over Speed (v4.22.0 - Jake Nations Edition)
+### Understanding Over Speed (Jake Nations Edition)
 - ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
 - ✅ **66.7% cost savings** - Sonnet→Haiku workflow (per official Anthropic API pricing)
 - ✅ **Spec-driven development** - YAML specs before code (Research → Planning → Implementation)
