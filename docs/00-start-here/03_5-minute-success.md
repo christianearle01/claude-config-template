@@ -239,7 +239,7 @@ Open a GitHub issue with just:
 - "Worked? Yes/No/Partial"
 
 **Option 3: Email**
-Send to: [your-email-here] with subject "v4.21.0 Validation"
+Send to: [your-email-here] with subject "Template Validation Feedback"
 
 ### What Happens to Your Data
 
