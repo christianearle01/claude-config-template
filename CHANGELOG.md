@@ -5846,7 +5846,7 @@ This architecture separates "knowing what" from "doing how" - skills know contex
 - **Examples:** 2 → 5 (150% increase)
 - **Structure:** Completely reorganized (Mission → Tiers → Process → Context → Examples → Edge Cases)
 
-**Documentation:** `.claude/agents/README.md`
+**Documentation:** `.claude/agents/docs/README.md`
 - Updated prompt-polisher section with 3-tier system
 - New example showing intelligent technique selection
 - Key features and learning outcomes
@@ -5982,7 +5982,7 @@ When users invoke `@prompt-polisher`:
   - Migration paths (escape hatches)
   - CLAUDE.md template draft
 
-- **Agent Documentation** - Added project-planner to `.claude/agents/README.md`
+- **Agent Documentation** - Added project-planner to `.claude/agents/docs/README.md`
   - Purpose and when to use
   - Example conversation session
   - What you'll learn (key takeaways)
@@ -6034,7 +6034,7 @@ When users invoke `@prompt-polisher`:
 - **Files modified:** 4
   - START_HERE.md (~70 lines added)
   - README.md (~40 lines modified)
-  - .claude/agents/README.md (~80 lines added)
+  - .claude/agents/docs/README.md (~80 lines added)
   - version.json (~15 lines modified)
 - **Total new/modified lines:** ~2,635 lines
 - **Total files in v2.3.0:** 50 (up from 45)

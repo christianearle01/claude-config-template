@@ -113,7 +113,7 @@
 
 - [ ] **Custom Agents:**
   - [ ] Created project-specific agents
-  - [ ] Documented in `.claude/agents/README.md`
+  - [ ] Documented in `.claude/agents/docs/README.md`
 
 ---
 

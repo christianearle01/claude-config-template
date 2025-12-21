@@ -544,7 +544,7 @@ Result: Failing tests → Passing tests with proper fixes
 - [Available Skills](../../.claude/skills/README.md)
 
 **Layer 4 (Agents):**
-- [Agent Documentation](../../.claude/agents/README.md)
+- [Agent Documentation](../../.claude/agents/docs/README.md)
 - [Custom Agents Guide](../../01_global-setup/02_good-to-have/03_custom-agents.md)
 
 ---

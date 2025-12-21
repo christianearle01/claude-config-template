@@ -120,7 +120,7 @@ Then refer to [02_project-onboarding](../02_project-onboarding/) for ongoing dev
 
 ## Related Resources
 
-- **[Project Planner Agent](../.claude/agents/README.md#-project-planner)** - Full agent documentation
+- **[Project Planner Agent](../.claude/agents/docs/README.md#-project-planner)** - Full agent documentation
 - **[Example Output](../templates/project-plan-template.md)** - See what the agent generates
 - **[CLAUDE.md Template](../templates/CLAUDE.md.template)** - Template you'll customize
 - **[Project Onboarding](../02_project-onboarding/)** - After planning, use this for development setup
