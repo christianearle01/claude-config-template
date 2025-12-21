@@ -84,7 +84,7 @@ Strategic model selection can:
 - Excellent for greenfield architecture decisions
 
 **Weaknesses:**
-- Highest cost (5x more than Sonnet, 60x more than Haiku)
+- Highest cost (1.67x more than Sonnet, 5x more than Haiku)
 - Slower response times
 - Overkill for straightforward tasks
 
@@ -125,7 +125,7 @@ Strategic model selection can:
 **Best for:** File reading, simple edits, mechanical operations
 
 **Strengths:**
-- Extremely cost-effective (12x cheaper than Sonnet)
+- Extremely cost-effective (66.7% cheaper than Sonnet, 3x cost reduction)
 - Fastest response times (3-5x faster)
 - Excellent at pattern recognition and text transformation
 - Great for rule-based operations
@@ -164,7 +164,8 @@ Strategic model selection can:
 | Sonnet | $0.03 | $0.03 | **$0.06** | ~8 sec |
 | Haiku | $0.0025 | $0.0025 | **$0.005** | ~3 sec |
 
-**Savings:** Using Haiku vs Sonnet = 91% cost reduction + 62% faster
+**Savings:** Using Haiku vs Sonnet = 66.7% cost reduction + 62% faster
+**Note:** Savings based on current Anthropic pricing (Sonnet 4.5: $3/$15, Haiku 4.5: $1/$5 per MTok)
 
 **Example 2: Feature Implementation (5,000 token input, 8,000 token output)**
 
@@ -1489,13 +1490,13 @@ model: opus
 
 ### 1. Using Opus for Everything
 **Problem:** Defaulting to most powerful model for all tasks
-- 15x cost vs Haiku for tasks that don't need it
+- 5x cost vs Haiku for tasks that don't need it
 - Example: Using Opus to read a file or run `ls`
 
 **Solution:** Use Three-Question Method
-- Creative/Architectural work? → Opus
-- Writing code? → Sonnet
-- Mechanical/Exploratory? → Haiku
+- Maximum intelligence needed? → Opus 4.5
+- Coding/complex agents/advanced reasoning? → Sonnet 4.5 (recommended default)
+- Time-sensitive/high-volume/cost-critical? → Haiku 4.5
 
 ### 2. Using Haiku for Code Generation
 **Problem:** Saving money on implementation

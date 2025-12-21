@@ -351,7 +351,7 @@ edit CLAUDE.md  # 5 PM (one comprehensive update)
 - Good: Tech stack, architecture decisions, code conventions
 - Bad: Current sprint tasks, recent changes, timestamps
 
-### 2. Not Structuring for 1024-Token Boundaries
+### 2. Not Structuring for Cache Efficiency
 **Problem:** Random context order causes small changes to invalidate entire cache
 - Changing one line at top invalidates everything below
 - Example: Adding new dependency at top of CLAUDE.md
@@ -359,24 +359,28 @@ edit CLAUDE.md  # 5 PM (one comprehensive update)
 **Solution:** Group stable content first, put dynamic content at end
 - Stable first: Tech stack, architecture, conventions
 - Dynamic last: Current sprint, recent decisions, known issues
+- **Note:** Minimum cacheable size varies by model (1024-4096 tokens)
 
-### 3. Expecting Instant Cache Hits
-**Problem:** Not understanding 5-minute TTL (time to live)
+### 3. Not Understanding Cache TTL Options
+**Problem:** Not knowing cache expiration options
 - Confusion when cache expires mid-session
 - Example: "Why did it work 2 minutes ago but not now?"
 
-**Solution:** Understand cache lifecycle
-- Cache lasts 5 minutes after last use
-- Refresh long-running sessions by re-sending context
+**Solution:** Understand cache lifecycle options
+- **5-minute cache (default):** Lasts 5 min after last use, costs 1.25x to write, 0.1x to read
+- **1-hour cache (optional):** Lasts 1 hour, costs 2x to write, 0.1x to read
+- Choose based on your session length and cost tolerance
 
-### 4. Caching Small Contexts
-**Problem:** Using caching for contexts <1024 tokens
-- Overhead cost exceeds savings
-- Example: Caching a 500-token CLAUDE.md file
+### 4. Caching Below Minimum Threshold
+**Problem:** Trying to cache contexts below model-specific minimums
+- Model minimums: Opus 4.5 (4,096 tokens), Sonnet 4.5 (1,024 tokens), Haiku 4.5 (4,096 tokens)
+- Cache won't activate if below threshold
+- Example: Caching a 500-token CLAUDE.md file on Haiku 4.5 (minimum 4,096)
 
-**Solution:** Only cache contexts >5000 tokens for meaningful savings
-- Small projects (<5 files): Don't use caching
-- Large projects (>20 files): Caching pays off
+**Solution:** Check model-specific requirements before caching
+- Ensure cached content exceeds your model's minimum
+- Even meeting minimum (e.g., 1,024 tokens) can provide savings with repeated use
+- Calculate: If cache writes cost 1.25x but reads cost 0.1x, break-even is ~2 requests
 
 ### 5. Not Measuring Actual Savings
 **Problem:** Assuming caching works without validation
@@ -393,7 +397,7 @@ edit CLAUDE.md  # 5 PM (one comprehensive update)
 ## FAQ
 
 **Q: Can I disable caching for my project?**
-A: Yes, set `DISABLE_PROMPT_CACHING=true` in your environment. But you probably don't want to (it costs more).
+A: Caching is controlled by the Anthropic API based on your prompt structure. If you don't want caching, simply don't structure your prompts to use it (avoid cache control blocks).
 
 **Q: Does caching work with all models?**
 A: Yes, works with Sonnet, Haiku, and Opus.

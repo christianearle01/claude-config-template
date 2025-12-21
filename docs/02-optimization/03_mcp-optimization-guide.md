@@ -391,11 +391,12 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 
 ### 1. Enabling All MCPs by Default
 **Problem:** "More is better" mentality
-- Startup slowdown (each MCP adds initialization time)
-- Token overhead (MCP tools sent in every request)
+- Potential startup slowdown (observed behavior, not officially documented)
+- Potential token overhead (theoretical concern, not officially documented)
 - Unnecessary complexity (features you don't use)
 
 **Solution:** Enable only MCPs you actively use
+**Note:** Startup/token claims based on observed behavior, not official documentation
 ```json
 {
   "disable": ["github", "sequential-thinking", "unused-mcp"]
@@ -413,14 +414,14 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 - Understand tool capabilities and limitations
 - Test in sandbox before production use
 
-### 3. Forgetting to Restart Claude Code
-**Problem:** Config changes to settings.json don't take effect
+### 3. Forgetting to Restart for Plugin MCPs
+**Problem:** Config changes to plugin-provided MCPs don't take effect
 - MCP additions/removals not applied
 - Confusion: "Why isn't my MCP working?"
 
-**Solution:** Restart Claude Code after modifying MCP config
-- Settings changes require full restart
-- Not just closing the terminal window
+**Solution:** Restart Claude Code after modifying plugin MCP config
+- Plugin MCP changes require full restart (officially documented)
+- Manually configured MCPs may not require restart
 - Verify MCP loaded in startup messages
 
 ### 4. Using Deprecated MCPs
