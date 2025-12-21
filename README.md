@@ -2,7 +2,7 @@
 
 **Comprehensive template for optimizing Claude Code across all your projects.**
 
-Projected: Save 50-95% on tokens. Set up in 5-30 minutes. Works for solo developers and teams.
+Projected: Save 50-95% on tokens. Understand your AI workflow deeply. Ship code you can explain, maintain, and debug.
 
 ---
 
@@ -125,18 +125,18 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ## ✨ What You Get
 
-### Immediate Benefits
+### Understanding Over Speed (v4.22.0 - Jake Nations Edition)
 - ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
 - ✅ **Projected 92% cost savings** - Sonnet→Haiku workflow for implementation
-- ✅ **15-30 min setup** - Interactive wizards with validation
-- ✅ **5 user profiles** - Customized paths (5 min to 120 min options)
-- ✅ **Visual guides** - Projected 40% cognitive load reduction with diagrams
+- ✅ **Deep understanding in 60 minutes** - Learn, don't just copy (reduces chronic anxiety)
+- ✅ **Ship code you can explain** - Confidence from comprehension, not just completion
+- ✅ **Visual guides + practice** - Sandbox templates for hands-on learning
 
 ### Long-Term Value
-- ✅ **Consistent configuration** across all projects
-- ✅ **Projected team onboarding:** 15-30 minutes (vs estimated 2 days)
-- ✅ **Reusable agents** for repeated workflows
-- ✅ **Best practices** built into templates
+- ✅ **Pattern recognition** built through experience, not documentation
+- ✅ **Debugging instinct** - Common mistakes collection teaches what can go wrong
+- ✅ **Understanding checkpoints** - Self-assessment builds confidence over time
+- ✅ **Best practices** that you comprehend, not just apply
 - ✅ **Version controlled** configs for team collaboration
 
 ### What's Included

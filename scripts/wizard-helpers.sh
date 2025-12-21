@@ -552,6 +552,57 @@ create_claude_structure() {
 }
 
 ################################################################################
+# Understanding Checkpoint Function (v4.22.0 - Jake Nations Edition)
+# Purpose: Add intentional friction to ensure learning, not just completion
+# Usage: understanding_checkpoint "What does [feature] do?"
+#
+# WHY THIS EXISTS:
+# Jake Nations (Netflix): "AI makes code faster than humans can learn."
+# Template risk: Users complete setup in 28 min without understanding WHY.
+# Solution: Brief (30 sec) self-assessment checkpoints that build confidence.
+#
+# EDUCATIONAL: No "wrong answers" - this is for YOUR understanding, not ours.
+# Psychology: Users who can explain their config are CONFIDENT users.
+# Evidence: Understanding reduces chronic anxiety better than speed.
+################################################################################
+understanding_checkpoint() {
+    local feature_name="$1"
+    local feature_explanation="${2:-}"
+
+    echo ""
+    echo -e "${CYAN}═══════════════════════════════════════════════════════════${NC}"
+    echo -e "${YELLOW}⚡ Quick Understanding Check (30 seconds)${NC}"
+    echo -e "${CYAN}═══════════════════════════════════════════════════════════${NC}"
+    echo ""
+
+    if [ -n "$feature_explanation" ]; then
+        echo -e "${BLUE}You just configured: ${GREEN}${feature_name}${NC}"
+        echo ""
+        echo -e "${CYAN}In your own words, $feature_explanation${NC}"
+    else
+        echo -e "${CYAN}In your own words, what does ${GREEN}${feature_name}${NC}${CYAN} do?${NC}"
+    fi
+
+    echo ""
+    echo -e "${MAGENTA}Type your answer below (or press Enter to skip):${NC}"
+    read -r user_answer
+
+    if [ -z "$user_answer" ]; then
+        echo ""
+        echo -e "${YELLOW}⏭️  Skipped.${NC} Consider reviewing docs later to build confidence."
+        echo ""
+    else
+        echo ""
+        echo -e "${GREEN}✅ Great!${NC} Understanding builds confidence over time."
+        echo -e "${CYAN}💡 Tip:${NC} If you can explain it to someone else, you've mastered it!"
+        echo ""
+    fi
+
+    echo -e "${BLUE}Press Enter to continue...${NC}"
+    read -r
+}
+
+################################################################################
 # Export all functions
 ################################################################################
 # Original progress function
@@ -569,6 +620,7 @@ export -f show_adaptive_progress
 export -f checkpoint
 export -f celebrate
 export -f quiz
+export -f understanding_checkpoint
 export -f copy_with_validation
 export -f validate_json
 export -f check_command

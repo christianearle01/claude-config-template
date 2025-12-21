@@ -7,6 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - Phase 1A: Understanding Checkpoints & Value Proposition Shift
+
+**Jake Nations Edition - "Understanding Over Speed"**
+
+**Inspired by:** "The Infinite Software Crisis" - Jake Nations (Netflix)
+**Core Insight:** "AI makes code faster than humans can learn" - leading to "shipping code you don't understand"
+
+**Critical Discovery:**
+- Template risk: Users complete setup in 28 min without understanding WHY
+- Result: DOUBLE knowledge gap (AI-generated code + template they don't understand)
+- Solution: Shift from "easy" (fast, frictionless) to "simple" (clear, understandable, maintainable)
+
+**New Features:**
+- ✅ `understanding_checkpoint()` helper function in `wizard-helpers.sh`
+  - 30-second self-assessment after each configuration step
+  - No "wrong answers" - for user's understanding, not ours
+  - Psychology: Understanding reduces chronic anxiety better than speed
+  - Educational: Pattern recognition from experience, not documentation
+
+- ✅ Value Proposition Rewrite (README.md + claude-wizard.sh)
+  - OLD: "Setup in 28 minutes (vs 52 manual)"
+  - NEW: "Understand your AI workflow in 60 minutes"
+  - OLD: "95% completion rate"
+  - NEW: "Ship code you can explain, maintain, and debug"
+  - KEPT: "50-95% token savings" (measurable outcome)
+
+**Philosophy Shift:**
+- Understanding > Speed (92% three-perspective convergence)
+- Experience > Documentation (Jake 17:09-17:25)
+- Confidence from comprehension, not completion
+
+**Jake Nations Test (4 Questions for Every Feature):**
+1. Does this make users faster, or smarter? (Smarter wins)
+2. Does this encourage "easy" or "simple"? (Simple wins)
+3. Will users understand the code this generates? (If no, add checkpoint)
+4. Are we preserving complexity or creating clarity? (Clarity wins)
+
+**Next Phases (Planned):**
+- Phase 1B: Common Mistakes sections for top 5 skills
+- Phase 1C: Add understanding checkpoints to key wizards
+- Phase 2: Spec-generator agent (Jake's Planning phase)
+- Phase 3: Sandbox practice templates (hands-on learning)
+- Phase 4: Tech debt detection (essential vs accidental complexity)
+- Phase 5: Documentation update, v4.22.0 final release
+
+**Confidence:** 92% (strong three-perspective alignment + Jake Nations validation from Netflix production experience)
+
 ---
 
 ## [4.21.0] - 2025-12-20

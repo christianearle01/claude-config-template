@@ -45,12 +45,12 @@ echo -e "${GREEN}Welcome!${NC} This wizard will help you set up Claude Code effi
 echo -e "We'll customize the setup based on YOUR specific needs."
 echo ""
 
-# Show value proposition
+# Show value proposition (v4.22.0 - Understanding Over Speed)
 echo -e "${YELLOW}What You'll Get:${NC}"
 echo "  • 50-95% token savings (CLAUDE.md + model switching)"
-echo "  • Persona-specific setup path (no information overload)"
-echo "  • Validation at each step (catch errors early)"
-echo "  • Visual guides (reduce cognitive load 40%)"
+echo "  • Deep understanding of your AI workflow (not just fast setup)"
+echo "  • Ship code you can explain, maintain, and debug"
+echo "  • Confidence from comprehension (reduce chronic anxiety)"
 echo ""
 
 # Pause before persona selection
@@ -70,9 +70,9 @@ echo ""
 echo "Select the profile that best matches your situation:"
 echo ""
 echo -e "${GREEN}1) 🆕 First-Time Learner${NC}"
-echo "   • You are: New to Claude Code, want to learn fundamentals"
-echo "   • Time: 60-90 minutes"
-echo "   • You'll get: Complete understanding + working setup"
+echo "   • You are: New to Claude Code, want to master fundamentals"
+echo "   • Time: 60-90 minutes (depth over speed)"
+echo "   • You'll get: Understanding + confidence + working setup"
 echo ""
 echo -e "${BLUE}2) ⚡ Quick Setup User${NC}"
 echo "   • You are: Already use Claude Code, just need project setup"
