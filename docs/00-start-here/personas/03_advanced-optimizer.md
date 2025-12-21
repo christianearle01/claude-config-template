@@ -64,7 +64,7 @@ Connect Claude to external tools:
 **Automation Phase:**
 - [ ] Created at least one custom agent
 - [ ] Agent responds to `@agent-name` invocations
-- [ ] Documented agent purpose in `.claude/agents/docs/README.md`
+- [ ] Documented agent purpose in `docs/03-advanced/agents/README.md`
 
 **Integration Phase:**
 - [ ] Configured project-specific MCP servers
