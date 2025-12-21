@@ -101,7 +101,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 ## 🙏 Seeking Validators - Help Prove This Works!
 
-**v4.21.0 just released with 100% External Perspectives research complete.** Now we need YOUR help to validate the approach!
+**v4.22.0 just released with Understanding Over Speed philosophy complete.** Now we need YOUR help to validate the approach!
 
 ### We Need 5-10 Early Adopters To:
 1. **Test the 5-minute success path** - Does it actually work in 5 minutes?
