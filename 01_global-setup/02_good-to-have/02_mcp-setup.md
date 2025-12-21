@@ -1,6 +1,6 @@
 # MCP Server Setup Guide
 
-A step-by-step guide for installing essential MCP servers on your local machine.
+A step-by-step guide for installing recommended MCP servers on your local machine.
 
 ## 📋 Overview
 
@@ -22,22 +22,26 @@ This guide installs **6 universal MCP servers** that enhance Claude Code workflo
 
 ## Why This Matters
 
-**Without MCP servers:**
-- Claude can't create GitHub PRs or issues (manual workflow interruption)
-- No sequential thinking capability (lower quality reasoning on complex problems)
-- No memory persistence (Claude forgets context between sessions)
-- Can't fetch documentation or search the web (limited to internal code knowledge)
-- Miss 30-40% productivity gains from toolchain integrations
+**MCPs enhance Claude's capabilities but are optional.**
 
-**With MCP servers (this 15-min setup):**
+Core workflow (coding, planning, debugging) works perfectly without MCPs. Consider adding MCPs if you want:
+- **GitHub PR/issue creation** directly from Claude (GitHub MCP)
+- **Advanced reasoning** for complex decisions (Sequential-Thinking MCP)
+- **Knowledge graph memory** across sessions (Memory MCP)
+- **Web research** without leaving Claude (Brave Search MCP)
+- **Advanced file operations** beyond basic read/write (Filesystem MCP)
+
+**Author note:** This template was built WITHOUT GitHub MCP. Manual git + GitHub UI workflow is perfectly viable.
+
+**Projected benefits (if you use these features):**
 - Sequential Thinking: 21-50% better reasoning on multi-step problems
-- Memory: Persistent context across sessions (no "What were we discussing?" questions)
-- GitHub: Create PRs, manage issues, search code directly from Claude
-- Fetch + Brave Search: Look up documentation and research without leaving Claude
-- Filesystem: Advanced file operations beyond basic read/write
+- Memory: Persistent context across sessions
+- GitHub: Automated PR/issue creation (optional - manual workflow works fine)
+- Fetch + Brave Search: In-Claude documentation lookup
+- Filesystem: Advanced file operations
 
 **Time investment:** 15 minutes (one-time global setup)
-**Projected benefit:** 30-40% productivity increase + better output quality
+**Reality:** Most users can start with just Sequential-Thinking and Memory, skip the rest
 
 ---
 
@@ -46,18 +50,35 @@ This guide installs **6 universal MCP servers** that enhance Claude Code workflo
 Open your terminal and run these commands one by one:
 
 ```bash
-# Tier 1: Essential Core Workflow (5 minutes)
-claude mcp add github npx -- -y @modelcontextprotocol/server-github
+# Tier 1: Core MCPs (Already Included with Claude Code)
 claude mcp add sequential-thinking npx -- -y @modelcontextprotocol/server-sequential-thinking
 claude mcp add memory npx -- -y @modelcontextprotocol/server-memory
-
-# Tier 2: Productivity Boosters (5 minutes)
 claude mcp add filesystem npx -- -y @modelcontextprotocol/server-filesystem
+
+# Tier 2: Workflow Enhancement (Optional)
+claude mcp add github npx -- -y @modelcontextprotocol/server-github  # Optional - only if you want Claude to interact with GitHub directly
 claude mcp add fetch npx -- -y @modelcontextprotocol/server-fetch
 claude mcp add brave-search npx -- -y @modelcontextprotocol/server-brave-search
 ```
 
 **That's it!** MCPs are now installed on your machine.
+
+---
+
+## 📝 Note on GitHub MCP
+
+**This is optional.** The template author does not use GitHub MCP in their workflow.
+
+**Use GitHub MCP if:**
+- You want Claude to create PRs/issues directly
+- You prefer automated GitHub interactions over manual UI
+
+**Skip GitHub MCP if:**
+- You're comfortable with manual git workflow
+- You use GitHub UI for PR/issue creation
+- You want to minimize setup complexity
+
+**Manual workflow is fully supported** - this template was developed without GitHub MCP.
 
 ---
 

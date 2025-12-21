@@ -129,6 +129,19 @@ claude-config-template/
 - `settings.local.json` - Personal overrides during development (never commit)
 - `settings-explained.json` - Detailed documentation of all options
 
+### MCP Servers
+
+**GitHub MCP (Optional):**
+- NOT required for template functionality
+- Template author uses manual git + GitHub UI workflow
+- Only install if you want Claude to create PRs/issues directly
+- See `01_global-setup/02_good-to-have/02_mcp-setup.md` for setup (optional)
+
+**Core MCPs (Recommended):**
+- Sequential-Thinking MCP - Enhanced reasoning
+- Memory MCP - Knowledge graph persistence
+- Filesystem MCP - Advanced file operations
+
 ### Scripts & Wizards
 
 **Location:** `scripts/` (19 shell scripts)

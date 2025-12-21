@@ -724,7 +724,7 @@ When in doubt → Use sequential-thinking (educational project = teaching value 
 
 **Memory MCP:** For knowledge graph operations (entity/relation management)
 **Filesystem MCP:** Automatically used for file operations
-**GitHub MCP:** For repository operations (issues, PRs, commits)
+**GitHub MCP (Optional):** For repository operations (issues, PRs, commits) - Template uses manual git workflow
 
 ---
 

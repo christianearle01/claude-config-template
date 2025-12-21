@@ -243,15 +243,17 @@ MCP servers extend Claude Code's capabilities. Install these globally to use acr
 
 ### Recommended Global MCP Servers
 
-**Tier 1 (Essential - Install These First):**
+**Tier 1 (Core - Already Included):**
 1. **Memory MCP** - Context persistence across sessions
 2. **Sequential Thinking MCP** - Better reasoning for complex problems
 3. **Filesystem MCP** - Advanced file operations
 
-**Tier 2 (Highly Recommended):**
-4. **GitHub MCP** - PR and issue management (requires GitHub token)
+**Tier 2 (Optional Workflow Enhancement):**
+4. **GitHub MCP** - PR and issue management (requires GitHub token) - **Optional**, see note below
 5. **Brave Search MCP** - Web search for documentation
 6. **Fetch MCP** - Fetch and read web content
+
+**Note on GitHub MCP:** Optional. Template author uses manual git workflow. Only install if you want Claude to create PRs/issues directly.
 
 ### Installation
 
