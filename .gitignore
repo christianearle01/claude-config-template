@@ -16,6 +16,7 @@
 .claude/plans/*
 !.claude/plans/.gitkeep
 .claude/config.json
+.claude/settings.local.json
 
 # Environment files (DO NOT COMMIT)
 .env

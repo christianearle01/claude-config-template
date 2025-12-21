@@ -111,6 +111,24 @@ claude-config-template/
 - **.claude/settings-explained.json**
   - Every setting documented with WHY
 
+- **.claude/settings.local.json** (git-ignored)
+  - Local development overrides (optional)
+  - Never commit (contains dev-only permissions)
+  - Automatically created/updated during active work
+
+**Settings Files Pattern:**
+
+| File | Purpose | Git Status |
+|------|---------|------------|
+| `settings.json` | Base configuration template | Committed |
+| `settings.local.json` | Local dev overrides (optional) | Git-ignored |
+| `settings-explained.json` | Educational reference | Committed |
+
+**Usage:**
+- `settings.json` - Main template users copy/customize
+- `settings.local.json` - Personal overrides during development (never commit)
+- `settings-explained.json` - Detailed documentation of all options
+
 ### Scripts & Wizards
 
 **Location:** `scripts/` (19 shell scripts)
