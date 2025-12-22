@@ -267,6 +267,97 @@ Example:
 - New rate: (0.60 × 10 + 0.0) / 11 = 0.545 (54.5%)
 ```
 
+#### Implicit Learning Signals (v4.23.0)
+
+**Enhancement:** Detect signal strength from user language, not just explicit actions.
+
+**Signal Taxonomy:**
+
+| Signal Type | Keywords | Value | Weight | Example |
+|-------------|----------|-------|--------|---------|
+| **Strong Positive** | "exactly", "perfect", "love it", "that's great" | 1.0 | 2x | "That's exactly what I wanted!" → 2.0 |
+| **Enthusiasm** | "wow", "awesome", "brilliant", "yes!" | 1.0 | 1.5x | "Wow, that's really cool" → 1.5 |
+| **Neutral Accept** | (default accept) | 1.0 | 1x | (silence = acceptance) → 1.0 |
+| **Weak Negative** | "skip", "not now", "later" | 0.3 | 1x | "Skip that" → 0.3 |
+| **Correction** | "actually", "instead", "not that", "wrong" | 0.0 | 2x | "Actually, not that way" → -2.0 (double negative) |
+| **Strong Negative** | "never", "don't", "stop", "no" | 0.0 | 2x | "Never do that" → -2.0 (double negative) |
+
+**Enhanced Learning Algorithm:**
+
+```
+Base signal = action value (1.0, 0.3, or 0.0)
+Detected weight = keyword multiplier (1x, 1.5x, or 2x)
+Effective signal = base × weight
+
+New acceptance rate = (old_rate × old_samples + effective_signal) / (old_samples + 1)
+
+Examples:
+
+1. Strong positive: "That's exactly what I wanted!"
+   - Base: 1.0 (accept)
+   - Weight: 2x (strong positive keyword)
+   - Effective: 2.0
+   - New rate: (0.60 × 10 + 2.0) / 11 = 0.727 (72.7%)
+
+2. Correction: "Actually, let's not do early returns"
+   - Base: 0.0 (reject)
+   - Weight: 2x (correction keyword)
+   - Effective: 0.0 (double weight on rejection = faster learning)
+   - New rate: (0.60 × 10 + 0.0) / 11 = 0.545, then apply -1x correction
+   - Adjusted: 0.545 - 0.1 = 0.445 (44.5%)
+
+3. Neutral skip: "Skip that"
+   - Base: 0.3 (skip)
+   - Weight: 1x (no keyword)
+   - Effective: 0.3
+   - New rate: (0.60 × 10 + 0.3) / 11 = 0.573 (57.3%)
+```
+
+**Correction Signal Detection (v4.23.0):**
+
+Detects when user immediately edits AI-generated content:
+
+**Pattern:**
+```
+AI generates code → User edits within 1 minute → Correction signal
+```
+
+**Action:**
+1. Record pattern: "Don't generate [pattern] for [file type]"
+2. Apply high negative weight (2x)
+3. Add to "learned patterns" with correction timestamp
+
+**Example:**
+```markdown
+## Correction Detected
+
+**What happened:**
+1. I suggested: `if (!condition) return;`
+2. You changed it to: `if (condition) { ... }`
+
+**What I learned:**
+- Pattern: early-returns
+- File type: typescript
+- Your preference: explicit conditionals
+- Confidence: High (correction signal)
+
+**Future behavior:**
+I'll avoid suggesting early returns in TypeScript files. Current acceptance rate for early-returns: 45% → 25% (correction applied).
+```
+
+**Keyword Detection Process:**
+
+1. **On user message:** Scan for signal keywords
+2. **Match patterns:** Check against signal taxonomy
+3. **Calculate weight:** Apply multiplier (1x, 1.5x, 2x)
+4. **Update preferences:** Use enhanced algorithm
+5. **Provide feedback:** Show what was learned
+
+**Privacy:**
+- Keyword matching only (no full message storage)
+- Only sentiment detected (not message content)
+- User can disable: "Don't detect implicit signals"
+
 **Threshold Rules:**
 
 | Acceptance Rate | Status | Behavior |
