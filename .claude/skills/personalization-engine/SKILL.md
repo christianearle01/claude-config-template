@@ -358,6 +358,232 @@ I'll avoid suggesting early returns in TypeScript files. Current acceptance rate
 - Only sentiment detected (not message content)
 - User can disable: "Don't detect implicit signals"
 
+#### File-Context Memory (v4.24.0)
+
+**Enhancement:** Tag preferences with file paths - recall patterns when editing the same file.
+
+**The Problem:**
+```
+Session 1: User edits CLAUDE.md, prefers sentence-case headers
+Session 2: User edits README.md, prefers title-case headers
+Session 3: User edits CLAUDE.md again
+          → System suggests title-case (wrong context!)
+```
+
+**The Solution:**
+Tag preferences with file path or file pattern, recall when editing same file.
+
+**File-Context Tagging:**
+
+| Context Level | Pattern | Example |
+|---------------|---------|---------|
+| **Exact File** | Full path | `/path/to/CLAUDE.md` → sentence-case headers |
+| **File Pattern** | Glob pattern | `*.md` → markdown linting rules |
+| **Directory** | Directory path | `/docs/` → documentation style |
+| **File Type** | Extension | `.ts` → TypeScript conventions |
+
+**Storage Format:**
+
+```json
+{
+  "fileContextPreferences": {
+    "CLAUDE.md": {
+      "header-style": {
+        "preference": "sentence-case",
+        "acceptanceRate": 0.95,
+        "samples": 12,
+        "lastUsed": "2025-12-22T10:30:00Z"
+      }
+    },
+    "*.md": {
+      "line-length": {
+        "preference": "no-limit",
+        "acceptanceRate": 0.80,
+        "samples": 25
+      }
+    },
+    "docs/**/*.md": {
+      "emoji-usage": {
+        "preference": "section-headers-only",
+        "acceptanceRate": 0.90,
+        "samples": 15
+      }
+    }
+  }
+}
+```
+
+**Matching Priority:**
+
+1. **Exact file path** (highest priority)
+2. **Specific glob pattern** (e.g., `docs/**/*.md`)
+3. **General file type** (e.g., `*.md`)
+4. **Directory pattern** (e.g., `/docs/`)
+5. **Global preference** (fallback)
+
+**Trigger Pattern:**
+
+```
+User edits file → System checks fileContextPreferences
+                → Loads preferences for matching patterns
+                → Applies to suggestions for this file
+```
+
+**Example:**
+
+```markdown
+## File-Context Detected
+
+**File:** CLAUDE.md
+**Context loaded:**
+- Header style: sentence-case (95% acceptance, 12 samples)
+- Line length: no-limit (80% acceptance, inherited from *.md)
+- Emoji usage: section-headers-only (90% acceptance, inherited from docs/)
+
+**Applying these preferences to suggestions for this file.**
+```
+
+**Learning:**
+
+When user accepts/rejects suggestion while editing a file:
+
+1. Update global preference (as before)
+2. **Also tag with current file context**
+3. Store both general + file-specific learning
+
+**Conflict Resolution:**
+
+If file-context preference conflicts with global:
+- **File-context wins** (more specific)
+- Show user: "Using CLAUDE.md preference (sentence-case) instead of global (title-case)"
+
+**Commands:**
+
+```
+"Show file-context preferences for CLAUDE.md"
+"What have you learned about this file?"
+"Reset file-context for *.md"
+"Disable file-context memory"
+```
+
+#### Recovery Pattern Learning (v4.24.0)
+
+**Enhancement:** Learn from failure → success sequences to proactively suggest solutions.
+
+**The Problem:**
+```
+User tries approach A → Fails
+User tries approach B → Fails
+User tries approach C → Success!
+Next time: System doesn't remember C was the winner
+```
+
+**The Solution:**
+Track task → attempt → outcome sequences, remember successful approaches.
+
+**Recovery Pattern Detection:**
+
+```
+Pattern: Multiple attempts on same task before success
+Trigger: 2+ failures followed by success within same session
+Action: Record the successful approach as "proven solution"
+```
+
+**Pattern Structure:**
+
+```json
+{
+  "recoveryPatterns": {
+    "fix-typescript-import-error": {
+      "context": {
+        "errorType": "typescript-import",
+        "attempts": 3,
+        "failedApproaches": [
+          "relative-path-import",
+          "namespace-import"
+        ],
+        "successfulApproach": "default-import-with-type",
+        "confidence": "high"
+      },
+      "metadata": {
+        "firstAttempt": "2025-12-22T10:00:00Z",
+        "resolved": "2025-12-22T10:15:00Z",
+        "timeTaken": "15 minutes",
+        "fileType": "typescript",
+        "successRate": 1.0,
+        "timesApplied": 3
+      }
+    }
+  }
+}
+```
+
+**Detection Logic:**
+
+1. **Failure Detection:**
+   - Test fails
+   - Build error
+   - User says "that didn't work", "still broken", "try again"
+   - User immediately edits generated code (correction signal)
+
+2. **Attempt Tracking:**
+   - Same task attempted multiple times within 30 minutes
+   - Different approaches each time
+   - Track what was tried
+
+3. **Success Detection:**
+   - Tests pass after failures
+   - User says "that worked!", "fixed!", "success"
+   - No further edits after 5 minutes (silent success)
+
+4. **Pattern Recording:**
+   - Store: task type, failed approaches, successful approach
+   - Tag with: file type, error type, context
+   - Confidence: high (proven by recovery)
+
+**Proactive Suggestions:**
+
+Next time similar task is attempted:
+
+```markdown
+## Recovery Pattern Detected
+
+**Task:** Fixing TypeScript import error
+**I remember:** You solved this before in 3 attempts
+
+**Failed approaches (avoid these):**
+1. ❌ relative-path-import (didn't work)
+2. ❌ namespace-import (didn't work)
+
+**Successful approach (use this):**
+✅ default-import-with-type (worked after 15 minutes)
+
+**Apply proven solution?** This worked for you last time.
+```
+
+**Learning Enhancement:**
+
+Recovery patterns have **higher confidence** than single-try learnings:
+- Regular acceptance: 75% confidence
+- Recovery pattern: 95% confidence (proven through struggle)
+
+**Why this works:**
+
+Hard-won solutions have higher value:
+- User invested time (15 minutes in example)
+- Multiple approaches tested
+- Success validated through comparison
+- **Psychological:** Struggling → success creates strong memory
+
+**Commands:**
+
+```
+"Show recovery patterns"
+"What solutions have I found through trial-and-error?"
+"How did I solve [task] last time?"
+"Forget recovery pattern for [task]"
+```
+
 **Threshold Rules:**
 
 | Acceptance Rate | Status | Behavior |

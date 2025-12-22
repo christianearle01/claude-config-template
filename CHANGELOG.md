@@ -7,9 +7,225 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [4.24.0] - TBD - Memory Lane: File-Context & Recovery Patterns (Phase 2)
+
+**Status:** In development (feature/memory-lane-v4.24.0 branch)
+
+**Inspiration:** [Memory Lane - Automatic Learning System](https://www.youtube.com/watch?v=Wpz7LNI737Q)
+**Core Insight:** Learn WHERE (file-context) and HOW (recovery patterns) you solve problems
+
+### Added - Context-Aware Learning
+
+**Enhancement to v4.23.0 Implicit Learning Signals:**
+
+The system now remembers file-specific preferences and successful problem-solving patterns, providing context-appropriate suggestions.
+
+#### 1. File-Context Memory
+
+**Tag preferences with file paths/patterns** - Different files, different styles.
+
+**Four Context Levels:**
+- **Exact file** (`CLAUDE.md`) - Highest priority
+- **Glob pattern** (`docs/**/*.md`) - High priority
+- **File type** (`*.md`) - Medium priority
+- **Directory** (`/docs/`) - Low priority
+
+**Matching Priority:**
+```
+Exact match > Specific glob > General type > Directory > Global fallback
+```
+
+**Example:**
+```
+CLAUDE.md → sentence-case headers (95% acceptance, 47 samples)
+README.md → title-case headers (90% acceptance, 23 samples)
+
+System remembers which is which!
+```
+
+**Storage Format:**
+```json
+{
+  "fileContextPreferences": {
+    "CLAUDE.md": {
+      "header-style": {
+        "preference": "sentence-case",
+        "acceptanceRate": 0.95,
+        "samples": 47
+      }
+    },
+    "docs/**/*.md": {
+      "tone": {
+        "preference": "formal-educational",
+        "acceptanceRate": 0.85,
+        "samples": 28
+      }
+    }
+  }
+}
+```
+
+**Conflict Resolution:**
+- File-specific preference wins over global (more context = higher priority)
+- Inheritance from general patterns to specific contexts
+
+#### 2. Recovery Pattern Learning
+
+**Track fail → fail → success sequences** - Remember solutions that worked after struggle.
+
+**Detection Logic:**
+1. **Failure detection:** Tests fail, build errors, "that didn't work"
+2. **Attempt tracking:** Same task, different approaches, within 30 minutes
+3. **Success detection:** Tests pass, "that worked!", or silent success (5+ min)
+4. **Pattern recording:** Store failed + successful approaches
+
+**Example:**
+```
+Attempt 1: relative-path-import → Fails
+Attempt 2: namespace-import → Fails
+Attempt 3: default-import-with-type → Success!
+
+Recovery pattern created:
+- Task: typescript-import-error
+- Failed: [relative-path, namespace]
+- Success: default-import-with-type
+- Confidence: 95% (proven through struggle)
+- Time: 20 minutes, 3 attempts
+```
+
+**Proactive Suggestions:**
+```markdown
+## Recovery Pattern Detected
+
+**Task:** Fixing TypeScript import error
+**I remember:** You solved this in 3 attempts (20 minutes)
+
+**What didn't work:**
+1. ❌ relative-path-import
+2. ❌ namespace-import
+
+**What worked:**
+✅ default-import-with-type (100% success, 5 times)
+
+Apply proven solution?
+```
+
+**Confidence Scoring:**
+- Regular acceptance: 75% confidence
+- Strong positive (v4.23.0): 85% confidence
+- **Recovery pattern: 95% confidence** (proven through struggle)
+
+**Psychology:** Hard-won solutions = stronger memory (desirable difficulties)
+
+#### 3. Integration with v4.23.0
+
+**Triple reinforcement:**
+```
+Problem in src/auth.ts:
+1. File-context: src/auth.ts preferences loaded
+2. Recovery pattern: typescript-import-error solution found
+3. Implicit signals (v4.23.0): Keywords boost confidence
+→ Very high confidence suggestion
+```
+
+**Keyword detection (v4.23.0) now tagged with file context:**
+- "Perfect!" while editing CLAUDE.md → sentence-case gets 2x boost
+- "Never" while editing *.ts → TypeScript pattern gets permanent filter
+
+**Correction signals trigger recovery patterns:**
+- Immediate edit after generation → Failure detected
+- Multiple corrections → Attempt tracking
+- Final success → Recovery pattern created
+
+#### 4. Documentation
+
+**New Guide:**
+- `docs/02-optimization/08_file-context-and-recovery-patterns.md` (1400+ lines)
+  - Complete file-context taxonomy (4 levels)
+  - Recovery pattern detection logic
+  - Integration examples
+  - Commands and troubleshooting
+
+**Updated:**
+- `docs/02-optimization/06_personalization-guide.md`
+  - Added section 8: "File-Context & Recovery Patterns (v4.24.0)"
+  - Updated version to 4.24.0
+  - Cross-references to detailed guide
+
+- `.claude/skills/personalization-engine/SKILL.md`
+  - File-Context Memory section (+115 lines)
+  - Recovery Pattern Learning section (+115 lines)
+  - Storage formats and detection logic
+
+### Impact & Benefits
+
+**File-Context Memory:**
+- Context-appropriate suggestions (sentence-case for CLAUDE.md, title-case for README.md)
+- Inheritance from patterns (docs/**/*.md applies to all docs)
+- Conflict resolution (specific > general)
+
+**Recovery Pattern Learning:**
+- Skip failed approaches (save 5-20 minutes per retry)
+- 95% confidence (proven through testing)
+- Psychological alignment (struggle → success = strong memory)
+
+**Combined Impact:**
+- Faster problem solving (apply proven solutions immediately)
+- Context-aware learning (preferences adapt to file/project)
+- Higher confidence suggestions (triple reinforcement)
+
+### Commands
+
+**New file-context commands:**
+```
+"Show file-context preferences for CLAUDE.md"
+"What have you learned about this file?"
+"Reset file-context for *.md"
+"Disable file-context memory"
+```
+
+**New recovery pattern commands:**
+```
+"Show recovery patterns"
+"How did I solve [task] last time?"
+"Forget recovery pattern for [task]"
+"List all recovery patterns"
+```
+
+### Jake Nations Test (v4.22.0 Alignment)
+
+✅ **Makes users SMARTER:** Shows recovery patterns with explanation
+✅ **Creates CLARITY:** File-context inheritance is transparent
+✅ **Simple, not easy:** One-fold concepts (file tags, pattern tracking)
+✅ **Understanding checkpoint:** System explains why it suggests proven solution
+
+### Technical Implementation
+
+**Files Modified:**
+- `.claude/skills/personalization-engine/SKILL.md` (+230 lines)
+- `docs/02-optimization/06_personalization-guide.md` (+130 lines)
+
+**Files Created:**
+- `docs/02-optimization/08_file-context-and-recovery-patterns.md` (1400+ lines)
+
+**Branch:** `feature/memory-lane-v4.24.0` (from `feature/memory-lane-v4.23.0`)
+
+### Next Steps (v4.25.0 - Planned)
+
+- Workflow gap detection (analyze commit patterns)
+- Adaptive threshold tuning (continuous micro-adjustments)
+
+### References
+
+- **Analysis:** [Memory Lane Three-Perspective Analysis](docs/04-ecosystem/12_memory-lane-analysis.md)
+- **External Pattern:** Memory Lane (Automatic Learning + Memory System)
+- **Video Source:** https://www.youtube.com/watch?v=Wpz7LNI737Q
+
+---
+
 ### [4.23.0] - TBD - Memory Lane: Implicit Learning Signals (Phase 1)
 
-**Status:** In development (feature/memory-lane-v4.23.0 branch)
+**Status:** Completed (feature/memory-lane-v4.23.0 branch)
 
 **Inspiration:** [Memory Lane - Automatic Learning System](https://www.youtube.com/watch?v=Wpz7LNI737Q)
 **Core Insight:** Learn from HOW users communicate, not just WHAT they explicitly state

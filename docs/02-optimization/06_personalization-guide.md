@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 4.23.0
+**Version:** 4.24.0
 **Last Updated:** 2025-12-22
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -15,8 +15,9 @@ This guide explains how the Personalization Engine works, how to customize your 
 4. [Confidence Thresholds](#confidence-thresholds)
 5. [Proactivity Levels](#proactivity-levels)
 6. [Learning from Feedback](#learning-from-feedback)
-7. [Implicit Learning Signals](#implicit-learning-signals-v4230) (v4.23.0) ⭐ NEW
-8. [Skill Integration](#skill-integration)
+7. [Implicit Learning Signals](#implicit-learning-signals-v4230) (v4.23.0)
+8. [File-Context & Recovery Patterns](#file-context--recovery-patterns-v4240) (v4.24.0) ⭐ NEW
+9. [Skill Integration](#skill-integration)
 9. [Privacy & Data](#privacy--data)
 10. [Common Operations](#common-operations)
 11. [Troubleshooting](#troubleshooting)
@@ -452,6 +453,126 @@ Acceptance rate: 60% → 44.5% (now hidden by default)
 - File paths with sensitive data
 
 **For complete details:** [Implicit Learning Signals Guide](07_implicit-learning-signals.md)
+
+---
+
+## File-Context & Recovery Patterns (v4.24.0)
+
+### Overview
+
+**New in v4.24.0:** Context-aware learning - different files, different preferences, and remember solutions that worked.
+
+**File-Context Memory:**
+```
+CLAUDE.md → sentence-case headers (95%)
+README.md → title-case headers (90%)
+System remembers which is which!
+```
+
+**Recovery Pattern Learning:**
+```
+Try A → Fails
+Try B → Fails
+Try C → Works!
+Next time → Suggests C immediately (95% confidence)
+```
+
+### File-Context Memory
+
+**Problem:** Global preferences ignore file-specific contexts.
+
+**Solution:** Tag preferences with file paths/patterns.
+
+**Four Context Levels:**
+
+| Level | Example | Priority |
+|-------|---------|----------|
+| Exact file | `CLAUDE.md` | Highest |
+| Glob pattern | `docs/**/*.md` | High |
+| File type | `*.md` | Medium |
+| Directory | `/docs/` | Low |
+
+**How it works:**
+
+1. **On file edit:** System loads preferences for matching patterns
+2. **On learning:** Tags preference with current file context
+3. **Conflict resolution:** File-specific wins over global
+
+**Example:**
+
+```
+Editing CLAUDE.md:
+→ Loads: sentence-case headers (CLAUDE.md, 95%)
+→ Ignores: title-case (global, 75%)
+→ Uses: sentence-case ✓
+
+Editing README.md:
+→ Loads: title-case headers (README.md, 90%)
+→ Uses: title-case ✓
+```
+
+### Recovery Pattern Learning
+
+**Problem:** Valuable solutions forgotten after struggle.
+
+**Solution:** Track fail → fail → success sequences, remember winners.
+
+**Detection:**
+
+1. **Failure:** Tests fail, build errors, "that didn't work"
+2. **Attempts:** Same task, different approaches, within 30 minutes
+3. **Success:** Tests pass, "that worked!", or 5 minutes no edits
+4. **Pattern:** Store failed approaches + successful solution
+
+**Confidence:** 95% (proven through struggle vs 75% regular)
+
+**Example:**
+
+```markdown
+## Recovery Pattern Detected
+
+**Task:** Fixing TypeScript import error
+**I remember:** You solved this in 3 attempts (20 minutes)
+
+**What didn't work:**
+1. ❌ relative-path-import
+2. ❌ namespace-import
+
+**What worked:**
+✅ default-import-with-type (100% success, used 5 times)
+
+Apply proven solution?
+```
+
+### Integration
+
+File-context + recovery patterns work together:
+
+```
+Problem in src/auth.ts:
+1. File-context loads: src/auth.ts preferences
+2. Recovery pattern checks: typescript-import-error solutions
+3. Implicit signals (v4.23.0): Keywords boost confidence
+4. Triple reinforcement = very high confidence suggestion
+```
+
+### Commands
+
+**File-context:**
+```
+"Show file-context preferences for CLAUDE.md"
+"What have you learned about this file?"
+"Reset file-context for *.md"
+```
+
+**Recovery patterns:**
+```
+"Show recovery patterns"
+"How did I solve [task] last time?"
+"Forget recovery pattern for [task]"
+```
+
+**For complete details:** [File-Context & Recovery Patterns Guide](08_file-context-and-recovery-patterns.md)
 
 ---
 
