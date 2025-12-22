@@ -584,6 +584,378 @@ Hard-won solutions have higher value:
 "Forget recovery pattern for [task]"
 ```
 
+#### Workflow Gap Detection (v4.25.0)
+
+**Enhancement:** Identify related tasks that should be linked - automate repetitive workflows.
+
+**The Problem:**
+```
+Pattern detected over 20 commits:
+1. User edits version.json
+2. User runs sync-version.sh
+3. User edits CHANGELOG.md
+4. User commits
+
+Every single time, same sequence. Manual, repetitive, forgettable.
+```
+
+**The Solution:**
+Detect workflow patterns from commit history, suggest automation or linking.
+
+**Gap Detection:**
+
+| Gap Type | Pattern | Suggestion |
+|----------|---------|------------|
+| **Sequential Tasks** | A always followed by B | "Link these tasks?" |
+| **Forgotten Steps** | A → C (B missing) | "You usually do B between A and C" |
+| **Manual Repetition** | Same sequence 5+ times | "Automate this workflow?" |
+| **Context Switch** | Edit file A, then edit file B (unrelated) | "Consider grouping related edits" |
+
+**Detection Logic:**
+
+**1. Sequential Pattern Detection:**
+
+```
+Analyze last 50 commits:
+- Find sequences: [edit version.json] → [run script] → [edit CHANGELOG]
+- Frequency: 18/20 commits (90%)
+- Time gap: Average 2 minutes between steps
+→ Pattern detected: version-bump-workflow
+```
+
+**2. Forgotten Step Detection:**
+
+```
+Analyze current session:
+- User edited version.json
+- User edited CHANGELOG.md
+- Missing: sync-version.sh (usually runs between these)
+→ Gap detected: "Did you forget to run sync-version.sh?"
+```
+
+**3. Repetition Analysis:**
+
+```
+Same workflow detected 15 times:
+1. git add .
+2. git commit -m "..."
+3. git push origin main
+
+Time: 1-2 minutes per execution
+→ Suggestion: "Create alias or git hook for this sequence?"
+```
+
+**Storage Format:**
+
+```json
+{
+  "workflowPatterns": {
+    "version-bump-workflow": {
+      "steps": [
+        {
+          "action": "edit",
+          "target": "version.json",
+          "confidence": 0.95
+        },
+        {
+          "action": "run",
+          "target": "sync-version.sh",
+          "confidence": 0.90
+        },
+        {
+          "action": "edit",
+          "target": "CHANGELOG.md",
+          "confidence": 0.95
+        },
+        {
+          "action": "commit",
+          "pattern": "^(feat|fix|docs):",
+          "confidence": 0.88
+        }
+      ],
+      "metadata": {
+        "frequency": 18,
+        "totalCommits": 20,
+        "patternStrength": 0.90,
+        "avgTimePerStep": "2 minutes",
+        "lastOccurrence": "2025-12-22T14:30:00Z"
+      }
+    }
+  },
+  "detectedGaps": {
+    "missing-sync-script": {
+      "workflow": "version-bump-workflow",
+      "missingStep": "sync-version.sh",
+      "frequency": 3,
+      "impact": "medium"
+    }
+  }
+}
+```
+
+**Proactive Detection:**
+
+```markdown
+## 🔗 Workflow Gap Detected
+
+**Pattern:** version-bump-workflow
+**Frequency:** 18/20 commits (90%)
+
+**Your usual sequence:**
+1. ✓ Edit version.json
+2. ⚠️ Run sync-version.sh ← **You haven't done this yet**
+3. ? Edit CHANGELOG.md (expected next)
+4. ? Commit changes
+
+**Suggestion:** Run sync-version.sh now to stay on pattern?
+
+[Run now] [Skip this time] [Don't remind me]
+```
+
+**Automation Suggestions:**
+
+After detecting high-frequency patterns (10+ occurrences):
+
+```markdown
+## 🤖 Automation Opportunity
+
+**Workflow:** version-bump-workflow
+**Frequency:** 18 times (manually repeated)
+**Time cost:** ~36 minutes total (2 min × 18)
+
+**I can help automate this:**
+
+Option 1: Pre-commit hook
+  - Auto-runs sync-version.sh before commit
+  - Validates version consistency
+
+Option 2: Bash script wrapper
+  - Single command: ./bump-version.sh 4.25.0
+  - Handles all 4 steps automatically
+
+Option 3: Git alias
+  - git bump-version "4.25.0"
+  - Custom alias for this workflow
+
+[Show me how] [Not now] [Never suggest for this workflow]
+```
+
+**Commands:**
+
+```
+"Show workflow patterns"
+"What workflows have you detected?"
+"Show gaps in current workflow"
+"Suggest automation for [workflow]"
+"Forget workflow pattern [name]"
+```
+
+#### Adaptive Threshold Tuning (v4.25.0)
+
+**Enhancement:** Continuous micro-adjustments to confidence thresholds based on actual user behavior.
+
+**The Problem:**
+```
+Current: Manual threshold adjustments
+- User sets autoApply = 95%
+- System uses 95% forever
+- Even if user rejects 80% of auto-applied suggestions
+→ Static threshold, not adapting to reality
+```
+
+**The Solution:**
+Continuously monitor acceptance rates by confidence level, adjust thresholds automatically.
+
+**Current (v3.10.0) AI-Suggested Tuning:**
+- Runs every 7 days
+- Manual review required
+- Suggests threshold changes
+- User must approve
+
+**Enhanced (v4.25.0) Adaptive Tuning:**
+- Runs continuously
+- Micro-adjustments (±1-2%)
+- No user approval needed
+- Transparent feedback
+
+**Tuning Logic:**
+
+**1. Confidence Band Analysis:**
+
+```
+Analyze suggestions at each confidence level:
+
+90-95%: 20 suggestions, 12 accepted (60% acceptance)
+85-90%: 15 suggestions, 13 accepted (87% acceptance)
+80-85%: 10 suggestions, 9 accepted (90% acceptance)
+
+Observation: 85-90% band has HIGHER acceptance than 90-95%
+→ Threshold too conservative, or 90-95% suggestions are wrong type
+```
+
+**2. Micro-Adjustment Rules:**
+
+| Condition | Action | Magnitude |
+|-----------|--------|-----------|
+| 5 consecutive rejections at confidence X | Lower threshold by 2% | Gentle |
+| 80%+ rejection rate in band | Lower threshold by 5% | Moderate |
+| 90%+ acceptance rate in band | Raise threshold by 2% | Gentle |
+| 95%+ acceptance, 20+ samples | Raise threshold by 5% | Moderate |
+
+**3. Adjustment Limits:**
+
+Safety constraints:
+- **Max change per day:** ±10%
+- **Min threshold:** 30% (never go below)
+- **Max threshold:** 98% (never require perfection)
+- **Cooldown:** 24 hours between major adjustments (>5%)
+
+**Example Adaptive Flow:**
+
+```
+Day 1: autoApply threshold = 95%
+       Suggestions at 95%+: 10 generated
+       User rejects: 7/10 (70% rejection)
+
+Day 2: System analyzes: "70% rejection is too high"
+       Adjustment: 95% → 97% (+2%, gentle)
+       Notification: "Raised autoApply to 97% (you rejected 70% at 95%)"
+
+Day 3: Suggestions at 97%+: 5 generated
+       User accepts: 4/5 (80% acceptance)
+
+Day 5: System analyzes: "80% acceptance is good"
+       No adjustment (stable)
+
+Day 10: Suggestions at 97%+: 20 generated
+        User accepts: 19/20 (95% acceptance)
+
+Day 11: System analyzes: "95% acceptance, could be more permissive"
+        Adjustment: 97% → 95% (-2%, gentle)
+        Notification: "Lowered autoApply to 95% (you accept 95% at this level)"
+```
+
+**Storage Format:**
+
+```json
+{
+  "adaptiveThresholds": {
+    "autoApply": {
+      "current": 95,
+      "original": 95,
+      "history": [
+        {
+          "timestamp": "2025-12-22T10:00:00Z",
+          "value": 95,
+          "reason": "user-set"
+        },
+        {
+          "timestamp": "2025-12-23T10:00:00Z",
+          "value": 97,
+          "reason": "high-rejection-rate",
+          "data": {
+            "acceptanceRate": 0.30,
+            "samples": 10
+          }
+        },
+        {
+          "timestamp": "2025-12-30T10:00:00Z",
+          "value": 95,
+          "reason": "high-acceptance-rate",
+          "data": {
+            "acceptanceRate": 0.95,
+            "samples": 20
+          }
+        }
+      ],
+      "lastAdjustment": "2025-12-30T10:00:00Z",
+      "adjustmentCount": 2
+    }
+  },
+  "confidenceBandStats": {
+    "95-100": {
+      "suggestions": 30,
+      "accepted": 27,
+      "acceptanceRate": 0.90,
+      "trend": "stable"
+    },
+    "90-95": {
+      "suggestions": 45,
+      "accepted": 39,
+      "acceptanceRate": 0.87,
+      "trend": "increasing"
+    }
+  }
+}
+```
+
+**Transparency:**
+
+Every adjustment is logged and explained:
+
+```markdown
+## 📊 Threshold Adjusted
+
+**Threshold:** autoApply
+**Change:** 95% → 93% (-2%)
+**Reason:** High acceptance rate at this level
+
+**Data:**
+- Suggestions at 95%+: 25 in last 7 days
+- Your acceptance: 24/25 (96%)
+- Confidence: You're comfortable with slightly lower threshold
+
+**Impact:** More suggestions will auto-apply
+**Revert:** "Set autoApply to 95%" to undo
+
+[View adjustment history] [Disable adaptive tuning]
+```
+
+**User Control:**
+
+```
+"Disable adaptive tuning"
+"Enable adaptive tuning"
+"Show threshold adjustment history"
+"Revert threshold changes"
+"Lock autoApply threshold at 95%"
+"Show confidence band statistics"
+```
+
+**Safety Features:**
+
+- **Preview mode:** Test adjustments for 24 hours before applying
+- **Undo:** Revert to any previous threshold
+- **Lock:** Prevent adjustments to specific thresholds
+- **Notification:** Always inform user of changes
+- **Limits:** Max ±10% per day, never below 30% or above 98%
+
+**Integration with v4.23.0 & v4.24.0:**
+
+```
+Adaptive tuning uses:
+- Implicit signals (v4.23.0): Keywords boost/lower confidence scores
+- File-context (v4.24.0): Adjust thresholds per file pattern
+- Recovery patterns (v4.24.0): Proven solutions get lower threshold
+
+Example:
+- Recovery pattern: 95% confidence baseline
+- File-context (CLAUDE.md): 97% acceptance rate
+- Adaptive tuning: Lowers threshold to 93% for CLAUDE.md
+→ More recovery patterns auto-applied in this context
+```
+
+**Commands:**
+
+```
+"Show adaptive tuning status"
+"Disable adaptive tuning for autoApply"
+"Show threshold adjustment history"
+"Why did you adjust [threshold]?"
+"Revert to original thresholds"
+"Lock all thresholds"
+```
+
 **Threshold Rules:**
 
 | Acceptance Rate | Status | Behavior |

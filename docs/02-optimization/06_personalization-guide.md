@@ -1,6 +1,6 @@
 # Personalization Guide
 
-**Version:** 4.24.0
+**Version:** 4.25.0
 **Last Updated:** 2025-12-22
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
@@ -16,8 +16,9 @@ This guide explains how the Personalization Engine works, how to customize your 
 5. [Proactivity Levels](#proactivity-levels)
 6. [Learning from Feedback](#learning-from-feedback)
 7. [Implicit Learning Signals](#implicit-learning-signals-v4230) (v4.23.0)
-8. [File-Context & Recovery Patterns](#file-context--recovery-patterns-v4240) (v4.24.0) ⭐ NEW
-9. [Skill Integration](#skill-integration)
+8. [File-Context & Recovery Patterns](#file-context--recovery-patterns-v4240) (v4.24.0)
+9. [Workflow Gaps & Adaptive Tuning](#workflow-gaps--adaptive-tuning-v4250) (v4.25.0) ⭐ NEW
+10. [Skill Integration](#skill-integration)
 9. [Privacy & Data](#privacy--data)
 10. [Common Operations](#common-operations)
 11. [Troubleshooting](#troubleshooting)
@@ -573,6 +574,148 @@ Problem in src/auth.ts:
 ```
 
 **For complete details:** [File-Context & Recovery Patterns Guide](08_file-context-and-recovery-patterns.md)
+
+---
+
+## Workflow Gaps & Adaptive Tuning (v4.25.0)
+
+### Overview
+
+**New in v4.25.0:** Pattern intelligence - detect repetitive workflows and self-optimize thresholds.
+
+**Workflow Gap Detection:**
+```
+Pattern: version.json → script → CHANGELOG → commit (18/20 times)
+Suggestion: "Automate this workflow? (~40 min saved)"
+```
+
+**Adaptive Threshold Tuning:**
+```
+You reject 70% at 95% → System raises to 97%
+You accept 95% at 97% → System lowers to 95%
+Continuous micro-adjustments (±1-2%)
+```
+
+### Workflow Gap Detection
+
+**Problem:** Manual repetition goes unnoticed.
+
+**Solution:** Analyze commit history, detect patterns, suggest automation.
+
+**Four Gap Types:**
+
+| Type | Example | Suggestion |
+|------|---------|------------|
+| Sequential | version.json always → sync-version.sh | "Link tasks?" |
+| Forgotten | version.json → CHANGELOG (no script) | "Run script first?" |
+| Repetitive | add + commit + push (15 times) | "Create git alias?" |
+| Context Switch | auth.ts → README.md (unrelated) | "Group related edits?" |
+
+**Real-time detection:**
+
+```markdown
+## 🔗 Workflow Gap Detected
+
+**Your usual sequence:**
+1. ✓ Edit version.json
+2. ⚠️ Run sync-version.sh ← You haven't done this yet
+3. ? Edit CHANGELOG.md (expected next)
+
+Run now to stay on pattern?
+```
+
+**Automation suggestions after 10+ repetitions:**
+
+```markdown
+## 🤖 Automation Opportunity
+
+**Workflow:** version-bump-workflow
+**Frequency:** 18 times
+**Time cost:** ~40 minutes
+
+**Automate with:**
+- Bash script: ./bump-version.sh 4.25.0
+- Git hook: Pre-commit validation
+- Git alias: git bump "4.25.0"
+
+[Show implementation]
+```
+
+### Adaptive Threshold Tuning
+
+**Problem:** Static thresholds don't match reality.
+
+**Solution:** Continuous micro-adjustments based on acceptance rates.
+
+**How it works:**
+
+```
+Monitor confidence bands:
+- 95-100%: 50% acceptance → Too permissive, raise threshold
+- 90-95%: 87% acceptance → Good
+- 85-90%: 90% acceptance → Could lower threshold
+
+Adjust: autoApply 95% → 97% (+2%)
+```
+
+**Safety features:**
+- Max ±10% per day
+- Min 30%, max 98%
+- 24hr cooldown between major changes
+- Lock/disable/revert anytime
+
+**Transparency:**
+
+```markdown
+## 📊 Threshold Adjusted
+
+**Threshold:** autoApply
+**Change:** 95% → 93% (-2%)
+**Reason:** High acceptance rate (96% over 25 suggestions)
+
+**Impact:** More suggestions will auto-apply
+
+[View history] [Revert] [Lock threshold]
+```
+
+### Integration
+
+**Workflow detection uses:**
+- File-context (v4.24.0): Pattern matching per file
+- Recovery patterns (v4.24.0): Link to proven solutions
+
+**Adaptive tuning uses:**
+- Implicit signals (v4.23.0): Keywords influence confidence
+- File-context (v4.24.0): Adjust per-file thresholds
+- Recovery patterns (v4.24.0): Lower threshold for proven solutions
+
+**Combined:**
+```
+Recovery pattern for TypeScript errors (95% confidence)
++ File-context (src/auth.ts, 92% acceptance)
++ Adaptive tuning (lowers to 90% for this context)
+= More proven solutions auto-applied
+```
+
+### Commands
+
+**Workflow gaps:**
+```
+"Show workflow patterns"
+"What workflows have you detected?"
+"Suggest automation for [workflow]"
+"Forget workflow pattern [name]"
+```
+
+**Adaptive tuning:**
+```
+"Show threshold adjustment history"
+"Why did you adjust [threshold]?"
+"Lock autoApply at 95%"
+"Disable adaptive tuning"
+```
+
+**For complete details:** [Workflow Gaps & Adaptive Tuning Guide](09_workflow-gaps-and-adaptive-tuning.md)
 
 ---
 
