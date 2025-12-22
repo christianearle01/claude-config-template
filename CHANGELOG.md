@@ -146,9 +146,9 @@ if (condition) { ... }
 
 ### References
 
-- **Analysis Plan:** `~/.claude/plans/sparkling-launching-storm.md`
+- **Analysis:** [Memory Lane Three-Perspective Analysis](docs/04-ecosystem/12_memory-lane-analysis.md)
 - **External Pattern:** Memory Lane (Automatic Learning + Memory System)
-- **Three-Perspective Analysis:** Psychology, Educator, Software Engineer
+- **Video Source:** https://www.youtube.com/watch?v=Wpz7LNI737Q
 
 ---
 
