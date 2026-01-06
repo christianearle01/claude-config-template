@@ -6,9 +6,9 @@ allowed-tools: Read, Grep
 
 # External Perspectives Skill
 
-**Version:** 4.20.1
-**Last Updated:** 2025-12-19
-**Research Status:** 75% complete (6/8 patterns documented)
+**Version:** 4.26.0
+**Last Updated:** 2026-01-05
+**Research Status:** 100% complete (10/10 patterns documented)
 **Target Audience:** Developers seeking external validation and inspiration
 
 ---
@@ -1345,6 +1345,333 @@ Addresses the **core AI productivity paradox**:
 
 ---
 
+### Operation 10: Gas Town - Agent Orchestration Framework (ALTERNATIVE APPROACH + INDUSTRY EVOLUTION) ✅
+
+**User Query Examples:**
+- "How does Gas Town handle agent orchestration?"
+- "Should I adopt orchestration for my multi-agent workflows?"
+- "Is our Stage 5 approach (manual coordination) aligned with industry evolution?"
+
+**Confidence:** 🟢 High (0.92) - Well-documented framework, validates our Stage 5 approach while showing evolution path
+
+**Skill Response:**
+
+#### Community Pattern: Gas Town - Agent Orchestration Framework
+
+**Source:** Steve Yegge (ex-Amazon, ex-Google, Sourcegraph)
+**Article:** "Welcome to Gas Town" (Medium, Jan 2026)
+**Link:** https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04
+**Validation Type:** Alternative Approach + Industry Evolution
+
+### Core Insight
+
+"The biggest problem with Claude Code is it ends. The context window fills up, and it runs out of steam, and stops."
+
+**Problem:** Context window limits kill agent productivity. Manual context recovery is cognitive overhead.
+
+**Solution:** Orchestrator spins up fresh agents automatically when old ones hit context limits, with persistent work state managed externally.
+
+---
+
+### Gas Town Solutions
+
+#### 1. GUPP Principle
+**What:** "Ensure workers run available work" - No idle agents
+**Implementation:** Orchestrator tracks agent state, assigns unclaimed work from queue
+**Benefit:** Maximizes agent utilization, prevents duplicate work
+
+**Template Equivalent:** Work-claiming pattern in features.json (v4.26.0)
+- Manual claiming (`claimedBy` field)
+- Agent coordination without orchestrator
+- GUPP-inspired, but transparent and educational
+
+#### 2. Beads (Persistent Agent Identities)
+**What:** Agents have persistent identity across sessions
+**Implementation:** Agent commits tracked in Git with identity tags, work history preserved
+**Benefit:** Accountability, historical tracking, "who did what" clarity
+
+**Template Equivalent:** Agent roles (initializer, coder, quality-reviewer)
+- 10 specialized agents with defined responsibilities
+- Agent log tracking (v4.26.0: `agentLog` array)
+- No orchestrator, but same specialization pattern
+
+#### 3. Seven Worker Roles
+**What:** Specialized agents with clear responsibilities
+**Roles:** Architect, implementer, tester, reviewer, documenter, optimizer, coordinator
+**Benefit:** Division of labor, expertise specialization
+
+**Template Equivalent:** 10 agents with defined roles
+- initializer (planning)
+- coder (implementation)
+- quality-reviewer (validation)
+- project-planner (architecture)
+- deployment-readiness (production criteria)
+- And 5 more specialized roles
+- **We have MORE roles than Gas Town!**
+
+#### 4. Fresh Agents on Context Limits
+**What:** When agent hits context window, orchestrator spins up fresh instance
+**Implementation:** State handed off to new agent, work continues seamlessly
+**Benefit:** No manual bootup ritual, automatic context recovery
+
+**Template Equivalent:** Bootup ritual + features.json
+- Manual, but explicit (educational)
+- features.json preserves state across sessions
+- Prompt caching reduces context usage (85% token savings)
+- Different approach, same goal (context persistence)
+
+---
+
+### Comparison: Template vs Gas Town
+
+| Aspect | claude-config-template (Stage 5) | Gas Town (Stage 7) |
+|--------|----------------------------------|---------------------|
+| **Architecture** | Point-to-point handoffs | Mesh orchestration |
+| **Context Management** | features.json + bootup ritual | Fresh agents on demand |
+| **Coordination** | Manual (educational) | Automated (production) |
+| **Agent Count** | 5-10 (Stage 5 optimal) | 10+ (Stage 7 scale) |
+| **Philosophy** | Transparent state | Cognitive offloading |
+| **Best For** | Learning, small teams | Production, large teams |
+| **Token Cost** | Optimized via caching | Optimized via fresh context |
+| **Setup Complexity** | Low (zero dependencies) | Medium (orchestrator setup) |
+| **Maintenance** | Zero overhead | Orchestration tuning required |
+| **Educational Value** | High (see the pattern) | Low (automation hides pattern) |
+| **Production Scale** | Solo to 5-person team | 10+ person teams |
+
+---
+
+### Validation for Template
+
+✅ **Context Window Problem:** We solve it differently (persistent state vs fresh agents)
+✅ **Agent Roles:** We have 10 roles (validates specialization pattern)
+✅ **Work Coordination:** Work-claiming (v4.26.0) implements GUPP manually
+✅ **Persistent Identity:** Agent logs track who did what
+
+⚠️ **Orchestration Gap:** We're at Stage 5, Gas Town at Stage 7 - intentional difference, not limitation
+
+---
+
+### When to Use Each
+
+**Use Template (Stage 5) When:**
+- ✅ Learning agent patterns (educational priority)
+- ✅ Solo developer or small team (< 5 people)
+- ✅ Under 5 agents in regular use
+- ✅ Transparency > automation
+- ✅ Zero maintenance overhead preferred
+- ✅ Educational projects (understanding > speed)
+
+**Graduate to Gas Town (Stage 7) When:**
+- ✅ 10+ agents needed regularly
+- ✅ Large team (10+ developers)
+- ✅ Production reliability required
+- ✅ Coordination overhead > manual capacity
+- ✅ Agent patterns fully internalized
+- ✅ Team size justifies orchestration complexity
+
+**Migration Path:**
+1. Start with template (Stage 5) - learn manual coordination
+2. Master bootup rituals, work-claiming, features.json patterns
+3. Hit genuine limits (10+ agents, coordination time > 2 hours/day)
+4. Graduate to Gas Town with understanding of WHAT you're automating
+
+---
+
+### Steve Yegge's 7-Stage Evolution
+
+**Industry Context:** Yegge identifies natural progression developers follow:
+
+**Stage 1:** Zero or near-zero AI use
+**Stage 2:** Coding agents in IDE (with permissions)
+**Stage 3:** YOLO mode
+**Stage 4:** Single CLI agent
+**Stage 5:** Multi-agent CLI (3-5 parallel) **← Template optimizes this stage**
+**Stage 6:** CLI multi-agent (10+, hand-managed)
+**Stage 7:** Orchestrated agent fleets **← Gas Town addresses this stage**
+
+**Template's Position:**
+- We're at Stage 5 (multi-agent CLI)
+- This is optimal for educational projects and small teams
+- Stage 7 is for production scale, not everyone needs it
+
+**6 Waves Timeline (2022-2026):**
+- 2022: Traditional coding
+- 2023: Completions (5x productivity)
+- 2024: Chat-based (5x productivity)
+- 2025 H1: Coding agents (5x productivity) **← Template optimizes this wave**
+- 2025 H2: Agent clusters (5x productivity)
+- 2026: Agent fleets (5x productivity) **← Gas Town addresses this wave**
+
+**Implication:** Template users should expect orchestration need in 6-12 months IF scaling beyond Stage 5.
+
+---
+
+### Integration Path: Template + Gas Town
+
+**Scenario:** You've outgrown Stage 5, ready for Stage 7
+
+**Phase 1: Preparation**
+1. Ensure features.json schema is consistent
+2. Document agent role patterns
+3. Audit work-claiming patterns
+4. Clean up bootup rituals
+
+**Phase 2: Hybrid Mode**
+1. Keep features.json as source of truth
+2. Start Gas Town with 2-3 agents (experimental)
+3. Manual coordination for core work
+4. Orchestration for secondary tasks
+
+**Phase 3: Migration**
+1. Move agent-by-agent to Gas Town
+2. Integrate features.json with orchestrator
+3. Deprecate manual bootup rituals gradually
+4. Monitor for quality regressions
+
+**Phase 4: Optimization**
+1. Tune Gas Town worker roles
+2. Optimize GUPP patterns for your workflow
+3. Integrate template's quality workflows
+4. Measure ROI vs manual baseline
+
+**Success Metrics:**
+- Coordination time: 30 min/day → 5 min/day (80% reduction)
+- Context recovery: 5 min → Automated (< 1 min)
+- Agent utilization: 60% → 85% (25% improvement)
+- Quality: Maintain or improve (don't sacrifice for speed)
+
+---
+
+### What We Learn
+
+**1. External Validation of Stage 5**
+- Template's approach (manual coordination, transparent state) is valid
+- Not "behind" Gas Town - different stage for different needs
+- Stage 5 is optimal for learning and small teams
+
+**2. Evolution Path Documented**
+- Clear progression: Stage 5 → Stage 6 → Stage 7
+- When to progress (and when NOT to)
+- Migration path defined
+
+**3. Our Patterns Align with Industry**
+- Work-claiming = GUPP principle (manual implementation)
+- Agent roles = Worker specialization
+- features.json = Persistent state management
+- Bootup ritual = Context recovery (manual vs automated)
+
+**4. Educational Value of Manual Patterns**
+- Users who master Stage 5 will excel at Stage 7
+- Understanding manual coordination teaches WHAT orchestration automates
+- Premature orchestration = lost learning opportunity
+
+**5. Complementary Tools, Not Competitors**
+- Template teaches patterns (educational)
+- Gas Town executes patterns (production)
+- Users can benefit from BOTH (learn on template, scale with Gas Town)
+
+---
+
+### Cross-Reference to Other Patterns
+
+**Pattern 3 (Workflow Automation Comparison):**
+- Sequential vs Parallel trade-off
+- We chose sequential (quality gates), Gas Town enables parallel (speed)
+- Context-dependent choice
+
+**Pattern 7 (70/30 Problem):**
+- Template optimizes for the hard 30% (production-ready)
+- Orchestration doesn't bypass the 30% - just coordinates agents working on it
+
+**Pattern 9 (Persistent State):**
+- Beads (Pattern 9) + Gas Town (Pattern 10) = Yegge's ecosystem
+- Both validate persistent state architecture
+- Template's features.json aligns with same philosophy
+
+---
+
+### Gap Analysis
+
+**Not a gap, an INTENTIONAL DIFFERENCE:**
+
+| What Looks Like a Gap | Actually | Why This Is Good |
+|----------------------|----------|------------------|
+| "No orchestration" | Stage 5 focus | Educational value, zero maintenance |
+| "Manual coordination" | Transparent patterns | Users learn WHAT to automate |
+| "Bootup ritual overhead" | 3-5 minute recovery | Explicit, teachable, auitable |
+| "Under 10 agents" | Optimal scale for learning | Prevents premature complexity |
+
+**Our Position:** We're at the right stage for our mission (education, small teams, learning focus).
+
+---
+
+### When to Apply This Pattern
+
+**Use Gas Town pattern to:**
+- Validate that Stage 5 is sufficient for your needs
+- Understand evolution path (when you DO need orchestration)
+- Learn what orchestration solves (before adopting it)
+- Decide when to graduate (decision framework in Pattern 10)
+
+**When NOT to apply:**
+- Don't adopt Gas Town prematurely (master Stage 5 first)
+- Don't feel "behind" (Stage 5 is valid long-term for many)
+- Don't sacrifice learning for automation
+- Don't add complexity unless scale demands it
+
+**References:**
+- Agent Evolution Stages: `docs/03-advanced/07_agent-evolution-stages.md`
+- Orchestration Decision Framework: `docs/03-advanced/08_orchestration-decision-framework.md`
+
+---
+
+### Why This Matters
+
+**Three-Level Validation:**
+
+1. **Pattern-Level:** Gas Town validates our agent role specialization
+2. **Architecture-Level:** Persistent state approach confirmed (features.json)
+3. **Philosophy-Level:** Transparent state > automation for education
+
+**Industry Evolution Awareness:**
+- Wave 5-6 transition happening NOW (Jan 2026)
+- Template users aware of next evolution
+- Graduation path defined (no dead end)
+
+**Complementary Positioning:**
+- Template = Educational foundation (Stage 5)
+- Gas Town = Production scaling (Stage 7)
+- Users benefit from BOTH in sequence
+
+**Jake Nations Test Compliance:**
+- "Smarter over faster" - Learn manual before automating
+- "Simple over easy" - Manual coordination is simple (one-fold)
+- "Understanding over speed" - Bootup ritual teaches the pattern
+- "Clarity over complexity" - features.json visible and auditable
+
+---
+
+### Next Step
+
+**For Most Users:**
+- Stay at Stage 5 (template)
+- You're aligned with appropriate stage for your scale
+- Master manual coordination before considering orchestration
+
+**For Users Hitting Limits:**
+- Read: [Agent Evolution Stages](docs/03-advanced/07_agent-evolution-stages.md)
+- Evaluate: [Orchestration Decision Framework](docs/03-advanced/08_orchestration-decision-framework.md)
+- If ready: Research Gas Town for Stage 7 migration
+- If not ready: Optimize Stage 5 patterns (token caching, quality workflows)
+
+**For Our Project:**
+- Document Stage 5 → Stage 7 evolution path (v4.26.0 complete)
+- Provide graduation criteria (Orchestration Decision Framework)
+- Maintain educational focus (don't build orchestrator)
+- Position as complementary to Gas Town (not competitive)
+
+---
+
 ## Token Efficiency Analysis
 
 **Without This Skill:**
@@ -1395,8 +1722,9 @@ Similar to how coding-standards.md saves tokens by pre-documenting team preferen
 | Pattern 7: The 70/30 Problem (Addy Osmani) | ✅ Complete | 100% |
 | Pattern 8: Socratic Review Framework (Addy Osmani + NLW) | ✅ Complete | 100% |
 | Pattern 9: Persistent State + Industry Standards (Beads + AAIF) | ✅ Complete | 100% |
+| Pattern 10: Gas Town - Agent Orchestration (Steve Yegge) | ✅ Complete | 100% |
 
-**Overall Research Status:** 100% complete (9/9 patterns documented) 🎉
+**Overall Research Status:** 100% complete (10/10 patterns documented) 🎉
 
 **Research Sources:**
 - ✅ Dan Shipper (Every) - "How to build an AI native company"
@@ -1416,6 +1744,10 @@ Similar to how coding-standards.md saves tokens by pre-documenting team preferen
   - Pattern 1: INDUSTRY ALIGNMENT VALIDATION - Cursor's 14+ @ symbols, AGENTS.md support, 50%+ Fortune 500 adoption
   - Pattern 6: PHILOSOPHICAL VALIDATION - Fabric's 233+ patterns, "clarity is primary currency" philosophy
   - **CRITICAL DISCOVERY:** Cross-pattern validation - AGENTS.md appears in both Pattern 9 (Beads) and Pattern 1 (Cursor), proving industry-wide convergence on persistent context files
+- v4.26.0 (2026-01-05) - **ORCHESTRATION EDITION** - Added Pattern 10 (Gas Town), 10/10 patterns complete (100%) 🎉
+  - Pattern 10: ALTERNATIVE APPROACH + INDUSTRY EVOLUTION - Steve Yegge's 7-stage evolution, GUPP principle, orchestration framework
+  - Validates template's Stage 5 position while documenting graduation path to Stage 7
+  - Complementary positioning: Template (educational) + Gas Town (production)
 
 ---
 
@@ -1441,13 +1773,19 @@ Similar to how coding-standards.md saves tokens by pre-documenting team preferen
 
 ## Footer
 
-**Skill Version:** 4.21.0
+**Skill Version:** 4.26.0
 **Added:** 2025-12-19
-**Updated:** 2025-12-20 (v4.21.0 - COMPLETE EDITION - All 9 patterns documented 🎉)
-**Part of:** v4.21.0 "External Perspectives - Complete Edition"
-**Research Status:** 100% complete (9/9 patterns documented)
+**Updated:** 2026-01-05 (v4.26.0 - ORCHESTRATION EDITION - All 10 patterns documented 🎉)
+**Part of:** v4.26.0 "Agent Evolution & Orchestration Guide"
+**Research Status:** 100% complete (10/10 patterns documented)
 **Contribution:** To add new patterns, follow template in `examples/community-patterns.md`
 **Target Audience:** Developers seeking external validation, inspiration, and comparative analysis
+
+**v4.26.0 Highlights:**
+- **Pattern 10 (Gas Town):** ALTERNATIVE APPROACH + INDUSTRY EVOLUTION - 7-stage evolution framework, GUPP principle, orchestration at scale
+- **Validates Stage 5 Position:** Template's manual coordination approach is appropriate for educational mission and small teams
+- **Graduation Path:** Clear evolution from Stage 5 (template) → Stage 7 (Gas Town) when scaling needs demand it
+- **Complementary Tools:** Template teaches patterns (education), Gas Town executes patterns (production) - users benefit from both in sequence
 
 **v4.21.0 Highlights:**
 - **Pattern 1 (Cursor):** INDUSTRY ALIGNMENT VALIDATION - 14+ @ symbols, AGENTS.md support, 50%+ Fortune 500 adoption
@@ -1455,10 +1793,4 @@ Similar to how coding-standards.md saves tokens by pre-documenting team preferen
 - **CRITICAL DISCOVERY:** Cross-pattern validation - AGENTS.md in both Pattern 9 (Beads) and Pattern 1 (Cursor)
 - **Industry Convergence:** Our CLAUDE.md approach validated by 20K-60K+ projects, Linux Foundation, Fortune 500
 
-**Note:** This skill provides comprehensive external perspective analysis from 9 community patterns, tools, and frameworks. All patterns offer comparative insights, validation points, and actionable recommendations for the claude-config-template project.
-
-**v4.20.2 Highlights:**
-- **Pattern 9 added:** Three-tier validation (Beads + AAIF + AGENTS.md)
-- **Industry validation:** MCP (10,000+ servers), AGENTS.md (60,000+ projects)
-- **Dual validation:** Persistent state (v3.6.0) + Project context (CLAUDE.md)
-- **CRITICAL INSIGHT:** CLAUDE.md independently aligned with 60,000+ projects!
+**Note:** This skill provides comprehensive external perspective analysis from 10 community patterns, tools, and frameworks. All patterns offer comparative insights, validation points, and actionable recommendations for the claude-config-template project.

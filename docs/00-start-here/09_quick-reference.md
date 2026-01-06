@@ -2506,6 +2506,104 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 
 ---
 
+## Agent Orchestration (v4.26.0)
+
+**Purpose:** Understand when to orchestrate agents vs. when manual coordination is sufficient.
+
+**Steve Yegge's 7 Stages:**
+1. Zero or near-zero AI use
+2. Coding agents in IDE (with permissions)
+3. YOLO mode
+4. Single CLI agent
+5. **Multi-agent CLI (3-5 parallel) ← Template is here**
+6. CLI multi-agent (10+, hand-managed)
+7. Orchestrated agent fleets (Gas Town, etc.)
+
+**Template Philosophy:**
+- **Stage 5 focus:** Multi-agent CLI with manual coordination
+- **Transparent state:** features.json visible, auditable, version-controlled
+- **Understanding over speed:** Learn manual patterns before automating
+- **Educational mission:** Teach orchestration, don't build orchestrator
+
+**When to Stay at Stage 5 (Template):**
+- Learning agent patterns (educational priority)
+- Under 5 agents in regular use
+- Small team or solo developer
+- Transparency > automation
+
+**When to Graduate to Stage 6-7 (Orchestration):**
+- 10+ agents needed regularly
+- Coordination overhead > manual capacity
+- Production reliability required
+- Agent patterns fully internalized
+
+**Work-Claiming Pattern (GUPP-Inspired):**
+```json
+{
+  "workClaiming": {
+    "claimedBy": "coder",
+    "claimedAt": "2026-01-05T14:30:00Z",
+    "claimDuration": "45"
+  },
+  "agentLog": [
+    {
+      "agentName": "coder",
+      "action": "claimed",
+      "timestamp": "2026-01-05T14:30:00Z",
+      "confidence": 0.85,
+      "notes": "Starting implementation"
+    }
+  ]
+}
+```
+
+**Benefits:**
+- ✅ No duplicate work (agents see `claimedBy` and skip)
+- ✅ Progress visibility (who's working on what)
+- ✅ Historical tracking (agentLog shows all interactions)
+- ✅ GUPP compliance (agents run available work)
+
+**Gas Town (Stage 7 Orchestration):**
+- **What:** Agent orchestration framework by Steve Yegge
+- **Features:** GUPP principle, Beads (persistent identities), 7 worker roles
+- **When:** 10+ agents, production scale, coordination overhead high
+- **Link:** https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04
+
+**Decision Framework:**
+- **4-Question Test:**
+  1. Am I managing 5+ agents regularly? (No → Don't orchestrate)
+  2. Is coordination time > agent work time? (No → Don't orchestrate)
+  3. Am I hitting context limits across ALL agents? (No → Don't orchestrate)
+  4. Have I mastered manual coordination? (No → Don't orchestrate)
+
+**Complementary Tools:**
+- Template = Educational foundation (teach patterns)
+- Gas Town = Production scaling (execute patterns)
+- Users benefit from BOTH in sequence (learn → scale)
+
+**Files:**
+- [Agent Evolution Stages](../03-advanced/07_agent-evolution-stages.md) - 7-stage framework with self-assessment
+- [Orchestration Decision Framework](../03-advanced/08_orchestration-decision-framework.md) - When to orchestrate vs YAGNI
+- [External Perspectives Pattern 10](.claude/skills/external-perspectives/SKILL.md) - Gas Town validation
+- [features.json v2.0 Schema](../../templates/features.json.template) - Work-claiming fields
+- [Coder Agent](../../.claude/agents/coder.md) - Work-claiming protocol
+
+**Industry Context:**
+- Wave 5-6 transition: Agent clusters → agent fleets (2025-2026)
+- Template optimizes Wave 5 (coding agents, 2025 H1)
+- Gas Town addresses Wave 6 (agent fleets, 2026)
+- 5x productivity improvement per wave
+
+**Jake Nations Test Compliance:**
+- ✅ Smarter over faster (learn manual before automating)
+- ✅ Simple over easy (manual coordination is one-fold)
+- ✅ Understanding over speed (bootup ritual teaches pattern)
+- ✅ Clarity over complexity (features.json visible)
+
+**Keywords:** agent orchestration, gas town, steve yegge, gupp, work-claiming, multi-agent, stage 5, wave 5-6, beads, persistent identities, worker roles, coordination, graduation criteria, yagni, understanding over speed
+
+---
+
 ## Navigation
 
 **🏠 [Back to README](README.md)** | **🗺️ [Choose Your Path](START_HERE.md)** | **⚡ [5-Minute Win](docs/5_MINUTE_SUCCESS.md)**

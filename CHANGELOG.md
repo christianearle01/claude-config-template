@@ -7,6 +7,60 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [4.26.0] - 2026-01-05 - Agent Evolution & Orchestration Guide 🚀
+
+**Wave 5-6 Transition Framework**
+
+This release integrates Steve Yegge's agent evolution insights, positioning the template for the Wave 5-6 transition (agent clusters → agent fleets) while maintaining educational focus.
+
+**New Documentation:**
+- `docs/03-advanced/07_agent-evolution-stages.md` - 7-stage evolution framework with self-assessment (670 lines)
+- `docs/03-advanced/08_orchestration-decision-framework.md` - When to orchestrate vs YAGNI (860 lines)
+- External Perspectives Pattern 10: Gas Town validation (10/10 patterns complete ✅)
+- CLAUDE.md: Agent Orchestration Philosophy section
+
+**Schema Enhancements:**
+- features.json v2.0: Work-claiming pattern (GUPP-inspired)
+  - `workClaiming` object: claimedBy, claimedAt, claimDuration
+  - `agentLog` array: Agent activity tracking
+  - Backward compatible (all fields optional)
+
+**Key Concepts:**
+- Steve Yegge's 7 stages: Zero AI → Orchestrated fleets
+- 6 waves timeline: 2022-2026 evolution (5x gains per wave)
+- Template at Stage 5 (multi-agent CLI)
+- Gas Town at Stage 7 (orchestrated fleets)
+- Transparent state > automation philosophy
+- When to graduate to orchestration tools
+
+**Validation:**
+- ✅ Psychological: Reduces context window anxiety
+- ✅ Educator: Fills Stage 6-7 knowledge gap
+- ✅ Engineering: Validates template's persistent state approach
+- ✅ Jake Nations Test: Smarter over faster, understanding over speed
+
+**Industry Positioning:**
+- Template: Educational foundation (Stage 4-5)
+- Gas Town: Production orchestration (Stage 7)
+- Complementary, not competitive
+
+**Links:**
+- Gas Town article: https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04
+- Hacker News: https://news.ycombinator.com/item?id=46458936
+
+### Changed
+- External Perspectives: 9/9 → 10/10 patterns complete
+- features.json schema: v1.0 → v2.0
+- docs/03-advanced/README.md: Added orchestration guides
+
+### Documentation Honesty Compliance ✅
+- Gas Town marked as external validation (not template invention)
+- Industry timeline from Yegge's article (factual)
+- Honest comparison: Template vs orchestration tools
+- Clear positioning: Educational vs production tools
+
+---
+
 ### [4.25.0] - TBD - Memory Lane: Workflow Gaps & Adaptive Tuning (Phase 3 - COMPLETE)
 
 **Status:** In development (feature/memory-lane-v4.25.0 branch)

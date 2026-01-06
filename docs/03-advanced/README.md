@@ -72,6 +72,8 @@ Skill (expertise) + MCP (data/tools) + Sub-agent (orchestration)
 2. **[Sub-agent Best Practices](SUBAGENT_BEST_PRACTICES.md)** - Task-focused agents (10 min)
 3. **[Conversation Branching](CONVERSATION_BRANCHING.md)** - Context management (5 min)
 4. **[Vision Optimization](VISION_OPTIMIZATION.md)** - Multimodal efficiency (5 min)
+5. **[Agent Evolution Stages](07_agent-evolution-stages.md)** ⭐ - Steve Yegge's 7-stage framework (20 min)
+6. **[Orchestration Decision Framework](08_orchestration-decision-framework.md)** ⭐ - When to orchestrate vs YAGNI (15 min)
 
 ---
 

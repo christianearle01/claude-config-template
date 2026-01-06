@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-21
-**Version:** v4.22.0
+**Version:** v4.26.0
 
 ---
 
@@ -159,6 +159,78 @@ Quality improves with better context: codebase + organizational standards + PR h
 **Impact:** Testing doubles trust in AI code, 47% review productivity gain, 66% reduction in security incidents, quality concerns 67% → 20% (projected, based on industry research)
 
 **Learn more:** `docs/00-start-here/11_quality-workflows.md`
+
+---
+
+## Agent Orchestration Philosophy (v4.26.0) ✅
+
+**Status:** Documented in v4.26.0 - Educational framework for Wave 5-6 transition
+
+**Context:** Steve Yegge's "Welcome to Gas Town" identifies agent orchestration as the next evolution (Wave 5-6: agent clusters → agent fleets). This template provides educational foundation for understanding when orchestration is needed.
+
+### Template's Position: Stage 5 (Multi-Agent CLI)
+
+**Where We Are:**
+- 10 specialized agents (coder, initializer, quality-reviewer, project-planner, etc.)
+- Point-to-point handoffs (not mesh orchestration)
+- features.json + bootup ritual (persistent state management)
+- Work-claiming pattern (GUPP-inspired coordination)
+
+**Where Orchestration Lives: Stage 6-7**
+- 10+ hand-managed agents (Stage 6)
+- Automated orchestration (Stage 7 - Gas Town, etc.)
+
+### Transparent State Over Automation
+
+**Template Philosophy:**
+- **Educational mission:** Teach patterns, don't hide complexity
+- **Transparent state:** features.json visible, auditable, version-controlled
+- **Understanding over speed:** Users learn agent coordination manually before automating
+
+**Why This Matters:**
+- Jake Nations Test: "Smarter over faster"
+- Users who understand manual coordination can better use orchestration tools
+- Premature orchestration = loss of learning opportunity
+
+### When to Graduate to Orchestration
+
+**Stay at Stage 5 (Template) When:**
+- Learning agent patterns (educational priority)
+- Under 5 agents in regular use
+- Small team or solo developer
+- Understanding still building
+
+**Graduate to Stage 6-7 (Gas Town, etc.) When:**
+- 10+ agents needed regularly
+- Coordination overhead > manual capacity
+- Production reliability required
+- Agent patterns fully internalized
+
+### Complementary Tools
+
+**Template is NOT:**
+- An orchestrator (no automation layer)
+- A replacement for Gas Town (different purposes)
+- Production-ready for large agent fleets
+
+**Template IS:**
+- Educational foundation for agent patterns
+- Configuration template for Claude Code
+- Bridge from Stage 4 (single agent) → Stage 5 (multi-agent)
+- Decision framework for when to orchestrate
+
+### Integration with Orchestration Tools
+
+**Gas Town + Template:**
+- Use template's features.json schema
+- Apply template's agent role patterns
+- Graduate when orchestration needed
+- See: `docs/03-advanced/08_orchestration-decision-framework.md`
+
+**Learn more:**
+- Agent Evolution Stages: `docs/03-advanced/07_agent-evolution-stages.md`
+- Orchestration Decision Framework: `docs/03-advanced/08_orchestration-decision-framework.md`
+- External Perspectives Pattern 10: `.claude/skills/external-perspectives/SKILL.md`
 
 ---
 
