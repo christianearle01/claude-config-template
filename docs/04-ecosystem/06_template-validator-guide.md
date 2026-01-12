@@ -393,7 +393,7 @@ validate-templates:
 
 ## Related Documentation
 
-- **Template Gallery:** See which templates are available → [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
+- **Template Gallery:** See which templates are available → [Template Gallery Guide](../02-optimization/08_template-gallery-guide.md)
 - **Template Inheritance:** Understanding `extends` field → Search "Template Inheritance" in QUICK_REFERENCE
 - **Template Parameters:** Understanding parameterization → Search "Template Parameters" in QUICK_REFERENCE
 - **Creating Templates:** How to create your own templates → Search "Preference Templates" in QUICK_REFERENCE
@@ -402,6 +402,6 @@ validate-templates:
 
 ## Navigation
 
-- **Previous:** [Third-Party MCPs Guide](../03-advanced/THIRD_PARTY_MCPS.md)
-- **Next:** [Plugins Guide](../03-advanced/PLUGINS_GUIDE.md)
+- **Previous:** [Third-Party MCPs Guide](../03-advanced/05_third-party-mcps.md)
+- **Next:** [Plugins Guide](../03-advanced/04_plugins-guide.md)
 - **Up:** [Documentation Hub](../README.md)

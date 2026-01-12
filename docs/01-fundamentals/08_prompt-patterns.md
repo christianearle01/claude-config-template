@@ -178,7 +178,7 @@ Requirements for output:
 **Example (Documentation):**
 
 ```
-Write documentation for the `/test` slash command in this project.
+Write documentation for the `/test` skill in this project.
 
 Requirements for output:
 - Format: Markdown with code blocks

@@ -389,5 +389,5 @@ A: No, only for significant explorations. Over-branching creates overhead.
 ---
 
 **See also:**
-- [Vision Optimization](VISION_OPTIMIZATION.md) - Multimodal efficiency
-- [Keyboard Shortcuts](../01-fundamentals/KEYBOARD_SHORTCUTS.md) - Shift+Click and other shortcuts
+- [Vision Optimization](05_vision-optimization.md) - Multimodal efficiency
+- [Keyboard Shortcuts](../01-fundamentals/04_keyboard-shortcuts.md) - Shift+Click and other shortcuts

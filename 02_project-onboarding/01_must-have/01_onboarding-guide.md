@@ -121,7 +121,7 @@ Ask Claude Code to look for:
 
 ---
 
-## Step 4: Customize Slash Commands (5 minutes)
+## Step 4: Customize Skills (5 minutes)
 
 The template provides universal commands. Customize them with project-specific details:
 
@@ -642,7 +642,7 @@ After completing this onboarding:
 1. **Test Claude Code** - Ask it questions about your project
 2. **Refine CLAUDE.md** - Add details as you discover them
 3. **Use workflow-analyzer** - Scan your workflow after 10-15 commits to identify optimization opportunities
-4. **Create Custom Commands** - Add project-specific slash commands (or graduate to natural language!)
+4. **Create Custom Commands** - Add project-specific skills (or graduate to natural language!)
 5. **Share with Team** - Commit .claude/ and CLAUDE.md to version control
 
 ---

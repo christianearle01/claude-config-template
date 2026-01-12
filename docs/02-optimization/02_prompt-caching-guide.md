@@ -435,6 +435,6 @@ A: Not directly, but you can infer from token usage (lower tokens = cache hit).
 ---
 
 **See also:**
-- [MCP Optimization](MCP_OPTIMIZATION_GUIDE.md) - Selective MCP loading
+- [MCP Optimization](03_mcp-optimization-guide.md) - Selective MCP loading
 - [Environment Variables](ENVIRONMENT_VARIABLES.md) - Complete env var reference
-- [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - Context protection via Skills
+- [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) - Context protection via Skills

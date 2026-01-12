@@ -438,17 +438,17 @@ Total: $0.21
 
 ### Quick Starts:
 
-**5 minutes:** [Try the demo](5_MINUTE_SUCCESS.md)
+**5 minutes:** [Try the demo](03_5-minute-success.md)
 - See 99% token savings demonstrated
 - Minimal time investment
 - Clear value proposition
 
-**15-30 minutes:** [Quick Setup](../START_HERE.md#quick-setup-user)
+**15-30 minutes:** [Quick Setup](../personas/README.md#quick-setup-user)
 - Full project configuration
 - Immediate productivity boost
 - Quick ROI
 
-**60-90 minutes:** [First-Time Learner](../START_HERE.md#first-time-learner)
+**60-90 minutes:** [First-Time Learner](../personas/README.md#first-time-learner)
 - Complete understanding
 - Long-term competence
 - Teach others on your team
@@ -470,7 +470,7 @@ We'd love to hear how this template helped you:
 
 ## Navigation
 
-**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Path](../START_HERE.md)** | **⚡ [Get Started](5_MINUTE_SUCCESS.md)**
+**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Path](../personas/README.md)** | **⚡ [Get Started](03_5-minute-success.md)**
 
 ---
 

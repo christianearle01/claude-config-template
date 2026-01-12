@@ -24,7 +24,7 @@ Learn how to optimize Claude Code for maximum efficiency and minimum cost.
 - Agent-level model configuration
 - **Savings:** 24% overall token reduction (projected)
 
-**[MCP Optimization Guide](MCP_OPTIMIZATION_GUIDE.md)**
+**[MCP Optimization Guide](03_mcp-optimization-guide.md)**
 - Selectively enable/disable MCP servers
 - Official configuration fields (validated)
 - Token impact: 50-100 tokens per MCP

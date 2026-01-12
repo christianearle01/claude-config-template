@@ -22,6 +22,7 @@
 
 **→ [01-Fundamentals](01-fundamentals/)**
 - [Skills Paradigm](01-fundamentals/02_skills-paradigm.md) - Commands → Agents → Skills
+- [Rules Directory Guide](01-fundamentals/05_rules-directory-guide.md) - Modular rule management (v4.27.0)
 - [Prompting Fundamentals](01-fundamentals/07_prompting-fundamentals.md) - How AI actually works
 - [Prompt Patterns](01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates
 - [Decision Framework](01-fundamentals/09_decision-framework.md) - WHEN to use WHAT tool (v4.18.0)
@@ -38,8 +39,8 @@
 **→ [02-Optimization](02-optimization/)**
 - [Prompt Caching Guide](02-optimization/02_prompt-caching-guide.md) - Automatic 400-600 token savings
 - [MCP Optimization](02-optimization/03_mcp-optimization-guide.md) - Selective loading
+- [Environment Variables Guide](02-optimization/06_environment-variables.md) - Claude Code 2.1+ configuration (v4.27.0)
 - [Integration Patterns](02-optimization/06_integration-patterns.md) - How tools work together (v4.18.0)
-- [Environment Variables](02-optimization/04_environment-variables.md) - Official configuration
 
 **Time:** 30 minutes
 **Outcome:** Save 50-95% on tokens, faster responses, effective tool combinations

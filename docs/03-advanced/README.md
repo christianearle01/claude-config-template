@@ -10,27 +10,27 @@ Master advanced Claude Code features for autonomous workflows and maximum produc
 
 ### 🚀 Advanced Workflows
 
-**[Advanced MCP Workflows](ADVANCED_MCP_WORKFLOWS.md)**
+**[Advanced MCP Workflows](04_advanced-mcp-workflows.md)**
 - Supabase MCP integration (database operations)
 - Playwright MCP (autonomous UI testing)
 - Skills orchestrating multiple MCPs
 - The "highest tier" workflow pattern
 - **Example:** UI testing chain (Skill + Playwright + Sub-agent)
 
-**[Sub-Agent Best Practices](SUBAGENT_BEST_PRACTICES.md)**
+**[Sub-Agent Best Practices](02_subagent-best-practices.md)**
 - "Tasks not Roles" principle
 - Sub-agent architecture (context, prompts, permissions)
 - Examples: code-reviewer, ui-tester, documentation-generator
 - ❌ BAD: "frontend-developer" (too broad)
 - ✅ GOOD: "react-component-optimizer" (specific task)
 
-**[Conversation Branching](CONVERSATION_BRANCHING.md)**
+**[Conversation Branching](06_conversation-branching.md)**
 - Shift+Click branching feature
 - When to explore alternatives
 - Token impact: prevents context pollution
 - Can save 50K+ tokens over project lifetime
 
-**[Vision Optimization](VISION_OPTIMIZATION.md)**
+**[Vision Optimization](05_vision-optimization.md)**
 - When to use images vs. text descriptions
 - Token comparison: 500-word description vs. image upload
 - Examples: architecture diagrams, error screenshots
@@ -68,10 +68,12 @@ Skill (expertise) + MCP (data/tools) + Sub-agent (orchestration)
 
 ## Recommended Reading Order
 
-1. **[Advanced MCP Workflows](ADVANCED_MCP_WORKFLOWS.md)** - Multi-tool orchestration (20 min)
-2. **[Sub-agent Best Practices](SUBAGENT_BEST_PRACTICES.md)** - Task-focused agents (10 min)
-3. **[Conversation Branching](CONVERSATION_BRANCHING.md)** - Context management (5 min)
-4. **[Vision Optimization](VISION_OPTIMIZATION.md)** - Multimodal efficiency (5 min)
+1. **[Advanced MCP Workflows](04_advanced-mcp-workflows.md)** - Multi-tool orchestration (20 min)
+2. **[Sub-agent Best Practices](02_subagent-best-practices.md)** - Task-focused agents (10 min)
+3. **[Conversation Branching](06_conversation-branching.md)** - Context management (5 min)
+4. **[Vision Optimization](05_vision-optimization.md)** - Multimodal efficiency (5 min)
+5. **[Agent Evolution Stages](07_agent-evolution-stages.md)** ⭐ - Steve Yegge's 7-stage framework (20 min)
+6. **[Orchestration Decision Framework](08_orchestration-decision-framework.md)** ⭐ - When to orchestrate vs YAGNI (15 min)
 
 ---
 

@@ -10,7 +10,7 @@ Learn the foundational skills and concepts that separate successful Claude Code 
 
 ### 📚 Core Concepts
 
-**[Skills Paradigm](SKILLS_PARADIGM.md)**
+**[Skills Paradigm](02_skills-paradigm.md)**
 - The evolution: Commands → Agents → **Skills**
 - How Skills protect context and enable transferable knowledge
 - Real-world use cases (DB optimization, UI testing, team governance)
@@ -19,14 +19,14 @@ Learn the foundational skills and concepts that separate successful Claude Code 
 
 ### 🔍 Essential Tools
 
-**[Verification & Debugging](VERIFICATION_DEBUGGING.md)**
+**[Verification & Debugging](05_verification-debugging.md)**
 - Ctrl+O: The trust mechanism (MANDATORY)
 - How to spot fake actions
 - Code review workflow
 - Fundamentals checklist
 - **Quote:** "You have to read everything"
 
-**[Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md)**
+**[Keyboard Shortcuts](04_keyboard-shortcuts.md)**
 - Ctrl+O as MANDATORY (prevents fake actions)
 - # hash for quick memory adds
 - Progressive learning path (Week 1-2 → Month 3+)
@@ -52,9 +52,9 @@ These concepts are the foundation of maintainable AI-assisted coding:
 
 ## Recommended Reading Order
 
-1. **[Skills Paradigm](SKILLS_PARADIGM.md)** - Understand the evolution (15 min)
-2. **[Verification & Debugging](VERIFICATION_DEBUGGING.md)** - Learn Ctrl+O workflow (15 min)
-3. **[Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md)** - Essential patterns (10 min)
+1. **[Skills Paradigm](02_skills-paradigm.md)** - Understand the evolution (15 min)
+2. **[Verification & Debugging](05_verification-debugging.md)** - Learn Ctrl+O workflow (15 min)
+3. **[Keyboard Shortcuts](04_keyboard-shortcuts.md)** - Essential patterns (10 min)
 
 ---
 

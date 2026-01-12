@@ -26,7 +26,7 @@ grep "Version:" CLAUDE.md
 
 **What it updates:**
 - ✅ Custom agents (.claude/agents/)
-- ✅ Slash commands (.claude/commands/)
+- ✅ Skills (.claude/commands/)
 - ✅ Settings template references
 - ❌ Preserves: Your CLAUDE.md, memory.json, plans/
 
@@ -45,7 +45,7 @@ Claude, help me update my project's setup from the claude-config-template.
 
 Please compare:
 - Custom agents (.claude/agents/)
-- Slash commands (.claude/commands/)
+- Skills (.claude/commands/)
 - CLAUDE.md structure
 - Settings (.claude/settings.json)
 
@@ -63,7 +63,7 @@ I'll analyze your project against the template. Here's what I found:
 - ✨ NEW: prompt-polisher.md - Enhanced prompt optimization (v2.4.0)
 - 📝 UPDATED: project-planner.md - Added 6-perspective analysis
 
-### Slash Commands
+### Skills
 - ✨ NEW: /review - Code review command
 - ✨ NEW: /standards - Quick reference to coding standards
 
@@ -297,7 +297,7 @@ cp -r /path/to/template/.claude/agents/* .claude/agents/
 cp -n /path/to/template/.claude/agents/* .claude/agents/
 ```
 
-#### 3. Update Slash Commands
+#### 3. Update Skills
 ```bash
 # Copy new/updated commands
 cp -r /path/to/template/.claude/commands/* .claude/commands/
@@ -333,7 +333,7 @@ cp /path/to/template/.claude/agents/prompt-polisher.md .claude/agents/
 diff .claude/agents/prompt-polisher.md.backup .claude/agents/prompt-polisher.md
 ```
 
-### Scenario 3: Add New Slash Command
+### Scenario 3: Add New Skill
 ```bash
 # Example: Add /review command
 cp /path/to/template/.claude/commands/review.md .claude/commands/
@@ -354,14 +354,14 @@ cat templates/CLAUDE.md.template | grep "^##"
 
 ### ✅ Safe to Update (No Data Loss)
 - Custom agents (unless you customized them)
-- Slash commands (unless you customized them)
+- Skills (unless you customized them)
 - Settings template structure
 - Hook examples
 
 ### ⚠️ Review Before Updating
 - .claude/settings.json (may have your customizations)
 - Custom agents you've modified
-- Slash commands you've customized
+- Skills you've customized
 
 ### ❌ Never Overwrite
 - CLAUDE.md (your project memory)

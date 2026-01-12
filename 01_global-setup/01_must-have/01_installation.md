@@ -593,7 +593,7 @@ cat ~/.claude/settings.json
 ### Project-Specific (Do This for Each Project)
 - ⏭️ Copy .claude/ directory to project
 - ⏭️ Create project CLAUDE.md (business context!)
-- ⏭️ Set up project-specific slash commands
+- ⏭️ Set up project-specific skills
 - ⏭️ Add project-specific MCP servers (database, Context7)
 - ⏭️ Document project conventions
 

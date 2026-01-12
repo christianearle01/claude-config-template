@@ -492,5 +492,5 @@ source ~/.bashrc
 
 **See also:**
 - [Prompt Caching](PROMPT_CACHING_GUIDE.md) - Caching environment variables
-- [MCP Optimization](MCP_OPTIMIZATION_GUIDE.md) - MCP configuration options
-- [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - Skills folder structure
+- [MCP Optimization](03_mcp-optimization-guide.md) - MCP configuration options
+- [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) - Skills folder structure

@@ -422,8 +422,8 @@ The script searches for templates in this order:
 
 ## Related Documentation
 
-- **Template Gallery:** Browse available templates → [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
-- **Template Validator:** Validate templates before applying → [Template Validator Guide](TEMPLATE_VALIDATOR_GUIDE.md)
+- **Template Gallery:** Browse available templates → [Template Gallery Guide](../02-optimization/08_template-gallery-guide.md)
+- **Template Validator:** Validate templates before applying → [Template Validator Guide](06_template-validator-guide.md)
 - **Template Inheritance (v4.1.0):** Understanding `extends` → Search "Template Inheritance" in QUICK_REFERENCE
 - **Template Parameters (v4.2.0):** Understanding parameterization → Search "Template Parameters" in QUICK_REFERENCE
 - **Import/Export (v4.0.0):** Template system foundation → Search "Import Export" in QUICK_REFERENCE
@@ -432,6 +432,6 @@ The script searches for templates in this order:
 
 ## Navigation
 
-- **Previous:** [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
+- **Previous:** [Template Gallery Guide](../02-optimization/08_template-gallery-guide.md)
 - **Next:** [Update Guide](UPDATE_GUIDE.md)
 - **Up:** [Documentation Hub](../README.md)

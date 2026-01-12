@@ -444,7 +444,7 @@ This approach is based on the **Socratic Method** (educational theory):
 - **Pattern 4: Workflow Automation Comparison** - Sequential review as intentional quality gate
 
 **Related Documentation:**
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - Common AI coding mistakes
+- `docs/01-fundamentals/05_anti-patterns.md` - Common AI coding mistakes
 - `docs/01-fundamentals/06_coding-principles-handbook.md` - Principles to reinforce through questions
 - `docs/00-start-here/09_quick-reference.md` - Git approval workflow reference
 

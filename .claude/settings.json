@@ -1,5 +1,6 @@
 {
   "model": "sonnet",
+  "respectGitignore": true,
   "alwaysThinkingEnabled": true,
   "outputStyle": "concise",
   "sandbox": {

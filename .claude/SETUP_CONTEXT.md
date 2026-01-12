@@ -21,7 +21,8 @@
 8. Template system (v4.0-v4.5) → Apply team configs with one command
 9. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.22.0
+**Current Version:** v4.27.1
+**Last Updated:** 2026-01-12
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
@@ -71,7 +72,7 @@ claude-config-template/
 ├── .claude/                       # Claude Code configuration
 │   ├── settings.json              # Optimized settings
 │   ├── agents/                    # Custom agents (7 agents)
-│   ├── commands/                  # Slash commands (5 commands)
+│   ├── commands/                  # Skills (5 commands)
 │   ├── skills/                    # Skills (personalization-engine, projects-registry, mode-selector)
 │   └── SETUP_CONTEXT.md          # This file!
 │
@@ -178,7 +179,7 @@ claude-config-template/
 - **setup-git-workflow.sh** (v2.9.0) - Git commit approval configuration
 - **sync-version.sh** (v2.8.0) - Automated version updates across files
 - **progress-bar-config.sh** (v3.1.0) - Global progress bar configuration
-- **remove-commands.sh** (v3.4.0) - Clean up old slash commands
+- **remove-commands.sh** (v3.4.0) - Clean up old skills
 - **claude-update.sh** - Update template to latest version
 
 ---
@@ -397,7 +398,7 @@ See [SETUP_OPTIONAL.md](SETUP_OPTIONAL.md) for:
 | CLAUDE.md template | templates/CLAUDE.md.template |
 | Project settings | .claude/settings.json |
 | Settings explained | .claude/settings-explained.json |
-| Slash commands | .claude/commands/*.md |
+| Skills | .claude/commands/*.md |
 | Custom agents | .claude/agents/*.md |
 | Setup wizards | scripts/wizard-*.sh |
 | Visual guides | docs/00-start-here/06_visual-guides.md |
@@ -614,7 +615,7 @@ Quality agents at every phase (planning, development, review, testing, deploymen
 
 ---
 
-## Slash Commands (3 Commands)
+## Skills (3 Commands)
 
 **Location:** .claude/commands/
 
@@ -900,7 +901,7 @@ The script checks:
 
 ## Version Information
 
-**Current:** v4.22.0 (Understanding Over Speed - Jake Nations Edition)
+**Current:** v4.27.1 (Understanding Over Speed - Jake Nations Edition)
 
 **For complete version history and release notes:**
 → See [CHANGELOG.md](../CHANGELOG.md)

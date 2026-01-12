@@ -110,7 +110,7 @@ You: # Remember: We use JWT for auth, not sessions. Token expiry is 7 days.
 
 ---
 
-**/ (Slash) - Invoke Slash Commands**
+**/ (Slash) - Invoke Skills**
 
 **What it does:**
 - Triggers custom commands you've defined
@@ -136,7 +136,7 @@ You: # Remember: We use JWT for auth, not sessions. Token expiry is 7 days.
 2. Write prompt template
 3. Use with `/command-name`
 
-**See:** [Slash Commands Guide](../../01_global-setup/03_nice-to-have/03_slash-commands.md)
+**See:** [Skills Guide](../../01_global-setup/03_nice-to-have/03_slash-commands.md)
 
 ---
 
@@ -379,11 +379,11 @@ User wants to implement authentication. I'll need to:
 **Daily practice:**
 1. Continue Ctrl+O on everything
 2. Use # hash to document decisions
-3. Try / slash commands (if you have any)
+3. Try / skills (if you have any)
 4. Use @ to reference files explicitly
 
 **Shortcuts to add:**
-- / slash commands
+- / skills
 - @ file references
 
 **Success metric:**
@@ -455,7 +455,7 @@ User wants to implement authentication. I'll need to:
 ║            → Document decisions                   ║
 ║            → Build project memory                 ║
 ║                                                   ║
-║  /          Invoke slash command                 ║
+║  /          Invoke skill                 ║
 ║            → /review, /test, /build              ║
 ║            → Reusable workflows                   ║
 ║                                                   ║
@@ -500,9 +500,9 @@ User wants to implement authentication. I'll need to:
 **For full source citations and validation status, see "Sources & Validation" section at the top of this document.**
 
 **Related Guides:**
-- [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Deep dive on Ctrl+O workflow
+- [Verification & Debugging](05_verification-debugging.md) - Deep dive on Ctrl+O workflow
 - [Anti-Patterns](../00-start-here/05_anti-patterns.md) - Vibe Coding vs. AI Augmented
-- [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
+- [Skills Paradigm](02_skills-paradigm.md) - Building reusable expertise
 
 **Additional Resources:**
 - Claude Code Documentation: https://docs.claude.com
@@ -539,6 +539,6 @@ User wants to implement authentication. I'll need to:
 
 ---
 
-**Previous:** [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Trust, then verify
+**Previous:** [Verification & Debugging](05_verification-debugging.md) - Trust, then verify
 **See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do
 **Next:** [02-Optimization](../02-optimization/) - Token saving strategies

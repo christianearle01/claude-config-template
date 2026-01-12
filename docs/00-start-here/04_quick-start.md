@@ -49,4 +49,4 @@ Open Claude Code in your project and ask:
 
 **That's all you need to start saving tokens!**
 
-**Questions?** → [README.md](README.md) | [Visual Guide](docs/VISUAL_QUICKSTART.md) | [Help](QUICK_REFERENCE.md#troubleshooting)
+**Questions?** → [README.md](README.md) | [Visual Guide](docs/07_visual-quickstart.md) | [Help](QUICK_REFERENCE.md#troubleshooting)

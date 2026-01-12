@@ -25,7 +25,7 @@ Analysis from NotebookLLM covering three YouTube sources:
 **Definition:** Bundled collections of Claude Code configurations
 
 **A plugin can include:**
-- Slash commands
+- Skills
 - Custom agents
 - Hooks (pre/post actions)
 - MCP server configurations
@@ -116,8 +116,8 @@ my-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin metadata
 ├── commands/
-│   ├── code-review.md       # Slash command: /code-review
-│   └── commit.md            # Slash command: /commit
+│   ├── code-review.md       # Skill: /code-review
+│   └── commit.md            # Skill: /commit
 ├── agents/
 │   ├── security-auditor.md  # Custom agent
 │   └── test-generator.md    # Custom agent
@@ -901,6 +901,6 @@ A: Yes! Include skills/ directory in plugin. Skills activate automatically.
 ---
 
 **See also:**
-- [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - Skills in plugins
-- [Third-Party MCPs](THIRD_PARTY_MCPS.md) - Including MCPs in plugins
-- [Advanced MCP Workflows](../03-advanced/ADVANCED_MCP_WORKFLOWS.md) - Orchestration patterns
+- [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) - Skills in plugins
+- [Third-Party MCPs](05_third-party-mcps.md) - Including MCPs in plugins
+- [Advanced MCP Workflows](../03-advanced/04_advanced-mcp-workflows.md) - Orchestration patterns

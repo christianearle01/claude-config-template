@@ -7,6 +7,13 @@
   // Start with Sonnet for planning, switch to Haiku for implementation
   // Saves 70-90% on token costs
 
+  "respectGitignore": true,
+  // NEW in Claude Code 2.0.0
+  // Honors .gitignore patterns when suggesting files
+  // Prevents accidentally exposing secrets or build artifacts
+  // Default: true (RECOMMENDED - keep enabled for security)
+  // Note: .ignore files are always respected
+
   "alwaysThinkingEnabled": true,
   // Enhanced reasoning for better code quality and debugging
   // Minimal token overhead, significant quality improvement
@@ -46,11 +53,29 @@
     // Toggle modes: Press Shift+Tab during any session
   }
 
-  // Additional optional settings:
+  // Additional optional settings (Claude Code 2.0+):
+  //
+  // "language": "english",
+  // // Preferred language for Claude responses (e.g., "japanese", "spanish")
+  // // NEW in Claude Code 2.0.0
+  // // Use for: International teams, non-English projects
+  // // Note: This controls OUTPUT language, not code language
+  //
+  // "fileSuggestion": {
+  //   "type": "command",
+  //   "command": "custom-file-suggester.sh"
+  // },
+  // // Custom file suggestion configuration for @ mentions
+  // // NEW in Claude Code 2.0.0
+  // // Advanced feature: Replace default file picker with custom command
+  // // Use for: Custom project structures, monorepos, special indexing
   //
   // "hooks": {
   //   "PreToolUse": { ... }  // Security hooks, see SECURITY_GUIDE.md
   // }
   //
   // "mcpServers": { ... }  // Stored in .claude.json (project-specific)
+  //
+  // For environment variables (Claude Code 2.1+), see:
+  // docs/02-optimization/06_environment-variables.md
 }

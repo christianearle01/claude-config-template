@@ -2,6 +2,7 @@
 name: deployment-readiness
 description: Validates code is ready for deployment by orchestrating quality, security, documentation, and version checks with confidence-scored readiness report.
 model: sonnet
+version: 4.19.0
 structured_output:
   schema:
     type: object

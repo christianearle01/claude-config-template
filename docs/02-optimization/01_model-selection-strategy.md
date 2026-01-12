@@ -1589,7 +1589,7 @@ model: opus
 
 **Related guides:**
 - [PROMPT_CACHING_GUIDE.md](PROMPT_CACHING_GUIDE.md) - How automatic caching reduces costs 50-90%
-- [MCP_OPTIMIZATION_GUIDE.md](MCP_OPTIMIZATION_GUIDE.md) - Optimizing MCP server configuration
+- [03_mcp-optimization-guide.md](03_mcp-optimization-guide.md) - Optimizing MCP server configuration
 - [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) - Complete reference for environment variables
 - [quality-context-optimization.md](quality-context-optimization.md) - Multi-level quality context strategies
 

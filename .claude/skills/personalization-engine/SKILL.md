@@ -267,6 +267,695 @@ Example:
 - New rate: (0.60 × 10 + 0.0) / 11 = 0.545 (54.5%)
 ```
 
+#### Implicit Learning Signals (v4.23.0)
+
+**Enhancement:** Detect signal strength from user language, not just explicit actions.
+
+**Signal Taxonomy:**
+
+| Signal Type | Keywords | Value | Weight | Example |
+|-------------|----------|-------|--------|---------|
+| **Strong Positive** | "exactly", "perfect", "love it", "that's great" | 1.0 | 2x | "That's exactly what I wanted!" → 2.0 |
+| **Enthusiasm** | "wow", "awesome", "brilliant", "yes!" | 1.0 | 1.5x | "Wow, that's really cool" → 1.5 |
+| **Neutral Accept** | (default accept) | 1.0 | 1x | (silence = acceptance) → 1.0 |
+| **Weak Negative** | "skip", "not now", "later" | 0.3 | 1x | "Skip that" → 0.3 |
+| **Correction** | "actually", "instead", "not that", "wrong" | 0.0 | 2x | "Actually, not that way" → -2.0 (double negative) |
+| **Strong Negative** | "never", "don't", "stop", "no" | 0.0 | 2x | "Never do that" → -2.0 (double negative) |
+
+**Enhanced Learning Algorithm:**
+
+```
+Base signal = action value (1.0, 0.3, or 0.0)
+Detected weight = keyword multiplier (1x, 1.5x, or 2x)
+Effective signal = base × weight
+
+New acceptance rate = (old_rate × old_samples + effective_signal) / (old_samples + 1)
+
+Examples:
+
+1. Strong positive: "That's exactly what I wanted!"
+   - Base: 1.0 (accept)
+   - Weight: 2x (strong positive keyword)
+   - Effective: 2.0
+   - New rate: (0.60 × 10 + 2.0) / 11 = 0.727 (72.7%)
+
+2. Correction: "Actually, let's not do early returns"
+   - Base: 0.0 (reject)
+   - Weight: 2x (correction keyword)
+   - Effective: 0.0 (double weight on rejection = faster learning)
+   - New rate: (0.60 × 10 + 0.0) / 11 = 0.545, then apply -1x correction
+   - Adjusted: 0.545 - 0.1 = 0.445 (44.5%)
+
+3. Neutral skip: "Skip that"
+   - Base: 0.3 (skip)
+   - Weight: 1x (no keyword)
+   - Effective: 0.3
+   - New rate: (0.60 × 10 + 0.3) / 11 = 0.573 (57.3%)
+```
+
+**Correction Signal Detection (v4.23.0):**
+
+Detects when user immediately edits AI-generated content:
+
+**Pattern:**
+```
+AI generates code → User edits within 1 minute → Correction signal
+```
+
+**Action:**
+1. Record pattern: "Don't generate [pattern] for [file type]"
+2. Apply high negative weight (2x)
+3. Add to "learned patterns" with correction timestamp
+
+**Example:**
+```markdown
+## Correction Detected
+
+**What happened:**
+1. I suggested: `if (!condition) return;`
+2. You changed it to: `if (condition) { ... }`
+
+**What I learned:**
+- Pattern: early-returns
+- File type: typescript
+- Your preference: explicit conditionals
+- Confidence: High (correction signal)
+
+**Future behavior:**
+I'll avoid suggesting early returns in TypeScript files. Current acceptance rate for early-returns: 45% → 25% (correction applied).
+```
+
+**Keyword Detection Process:**
+
+1. **On user message:** Scan for signal keywords
+2. **Match patterns:** Check against signal taxonomy
+3. **Calculate weight:** Apply multiplier (1x, 1.5x, 2x)
+4. **Update preferences:** Use enhanced algorithm
+5. **Provide feedback:** Show what was learned
+
+**Privacy:**
+- Keyword matching only (no full message storage)
+- Only sentiment detected (not message content)
+- User can disable: "Don't detect implicit signals"
+
+#### File-Context Memory (v4.24.0)
+
+**Enhancement:** Tag preferences with file paths - recall patterns when editing the same file.
+
+**The Problem:**
+```
+Session 1: User edits CLAUDE.md, prefers sentence-case headers
+Session 2: User edits README.md, prefers title-case headers
+Session 3: User edits CLAUDE.md again
+          → System suggests title-case (wrong context!)
+```
+
+**The Solution:**
+Tag preferences with file path or file pattern, recall when editing same file.
+
+**File-Context Tagging:**
+
+| Context Level | Pattern | Example |
+|---------------|---------|---------|
+| **Exact File** | Full path | `/path/to/CLAUDE.md` → sentence-case headers |
+| **File Pattern** | Glob pattern | `*.md` → markdown linting rules |
+| **Directory** | Directory path | `/docs/` → documentation style |
+| **File Type** | Extension | `.ts` → TypeScript conventions |
+
+**Storage Format:**
+
+```json
+{
+  "fileContextPreferences": {
+    "CLAUDE.md": {
+      "header-style": {
+        "preference": "sentence-case",
+        "acceptanceRate": 0.95,
+        "samples": 12,
+        "lastUsed": "2025-12-22T10:30:00Z"
+      }
+    },
+    "*.md": {
+      "line-length": {
+        "preference": "no-limit",
+        "acceptanceRate": 0.80,
+        "samples": 25
+      }
+    },
+    "docs/**/*.md": {
+      "emoji-usage": {
+        "preference": "section-headers-only",
+        "acceptanceRate": 0.90,
+        "samples": 15
+      }
+    }
+  }
+}
+```
+
+**Matching Priority:**
+
+1. **Exact file path** (highest priority)
+2. **Specific glob pattern** (e.g., `docs/**/*.md`)
+3. **General file type** (e.g., `*.md`)
+4. **Directory pattern** (e.g., `/docs/`)
+5. **Global preference** (fallback)
+
+**Trigger Pattern:**
+
+```
+User edits file → System checks fileContextPreferences
+                → Loads preferences for matching patterns
+                → Applies to suggestions for this file
+```
+
+**Example:**
+
+```markdown
+## File-Context Detected
+
+**File:** CLAUDE.md
+**Context loaded:**
+- Header style: sentence-case (95% acceptance, 12 samples)
+- Line length: no-limit (80% acceptance, inherited from *.md)
+- Emoji usage: section-headers-only (90% acceptance, inherited from docs/)
+
+**Applying these preferences to suggestions for this file.**
+```
+
+**Learning:**
+
+When user accepts/rejects suggestion while editing a file:
+
+1. Update global preference (as before)
+2. **Also tag with current file context**
+3. Store both general + file-specific learning
+
+**Conflict Resolution:**
+
+If file-context preference conflicts with global:
+- **File-context wins** (more specific)
+- Show user: "Using CLAUDE.md preference (sentence-case) instead of global (title-case)"
+
+**Commands:**
+
+```
+"Show file-context preferences for CLAUDE.md"
+"What have you learned about this file?"
+"Reset file-context for *.md"
+"Disable file-context memory"
+```
+
+#### Recovery Pattern Learning (v4.24.0)
+
+**Enhancement:** Learn from failure → success sequences to proactively suggest solutions.
+
+**The Problem:**
+```
+User tries approach A → Fails
+User tries approach B → Fails
+User tries approach C → Success!
+Next time: System doesn't remember C was the winner
+```
+
+**The Solution:**
+Track task → attempt → outcome sequences, remember successful approaches.
+
+**Recovery Pattern Detection:**
+
+```
+Pattern: Multiple attempts on same task before success
+Trigger: 2+ failures followed by success within same session
+Action: Record the successful approach as "proven solution"
+```
+
+**Pattern Structure:**
+
+```json
+{
+  "recoveryPatterns": {
+    "fix-typescript-import-error": {
+      "context": {
+        "errorType": "typescript-import",
+        "attempts": 3,
+        "failedApproaches": [
+          "relative-path-import",
+          "namespace-import"
+        ],
+        "successfulApproach": "default-import-with-type",
+        "confidence": "high"
+      },
+      "metadata": {
+        "firstAttempt": "2025-12-22T10:00:00Z",
+        "resolved": "2025-12-22T10:15:00Z",
+        "timeTaken": "15 minutes",
+        "fileType": "typescript",
+        "successRate": 1.0,
+        "timesApplied": 3
+      }
+    }
+  }
+}
+```
+
+**Detection Logic:**
+
+1. **Failure Detection:**
+   - Test fails
+   - Build error
+   - User says "that didn't work", "still broken", "try again"
+   - User immediately edits generated code (correction signal)
+
+2. **Attempt Tracking:**
+   - Same task attempted multiple times within 30 minutes
+   - Different approaches each time
+   - Track what was tried
+
+3. **Success Detection:**
+   - Tests pass after failures
+   - User says "that worked!", "fixed!", "success"
+   - No further edits after 5 minutes (silent success)
+
+4. **Pattern Recording:**
+   - Store: task type, failed approaches, successful approach
+   - Tag with: file type, error type, context
+   - Confidence: high (proven by recovery)
+
+**Proactive Suggestions:**
+
+Next time similar task is attempted:
+
+```markdown
+## Recovery Pattern Detected
+
+**Task:** Fixing TypeScript import error
+**I remember:** You solved this before in 3 attempts
+
+**Failed approaches (avoid these):**
+1. ❌ relative-path-import (didn't work)
+2. ❌ namespace-import (didn't work)
+
+**Successful approach (use this):**
+✅ default-import-with-type (worked after 15 minutes)
+
+**Apply proven solution?** This worked for you last time.
+```
+
+**Learning Enhancement:**
+
+Recovery patterns have **higher confidence** than single-try learnings:
+- Regular acceptance: 75% confidence
+- Recovery pattern: 95% confidence (proven through struggle)
+
+**Why this works:**
+
+Hard-won solutions have higher value:
+- User invested time (15 minutes in example)
+- Multiple approaches tested
+- Success validated through comparison
+- **Psychological:** Struggling → success creates strong memory
+
+**Commands:**
+
+```
+"Show recovery patterns"
+"What solutions have I found through trial-and-error?"
+"How did I solve [task] last time?"
+"Forget recovery pattern for [task]"
+```
+
+#### Workflow Gap Detection (v4.25.0)
+
+**Enhancement:** Identify related tasks that should be linked - automate repetitive workflows.
+
+**The Problem:**
+```
+Pattern detected over 20 commits:
+1. User edits version.json
+2. User runs sync-version.sh
+3. User edits CHANGELOG.md
+4. User commits
+
+Every single time, same sequence. Manual, repetitive, forgettable.
+```
+
+**The Solution:**
+Detect workflow patterns from commit history, suggest automation or linking.
+
+**Gap Detection:**
+
+| Gap Type | Pattern | Suggestion |
+|----------|---------|------------|
+| **Sequential Tasks** | A always followed by B | "Link these tasks?" |
+| **Forgotten Steps** | A → C (B missing) | "You usually do B between A and C" |
+| **Manual Repetition** | Same sequence 5+ times | "Automate this workflow?" |
+| **Context Switch** | Edit file A, then edit file B (unrelated) | "Consider grouping related edits" |
+
+**Detection Logic:**
+
+**1. Sequential Pattern Detection:**
+
+```
+Analyze last 50 commits:
+- Find sequences: [edit version.json] → [run script] → [edit CHANGELOG]
+- Frequency: 18/20 commits (90%)
+- Time gap: Average 2 minutes between steps
+→ Pattern detected: version-bump-workflow
+```
+
+**2. Forgotten Step Detection:**
+
+```
+Analyze current session:
+- User edited version.json
+- User edited CHANGELOG.md
+- Missing: sync-version.sh (usually runs between these)
+→ Gap detected: "Did you forget to run sync-version.sh?"
+```
+
+**3. Repetition Analysis:**
+
+```
+Same workflow detected 15 times:
+1. git add .
+2. git commit -m "..."
+3. git push origin main
+
+Time: 1-2 minutes per execution
+→ Suggestion: "Create alias or git hook for this sequence?"
+```
+
+**Storage Format:**
+
+```json
+{
+  "workflowPatterns": {
+    "version-bump-workflow": {
+      "steps": [
+        {
+          "action": "edit",
+          "target": "version.json",
+          "confidence": 0.95
+        },
+        {
+          "action": "run",
+          "target": "sync-version.sh",
+          "confidence": 0.90
+        },
+        {
+          "action": "edit",
+          "target": "CHANGELOG.md",
+          "confidence": 0.95
+        },
+        {
+          "action": "commit",
+          "pattern": "^(feat|fix|docs):",
+          "confidence": 0.88
+        }
+      ],
+      "metadata": {
+        "frequency": 18,
+        "totalCommits": 20,
+        "patternStrength": 0.90,
+        "avgTimePerStep": "2 minutes",
+        "lastOccurrence": "2025-12-22T14:30:00Z"
+      }
+    }
+  },
+  "detectedGaps": {
+    "missing-sync-script": {
+      "workflow": "version-bump-workflow",
+      "missingStep": "sync-version.sh",
+      "frequency": 3,
+      "impact": "medium"
+    }
+  }
+}
+```
+
+**Proactive Detection:**
+
+```markdown
+## 🔗 Workflow Gap Detected
+
+**Pattern:** version-bump-workflow
+**Frequency:** 18/20 commits (90%)
+
+**Your usual sequence:**
+1. ✓ Edit version.json
+2. ⚠️ Run sync-version.sh ← **You haven't done this yet**
+3. ? Edit CHANGELOG.md (expected next)
+4. ? Commit changes
+
+**Suggestion:** Run sync-version.sh now to stay on pattern?
+
+[Run now] [Skip this time] [Don't remind me]
+```
+
+**Automation Suggestions:**
+
+After detecting high-frequency patterns (10+ occurrences):
+
+```markdown
+## 🤖 Automation Opportunity
+
+**Workflow:** version-bump-workflow
+**Frequency:** 18 times (manually repeated)
+**Time cost:** ~36 minutes total (2 min × 18)
+
+**I can help automate this:**
+
+Option 1: Pre-commit hook
+  - Auto-runs sync-version.sh before commit
+  - Validates version consistency
+
+Option 2: Bash script wrapper
+  - Single command: ./bump-version.sh 4.25.0
+  - Handles all 4 steps automatically
+
+Option 3: Git alias
+  - git bump-version "4.25.0"
+  - Custom alias for this workflow
+
+[Show me how] [Not now] [Never suggest for this workflow]
+```
+
+**Commands:**
+
+```
+"Show workflow patterns"
+"What workflows have you detected?"
+"Show gaps in current workflow"
+"Suggest automation for [workflow]"
+"Forget workflow pattern [name]"
+```
+
+#### Adaptive Threshold Tuning (v4.25.0)
+
+**Enhancement:** Continuous micro-adjustments to confidence thresholds based on actual user behavior.
+
+**The Problem:**
+```
+Current: Manual threshold adjustments
+- User sets autoApply = 95%
+- System uses 95% forever
+- Even if user rejects 80% of auto-applied suggestions
+→ Static threshold, not adapting to reality
+```
+
+**The Solution:**
+Continuously monitor acceptance rates by confidence level, adjust thresholds automatically.
+
+**Current (v3.10.0) AI-Suggested Tuning:**
+- Runs every 7 days
+- Manual review required
+- Suggests threshold changes
+- User must approve
+
+**Enhanced (v4.25.0) Adaptive Tuning:**
+- Runs continuously
+- Micro-adjustments (±1-2%)
+- No user approval needed
+- Transparent feedback
+
+**Tuning Logic:**
+
+**1. Confidence Band Analysis:**
+
+```
+Analyze suggestions at each confidence level:
+
+90-95%: 20 suggestions, 12 accepted (60% acceptance)
+85-90%: 15 suggestions, 13 accepted (87% acceptance)
+80-85%: 10 suggestions, 9 accepted (90% acceptance)
+
+Observation: 85-90% band has HIGHER acceptance than 90-95%
+→ Threshold too conservative, or 90-95% suggestions are wrong type
+```
+
+**2. Micro-Adjustment Rules:**
+
+| Condition | Action | Magnitude |
+|-----------|--------|-----------|
+| 5 consecutive rejections at confidence X | Lower threshold by 2% | Gentle |
+| 80%+ rejection rate in band | Lower threshold by 5% | Moderate |
+| 90%+ acceptance rate in band | Raise threshold by 2% | Gentle |
+| 95%+ acceptance, 20+ samples | Raise threshold by 5% | Moderate |
+
+**3. Adjustment Limits:**
+
+Safety constraints:
+- **Max change per day:** ±10%
+- **Min threshold:** 30% (never go below)
+- **Max threshold:** 98% (never require perfection)
+- **Cooldown:** 24 hours between major adjustments (>5%)
+
+**Example Adaptive Flow:**
+
+```
+Day 1: autoApply threshold = 95%
+       Suggestions at 95%+: 10 generated
+       User rejects: 7/10 (70% rejection)
+
+Day 2: System analyzes: "70% rejection is too high"
+       Adjustment: 95% → 97% (+2%, gentle)
+       Notification: "Raised autoApply to 97% (you rejected 70% at 95%)"
+
+Day 3: Suggestions at 97%+: 5 generated
+       User accepts: 4/5 (80% acceptance)
+
+Day 5: System analyzes: "80% acceptance is good"
+       No adjustment (stable)
+
+Day 10: Suggestions at 97%+: 20 generated
+        User accepts: 19/20 (95% acceptance)
+
+Day 11: System analyzes: "95% acceptance, could be more permissive"
+        Adjustment: 97% → 95% (-2%, gentle)
+        Notification: "Lowered autoApply to 95% (you accept 95% at this level)"
+```
+
+**Storage Format:**
+
+```json
+{
+  "adaptiveThresholds": {
+    "autoApply": {
+      "current": 95,
+      "original": 95,
+      "history": [
+        {
+          "timestamp": "2025-12-22T10:00:00Z",
+          "value": 95,
+          "reason": "user-set"
+        },
+        {
+          "timestamp": "2025-12-23T10:00:00Z",
+          "value": 97,
+          "reason": "high-rejection-rate",
+          "data": {
+            "acceptanceRate": 0.30,
+            "samples": 10
+          }
+        },
+        {
+          "timestamp": "2025-12-30T10:00:00Z",
+          "value": 95,
+          "reason": "high-acceptance-rate",
+          "data": {
+            "acceptanceRate": 0.95,
+            "samples": 20
+          }
+        }
+      ],
+      "lastAdjustment": "2025-12-30T10:00:00Z",
+      "adjustmentCount": 2
+    }
+  },
+  "confidenceBandStats": {
+    "95-100": {
+      "suggestions": 30,
+      "accepted": 27,
+      "acceptanceRate": 0.90,
+      "trend": "stable"
+    },
+    "90-95": {
+      "suggestions": 45,
+      "accepted": 39,
+      "acceptanceRate": 0.87,
+      "trend": "increasing"
+    }
+  }
+}
+```
+
+**Transparency:**
+
+Every adjustment is logged and explained:
+
+```markdown
+## 📊 Threshold Adjusted
+
+**Threshold:** autoApply
+**Change:** 95% → 93% (-2%)
+**Reason:** High acceptance rate at this level
+
+**Data:**
+- Suggestions at 95%+: 25 in last 7 days
+- Your acceptance: 24/25 (96%)
+- Confidence: You're comfortable with slightly lower threshold
+
+**Impact:** More suggestions will auto-apply
+**Revert:** "Set autoApply to 95%" to undo
+
+[View adjustment history] [Disable adaptive tuning]
+```
+
+**User Control:**
+
+```
+"Disable adaptive tuning"
+"Enable adaptive tuning"
+"Show threshold adjustment history"
+"Revert threshold changes"
+"Lock autoApply threshold at 95%"
+"Show confidence band statistics"
+```
+
+**Safety Features:**
+
+- **Preview mode:** Test adjustments for 24 hours before applying
+- **Undo:** Revert to any previous threshold
+- **Lock:** Prevent adjustments to specific thresholds
+- **Notification:** Always inform user of changes
+- **Limits:** Max ±10% per day, never below 30% or above 98%
+
+**Integration with v4.23.0 & v4.24.0:**
+
+```
+Adaptive tuning uses:
+- Implicit signals (v4.23.0): Keywords boost/lower confidence scores
+- File-context (v4.24.0): Adjust thresholds per file pattern
+- Recovery patterns (v4.24.0): Proven solutions get lower threshold
+
+Example:
+- Recovery pattern: 95% confidence baseline
+- File-context (CLAUDE.md): 97% acceptance rate
+- Adaptive tuning: Lowers threshold to 93% for CLAUDE.md
+→ More recovery patterns auto-applied in this context
+```
+
+**Commands:**
+
+```
+"Show adaptive tuning status"
+"Disable adaptive tuning for autoApply"
+"Show threshold adjustment history"
+"Why did you adjust [threshold]?"
+"Revert to original thresholds"
+"Lock all thresholds"
+```
+
 **Threshold Rules:**
 
 | Acceptance Rate | Status | Behavior |

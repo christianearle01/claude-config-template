@@ -68,6 +68,7 @@ Jump to any section:
 - [Decision Framework](#decision-framework)
 - [Custom Agents](#custom-agents)
 - [Educational Modes](#educational-modes)
+- [Environment Variables](#environment-variables)
 - [File Locations](#file-locations)
 - [Git Workflow & Commit Approval](#git-workflow--commit-approval)
 - [Integration Patterns](#integration-patterns)
@@ -78,6 +79,7 @@ Jump to any section:
 - [Progress Bars](#progress-bars)
 - [Prompt Patterns](#prompt-patterns)
 - [Personas (User Profiles)](#personas-user-profiles)
+- [Rules Directory](#rules-directory-clauderules)
 - [Security Hooks](#security-hooks)
 - [Setup Paths](#setup-paths)
 - [Token Optimization](#token-optimization)
@@ -221,6 +223,100 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 ---
 
+## CLAUDE.md Size Management
+
+**What:** Guidelines for keeping CLAUDE.md manageable
+
+**Why it matters:**
+- **claude.ai Custom Instructions:** 40,000 character limit
+- **Human maintenance:** Large files difficult to update
+- **Agent effectiveness:** More context for CLAUDE.md = less for actual code
+
+**Size Guidelines:**
+
+| Size | Status | Recommendation |
+|------|--------|----------------|
+| <20KB (~5,000 tokens) | ✅ Comfortable | Keep as-is |
+| 20-60KB (~5,000-15,000 tokens) | ⚠️ Acceptable | Consider trimming |
+| >60KB (>15,000 tokens) | ❌ Problematic | Split immediately |
+
+**What to KEEP in CLAUDE.md:**
+- Business purpose (WHAT the app does, not HOW)
+- Tech stack (languages, frameworks, database)
+- Core conventions specific to THIS project
+- Common commands (dev, test, build, deploy)
+- External API rationale (WHY each integration)
+- Recent version history (last 2-3 releases)
+
+**What to MOVE elsewhere:**
+- **Detailed coding standards** → `.claude/rules/coding-standards.md`
+- **Security policies** → `.claude/rules/security-policies.md`
+- **Testing requirements** → `.claude/rules/testing-requirements.md`
+- **Agent configurations** → `.claude/agents/*.md`
+- **Workflow details** → `.claude/workflows/*.md`
+- **Architecture decisions** → `docs/decisions/*.md` (ADRs)
+- **Full version history** → `CHANGELOG.md`
+
+**Quick check:**
+```bash
+# Check your CLAUDE.md size
+wc -c CLAUDE.md
+# If >20,000 characters, consider splitting
+```
+
+**Docs:**
+- [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+- [Anti-Patterns § Bloated CLAUDE.md](05_anti-patterns.md)
+
+**Keywords:** size, limit, split, modular, rules, management
+
+---
+
+## Rules Directory (.claude/rules/)
+
+**What:** Modular, reusable rules separate from project-specific CLAUDE.md
+
+**Introduced:** Claude Code 2.0.0
+
+**Purpose:**
+- Share coding standards across multiple projects
+- Team alignment with consistent rules
+- Modular composition (mix and match rules)
+
+**Location:** `.claude/rules/*.md`
+
+**Use .claude/rules/ for:**
+- Coding standards (naming, style, linting)
+- Security policies (OWASP top 10)
+- Testing requirements (coverage, patterns)
+- Documentation standards
+
+**Use CLAUDE.md for:**
+- Project-specific context (tech stack, architecture)
+- Evolving instructions (features in progress)
+- Business logic and domain knowledge
+
+**Example structure:**
+```
+.claude/rules/
+├── coding-standards.md          # General
+├── javascript-standards.md      # Language-specific
+├── react-best-practices.md      # Framework-specific
+├── security-policies.md         # Security
+└── testing-requirements.md      # Testing
+```
+
+**Loading behavior:**
+- Agents automatically load ALL .md files in alphabetical order
+- Later rules override earlier rules (use numeric prefixes to control)
+- Disable: Rename to `.disabled` extension
+
+**Docs:** [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+
+**Keywords:** rules, standards, modular, reusable, team, coding-standards
+
+---
+
 ## Claude Skills (Account-Level)
 
 **What:** Reusable instruction manuals available across all claude.ai projects, Claude Code, and Claude API
@@ -268,7 +364,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 **Docs:** [Claude Skills Complete Guide](../04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md)
 
 **Related:**
-- [Local Claude Code Skills](SKILLS_PARADIGM.md) - Project-specific skills for CLI
+- [Local Claude Code Skills](02_skills-paradigm.md) - Project-specific skills for CLI
 - [Custom Instructions Guide](../04_browser-workflow/README.md) - Global role preferences
 
 **Keywords:** skills, account-level, reusable, portable, stackable, skill-creator, workflows, automation, token efficiency
@@ -277,7 +373,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 ## Commands (Slash)
 
-**What:** Custom slash commands for common project tasks
+**What:** Custom skills for common project tasks
 
 **Location:** `.claude/commands/*.md`
 
@@ -349,7 +445,7 @@ Run the deployment process:
 4. Show deployment URL
 ```
 
-**Docs:** [Agent Setup Guide § Slash Commands](02_project-onboarding/01_must-have/03_claude-agent-setup.md)
+**Docs:** [Agent Setup Guide § Skills](02_project-onboarding/01_must-have/03_claude-agent-setup.md)
 
 **Keywords:** custom commands, slash, workflow, automation
 
@@ -468,7 +564,9 @@ When to escalate from simple to complex tools:
 
 **What:** Specialized AI assistants for specific workflows
 
-**Built-in agents:** 9 sophisticated agents included (6 shown below, plus initializer, coder, quality-reviewer)
+**Built-in agents:** 7 official agents for production use (project-planner, prompt-polisher, initializer, coder, quality-reviewer, spec-generator, deployment-readiness)
+
+**Plus 3 experimental utility agents:** adversarial-validator, documentation-verifier, mode-selector
 
 ### 1. Prompt Polisher Agent
 **Purpose:** Transform vague prompts into optimized requests
@@ -842,6 +940,87 @@ Learning note: Async/await is syntactic sugar for Promises
 
 ---
 
+## Environment Variables
+
+**What:** Control Claude Code behavior without modifying settings files
+
+**Introduced:** Claude Code 2.1.0-2.1.4
+
+**Purpose:** Runtime configuration for dev/staging/prod environments, CI/CD integration
+
+**Key Variables:**
+
+### CLAUDE_DEFAULT_MODEL
+Override default model (sonnet, opus, haiku)
+```bash
+export CLAUDE_DEFAULT_MODEL=haiku  # 91% cheaper than Sonnet
+claude "Explore codebase structure"
+```
+
+### CLAUDE_DISABLE_TELEMETRY
+Privacy control - disable usage telemetry
+```bash
+export CLAUDE_DISABLE_TELEMETRY=true  # Enterprise/sensitive projects
+```
+
+### CLAUDE_LOG_LEVEL
+Control logging verbosity (error, warn, info, debug)
+```bash
+export CLAUDE_LOG_LEVEL=debug  # Troubleshooting
+```
+
+### CLAUDE_PROMPT_CACHING
+Control prompt caching (true/false)
+```bash
+export CLAUDE_PROMPT_CACHING=false  # Testing without cache
+```
+
+### CLAUDE_SANDBOX_MODE
+Security restrictions (strict, permissive, disabled)
+```bash
+export CLAUDE_SANDBOX_MODE=strict  # Maximum security
+```
+
+### CLAUDE_OUTPUT_STYLE
+Output formatting (compact, detailed)
+```bash
+export CLAUDE_OUTPUT_STYLE=compact  # CI/CD pipelines
+```
+
+**Common patterns:**
+
+**Per-project:** Create `.env` files
+```bash
+# .env.development
+CLAUDE_DEFAULT_MODEL=haiku
+CLAUDE_LOG_LEVEL=debug
+
+# .env.production
+CLAUDE_DEFAULT_MODEL=sonnet
+CLAUDE_LOG_LEVEL=error
+CLAUDE_SANDBOX_MODE=strict
+```
+
+**Global:** Add to shell profile (~/.zshrc)
+```bash
+export CLAUDE_DEFAULT_MODEL=sonnet
+export CLAUDE_DISABLE_TELEMETRY=true
+```
+
+**CI/CD:** GitHub Actions example
+```yaml
+env:
+  CLAUDE_DEFAULT_MODEL: haiku
+  CLAUDE_LOG_LEVEL: debug
+  CLAUDE_OUTPUT_STYLE: compact
+```
+
+**Docs:** [Environment Variables Guide](../02-optimization/06_environment-variables.md)
+
+**Keywords:** environment, env, variables, configuration, runtime, dev, prod, ci-cd
+
+---
+
 ## File Locations
 
 **Quick file finder** - Where is X located?
@@ -849,10 +1028,10 @@ Learning note: Async/await is syntactic sugar for Promises
 | What You're Looking For | Location |
 |------------------------|----------|
 | **Entry Points** | |
-| 5-minute demo | `docs/5_MINUTE_SUCCESS.md` |
-| Visual flowchart | `docs/VISUAL_QUICKSTART.md` |
+| 5-minute demo | `docs/03_5-minute-success.md` |
+| Visual flowchart | `docs/07_visual-quickstart.md` |
 | Main README | `README.md` |
-| Persona selector | `START_HERE.md` |
+| Persona selector | `personas/README.md` |
 | Visual guides | `VISUAL_GUIDES.md` |
 | Quick reference | `QUICK_REFERENCE.md` (this file!) |
 | **Templates** | |
@@ -863,7 +1042,7 @@ Learning note: Async/await is syntactic sugar for Promises
 | Claude settings | `.claude/settings.json` |
 | Settings explained | `.claude/settings-explained.json` |
 | Setup context (for Claude) | `.claude/SETUP_CONTEXT.md` |
-| **Slash Commands** | |
+| **Skills** | |
 | All commands | `.claude/commands/*.md` |
 | Onboarding command | `.claude/commands/onboarding.md` |
 | Standards command | `.claude/commands/standards.md` |
@@ -1455,33 +1634,33 @@ Why this change:
 - **Time:** 60-90 minutes
 - **For:** New to Claude Code
 - **Get:** Complete understanding + working setup
-- **Path:** [START_HERE.md#first-time-learner](START_HERE.md#first-time-learner)
+- **Path:** [personas/README.md#first-time-learner](personas/README.md#first-time-learner)
 
 ### ⚡ Quick Setup
 - **Time:** 15-30 minutes
 - **For:** Experienced, need fast project setup
 - **Get:** Configured project, ready to code
-- **Path:** [START_HERE.md#quick-setup-user](START_HERE.md#quick-setup-user)
+- **Path:** [personas/README.md#quick-setup-user](personas/README.md#quick-setup-user)
 
 ### 🚀 Advanced Optimizer
 - **Time:** 20-40 minutes
 - **For:** Want security hooks, custom agents, MCP
 - **Get:** Production-grade advanced features
-- **Path:** [START_HERE.md#advanced-optimizer](START_HERE.md#advanced-optimizer)
+- **Path:** [personas/README.md#advanced-optimizer](personas/README.md#advanced-optimizer)
 
 ### 👥 Team Lead
 - **Time:** 90-120 minutes
 - **For:** Setting up for entire team
 - **Get:** Repeatable deployment process
-- **Path:** [START_HERE.md#team-lead](START_HERE.md#team-lead)
+- **Path:** [personas/README.md#team-lead](personas/README.md#team-lead)
 
 ### 🔄 Returning User
 - **Time:** 10-20 minutes
 - **For:** Used before, need refresher
 - **Get:** Quick command review
-- **Path:** [START_HERE.md#returning-user](START_HERE.md#returning-user)
+- **Path:** [personas/README.md#returning-user](personas/README.md#returning-user)
 
-**Visual guide:** [docs/VISUAL_QUICKSTART.md](docs/VISUAL_QUICKSTART.md)
+**Visual guide:** [docs/07_visual-quickstart.md](docs/07_visual-quickstart.md)
 
 **Keywords:** personas, profiles, paths, routes, beginner, advanced, team, first-time
 
@@ -1604,7 +1783,7 @@ Why this change:
 | Best for | Frequent queries | Complex tasks | Repeated ops |
 
 **Docs:**
-- [Skills Paradigm](SKILLS_PARADIGM.md)
+- [Skills Paradigm](02_skills-paradigm.md)
 - [Projects Registry Skill](.claude/skills/projects-registry/SKILL.md)
 - [Documentation-Sync-Checker Skill](.claude/skills/documentation-sync-checker/SKILL.md)
 - [External Perspectives Skill](.claude/skills/external-perspectives/SKILL.md)
@@ -1826,7 +2005,7 @@ Works with npm, pip, gem, cargo, go, Maven, NuGet, etc.
 **Goal:** See the value immediately
 
 **Do this:**
-1. Go to [docs/5_MINUTE_SUCCESS.md](docs/5_MINUTE_SUCCESS.md)
+1. Go to [docs/03_5-minute-success.md](docs/03_5-minute-success.md)
 2. Copy CLAUDE.md template
 3. Add one sentence
 4. Test with Claude
@@ -1849,7 +2028,7 @@ claude
 
 **Result:** Fully configured project
 
-**Guide:** [START_HERE.md#quick-setup-user](START_HERE.md#quick-setup-user)
+**Guide:** [personas/README.md#quick-setup-user](personas/README.md#quick-setup-user)
 
 ---
 
@@ -1864,7 +2043,7 @@ claude
 
 **Result:** Complete understanding + setup
 
-**Guide:** [START_HERE.md#first-time-learner](START_HERE.md#first-time-learner)
+**Guide:** [personas/README.md#first-time-learner](personas/README.md#first-time-learner)
 
 ---
 
@@ -1924,6 +2103,11 @@ cd ~/claude-config-template
 - Haiku for implementation (cheap)
 - [See Model Switching section](#model-switching)
 
+### 6. Configure with Environment Variables
+- Control behavior without editing files
+- Example: `CLAUDE_DEFAULT_MODEL=haiku` for 91% cost savings
+- [See Environment Variables section](#environment-variables)
+
 **Tools:**
 - @prompt-polisher agent (transforms vague→optimized)
 - SETUP_CONTEXT.md (for Claude to read first)
@@ -1959,7 +2143,7 @@ cd ~/claude-config-template
 3. Validate: `./scripts/validate-template.sh examples/team-templates/gallery-frontend-react.json`
 4. Copy and customize OR use apply script (v4.5.0)
 
-**Documentation:** [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
+**Documentation:** [Template Gallery Guide](../02-optimization/08_template-gallery-guide.md)
 
 **Keywords:** templates, gallery, examples, inheritance, parameters, domain-specific
 
@@ -1999,7 +2183,7 @@ cd ~/claude-config-template
 - 0: All validations passed (warnings OK)
 - 1: One or more critical errors
 
-**Documentation:** [Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md)
+**Documentation:** [Template Validator Guide](../04-ecosystem/06_template-validator-guide.md)
 
 **Keywords:** validate, validation, template, schema, quality, lint, check
 
@@ -2132,7 +2316,7 @@ chmod +x scripts/*.sh
 
 **More help:**
 - Run `/doctor` in Claude Code for diagnostics
-- Check [START_HERE.md](START_HERE.md) persona checklist
+- Check [personas/README.md](personas/README.md) persona checklist
 - Read specific guide for your issue
 
 **Keywords:** problem, error, issue, help, not working, broken, fix
@@ -2230,7 +2414,7 @@ Visualize 92% savings with optimizations
 **Location:** [VISUAL_GUIDES.md](VISUAL_GUIDES.md)
 
 **NEW in v2.5.0:**
-- [Visual Quickstart](docs/VISUAL_QUICKSTART.md) - Decision flowchart
+- [Visual Quickstart](docs/07_visual-quickstart.md) - Decision flowchart
 
 **Keywords:** visual, diagram, flowchart, graphic, image, picture
 
@@ -2361,7 +2545,7 @@ cd ~/claude-config-template
 **If wizard fails:**
 - Check permissions: `chmod +x scripts/*.sh`
 - Check dependencies: bash, python
-- Manual setup: Use START_HERE.md
+- Manual setup: Use personas/README.md
 
 **Keywords:** wizard, interactive, setup, guided, assistant, automation
 
@@ -2370,13 +2554,13 @@ cd ~/claude-config-template
 ## 💡 Pro Tips
 
 ### Tip 1: Start with the 5-Minute Win
-Even if you're experienced, [docs/5_MINUTE_SUCCESS.md](docs/5_MINUTE_SUCCESS.md) demonstrates the value in 5 minutes.
+Even if you're experienced, [docs/03_5-minute-success.md](docs/03_5-minute-success.md) demonstrates the value in 5 minutes.
 
 ### Tip 2: Bookmark This File
 Press `Cmd+D` (Mac) or `Ctrl+D` (Windows) to bookmark. Use Cmd+F to find anything instantly.
 
 ### Tip 3: Use the Visual Flowchart
-Can't decide which path? [docs/VISUAL_QUICKSTART.md](docs/VISUAL_QUICKSTART.md) has an interactive decision tree.
+Can't decide which path? [docs/07_visual-quickstart.md](docs/07_visual-quickstart.md) has an interactive decision tree.
 
 ### Tip 4: Model Switching is Your Friend
 Plan with Sonnet, implement with Haiku. Save 66.7% on implementation costs.
@@ -2389,8 +2573,8 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 ## 🚀 Next Steps
 
 **If you're new here:**
-1. Try the [5-Minute Win](docs/5_MINUTE_SUCCESS.md)
-2. Use the [Visual Flowchart](docs/VISUAL_QUICKSTART.md) to choose your path
+1. Try the [5-Minute Win](docs/03_5-minute-success.md)
+2. Use the [Visual Flowchart](docs/07_visual-quickstart.md) to choose your path
 3. Run the wizard: `./scripts/claude-wizard.sh`
 
 **If you're set up already:**
@@ -2506,9 +2690,107 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 
 ---
 
+## Agent Orchestration (v4.26.0)
+
+**Purpose:** Understand when to orchestrate agents vs. when manual coordination is sufficient.
+
+**Steve Yegge's 7 Stages:**
+1. Zero or near-zero AI use
+2. Coding agents in IDE (with permissions)
+3. YOLO mode
+4. Single CLI agent
+5. **Multi-agent CLI (3-5 parallel) ← Template is here**
+6. CLI multi-agent (10+, hand-managed)
+7. Orchestrated agent fleets (Gas Town, etc.)
+
+**Template Philosophy:**
+- **Stage 5 focus:** Multi-agent CLI with manual coordination
+- **Transparent state:** features.json visible, auditable, version-controlled
+- **Understanding over speed:** Learn manual patterns before automating
+- **Educational mission:** Teach orchestration, don't build orchestrator
+
+**When to Stay at Stage 5 (Template):**
+- Learning agent patterns (educational priority)
+- Under 5 agents in regular use
+- Small team or solo developer
+- Transparency > automation
+
+**When to Graduate to Stage 6-7 (Orchestration):**
+- 10+ agents needed regularly
+- Coordination overhead > manual capacity
+- Production reliability required
+- Agent patterns fully internalized
+
+**Work-Claiming Pattern (GUPP-Inspired):**
+```json
+{
+  "workClaiming": {
+    "claimedBy": "coder",
+    "claimedAt": "2026-01-05T14:30:00Z",
+    "claimDuration": "45"
+  },
+  "agentLog": [
+    {
+      "agentName": "coder",
+      "action": "claimed",
+      "timestamp": "2026-01-05T14:30:00Z",
+      "confidence": 0.85,
+      "notes": "Starting implementation"
+    }
+  ]
+}
+```
+
+**Benefits:**
+- ✅ No duplicate work (agents see `claimedBy` and skip)
+- ✅ Progress visibility (who's working on what)
+- ✅ Historical tracking (agentLog shows all interactions)
+- ✅ GUPP compliance (agents run available work)
+
+**Gas Town (Stage 7 Orchestration):**
+- **What:** Agent orchestration framework by Steve Yegge
+- **Features:** GUPP principle, Beads (persistent identities), 7 worker roles
+- **When:** 10+ agents, production scale, coordination overhead high
+- **Link:** https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04
+
+**Decision Framework:**
+- **4-Question Test:**
+  1. Am I managing 5+ agents regularly? (No → Don't orchestrate)
+  2. Is coordination time > agent work time? (No → Don't orchestrate)
+  3. Am I hitting context limits across ALL agents? (No → Don't orchestrate)
+  4. Have I mastered manual coordination? (No → Don't orchestrate)
+
+**Complementary Tools:**
+- Template = Educational foundation (teach patterns)
+- Gas Town = Production scaling (execute patterns)
+- Users benefit from BOTH in sequence (learn → scale)
+
+**Files:**
+- [Agent Evolution Stages](../03-advanced/07_agent-evolution-stages.md) - 7-stage framework with self-assessment
+- [Orchestration Decision Framework](../03-advanced/08_orchestration-decision-framework.md) - When to orchestrate vs YAGNI
+- [External Perspectives Pattern 10](.claude/skills/external-perspectives/SKILL.md) - Gas Town validation
+- [features.json v2.0 Schema](../../templates/features.json.template) - Work-claiming fields
+- [Coder Agent](../../.claude/agents/coder.md) - Work-claiming protocol
+
+**Industry Context:**
+- Wave 5-6 transition: Agent clusters → agent fleets (2025-2026)
+- Template optimizes Wave 5 (coding agents, 2025 H1)
+- Gas Town addresses Wave 6 (agent fleets, 2026)
+- 5x productivity improvement per wave
+
+**Jake Nations Test Compliance:**
+- ✅ Smarter over faster (learn manual before automating)
+- ✅ Simple over easy (manual coordination is one-fold)
+- ✅ Understanding over speed (bootup ritual teaches pattern)
+- ✅ Clarity over complexity (features.json visible)
+
+**Keywords:** agent orchestration, gas town, steve yegge, gupp, work-claiming, multi-agent, stage 5, wave 5-6, beads, persistent identities, worker roles, coordination, graduation criteria, yagni, understanding over speed
+
+---
+
 ## Navigation
 
-**🏠 [Back to README](README.md)** | **🗺️ [Choose Your Path](START_HERE.md)** | **⚡ [5-Minute Win](docs/5_MINUTE_SUCCESS.md)**
+**🏠 [Back to README](README.md)** | **🗺️ [Choose Your Path](personas/README.md)** | **⚡ [5-Minute Win](docs/03_5-minute-success.md)**
 
 ---
 

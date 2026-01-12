@@ -167,7 +167,7 @@ After v4.21.0 "External Perspectives - Complete Edition" (100% research, 9/9 pat
 - Add link to README.md navigation section
 - Add to 01_entry-points.md as a learning path option
 - Reference from QUICK_REFERENCE.md
-- Update START_HERE.md persona guides with progression map link
+- Update personas/README.md persona guides with progression map link
 
 **Estimated time:** 15 minutes
 **Impact:** Users discover progression guidance earlier

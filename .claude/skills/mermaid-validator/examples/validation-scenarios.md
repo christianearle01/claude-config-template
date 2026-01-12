@@ -266,7 +266,7 @@ Commit 1: "fix: Mermaid emoji in FirstTime node" (400 tokens)
 Commit 2: "fix: Mermaid emoji in QuickSetup node" (400 tokens)
 Commit 3: "fix: Mermaid file path syntax" (400 tokens)
 Commit 4: "fix: Mermaid @ symbol syntax" (400 tokens)
-Commit 5: "fix: Mermaid slash command" (400 tokens)
+Commit 5: "fix: Mermaid skill" (400 tokens)
 ...
 Total: 13 commits × 400 = 5,200 tokens wasted
 ```

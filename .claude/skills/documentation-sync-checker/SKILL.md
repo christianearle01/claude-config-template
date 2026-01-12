@@ -61,7 +61,7 @@ Validates:
 
 Validates bidirectional links:
 - README ↔ Documentation files
-- Skills ↔ SKILLS_PARADIGM.md
+- Skills ↔ 02_skills-paradigm.md
 - Setup guides ↔ QUICK_REFERENCE.md
 
 ### 4. Stale Content Detection

@@ -2,7 +2,7 @@
 
 **📍 You are here:** [Home](../README.md) > Choose Your Profile
 
-**⬅️ Back:** [Home](../README.md) | **⚡ Quick Demo:** [5-Minute Success](../5_MINUTE_SUCCESS.md) | **🗺️ Visual Guide:** [Flowchart](../VISUAL_QUICKSTART.md)
+**⬅️ Back:** [Home](../README.md) | **⚡ Quick Demo:** [5-Minute Success](../03_5-minute-success.md) | **🗺️ Visual Guide:** [Flowchart](../07_visual-quickstart.md)
 
 ---
 
@@ -33,7 +33,7 @@ Learn Claude Code fundamentals from scratch. Covers installation, core concepts,
 ## ⚡ Quick Setup User
 
 ### Brief
-Get a single project configured with Claude Code in 15-30 minutes. Focuses on CLAUDE.md template, model switching basics, and first slash command. Perfect for experienced developers who want immediate productivity without theory.
+Get a single project configured with Claude Code in 15-30 minutes. Focuses on CLAUDE.md template, model switching basics, and first skill. Perfect for experienced developers who want immediate productivity without theory.
 
 **Time:** 15-30 min | **Difficulty:** Easy | **Outcome:** One production-ready project
 

@@ -1,7 +1,7 @@
 {
-  "$schema": "https://json.schemastore.org/claude-features-1.0.0.json",
-  "version": "1.0",
-  "lastUpdated": "2025-12-15T10:00:00Z",
+  "$schema": "https://json.schemastore.org/claude-features-2.0.0.json",
+  "version": "2.0",
+  "lastUpdated": "2026-01-05T10:00:00Z",
 
   // ℹ️ Schema & Version Info
   // - $schema enables IDE validation and autocomplete
@@ -112,6 +112,42 @@
           // - in-progress: Currently being built
           // - completed: All test criteria passing, committed
           // - Only ONE feature should be "in-progress" at a time (atomic execution)
+
+          "workClaiming": {
+            "claimedBy": null,
+            "claimedAt": null,
+            "claimDuration": null
+          },
+
+          // ℹ️ Work-Claiming Pattern (v2.0, GUPP-inspired):
+          // - claimedBy: Agent name ("coder", "quality-reviewer", etc.) or null if unclaimed
+          // - claimedAt: ISO timestamp when agent claimed this feature
+          // - claimDuration: Estimated minutes to complete (helps other agents plan)
+          // - Purpose: Prevents duplicate work when multiple agents running
+          // - Pattern: Before starting work, agent claims feature → other agents see "claimedBy" and skip
+          // - After completion: Agent sets claimedBy back to null
+          // - GUPP compliance: "Agents run available (unclaimed) work"
+
+          "agentLog": [],
+
+          // ℹ️ Agent Activity Log (v2.0):
+          // - Array of objects tracking all agent interactions with this feature
+          // - Each entry: { agentName, action, timestamp, confidence, notes }
+          // - Actions: "claimed", "completed", "reviewed", "refactored", "tested"
+          // - Example:
+          //   {
+          //     "agentName": "coder",
+          //     "action": "completed",
+          //     "timestamp": "2025-12-15T14:30:00Z",
+          //     "confidence": 0.90,
+          //     "notes": "Implementation complete, tests passing"
+          //   }
+          // - Benefits:
+          //   * Historical tracking ("who did what when")
+          //   * Progress visibility (audit trail)
+          //   * Debugging (understand feature evolution)
+          //   * Agent coordination (handoff context preserved)
+          // - Agents append to this array (never delete entries)
 
           "adoption": {
             "percentageComplete": 0,

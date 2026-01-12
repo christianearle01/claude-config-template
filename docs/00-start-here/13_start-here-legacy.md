@@ -3,7 +3,7 @@
 <!-- Breadcrumb Navigation -->
 **📍 You are here:** [Home](README.md) > Choose Your Profile
 
-**⬅️ Back:** [README](README.md) | **⚡ Quick Demo:** [5-Minute Success](docs/5_MINUTE_SUCCESS.md) | **🗺️ Visual Guide:** [Flowchart](docs/VISUAL_QUICKSTART.md)
+**⬅️ Back:** [README](README.md) | **⚡ Quick Demo:** [5-Minute Success](docs/03_5-minute-success.md) | **🗺️ Visual Guide:** [Flowchart](docs/07_visual-quickstart.md)
 
 ---
 
@@ -434,7 +434,7 @@ claude-config-template/
 └── .claude/                      ← Configuration files
     ├── agents/                   ← Custom agents
     │   └── project-planner.md   ← NEW! Planning agent
-    ├── commands/                 ← Slash commands
+    ├── commands/                 ← Skills
     ├── hooks/                    ← Security hooks
     └── settings.json             ← Template settings
 ```
@@ -523,7 +523,7 @@ Scroll up to [Quick Reference Card](#quick-reference-card) ↑
 
 ## Navigation
 
-**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/5_MINUTE_SUCCESS.md)** | **🗺️ [Visual Flowchart](docs/VISUAL_QUICKSTART.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
+**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/03_5-minute-success.md)** | **🗺️ [Visual Flowchart](docs/07_visual-quickstart.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
 
 ---
 

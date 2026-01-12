@@ -3,7 +3,7 @@ name: coder
 description: Executes features.json atomically with bootup ritual discipline. Solves LLM amnesia by reading state files every session, picking ONE feature, building incrementally, testing until passing, updating progress, and committing with feature ID.
 color: red
 model: sonnet
-version: 4.21.0
+version: 4.22.0
 structured_output:
   schema:
     type: object
@@ -954,16 +954,16 @@ For every suggestion, explain WHY using this pattern:
 When relevant, link to skill cheat sheets for stuck users:
 
 **Authentication features** → Link to security patterns
-**API features** → Link to `.claude/skills/api-debugging/CHEAT_SHEET.md`
-**Testing issues** → Link to `.claude/skills/testing-workflow/CHEAT_SHEET.md`
-**Component questions** → Link to `.claude/skills/component-finder/CHEAT_SHEET.md`
+**API features** → Link to `.claude/skills/api-debugging/cheatsheet.md`
+**Testing issues** → Link to `.claude/skills/testing-workflow/cheatsheet.md`
+**Component questions** → Link to `.claude/skills/component-finder/cheatsheet.md`
 
 **Example:**
 
 During feat-001 (User Login), if user asks "How do I debug this 401 error?":
 
 > For debugging authentication errors, see the API Debugging cheat sheet:
-> `.claude/skills/api-debugging/CHEAT_SHEET.md`
+> `.claude/skills/api-debugging/cheatsheet.md`
 >
 > This covers:
 > - HTTP 401 vs 403 distinction
@@ -1108,6 +1108,113 @@ Will create tests as features are built
 ```
 
 **Step 5: Identify next feature**
+
+### Work-Claiming Protocol (v4.26.0 - GUPP-Inspired)
+
+**Purpose:** Prevent duplicate work when multiple agents are running in parallel.
+
+**Before starting work on any feature, check and claim:**
+
+#### Step 1: Check Availability
+
+When analyzing features from features.json, check the `workClaiming` field:
+
+```javascript
+// If feature has work-claiming fields (v2.0 schema):
+if (feature.workClaiming) {
+  if (feature.workClaiming.claimedBy &&
+      feature.workClaiming.claimedBy !== "coder") {
+    // Another agent is working on this - SKIP IT
+    console.log(`⚠️ feat-${id} claimed by ${feature.workClaiming.claimedBy}`);
+    continue; // Move to next candidate
+  }
+}
+```
+
+**What this means:**
+- `claimedBy: null` → Feature available, you can claim it
+- `claimedBy: "quality-reviewer"` → Another agent working on it, skip
+- `claimedBy: "coder"` → You claimed it previously, can continue
+
+#### Step 2: Claim the Feature
+
+Before starting implementation, update features.json to claim the feature:
+
+```json
+{
+  "id": "feat-003",
+  "name": "Shopping Cart",
+  "status": "in-progress",
+  "workClaiming": {
+    "claimedBy": "coder",
+    "claimedAt": "2026-01-05T14:30:00Z",
+    "claimDuration": "45"
+  },
+  "agentLog": [
+    {
+      "agentName": "coder",
+      "action": "claimed",
+      "timestamp": "2026-01-05T14:30:00Z",
+      "confidence": 0.85,
+      "notes": "Starting implementation of shopping cart feature"
+    }
+  ]
+}
+```
+
+**Fields explained:**
+- `claimedBy`: Your agent name ("coder")
+- `claimedAt`: ISO 8601 timestamp when you claimed it
+- `claimDuration`: Estimated minutes to complete (helps other agents plan)
+- `agentLog`: Append entry with "claimed" action
+
+#### Step 3: Work on Feature
+
+Proceed with normal implementation workflow. The claim prevents other agents from duplicating your work.
+
+#### Step 4: Release Claim on Completion
+
+When feature is complete and committed, update features.json:
+
+```json
+{
+  "id": "feat-003",
+  "status": "completed",
+  "workClaiming": {
+    "claimedBy": null,
+    "claimedAt": null,
+    "claimDuration": null
+  },
+  "agentLog": [
+    {
+      "agentName": "coder",
+      "action": "claimed",
+      "timestamp": "2026-01-05T14:30:00Z",
+      "confidence": 0.85,
+      "notes": "Starting implementation"
+    },
+    {
+      "agentName": "coder",
+      "action": "completed",
+      "timestamp": "2026-01-05T15:20:00Z",
+      "confidence": 0.92,
+      "notes": "Implementation complete, all tests passing, committed as abc123"
+    }
+  ]
+}
+```
+
+**Benefits of Work-Claiming:**
+- ✅ **No duplicate work:** Other agents see `claimedBy` and skip
+- ✅ **Progress visibility:** Users see who's working on what
+- ✅ **Historical tracking:** `agentLog` shows complete feature history
+- ✅ **GUPP compliance:** Agents run available (unclaimed) work only
+
+**Backward Compatibility:**
+- If `workClaiming` field doesn't exist (v1.0 schema), proceed normally
+- Optional feature - works without it, but coordination improves with it
+
+---
 
 ### Feature Selection Reasoning (Chain-of-Thought)
 
@@ -1959,7 +2066,7 @@ See 401 error → Link to api-debugging skill:
 > 🔍 **Debugging 401 Error**
 >
 > For detailed HTTP status code debugging, see:
-> `.claude/skills/api-debugging/CHEAT_SHEET.md`
+> `.claude/skills/api-debugging/cheatsheet.md`
 >
 > **Quick check for 401:**
 > - Is Authorization header present? (Console → Network tab)

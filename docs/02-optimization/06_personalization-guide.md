@@ -1,7 +1,7 @@
 # Personalization Guide
 
-**Version:** 4.2.0
-**Last Updated:** 2025-12-16
+**Version:** 4.25.0
+**Last Updated:** 2025-12-22
 
 This guide explains how the Personalization Engine works, how to customize your preferences, and how to get the most from Claude Code's learning capabilities.
 
@@ -15,19 +15,22 @@ This guide explains how the Personalization Engine works, how to customize your 
 4. [Confidence Thresholds](#confidence-thresholds)
 5. [Proactivity Levels](#proactivity-levels)
 6. [Learning from Feedback](#learning-from-feedback)
-7. [Skill Integration](#skill-integration)
-8. [Privacy & Data](#privacy--data)
-9. [Common Operations](#common-operations)
-10. [Troubleshooting](#troubleshooting)
-11. [Best Practices](#best-practices)
-12. [Project-Level Preferences](#project-level-preferences-v390) (v3.9.0)
-13. [AI-Suggested Tuning](#ai-suggested-tuning-v3100) (v3.10.0)
-14. [Cross-Project Intelligence](#cross-project-intelligence-v3120) (v3.12.0)
-15. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
-16. [Preference Templates](#preference-templates-v3140) (v3.14.0)
-17. [Remote Template Sources](#remote-template-sources-v400) (v4.0.0)
-18. [Template Inheritance](#template-inheritance-v410) (v4.1.0)
-19. [Template Parameters](#template-parameters-v420) (v4.2.0)
+7. [Implicit Learning Signals](#implicit-learning-signals-v4230) (v4.23.0)
+8. [File-Context & Recovery Patterns](#file-context--recovery-patterns-v4240) (v4.24.0)
+9. [Workflow Gaps & Adaptive Tuning](#workflow-gaps--adaptive-tuning-v4250) (v4.25.0) ⭐ NEW
+10. [Skill Integration](#skill-integration)
+9. [Privacy & Data](#privacy--data)
+10. [Common Operations](#common-operations)
+11. [Troubleshooting](#troubleshooting)
+12. [Best Practices](#best-practices)
+13. [Project-Level Preferences](#project-level-preferences-v390) (v3.9.0)
+14. [AI-Suggested Tuning](#ai-suggested-tuning-v3100) (v3.10.0)
+15. [Cross-Project Intelligence](#cross-project-intelligence-v3120) (v3.12.0)
+16. [Import/Export Preferences](#importexport-preferences-v3130) (v3.13.0)
+17. [Preference Templates](#preference-templates-v3140) (v3.14.0)
+18. [Remote Template Sources](#remote-template-sources-v400) (v4.0.0)
+19. [Template Inheritance](#template-inheritance-v410) (v4.1.0)
+20. [Template Parameters](#template-parameters-v420) (v4.2.0)
 
 ---
 
@@ -335,6 +338,384 @@ Skipping the same item multiple times has cumulative effect:
 "Reset coding-style preferences"     # Reset category
 "Reset all preferences"              # Full reset
 ```
+
+---
+
+## Implicit Learning Signals (v4.23.0)
+
+### Overview
+
+**New in v4.23.0:** The system now learns from HOW you communicate, not just WHAT you say.
+
+**Before:**
+```
+User: "Skip that"           → 0.3 (weak negative)
+User: "Never show that!"    → 0.3 (same weak negative)
+```
+
+**After:**
+```
+User: "Skip that"           → 0.3 × 1x = 0.3 (weak negative)
+User: "Never show that!"    → 0.0 × 2x = permanent filter (strong negative)
+```
+
+**Key innovation:** Keyword detection for signal strength - learn 2-3x faster.
+
+### Signal Types
+
+| Keyword Example | Signal Type | Weight | Effect |
+|----------------|-------------|--------|---------|
+| "exactly what I wanted!" | Strong Positive | 2x | Rapid acceptance boost |
+| "wow, that's cool!" | Enthusiasm | 1.5x | Moderate boost |
+| (accept silently) | Neutral | 1x | Standard learning |
+| "skip for now" | Weak Negative | 1x | Slight decrease |
+| "actually, not that" | Correction | 2x | Rapid rejection |
+| "never do that" | Strong Negative | 2x | Permanent filter |
+
+### How It Works
+
+**Enhanced Learning Algorithm:**
+
+```
+Standard (v3.8.0):
+New rate = (old_rate × samples + new_value) / (samples + 1)
+
+Enhanced (v4.23.0):
+Effective signal = base_value × keyword_weight
+New rate = (old_rate × samples + effective_signal) / (samples + 1)
+```
+
+**Example:** Acceptance rate for "early-returns" = 60% (10 samples)
+
+| Feedback | Weight | Calculation | New Rate |
+|----------|--------|-------------|----------|
+| "That's perfect!" | 2x | (0.60 × 10 + 2.0) / 11 | 72.7% |
+| (accept silently) | 1x | (0.60 × 10 + 1.0) / 11 | 63.6% |
+| "skip that" | 1x | (0.60 × 10 + 0.3) / 11 | 57.3% |
+| "actually, no" | 2x | (0.60 × 10 + 0.0) / 11 - 0.1 | 44.5% |
+
+### Correction Detection
+
+**Pattern:** AI generates code → You edit within 1 minute → Correction signal
+
+**What gets learned:**
+- Pattern type (e.g., "early-returns")
+- File type (e.g., "typescript")
+- Your preference (e.g., "explicit conditionals")
+- High negative weight (2x)
+
+**Example:**
+
+```typescript
+// AI suggests:
+if (!condition) return;
+
+// You change to:
+if (condition) {
+  // ...
+}
+
+// System learns:
+Correction: early-returns → explicit-conditionals
+File type: TypeScript
+Acceptance rate: 60% → 44.5% (now hidden by default)
+```
+
+### Benefits
+
+| Benefit | Impact |
+|---------|--------|
+| **Faster Learning** | 2-3x more signals per session |
+| **Less Effort** | No need to state signal strength |
+| **Natural** | Speak naturally, system adapts |
+| **Correction-Aware** | Learns from your edits automatically |
+| **Token Savings** | 30-50% fewer preference questions |
+
+### Commands
+
+```
+"Show implicit signals detected this session"
+"What keywords did you detect?"
+"Show correction history"
+"Disable implicit learning signals"
+"Enable implicit learning signals"
+```
+
+### Privacy
+
+**What's tracked:**
+- Keyword matches (not full messages)
+- Edit timing (not code content)
+- Pattern preferences (not specific code)
+
+**What's NOT tracked:**
+- Full conversation history
+- Specific code you write
+- File paths with sensitive data
+
+**For complete details:** [Implicit Learning Signals Guide](07_implicit-learning-signals.md)
+
+---
+
+## File-Context & Recovery Patterns (v4.24.0)
+
+### Overview
+
+**New in v4.24.0:** Context-aware learning - different files, different preferences, and remember solutions that worked.
+
+**File-Context Memory:**
+```
+CLAUDE.md → sentence-case headers (95%)
+README.md → title-case headers (90%)
+System remembers which is which!
+```
+
+**Recovery Pattern Learning:**
+```
+Try A → Fails
+Try B → Fails
+Try C → Works!
+Next time → Suggests C immediately (95% confidence)
+```
+
+### File-Context Memory
+
+**Problem:** Global preferences ignore file-specific contexts.
+
+**Solution:** Tag preferences with file paths/patterns.
+
+**Four Context Levels:**
+
+| Level | Example | Priority |
+|-------|---------|----------|
+| Exact file | `CLAUDE.md` | Highest |
+| Glob pattern | `docs/**/*.md` | High |
+| File type | `*.md` | Medium |
+| Directory | `/docs/` | Low |
+
+**How it works:**
+
+1. **On file edit:** System loads preferences for matching patterns
+2. **On learning:** Tags preference with current file context
+3. **Conflict resolution:** File-specific wins over global
+
+**Example:**
+
+```
+Editing CLAUDE.md:
+→ Loads: sentence-case headers (CLAUDE.md, 95%)
+→ Ignores: title-case (global, 75%)
+→ Uses: sentence-case ✓
+
+Editing README.md:
+→ Loads: title-case headers (README.md, 90%)
+→ Uses: title-case ✓
+```
+
+### Recovery Pattern Learning
+
+**Problem:** Valuable solutions forgotten after struggle.
+
+**Solution:** Track fail → fail → success sequences, remember winners.
+
+**Detection:**
+
+1. **Failure:** Tests fail, build errors, "that didn't work"
+2. **Attempts:** Same task, different approaches, within 30 minutes
+3. **Success:** Tests pass, "that worked!", or 5 minutes no edits
+4. **Pattern:** Store failed approaches + successful solution
+
+**Confidence:** 95% (proven through struggle vs 75% regular)
+
+**Example:**
+
+```markdown
+## Recovery Pattern Detected
+
+**Task:** Fixing TypeScript import error
+**I remember:** You solved this in 3 attempts (20 minutes)
+
+**What didn't work:**
+1. ❌ relative-path-import
+2. ❌ namespace-import
+
+**What worked:**
+✅ default-import-with-type (100% success, used 5 times)
+
+Apply proven solution?
+```
+
+### Integration
+
+File-context + recovery patterns work together:
+
+```
+Problem in src/auth.ts:
+1. File-context loads: src/auth.ts preferences
+2. Recovery pattern checks: typescript-import-error solutions
+3. Implicit signals (v4.23.0): Keywords boost confidence
+4. Triple reinforcement = very high confidence suggestion
+```
+
+### Commands
+
+**File-context:**
+```
+"Show file-context preferences for CLAUDE.md"
+"What have you learned about this file?"
+"Reset file-context for *.md"
+```
+
+**Recovery patterns:**
+```
+"Show recovery patterns"
+"How did I solve [task] last time?"
+"Forget recovery pattern for [task]"
+```
+
+**For complete details:** [File-Context & Recovery Patterns Guide](08_file-context-and-recovery-patterns.md)
+
+---
+
+## Workflow Gaps & Adaptive Tuning (v4.25.0)
+
+### Overview
+
+**New in v4.25.0:** Pattern intelligence - detect repetitive workflows and self-optimize thresholds.
+
+**Workflow Gap Detection:**
+```
+Pattern: version.json → script → CHANGELOG → commit (18/20 times)
+Suggestion: "Automate this workflow? (~40 min saved)"
+```
+
+**Adaptive Threshold Tuning:**
+```
+You reject 70% at 95% → System raises to 97%
+You accept 95% at 97% → System lowers to 95%
+Continuous micro-adjustments (±1-2%)
+```
+
+### Workflow Gap Detection
+
+**Problem:** Manual repetition goes unnoticed.
+
+**Solution:** Analyze commit history, detect patterns, suggest automation.
+
+**Four Gap Types:**
+
+| Type | Example | Suggestion |
+|------|---------|------------|
+| Sequential | version.json always → sync-version.sh | "Link tasks?" |
+| Forgotten | version.json → CHANGELOG (no script) | "Run script first?" |
+| Repetitive | add + commit + push (15 times) | "Create git alias?" |
+| Context Switch | auth.ts → README.md (unrelated) | "Group related edits?" |
+
+**Real-time detection:**
+
+```markdown
+## 🔗 Workflow Gap Detected
+
+**Your usual sequence:**
+1. ✓ Edit version.json
+2. ⚠️ Run sync-version.sh ← You haven't done this yet
+3. ? Edit CHANGELOG.md (expected next)
+
+Run now to stay on pattern?
+```
+
+**Automation suggestions after 10+ repetitions:**
+
+```markdown
+## 🤖 Automation Opportunity
+
+**Workflow:** version-bump-workflow
+**Frequency:** 18 times
+**Time cost:** ~40 minutes
+
+**Automate with:**
+- Bash script: ./bump-version.sh 4.25.0
+- Git hook: Pre-commit validation
+- Git alias: git bump "4.25.0"
+
+[Show implementation]
+```
+
+### Adaptive Threshold Tuning
+
+**Problem:** Static thresholds don't match reality.
+
+**Solution:** Continuous micro-adjustments based on acceptance rates.
+
+**How it works:**
+
+```
+Monitor confidence bands:
+- 95-100%: 50% acceptance → Too permissive, raise threshold
+- 90-95%: 87% acceptance → Good
+- 85-90%: 90% acceptance → Could lower threshold
+
+Adjust: autoApply 95% → 97% (+2%)
+```
+
+**Safety features:**
+- Max ±10% per day
+- Min 30%, max 98%
+- 24hr cooldown between major changes
+- Lock/disable/revert anytime
+
+**Transparency:**
+
+```markdown
+## 📊 Threshold Adjusted
+
+**Threshold:** autoApply
+**Change:** 95% → 93% (-2%)
+**Reason:** High acceptance rate (96% over 25 suggestions)
+
+**Impact:** More suggestions will auto-apply
+
+[View history] [Revert] [Lock threshold]
+```
+
+### Integration
+
+**Workflow detection uses:**
+- File-context (v4.24.0): Pattern matching per file
+- Recovery patterns (v4.24.0): Link to proven solutions
+
+**Adaptive tuning uses:**
+- Implicit signals (v4.23.0): Keywords influence confidence
+- File-context (v4.24.0): Adjust per-file thresholds
+- Recovery patterns (v4.24.0): Lower threshold for proven solutions
+
+**Combined:**
+```
+Recovery pattern for TypeScript errors (95% confidence)
++ File-context (src/auth.ts, 92% acceptance)
++ Adaptive tuning (lowers to 90% for this context)
+= More proven solutions auto-applied
+```
+
+### Commands
+
+**Workflow gaps:**
+```
+"Show workflow patterns"
+"What workflows have you detected?"
+"Suggest automation for [workflow]"
+"Forget workflow pattern [name]"
+```
+
+**Adaptive tuning:**
+```
+"Show threshold adjustment history"
+"Why did you adjust [threshold]?"
+"Lock autoApply at 95%"
+"Disable adaptive tuning"
+```
+
+**For complete details:** [Workflow Gaps & Adaptive Tuning Guide](09_workflow-gaps-and-adaptive-tuning.md)
 
 ---
 

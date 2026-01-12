@@ -9,7 +9,7 @@
 ### ⚡ Super Fast (5 Minutes)
 **Just want to see the value?** Try the ultra-fast demo first:
 
-**→ [5-Minute Success Demo](docs/5_MINUTE_SUCCESS.md)**
+**→ [5-Minute Success Demo](docs/03_5-minute-success.md)**
 
 See 99% token savings demonstrated in 5 minutes. Perfect for everyone!
 
@@ -23,7 +23,7 @@ See 99% token savings demonstrated in 5 minutes. Perfect for everyone!
 ### 🗺️ Not Sure Which Path?
 **Need help deciding?** Use the visual decision flowchart:
 
-**→ [Visual Quickstart Flowchart](docs/VISUAL_QUICKSTART.md)**
+**→ [Visual Quickstart Flowchart](docs/07_visual-quickstart.md)**
 
 Takes 30 seconds to find your perfect path.
 
@@ -235,7 +235,7 @@ We provide **5 Mermaid diagrams** to help you understand:
 
 ## 📖 Documentation Structure
 
-**→ Start here:** [START_HERE.md](START_HERE.md)
+**→ Start here:** [personas/README.md](personas/README.md)
 - Choose your profile
 - Get personalized checklist
 - See decision trees
@@ -449,7 +449,7 @@ _Note: This is a new project. Metrics are goals/projections pending real-world v
 ## 🤝 Get Help
 
 ### Documentation
-- [START_HERE.md](START_HERE.md) - Persona selector
+- [personas/README.md](personas/README.md) - Persona selector
 - [VISUAL_GUIDES.md](VISUAL_GUIDES.md) - Visual learning
 - [README.md](README.md) - Complete reference
 - [CHANGELOG.md](CHANGELOG.md) - Version history
@@ -527,7 +527,7 @@ cd ~/claude-config-template
 
 ## Navigation
 
-**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/5_MINUTE_SUCCESS.md)** | **🗺️ [Visual Flowchart](docs/VISUAL_QUICKSTART.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
+**🏠 [Back to README](README.md)** | **⚡ [5-Minute Demo](docs/03_5-minute-success.md)** | **🗺️ [Visual Flowchart](docs/07_visual-quickstart.md)** | **📖 [Quick Reference](QUICK_REFERENCE.md)**
 
 ---
 
