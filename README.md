@@ -6,32 +6,37 @@ Projected: Save 50-95% on tokens. Understand your AI workflow deeply. Ship code 
 
 ---
 
-## 🚀 Get Started (Choose Your Speed)
+## 🚀 Get Started (Choose Your Learning Style)
 
 <table>
 <tr>
 <td width="33%">
 
-### ⚡ Instant Setup **NEW!**
+### 🔥 Problem-First **v5.0.0 Alpha**
+**Start in 60 seconds**
+
+Have a real problem to solve RIGHT NOW? Jump in! Learn by doing, understanding delivered just-in-time when you need it.
+
+**→ [Problem-First Setup](docs/00-start-here/problem-first/00_choose-your-learning-path.md)**
+
+Or run:
+```bash
+./scripts/problem-first-setup.sh
+```
+
+Perfect for: New users, urgent problems, learn-by-doing
+
+</td>
+<td width="33%">
+
+### ⚡ Instant Setup
 **Start in 5 minutes**
 
 4 simple steps. Claude guides you through. Understanding checkpoint explains everything.
 
 **→ [Instant Setup Guide](docs/00-start-here/03_instant-setup.md)**
 
-Perfect for: New users who want to start NOW
-
-</td>
-<td width="33%">
-
-### ⚡ 5-Minute Win
-**See the value first**
-
-Try the ultra-fast demo to see projected 99% token savings.
-
-**→ [5-Minute Success Guide](docs/00-start-here/03_5-minute-success.md)**
-
-Perfect for: Everyone (try this first!)
+Perfect for: Systematic setup, work-ready environment
 
 </td>
 <td width="34%">
@@ -44,11 +49,17 @@ Choose your path based on experience and time available.
 **→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
 **→ [Detailed Persona Guide](docs/00-start-here/personas/README.md)**
 
-Perfect for: Methodical learners
+Perfect for: Methodical learners, teams
 
 </td>
 </tr>
 </table>
+
+**✨ What's Different in v5.0.0?**
+
+**Problem-First Setup (NEW)** uses "pressure-driven learning" - you solve YOUR real problem FIRST, learn Claude Code features when you hit walls that require them. No upfront configuration. No tutorials. Just solve problems and understand along the way.
+
+**Traditional paths** (Instant Setup, Full Setup) are still available and work great - they teach everything upfront before you work.
 
 💡 **AI-Assisted Alternative:** Instead of running commands manually, you can ask Claude Code in your terminal:
 > "Help me set up Claude Code configuration following the 5-minute success path"
@@ -68,12 +79,13 @@ cd ~/claude-config-template
 **This README is your single entry point.** All other documentation is linked from here.
 
 **Your journey path:**
-1. **Want to start immediately?** → Use [Instant Setup](docs/00-start-here/03_instant-setup.md) (5 min, 4 steps) ⚡ **NEW!**
-2. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
-3. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [personas/README.md](docs/00-start-here/personas/README.md) (detailed persona paths)
-4. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
-5. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
-6. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
+1. **Have a problem to solve now?** → Use [Problem-First Setup](docs/00-start-here/problem-first/00_choose-your-learning-path.md) (60 sec, learn by doing) 🔥 **v5.0.0 Alpha**
+2. **Want to start immediately?** → Use [Instant Setup](docs/00-start-here/03_instant-setup.md) (5 min, 4 steps) ⚡
+3. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
+4. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [personas/README.md](docs/00-start-here/personas/README.md) (detailed persona paths)
+5. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
+6. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
+7. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
 
 **Don't know where to start?** Read the Get Started section above ↑
 

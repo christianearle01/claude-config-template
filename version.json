@@ -1,9 +1,11 @@
 {
-  "version": "4.27.2",
-  "release_date": "2026-01-12",
-  "release_name": "Documentation Consistency Fixes",
+  "version": "5.0.0-alpha.1",
+  "release_date": "2026-01-13",
+  "release_name": "Pressure-Driven Learning (Alpha)",
   "breaking_changes": false,
-  "update_priority": "recommended",
+  "update_priority": "optional",
+  "alpha_status": true,
+  "production_ready": false,
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
   "repository_url": "https://github.com/christianearle01/claude-config-template",
   "minimum_claude_version": "2.0.0",
@@ -304,7 +306,37 @@
     "documentation-consistency-review",
     "broken-links-fixed-100-plus",
     "agent-count-clarification",
-    "experimental-agents-documented"
+    "experimental-agents-documented",
+    "problem-first-wizard",
+    "pressure-driven-learning",
+    "60-second-startup",
+    "problem-first-setup-script",
+    "demo-engine",
+    "bug-fix-demo",
+    "feature-addition-demo",
+    "refactoring-demo",
+    "3-second-proof-of-value",
+    "adaptive-checkpoint-system",
+    "understanding-checkpoints-skill",
+    "just-in-time-learning",
+    "mandatory-verification",
+    "checkpoint-trigger-detection",
+    "eli12-analogies",
+    "intermediate-state-visibility",
+    "comparison-documentation",
+    "problem-first-guides",
+    "choose-your-learning-path-guide",
+    "how-claude-solves-problems-guide",
+    "understanding-claude-memory-guide",
+    "token-optimization-basics-guide",
+    "quick-wins-path-guide",
+    "petersson-methodology",
+    "jake-nations-synthesis",
+    "problem-first-marker-file",
+    "minimal-viable-config",
+    "organic-config-accumulation",
+    "learning-style-choice",
+    "alpha-release-framework"
   ],
   "personas_supported": [
     "first-time",
@@ -352,7 +384,14 @@
       "03_pre-project-planning/README.md": "2.3.0",
       "docs/03-advanced/06_spec-driven-development.md": "4.22.0",
       "docs/01-fundamentals/09_hands-on-practice.md": "4.22.0",
-      "docs/04-ecosystem/03_success-metrics.md": "4.22.0"
+      "docs/04-ecosystem/03_success-metrics.md": "4.22.0",
+      "docs/00-start-here/problem-first/00_choose-your-learning-path.md": "5.0.0",
+      "docs/00-start-here/problem-first/01_how-claude-solves-problems.md": "5.0.0",
+      "docs/00-start-here/problem-first/02_understanding-claude-memory.md": "5.0.0",
+      "docs/00-start-here/problem-first/03_token-optimization-basics.md": "5.0.0",
+      "docs/00-start-here/problem-first/04_quick-wins-path.md": "5.0.0",
+      "docs/releases/RELEASE_NOTES_v5.0.0-alpha.1.md": "5.0.0",
+      "docs/releases/TESTING_v5.0.0-alpha.1.md": "5.0.0"
     },
     "templates": {
       "CLAUDE.md.template": "2.0.0",
@@ -401,7 +440,13 @@
       "claude-health-check.sh": "3.5.0",
       "validate-template.sh": "4.4.0",
       "apply-template.sh": "4.5.0",
-      "generate-skills-catalog.sh": "4.10.0"
+      "generate-skills-catalog.sh": "4.10.0",
+      "problem-first-setup.sh": "5.0.0"
+    },
+    "demos": {
+      "bug-fix-security/demo.sh": "5.0.0",
+      "feature-addition/demo.sh": "5.0.0",
+      "refactoring/demo.sh": "5.0.0"
     },
     "examples": {
       "hooks": "2.0.0",
@@ -434,7 +479,8 @@
       "personalization-engine": "4.2.0",
       "mermaid-validator": "4.9.1",
       "mode-selector": "4.9.0",
-      "external-perspectives": "4.21.0"
+      "external-perspectives": "4.21.0",
+      "understanding-checkpoints": "5.0.0"
     },
     "cheatsheets": {
       "api-debugging": "3.3.0",
@@ -452,9 +498,10 @@
     }
   },
   "metadata": {
-    "total_files": 148,
-    "total_lines": 63500,
-    "skill_count": 20,
+    "total_files": 161,
+    "total_lines": 68400,
+    "skill_count": 21,
+    "demo_count": 3,
     "command_count": 4,
     "agent_count": 9,
     "sandbox_count": 5,
