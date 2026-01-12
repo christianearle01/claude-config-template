@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-21
-**Version:** v4.27.1
+**Version:** v4.27.2
 
 ---
 
@@ -325,7 +325,7 @@ claude-config-template/
 ├── .claude/                 # Claude Code config
 │   ├── settings.json
 │   ├── SETUP_CONTEXT.md    # Token-optimized setup guide
-│   ├── agents/             # 5 custom agents (coder, initializer, project-planner, prompt-polisher, quality-reviewer)
+│   ├── agents/             # 7 official agents (project-planner, prompt-polisher, initializer, coder, quality-reviewer, spec-generator, deployment-readiness) + 3 experimental
 │   ├── skills/             # Skill definitions (personalization-engine, projects-registry)
 │   └── commands/           # 5 skills
 │
@@ -562,7 +562,7 @@ git push origin v2.6.0
 - `docs/00-start-here/01_entry-points.md` - Navigation guide
 - `docs/00-start-here/personas/README.md` - Detailed persona guide
 - `docs/01-fundamentals/02_skills-paradigm.md` - Future of Claude Code
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - #1 priority guide
+- `docs/01-fundamentals/05_anti-patterns.md` - #1 priority guide
 
 ### Critical Templates (What users copy)
 - `templates/CLAUDE.md.template` - Project memory template (284 lines)
@@ -679,7 +679,7 @@ git push origin v2.6.0
 → Direct to `docs/00-start-here/01_entry-points.md` first, then learning journey
 
 **"What should I learn first?"**
-→ Start with `docs/01-fundamentals/ANTI_PATTERNS.md` (#1 priority)
+→ Start with `docs/01-fundamentals/05_anti-patterns.md` (#1 priority)
 
 **"What's the Skills Paradigm?"**
 → See `docs/01-fundamentals/02_skills-paradigm.md` (the future of Claude Code)

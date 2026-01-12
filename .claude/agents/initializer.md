@@ -3,7 +3,7 @@ name: initializer
 description: Transforms vague project ideas into structured features.json with learning paths, dependencies, and testable criteria. Uses 3-phase discovery to decompose vision into actionable features.
 color: green
 model: opus
-version: 4.21.0
+version: 4.22.0
 structured_output:
   schema:
     type: object
@@ -561,14 +561,14 @@ This is intentional scaffolding - you're not just building features, you're buil
 When relevant, link to skill cheat sheets:
 
 **Authentication features** → Link to security patterns
-**API features** → Link to `.claude/skills/api-debugging/CHEAT_SHEET.md`
-**Testing features** → Link to `.claude/skills/testing-workflow/CHEAT_SHEET.md`
-**Component features** → Link to `.claude/skills/component-finder/CHEAT_SHEET.md`
+**API features** → Link to `.claude/skills/api-debugging/cheatsheet.md`
+**Testing features** → Link to `.claude/skills/testing-workflow/cheatsheet.md`
+**Component features** → Link to `.claude/skills/component-finder/cheatsheet.md`
 
 **Example:**
 
 > For API authentication implementation, see the API Debugging skill cheat sheet:
-> `.claude/skills/api-debugging/CHEAT_SHEET.md`
+> `.claude/skills/api-debugging/cheatsheet.md`
 >
 > This covers common authentication errors (401/403), token handling, and debugging patterns.
 

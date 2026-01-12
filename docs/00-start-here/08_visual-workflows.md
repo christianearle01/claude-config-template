@@ -9,7 +9,7 @@
 **5 Mermaid diagrams showing how Claude Code workflows actually work**
 
 **Time to read:** 10 minutes
-**Purpose:** See the complete workflows visually (complements [Workflow Integration Guide](../01-fundamentals/WORKFLOW_INTEGRATION.md))
+**Purpose:** See the complete workflows visually (complements [Workflow Integration Guide](../01-fundamentals/03_workflow-integration.md))
 
 ---
 
@@ -426,7 +426,7 @@ Export these diagrams and keep them visible:
 ### Understand the Flows Deeply
 
 **Option A: Read Full Workflow Guide (15 min)**
-→ [Workflow Integration Guide](../01-fundamentals/WORKFLOW_INTEGRATION.md) - Detailed explanations
+→ [Workflow Integration Guide](../01-fundamentals/03_workflow-integration.md) - Detailed explanations
 
 **Option B: Try a Workflow (30 min)**
 → [New Project Setup](../../docs/00-start-here/personas/06_planning-new-project.md) - Follow Workflow #1

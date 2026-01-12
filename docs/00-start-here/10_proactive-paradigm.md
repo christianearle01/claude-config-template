@@ -1001,7 +1001,7 @@ Proactive Intelligence: "I notice you updated version.json but not CHANGELOG.md.
 **Getting Started:**
 - [CLAUDE.md](../../CLAUDE.md) - Project overview with framework summary
 - [QUICK_START.md](./QUICK_START.md) - Fast setup (5 minutes)
-- [SKILLS_PARADIGM.md](./SKILLS_PARADIGM.md) - Understanding Skills architecture
+- [02_skills-paradigm.md](./02_skills-paradigm.md) - Understanding Skills architecture
 
 **Implementation Details:**
 - [Implementation Plan](/Users/christianearle01/.claude/plans/nifty-weaving-raven.md) - Full roadmap (local file)

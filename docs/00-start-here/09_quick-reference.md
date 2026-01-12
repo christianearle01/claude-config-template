@@ -364,7 +364,7 @@ wc -c CLAUDE.md
 **Docs:** [Claude Skills Complete Guide](../04_browser-workflow/01_must-have/10_claude-skills-complete-guide.md)
 
 **Related:**
-- [Local Claude Code Skills](SKILLS_PARADIGM.md) - Project-specific skills for CLI
+- [Local Claude Code Skills](02_skills-paradigm.md) - Project-specific skills for CLI
 - [Custom Instructions Guide](../04_browser-workflow/README.md) - Global role preferences
 
 **Keywords:** skills, account-level, reusable, portable, stackable, skill-creator, workflows, automation, token efficiency
@@ -564,7 +564,9 @@ When to escalate from simple to complex tools:
 
 **What:** Specialized AI assistants for specific workflows
 
-**Built-in agents:** 9 sophisticated agents included (6 shown below, plus initializer, coder, quality-reviewer)
+**Built-in agents:** 7 official agents for production use (project-planner, prompt-polisher, initializer, coder, quality-reviewer, spec-generator, deployment-readiness)
+
+**Plus 3 experimental utility agents:** adversarial-validator, documentation-verifier, mode-selector
 
 ### 1. Prompt Polisher Agent
 **Purpose:** Transform vague prompts into optimized requests
@@ -1026,10 +1028,10 @@ env:
 | What You're Looking For | Location |
 |------------------------|----------|
 | **Entry Points** | |
-| 5-minute demo | `docs/5_MINUTE_SUCCESS.md` |
-| Visual flowchart | `docs/VISUAL_QUICKSTART.md` |
+| 5-minute demo | `docs/03_5-minute-success.md` |
+| Visual flowchart | `docs/07_visual-quickstart.md` |
 | Main README | `README.md` |
-| Persona selector | `START_HERE.md` |
+| Persona selector | `personas/README.md` |
 | Visual guides | `VISUAL_GUIDES.md` |
 | Quick reference | `QUICK_REFERENCE.md` (this file!) |
 | **Templates** | |
@@ -1632,33 +1634,33 @@ Why this change:
 - **Time:** 60-90 minutes
 - **For:** New to Claude Code
 - **Get:** Complete understanding + working setup
-- **Path:** [START_HERE.md#first-time-learner](START_HERE.md#first-time-learner)
+- **Path:** [personas/README.md#first-time-learner](personas/README.md#first-time-learner)
 
 ### ⚡ Quick Setup
 - **Time:** 15-30 minutes
 - **For:** Experienced, need fast project setup
 - **Get:** Configured project, ready to code
-- **Path:** [START_HERE.md#quick-setup-user](START_HERE.md#quick-setup-user)
+- **Path:** [personas/README.md#quick-setup-user](personas/README.md#quick-setup-user)
 
 ### 🚀 Advanced Optimizer
 - **Time:** 20-40 minutes
 - **For:** Want security hooks, custom agents, MCP
 - **Get:** Production-grade advanced features
-- **Path:** [START_HERE.md#advanced-optimizer](START_HERE.md#advanced-optimizer)
+- **Path:** [personas/README.md#advanced-optimizer](personas/README.md#advanced-optimizer)
 
 ### 👥 Team Lead
 - **Time:** 90-120 minutes
 - **For:** Setting up for entire team
 - **Get:** Repeatable deployment process
-- **Path:** [START_HERE.md#team-lead](START_HERE.md#team-lead)
+- **Path:** [personas/README.md#team-lead](personas/README.md#team-lead)
 
 ### 🔄 Returning User
 - **Time:** 10-20 minutes
 - **For:** Used before, need refresher
 - **Get:** Quick command review
-- **Path:** [START_HERE.md#returning-user](START_HERE.md#returning-user)
+- **Path:** [personas/README.md#returning-user](personas/README.md#returning-user)
 
-**Visual guide:** [docs/VISUAL_QUICKSTART.md](docs/VISUAL_QUICKSTART.md)
+**Visual guide:** [docs/07_visual-quickstart.md](docs/07_visual-quickstart.md)
 
 **Keywords:** personas, profiles, paths, routes, beginner, advanced, team, first-time
 
@@ -1781,7 +1783,7 @@ Why this change:
 | Best for | Frequent queries | Complex tasks | Repeated ops |
 
 **Docs:**
-- [Skills Paradigm](SKILLS_PARADIGM.md)
+- [Skills Paradigm](02_skills-paradigm.md)
 - [Projects Registry Skill](.claude/skills/projects-registry/SKILL.md)
 - [Documentation-Sync-Checker Skill](.claude/skills/documentation-sync-checker/SKILL.md)
 - [External Perspectives Skill](.claude/skills/external-perspectives/SKILL.md)
@@ -2003,7 +2005,7 @@ Works with npm, pip, gem, cargo, go, Maven, NuGet, etc.
 **Goal:** See the value immediately
 
 **Do this:**
-1. Go to [docs/5_MINUTE_SUCCESS.md](docs/5_MINUTE_SUCCESS.md)
+1. Go to [docs/03_5-minute-success.md](docs/03_5-minute-success.md)
 2. Copy CLAUDE.md template
 3. Add one sentence
 4. Test with Claude
@@ -2026,7 +2028,7 @@ claude
 
 **Result:** Fully configured project
 
-**Guide:** [START_HERE.md#quick-setup-user](START_HERE.md#quick-setup-user)
+**Guide:** [personas/README.md#quick-setup-user](personas/README.md#quick-setup-user)
 
 ---
 
@@ -2041,7 +2043,7 @@ claude
 
 **Result:** Complete understanding + setup
 
-**Guide:** [START_HERE.md#first-time-learner](START_HERE.md#first-time-learner)
+**Guide:** [personas/README.md#first-time-learner](personas/README.md#first-time-learner)
 
 ---
 
@@ -2141,7 +2143,7 @@ cd ~/claude-config-template
 3. Validate: `./scripts/validate-template.sh examples/team-templates/gallery-frontend-react.json`
 4. Copy and customize OR use apply script (v4.5.0)
 
-**Documentation:** [Template Gallery Guide](../02-optimization/TEMPLATE_GALLERY_GUIDE.md)
+**Documentation:** [Template Gallery Guide](../02-optimization/08_template-gallery-guide.md)
 
 **Keywords:** templates, gallery, examples, inheritance, parameters, domain-specific
 
@@ -2181,7 +2183,7 @@ cd ~/claude-config-template
 - 0: All validations passed (warnings OK)
 - 1: One or more critical errors
 
-**Documentation:** [Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md)
+**Documentation:** [Template Validator Guide](../04-ecosystem/06_template-validator-guide.md)
 
 **Keywords:** validate, validation, template, schema, quality, lint, check
 
@@ -2314,7 +2316,7 @@ chmod +x scripts/*.sh
 
 **More help:**
 - Run `/doctor` in Claude Code for diagnostics
-- Check [START_HERE.md](START_HERE.md) persona checklist
+- Check [personas/README.md](personas/README.md) persona checklist
 - Read specific guide for your issue
 
 **Keywords:** problem, error, issue, help, not working, broken, fix
@@ -2412,7 +2414,7 @@ Visualize 92% savings with optimizations
 **Location:** [VISUAL_GUIDES.md](VISUAL_GUIDES.md)
 
 **NEW in v2.5.0:**
-- [Visual Quickstart](docs/VISUAL_QUICKSTART.md) - Decision flowchart
+- [Visual Quickstart](docs/07_visual-quickstart.md) - Decision flowchart
 
 **Keywords:** visual, diagram, flowchart, graphic, image, picture
 
@@ -2543,7 +2545,7 @@ cd ~/claude-config-template
 **If wizard fails:**
 - Check permissions: `chmod +x scripts/*.sh`
 - Check dependencies: bash, python
-- Manual setup: Use START_HERE.md
+- Manual setup: Use personas/README.md
 
 **Keywords:** wizard, interactive, setup, guided, assistant, automation
 
@@ -2552,13 +2554,13 @@ cd ~/claude-config-template
 ## 💡 Pro Tips
 
 ### Tip 1: Start with the 5-Minute Win
-Even if you're experienced, [docs/5_MINUTE_SUCCESS.md](docs/5_MINUTE_SUCCESS.md) demonstrates the value in 5 minutes.
+Even if you're experienced, [docs/03_5-minute-success.md](docs/03_5-minute-success.md) demonstrates the value in 5 minutes.
 
 ### Tip 2: Bookmark This File
 Press `Cmd+D` (Mac) or `Ctrl+D` (Windows) to bookmark. Use Cmd+F to find anything instantly.
 
 ### Tip 3: Use the Visual Flowchart
-Can't decide which path? [docs/VISUAL_QUICKSTART.md](docs/VISUAL_QUICKSTART.md) has an interactive decision tree.
+Can't decide which path? [docs/07_visual-quickstart.md](docs/07_visual-quickstart.md) has an interactive decision tree.
 
 ### Tip 4: Model Switching is Your Friend
 Plan with Sonnet, implement with Haiku. Save 66.7% on implementation costs.
@@ -2571,8 +2573,8 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 ## 🚀 Next Steps
 
 **If you're new here:**
-1. Try the [5-Minute Win](docs/5_MINUTE_SUCCESS.md)
-2. Use the [Visual Flowchart](docs/VISUAL_QUICKSTART.md) to choose your path
+1. Try the [5-Minute Win](docs/03_5-minute-success.md)
+2. Use the [Visual Flowchart](docs/07_visual-quickstart.md) to choose your path
 3. Run the wizard: `./scripts/claude-wizard.sh`
 
 **If you're set up already:**
@@ -2788,7 +2790,7 @@ Don't try to write a perfect CLAUDE.md upfront. Start with basics, add as you go
 
 ## Navigation
 
-**🏠 [Back to README](README.md)** | **🗺️ [Choose Your Path](START_HERE.md)** | **⚡ [5-Minute Win](docs/5_MINUTE_SUCCESS.md)**
+**🏠 [Back to README](README.md)** | **🗺️ [Choose Your Path](personas/README.md)** | **⚡ [5-Minute Win](docs/03_5-minute-success.md)**
 
 ---
 

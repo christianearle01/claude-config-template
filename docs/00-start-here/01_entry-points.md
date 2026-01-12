@@ -66,14 +66,14 @@
 | [03_5-minute-success.md](03_5-minute-success.md) | Ultra-fast demo |
 | [05_anti-patterns.md](05_anti-patterns.md) | What NOT to do (critical) |
 | [14_skills-progression-map.md](14_skills-progression-map.md) | Learning path (Foundation → Optimization → Strategic) |
-| [10_learning-stages.md](10_learning-stages.md) | Progressive skill building |
+| [Learning Stages](12_learning-stages.md) | Progressive skill building |
 | [11_proactive-paradigm.md](11_proactive-paradigm.md) | Future direction (v3.5.0+) |
 | [12_quality-workflows.md](12_quality-workflows.md) | Quality-first development |
 | [09_quick-reference.md](09_quick-reference.md) | Searchable feature catalog |
 | [Skills Catalog](../.claude/skills/SKILLS_CATALOG.md) | 19 skills organized by experience level |
 | [04_quick-start.md](04_quick-start.md) | Minimal setup guide |
 | [02_quick-win.md](02_quick-win.md) | Fast wins path |
-| [08_skills-paradigm.md](08_skills-paradigm.md) | Commands → Agents → Skills |
+| [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) | Commands → Agents → Skills |
 | [personas/README.md](personas/README.md) | Persona-based routing |
 | [06_visual-guides.md](06_visual-guides.md) | Diagrams and flowcharts |
 | [07_visual-quickstart.md](07_visual-quickstart.md) | Visual path selector |

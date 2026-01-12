@@ -901,6 +901,6 @@ A: Yes! Include skills/ directory in plugin. Skills activate automatically.
 ---
 
 **See also:**
-- [Skills Paradigm](../01-fundamentals/SKILLS_PARADIGM.md) - Skills in plugins
-- [Third-Party MCPs](THIRD_PARTY_MCPS.md) - Including MCPs in plugins
-- [Advanced MCP Workflows](../03-advanced/ADVANCED_MCP_WORKFLOWS.md) - Orchestration patterns
+- [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) - Skills in plugins
+- [Third-Party MCPs](05_third-party-mcps.md) - Including MCPs in plugins
+- [Advanced MCP Workflows](../03-advanced/04_advanced-mcp-workflows.md) - Orchestration patterns

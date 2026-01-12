@@ -538,7 +538,7 @@ claude
 ### After Updating Projects
 
 **Option A: Learn New Features (15 min)**
-→ [Workflow Integration Guide](../01-fundamentals/WORKFLOW_INTEGRATION.md) - Understand how tools connect
+→ [Workflow Integration Guide](../01-fundamentals/03_workflow-integration.md) - Understand how tools connect
 
 **Option B: Try Enhanced Agents (10 min)**
 → Use @coder or @quality-reviewer on a real task, see chain-of-thought reasoning

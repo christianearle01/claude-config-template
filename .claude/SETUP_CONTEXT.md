@@ -21,7 +21,8 @@
 8. Template system (v4.0-v4.5) → Apply team configs with one command
 9. Package security (OPTIONAL) → Malware protection for npm/Python projects
 
-**Current Version:** v4.22.0
+**Current Version:** v4.27.1
+**Last Updated:** 2026-01-12
 
 **Need to update an existing project?** → See [`UPDATE_GUIDE.md`](../docs/04-ecosystem/09_update-guide.md) for quick commands
 
@@ -900,7 +901,7 @@ The script checks:
 
 ## Version Information
 
-**Current:** v4.22.0 (Understanding Over Speed - Jake Nations Edition)
+**Current:** v4.27.1 (Understanding Over Speed - Jake Nations Edition)
 
 **For complete version history and release notes:**
 → See [CHANGELOG.md](../CHANGELOG.md)

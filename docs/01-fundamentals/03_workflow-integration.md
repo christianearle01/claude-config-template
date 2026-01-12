@@ -540,7 +540,7 @@ Result: Failing tests → Passing tests with proper fixes
 - [Custom Commands Guide](../../.claude/commands/README.md)
 
 **Layer 3 (Skills):**
-- [Skills Paradigm](../00-start-here/SKILLS_PARADIGM.md)
+- [Skills Paradigm](../00-start-here/02_skills-paradigm.md)
 - [Available Skills](../../.claude/skills/README.md)
 
 **Layer 4 (Agents):**
@@ -561,13 +561,13 @@ Result: Failing tests → Passing tests with proper fixes
 **Next logical step:**
 
 **Option A: See Visual Workflows (5 min)**
-→ [Visual Workflows Guide](../00-start-here/VISUAL_WORKFLOWS.md) - 5 Mermaid diagrams showing flows
+→ [Visual Workflows Guide](../00-start-here/08_visual-workflows.md) - 5 Mermaid diagrams showing flows
 
 **Option B: Master Layer 1 (30 min)**
 → [Project Onboarding](../../02_project-onboarding/01_must-have/01_onboarding-guide.md) - Set up CLAUDE.md
 
 **Option C: Explore Skills (15 min)**
-→ [Skills Paradigm](../00-start-here/SKILLS_PARADIGM.md) - Understand auto-activation
+→ [Skills Paradigm](../00-start-here/02_skills-paradigm.md) - Understand auto-activation
 
 **Having trouble?** Ask Claude: "Walk me through the workflow for [your specific task]"
 

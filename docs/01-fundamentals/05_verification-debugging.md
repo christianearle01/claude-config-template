@@ -495,6 +495,6 @@ Review the code in [file paths] for:
 
 ---
 
-**Previous:** [Skills Paradigm](SKILLS_PARADIGM.md) - The evolution beyond agents
+**Previous:** [Skills Paradigm](02_skills-paradigm.md) - The evolution beyond agents
 **Next:** [Keyboard Shortcuts](04_keyboard-shortcuts.md) - Essential patterns
 **See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do

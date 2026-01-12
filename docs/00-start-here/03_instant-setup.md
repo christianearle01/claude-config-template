@@ -187,7 +187,7 @@ cat ~/.claude/settings.json
 **When you're ready to optimize further:**
 
 - **[Settings Deep Dive](../../.claude/settings-explained.json)** - Every setting explained
-- **[MCP Workflows](../03-advanced/ADVANCED_MCP_WORKFLOWS.md)** - Multi-tool orchestration
+- **[MCP Workflows](../03-advanced/04_advanced-mcp-workflows.md)** - Multi-tool orchestration
 - **[Rules Directory](../01-fundamentals/05_rules-directory-guide.md)** - Modular rule management
 - **[Environment Variables](../02-optimization/06_environment-variables.md)** - Runtime configuration
 - **[Model Selection Strategy](../02-optimization/01_model-selection-strategy.md)** - When to use Opus/Sonnet/Haiku

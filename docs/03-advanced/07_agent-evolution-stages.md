@@ -43,7 +43,7 @@ Steve Yegge's "Welcome to Gas Town" describes the natural evolution developers u
 
 **Template Support:**
 - `01_global-setup/01_must-have/` - Essential Claude Code setup
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - What NOT to do (critical reading)
+- `docs/01-fundamentals/05_anti-patterns.md` - What NOT to do (critical reading)
 - `docs/01-fundamentals/07_prompting-fundamentals.md` - How to communicate effectively
 
 **Key learning:** Understand AI's strengths (boilerplate, patterns, common tasks) and weaknesses (novel algorithms, security, business logic)
@@ -526,7 +526,7 @@ Template is overkill. Use IDE agents, build trust, learn basics.
 **Related Template Docs:**
 - [Orchestration Decision Framework](08_orchestration-decision-framework.md)
 - [External Perspectives - Pattern 10 (Gas Town)](.claude/skills/external-perspectives/SKILL.md)
-- [ANTI_PATTERNS Guide](../01-fundamentals/ANTI_PATTERNS.md)
+- [ANTI_PATTERNS Guide](../01-fundamentals/05_anti-patterns.md)
 
 **Industry Context:**
 - Steve Yegge's 6 Waves timeline (2022-2026)

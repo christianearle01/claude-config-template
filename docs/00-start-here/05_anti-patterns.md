@@ -514,9 +514,9 @@ wc -c CLAUDE.md
 **For full source citations and validation status, see "Sources & Validation" section at the top of this document.**
 
 **Related Guides:**
-- [Verification & Debugging](VERIFICATION_DEBUGGING.md) - How to verify AI actions are real
-- [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Ctrl+O and other essential shortcuts
-- [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
+- [Verification & Debugging](05_verification-debugging.md) - How to verify AI actions are real
+- [Keyboard Shortcuts](04_keyboard-shortcuts.md) - Ctrl+O and other essential shortcuts
+- [Skills Paradigm](02_skills-paradigm.md) - Building reusable expertise
 
 **Additional Resources:**
 - Claude Code Documentation: https://docs.claude.com
@@ -550,7 +550,7 @@ wc -c CLAUDE.md
 ---
 
 **Next Steps:**
-1. Read [Verification & Debugging](VERIFICATION_DEBUGGING.md) to learn Ctrl+O workflow
+1. Read [Verification & Debugging](05_verification-debugging.md) to learn Ctrl+O workflow
 2. Adopt AI Augmented Coding from day one
 3. Use fundamentals checklist on every feature
 4. Review existing code if you've been vibe coding

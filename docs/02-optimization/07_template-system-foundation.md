@@ -40,7 +40,7 @@ v4.4.0 (Validator)        Quality: Automated validation before use
 v4.5.0 (Application)      Automation: One-command template application
 ```
 
-This guide covers the foundation (v4.0-v4.2). For advanced features, see [Template Gallery Guide](TEMPLATE_GALLERY_GUIDE.md), [Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md), and [Template Application Guide](../04-ecosystem/APPLY_TEMPLATE_GUIDE.md).
+This guide covers the foundation (v4.0-v4.2). For advanced features, see [Template Gallery Guide](08_template-gallery-guide.md), [Template Validator Guide](../04-ecosystem/06_template-validator-guide.md), and [Template Application Guide](../04-ecosystem/APPLY_TEMPLATE_GUIDE.md).
 
 ---
 
@@ -1376,10 +1376,10 @@ The complete template workflow from creation to application:
 **You now understand the foundation. Continue your journey:**
 
 ### Explore Ready-to-Use Templates
-[Template Gallery Guide](TEMPLATE_GALLERY_GUIDE.md) - Browse 9 curated templates for different domains (frontend, backend, data science, devops, full-stack)
+[Template Gallery Guide](08_template-gallery-guide.md) - Browse 9 curated templates for different domains (frontend, backend, data science, devops, full-stack)
 
 ### Validate Your Templates
-[Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md) - Ensure your templates are correctly structured before sharing
+[Template Validator Guide](../04-ecosystem/06_template-validator-guide.md) - Ensure your templates are correctly structured before sharing
 
 ### Apply Templates to Projects
 [Template Application Guide](../04-ecosystem/APPLY_TEMPLATE_GUIDE.md) - Automated template application with inheritance resolution and parameter substitution
@@ -1420,8 +1420,8 @@ The complete template workflow from creation to application:
 
 | Feature | Version | Documentation |
 |---------|---------|---------------|
-| Template Gallery | v4.3.0 | [Template Gallery Guide](TEMPLATE_GALLERY_GUIDE.md) |
-| Template Validator | v4.4.0 | [Template Validator Guide](../04-ecosystem/TEMPLATE_VALIDATOR_GUIDE.md) |
+| Template Gallery | v4.3.0 | [Template Gallery Guide](08_template-gallery-guide.md) |
+| Template Validator | v4.4.0 | [Template Validator Guide](../04-ecosystem/06_template-validator-guide.md) |
 | Template Application | v4.5.0 | [Template Application Guide](../04-ecosystem/APPLY_TEMPLATE_GUIDE.md) |
 
 ### Keywords
@@ -1432,6 +1432,6 @@ template, inheritance, parameters, import, export, preferences, extends, setting
 
 ## Navigation
 
-- **Previous:** [MCP Optimization Guide](MCP_OPTIMIZATION_GUIDE.md)
-- **Next:** [Template Gallery Guide](TEMPLATE_GALLERY_GUIDE.md)
+- **Previous:** [MCP Optimization Guide](03_mcp-optimization-guide.md)
+- **Next:** [Template Gallery Guide](08_template-gallery-guide.md)
 - **Up:** [02-optimization README](README.md)

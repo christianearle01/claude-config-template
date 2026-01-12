@@ -1,7 +1,7 @@
 {
-  "version": "4.27.1",
+  "version": "4.27.2",
   "release_date": "2026-01-12",
-  "release_name": "CLAUDE.md Size Guidelines",
+  "release_name": "Documentation Consistency Fixes",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -300,7 +300,11 @@
     "terminology-update-skills",
     "claude-md-size-guidelines",
     "40k-character-limit-warning",
-    "bloated-claude-md-anti-pattern"
+    "bloated-claude-md-anti-pattern",
+    "documentation-consistency-review",
+    "broken-links-fixed-100-plus",
+    "agent-count-clarification",
+    "experimental-agents-documented"
   ],
   "personas_supported": [
     "first-time",

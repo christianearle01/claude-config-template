@@ -70,7 +70,7 @@ cd ~/claude-config-template
 **Your journey path:**
 1. **Want to start immediately?** → Use [Instant Setup](docs/00-start-here/03_instant-setup.md) (5 min, 4 steps) ⚡ **NEW!**
 2. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
-3. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [START_HERE.md](docs/00-start-here/personas/README.md) (detailed persona paths)
+3. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [personas/README.md](docs/00-start-here/personas/README.md) (detailed persona paths)
 4. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
 5. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
 6. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
@@ -162,14 +162,16 @@ _Metrics and examples throughout this documentation are theoretical projections,
 - 39 comprehensive guides
 - Searchable quick reference
 
-**🤖 Custom Agents** (7 sophisticated)
+**🤖 Custom Agents** (7 official agents for production use)
+- Project Planner - Architecture planning with multi-perspective analysis
+- Prompt Polisher - Projected 50-80% token savings with 12+ techniques
+- Initializer - Feature decomposition from user vision to features.json
+- Coder - Atomic feature execution with bootup ritual discipline
+- Quality Reviewer - Security, testing, standards validation (parallel gates)
 - Spec-Generator - YAML specs before code (Understanding Over Speed)
-- Documentation-Verifier - Automated citation verification
-- Prompt Polisher - Projected 50-80% token savings
-- Project Planner - Plan before coding
-- Quality Reviewer - Security, testing, standards validation
-- Coder - Domain memory with bootup ritual
-- Initializer - Structured task breakdown
+- Deployment-Readiness - Release validation with confidence scoring
+
+**Plus 3 experimental utility agents:** adversarial-validator (high-stakes decisions), documentation-verifier (citation verification), mode-selector (Vibe Coding vs Engineering)
 
 **💡 Skills Catalog** (19 example skills, 3 experience levels)
 - Foundation skills (3) - Essential for all projects
@@ -408,7 +410,7 @@ Shift-Tab        # Cycle permission modes
 - Automatic backups
 - Rollback capability
 
-**Current version:** v4.22.0
+**Current version:** v4.27.1
 
 **→ [Changelog](CHANGELOG.md)**
 
@@ -525,7 +527,7 @@ Begin using Claude Code with optimized configuration.
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v4.22.0
+**Template Version:** v4.27.1
 **Last Updated:** 2025-12-21
 
 ---

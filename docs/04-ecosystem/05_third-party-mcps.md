@@ -576,6 +576,6 @@ A: Disable it via disabledMcpjsonServers in settings.json. Report issue to maint
 ---
 
 **See also:**
-- [Advanced MCP Workflows](../03-advanced/ADVANCED_MCP_WORKFLOWS.md) - Orchestrating multiple MCPs
-- [MCP Optimization Guide](../02-optimization/MCP_OPTIMIZATION_GUIDE.md) - Selective loading
-- [Plugins Guide](PLUGINS_GUIDE.md) - Bundling workflows
+- [Advanced MCP Workflows](../03-advanced/04_advanced-mcp-workflows.md) - Orchestrating multiple MCPs
+- [MCP Optimization Guide](../02-optimization/03_mcp-optimization-guide.md) - Selective loading
+- [Plugins Guide](04_plugins-guide.md) - Bundling workflows

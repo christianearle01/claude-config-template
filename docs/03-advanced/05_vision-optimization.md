@@ -304,5 +304,5 @@ async function getUserData() {
 ---
 
 **See also:**
-- [Keyboard Shortcuts](../01-fundamentals/KEYBOARD_SHORTCUTS.md) - Efficient workflows
-- [Conversation Branching](CONVERSATION_BRANCHING.md) - Context management
+- [Keyboard Shortcuts](../01-fundamentals/04_keyboard-shortcuts.md) - Efficient workflows
+- [Conversation Branching](06_conversation-branching.md) - Context management

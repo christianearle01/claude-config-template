@@ -2,7 +2,7 @@
 
 **📍 You are here:** [Home](../README.md) > Choose Your Profile
 
-**⬅️ Back:** [Home](../README.md) | **⚡ Quick Demo:** [5-Minute Success](../5_MINUTE_SUCCESS.md) | **🗺️ Visual Guide:** [Flowchart](../VISUAL_QUICKSTART.md)
+**⬅️ Back:** [Home](../README.md) | **⚡ Quick Demo:** [5-Minute Success](../03_5-minute-success.md) | **🗺️ Visual Guide:** [Flowchart](../07_visual-quickstart.md)
 
 ---
 

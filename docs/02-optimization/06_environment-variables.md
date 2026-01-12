@@ -511,5 +511,5 @@ The claude-config-template provides:
 
 ---
 
-**Next:** [Advanced MCP Workflows](../03-advanced/ADVANCED_MCP_WORKFLOWS.md)
+**Next:** [Advanced MCP Workflows](../03-advanced/04_advanced-mcp-workflows.md)
 **Previous:** [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)

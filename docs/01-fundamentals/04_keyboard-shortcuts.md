@@ -500,9 +500,9 @@ User wants to implement authentication. I'll need to:
 **For full source citations and validation status, see "Sources & Validation" section at the top of this document.**
 
 **Related Guides:**
-- [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Deep dive on Ctrl+O workflow
+- [Verification & Debugging](05_verification-debugging.md) - Deep dive on Ctrl+O workflow
 - [Anti-Patterns](../00-start-here/05_anti-patterns.md) - Vibe Coding vs. AI Augmented
-- [Skills Paradigm](SKILLS_PARADIGM.md) - Building reusable expertise
+- [Skills Paradigm](02_skills-paradigm.md) - Building reusable expertise
 
 **Additional Resources:**
 - Claude Code Documentation: https://docs.claude.com
@@ -539,6 +539,6 @@ User wants to implement authentication. I'll need to:
 
 ---
 
-**Previous:** [Verification & Debugging](VERIFICATION_DEBUGGING.md) - Trust, then verify
+**Previous:** [Verification & Debugging](05_verification-debugging.md) - Trust, then verify
 **See also:** [Anti-Patterns](../00-start-here/05_anti-patterns.md) - What NOT to do
 **Next:** [02-Optimization](../02-optimization/) - Token saving strategies

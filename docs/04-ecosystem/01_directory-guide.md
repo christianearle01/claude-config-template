@@ -13,7 +13,7 @@ Complete guide to navigating the Claude Code Configuration Template.
 
 ### Entry Points
 - **README.md** - Landing page with overview and quick navigation
-- **START_HERE.md** - Detailed persona selector with customized paths
+- **personas/README.md** - Detailed persona selector with customized paths
 - **GETTING_STARTED.md** - Quick win path (being renamed to QUICK_WIN.md)
 - **VISUAL_GUIDES.md** - 5 Mermaid diagrams explaining key concepts
 - **QUICK_REFERENCE.md** - Searchable reference for all features
@@ -30,21 +30,21 @@ Complete guide to navigating the Claude Code Configuration Template.
 UX-optimized guides for better onboarding
 
 **Files:**
-- **5_MINUTE_SUCCESS.md** - Ultra-fast demo (5 minutes)
+- **03_5-minute-success.md** - Ultra-fast demo (5 minutes)
   - Demonstrates core value
   - 99% token savings example
   - Clear next steps
 
-- **VISUAL_QUICKSTART.md** - Interactive decision flowchart
+- **07_visual-quickstart.md** - Interactive decision flowchart
   - Mermaid flowchart for path selection
   - ASCII alternative
   - 30-second quiz
 
-- **DIRECTORY_GUIDE.md** - This file!
+- **01_directory-guide.md** - This file!
   - Complete directory structure
   - What's where reference
 
-- **PROJECTED_IMPACT.md** - Theoretical examples (not real user data)
+- **10_projected-impact.md** - Theoretical examples (not real user data)
   - Before/after examples
   - Team adoption stories
   - Cost savings calculations
@@ -565,8 +565,8 @@ Skills for common tasks
 
 | I want to... | Go to... |
 |--------------|----------|
-| **Get started fast** | docs/5_MINUTE_SUCCESS.md |
-| **Choose my path** | docs/VISUAL_QUICKSTART.md or START_HERE.md |
+| **Get started fast** | docs/03_5-minute-success.md |
+| **Choose my path** | docs/07_visual-quickstart.md or personas/README.md |
 | **Install Claude Code** | 01_global-setup/01_must-have/01_installation.md |
 | **Set up a project** | 02_project-onboarding/01_must-have/01_onboarding-guide.md |
 | **Plan a new project** | 03_pre-project-planning/01_must-have/01_planning-guide.md |
@@ -652,7 +652,7 @@ Scripts: 19 (wizards, template tools, project management, dev tools)
 
 ## Navigation
 
-**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Path](../START_HERE.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
+**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Path](../personas/README.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
 
 ---
 

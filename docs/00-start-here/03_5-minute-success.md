@@ -264,7 +264,7 @@ You've seen the value. Now decide how deep you want to go:
 - Complete the CLAUDE.md template (not just one sentence!)
 - Configure project-specific settings
 
-**Go to:** [Quick Setup Guide](START_HERE.md#quick-setup-user)
+**Go to:** [Quick Setup Guide](personas/README.md#quick-setup-user)
 
 ---
 
@@ -277,7 +277,7 @@ You've seen the value. Now decide how deep you want to go:
 - Permission modes (plan/ask/acceptEdits)
 - MCP servers, security hooks, custom agents
 
-**Go to:** [First-Time Learner Path](START_HERE.md#first-time-learner)
+**Go to:** [First-Time Learner Path](personas/README.md#first-time-learner)
 
 ---
 
@@ -398,10 +398,10 @@ You can expand it over time as you use Claude Code.
 
 **Option 1: Continue Setup Now**
 - Run wizard: `./scripts/claude-wizard.sh`
-- Or follow manual guide: [START_HERE.md](START_HERE.md)
+- Or follow manual guide: [personas/README.md](personas/README.md)
 
 **Option 2: Learn More First**
-- Read projected examples: [docs/PROJECTED_IMPACT.md](PROJECTED_IMPACT.md)
+- Read projected examples: [docs/10_projected-impact.md](10_projected-impact.md)
 - See visual guides: [VISUAL_GUIDES.md](../VISUAL_GUIDES.md)
 - Browse quick reference: [QUICK_REFERENCE.md](../QUICK_REFERENCE.md)
 
@@ -418,7 +418,7 @@ You can expand it over time as you use Claude Code.
 
 ## Navigation
 
-**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Learning Path](../START_HERE.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
+**🏠 [Back to README](../README.md)** | **🗺️ [Choose Your Learning Path](../personas/README.md)** | **📖 [Quick Reference](../QUICK_REFERENCE.md)**
 
 ---
 

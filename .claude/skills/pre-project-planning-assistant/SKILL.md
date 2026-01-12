@@ -427,7 +427,7 @@ workflow-analyzer (improve process)
 - `03_pre-project-planning/01_must-have/01_planning-guide.md` - Comprehensive methodology
 - `templates/project-plan-template.md` - Structured documentation template
 - `.claude/agents/project-planner.md` - Deep multi-perspective analysis
-- `docs/01-fundamentals/ANTI_PATTERNS.md` - Common planning mistakes
+- `docs/01-fundamentals/05_anti-patterns.md` - Common planning mistakes
 
 **External:**
 - Architecture decision records (ADRs) - Document key decisions

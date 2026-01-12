@@ -147,7 +147,7 @@ Skills are knowledge modules that Claude Code automatically loads when relevant.
 - `documentation-sync-checker` - Doc consistency validation
 - `workflow-analyzer` - Pattern observation & suggestions
 
-**Learn More:** [SKILLS_PARADIGM.md](./SKILLS_PARADIGM.md)
+**Learn More:** [02_skills-paradigm.md](./02_skills-paradigm.md)
 
 ---
 
@@ -232,9 +232,9 @@ If you've removed commands and rely on natural language + skills, **congratulati
 
 ## Related Resources
 
-- [SKILLS_PARADIGM.md](./SKILLS_PARADIGM.md) - Deep dive into Skills architecture
+- [02_skills-paradigm.md](./02_skills-paradigm.md) - Deep dive into Skills architecture
 - [QUICK_START.md](./QUICK_START.md) - Fast setup for beginners
-- [ANTI_PATTERNS.md](../00-start-here/05_anti-patterns.md) - Common mistakes at each stage
+- [05_anti-patterns.md](../00-start-here/05_anti-patterns.md) - Common mistakes at each stage
 - [scripts/remove-commands.sh](../../scripts/remove-commands.sh) - Graduation script
 
 ---

@@ -7,6 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [4.27.2] - 2026-01-12 - Documentation Consistency Fixes
+
+**Documentation Patch - Complete Consistency Review**
+
+Comprehensive fix of 100+ broken links, version mismatches, and contradictory information discovered during automated documentation scan.
+
+**CRITICAL Issues Fixed:**
+- **Version sync:** README.md and SETUP_CONTEXT.md showed v4.22.0 instead of v4.27.1 (5 versions behind)
+- **Entry point navigation:** Fixed broken links to skills-paradigm and learning-stages in entry points guide
+- **User trust impact:** Outdated version numbers undermined documentation credibility
+
+**HIGH Priority Fixes (100+ broken links):**
+- **UPPERCASE filename references:** Fixed 22+ patterns across 20+ files (ANTI_PATTERNS.md → 05_anti-patterns.md, SKILLS_PARADIGM.md → 02_skills-paradigm.md, etc.)
+- **START_HERE.md references:** Fixed 41+ broken links in Quick Reference (START_HERE.md → personas/README.md)
+- **Uppercase path references:** Fixed 5_MINUTE_SUCCESS.md, VISUAL_QUICKSTART.md, VISUAL_WORKFLOWS.md, QUICK_REFERENCE.md
+- **Case inconsistency:** Fixed CHEAT_SHEET.md → cheatsheet.md in agent files
+
+**MEDIUM Priority Fixes:**
+- **Agent count clarification:** Updated from contradictory "7/9 sophisticated agents" to "7 official agents + 3 experimental utility agents"
+  - **Official agents (7):** project-planner, prompt-polisher, initializer, coder, quality-reviewer, spec-generator, deployment-readiness
+  - **Experimental agents (3):** adversarial-validator (high-stakes decisions), documentation-verifier (citation verification), mode-selector (Vibe Coding vs Engineering)
+- **Agent version sync:** Synced coder.md and initializer.md to v4.22.0 (from 4.21.0)
+- **Missing version headers:** Added version headers to 4 agent files (deployment-readiness, project-planner, prompt-polisher, quality-reviewer)
+- **Date updates:** Updated pre-project-planning guide date, added "Last Updated" field to SETUP_CONTEXT.md
+
+**Discovery Method:**
+- Launched 3 parallel Explore agents for comprehensive documentation scan
+- Agent 1: Broken internal links (35+ found)
+- Agent 2: Version & terminology inconsistencies (8 critical mismatches)
+- Agent 3: Contradictory & outdated content (agent counts, file locations)
+
+**Files Changed:** 35+ files across documentation, agents, and templates
+
+**Validation:** All internal markdown links verified, version numbers synchronized across all documentation files, agent counts corrected
+
+---
+
 ### [4.27.1] - 2026-01-12 - CLAUDE.md Size Guidelines
 
 **Documentation Patch**

@@ -144,7 +144,7 @@ Still not sure? Use this quick selector:
 
 **Start here:** [First-Time Learner Guide](../personas/01_first-time-learner.md)
 
-**Alternative:** [Run the wizard](../START_HERE.md) → Select "First-Time Learner"
+**Alternative:** [Run the wizard](../personas/README.md) → Select "First-Time Learner"
 
 ---
 
@@ -171,7 +171,7 @@ Still not sure? Use this quick selector:
 
 **Start here:** [Quick Setup Guide](../personas/02_quick-setup-user.md)
 
-**Alternative:** [Run the wizard](../START_HERE.md) → Select "Quick Setup"
+**Alternative:** [Run the wizard](../personas/README.md) → Select "Quick Setup"
 
 **Even faster?** Try the [5-Minute Win](03_5-minute-success.md) first!
 
@@ -200,7 +200,7 @@ Still not sure? Use this quick selector:
 
 **Start here:** [Advanced Optimizer Guide](../personas/03_advanced-optimizer.md)
 
-**Alternative:** [Run the wizard](../START_HERE.md) → Select "Advanced Optimizer"
+**Alternative:** [Run the wizard](../personas/README.md) → Select "Advanced Optimizer"
 
 ---
 
@@ -230,7 +230,7 @@ Still not sure? Use this quick selector:
 
 **Start here:** [Team Lead Guide](../personas/04_team-lead.md)
 
-**Alternative:** [Run the wizard](../START_HERE.md) → Select "Team Lead"
+**Alternative:** [Run the wizard](../personas/README.md) → Select "Team Lead"
 
 ---
 

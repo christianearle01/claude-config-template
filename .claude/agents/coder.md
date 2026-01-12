@@ -3,7 +3,7 @@ name: coder
 description: Executes features.json atomically with bootup ritual discipline. Solves LLM amnesia by reading state files every session, picking ONE feature, building incrementally, testing until passing, updating progress, and committing with feature ID.
 color: red
 model: sonnet
-version: 4.21.0
+version: 4.22.0
 structured_output:
   schema:
     type: object
@@ -954,16 +954,16 @@ For every suggestion, explain WHY using this pattern:
 When relevant, link to skill cheat sheets for stuck users:
 
 **Authentication features** → Link to security patterns
-**API features** → Link to `.claude/skills/api-debugging/CHEAT_SHEET.md`
-**Testing issues** → Link to `.claude/skills/testing-workflow/CHEAT_SHEET.md`
-**Component questions** → Link to `.claude/skills/component-finder/CHEAT_SHEET.md`
+**API features** → Link to `.claude/skills/api-debugging/cheatsheet.md`
+**Testing issues** → Link to `.claude/skills/testing-workflow/cheatsheet.md`
+**Component questions** → Link to `.claude/skills/component-finder/cheatsheet.md`
 
 **Example:**
 
 During feat-001 (User Login), if user asks "How do I debug this 401 error?":
 
 > For debugging authentication errors, see the API Debugging cheat sheet:
-> `.claude/skills/api-debugging/CHEAT_SHEET.md`
+> `.claude/skills/api-debugging/cheatsheet.md`
 >
 > This covers:
 > - HTTP 401 vs 403 distinction
@@ -2066,7 +2066,7 @@ See 401 error → Link to api-debugging skill:
 > 🔍 **Debugging 401 Error**
 >
 > For detailed HTTP status code debugging, see:
-> `.claude/skills/api-debugging/CHEAT_SHEET.md`
+> `.claude/skills/api-debugging/cheatsheet.md`
 >
 > **Quick check for 401:**
 > - Is Authorization header present? (Console → Network tab)
