@@ -1,355 +1,260 @@
-# Claude Code Configuration Template
+# Stop Wasting Tokens on Repeated Context
 
-**Comprehensive template for optimizing Claude Code across all your projects.**
+**Every Claude Code session:**
 
-Projected: Save 50-95% on tokens. Understand your AI workflow deeply. Ship code you can explain, maintain, and debug.
+❌ "What framework are you using?"
+❌ "Remind me about your tech stack"
+❌ 500+ tokens explaining the same project
+❌ Lost time re-explaining architecture every session
 
----
+**Every session with this template:**
 
-## 🚀 Get Started (Choose Your Learning Style)
+✅ Claude already knows (CLAUDE.md loads automatically)
+✅ 0 tokens wasted on repeated context
+✅ Instant context: "Read CLAUDE.md" → Done
+✅ Start coding in seconds, not minutes
 
-<table>
-<tr>
-<td width="33%">
-
-### 🔥 Problem-First **v5.0.0 Alpha**
-**Start in 60 seconds**
-
-Have a real problem to solve RIGHT NOW? Jump in! Learn by doing, understanding delivered just-in-time when you need it.
-
-**→ [Problem-First Setup](docs/00-start-here/problem-first/00_choose-your-learning-path.md)**
-
-Or run:
-```bash
-./scripts/problem-first-setup.sh
-```
-
-Perfect for: New users, urgent problems, learn-by-doing
-
-</td>
-<td width="33%">
-
-### ⚡ Instant Setup
-**Start in 5 minutes**
-
-4 simple steps. Claude guides you through. Understanding checkpoint explains everything.
-
-**→ [Instant Setup Guide](docs/00-start-here/03_instant-setup.md)**
-
-Perfect for: Systematic setup, work-ready environment
-
-</td>
-<td width="34%">
-
-### 🎯 Full Setup
-**Deep understanding**
-
-Choose your path based on experience and time available.
-
-**→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
-**→ [Detailed Persona Guide](docs/00-start-here/personas/README.md)**
-
-Perfect for: Methodical learners, teams
-
-</td>
-</tr>
-</table>
-
-**✨ What's Different in v5.0.0?**
-
-**Problem-First Setup (NEW)** uses "pressure-driven learning" - you solve YOUR real problem FIRST, learn Claude Code features when you hit walls that require them. No upfront configuration. No tutorials. Just solve problems and understand along the way.
-
-**Traditional paths** (Instant Setup, Full Setup) are still available and work great - they teach everything upfront before you work.
-
-💡 **AI-Assisted Alternative:** Instead of running commands manually, you can ask Claude Code in your terminal:
-> "Help me set up Claude Code configuration following the 5-minute success path"
-
-Claude will guide you interactively, explain each step, and handle the commands for you. [See full interactive workflow →](docs/04-ecosystem/09_update-guide.md#-interactive-update-with-claude)
-
-**Or run the interactive wizard:**
-```bash
-cd ~/claude-config-template
-./scripts/claude-wizard.sh
-```
+**Projected savings:** 50-95% on tokens | 66.7% on costs (model switching)
 
 ---
 
-## 🧭 Navigation Guide (How to Use This Template)
+## 🚀 Quick Start (2 Minutes)
 
-**This README is your single entry point.** All other documentation is linked from here.
-
-**Your journey path:**
-1. **Have a problem to solve now?** → Use [Problem-First Setup](docs/00-start-here/problem-first/00_choose-your-learning-path.md) (60 sec, learn by doing) 🔥 **v5.0.0 Alpha**
-2. **Want to start immediately?** → Use [Instant Setup](docs/00-start-here/03_instant-setup.md) (5 min, 4 steps) ⚡
-3. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
-4. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [personas/README.md](docs/00-start-here/personas/README.md) (detailed persona paths)
-5. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
-6. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
-7. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
-
-**Don't know where to start?** Read the Get Started section above ↑
-
----
-
-## ⚡ First 3 Commands (30 seconds)
-
-**New to this template? Just run these:**
+**One command to get started:**
 
 ```bash
-# 1. Clone the template
 git clone https://github.com/christianearle01/claude-config-template.git
 cd claude-config-template
-
-# 2. Ask Claude to help you
-# In your terminal with Claude Code, just say:
-"Help me set up Claude Code configuration using the 5-minute path"
-
-# 3. Done! Claude guides you through everything.
+./scripts/quickstart.sh
 ```
 
-**That's it.** Claude does the rest.
+The script asks 2-3 questions and routes you automatically to the best setup path for your situation.
+
+**Don't want to choose?** The script detects:
+- Whether you have an urgent problem to solve RIGHT NOW
+- How much time you have available
+- Whether you're setting up for a team
+
+**Want all options explained?** See [SETUP_OPTIONS.md](SETUP_OPTIONS.md) (9 paths detailed)
 
 ---
 
-## 📋 Project Status
+## ⚠️ Project Status
 
-**🆕 New Project** - Created December 2025 by one developer
+**New project** - Created December 2025 by one developer
 
 - **Real users:** 1 (the author)
-- **Production tested:** Author's projects only
-- **Metrics shown:** Projected/estimated based on theoretical analysis
-- **Looking for:** Early adopters to validate these projections!
+- **Metrics:** Projected/estimated, not validated by multiple users
+- **Looking for:** 5-10 early adopters to validate claims
 
-_Metrics and examples throughout this documentation are theoretical projections, not verified by multiple real users. [Help validate them!](https://github.com/christianearle01/claude-config-template/issues)_
+**All metrics shown are theoretical projections.** Token math is factual (Anthropic API pricing), but savings claims need real-world validation.
 
----
-
-## 🙏 Seeking Validators - Help Prove This Works!
-
-**Understanding Over Speed philosophy just released.** Now we need YOUR help to validate the approach!
-
-### We Need 5-10 Early Adopters To:
-1. **Test the 5-minute success path** - Does it actually work in 5 minutes?
-2. **Measure token savings** - Are the 50-95% projections real?
-3. **Share feedback** - What's confusing? What's helpful?
-
-### What You Get:
-- ✅ 1-on-1 setup support from the author
-- ✅ Priority bug fixes for your use case
-- ✅ Your feedback shapes v5.0 roadmap
-- ✅ Recognition in project credits
-
-### How to Help:
-1. Try the [5-Minute Success Guide](docs/00-start-here/03_5-minute-success.md)
-2. Track your setup time and token usage
-3. Share results via [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues/new?template=validation-feedback.md) or email
-
-**Your data helps transform "projected 50-95% savings" → "measured X% savings from Y users"**
+**Want to help validate?** See [CONTRIBUTING.md](CONTRIBUTING.md) - Early Adopters Program
 
 ---
 
-## ✨ What You Get
+## ✨ What This Template Provides
 
-### Understanding Over Speed (Jake Nations Edition)
-- ✅ **Projected 50-95% token reduction** - CLAUDE.md system saves massive tokens on context
-- ✅ **66.7% cost savings** - Sonnet→Haiku workflow (per official Anthropic API pricing)
-- ✅ **Spec-driven development** - YAML specs before code (Research → Planning → Implementation)
-- ✅ **Deep understanding in 60 minutes** - Learn, don't just copy (reduces chronic anxiety)
-- ✅ **Ship code you can explain** - Confidence from comprehension, not just completion
-- ✅ **Visual guides + practice** - 5 sandbox templates for hands-on learning
-- ✅ **Tech debt detection** - Separates essential vs accidental complexity
+### Before vs After: Context Management
 
-### Long-Term Value
-- ✅ **Pattern recognition** built through experience, not documentation
-- ✅ **Debugging instinct** - Common mistakes collection teaches what can go wrong
-- ✅ **Understanding checkpoints** - Self-assessment builds confidence over time
-- ✅ **Best practices** that you comprehend, not just apply
-- ✅ **Version controlled** configs for team collaboration
+**Without Template:**
+```
+Session 1: Explain project (500 tokens)
+Session 2: Re-explain project (500 tokens)
+Session 3: Re-explain again (500 tokens)
+10 sessions = 5,000 tokens wasted
+```
 
-### What's Included
+**With Template:**
+```
+One-time: Create CLAUDE.md (500 tokens)
+Every session: "Read CLAUDE.md" (50 tokens)
+10 sessions = 550 tokens total
+Savings: 89% (5,000 → 550 tokens)
+```
 
-**📚 Documentation** (22,400+ lines)
-- 5-minute quickstart demo
-- Visual decision flowcharts
-- 39 comprehensive guides
+---
+
+### Before vs After: Model Selection
+
+**Without Template:**
+```
+All work with Sonnet: $15 per million tokens
+Bug fix: 2,000 tokens × $15 = $0.030
+Feature: 5,000 tokens × $15 = $0.075
+Monthly (50 tasks): ~$5.00
+```
+
+**With Template:**
+```
+Planning with Sonnet: $15/M tokens
+Implementation with Haiku: $5/M tokens (66.7% cheaper)
+Bug fix: 500 (Sonnet) + 1,500 (Haiku) = $0.015
+Feature: 1,000 (Sonnet) + 4,000 (Haiku) = $0.035
+Monthly (50 tasks): ~$2.50 (50% savings)
+```
+
+*Based on official Anthropic API pricing*
+
+---
+
+### Before vs After: Understanding
+
+**Without Template:**
+```
+✗ Copy-paste configs without understanding
+✗ "Hope it works" mentality
+✗ Chronic anxiety from mystery settings
+✗ Can't troubleshoot when things break
+✗ Dependent on tutorials forever
+```
+
+**With Template:**
+```
+✓ Understand WHY each config exists
+✓ Confidence from comprehension
+✓ Ship code you can explain and maintain
+✓ Troubleshoot issues yourself
+✓ Build on knowledge over time
+```
+
+*"Understanding Over Speed" - Jake Nations principle*
+
+---
+
+## 🎁 What's Included
+
+**📚 Documentation** (30,000+ lines)
+- 5-minute quickstart to see value immediately
+- Problem-first guides (learn by solving real problems)
+- 40+ comprehensive guides (progressive learning)
 - Searchable quick reference
 
-**🤖 Custom Agents** (7 official agents for production use)
-- Project Planner - Architecture planning with multi-perspective analysis
-- Prompt Polisher - Projected 50-80% token savings with 12+ techniques
-- Initializer - Feature decomposition from user vision to features.json
-- Coder - Atomic feature execution with bootup ritual discipline
-- Quality Reviewer - Security, testing, standards validation (parallel gates)
-- Spec-Generator - YAML specs before code (Understanding Over Speed)
-- Deployment-Readiness - Release validation with confidence scoring
+**🤖 Custom Agents** (7 production-ready)
+- @project-planner - Multi-perspective architecture analysis
+- @coder - Atomic feature execution with bootup ritual
+- @quality-reviewer - Security + testing + standards validation
+- @initializer - Feature decomposition (vision → features.json)
+- @prompt-polisher - Projected 50-80% token savings
+- @deployment-readiness - Release validation
+- *Plus 3 experimental utility agents*
 
-**Plus 3 experimental utility agents:** adversarial-validator (high-stakes decisions), documentation-verifier (citation verification), mode-selector (Vibe Coding vs Engineering)
+**💡 Skills Catalog** (19 skills, 3 levels)
+- Foundation (3) - Essential for all projects
+- Optimization (10) - Workflow-specific improvements
+- Strategic (6) - Meta-skills and automation
+- Organized to prevent choice overload
 
-**💡 Skills Catalog** (19 example skills, 3 experience levels)
-- Foundation skills (3) - Essential for all projects
-- Optimization skills (10) - Workflow-specific improvements (choose by project type)
-- Strategic skills (6) - Meta-skills and automation
-- Case study from this template's workflow (documentation-heavy, meta-work)
-- Organized catalog prevents choice overload, teaches skill discovery methodology
-
-**⚙️ Configuration**
+**⚙️ Configuration Templates**
+- CLAUDE.md template (project memory)
 - Optimized settings.json
-- 5 skills (/test, /build, /review, /release, /commit-readiness)
-- Security hooks (optional)
-- MCP server integrations
+- Coding standards template
+- 5 slash commands (/test, /build, /review, /release, /commit-readiness)
 - 3 YAML spec examples
-- 5 sandbox practice templates
 
 **🧙 Interactive Wizards**
+- Problem-First Setup (60 sec, learn by doing)
+- Smart Quickstart (auto-routing)
 - 5 persona-specific paths
-- Knowledge checks & validation
-- Progress tracking
-- Automatic updates
+- Progress tracking & validation
 
 ---
 
-## 📊 Projected Impact
+## 🎯 What You'll Learn
 
-_Note: These are theoretical projections, not verified results. Help us validate them!_
+**Foundation Concepts:**
+- How Claude Code reads CLAUDE.md automatically
+- Why token optimization matters (cost & performance)
+- Model selection strategy (Opus vs Sonnet vs Haiku)
+- When to use agents vs skills vs commands
 
-### Estimated Cost Savings (Theoretical)
+**Optimization Techniques:**
+- CLAUDE.md best practices (projected 50-95% token savings)
+- Prompt caching strategies
+- Model switching workflows (66.7% cost reduction)
+- Agent coordination patterns
 
-| User Type | Projected Monthly Savings | Projected Annual Savings |
-|-----------|----------------|----------------|
-| Solo developer | $20-40 | $240-480 |
-| Team of 5 | $100-200 | $1,200-2,400 |
-| Enterprise (20+) | $500-1,000 | $6,000-12,000 |
+**Advanced Features:**
+- Custom agent development
+- Skill creation methodology
+- MCP server integration
+- Security hooks (optional)
 
-**→ [See Projected Impact](docs/04-ecosystem/10_projected-impact.md)** _(Theoretical examples, not real user data)_
-
-### Projected Setup Improvements (Estimated)
-
-| Metric | Estimated Before | Projected After | Target Improvement |
-|--------|-----------------|-----------------|-------------------|
-| Completion rate | 60% | 95% | +58% (goal) |
-| Setup time | 52 min | 28 min | 46% faster (goal) |
-| Time to understand | 10 min | 5 min | 50% faster (goal) |
-
-_*Goals based on template design analysis, not measured user data_
-
----
-
-## 🎯 Choose Your Path
-
-**Not sure where to start?** Take the 30-second visual quiz:
-
-**→ [Visual Quickstart Flowchart](docs/00-start-here/07_visual-quickstart.md)**
-
-### Quick Profile Selector
-
-| You Are... | Time | Path |
-|------------|------|------|
-| 🆕 **New to Claude Code** | 60-90 min | [First-Time Learner](docs/00-start-here/personas/01_first-time-learner.md) |
-| ⚡ **Need fast project setup** | 15-30 min | [Quick Setup](docs/00-start-here/personas/02_quick-setup-user.md) |
-| 🚀 **Want advanced features** | 20-40 min | [Advanced Optimizer](docs/00-start-here/personas/03_advanced-optimizer.md) |
-| 👥 **Setting up for team** | 90-120 min | [Team Lead](docs/00-start-here/personas/04_team-lead.md) |
-| 🔄 **Returning for refresher** | 10-20 min | [Returning User](docs/00-start-here/personas/05_returning-user.md) |
+**Philosophy:**
+- Understanding Over Speed (Jake Nations)
+- Problem-First Learning (Gabriel Petersson)
+- Simple > Easy (reduce complexity, not friction)
+- Ship code you can explain
 
 ---
 
-## 🖥️ Works With Both Interfaces
-
-This template is fully compatible with:
-
-- ✅ **Claude Code CLI** - Command-line interface (`claude` command)
-- ✅ **Claude Code VS Code Extension** - Built-in VS Code extension
-
-Same configuration, same CLAUDE.md, same benefits on both platforms.
-
----
-
-## 🔄 How It All Works Together
-
-**Quick Overview:** This template provides 4 optimization layers that work together:
-
-```
-Layer 4: AGENTS (Complex tasks)        → @project-planner, @coder, @quality-reviewer
-         ↑ uses
-Layer 3: SKILLS (Domain automation)    → testing-workflow, component-finder, commit-readiness
-         ↑ triggers
-Layer 2: COMMANDS (Quick operations)   → /test, /build, /review, /model
-         ↑ reads
-Layer 1: CONTEXT (Foundation)          → CLAUDE.md, settings.json, coding-standards
-```
-
-**Example Workflow:** Adding a feature
-1. **CLAUDE.md** (Layer 1) provides project context
-2. **@coder** agent (Layer 4) implements with TDD
-3. **/test** command (Layer 2) runs suite
-4. **testing-workflow** skill (Layer 3) analyzes results
-5. **@quality-reviewer** agent (Layer 4) validates security + standards
-6. **commit-readiness-checker** skill (Layer 3) validates release criteria
-
-**Result:** Vague idea → Shipped feature with full quality checks
-
-**See:** [Workflow Integration Guide](docs/01-fundamentals/03_workflow-integration.md) for detailed workflows
-
----
-
-## 💡 Core Features
+## 💡 Core Features Explained
 
 ### CLAUDE.md Project Memory
-Write your project context once, Claude reads it every session.
 
-**Projected savings:** 95% reduction on context queries (20K → 200 tokens)
+**What it does:** Write project context once, Claude reads it every session
 
-**→ [CLAUDE.md Template](templates/CLAUDE.md.template)**
-
-### Model Switching (Sonnet→Haiku)
-Plan with Sonnet (smarter), implement with Haiku (66.7% cheaper).
-
-**Projected savings:** 66.7% on implementation costs (based on official Anthropic API pricing)
-
-**→ [Model Switching Guide](01_global-setup/02_good-to-have/01_model-switching.md)**
-
-### Coding Principles Handbook
-Single reference consolidating principles from 9 files.
-
-**What's included:** SOLID, DRY, KISS, YAGNI + AI-specific principles (Trust but Verify, Atomic Features, Quality-First)
-
-**→ [Principles Handbook](docs/01-fundamentals/06_coding-principles-handbook.md)**
-
-### Interactive Wizards
-Guided setup with validation, knowledge checks, and progress tracking.
-
-**Projected benefit:** 95% completion rate (vs estimated 60% without)
-
-```bash
-./scripts/claude-wizard.sh
+**Traditional workflow:**
+```
+Claude: "What framework?"
+You: "Next.js with TypeScript"
+Claude: "What's your folder structure?"
+You: "src/app/, src/components/..."
+500+ tokens per session explaining the same things
 ```
 
-### Custom Agents
-- **@prompt-polisher** - Transform vague prompts (projected 50-80% token savings)
-- **@project-planner** - Plan projects before coding (25-30 min sessions)
-- **@mode-selector** - Choose between speed (Vibe Coding) and quality (Vibe Engineering)
+**With CLAUDE.md:**
+```
+Claude: "Read CLAUDE.md"
+Claude: "Got it - Next.js, TypeScript, src/ structure"
+50 tokens per session
+```
 
-**→ [Agent Documentation](.claude/agents/)**
+**Projected savings:** 95% reduction on context queries (500 → 50 tokens)
 
-### Security Hooks (Optional)
-- Prompt injection detection
-- Response scanning
-- Pre-tool validation
+---
 
-**→ [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md)**
+### Model Switching (Sonnet→Haiku)
 
-### Package Security (Optional)
-Protect your projects from npm/Python malware attacks.
+**What it does:** Use expensive models for planning, cheap models for implementation
 
-**Note:** OPTIONAL - Only needed if your Claude Code projects use package managers.
+**Why it works:**
+- Planning needs reasoning (Sonnet)
+- Implementation is mechanical (Haiku works fine, 66.7% cheaper)
 
-- Universal principles for ALL languages (npm, pip, gem, cargo, go, etc.)
-- NPM security: Block install scripts, automated audits, lockfile verification
-- Python security: Prefer wheels, pip-audit integration, Poetry support
-- 10 automation scripts for weekly security checks
+**Example workflow:**
+```
+1. Plan with Sonnet: "Design API architecture"
+2. Switch to Haiku: "/model haiku"
+3. Implement with Haiku: "Write the CRUD endpoints"
+4. Save 66.7% on implementation costs
+```
 
-**→ [Package Security Guide](01_global-setup/03_nice-to-have/02_package-security-principles.md)**
-**→ [NPM Checklist](01_global-setup/03_nice-to-have/03_npm-security-checklist.md)**
-**→ [Python Checklist](01_global-setup/03_nice-to-have/03_python-security-checklist.md)**
+**Based on:** Official Anthropic API pricing ($15/M Sonnet, $5/M Haiku)
+
+---
+
+### Interactive Wizards
+
+**What they do:** Guide you through setup with validation
+
+**Traditional setup:**
+```
+Read 50-page guide
+Copy-paste 20 configs
+Hope you didn't miss anything
+60% completion rate (estimated)
+52 minutes average (estimated)
+```
+
+**With wizards:**
+```
+Answer questions interactively
+Configs generated automatically
+Validation at each step
+Projected 95% completion rate
+Target: 28 minutes average
+```
 
 ---
 
@@ -357,13 +262,11 @@ Protect your projects from npm/Python malware attacks.
 
 **Essential commands:**
 ```bash
-/model haiku      # Switch to cheapest model (66.7% cheaper than Sonnet per Anthropic pricing)
+/model haiku      # Switch to cheapest model (66.7% cheaper)
 /model sonnet     # Switch to balanced model
-/standards        # View project coding standards
-/onboarding       # Generate project onboarding guide
 /test             # Run test suite
 /build            # Build and report errors
-/usage            # Check plan limits
+/review           # Code review against standards
 ```
 
 **Essential keyboard shortcuts:**
@@ -371,66 +274,61 @@ Protect your projects from npm/Python malware attacks.
 Esc Esc          # Undo last changes (Rewind)
 Ctrl-b           # Run command in background
 Tab              # Toggle thinking on/off
-Shift-Tab        # Cycle permission modes
 ```
 
 **→ [Complete Quick Reference](docs/00-start-here/09_quick-reference.md)**
 
 ---
 
-## 📚 Documentation Hub
+## 🔄 How It Works Together
 
-### For Beginners
-- [5-Minute Success](docs/00-start-here/03_5-minute-success.md) - Ultra-fast demo
-- [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) - Decision flowchart
-- [Installation Guide](01_global-setup/01_must-have/01_installation.md) - Set up Claude Code
-- [Quick Start Guide](01_global-setup/01_must-have/02_quick-start.md) - Core concepts
+**4-layer optimization stack:**
 
-### For Everyone
-- [Quick Reference](docs/00-start-here/09_quick-reference.md) - Find any feature (Cmd+F search)
-- [Visual Guides](docs/00-start-here/06_visual-guides.md) - 5 Mermaid diagrams (requires Mermaid 10.x+)
-  - 💡 [Mermaid Setup Guide](docs/04-ecosystem/13_mermaid-setup-guide.md) - Fix local rendering issues
-- [Projected Impact](docs/04-ecosystem/10_projected-impact.md) - Theoretical examples (not real data)
-- [Directory Guide](docs/04-ecosystem/01_directory-guide.md) - What's where
+```
+Layer 4: AGENTS (Complex tasks)
+         @project-planner, @coder, @quality-reviewer
+         ↑ uses
 
-### For Advanced Users
-- [Model Switching](01_global-setup/02_good-to-have/01_model-switching.md) - 66.7% cost savings (official Anthropic pricing)
-- [Prompt Optimization](02_project-onboarding/02_good-to-have/01_prompt-optimization.md) - Projected 50-80% token reduction
-- [Security Guide](01_global-setup/03_nice-to-have/01_security-guide.md) - Hooks & validation
-- [Agent Coordination](01_global-setup/03_nice-to-have/03_agent-coordination.md) - Custom workflows
+Layer 3: SKILLS (Domain automation)
+         testing-workflow, commit-readiness
+         ↑ triggers
 
-### For Teams
-- [Team Onboarding](02_project-onboarding/02_good-to-have/03_team-onboarding.md) - Deployment strategy
-- [Project Onboarding](02_project-onboarding/01_must-have/01_onboarding-guide.md) - Per-project setup
+Layer 2: COMMANDS (Quick operations)
+         /test, /build, /review
+         ↑ reads
+
+Layer 1: CONTEXT (Foundation)
+         CLAUDE.md, settings.json, standards
+```
+
+**Example workflow:** Adding a feature
+1. CLAUDE.md provides project context (Layer 1)
+2. @coder agent implements with TDD (Layer 4)
+3. /test command runs suite (Layer 2)
+4. testing-workflow analyzes results (Layer 3)
+5. @quality-reviewer validates security (Layer 4)
+
+**Result:** Vague idea → Shipped feature with quality checks
 
 ---
 
-## 🔄 Keep Updated
+## 📚 Documentation Hub
 
-**Check for updates:**
-```bash
-./scripts/claude-update.sh --check
-```
+### Start Here
+- [Quick Start (2 min)](docs/00-start-here/03_instant-setup.md) - Fast setup
+- [5-Minute Success](docs/00-start-here/03_5-minute-success.md) - See value immediately
+- [Problem-First Path](docs/00-start-here/problem-first/00_choose-your-learning-path.md) - Learn by doing
+- [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) - Decision flowchart
 
-**Apply updates:**
-```bash
-./scripts/claude-update.sh --apply
-```
-
-**Features:**
-- 3-way merge (preserves customizations)
-- Automatic backups
-- Rollback capability
-
-**Current version:** v4.27.1
-
-**→ [Changelog](CHANGELOG.md)**
+### Learn More
+- [Quick Reference](docs/00-start-here/09_quick-reference.md) - Searchable feature index
+- [Fundamentals](docs/01-fundamentals/) - Core concepts
+- [Optimization](docs/02-optimization/) - Token & cost savings
+- [Advanced](docs/03-advanced/) - MCP, agents, custom configs
 
 ---
 
 ## 🆘 Need Help?
-
-### Quick Troubleshooting
 
 **Settings not loading?**
 ```bash
@@ -441,109 +339,50 @@ cat .claude/settings.json | python -m json.tool
 - Must be in project ROOT (not .claude/)
 - Filename: `CLAUDE.md` (all caps)
 
-**Wizard won't run?**
-```bash
-chmod +x scripts/*.sh
-```
-
 **More issues?**
 - Run `/doctor` in Claude Code
-- Check [Quick Reference § Troubleshooting](docs/00-start-here/09_quick-reference.md#troubleshooting)
+- Check [Troubleshooting Guide](docs/00-start-here/09_quick-reference.md#troubleshooting)
 
 ---
 
-## 🎓 Learning Path
+## 🌟 Ready to Begin?
 
-**Progressive complexity system:**
-
-```
-must-have/ (⚠️)
-  ↓ Learn basics (45-60 min)
-
-good-to-have/ (⭐)
-  ↓ Optimize workflow (30-45 min)
-
-nice-to-have/ (💡)
-  ↓ Advanced features (20-40 min)
-```
-
-**Files numbered for sequence:**
-- 01_xxx.md → Read first
-- 02_xxx.md → Read second
-- 03_xxx.md → Read third
-
-**→ [Full Directory Structure](docs/04-ecosystem/01_directory-guide.md)**
-
----
-
-## 🌟 Why This Template Works
-
-### 1. Token Optimization Focus
-Projected savings (theoretical):
-- **CLAUDE.md:** 95% context reduction
-- **Model switching:** 66.7% implementation savings (official Anthropic API pricing)
-- **Prompt optimization:** 50-80% query reduction
-
-**→ [Projected Cost Savings](docs/04-ecosystem/10_projected-impact.md#-projected-cost-savings-examples)**
-
-### 2. Persona-Based Routing
-Different users need different paths (estimated time):
-- First-time: Complete learning (est. 60-90 min)
-- Experienced: Fast setup (est. 15-30 min)
-- Advanced: Power features (est. 20-40 min)
-- Team: Deployment strategy (est. 90-120 min)
-- Returning: Quick refresher (est. 10-20 min)
-
-**→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
-
-### 3. Validation & Education
-- Interactive wizards with knowledge checks
-- Projected 95% completion rate (vs estimated 60% baseline)
-- Step-by-step validation
-- Educational output modes
-
-**→ [Wizard Documentation](docs/04-ecosystem/01_directory-guide.md#-scripts-scripts)**
-
----
-
-## 🚀 Ready to Begin?
-
-**Three simple steps:**
+**Three steps:**
 
 ### 1. Clone the Template
 ```bash
-cd ~
 git clone https://github.com/christianearle01/claude-config-template.git
+cd claude-config-template
 ```
 
-### 2. Choose Your Path
-- **⚡ 5 minutes:** [Quick demo](docs/00-start-here/03_5-minute-success.md)
-- **🎯 15-30 minutes:** [Quick setup](docs/00-start-here/personas/02_quick-setup-user.md)
-- **📚 60-90 minutes:** [Complete learning](docs/00-start-here/personas/01_first-time-learner.md)
-- **🧙 Guided:** Run `./scripts/claude-wizard.sh`
+### 2. Run Quick Start
+```bash
+./scripts/quickstart.sh
+```
 
 ### 3. Start Saving
 Begin using Claude Code with optimized configuration.
 
-**→ [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md)** if you need help choosing!
+**Want to explore all paths first?** See [SETUP_OPTIONS.md](SETUP_OPTIONS.md) for 9 detailed options.
 
 ---
 
 ## 📞 Connect & Contribute
 
-- **Issues & Feedback:** [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues)
-- **Official Docs:** [Claude Code Documentation](https://code.claude.com/docs)
+**Early Adopters Program:** [CONTRIBUTING.md](CONTRIBUTING.md) - Help validate our claims!
 
-**Have a success story?** We'd love to hear it! Open an issue.
+**Issues & Feedback:** [GitHub Issues](https://github.com/christianearle01/claude-config-template/issues)
+
+**Official Docs:** [Claude Code Documentation](https://code.claude.com/docs)
 
 ---
 
 **Compatible with:** Claude Code 2.0+
-**Template Version:** v4.27.1
-**Last Updated:** 2025-12-21
+**Template Version:** v5.0.0-alpha.2
+**Last Updated:** 2025-01-13
 
 ---
 
-*Choose your path, optimize your workflow, start saving tokens today!*
+*Stop wasting tokens. Start building with confidence.*
 
-**→ [Get Started Now](docs/00-start-here/07_visual-quickstart.md)** 👈
+**→ [Get Started Now](./scripts/quickstart.sh)** 👈

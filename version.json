@@ -1,7 +1,7 @@
 {
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "release_date": "2026-01-13",
-  "release_name": "Pressure-Driven Learning (Alpha)",
+  "release_name": "README Transformation & Smart Quickstart",
   "breaking_changes": false,
   "update_priority": "optional",
   "alpha_status": true,
@@ -336,7 +336,27 @@
     "minimal-viable-config",
     "organic-config-accumulation",
     "learning-style-choice",
-    "alpha-release-framework"
+    "alpha-release-framework",
+    "smart-quickstart-script",
+    "auto-routing-logic",
+    "2-3-question-detection",
+    "readme-transformation",
+    "problem-first-opening",
+    "concrete-before-after-comparisons",
+    "single-golden-path",
+    "contributing-md-document",
+    "early-adopters-program",
+    "validation-research-framework",
+    "setup-options-guide",
+    "9-path-comprehensive-documentation",
+    "decision-matrix-by-time",
+    "decision-matrix-by-experience",
+    "path-combination-strategies",
+    "document-delegation-pattern",
+    "readme-29-percent-reduction",
+    "why-what-how-when-structure",
+    "consolidated-project-status",
+    "removed-decision-paralysis"
   ],
   "personas_supported": [
     "first-time",
@@ -498,7 +518,7 @@
     }
   },
   "metadata": {
-    "total_files": 161,
+    "total_files": 164,
     "total_lines": 68400,
     "skill_count": 21,
     "demo_count": 3,
