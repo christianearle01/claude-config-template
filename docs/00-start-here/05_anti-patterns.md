@@ -344,6 +344,117 @@ async function fetchLatestNews() {
 
 ---
 
+## Bloated CLAUDE.md
+
+### The Mistake
+
+Putting everything into CLAUDE.md until it becomes unmanageable.
+
+**Example:**
+```markdown
+# CLAUDE.md - 89,000 characters
+- 15 pages of coding standards
+- Complete API documentation
+- Every architecture decision ever made
+- Full testing procedures
+- Detailed deployment guides
+- Historical notes from 2 years ago
+```
+
+### Why It Fails
+
+**40k character limit:** Won't fit in claude.ai Custom Instructions
+- claude.ai Custom Instructions has a 40,000 character limit
+- Large CLAUDE.md files can't be used in the browser interface
+- Forces users to manually split or trim content
+
+**Human burden:** Difficult to find information, update correctly
+- Takes minutes to scroll through massive file
+- Finding specific information becomes a search task
+- Updates risk breaking other sections
+- Multiple developers can't easily coordinate changes
+
+**Agent inefficiency:** Large CLAUDE.md consumes context better used for code
+- Every token in CLAUDE.md reduces available context for actual code
+- Agent spends processing power on irrelevant historical notes
+- Reduces effective workspace for problem-solving
+- May reduce response quality due to context dilution
+
+**Maintenance rot:** Nobody updates it because it's overwhelming
+- File becomes "too scary to touch"
+- Outdated information accumulates
+- Duplicate sections emerge (nobody notices)
+- Eventually becomes ignored or abandoned
+
+### Symptoms
+
+Watch for these warning signs:
+- `wc -c CLAUDE.md` shows >60,000 characters
+- Can't paste into Custom Instructions (>40k limit)
+- Takes minutes to scroll through CLAUDE.md
+- Outdated information mixed with current
+- Duplicate information in CLAUDE.md and other docs
+- Team members avoid updating it
+- New developers overwhelmed by size
+
+### The Correct Approach
+
+**Keep CLAUDE.md focused (<20KB):**
+```markdown
+# Project Memory
+
+## Business Purpose
+What the app does (user value), not implementation details.
+
+## Tech Stack
+- Language: Python 3.11
+- Framework: FastAPI
+- Database: PostgreSQL
+
+## Coding Standards
+See: .claude/rules/coding-standards.md
+
+## Common Commands
+npm run dev    # Start dev server
+npm test       # Run tests
+npm run build  # Production build
+```
+
+**Move detailed content:**
+- Coding standards → `.claude/rules/coding-standards.md`
+- Security policies → `.claude/rules/security-policies.md`
+- Workflows → `.claude/workflows/deployment.md`
+- Decisions → `docs/decisions/001-use-fastapi.md`
+
+**Benefits:**
+- ✅ Fits in Custom Instructions (<40k chars)
+- ✅ Quick to scan and update
+- ✅ Agent context available for actual code
+- ✅ Modular: Update rules without touching CLAUDE.md
+
+### Size Check
+
+**Quick command:**
+```bash
+wc -c CLAUDE.md
+# Target: <20,000 characters
+# Warning: >60,000 characters
+```
+
+**Size guidelines:**
+
+| Size | Status | Action |
+|------|--------|--------|
+| <20KB (~5,000 tokens) | ✅ Comfortable | Keep as-is |
+| 20-60KB (~5,000-15,000 tokens) | ⚠️ Acceptable | Consider trimming |
+| >60KB (>15,000 tokens) | ❌ Problematic | Split immediately |
+
+**Learn more:**
+- [Quick Reference § CLAUDE.md Size Management](09_quick-reference.md#claudemd-size-management)
+- [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+
+---
+
 ## How to Avoid These Patterns
 
 ### 1. Adopt AI Augmented Workflow

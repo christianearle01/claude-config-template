@@ -1,7 +1,7 @@
 {
-  "version": "4.27.0",
+  "version": "4.27.1",
   "release_date": "2026-01-12",
-  "release_name": "Instant Setup & Claude Code 2.0 Compatibility",
+  "release_name": "CLAUDE.md Size Guidelines",
   "breaking_changes": false,
   "update_priority": "recommended",
   "changelog_url": "https://github.com/christianearle01/claude-config-template/blob/main/CHANGELOG.md",
@@ -297,7 +297,10 @@
     "runtime-configuration",
     "ci-cd-integration-patterns",
     "per-project-env-configuration",
-    "terminology-update-skills"
+    "terminology-update-skills",
+    "claude-md-size-guidelines",
+    "40k-character-limit-warning",
+    "bloated-claude-md-anti-pattern"
   ],
   "personas_supported": [
     "first-time",

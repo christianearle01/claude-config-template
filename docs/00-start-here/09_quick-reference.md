@@ -223,6 +223,55 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 ---
 
+## CLAUDE.md Size Management
+
+**What:** Guidelines for keeping CLAUDE.md manageable
+
+**Why it matters:**
+- **claude.ai Custom Instructions:** 40,000 character limit
+- **Human maintenance:** Large files difficult to update
+- **Agent effectiveness:** More context for CLAUDE.md = less for actual code
+
+**Size Guidelines:**
+
+| Size | Status | Recommendation |
+|------|--------|----------------|
+| <20KB (~5,000 tokens) | ✅ Comfortable | Keep as-is |
+| 20-60KB (~5,000-15,000 tokens) | ⚠️ Acceptable | Consider trimming |
+| >60KB (>15,000 tokens) | ❌ Problematic | Split immediately |
+
+**What to KEEP in CLAUDE.md:**
+- Business purpose (WHAT the app does, not HOW)
+- Tech stack (languages, frameworks, database)
+- Core conventions specific to THIS project
+- Common commands (dev, test, build, deploy)
+- External API rationale (WHY each integration)
+- Recent version history (last 2-3 releases)
+
+**What to MOVE elsewhere:**
+- **Detailed coding standards** → `.claude/rules/coding-standards.md`
+- **Security policies** → `.claude/rules/security-policies.md`
+- **Testing requirements** → `.claude/rules/testing-requirements.md`
+- **Agent configurations** → `.claude/agents/*.md`
+- **Workflow details** → `.claude/workflows/*.md`
+- **Architecture decisions** → `docs/decisions/*.md` (ADRs)
+- **Full version history** → `CHANGELOG.md`
+
+**Quick check:**
+```bash
+# Check your CLAUDE.md size
+wc -c CLAUDE.md
+# If >20,000 characters, consider splitting
+```
+
+**Docs:**
+- [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+- [Anti-Patterns § Bloated CLAUDE.md](05_anti-patterns.md)
+
+**Keywords:** size, limit, split, modular, rules, management
+
+---
+
 ## Rules Directory (.claude/rules/)
 
 **What:** Modular, reusable rules separate from project-specific CLAUDE.md

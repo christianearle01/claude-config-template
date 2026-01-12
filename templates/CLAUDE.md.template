@@ -1,6 +1,22 @@
 # Project Memory - [PROJECT NAME]
 
 <!--
+⚠️ CLAUDE.md SIZE GUIDELINES:
+
+Target: <20KB (~5,000 tokens)        - Comfortable for humans and Claude
+Maximum: <60KB (~15,000 tokens)      - Still manageable
+Warning: >60KB                        - Consider splitting
+
+If approaching limits, move detailed content to:
+- Coding standards → .claude/rules/coding-standards.md
+- Workflows → .claude/workflows/*.md
+- Architecture decisions → docs/decisions/*.md
+- Historical notes → CHANGELOG.md
+
+See: docs/01-fundamentals/05_rules-directory-guide.md
+-->
+
+<!--
 ONBOARDING GUIDE:
 This file helps Claude Code understand your project without re-reading files every session.
 

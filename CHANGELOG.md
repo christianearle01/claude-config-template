@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [4.27.1] - 2026-01-12 - CLAUDE.md Size Guidelines
+
+**Documentation Patch**
+
+Addresses concern about CLAUDE.md files exceeding practical size limits.
+
+**Issue:**
+- Project CLAUDE.md at 34KB approaching claude.ai Custom Instructions limit (40k chars)
+- Template lacks guidance on managing CLAUDE.md size
+- Users following template pattern could create unmanageably large files
+
+**Added:**
+- Size guidelines in `templates/CLAUDE.md.template` (HTML comment)
+- "CLAUDE.md Size Management" section in Quick Reference (docs/00-start-here/09_quick-reference.md)
+- "Bloated CLAUDE.md" anti-pattern in Anti-Patterns guide (docs/00-start-here/05_anti-patterns.md)
+
+**Guidelines:**
+- Comfortable: <20KB (~5,000 tokens)
+- Acceptable: 20-60KB (~5,000-15,000 tokens)
+- Problematic: >60KB (>15,000 tokens)
+
+**Best Practices:**
+- Keep business purpose, tech stack, core conventions in CLAUDE.md
+- Move coding standards to `.claude/rules/coding-standards.md`
+- Move workflows to `.claude/workflows/*.md`
+- Move architecture decisions to `docs/decisions/*.md`
+
+**Why 40k matters:**
+- claude.ai Custom Instructions has 40,000 character limit
+- Large CLAUDE.md reduces context available for actual code
+- Human maintenance becomes difficult >60KB
+
+**Documentation Honesty:** This is a projected concern (no user reports yet) but valid based on template's own CLAUDE.md approaching limits (34KB).
+
+**File Statistics:**
+- **Total changes:** ~300 lines across 4 files
+- **New documentation:** ~200 lines (size management, anti-pattern)
+- **Templates updated:** 1 file (CLAUDE.md.template)
+
+---
+
 ### [4.27.0] - 2026-01-12 - Instant Setup & Claude Code 2.0 Compatibility ⚡
 
 **Setup Simplification + Documentation Currency**
