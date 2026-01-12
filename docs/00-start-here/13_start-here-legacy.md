@@ -434,7 +434,7 @@ claude-config-template/
 └── .claude/                      ← Configuration files
     ├── agents/                   ← Custom agents
     │   └── project-planner.md   ← NEW! Planning agent
-    ├── commands/                 ← Slash commands
+    ├── commands/                 ← Skills
     ├── hooks/                    ← Security hooks
     └── settings.json             ← Template settings
 ```

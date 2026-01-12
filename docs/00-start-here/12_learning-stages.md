@@ -17,7 +17,7 @@ This guide maps the journey from structured commands → natural language fluenc
 
 ### Stage 1: Beginner (Weeks 1-2)
 
-**Tools Used:** Slash commands (/build, /test, /review, /onboarding, /standards)
+**Tools Used:** Skills (/build, /test, /review, /onboarding, /standards)
 
 **Why This Works:**
 - Provides structure while learning what's possible

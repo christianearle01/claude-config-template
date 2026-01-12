@@ -56,7 +56,7 @@ Quick reference: Match your task type to the recommended tool.
 | **Optimize prompt** | Prompt-polisher agent | Structured optimization | Medium (500-2K) |
 | **Choose workflow mode** | Mode-selector agent | 6-dimension scoring | Medium (1K-2K) |
 | **Repeated query** | Skill (auto-invoked) | Context-aware answers | Low (250-600) |
-| **Workflow shortcut** | Slash command | Pre-configured sequence | Low (varies) |
+| **Workflow shortcut** | Skill | Pre-configured sequence | Low (varies) |
 | **Multi-step reasoning** | Sequential-thinking MCP | Structured analysis | Medium (1K-3K) |
 
 **Key principle:** Start with the simplest tool that solves the problem. Escalate only when needed.
@@ -285,7 +285,7 @@ After choosing your tool, choose your model:
 
 3. Is this a ONE-TIME optimization?
    YES → Do it manually, document the pattern
-   NO → Create slash command or skill for reuse
+   NO → Create skill or skill for reuse
 
 4. Need to measure IMPACT?
    YES → Before/after metrics, validate improvement
@@ -462,7 +462,7 @@ Optimize prompt               → Prompt-polisher         → Sonnet
 Choose workflow               → Mode-selector           → Sonnet
 Complex reasoning             → Sequential-thinking MCP → Sonnet
 Quick status check            → Skill (auto)            → N/A
-Project workflow              → Slash command           → N/A
+Project workflow              → Skill           → N/A
 Release validation            → /release OR @deployment-readiness → Sonnet
 ```
 

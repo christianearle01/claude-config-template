@@ -282,7 +282,7 @@ Review src/components/Header.tsx for security issues:
 
 **Question:** Should the user create a reusable template or skill?
 
-**Decision:** Suggest creating a **slash command** for repeated patterns
+**Decision:** Suggest creating a **skill** for repeated patterns
 
 **Recommendation:**
 ```bash
@@ -308,7 +308,7 @@ Refactor {{file_path}} for {{goal}}:
 1. Mode-selector agent (choose approach)   →   800 tokens → Educational mode
 2. Prompt-polisher (educational)           → 1,200 tokens → Learned 5 techniques
 3. Prompt-polisher (fast, 2nd prompt)      →   200 tokens → Quick optimization
-4. Slash command suggestion                →    50 tokens → Automation path
+4. Skill suggestion                →    50 tokens → Automation path
                                            ─────────────
                                      TOTAL: 2,250 tokens (one-time investment)
 
@@ -367,7 +367,7 @@ PLUS: Frustration from unclear principles
 1. **Used Mode-selector first** - Identified this as learning opportunity (not just quick fix)
 2. **Chose Educational mode** - User explicitly wanted to improve skill
 3. **Switched to Fast mode** - After learning principles, speed is fine
-4. **Suggested automation** - Slash command eliminates repeated prompt writing
+4. **Suggested automation** - Skill eliminates repeated prompt writing
 
 ### ❌ Common Mistakes to Avoid
 

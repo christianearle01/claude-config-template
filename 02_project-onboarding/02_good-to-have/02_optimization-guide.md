@@ -247,7 +247,7 @@ Session 2 (next day): "Create ticket controller"
 - Update as part of architecture decisions
 - Reference in PR reviews: "Follows CLAUDE.md patterns"
 
-### Slash Commands to Consider
+### Skills to Consider
 Create commands for repeated tasks:
 - `/test-integration [vendor]` - Run vendor integration tests
 - `/check-mappings [vendor]` - Validate CSV field mappings
@@ -360,7 +360,7 @@ I'll suggest optimizations when I notice:
 - Bash commands instead of specialized tools
 - Vague prompts that could be more specific
 - Missing context that would improve results
-- Opportunities to use slash commands or hooks
+- Opportunities to use skills or hooks
 - TodoWrite would help track progress
 - Task tool would be more efficient than manual search
 - Project setup could be enhanced

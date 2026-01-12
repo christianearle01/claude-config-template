@@ -68,6 +68,7 @@ Jump to any section:
 - [Decision Framework](#decision-framework)
 - [Custom Agents](#custom-agents)
 - [Educational Modes](#educational-modes)
+- [Environment Variables](#environment-variables)
 - [File Locations](#file-locations)
 - [Git Workflow & Commit Approval](#git-workflow--commit-approval)
 - [Integration Patterns](#integration-patterns)
@@ -78,6 +79,7 @@ Jump to any section:
 - [Progress Bars](#progress-bars)
 - [Prompt Patterns](#prompt-patterns)
 - [Personas (User Profiles)](#personas-user-profiles)
+- [Rules Directory](#rules-directory-clauderules)
 - [Security Hooks](#security-hooks)
 - [Setup Paths](#setup-paths)
 - [Token Optimization](#token-optimization)
@@ -221,6 +223,51 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 ---
 
+## Rules Directory (.claude/rules/)
+
+**What:** Modular, reusable rules separate from project-specific CLAUDE.md
+
+**Introduced:** Claude Code 2.0.0
+
+**Purpose:**
+- Share coding standards across multiple projects
+- Team alignment with consistent rules
+- Modular composition (mix and match rules)
+
+**Location:** `.claude/rules/*.md`
+
+**Use .claude/rules/ for:**
+- Coding standards (naming, style, linting)
+- Security policies (OWASP top 10)
+- Testing requirements (coverage, patterns)
+- Documentation standards
+
+**Use CLAUDE.md for:**
+- Project-specific context (tech stack, architecture)
+- Evolving instructions (features in progress)
+- Business logic and domain knowledge
+
+**Example structure:**
+```
+.claude/rules/
+├── coding-standards.md          # General
+├── javascript-standards.md      # Language-specific
+├── react-best-practices.md      # Framework-specific
+├── security-policies.md         # Security
+└── testing-requirements.md      # Testing
+```
+
+**Loading behavior:**
+- Agents automatically load ALL .md files in alphabetical order
+- Later rules override earlier rules (use numeric prefixes to control)
+- Disable: Rename to `.disabled` extension
+
+**Docs:** [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+
+**Keywords:** rules, standards, modular, reusable, team, coding-standards
+
+---
+
 ## Claude Skills (Account-Level)
 
 **What:** Reusable instruction manuals available across all claude.ai projects, Claude Code, and Claude API
@@ -277,7 +324,7 @@ cp templates/CLAUDE.md.template ./CLAUDE.md
 
 ## Commands (Slash)
 
-**What:** Custom slash commands for common project tasks
+**What:** Custom skills for common project tasks
 
 **Location:** `.claude/commands/*.md`
 
@@ -349,7 +396,7 @@ Run the deployment process:
 4. Show deployment URL
 ```
 
-**Docs:** [Agent Setup Guide § Slash Commands](02_project-onboarding/01_must-have/03_claude-agent-setup.md)
+**Docs:** [Agent Setup Guide § Skills](02_project-onboarding/01_must-have/03_claude-agent-setup.md)
 
 **Keywords:** custom commands, slash, workflow, automation
 
@@ -842,6 +889,87 @@ Learning note: Async/await is syntactic sugar for Promises
 
 ---
 
+## Environment Variables
+
+**What:** Control Claude Code behavior without modifying settings files
+
+**Introduced:** Claude Code 2.1.0-2.1.4
+
+**Purpose:** Runtime configuration for dev/staging/prod environments, CI/CD integration
+
+**Key Variables:**
+
+### CLAUDE_DEFAULT_MODEL
+Override default model (sonnet, opus, haiku)
+```bash
+export CLAUDE_DEFAULT_MODEL=haiku  # 91% cheaper than Sonnet
+claude "Explore codebase structure"
+```
+
+### CLAUDE_DISABLE_TELEMETRY
+Privacy control - disable usage telemetry
+```bash
+export CLAUDE_DISABLE_TELEMETRY=true  # Enterprise/sensitive projects
+```
+
+### CLAUDE_LOG_LEVEL
+Control logging verbosity (error, warn, info, debug)
+```bash
+export CLAUDE_LOG_LEVEL=debug  # Troubleshooting
+```
+
+### CLAUDE_PROMPT_CACHING
+Control prompt caching (true/false)
+```bash
+export CLAUDE_PROMPT_CACHING=false  # Testing without cache
+```
+
+### CLAUDE_SANDBOX_MODE
+Security restrictions (strict, permissive, disabled)
+```bash
+export CLAUDE_SANDBOX_MODE=strict  # Maximum security
+```
+
+### CLAUDE_OUTPUT_STYLE
+Output formatting (compact, detailed)
+```bash
+export CLAUDE_OUTPUT_STYLE=compact  # CI/CD pipelines
+```
+
+**Common patterns:**
+
+**Per-project:** Create `.env` files
+```bash
+# .env.development
+CLAUDE_DEFAULT_MODEL=haiku
+CLAUDE_LOG_LEVEL=debug
+
+# .env.production
+CLAUDE_DEFAULT_MODEL=sonnet
+CLAUDE_LOG_LEVEL=error
+CLAUDE_SANDBOX_MODE=strict
+```
+
+**Global:** Add to shell profile (~/.zshrc)
+```bash
+export CLAUDE_DEFAULT_MODEL=sonnet
+export CLAUDE_DISABLE_TELEMETRY=true
+```
+
+**CI/CD:** GitHub Actions example
+```yaml
+env:
+  CLAUDE_DEFAULT_MODEL: haiku
+  CLAUDE_LOG_LEVEL: debug
+  CLAUDE_OUTPUT_STYLE: compact
+```
+
+**Docs:** [Environment Variables Guide](../02-optimization/06_environment-variables.md)
+
+**Keywords:** environment, env, variables, configuration, runtime, dev, prod, ci-cd
+
+---
+
 ## File Locations
 
 **Quick file finder** - Where is X located?
@@ -863,7 +991,7 @@ Learning note: Async/await is syntactic sugar for Promises
 | Claude settings | `.claude/settings.json` |
 | Settings explained | `.claude/settings-explained.json` |
 | Setup context (for Claude) | `.claude/SETUP_CONTEXT.md` |
-| **Slash Commands** | |
+| **Skills** | |
 | All commands | `.claude/commands/*.md` |
 | Onboarding command | `.claude/commands/onboarding.md` |
 | Standards command | `.claude/commands/standards.md` |
@@ -1923,6 +2051,11 @@ cd ~/claude-config-template
 - Sonnet for planning (smart)
 - Haiku for implementation (cheap)
 - [See Model Switching section](#model-switching)
+
+### 6. Configure with Environment Variables
+- Control behavior without editing files
+- Example: `CLAUDE_DEFAULT_MODEL=haiku` for 91% cost savings
+- [See Environment Variables section](#environment-variables)
 
 **Tools:**
 - @prompt-polisher agent (transforms vague→optimized)

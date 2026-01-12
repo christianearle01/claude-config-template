@@ -33,7 +33,7 @@ Learn Claude Code fundamentals from scratch. Covers installation, core concepts,
 ## ⚡ Quick Setup User
 
 ### Brief
-Get a single project configured with Claude Code in 15-30 minutes. Focuses on CLAUDE.md template, model switching basics, and first slash command. Perfect for experienced developers who want immediate productivity without theory.
+Get a single project configured with Claude Code in 15-30 minutes. Focuses on CLAUDE.md template, model switching basics, and first skill. Perfect for experienced developers who want immediate productivity without theory.
 
 **Time:** 15-30 min | **Difficulty:** Easy | **Outcome:** One production-ready project
 

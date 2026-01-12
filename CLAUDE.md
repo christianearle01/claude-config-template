@@ -1,7 +1,7 @@
 # Project Memory - Claude Code Configuration Template
 
 **Last Updated:** 2025-12-21
-**Version:** v4.26.0
+**Version:** v4.27.0
 
 ---
 
@@ -327,7 +327,7 @@ claude-config-template/
 │   ├── SETUP_CONTEXT.md    # Token-optimized setup guide
 │   ├── agents/             # 5 custom agents (coder, initializer, project-planner, prompt-polisher, quality-reviewer)
 │   ├── skills/             # Skill definitions (personalization-engine, projects-registry)
-│   └── commands/           # 5 slash commands
+│   └── commands/           # 5 skills
 │
 ├── README.md               # Landing page (408 lines)
 ├── CLAUDE.md              # This file!
@@ -411,7 +411,7 @@ Use consistently for visual hierarchy:
 
 ### Adding New Features
 
-**Examples: Custom agents, slash commands, MCP configs**
+**Examples: Custom agents, skills, MCP configs**
 
 1. **Create the feature file:**
    - Agent: `.claude/agents/new-agent.md`

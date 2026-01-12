@@ -25,7 +25,7 @@ Analysis from NotebookLLM covering three YouTube sources:
 **Definition:** Bundled collections of Claude Code configurations
 
 **A plugin can include:**
-- Slash commands
+- Skills
 - Custom agents
 - Hooks (pre/post actions)
 - MCP server configurations
@@ -116,8 +116,8 @@ my-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin metadata
 ├── commands/
-│   ├── code-review.md       # Slash command: /code-review
-│   └── commit.md            # Slash command: /commit
+│   ├── code-review.md       # Skill: /code-review
+│   └── commit.md            # Skill: /commit
 ├── agents/
 │   ├── security-auditor.md  # Custom agent
 │   └── test-generator.md    # Custom agent

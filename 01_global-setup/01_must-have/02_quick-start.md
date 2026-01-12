@@ -20,7 +20,7 @@ Get up and running with optimized Claude Code configuration in 15 minutes.
 - [ ] **Security Hooks:** Decision made (install, skip, or defer)
   - [ ] If installed: `detect-prompt-injection.js` copied and configured
 - [ ] **Custom Agents:** Prompt Polisher agent installed
-- [ ] **Slash Commands:** Created custom commands for your workflow
+- [ ] **Skills:** Created custom commands for your workflow
 - [ ] **Documentation:** Copied reference guides to project (optional)
 
 ### Team Setup (If Working with Team)
@@ -177,7 +177,7 @@ ls -la CLAUDE.md
 **What you just copied:**
 - `.claude/settings.json` - Optimized Claude Code settings
 - `.claude/agents/` - Custom subagents (optional)
-- `.claude/commands/` - Custom slash commands (optional)
+- `.claude/commands/` - Custom skills (optional)
 - `CLAUDE.md` - Project memory template
 
 ### Step 2: Customize CLAUDE.md
@@ -814,7 +814,7 @@ Now that you're set up:
 1. **Learn Optimization Techniques**: Read [02_optimization-guide.md](../../../02_project-onboarding/02_good-to-have/02_optimization-guide.md)
 2. **Master Prompt Writing**: Read [01_prompt-optimization.md](../../../02_project-onboarding/02_good-to-have/01_prompt-optimization.md)
 3. **Explore Custom Agents**: Check `.claude/agents/` directory
-4. **Create Slash Commands**: Add `.md` files to `.claude/commands/`
+4. **Create Skills**: Add `.md` files to `.claude/commands/`
 
 ---
 

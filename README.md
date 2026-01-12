@@ -10,10 +10,22 @@ Projected: Save 50-95% on tokens. Understand your AI workflow deeply. Ship code 
 
 <table>
 <tr>
-<td width="50%">
+<td width="33%">
+
+### ⚡ Instant Setup **NEW!**
+**Start in 5 minutes**
+
+4 simple steps. Claude guides you through. Understanding checkpoint explains everything.
+
+**→ [Instant Setup Guide](docs/00-start-here/03_instant-setup.md)**
+
+Perfect for: New users who want to start NOW
+
+</td>
+<td width="33%">
 
 ### ⚡ 5-Minute Win
-**See the value immediately**
+**See the value first**
 
 Try the ultra-fast demo to see projected 99% token savings.
 
@@ -22,17 +34,17 @@ Try the ultra-fast demo to see projected 99% token savings.
 Perfect for: Everyone (try this first!)
 
 </td>
-<td width="50%">
+<td width="34%">
 
 ### 🎯 Full Setup
-**Get your project configured**
+**Deep understanding**
 
 Choose your path based on experience and time available.
 
 **→ [Visual Path Selector](docs/00-start-here/07_visual-quickstart.md)**
 **→ [Detailed Persona Guide](docs/00-start-here/personas/README.md)**
 
-Perfect for: Setting up for real work
+Perfect for: Methodical learners
 
 </td>
 </tr>
@@ -56,11 +68,12 @@ cd ~/claude-config-template
 **This README is your single entry point.** All other documentation is linked from here.
 
 **Your journey path:**
-1. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
-2. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [START_HERE.md](docs/00-start-here/personas/README.md) (detailed persona paths)
-3. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
-4. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
-5. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
+1. **Want to start immediately?** → Use [Instant Setup](docs/00-start-here/03_instant-setup.md) (5 min, 4 steps) ⚡ **NEW!**
+2. **New user?** → Start with [5-Minute Success](docs/00-start-here/03_5-minute-success.md) (see value in 5 min)
+3. **Ready to set up?** → Use [Visual Quickstart](docs/00-start-here/07_visual-quickstart.md) or [START_HERE.md](docs/00-start-here/personas/README.md) (detailed persona paths)
+4. **Want to learn systematically?** → Follow [Skills Progression Map](docs/00-start-here/14_skills-progression-map.md) (Foundation → Optimization → Strategic, 19 skills with clear prerequisites)
+5. **Looking for specific features?** → Use [QUICK_REFERENCE.md](docs/00-start-here/09_quick-reference.md) (searchable reference)
+6. **Want full documentation?** → Explore [docs/](docs/) (learning journey structure)
 
 **Don't know where to start?** Read the Get Started section above ↑
 
@@ -167,7 +180,7 @@ _Metrics and examples throughout this documentation are theoretical projections,
 
 **⚙️ Configuration**
 - Optimized settings.json
-- 5 slash commands (/test, /build, /review, /release, /commit-readiness)
+- 5 skills (/test, /build, /review, /release, /commit-readiness)
 - Security hooks (optional)
 - MCP server integrations
 - 3 YAML spec examples

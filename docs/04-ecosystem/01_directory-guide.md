@@ -142,7 +142,7 @@ Advanced topics for power users
 3. **03_claude-agent-setup.md** - Configure agents and hooks
    - Custom agent creation
    - Hook installation
-   - Slash command setup
+   - Skill setup
 
 ### 02_good-to-have/ ⭐ **Maximize efficiency**
 
@@ -405,7 +405,7 @@ Example output from project-planner agent
 - **sync-version.sh** (v2.8.0) - Automated version updates across files
 - **progress-bar-config.sh** (v3.1.0) - Global progress bar configuration
 - **claude-health-check.sh** (v3.5.0) - System health check
-- **remove-commands.sh** (v3.4.0) - Clean up old slash commands
+- **remove-commands.sh** (v3.4.0) - Clean up old skills
 - **claude-update.sh** - Keep template current
 - **claude-analytics.sh** - Opt-in usage tracking (privacy-first)
 
@@ -526,7 +526,7 @@ Custom agents for specialized workflows
 3. Invoke with `@agent-name`
 
 ### commands/
-Slash commands for common tasks
+Skills for common tasks
 
 **Built-in commands (3 total):**
 

@@ -157,8 +157,8 @@ If project-specific MCPs needed:
 
 ## ⚙️ Advanced Configuration (Optional)
 
-### Slash Commands
-- [ ] Created custom slash commands in `.claude/commands/`
+### Skills
+- [ ] Created custom skills in `.claude/commands/`
 - [ ] Tested commands work
 - [ ] Documented command usage
 

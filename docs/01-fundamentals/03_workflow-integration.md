@@ -55,7 +55,7 @@ Layer 1: PROJECT CONTEXT (CLAUDE.md, settings.json)
 
 ---
 
-### Layer 2: Slash Commands (Quick Operations)
+### Layer 2: Skills (Quick Operations)
 
 **What:** Fast, single-purpose commands for common tasks
 
@@ -536,7 +536,7 @@ Result: Failing tests → Passing tests with proper fixes
 - [CLAUDE.md Template](../../templates/CLAUDE.md.template)
 
 **Layer 2 (Commands):**
-- [Slash Commands Reference](../00-start-here/09_quick-reference.md#slash-commands)
+- [Skills Reference](../00-start-here/09_quick-reference.md#slash-commands)
 - [Custom Commands Guide](../../.claude/commands/README.md)
 
 **Layer 3 (Skills):**

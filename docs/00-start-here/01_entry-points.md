@@ -10,8 +10,9 @@
 
 | Time | Entry Point | What You'll Get |
 |------|-------------|-----------------|
-| **2 min** | [5-Minute Success](03_5-minute-success.md) | See immediate value, quick demo |
-| **5 min** | [Quick Start](04_quick-start.md) | Minimal setup, start using |
+| **5 min** | [Instant Setup](03_instant-setup.md) ⚡ **NEW!** | Complete setup, 4 steps, Understanding Checkpoint |
+| **5 min** | [5-Minute Success](03_5-minute-success.md) | See immediate value, quick demo |
+| **10 min** | [Quick Start](04_quick-start.md) | Minimal setup, start using |
 | **15 min** | [Visual Quickstart](07_visual-quickstart.md) | Guided path selection |
 | **30 min** | [Persona Guides](personas/README.md) | Full persona-based journey |
 
@@ -21,6 +22,7 @@
 
 | Goal | Entry Point |
 |------|-------------|
+| **Start immediately** | [Instant Setup](03_instant-setup.md) ⚡ **NEW!** - 5 minutes, 4 steps, Claude guides you |
 | **Avoid disasters** | [Anti-Patterns](05_anti-patterns.md) - Read this first! |
 | **Learn effective prompting** | [Prompting Fundamentals](../01-fundamentals/07_prompting-fundamentals.md) - How AI works, meta-skill of clarity, context is king |
 | **Use prompt templates** | [Prompt Pattern Library](../01-fundamentals/08_prompt-patterns.md) - 10 copy-paste templates for common scenarios |
@@ -39,7 +41,7 @@
 
 | Level | Recommended Path |
 |-------|-----------------|
-| **New to Claude Code** | [Anti-Patterns](05_anti-patterns.md) → [5-Minute Success](03_5-minute-success.md) → [Visual Quickstart](07_visual-quickstart.md) |
+| **New to Claude Code** | [Instant Setup](03_instant-setup.md) ⚡ → [Anti-Patterns](05_anti-patterns.md) → [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) |
 | **Some experience** | [Quick Reference](09_quick-reference.md) for specific features |
 | **Expert** | [Skills Paradigm](../01-fundamentals/02_skills-paradigm.md) → [Advanced docs](../03-advanced/) |
 
@@ -60,6 +62,7 @@
 
 | File | Purpose |
 |------|---------|
+| [03_instant-setup.md](03_instant-setup.md) ⚡ **NEW!** | 5-minute complete setup (4 steps) |
 | [03_5-minute-success.md](03_5-minute-success.md) | Ultra-fast demo |
 | [05_anti-patterns.md](05_anti-patterns.md) | What NOT to do (critical) |
 | [14_skills-progression-map.md](14_skills-progression-map.md) | Learning path (Foundation → Optimization → Strategic) |
