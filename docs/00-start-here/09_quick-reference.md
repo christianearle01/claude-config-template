@@ -58,6 +58,7 @@
 Jump to any section:
 
 - [Background Tasks](#background-tasks)
+- [Boris Cherny's Workflow](#boris-chernys-workflow)
 - [Breadcrumb Navigation](#breadcrumb-navigation)
 - [Checkpointing / Rewind](#checkpointing--rewind)
 - [Cheatsheets](#cheatsheets)
@@ -144,6 +145,74 @@ kill [PID]
 **Status:** Available (v4.5.2)
 
 **Keywords:** navigation, breadcrumbs, lost, where am i, back
+
+---
+
+## Boris Cherny's Workflow
+
+**What:** Recommended workflow patterns from Boris Cherny (creator of Claude Code)
+
+**Core Principles:**
+
+1. **Terminal-First Environment**
+   - Use terminals instead of IDEs (4x memory efficiency)
+   - 50MB per terminal vs 800MB for VS Code
+   - Enables 10-20 parallel sessions
+   - See: `01_global-setup/02_good-to-have/04_terminal-setup.md`
+
+2. **Plan Mode Gate**
+   - ALWAYS use Plan Mode (Shift+Tab twice) for non-trivial changes
+   - Engage in back-and-forth before coding
+   - Prevents wasted tokens on wrong implementations
+   - Forces deliberation (System 2 thinking)
+
+3. **"Ask Me Questions" Pattern**
+   - Before implementation, ask clarifying questions
+   - Don't assume requirements
+   - Let AI drive inquiry to ensure completeness
+
+4. **Post-Session Verification**
+   - End every session with `/verify` command
+   - Check: Security, efficiency, tests, documentation
+   - Catch issues before committing
+
+5. **Split-Screen Monitoring**
+   - Left: Claude terminal
+   - Right: Dev server logs (npm run dev)
+   - Real-time feedback loop
+   - Reduces "black box" anxiety
+
+**Productivity Gains:**
+- 3-4x faster for multi-feature work (parallel terminals)
+- Fewer mistakes (plan mode)
+- Earlier error detection (verification)
+
+**Progressive Adoption:**
+- Week 1: Single terminal + plan mode
+- Week 2-3: Two terminals (feature + tests)
+- Month 1: Three terminals + verification
+- Month 2+: Scale to 5+ terminals (only if needed)
+
+**Advanced Patterns (Month 3+):**
+- **Parallel Terminals:** 2-5 concurrent sessions (see `docs/02-optimization/06_parallel-terminals.md`)
+- **Overnight Agents:** 5-10 agents work while you sleep (⚠️ $60-200/night, advanced only)
+- **Custom Slash Commands:** `/getit` for git workflow, `/testit` for tests
+
+**What NOT to Do:**
+- ❌ Jump to 20 terminals on Day 1 (cognitive overload)
+- ❌ Skip plan mode for "quick" changes (causes rework)
+- ❌ Use Opus for everything (model switching saves 30-50%)
+- ❌ Run overnight agents on critical systems (security risk)
+
+**Files to check:**
+- Terminal setup: `01_global-setup/02_good-to-have/04_terminal-setup.md`
+- CLAUDE.md template: `templates/CLAUDE.md.template` (patterns 1-3)
+- Verify command: `.claude/commands/verify.md`
+- Parallel terminals: `docs/02-optimization/06_parallel-terminals.md` (coming soon)
+
+**Status:** Available (v5.1.0-alpha.1)
+
+**Keywords:** boris cherny, workflow, parallel terminals, plan mode, verification, terminal-first, ghostty, warp, split-screen, productivity, overnight agents
 
 ---
 

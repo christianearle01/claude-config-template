@@ -16,7 +16,8 @@
 8. [Best Practices](#best-practices)
 9. [Quick Reference](#quick-reference)
 10. [FAQ](#faq)
-11. [Summary](#summary)
+11. [Boris Cherny's Perspective](#boris-chernys-perspective)
+12. [Summary](#summary)
 
 ---
 
@@ -1384,6 +1385,198 @@ Savings from using Opus: $4,995
 
 ---
 
+## Boris Cherny's Perspective
+
+**Boris Cherny** (creator of Claude Code) recommends **"Opus for everything"** in his workflow videos, with the reasoning:
+
+> "Intelligence = fewer mistakes = cost efficiency. Opus catches errors that Haiku/Sonnet miss, saving rework tokens."
+
+### The Nuanced Reality
+
+Boris's recommendation works FOR HIM because:
+
+**✅ Boris's Context:**
+- 4+ years AI development experience
+- Deep pattern recognition (instantly spots AI hallucinations)
+- High-stakes work (errors cost more than tokens)
+- Budget: $400-800/month (professional use)
+- Critical thinking: Always reviews AI output with skepticism
+
+**❌ Most Developers' Context:**
+- 0-2 years AI experience (learning patterns)
+- Mixed task complexity (not all high-stakes)
+- Budget: $50-200/month (learning or side projects)
+- Need to develop review skills (Opus won't teach this)
+
+---
+
+### Why "Opus for Everything" is NOT Universal Advice
+
+**Problem 1: Cost Scales Quickly**
+
+| Scenario | Tokens/Month | Opus Cost | Sonnet Cost | Savings |
+|----------|--------------|-----------|-------------|---------|
+| Light usage | 500K | $225 | $45 | $180 saved |
+| Medium usage | 2M | $900 | $180 | $720 saved |
+| Heavy usage | 5M | $2,250 | $450 | $1,800 saved |
+
+**For most developers:** Opus-only is 5x more expensive than necessary.
+
+**Problem 2: Masks Learning Opportunities**
+
+**With Opus-only:**
+```
+Task: "Rename function getUserData to fetchUser across codebase"
+Opus: *perfectly renames everything, handles edge cases*
+Developer: "Great!" (learns nothing about refactoring patterns)
+```
+
+**With Sonnet or Haiku:**
+```
+Task: Same rename
+Sonnet: *renames most, misses 2 edge cases*
+Developer: Reviews output, finds misses, learns refactoring patterns
+Developer: Now recognizes these patterns in future
+```
+
+**Opus prevents skill development** by always being perfect.
+
+**Problem 3: Diminishing Returns on Simple Tasks**
+
+**Opus advantage by task type:**
+
+| Task | Opus Benefit | Cost Multiplier | Worth it? |
+|------|--------------|-----------------|-----------|
+| Architecture decision | 🔴🔴🔴 High | 5x | ✅ YES |
+| Complex refactor | 🔴🔴 Medium | 5x | ✅ YES |
+| Feature implementation | 🔴 Low | 5x | ⚠️ MAYBE |
+| Rename variable | None | 5x | ❌ NO |
+| Search codebase | None | 5x | ❌ NO |
+| Read file | None | 5x | ❌ NO |
+
+**30-40% of tasks have ZERO Opus advantage** (exploration, reading, simple operations).
+
+---
+
+### Refined Recommendation: Contextual Model Switching
+
+**Instead of "Opus for everything," use:**
+
+**Opus for 10% of tasks:**
+- Architecture decisions
+- Multi-perspective planning
+- High-stakes refactors
+- Complex debugging
+- **When errors are costly**
+
+**Sonnet for 60% of tasks:**
+- Feature implementation
+- Bug fixes
+- Test writing
+- Code reviews
+- **When quality matters, speed helps**
+
+**Haiku for 30% of tasks:**
+- File exploration
+- Codebase search
+- Reading documentation
+- Mechanical refactoring
+- **When speed matters, quality guaranteed**
+
+**Result:** Same quality for important work, 30-50% cost savings overall.
+
+---
+
+### When Boris's "Opus Only" DOES Make Sense
+
+**Use Opus-only if ALL true:**
+
+✅ **Professional/Enterprise budget** ($400-800/month acceptable)
+✅ **High-stakes work** (errors cost more than tokens)
+✅ **Experienced developer** (4+ years, can spot when Opus is overkill)
+✅ **Time-sensitive** (no time to review Sonnet/Haiku output)
+✅ **Critical systems** (finance, healthcare, security)
+
+**If any are FALSE → Use contextual model switching instead.**
+
+---
+
+### The Boris Workflow (Adapted)
+
+**What we adopt from Boris:**
+- ✅ Use Opus for architecture and planning (he's right)
+- ✅ "Intelligence prevents rework" for complex tasks (he's right)
+- ✅ Terminal-first environment (he's right)
+- ✅ Plan mode gate before coding (he's right)
+
+**What we refine from Boris:**
+- ⚠️ "Opus for everything" → Contextual model switching
+  - **Why:** Cost efficiency for developers with smaller budgets
+  - **When:** Use Opus selectively, not universally
+- ⚠️ "Fewer mistakes = cheaper" → True for complex work, not simple tasks
+  - **Why:** Haiku makes same 0 mistakes on file reading as Opus
+
+---
+
+### Cost Comparison: Boris vs Template Approach
+
+**Scenario: 2M tokens/month (typical professional use)**
+
+**Boris approach (Opus-only):**
+```
+2M input tokens × $15/M = $30
+500K output tokens × $75/M = $37.50
+Total: $67.50 (just input/output)
+
+With typical 30% output ratio:
+Total monthly: ~$90
+```
+
+**Template approach (Contextual switching):**
+```
+10% Opus (200K tokens): $9
+60% Sonnet (1.2M tokens): $18
+30% Haiku (600K tokens): $3
+Total: $30
+
+Savings: $60/month (66% cheaper)
+```
+
+**Annual difference: $720 saved**
+
+---
+
+### Decision Matrix: When to Follow Boris
+
+| Your Situation | Recommendation |
+|----------------|----------------|
+| **Enterprise developer** ($500+/mo budget) | Boris's "Opus-only" works |
+| **Professional freelancer** ($200-500/mo) | Contextual switching better |
+| **Side project developer** ($50-200/mo) | Contextual switching essential |
+| **Learning AI development** (any budget) | Contextual switching teaches patterns |
+| **Critical systems only** (finance, health) | Boris's "Opus-only" justified |
+| **Mix of critical + routine** (most devs) | Contextual switching optimal |
+
+---
+
+### Key Takeaway
+
+**Boris Cherny's "Opus for everything" is:**
+- ✅ Valid for his context (enterprise, high-stakes, experienced)
+- ❌ NOT universal advice for all developers
+- ⚠️ Expensive for those with smaller budgets
+- ⚠️ Prevents learning for beginners
+
+**This template recommends:**
+- **Contextual model switching** (Opus/Sonnet/Haiku based on task)
+- **Selective Opus use** (10% of tasks, where it matters)
+- **Cost-consciousness** (30-50% savings over Opus-only)
+- **Skill development** (learn to recognize patterns, not just trust Opus)
+
+**Use Boris's workflow patterns (terminal-first, plan mode, parallel sessions), but adapt his model selection advice to your context.**
+
+---
+
 ## Summary
 
 ### Core Principles
@@ -1627,6 +1820,6 @@ This guide is based on:
 
 ---
 
-**Last updated:** 2025-12-16
-**Version:** v3.9.0
-**Status:** New guide (projections pending validation)
+**Last updated:** 2026-01-13
+**Version:** v5.1.0-alpha.3
+**Status:** Updated with Boris Cherny's perspective

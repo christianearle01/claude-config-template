@@ -46,6 +46,33 @@ This file helps Claude Code understand your project without re-reading files eve
 
 ---
 
+## Claude Code Working Patterns
+
+<!--
+Based on Boris Cherny's (Claude Code creator) recommended workflow.
+These patterns help Claude Code work more effectively and prevent wasted tokens.
+-->
+
+1. **Before starting implementation, ask ME clarifying questions**
+   - Don't assume requirements - ask for specifics
+   - Clarify edge cases, error handling, and expected behavior
+   - This prevents wasted work on incorrect implementations
+
+2. **Use Plan Mode (Shift+Tab twice) for all non-trivial changes**
+   - Plan Mode forces deliberation before coding (System 2 thinking)
+   - Engage in back-and-forth discussion to align on approach
+   - Only start coding after plan is approved
+   - Prevents wasted tokens on wrong implementations
+
+3. **At end of session, verify work for security, efficiency, best practices**
+   - Run `/verify` command (if available) or manually check:
+     - Security: OWASP top 10, no hardcoded secrets, input validation
+     - Efficiency: No unnecessary complexity, appropriate data structures
+     - Tests: Sufficient coverage for changes made
+     - Documentation: Updated if APIs or behavior changed
+
+---
+
 ## What Does This Application Do?
 
 <!--
