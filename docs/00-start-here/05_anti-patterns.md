@@ -30,7 +30,10 @@ Analysis from NotebookLLM covering three YouTube sources:
 4. [Ignoring Fundamentals](#ignoring-fundamentals)
 5. [AI Augmented Coding (The Solution)](#ai-augmented-coding-the-solution)
 6. [Success Metrics Comparison](#success-metrics-comparison)
-7. [How to Avoid These Patterns](#how-to-avoid-these-patterns)
+7. [Bloated CLAUDE.md](#bloated-claudemd)
+8. [Context Rot from Unbounded Growth](#context-rot-from-unbounded-growth)
+9. [Context Collapse from Over-Summarization](#context-collapse-from-over-summarization)
+10. [How to Avoid These Patterns](#how-to-avoid-these-patterns)
 
 ---
 
@@ -452,6 +455,201 @@ wc -c CLAUDE.md
 **Learn more:**
 - [Quick Reference § CLAUDE.md Size Management](09_quick-reference.md#claudemd-size-management)
 - [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md)
+
+---
+
+## Context Rot from Unbounded Growth
+
+### What It Is
+
+**"Context Rot"** is when your CLAUDE.md or project instructions become a "hot garbage mess" that degrades Claude's reasoning ability over time.
+
+**Quote from research:**
+> *"My context is a hot garbage mess - it's degrading CLAUDE's ability to reason."*
+
+**The pattern:**
+- Start with focused, clear instructions
+- Add rules for each new issue encountered
+- Never remove or consolidate old rules
+- File grows to 50+ pages of instructions
+- Instructions contradict each other
+- Claude's performance actually gets WORSE over time
+
+### Why It Fails
+
+**Performance degradation:**
+- Large, disorganized context reduces model effectiveness
+- Claude must process irrelevant historical rules
+- Contradictory instructions cause confusion
+- Token budget wasted on outdated patterns
+
+**The paradox:**
+- More instructions ≠ better performance
+- Beyond a certain size, adding rules makes Claude DUMBER
+- Context rot is insidious - happens gradually over weeks/months
+- By the time you notice, recovery requires major cleanup
+
+**Real-world impact:**
+- Developer adds 50 detailed rules for edge cases
+- Claude now takes longer to respond (processing overhead)
+- Responses become less accurate (contradictory rules)
+- Simple tasks fail because Claude overthinks
+- Result: System is worse than when you started
+
+### Warning Signs
+
+Watch for these symptoms:
+- CLAUDE.md >60KB (>15,000 tokens)
+- Rules from 6+ months ago still present
+- Instructions contradict each other
+- Claude seems "confused" on simple tasks
+- Response quality decreased over time
+- You can't remember why certain rules exist
+- Rules reference deprecated features/approaches
+- File takes 5+ minutes to scan
+
+### The Correct Approach
+
+**Size discipline (prevention):**
+- Target: <20KB (~5,000 tokens) for CLAUDE.md
+- Warning: >60KB requires immediate action
+- Use `.claude/rules/` directory for modular organization
+- Archive outdated rules instead of deleting (Git history)
+
+**Regular maintenance:**
+- Quarterly review of all rules (mark with review dates)
+- Remove rules that haven't applied in 3+ months
+- Consolidate duplicate or overlapping instructions
+- Update rules to reflect current best practices
+
+**Health monitoring:**
+Use the `/claude-md-health` command (see: `.claude/commands/claude-md-health.md`):
+```bash
+# Run health check
+/claude-md-health
+
+# Output includes:
+# - Size analysis (characters, tokens, line count)
+# - Structure analysis (sections, bullets, code blocks)
+# - Staleness check (last modified date)
+# - Redundancy detection (repeated phrases)
+# - Anti-pattern detection (outdated tech, over-prescription)
+# - Actionable recommendations
+```
+
+**Learn more:**
+- [ACE-Inspired Patterns](../../03-advanced/11_ace-inspired-patterns.md) - Advanced context management
+- [Rules Directory Guide](../01-fundamentals/05_rules-directory-guide.md) - Modular organization
+
+---
+
+## Context Collapse from Over-Summarization
+
+### What It Is
+
+**"Context Collapse"** is when you ask AI to "clean up" or "summarize" your CLAUDE.md, causing catastrophic information loss and pattern destruction.
+
+**The mistake:**
+```
+Developer: "My CLAUDE.md is too long. Summarize it to be shorter."
+
+AI: *Compresses 20KB of nuanced instructions into 5KB*
+     *Removes context, examples, and reasoning*
+     *Converts specific rules to vague generalizations*
+
+Result: Critical patterns completely lost
+```
+
+**Example collapse:**
+```markdown
+# Before (specific, actionable)
+When making database calls:
+1. Always use async/await (not callbacks)
+2. Wrap in try/catch with specific error handling
+3. Log query execution time for performance monitoring
+4. Use connection pooling (max 10 connections)
+
+# After AI summarization (vague, unusable)
+Use async patterns for database operations with error handling.
+```
+
+### Why It Fails
+
+**Information loss is irreversible:**
+- Nuanced rules become generic advice
+- Examples and context disappear
+- "Why" rationale is stripped away
+- Edge cases and exceptions lost
+- Specific numbers/thresholds removed
+
+**The compression trap:**
+- Summarization feels like progress ("smaller is better!")
+- But compression ≠ improvement
+- Lost information can't be recovered
+- You don't notice what's missing until you need it
+- Requires complete rewrite from scratch
+
+**Quote from research:**
+> *"Let me ask AI to clean/summarize this - completely risks CLAUDE or reality. The rule just went everything into 10 tokens of information. Finally is now compromised."*
+
+### Warning Signs
+
+Red flags you're heading toward collapse:
+- Planning to ask AI to "summarize" or "clean up" CLAUDE.md
+- Using phrases like "make this shorter" without specifying what to remove
+- Accepting AI summaries without line-by-line review
+- Noticing vague instructions where specific ones existed
+- Rules lack examples or rationale
+- Generic advice instead of project-specific patterns
+- Can't explain why certain rules exist (lost context)
+
+### The Correct Approach
+
+**Manual curation (not AI summarization):**
+
+1. **Review each section individually:**
+   - Ask: "Is this still relevant?"
+   - Ask: "Can I move this to `.claude/rules/`?"
+   - Ask: "Does this need updating?"
+   - Keep or remove intentionally (don't compress)
+
+2. **Move, don't summarize:**
+   ```markdown
+   # Bad: Summarize everything into CLAUDE.md
+   Use best practices for error handling and logging.
+
+   # Good: Move to dedicated file, link from CLAUDE.md
+   ## Error Handling
+   See: .claude/rules/error-handling.md
+   ```
+
+3. **Preserve specificity:**
+   - Keep examples (they're cheap in tokens, valuable for understanding)
+   - Keep numbers/thresholds (e.g., "max 10 connections", not "use pooling")
+   - Keep "why" rationale (helps Claude apply rules correctly)
+
+4. **Use health check for data-driven decisions:**
+   ```bash
+   /claude-md-health
+
+   # Shows:
+   # - Which sections are bloated (line counts)
+   # - Redundant phrases (consolidate candidates)
+   # - Low-value rules (harmful > helpful)
+   # - Outdated content (staleness check)
+   ```
+
+**Alternative to summarization:**
+
+If CLAUDE.md is too large:
+- ✅ Move sections to `.claude/rules/*.md` (modular)
+- ✅ Archive historical content to `docs/decisions/`
+- ✅ Remove truly obsolete rules (Git preserves history)
+- ❌ Don't compress or summarize
+
+**Learn more:**
+- [ACE-Inspired Patterns § The Poisoning Problem](../../03-advanced/11_ace-inspired-patterns.md#the-poisoning-problem) - Why AI can't be trusted to curate its own context
+- [CLAUDE.md Health Check Command](../../.claude/commands/claude-md-health.md) - Automated diagnostics
 
 ---
 

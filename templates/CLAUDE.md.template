@@ -46,6 +46,33 @@ This file helps Claude Code understand your project without re-reading files eve
 
 ---
 
+## Claude Code Working Patterns
+
+<!--
+Based on Boris Cherny's (Claude Code creator) recommended workflow.
+These patterns help Claude Code work more effectively and prevent wasted tokens.
+-->
+
+1. **Before starting implementation, ask ME clarifying questions**
+   - Don't assume requirements - ask for specifics
+   - Clarify edge cases, error handling, and expected behavior
+   - This prevents wasted work on incorrect implementations
+
+2. **Use Plan Mode (Shift+Tab twice) for all non-trivial changes**
+   - Plan Mode forces deliberation before coding (System 2 thinking)
+   - Engage in back-and-forth discussion to align on approach
+   - Only start coding after plan is approved
+   - Prevents wasted tokens on wrong implementations
+
+3. **At end of session, verify work for security, efficiency, best practices**
+   - Run `/verify` command (if available) or manually check:
+     - Security: OWASP top 10, no hardcoded secrets, input validation
+     - Efficiency: No unnecessary complexity, appropriate data structures
+     - Tests: Sufficient coverage for changes made
+     - Documentation: Updated if APIs or behavior changed
+
+---
+
 ## What Does This Application Do?
 
 <!--
@@ -292,6 +319,94 @@ Help Claude Code work more efficiently by:
 - Pattern: [MVC / Microservices / Monolith / Clean Architecture / Hexagonal / etc.]
 - Request flow: [e.g., "Request → Controller → Service → Model → Database"]
 - [Any other high-level architectural notes]
+
+---
+
+## OPTIONAL: Rule Effectiveness Tracking
+
+<!--
+ADVANCED PATTERN: Track which rules actually help over time.
+
+This is inspired by Agentic Context Engineering (ACE) patterns but keeps it simple:
+- Manual voting (you decide helpful/harmful)
+- Visible in Git history
+- No infrastructure required
+
+When to use:
+- Month 2-3 after using this template
+- If you have 10+ custom rules in .claude/rules/
+- If you want data-driven context management
+
+When NOT to use:
+- First month (learn the basics first)
+- If tracking feels like busywork (skip it!)
+- Solo projects where you remember everything
+
+See: docs/03-advanced/11_ace-inspired-patterns.md for full context
+-->
+
+**Last Reviewed:** [YYYY-MM-DD]
+
+**High-Value Rules (Keep):**
+<!--
+Track rules that consistently help. Add brief notes about WHY they helped.
+
+Example:
+- "Always use async/await for DB calls" (Helpful: 15, Harmful: 0)
+  → Prevented callback hell in 10+ features
+  → Added: 2026-01-01, Last helpful: 2026-03-15
+-->
+
+- [Rule name/description] (Helpful: X, Harmful: Y)
+  → [Brief note about impact]
+  → Added: [date], Last helpful: [date]
+
+**Neutral Rules (Review):**
+<!--
+Rules that haven't proven helpful OR harmful yet. Review quarterly.
+-->
+
+- [Rule name] (Helpful: X, Harmful: Y)
+  → [Status notes]
+
+**Low-Value Rules (Consider Removing):**
+<!--
+Rules that caused more problems than they solved. Document WHY before removing.
+
+Example:
+- "Always add JSDoc comments" (Helpful: 3, Harmful: 8)
+  → Too rigid, context-dependent
+  → Removed: 2026-03-15 (moved to "prefer JSDoc for public APIs only")
+-->
+
+- [Rule name] (Helpful: X, Harmful: Y)
+  → [Why it didn't work]
+
+**Tracking Method:**
+
+Option 1 - Manual Comments (Simplest):
+```markdown
+## Rule: [Name]
+<!-- Helpful: 5, Harmful: 1, Added: 2026-01-01, Last reviewed: 2026-03-15 -->
+```
+
+Option 2 - Git Commit Messages:
+```bash
+git commit -m "Add rule: Prefer React hooks
+
+[helpful: test pass rate improved 85% → 92%]
+[context: 5 components refactored]"
+```
+
+Option 3 - Simple Metrics File (Advanced):
+Create `CLAUDE_MD_METRICS.md` with periodic summaries (see ACE patterns doc).
+
+**Health Check:**
+Run `/claude-md-health` monthly to get automated diagnostics:
+- Size analysis (characters, tokens, sections)
+- Redundancy detection (repeated phrases)
+- Staleness check (last modified dates)
+- Anti-pattern detection (outdated tech, over-prescription)
 
 ---
 
