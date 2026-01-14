@@ -58,18 +58,27 @@ These patterns help Claude Code work more effectively and prevent wasted tokens.
    - Clarify edge cases, error handling, and expected behavior
    - This prevents wasted work on incorrect implementations
 
-2. **Use Plan Mode (Shift+Tab twice) for all non-trivial changes**
+2. **Before doing any work, mention HOW you will verify that work**
+   - For code changes: What tests will you run? (e.g., `pytest tests/`, `npm test`)
+   - For bash changes: What commands will validate? (e.g., `bash -n script.sh`, `shellcheck`)
+   - For UI changes: How will you verify visually? (e.g., browser extension, screenshots, manual testing)
+   - For API changes: What requests will test functionality? (e.g., `curl` commands, Postman)
+   - This prevents building without a clear verification path
+
+3. **Use Plan Mode (Shift+Tab twice) for all non-trivial changes**
    - Plan Mode forces deliberation before coding (System 2 thinking)
    - Engage in back-and-forth discussion to align on approach
    - Only start coding after plan is approved
    - Prevents wasted tokens on wrong implementations
 
-3. **At end of session, verify work for security, efficiency, best practices**
-   - Run `/verify` command (if available) or manually check:
+4. **After completing work, run verification before considering the task done**
+   - Run the verification method you declared upfront (item #2)
+   - Use `/verify` command (if available) for systematic review:
      - Security: OWASP top 10, no hardcoded secrets, input validation
      - Efficiency: No unnecessary complexity, appropriate data structures
      - Tests: Sufficient coverage for changes made
      - Documentation: Updated if APIs or behavior changed
+   - Only mark complete when verification passes
 
 ---
 
@@ -268,6 +277,38 @@ Help Claude Code understand where to find things without exploring
 - **Database migrations:** `[command]` (e.g., `npm run migrate`, `alembic upgrade head`)
 - **Linting:** `[command]` (e.g., `npm run lint`, `flake8`)
 - **Format code:** `[command]` (e.g., `npm run format`, `black .`)
+
+---
+
+## Things Claude Code Shouldn't Do
+
+<!--
+TEAM-CONTRIBUTED SECTION: Add behaviors or patterns Claude should AVOID.
+When Claude does something incorrect, add it here so the team learns collectively.
+
+This section prevents repeated mistakes and builds institutional knowledge.
+Think of it as "negative test cases" - documenting failure modes.
+-->
+
+**Common Mistakes to Avoid:**
+
+<!-- Example entries (remove when you add real ones): -->
+- Don't use synchronous file operations in Node.js (use async/await instead)
+- Don't concatenate SQL queries with user input (use parameterized queries)
+- Don't store secrets in environment variables in production (use secrets manager)
+
+<!-- Team: Add new entries below when Claude makes a mistake: -->
+- [When Claude does something wrong, document it here with the pattern to avoid]
+- [Include WHY it's wrong, not just WHAT is wrong]
+- [Format: "Don't [action] because [reason]. Instead: [correct approach]"]
+
+**How to use this section:**
+1. When Claude generates incorrect code, add the pattern here
+2. Include the mistake AND the correct approach
+3. Be specific (not "don't write bad code" but "don't use var in JavaScript; use const/let")
+4. Review quarterly and remove outdated items (mark review date)
+
+**Last Reviewed:** [YYYY-MM-DD]
 
 ---
 
