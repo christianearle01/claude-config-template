@@ -7,6 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [5.1.0-alpha.5] - 2026-01-15 - Fetch MCP Removal (Built-in Tools Sufficient)
+
+**Simplification Release - Remove Broken MCP, Use Built-in Tools**
+
+Removes Fetch MCP from default installation because Claude Code has built-in WebFetch and WebSearch tools that cover 90% of use cases without requiring Python/uvx setup.
+
+**Problem Discovered:**
+- Fetch MCP installation command used incorrect npm package: `@modelcontextprotocol/server-fetch`
+- This package doesn't exist in npm registry (404 error)
+- Fetch MCP is actually a Python package (`mcp-server-fetch` on PyPI)
+- Users hitting 404 errors on first MCP setup attempt
+
+**Decision:**
+Rather than fix with Python/uvx dependency, **removed Fetch MCP entirely**:
+- Built-in WebFetch handles: "Fetch this URL and answer questions"
+- Built-in WebSearch handles: "Search for documentation about X"
+- No installation, no Python, no uvx - works immediately
+
+**Files Updated:**
+- `01_global-setup/02_good-to-have/02_mcp-setup.md` - Removed fetch, added Built-in Web Tools section
+- `01_global-setup/02_good-to-have/03_mcp-pollution.md` - Removed fetch from safe global MCPs
+- `02_project-onboarding/01_must-have/02_setup-checklist.md` - Removed fetch from checklist
+- `01_global-setup/01_must-have/01_installation.md` - Removed fetch from tier 2 list
+- `01_global-setup/03_nice-to-have/01_security-guide.md` - Updated to reference WebFetch (built-in)
+- `01_global-setup/03_nice-to-have/02_security-summary.md` - Updated attack vector description
+
+**Migration for Existing Users:**
+```bash
+# Remove broken fetch MCP if installed
+claude mcp remove fetch -s local
+claude mcp remove fetch -s user
+
+# Use built-in tools instead (no installation needed!)
+# In Claude Code: "Fetch https://example.com and summarize"
+```
+
+**Advanced Users:**
+If you specifically need raw markdown extraction, manually install:
+```bash
+claude mcp add fetch -s user -- uvx mcp-server-fetch
+```
+Requires Python + uvx. See: https://pypi.org/project/mcp-server-fetch/
+
+**Philosophy Alignment:**
+- Jake Nations Test: Simple > Easy (remove complexity, not add workarounds)
+- Template Mission: Reduce setup friction
+- Result: 5 MCPs instead of 6, same functionality
+
+---
+
 ### [4.27.2] - 2026-01-12 - Documentation Consistency Fixes
 
 **Documentation Patch - Complete Consistency Review**

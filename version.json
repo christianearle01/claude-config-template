@@ -1,7 +1,7 @@
 {
-  "version": "5.1.0-alpha.4",
-  "release_date": "2026-01-13",
-  "release_name": "ACE-Inspired Context Management",
+  "version": "5.1.0-alpha.5",
+  "release_date": "2026-01-15",
+  "release_name": "Fetch MCP Removal - Built-in Tools Sufficient",
   "breaking_changes": false,
   "update_priority": "optional",
   "alpha_status": true,

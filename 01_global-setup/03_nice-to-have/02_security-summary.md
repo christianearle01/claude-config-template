@@ -13,7 +13,7 @@ Your Claude Code template now includes **enterprise-grade prompt injection prote
 **Size:** ~200 lines
 **Contents:**
 - What prompt injection is
-- Attack vectors (WebSearch, Fetch MCP, etc.)
+- Attack vectors (WebSearch, WebFetch, etc.)
 - Multi-layer defense strategy
 - Detection patterns
 - Incident response plan

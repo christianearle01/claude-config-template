@@ -126,8 +126,8 @@
   - Command: `npx -y @modelcontextprotocol/server-memory`
 - [ ] **Filesystem MCP** - Advanced file operations
   - Command: `npx -y @modelcontextprotocol/server-filesystem`
-- [ ] **Fetch MCP** - Documentation retrieval
-  - Command: `npx -y @modelcontextprotocol/server-fetch`
+
+**Note:** Web fetching uses Claude Code's **built-in WebFetch and WebSearch tools** - no MCP needed!
 
 **Configured in:** `~/.claude.json` (global)
 

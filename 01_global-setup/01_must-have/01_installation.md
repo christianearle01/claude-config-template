@@ -251,9 +251,10 @@ MCP servers extend Claude Code's capabilities. Install these globally to use acr
 **Tier 2 (Optional Workflow Enhancement):**
 4. **GitHub MCP** - PR and issue management (requires GitHub token) - **Optional**, see note below
 5. **Brave Search MCP** - Web search for documentation
-6. **Fetch MCP** - Fetch and read web content
 
 **Note on GitHub MCP:** Optional. Template author uses manual git workflow. Only install if you want Claude to create PRs/issues directly.
+
+**Note on Web Fetching:** Claude Code has **built-in WebFetch and WebSearch tools** - no MCP needed!
 
 ### Installation
 

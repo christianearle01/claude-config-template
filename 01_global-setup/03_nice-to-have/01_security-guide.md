@@ -28,7 +28,7 @@ What are the GitHub tokens stored in .claude.json?
 
 **Risk:** High (external, untrusted sources)
 
-### 2. **Fetch MCP / WebFetch**
+### 2. **WebFetch (Built-in Tool)**
 - Fetching malicious URLs
 - Compromised documentation sites
 - Man-in-the-middle attacks

@@ -4,7 +4,7 @@ A step-by-step guide for installing recommended MCP servers on your local machin
 
 ## 📋 Overview
 
-This guide installs **6 universal MCP servers** that enhance Claude Code workflows across any project:
+This guide installs **5 universal MCP servers** that enhance Claude Code workflows across any project:
 
 | MCP Server | Purpose | Config Needed |
 |------------|---------|---------------|
@@ -12,8 +12,9 @@ This guide installs **6 universal MCP servers** that enhance Claude Code workflo
 | Sequential Thinking | Enhanced reasoning | None |
 | Memory | Context persistence | None |
 | Filesystem | Advanced file ops | None |
-| Fetch | Documentation retrieval | None |
 | Brave Search | External research | API Key (optional) |
+
+**Note:** Web fetching is handled by Claude Code's **built-in WebFetch and WebSearch tools** - no MCP needed!
 
 **Time:** ~15 minutes
 **Difficulty:** Easy
@@ -28,7 +29,7 @@ Core workflow (coding, planning, debugging) works perfectly without MCPs. Consid
 - **GitHub PR/issue creation** directly from Claude (GitHub MCP)
 - **Advanced reasoning** for complex decisions (Sequential-Thinking MCP)
 - **Knowledge graph memory** across sessions (Memory MCP)
-- **Web research** without leaving Claude (Brave Search MCP)
+- **Web research** without leaving Claude (Brave Search MCP or built-in WebSearch)
 - **Advanced file operations** beyond basic read/write (Filesystem MCP)
 
 **Author note:** This template was built WITHOUT GitHub MCP. Manual git + GitHub UI workflow is perfectly viable.
@@ -37,7 +38,7 @@ Core workflow (coding, planning, debugging) works perfectly without MCPs. Consid
 - Sequential Thinking: 21-50% better reasoning on multi-step problems
 - Memory: Persistent context across sessions
 - GitHub: Automated PR/issue creation (optional - manual workflow works fine)
-- Fetch + Brave Search: In-Claude documentation lookup
+- Brave Search: External documentation lookup (built-in WebSearch works without API key)
 - Filesystem: Advanced file operations
 
 **Time investment:** 15 minutes (one-time global setup)
@@ -57,7 +58,6 @@ claude mcp add filesystem npx -- -y @modelcontextprotocol/server-filesystem
 
 # Tier 2: Workflow Enhancement (Optional)
 claude mcp add github npx -- -y @modelcontextprotocol/server-github  # Optional - only if you want Claude to interact with GitHub directly
-claude mcp add fetch npx -- -y @modelcontextprotocol/server-fetch
 claude mcp add brave-search npx -- -y @modelcontextprotocol/server-brave-search
 ```
 
@@ -158,7 +158,6 @@ github: ✓ Connected (or waiting for token)
 sequential-thinking: ✓ Connected
 memory: ✓ Connected
 filesystem: ✓ Connected
-fetch: ✓ Connected
 brave-search: ✓ Connected (or waiting for API key)
 ```
 
@@ -190,9 +189,10 @@ brave-search: ✓ Connected (or waiting for API key)
 "Find all Python files modified in the last week"
 ```
 
-### Test Fetch:
+### Test Built-in Web Tools (No MCP Needed):
 ```
-"Fetch the React documentation homepage"
+"Fetch https://docs.anthropic.com and summarize Claude Code features"
+"Search for React hooks best practices"
 ```
 
 ### Test Brave Search (if configured):
@@ -203,18 +203,6 @@ brave-search: ✓ Connected (or waiting for API key)
 ---
 
 ## 🔧 Troubleshooting
-
-### Issue: "Failed to connect" for Fetch MCP
-
-**Solution:** Restart Claude Code
-```bash
-# Exit Claude Code, then restart
-claude
-```
-
-First-run initialization sometimes needs a restart.
-
----
 
 ### Issue: GitHub MCP not working
 
@@ -314,7 +302,6 @@ These MCPs are **safe to install globally** because they either:
 | Sequential Thinking | ✅ Yes | Stateless, no secrets |
 | Memory | ✅ Yes | Stores in `.claude/memory.json` per project |
 | Filesystem | ✅ Yes | Operates in current working directory |
-| Fetch | ✅ Yes | Stateless, no secrets |
 | GitHub | ⚠️ Depends | Safe if same token for all repos, otherwise use per-project |
 | Brave Search | ⚠️ Depends | Safe if same API key for all projects, otherwise use per-project |
 | **Context7** | ❌ NO | Different API keys per client = pollution risk |
@@ -467,11 +454,22 @@ If you have MCPs configured globally with API keys:
 - "Rename all .js files to .ts"
 - "Watch for changes in config files"
 
-### Fetch MCP
-**Commands you can use:**
-- "Fetch the React hooks documentation"
-- "Get the Stripe API specification"
-- "Download the remote README"
+### Built-in Web Tools (No MCP Needed)
+**Claude Code includes these by default:**
+
+**WebFetch** - Fetch a URL and answer questions about it:
+- "Fetch https://docs.anthropic.com and summarize Claude Code features"
+- "Get the content from this URL and find the API reference"
+
+**WebSearch** - Search the web and return relevant links:
+- "Search for React hooks best practices"
+- "Find documentation for Next.js middleware"
+
+**Advanced users:** If you need raw markdown extraction, you can manually install Fetch MCP:
+```bash
+claude mcp add fetch -s user -- uvx mcp-server-fetch
+```
+Requires Python + uvx. See: https://pypi.org/project/mcp-server-fetch/
 
 ### Brave Search MCP
 **Commands you can use:**
@@ -552,9 +550,9 @@ claude mcp add <server-name> npx -- -y @modelcontextprotocol/server-<name>
    - Never switch to GitHub UI again
    - Create PRs, review code, manage issues - all from Claude Code
 
-4. **Fetch for quick doc lookups**
-   - Faster than WebSearch for specific pages
-   - Works offline if docs are cached
+4. **Built-in WebFetch for doc lookups**
+   - Use: "Fetch https://example.com/docs and summarize"
+   - No MCP installation required - works immediately
 
 ---
 
@@ -599,11 +597,12 @@ Happy coding with Claude Code! 🚀
 ## ✅ You've Completed: MCP Setup
 
 **What you accomplished:**
-- Installed essential MCP servers (GitHub, Sequential Thinking, Memory, Filesystem)
+- Installed essential MCP servers (GitHub, Sequential Thinking, Memory, Filesystem, Brave Search)
 - Configured API keys securely with environment variables
 - Understood global vs per-project MCP configuration
 - Learned pollution prevention strategies for multi-client work
 - Verified MCP connections and tested functionality
+- Learned about built-in WebFetch/WebSearch (no MCP needed for web access)
 
 **Next logical step:**
 

@@ -10,7 +10,6 @@ Quick reference for avoiding API key pollution between projects.
 - ✅ Sequential Thinking
 - ✅ Memory
 - ✅ Filesystem
-- ✅ Fetch
 
 **Per-Project (`.claude.json` + `.env`):**
 - ⚠️ Context7 (different API keys per client)
@@ -71,14 +70,11 @@ Result: Client B is charged for Client A's API usage!
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem"]
-    },
-    "fetch": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch"]
     }
   }
 }
+
+**Note:** Web fetching is handled by Claude Code's **built-in WebFetch and WebSearch tools** - no MCP needed!
 ```
 
 **Why these are safe:**
@@ -192,11 +188,12 @@ BRAVE_API_KEY=client-specific-brave-key
 | Sequential Thinking | ✅ | - | Stateless, no API key |
 | Memory | ✅ | - | Project-scoped storage |
 | Filesystem | ✅ | - | Directory-scoped |
-| Fetch | ✅ | - | Stateless, no API key |
 | **Context7** | - | ✅ | Different keys per client |
 | **GitHub** | ⚠️ | ✅ | Usually different per client |
 | **Brave Search** | ⚠️ | ✅ | Different keys per project |
 | **Database MCPs** | - | ✅ | Different DBs per project |
+
+**Note:** Web fetching uses built-in WebFetch/WebSearch - no MCP installation needed.
 
 **Legend:**
 - ✅ = Recommended
@@ -313,8 +310,9 @@ CONTEXT7_API_KEY=ctx7sk-client-b-key  # ← RIGHT!
 
 ### Q: What if I work on personal projects AND client projects?
 **A:** Best practice:
-- Global MCPs: Only stateless (Sequential Thinking, Memory, Filesystem, Fetch)
+- Global MCPs: Only stateless (Sequential Thinking, Memory, Filesystem)
 - Per-project: Everything with API keys (Context7, GitHub, etc.)
+- Built-in tools: WebFetch and WebSearch work everywhere (no MCP needed)
 - This way: No risk of mixing personal/client work
 
 ### Q: How do I know if I have pollution?
